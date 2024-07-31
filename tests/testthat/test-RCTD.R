@@ -1,7 +1,9 @@
-### RCTD Test Suite
-### These tests are adapted from the RCTD vignettes. They are brittle and meant
-### to be temporary, but they should be used to verify no-op changes.
-
+# ----------------------------- RCTD Test Suite --------------------------------
+# These tests are adapted from the RCTD vignettes. They are brittle and meant
+# to be temporary, but they should be used to verify no-op changes.
+#
+# NOTE TO DEVELOPERS: Run devtools::install() before testing on multiple cores.
+# ------------------------------------------------------------------------------
 
 # Creates Reference object from counts.csv, cell_types.csv, and nUMI.csv in
 # directory inst/extdata/Reference/<ref_name>
@@ -91,9 +93,7 @@ test_that("spatial transcriptomics vignette succeeds", {
 test_that("merfish vignette succeeds", {
   reference <- get_reference("Merfish_Ref")
   puck <- get_puck("MerfishVignette")
-
-  # TODO: Use multiple cores
-  myRCTD <- create.RCTD(puck, reference, max_cores = 1)
+  myRCTD <- create.RCTD(puck, reference, max_cores = 2)
   myRCTD <- run.RCTD(myRCTD, doublet_mode = "doublet")
   expect_equal(
     myRCTD@results,
@@ -106,9 +106,7 @@ test_that("merfish vignette succeeds", {
 test_that("full mode visium vignette succeeds", {
   reference <- get_reference("Visium_Ref")
   puck <- get_puck("VisiumVignette")
-
-  # TODO: Use multiple cores
-  myRCTD <- create.RCTD(puck, reference, max_cores = 1)
+  myRCTD <- create.RCTD(puck, reference, max_cores = 2)
   myRCTD <- run.RCTD(myRCTD, doublet_mode = "full")
   expect_equal(
     myRCTD@results,
@@ -121,9 +119,7 @@ test_that("full mode visium vignette succeeds", {
 test_that("multi mode visium vignette succeeds", {
   reference <- get_reference("Visium_Ref")
   puck <- get_puck("VisiumVignette")
-
-  # TODO: Use multiple cores
-  myRCTD <- create.RCTD(puck, reference, max_cores = 1)
+  myRCTD <- create.RCTD(puck, reference, max_cores = 2)
   myRCTD <- run.RCTD(myRCTD, doublet_mode = "multi")
   expect_equal(
     myRCTD@results,
