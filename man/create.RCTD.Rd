@@ -35,6 +35,8 @@ create.RCTD(
 \item{max_cores}{for parallel processing, the number of cores used. If set to 1, parallel processing is not used. The system will additionally be checked for
 number of available cores.}
 
+\item{test_mode}{(Default FALSE) if true, runs with a preset test configuration}
+
 \item{gene_cutoff}{minimum normalized gene expression for genes to be included in the platform effect normalization step.}
 
 \item{fc_cutoff}{minimum log-fold-change (across cell types) for genes to be included in the platform effect normalization step.}

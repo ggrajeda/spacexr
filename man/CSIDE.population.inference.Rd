@@ -23,6 +23,9 @@ CSIDE.population.inference(
 \item{RCTD.replicates}{a \code{\linkS4class{RCTD.replicates}} object for which to perform population-level DE inference. Note, at least three
 replicates must be provided.}
 
+\item{params_to_test}{(default 2 for test_mode = 'individual', all parameters for test_mode = 'categorical'). An integer vector of parameter
+indices to test. Note, for population mode, only the first parameter is tested.}
+
 \item{use.groups}{(default FALSE) if TRUE, treats the replicates as having multiple groups (e.g. samples) according to the \code{group_ids} slot}
 
 \item{MIN.CONV.REPLICATES}{(default 2) the minimum number of replicates (if not use.groups) for which a gene must converge}
@@ -43,9 +46,6 @@ replicates must be provided.}
 
 \item{meta.test_var}{(default 'intrcpt') if meta == TRUE, this indicates which variable is tested in the meta regression.
 By default the intercept is tested, but one can also test for fixed effects of other covariates.}
-
-\item{params_to_test:}{(default 2 for test_mode = 'individual', all parameters for test_mode = 'categorical'). An integer vector of parameter
-indices to test. Note, for population mode, only the first parameter is tested.}
 }
 \value{
 an \code{\linkS4class{RCTD.replicates}} object containing the results of the CSIDE population-level algorithm. See \code{\linkS4class{RCTD.replicates}}

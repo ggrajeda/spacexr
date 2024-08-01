@@ -1,6 +1,12 @@
 #functions for processing data after RCTD is fit to the data
 
-# Collects RCTD results
+#' Collects RCTD results into a dataframe
+#'
+#' @param RCTD RCTD object
+#' @param results List of RCTD results for each pixel, output by
+#'   \code{\link{process_beads_batch}}
+#'
+#' @return RCTD results organized into a dataframe
 gather_results <- function(RCTD, results) {
   cell_type_names = RCTD@cell_type_info$renorm[[2]]
   barcodes <- colnames(RCTD@spatialRNA@counts)
@@ -73,7 +79,6 @@ get_decomposed_data_full_doublet <- function(gene_list, puck, weights, ct_info) 
 #' @param results_df a dataframe of RCTD results (see \code{\link{gather_results}})
 #' @param puck an object of type \linkS4class{SpatialRNA}
 #' @param weights_doublet a dataframe of predicted weights in doublet mode
-#' @param results_df a dataframe of RCTD results
 #' @param gene_list a list of genes to be used for the decomposition
 #' @param cell_type_info cell type information and profiles of each cell, calculated from the scRNA-seq
 #' reference (see \code{\link{get_cell_type_info}})

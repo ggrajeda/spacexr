@@ -11,7 +11,7 @@ read.SpatialRNA(datadir, count_file = "counts.csv", coords_file = "coords.csv")
 
 \item{count_file}{(character) file name of the counts csv file (genes by pixels matrix)}
 
-\item{coord_file}{(character) file name of the coords csv file (pixels by (barcodes, x, y) matrix)}
+\item{coords_file}{(character) file name of the coords csv file (pixels by (barcodes, x, y) matrix)}
 }
 \value{
 Returns a \code{\linkS4class{SpatialRNA}} object containing the coordinates and counts

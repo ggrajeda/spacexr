@@ -31,7 +31,9 @@ plot_puck_wrapper(
 
 \item{max_val}{numeric, maximum value for the range of plot as a numeric list}
 
-\item{cell_type_info}{cell type information and profiles (see \code{\link{get_cell_type_info}})}
+\item{title}{the title of the plot}
+
+\item{my_cond}{logical vector specifying a filter on pixel barcodes}
 }
 \value{
 Returns a \link{ggplot} object

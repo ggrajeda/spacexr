@@ -85,8 +85,11 @@ If set to TRUE, this can be used to quickly evaluate if CSIDE will run without e
 \item{medv}{(default 0.5) for single model, the cutoff value of explanatory.variable (after 0-1 normalization) for determining if enough pixels for each cell type
 have explanatory-variable greater than or less than this value (minimum cell_type_threshold/2 required).}
 
-\item{params_to_test:}{(default 2 for test_mode = 'individual', all parameters for test_mode = 'categorical'). An integer vector of parameter
+\item{params_to_test}{(default 2 for test_mode = 'individual', all parameters for test_mode = 'categorical'). An integer vector of parameter
 indices to test. For example c(1,4,5) would test only parameters corresponding to columns 1, 4, and 5 of the design matrix.}
+
+\item{test_mode}{(default 'individual') if 'individual', tests for DE individually for each parameter. If 'categorical', then tests for differences
+across multiple categorical parameters}
 }
 \value{
 an \code{\linkS4class{RCTD.replicates}} object containing the results of the CSIDE algorithm. See \code{\linkS4class{RCTD.replicates}}

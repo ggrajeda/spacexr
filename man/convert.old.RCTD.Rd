@@ -8,7 +8,7 @@ version of \code{spacexr}.}
 convert.old.RCTD(myRCTD)
 }
 \arguments{
-\item{RCTD}{an \code{\linkS4class{RCTD}} object (potentially from an older version.}
+\item{myRCTD}{an \code{\linkS4class{RCTD}} object (potentially from an older version.}
 }
 \value{
 an \code{\linkS4class{RCTD}} object updated to be compatible with the current version

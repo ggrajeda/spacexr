@@ -227,9 +227,9 @@ run.CSIDE.regions <- function(myRCTD, region_list, cell_types = NULL,
 #' @param barcodes the barcodes, or pixel names, of the \code{\linkS4class{SpatialRNA}} object to be used when fitting the model.
 #' @param cell_types the cell types used for CSIDE. If null, cell types will be chosen with aggregate occurences of
 #' at least `cell_type_threshold`, as aggregated by \code{\link{aggregate_cell_types}}
-#' @param cell_type_specific: (default TRUE for all covariates). A logical vector of length the number of covariates
+#' @param cell_type_specific (default TRUE for all covariates). A logical vector of length the number of covariates
 #' indicating whether each covariate's DE parameters should be cell type-specific or shared across all cell types.
-#' @param params_to_test: (default 2 for test_mode = 'individual', all parameters for test_mode = 'categorical'). An integer vector of parameter
+#' @param params_to_test (default 2 for test_mode = 'individual', all parameters for test_mode = 'categorical'). An integer vector of parameter
 #' indices to test. For example c(1,4,5) would test only parameters corresponding to columns 1, 4, and 5 of the design matrix.
 #' @param cell_type_threshold (default 125) min occurence of number of cells for each cell type to be used, as aggregated by \code{\link{aggregate_cell_types}}
 #' @param gene_threshold (default 5e-5) minimum average normalized expression required for selecting genes
@@ -250,7 +250,9 @@ run.CSIDE.regions <- function(myRCTD, region_list, cell_types = NULL,
 #' @param test_error (default FALSE) if TRUE, exits after testing for error messages without running CSIDE.
 #' If set to TRUE, this can be used to quickly evaluate if CSIDE will run without error.
 #' @param log_fc_thresh (default 0.4) the natural log fold change cutoff for differential expression
+#' @param cell_type_filter (default NULL) named logical vector specifying whether a cell type should be kept for analysis
 #' @param fdr_method (default BH) if BH, uses the Benjamini-Hochberg method. Otherwise, uses local fdr with an empirical null.
+#'
 #' @return an \code{\linkS4class{RCTD}} object containing the results of the CSIDE algorithm. Contains objects \code{de_results},
 #' which contain the results of the CSIDE algorithm including `gene_fits`, which contains the results of fits on individual genes,
 #' in addition `sig_gene_list`, a list, for each cell type, of significant genes detected by CSIDE.
@@ -298,7 +300,7 @@ run.CSIDE <- function(myRCTD, X, barcodes, cell_types = NULL, gene_threshold = 5
 #' @param barcodes the barcodes, or pixel names, of the \code{\linkS4class{SpatialRNA}} object to be used when fitting the model.
 #' @param cell_types the cell types used for CSIDE. If null, cell types will be chosen with aggregate occurences of
 #' at least `cell_type_threshold`, as aggregated by \code{\link{aggregate_cell_types}}
-#' @param params_to_test: (default 2 for test_mode = 'individual', all parameters for test_mode = 'categorical'). An integer vector of parameter
+#' @param params_to_test (default 2 for test_mode = 'individual', all parameters for test_mode = 'categorical'). An integer vector of parameter
 #' indices to test. For example c(1,4,5) would test only parameters corresponding to columns 1, 4, and 5 of the design matrix X2.
 #' @param cell_type_threshold (default 125) min occurence of number of cells for each cell type to be used, as aggregated by \code{\link{aggregate_cell_types}}
 #' @param gene_threshold (default 5e-5) minimum average normalized expression required for selecting genes
@@ -319,7 +321,9 @@ run.CSIDE <- function(myRCTD, X, barcodes, cell_types = NULL, gene_threshold = 5
 #' @param log_fc_thresh (default 0.4) the natural log fold change cutoff for differential expression
 #' @param test_error (default FALSE) if TRUE, exits after testing for error messages without running CSIDE.
 #' If set to TRUE, this can be used to quickly evaluate if CSIDE will run without error.
+#' @param cell_type_filter (default NULL) named logical vector specifying whether a cell type should be kept for analysis
 #' @param fdr_method (default BH) if BH, uses the Benjamini-Hochberg method. Otherwise, uses local fdr with an empirical null.
+#'
 #' @return an \code{\linkS4class{RCTD}} object containing the results of the CSIDE algorithm. Contains objects \code{de_results},
 #' which contain the results of the CSIDE algorithm including `gene_fits`, which contains the results of fits on individual genes,
 #' in addition `sig_gene_list`, a list, for each cell type, of significant genes detected by CSIDE, whereas

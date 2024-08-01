@@ -12,6 +12,11 @@ plot_class(puck, barcodes_cur, my_class, counter_barcodes = NULL, title = NULL)
 \item{barcodes_cur}{a list of barcodes to include in the plot}
 
 \item{my_class}{a named (by barcode) factor list for the coloring}
+
+\item{counter_barcodes}{(optional) list of barcodes to highlight with low
+opacity}
+
+\item{title}{the title of the plot}
 }
 \value{
 Returns a \link{ggplot} object

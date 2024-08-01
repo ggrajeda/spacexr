@@ -117,7 +117,12 @@ plot_doublets_type <- function(puck, doublets_base, resultsdir, cell_type_names)
 #' @param ylim (optional) minimum and maximum value for y coordinate as a numeric list
 #' @param xlim (optional) minimum and maximum value for x coordinate as a numeric list
 #' @param size numeric size of points
-#' @param cell_type_info cell type information and profiles (see \code{\link{get_cell_type_info}})
+#' @param title the title of the plot
+#' @param counter_barcodes (optional) list of barcodes to highlight with low opacity
+#' @param label a logical value indicating whether to add text labels to the points
+#' @param my_pal (optional) a color palette for the gradient. Defaults to \code{pals::kovesi.rainbow(20)}.
+#' @param alpha the transparency level of the points. Default is 1 (opaque).
+#' @param small_point a logical value indicating whether to use smaller points in the plot
 #'
 #' @return Returns a \link{ggplot} object
 #' @export
@@ -164,7 +169,8 @@ plot_puck_continuous <- function(puck, barcodes, plot_val, ylimit = c(0,1),title
 #' @param max_val numeric, maximum value for the range of plot as a numeric list
 #' @param minUMI numeric, minimum value for total UMIs to filter pixels
 #' @param maxUMI numeric, maximum value for total UMIs to filter pixels
-#' @param cell_type_info cell type information and profiles (see \code{\link{get_cell_type_info}})
+#' @param title the title of the plot
+#' @param my_cond logical vector specifying a filter on pixel barcodes
 #'
 #' @return Returns a \link{ggplot} object
 #' @export
@@ -342,6 +348,9 @@ plot_doub_occur_stack <- function(doub_occur, resultsdir, cell_type_names) {
 #' @param puck an object of type \linkS4class{SpatialRNA}
 #' @param barcodes_cur a list of barcodes to include in the plot
 #' @param my_class a named (by barcode) factor list for the coloring
+#' @param counter_barcodes (optional) list of barcodes to highlight with low
+#'   opacity
+#' @param title the title of the plot
 #'
 #' @return Returns a \link{ggplot} object
 #' @export

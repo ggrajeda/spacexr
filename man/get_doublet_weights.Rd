@@ -7,7 +7,7 @@
 get_doublet_weights(myRCTD)
 }
 \arguments{
-\item{RCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types from the \code{\link{run.RCTD}} function.}
+\item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types from the \code{\link{run.RCTD}} function.}
 }
 \value{
 a weights matrix of cell type proportions for each pixel and each cell type.

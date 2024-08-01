@@ -19,21 +19,31 @@ process_data(
 
 \item{gene_list}{a list of genes to be used for RCTD}
 
-\item{cell_type_info}{cell type information and profiles of each cell, calculated from the scRNA-seq
-reference (see \code{\link{get_cell_type_info}})}
+\item{cell_type_info}{cell type information and profiles of each cell,
+calculated from the scRNA-seq reference (see
+\code{\link{get_cell_type_info}})}
 
-\item{proportions}{(optional) If given, a named list (for each cell type) of proportion of the cell type on the bulk dataset
-(not constrained to sum to 1)}
+\item{proportions}{(optional) If given, a named list (for each cell type) of
+proportion of the cell type on the bulk dataset (not constrained to sum to
+1)}
 
-\item{constrain}{logical whether to constrain the weights to sum to one on each pixel}
+\item{trust_model}{if FALSE, generates a confusion matrix against
+\code{puck@cell_labels}. otherwise, generates a confusion matrix against
+its own prediction.}
+
+\item{constrain}{logical whether to constrain the weights to sum to one on
+each pixel}
+
+\item{OLS}{logical whether to initialize the weights with OLS before
+iterating WLS}
 }
 \value{
-Returns \code{test_results}, a list of three items:
-(1) \code{conf_mat} a confusion matrix (not relevant) (2) \code{weights}
-a dataframe of predicted weights (3) a named list of predicted cell types
+Returns \code{test_results}, a list of three items: (1)
+  \code{conf_mat} a confusion matrix (not relevant) (2) \code{weights} a
+  dataframe of predicted weights (3) a named list of predicted cell types
 }
 \description{
-Renormalizes \code{cell_type_means} to have average the same as the puck
-if \code{proportions} is given. Then, computes cell type proportions for each pixel
-in \code{puck}.
+Renormalizes \code{cell_type_means} to have average the same as the puck if
+\code{proportions} is given. Then, computes cell type proportions for each
+pixel in \code{puck}.
 }

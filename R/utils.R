@@ -70,6 +70,17 @@ prepareBulkData <- function(cell_type_means, puck, gene_list, MIN_OBS = 10) {
 }
 
 
+#' Returns a dataframe mapping cell types to classes
+#'
+#' @param cell_type_names List of cell type names
+#' @param use_classes Whether to use pre-defined classes
+#'
+#' @return Dataframe mapping cell types to classes. If \code{use_classes} is
+#'   \code{FALSE}, then each cell type will correspond to its own class.
+#'   Otherwise, similar cell types will be grouped together according to a
+#'   pre-defined map.
+#'
+#' @keywords internal
 get_class_df <- function(cell_type_names, use_classes = F) {
   class_df = data.frame(cell_type_names, row.names = cell_type_names)
   colnames(class_df)[1] = "class"

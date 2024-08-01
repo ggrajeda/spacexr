@@ -7,7 +7,7 @@
 set_likelihood_vars(Q_mat_loc, X_vals, sigma = NULL)
 }
 \arguments{
-\item{Q_mat_loc}{Matrix of precomputed probabiliites, as previously computed by \code{\link{get_Q_mat}}}
+\item{Q_mat_loc}{Matrix of precomputed probabiliites, as previously computed by \code{{calc_Q_par}}}
 
 \item{X_vals}{the x-values used for computing the likelihood functions.}
 

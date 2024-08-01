@@ -6,7 +6,9 @@
 #' @param raw.data a Digital Gene Expression matrix, with gene names as rownames and
 #' single cells as columns (barcodes for colnames)
 #' @param cell_types a named list of cell type assignment for each cell in \code{raw.data}
+#' @param cell_type_names a list of cell type names to compute profiles for. If NULL, uses the levels of \code{cell_types}
 #' @param nUMI a named list of total UMI count for each cell in \code{raw.data}
+#'
 #' @return Returns \code{cell_type_info}, a list of three elements: (1) \code{cell_type_means} (a
 #' data_frame (genes by cell types) for mean normalized expression) (2) \code{cell_type_names}
 #' (a list of cell type names) and (3) the number of cell types
