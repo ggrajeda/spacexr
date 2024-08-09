@@ -1,4 +1,4 @@
-test_that("My first Reference call", {
+test_that(" Reference call", {
   ### Load in/preprocess your data, this might vary based on your file type
   refdir <- system.file("extdata",'Reference/Vignette',package = 'spacexr') # directory for the reference
   counts <- read.csv(file.path(refdir,"dge.csv")) # load in counts matrix
