@@ -1,10 +1,18 @@
+library(stringr)
 library(splatter)
 library(scater)
 
 set.seed(20240813)
 
-# create a SingleCellExperiment object for testing spacexr functions
+# Encode utf8 as ACGT
+char2atcg_1 <- \(s) {
+  x <- utf8ToInt(s)
+  paste0(c("A", "C", "G", "T")[sapply(0:3,
+                 function(u) bitwAnd(bitwShiftR(x, u*2), 3))+1], collapse = "")
+  }
+char2atcg <- Vectorize(char2atcg_1)
 
+# create a SingleCellExperiment object for testing spacexr functions
 synthetic_se <- \(n_celltypes = 3, cells_per_type = 20, nGenes = 300) {
   total_cells <- cells_per_type * n_celltypes
   # a scSummarizedExperiment
@@ -15,7 +23,14 @@ synthetic_se <- \(n_celltypes = 3, cells_per_type = 20, nGenes = 300) {
     verbose = FALSE
   )
 
-  # map the cells (columns) to slide xy-space
+  # Create barcode as CellType_PlatfformID_UMI
+  # where CellType is from Group and Platform is from Batch
+  colData(se)[, "Group"] <- as.factor(str_replace(colData(se)$Group, "Group", "ct"))
+  colData(se)[, "Batch"] <- as.factor(str_replace(colData(se)$Batch, "Batch", "plat"))
+  colData(se)[, "barcode"] <- paste(colData(se)$Group,
+    colData(se)$Batch, char2atcg(colData(se)$Cell), sep = "_")
+
+    # map the cells (columns) to slide xy-space
   cartesian2polar <- function(cart) with(cart,data.frame(rho = sqrt(x^2 + y^2),
                                                          theta = atan2(y, x)))
   polar2cartesian <- function(polar) with(polar, data.frame(x = rho * cos(theta),
