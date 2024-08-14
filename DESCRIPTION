@@ -33,5 +33,7 @@ Imports:
 RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 Suggests: 
-    testthat (>= 3.0.0)
+  testthat (>= 3.0.0),
+  splatter,
+  scater
 Config/testthat/edition: 3
