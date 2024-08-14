@@ -1,4 +1,18 @@
 test_that("Reference simple test", {
-  # TODO Implement this
-  expect_true(TRUE)
+  # Arrange
+  se <- synthetic_se()
+  u <- list()
+  u$counts <- assay(se, "counts")
+  u$nUMI <- colSums(u$counts)
+  u$cell_types <- colData(se)$Group
+  names(u$cell_types) <- colData(se)$Cell
+
+  # Act
+  result <- Reference(counts = u$counts, cell_types = u$cell_types)
+
+  # Assert
+  expect_s4_class(result, "Reference")
+  expect_equal(Matrix(result@counts) , Matrix(u$counts))
+  expect_equal(result@nUMI, u$nUMI)
+
 })

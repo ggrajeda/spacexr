@@ -1,6 +1,10 @@
 test_that("SpatialRNA simple test", {
   # Arrange
-  u <- setup_slidseq_data(4,5)
+  se <- synthetic_se()
+
+  u <- list(counts = assay(se, "counts"),
+          coords = as.data.frame(colData(se)[,c("x", "y")]))
+  u$nUMI <- colSums(u$counts)
 
   # Act
   result <- SpatialRNA(u$coords, u$counts)
@@ -8,6 +12,7 @@ test_that("SpatialRNA simple test", {
   # Assert
   expect_s4_class(result, "SpatialRNA")
   expect_equal(result@coords, u$coords)
-  expect_equal(result@counts, Matrix(u$counts))
+  expect_equal(Matrix(result@counts)
+               , Matrix(u$counts))
   expect_equal(result@nUMI, u$nUMI)
 })
