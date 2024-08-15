@@ -27,7 +27,7 @@ synthetic_se <- \(n_celltypes = 3, cells_per_type = 20, nGenes = 300) {
   # where CellType is from Group and Platform is from Batch
   colData(se)[, "Group"] <- as.factor(str_replace(colData(se)$Group, "Group", "ct"))
   colData(se)[, "Batch"] <- as.factor(str_replace(colData(se)$Batch, "Batch", "plat"))
-  colData(se)[, "barcode"] <- paste(colData(se)$Group,
+  colnames(se) <- paste(colData(se)$Group,
     colData(se)$Batch, char2atcg(colData(se)$Cell), sep = "_")
 
     # map the cells (columns) to slide xy-space
