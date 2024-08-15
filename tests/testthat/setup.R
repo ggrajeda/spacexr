@@ -2,8 +2,6 @@ library(stringr)
 library(splatter)
 library(scater)
 
-set.seed(20240813)
-
 # Encode utf8 as ACGT
 char2atcg_1 <- \(s) {
   x <- utf8ToInt(s)
@@ -13,7 +11,10 @@ char2atcg_1 <- \(s) {
 char2atcg <- Vectorize(char2atcg_1)
 
 # create a SingleCellExperiment object for testing spacexr functions
-synthetic_se <- \(n_celltypes = 3, cells_per_type = 20, nGenes = 300) {
+# TODO formats for barcoedes ref vs RCTD
+# TODO helpers to create lists for constructing spacexr functions
+# TODO add Batch (for platforms)
+synthetic_se <- \(n_celltypes = 3, cells_per_type = 30, nGenes = 300) {
   total_cells <- cells_per_type * n_celltypes
   # a scSummarizedExperiment
   se <- splatSimulateGroups(

@@ -1,5 +1,6 @@
 test_that("Reference simple test", {
   # Arrange
+  set.seed(20240813)
   se <- synthetic_se()
   u <- list()
   u$counts <- assay(se, "counts")

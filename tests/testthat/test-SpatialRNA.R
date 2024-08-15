@@ -1,5 +1,6 @@
 test_that("SpatialRNA simple test", {
   # Arrange
+  set.seed(20240812)
   se <- synthetic_se()
 
   u <- list(counts = assay(se, "counts"),
