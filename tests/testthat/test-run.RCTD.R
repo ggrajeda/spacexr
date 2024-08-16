@@ -1,9 +1,13 @@
 test_that("run.RCTD simple test", {
     # Arrange
-
     # create reference
     set.seed(20240815)
-    refSE <- synthetic_se(n_celltypes = 3, cells_per_type = 30, nGenes = 500)
+    se <- synthetic_se(n_celltypes = 3, cells_per_type = 60, nGenes = 500)
+    # create training set refSE and remove from se
+    split <- floor(ncol(se) / 2)
+    refSE <- se[, 1:split]
+    se <- se[, (split + 1):ncol(se)]
+
     u <- list(refSE)
     u$counts <- assay(refSE, "counts")
     u$nUMI <- colSums(u$counts)
@@ -21,10 +25,10 @@ test_that("run.RCTD simple test", {
     rctd <- create.RCTD(puck, reference, max_cores = 1)
 
     # Act/Assert
-    expect_snapshot({
+   expect_snapshot({
       result <- run.RCTD(rctd, doublet_mode = 'doublet')
       list(cell_type_info = result@cell_type_info$renorm,
            de_results = result@de_results,
            results = result@results)
-})
-  })
+   })
+ })

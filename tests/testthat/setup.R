@@ -11,16 +11,18 @@ char2atcg_1 <- \(s) {
 char2atcg <- Vectorize(char2atcg_1)
 
 # create a SingleCellExperiment object for testing spacexr functions
-# TODO formats for barcoedes ref vs RCTD
 # TODO helpers to create lists for constructing spacexr functions
 # TODO add Batch (for platforms)
-synthetic_se <- \(n_celltypes = 3, cells_per_type = 30, nGenes = 300) {
+synthetic_se <- function(n_celltypes = 3,
+                         cells_per_type = 30,
+                         de.prob = seq(from=0.3,to=0.4,length.out=n_celltypes),
+                         nGenes = 500) {
   total_cells <- cells_per_type * n_celltypes
   # a scSummarizedExperiment
   se <- splatSimulateGroups(
     newSplatParams(batchCells = total_cells, nGenes = nGenes),
+    de.prob = de.prob,
     group.prob = rep(1 / n_celltypes, n_celltypes),
-    de.prob = seq(from = 0.1, to = 0.4, length.out = n_celltypes),
     verbose = FALSE
   )
 
