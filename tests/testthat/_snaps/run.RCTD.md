@@ -1499,4 +1499,14 @@
       
       
       
+    Code
+      u <- result@results$results_df
+      print(cf <- table(substr(rownames(result@results$results_df), 1, 3), result@
+        results$results_df$first_type))
+    Output
+           
+            ct1 ct2 ct3
+        ct1  27   0   0
+        ct2   0  39   0
+        ct3   0   0  24
 

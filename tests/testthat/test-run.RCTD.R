@@ -28,5 +28,7 @@ test_that("run.RCTD simple test", {
       list(cell_type_info = result@cell_type_info$renorm,
            de_results = result@de_results,
            results = result@results)
+      u <- result@results$results_df
+      print(cf <- table(substr(rownames(result@results$results_df),1,3), result@results$results_df$first_type))
    })
  })
