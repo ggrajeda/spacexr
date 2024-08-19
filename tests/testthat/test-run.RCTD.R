@@ -16,8 +16,6 @@ test_that("run.RCTD simple test", {
     reference <- Reference(counts = u$counts, cell_types = u$cell_types)
 
     # create puck
-    se <- synthetic_se(n_celltypes = 3, cells_per_type = 20, nGenes = 500)
-
     v <- list(counts = assay(se, "counts"),
               coords = as.data.frame(colData(se)[,c("x", "y")]))
     v$nUMI <- colSums(v$counts)
