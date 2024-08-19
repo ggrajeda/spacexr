@@ -12,7 +12,6 @@ char2atcg <- Vectorize(char2atcg_1)
 
 # create a SingleCellExperiment object for testing spacexr functions
 # TODO helpers to create lists for constructing spacexr functions
-# TODO private seed for splatSimulateGroups so that synthetic datasets can be recreated
 # TODO add Batch (for platforms)
 synthetic_se <- function(n_celltypes = 3,
                          cells_per_type = 30,
@@ -34,7 +33,7 @@ synthetic_se <- function(n_celltypes = 3,
   colnames(se) <- paste(colData(se)$Group,
     colData(se)$Batch, char2atcg(colData(se)$Cell), sep = "_")
 
-    # map the cells (columns) to slide xy-space
+  # map the cells (columns) to slide xy-space
   cartesian2polar <- function(cart) with(cart,data.frame(rho = sqrt(x^2 + y^2),
                                                          theta = atan2(y, x)))
   polar2cartesian <- function(polar) with(polar, data.frame(x = rho * cos(theta),
@@ -50,8 +49,27 @@ synthetic_se <- function(n_celltypes = 3,
                                          theta = runif(total_cells, 0, 2  * pi)))
   offset <- centroids[as.integer(colData(se)$Group),]
   location <- location + offset
-  # the (x,y) coorinates for eacch cell are now part of colData
+  # the (x,y) coordinates for eacch cell are now part of colData
   colData(se) <- cbind(cd, location)
 
   return(se)
+}
+
+se2mat <- function(se) {
+  # create Reference object
+  split <- floor(ncol(se) / 2)
+  refSE <- se[, 1:split]
+  se <- se[, (split + 1):ncol(se)]
+
+  cell_types <- colData(refSE)$Group
+  names(cell_types) <- colnames(refSE)
+  reference <- Reference(counts =assay(refSE, "counts"),
+                         cell_types = cell_types)
+
+  # create puck
+  v <- list(counts = assay(se, "counts"),
+            coords = as.data.frame(colData(se)[,c("x", "y")]))
+  v$nUMI <- colSums(v$counts)
+  puck <- SpatialRNA(v$coords, v$counts)
+  list(reference = reference, puck = puck)
 }
