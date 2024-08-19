@@ -12,6 +12,7 @@ char2atcg <- Vectorize(char2atcg_1)
 
 # create a SingleCellExperiment object for testing spacexr functions
 # TODO helpers to create lists for constructing spacexr functions
+# TODO private seed for splatSimulateGroups so that synthetic datasets can be recreated
 # TODO add Batch (for platforms)
 synthetic_se <- function(n_celltypes = 3,
                          cells_per_type = 30,
