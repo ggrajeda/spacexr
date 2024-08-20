@@ -2,6 +2,9 @@ library(stringr)
 library(splatter)
 library(scater)
 
+# TODO `setup()` was deprecated in the 3rd edition.
+# Please use test fixtures instead see vignette('test-fixtures') for details
+
 # Encode utf8 as ACGT
 char2atcg_1 <- \(s) {
   x <- utf8ToInt(s)
