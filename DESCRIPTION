@@ -34,8 +34,7 @@ RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 Suggests: 
   testthat (>= 3.0.0),
-  rsvg,
-  tinysnapshot,
+  withr,
   splatter,
   scater,
   stringr

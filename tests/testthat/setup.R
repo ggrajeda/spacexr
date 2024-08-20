@@ -20,6 +20,8 @@ synthetic_se <- function(n_celltypes = 3,
                          cells_per_type = 30,
                          de.prob = seq(from=0.3,to=0.4,length.out=n_celltypes),
                          nGenes = 500) {
+  # TODO are we repeatable?
+  with_seed(999)
   total_cells <- cells_per_type * n_celltypes
   # a scSummarizedExperiment
   se <- splatSimulateGroups(

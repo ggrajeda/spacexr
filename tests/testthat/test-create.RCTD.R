@@ -4,7 +4,7 @@ test_that("create.RCTD simple test", {
     # create reference
     set.seed(20240815)
     refSE <- synthetic_se(n_celltypes = 3, cells_per_type = 30, nGenes = 500)
-    u <- list(refSE)
+    u <- list()
     u$counts <- assay(refSE, "counts")
     u$nUMI <- colSums(u$counts)
     u$cell_types <- colData(refSE)$Group
