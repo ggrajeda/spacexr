@@ -9,820 +9,715 @@
     Output
       
       ct1 ct2 ct3 
-       26  36  28 
+       34  30  26 
     Message
       End: process_cell_type_info
       create.RCTD: getting regression differentially expressed genes: 
       get_de_genes: ct1 found DE genes: 4
-      get_de_genes: ct2 found DE genes: 7
-      get_de_genes: ct3 found DE genes: 7
-      get_de_genes: total DE genes: 18
+      get_de_genes: ct2 found DE genes: 6
+      get_de_genes: ct3 found DE genes: 10
+      get_de_genes: total DE genes: 20
       create.RCTD: getting platform effect normalization differentially expressed genes: 
-      get_de_genes: ct1 found DE genes: 17
-      get_de_genes: ct2 found DE genes: 27
-      get_de_genes: ct3 found DE genes: 28
-      get_de_genes: total DE genes: 72
+      get_de_genes: ct1 found DE genes: 10
+      get_de_genes: ct2 found DE genes: 24
+      get_de_genes: ct3 found DE genes: 23
+      get_de_genes: total DE genes: 57
     Output
       An object of class "RCTD"
       Slot "spatialRNA":
       An object of class "SpatialRNA"
       Slot "coords":
                                                    x            y
-      ct3_plat1_TCAACACTTAAGGGTCCCCA     -0.43096549 -0.910590003
-      ct1_plat1_TCAAGACTTAAGGGTCCCCA      1.02345450  0.363329689
-      ct2_plat1_TCAATACTTAAGGGTCCCCA     -0.37723416  1.078665706
-      ct2_plat1_TCAAAACTTCAGGGTCCCCA     -0.37580166  0.885343767
-      ct1_plat1_TCAACACTTCAGGGTCCCCA      0.80558938  0.196699696
-      ct1_plat1_TCAAGACTTCAGGGTCCCCA      0.81200298  0.450601327
-      ct1_plat1_TCAATACTTCAGGGTCCCCA      1.37438927 -0.322920094
-      ct3_plat1_TCAAAACTTGAGGGTCCCCA     -0.79971470 -1.219865301
-      ct2_plat1_TCAACACTTGAGGGTCCCCA     -0.84307443  0.847208532
-      ct1_plat1_TCAACAACTTAAAGGGTTCCCCAA  1.08157095 -0.463061638
-      ct1_plat1_TCAACCACTTAAAGGGTTCCCCAA  0.57352453  0.252656447
-      ct3_plat1_TCAACGACTTAAAGGGTTCCCCAA -0.88984426 -0.755152904
-      ct2_plat1_TCAACTACTTAAAGGGTTCCCCAA -0.31932306  1.182947543
-      ct3_plat1_TCAACAACTTACAGGGTTCCCCAA -0.61352577 -1.096416227
-      ct2_plat1_TCAACCACTTACAGGGTTCCCCAA -0.03482147  1.031008132
-      ct2_plat1_TCAACGACTTACAGGGTTCCCCAA -0.47184864  1.361665823
-      ct2_plat1_TCAACTACTTACAGGGTTCCCCAA -0.73486402  0.425752850
-      ct2_plat1_TCAACAACTTAGAGGGTTCCCCAA -0.34331884  1.315009981
-      ct3_plat1_TCAACCACTTAGAGGGTTCCCCAA -0.37592770 -0.539678254
-      ct1_plat1_TCAAGAACTTAAAGGGTTCCCCAA  0.88538559 -0.278845982
-      ct1_plat1_TCAAGCACTTAAAGGGTTCCCCAA  1.18285317 -0.040068471
-      ct2_plat1_TCAAGGACTTAAAGGGTTCCCCAA -0.78014686  1.263729895
-      ct1_plat1_TCAAGTACTTAAAGGGTTCCCCAA  1.07787765 -0.427002433
-      ct3_plat1_TCAAGAACTTACAGGGTTCCCCAA -0.95215145 -0.861115683
-      ct1_plat1_TCAAGCACTTACAGGGTTCCCCAA  0.73339921 -0.074767140
-      ct1_plat1_TCAAGGACTTACAGGGTTCCCCAA  0.77387731  0.269496168
-      ct1_plat1_TCAAGTACTTACAGGGTTCCCCAA  1.06950742 -0.226109393
-      ct2_plat1_TCAAGAACTTAGAGGGTTCCCCAA -0.36443921  1.079897995
-      ct3_plat1_TCAAGCACTTAGAGGGTTCCCCAA -0.36747551 -0.423062945
-      ct1_plat1_TCAATAACTTAAAGGGTTCCCCAA  0.70757046 -0.107700032
-      ct2_plat1_TCAATCACTTAAAGGGTTCCCCAA -0.17456189  1.017381877
-      ct3_plat1_TCAATGACTTAAAGGGTTCCCCAA -0.81327490 -0.524381685
-      ct2_plat1_TCAATTACTTAAAGGGTTCCCCAA -0.75439558  1.215012342
-      ct2_plat1_TCAATAACTTACAGGGTTCCCCAA -0.32236546  0.399962320
-      ct2_plat1_TCAATCACTTACAGGGTTCCCCAA -0.14578700  0.802363719
-      ct3_plat1_TCAATGACTTACAGGGTTCCCCAA -0.77697015 -0.888575332
-      ct2_plat1_TCAATTACTTACAGGGTTCCCCAA -0.40290587  0.863314285
-      ct2_plat1_TCAATAACTTAGAGGGTTCCCCAA -0.25632522  1.102471147
-      ct3_plat1_TCAATCACTTAGAGGGTTCCCCAA -0.46613592 -0.851603916
-      ct3_plat1_TCAAAAACTTCAAGGGTTCCCCAA -0.77042431 -1.229239705
-      ct1_plat1_TCAAACACTTCAAGGGTTCCCCAA  1.49559321 -0.008709445
-      ct2_plat1_TCAAAGACTTCAAGGGTTCCCCAA -0.33616745  1.154543795
-      ct1_plat1_TCAAATACTTCAAGGGTTCCCCAA  0.59174068  0.096160343
-      ct2_plat1_TCAAAAACTTCCAGGGTTCCCCAA -0.42068203  1.141257998
-      ct1_plat1_TCAAACACTTCCAGGGTTCCCCAA  0.67549395  0.146795060
-      ct1_plat1_TCAAAGACTTCCAGGGTTCCCCAA  0.77150848 -0.331803749
-      ct1_plat1_TCAAATACTTCCAGGGTTCCCCAA  1.14764607 -0.212515530
-      ct2_plat1_TCAAAAACTTCGAGGGTTCCCCAA -0.48124774  0.978915399
-      ct1_plat1_TCAAACACTTCGAGGGTTCCCCAA  1.08950512 -0.253070857
-      ct2_plat1_TCAACAACTTCAAGGGTTCCCCAA -0.70923819  0.869661416
-      ct2_plat1_TCAACCACTTCAAGGGTTCCCCAA -0.62294702  1.098756569
-      ct2_plat1_TCAACGACTTCAAGGGTTCCCCAA -0.37649915  0.706804100
-      ct2_plat1_TCAACTACTTCAAGGGTTCCCCAA -0.11728913  0.993047440
-      ct1_plat1_TCAACAACTTCCAGGGTTCCCCAA  0.98833529 -0.010405353
-      ct1_plat1_TCAACCACTTCCAGGGTTCCCCAA  1.35292463  0.334808641
-      ct2_plat1_TCAACGACTTCCAGGGTTCCCCAA -0.80372004  0.473425921
-      ct3_plat1_TCAACTACTTCCAGGGTTCCCCAA -0.90688477 -0.717079396
-      ct1_plat1_TCAACAACTTCGAGGGTTCCCCAA  1.17866600 -0.212906497
-      ct2_plat1_TCAACCACTTCGAGGGTTCCCCAA -0.62900381  1.198740640
-      ct2_plat1_TCAAGAACTTCAAGGGTTCCCCAA -0.56368734  1.037251343
-      ct1_plat1_TCAAGCACTTCAAGGGTTCCCCAA  0.64842949 -0.322403496
-      ct2_plat1_TCAAGGACTTCAAGGGTTCCCCAA -0.97565520  0.939209519
-      ct2_plat1_TCAAGTACTTCAAGGGTTCCCCAA -0.84476728  1.177591309
-      ct3_plat1_TCAAGAACTTCCAGGGTTCCCCAA -0.30295006 -1.173682582
-      ct2_plat1_TCAAGCACTTCCAGGGTTCCCCAA -0.44045433  1.039943979
-      ct3_plat1_TCAAGGACTTCCAGGGTTCCCCAA -0.43558258 -1.018723492
-      ct2_plat1_TCAAGTACTTCCAGGGTTCCCCAA -0.52339921  1.217100273
-      ct3_plat1_TCAAGAACTTCGAGGGTTCCCCAA -0.63788189 -0.961340725
-      ct3_plat1_TCAAGCACTTCGAGGGTTCCCCAA -0.35734775 -0.903114499
-      ct2_plat1_TCAATAACTTCAAGGGTTCCCCAA -0.83150294  1.053691394
-      ct3_plat1_TCAATCACTTCAAGGGTTCCCCAA -0.60306256 -0.954148821
-      ct1_plat1_TCAATGACTTCAAGGGTTCCCCAA  0.60434458 -0.212289995
-      ct3_plat1_TCAATTACTTCAAGGGTTCCCCAA -0.70554634 -0.559445670
-      ct1_plat1_TCAATAACTTCCAGGGTTCCCCAA  1.24555720 -0.176825903
-      ct2_plat1_TCAATCACTTCCAGGGTTCCCCAA -0.28738269  0.980954131
-      ct3_plat1_TCAATGACTTCCAGGGTTCCCCAA -0.61267430 -0.423312755
-      ct1_plat1_TCAATTACTTCCAGGGTTCCCCAA  1.00090148  0.051504596
-      ct2_plat1_TCAATAACTTCGAGGGTTCCCCAA -0.68401276  1.199331128
-      ct1_plat1_TCAATCACTTCGAGGGTTCCCCAA  1.29544042  0.180742344
-      ct1_plat1_TCAAAAACTTGAAGGGTTCCCCAA  1.36618878 -0.067164530
-      ct1_plat1_TCAAACACTTGAAGGGTTCCCCAA  1.15748056  0.299385472
-      ct1_plat1_TCAAAGACTTGAAGGGTTCCCCAA  1.08735085  0.435586683
-      ct1_plat1_TCAAATACTTGAAGGGTTCCCCAA  1.32058987  0.339609990
-      ct3_plat1_TCAAAAACTTGCAGGGTTCCCCAA -0.47577910 -0.897382818
-      ct3_plat1_TCAAACACTTGCAGGGTTCCCCAA -0.57740019 -0.549452549
-      ct2_plat1_TCAAAGACTTGCAGGGTTCCCCAA -0.38996896  1.023724412
-      ct2_plat1_TCAAATACTTGCAGGGTTCCCCAA -0.76132987  0.591617531
-      ct3_plat1_TCAAAAACTTGGAGGGTTCCCCAA -0.19225713 -1.156926166
-      ct1_plat1_TCAAACACTTGGAGGGTTCCCCAA  0.90477239  0.119871881
-      ct2_plat1_TCAACAACTTGAAGGGTTCCCCAA -0.09579269  1.096560996
+      ct3_plat1_TCAACACTTAAGGGTCCCCA     -0.68509499 -1.223305023
+      ct1_plat1_TCAAGACTTAAGGGTCCCCA      0.67795382 -0.281239084
+      ct2_plat1_TCAATACTTAAGGGTCCCCA     -0.37328407  0.597489127
+      ct2_plat1_TCAAAACTTCAGGGTCCCCA     -0.68203815  0.799629046
+      ct1_plat1_TCAACACTTCAGGGTCCCCA      0.66106757 -0.161626795
+      ct1_plat1_TCAAGACTTCAGGGTCCCCA      0.69313978 -0.302388021
+      ct3_plat1_TCAATACTTCAGGGTCCCCA     -0.41888180 -1.239794053
+      ct3_plat1_TCAAAACTTGAGGGTCCCCA     -0.19471739 -0.637317014
+      ct2_plat1_TCAACACTTGAGGGTCCCCA     -0.26952437  1.216889636
+      ct3_plat1_TCAACAACTTAAAGGGTTCCCCAA -0.23142878 -1.053755757
+      ct1_plat1_TCAACCACTTAAAGGGTTCCCCAA  0.55688695  0.081807981
+      ct1_plat1_TCAACGACTTAAAGGGTTCCCCAA  1.34348085  0.195638868
+      ct2_plat1_TCAACTACTTAAAGGGTTCCCCAA -0.70309648  0.818095359
+      ct3_plat1_TCAACAACTTACAGGGTTCCCCAA -0.10509817 -1.164241571
+      ct3_plat1_TCAACCACTTACAGGGTTCCCCAA -0.07995996 -1.109017068
+      ct3_plat1_TCAACGACTTACAGGGTTCCCCAA -0.33294150 -0.525822661
+      ct2_plat1_TCAACTACTTACAGGGTTCCCCAA -0.78865230  1.181963421
+      ct1_plat1_TCAACAACTTAGAGGGTTCCCCAA  1.45899079  0.073635298
+      ct3_plat1_TCAACCACTTAGAGGGTTCCCCAA -0.80610627 -1.221053406
+      ct3_plat1_TCAAGAACTTAAAGGGTTCCCCAA -0.36810789 -1.289584098
+      ct2_plat1_TCAAGCACTTAAAGGGTTCCCCAA -0.66572130  0.985923898
+      ct3_plat1_TCAAGGACTTAAAGGGTTCCCCAA -0.14623024 -1.198736146
+      ct3_plat1_TCAAGTACTTAAAGGGTTCCCCAA -0.94768844 -0.708314251
+      ct3_plat1_TCAAGAACTTACAGGGTTCCCCAA -0.29033802 -0.991395435
+      ct1_plat1_TCAAGCACTTACAGGGTTCCCCAA  1.46416830 -0.082028471
+      ct2_plat1_TCAAGGACTTACAGGGTTCCCCAA -0.08616565  0.774677170
+      ct3_plat1_TCAAGTACTTACAGGGTTCCCCAA -0.92928701 -0.893643940
+      ct2_plat1_TCAAGAACTTAGAGGGTTCCCCAA -0.55360629  1.202163030
+      ct1_plat1_TCAAGCACTTAGAGGGTTCCCCAA  0.97925853  0.477224040
+      ct3_plat1_TCAATAACTTAAAGGGTTCCCCAA -0.75704872 -0.699431303
+      ct3_plat1_TCAATCACTTAAAGGGTTCCCCAA -0.26392566 -0.548687024
+      ct2_plat1_TCAATGACTTAAAGGGTTCCCCAA -0.62845369  0.574076809
+      ct2_plat1_TCAATTACTTAAAGGGTTCCCCAA -0.61961613  0.551542273
+      ct3_plat1_TCAATAACTTACAGGGTTCCCCAA -0.89228992 -0.574629687
+      ct1_plat1_TCAATCACTTACAGGGTTCCCCAA  0.89340479 -0.346228457
+      ct1_plat1_TCAATGACTTACAGGGTTCCCCAA  1.30810120 -0.309357729
+      ct2_plat1_TCAATTACTTACAGGGTTCCCCAA -0.10688949  0.957073426
+      ct3_plat1_TCAATAACTTAGAGGGTTCCCCAA -0.16213009 -1.084485601
+      ct1_plat1_TCAATCACTTAGAGGGTTCCCCAA  1.06442756  0.336827060
+      ct1_plat1_TCAAAAACTTCAAGGGTTCCCCAA  1.32141149 -0.196491653
+      ct2_plat1_TCAAACACTTCAAGGGTTCCCCAA -0.51131860  1.364964661
+      ct2_plat1_TCAAAGACTTCAAGGGTTCCCCAA -0.44317276  1.206405671
+      ct3_plat1_TCAAATACTTCAAGGGTTCCCCAA -0.88404455 -0.989660322
+      ct1_plat1_TCAAAAACTTCCAGGGTTCCCCAA  0.70357953  0.060416604
+      ct1_plat1_TCAAACACTTCCAGGGTTCCCCAA  1.14563942 -0.150120078
+      ct1_plat1_TCAAAGACTTCCAGGGTTCCCCAA  0.87338000  0.478919590
+      ct1_plat1_TCAAATACTTCCAGGGTTCCCCAA  0.88222559  0.145576662
+      ct2_plat1_TCAAAAACTTCGAGGGTTCCCCAA -0.77840321  1.053723579
+      ct3_plat1_TCAAACACTTCGAGGGTTCCCCAA -0.06047082 -0.753926891
+      ct2_plat1_TCAACAACTTCAAGGGTTCCCCAA -0.58593814  0.595568229
+      ct2_plat1_TCAACCACTTCAAGGGTTCCCCAA -0.83330137  0.840805156
+      ct1_plat1_TCAACGACTTCAAGGGTTCCCCAA  1.14529306  0.457283724
+      ct1_plat1_TCAACTACTTCAAGGGTTCCCCAA  1.01755889  0.345974126
+      ct2_plat1_TCAACAACTTCCAGGGTTCCCCAA -0.41899921  0.718859683
+      ct3_plat1_TCAACCACTTCCAGGGTTCCCCAA -0.52437019 -1.185620909
+      ct1_plat1_TCAACGACTTCCAGGGTTCCCCAA  1.14856198  0.425721347
+      ct1_plat1_TCAACTACTTCCAGGGTTCCCCAA  0.87651796  0.271568851
+      ct3_plat1_TCAACAACTTCGAGGGTTCCCCAA -0.37261056 -1.334513722
+      ct1_plat1_TCAACCACTTCGAGGGTTCCCCAA  0.79629500 -0.447862743
+      ct2_plat1_TCAAGAACTTCAAGGGTTCCCCAA -0.26599353  0.789847344
+      ct2_plat1_TCAAGCACTTCAAGGGTTCCCCAA -0.01445210  0.768457385
+      ct1_plat1_TCAAGGACTTCAAGGGTTCCCCAA  0.68407896  0.225554109
+      ct1_plat1_TCAAGTACTTCAAGGGTTCCCCAA  0.68239713  0.102069958
+      ct3_plat1_TCAAGAACTTCCAGGGTTCCCCAA -0.51383288 -0.583169143
+      ct2_plat1_TCAAGCACTTCCAGGGTTCCCCAA -0.81792326  0.785395918
+      ct1_plat1_TCAAGGACTTCCAGGGTTCCCCAA  1.12385992  0.322339307
+      ct2_plat1_TCAAGTACTTCCAGGGTTCCCCAA -0.20182292  1.254614863
+      ct2_plat1_TCAAGAACTTCGAGGGTTCCCCAA -0.52278076  1.255912782
+      ct2_plat1_TCAAGCACTTCGAGGGTTCCCCAA -0.62840403  0.877396901
+      ct1_plat1_TCAATAACTTCAAGGGTTCCCCAA  0.91771287  0.006961283
+      ct3_plat1_TCAATCACTTCAAGGGTTCCCCAA -0.62545004 -0.597419837
+      ct1_plat1_TCAATGACTTCAAGGGTTCCCCAA  0.58498997 -0.057413888
+      ct2_plat1_TCAATTACTTCAAGGGTTCCCCAA -0.34123689  1.104777584
+      ct1_plat1_TCAATAACTTCCAGGGTTCCCCAA  1.19622695  0.303621554
+      ct1_plat1_TCAATCACTTCCAGGGTTCCCCAA  0.91949795  0.479523390
+      ct2_plat1_TCAATGACTTCCAGGGTTCCCCAA -0.56842980  0.372445899
+      ct1_plat1_TCAATTACTTCCAGGGTTCCCCAA  0.90734585  0.146762610
+      ct1_plat1_TCAATAACTTCGAGGGTTCCCCAA  0.90965551  0.058904363
+      ct1_plat1_TCAATCACTTCGAGGGTTCCCCAA  0.87949988  0.373197646
+      ct1_plat1_TCAAAAACTTGAAGGGTTCCCCAA  0.84494666 -0.262890058
+      ct3_plat1_TCAAACACTTGAAGGGTTCCCCAA -0.70041065 -0.952047232
+      ct1_plat1_TCAAAGACTTGAAGGGTTCCCCAA  0.93661132 -0.020410925
+      ct3_plat1_TCAAATACTTGAAGGGTTCCCCAA -0.14130561 -0.636255958
+      ct3_plat1_TCAAAAACTTGCAGGGTTCCCCAA -0.22320613 -0.832182496
+      ct1_plat1_TCAAACACTTGCAGGGTTCCCCAA  1.34899102 -0.126657355
+      ct1_plat1_TCAAAGACTTGCAGGGTTCCCCAA  0.64458941  0.036142047
+      ct1_plat1_TCAAATACTTGCAGGGTTCCCCAA  0.77722520 -0.236648579
+      ct3_plat1_TCAAAAACTTGGAGGGTTCCCCAA -0.38179649 -1.278343864
+      ct3_plat1_TCAAACACTTGGAGGGTTCCCCAA -0.38202795 -0.425236472
+      ct3_plat1_TCAACAACTTGAAGGGTTCCCCAA -0.88274353 -0.886401491
       
       Slot "counts":
-      72 x 90 sparse Matrix of class "dgCMatrix"
+      57 x 90 sparse Matrix of class "dgCMatrix"
     Message
         [[ suppressing 90 column names 'ct3_plat1_TCAACACTTAAGGGTCCCCA', 'ct1_plat1_TCAAGACTTAAGGGTCCCCA', 'ct2_plat1_TCAATACTTAAGGGTCCCCA' ... ]]
     Output
                                                                                    
-      Gene33    10   28   49   19   22   33   29   30   16   37   25   14   22   43
-      Gene52     .    3    1    2    2    3    .    2    3    1    3    .    2    4
-      Gene70   137   65  129   80   47   87   68  162  108   53   47  153   93  140
-      Gene76    42   25   48   25   34   43   18   35   39   12   46   48   39   59
-      Gene91    82   15   43   47   30   22   24   76   48   30   23   63   66   70
-      Gene93    13   17   27   34    7   33   19   12   30   10   17   32   41   28
-      Gene108    2    .    4    4    .    9    2    2    3    4    1    .   17    4
-      Gene127  168  118   75   76   78  126  154  142  110   80  139  114   59  214
-      Gene166   58   56   38   38   51   57   52   36   42   32   44   49   61   60
-      Gene208    2    5    7    2    2    1    2    3    2    4   13    1    1    9
-      Gene217   54   37  161   80   52   45   42   83   97   39   41   32   92  114
-      Gene237   88   48  112  114   58   55   43  117   77   31   19   96   95  129
-      Gene238  169   76  176  124   77   89   89  122  163   81   92   84  117  178
-      Gene263   10   10   12    9   17   18   17   11    5   13   10   16   12   30
-      Gene316   11   25   10    7   10   23   16   23   22   10   22   14    6    8
-      Gene392    4    2    2    7    2    4    3    7    5    1   10    5    4    7
-      Gene444   62   53   57   56   34   47   34   69   71   64   53   54   58   81
-      Gene3   1245  497  626  534  484  799  636 1172  401  442  702 1051  602 1195
-      Gene11    21   15   35   37   39   26   25   18   38   27   25   27   47   22
-      Gene38    15    9   14    8    7   17   16    9   21    7   20    8    9   15
-      Gene82     .    .    7    1    8    .    .    .    8    .    1    .    .    3
-      Gene107 2668  757 3262 2974  893  938  919 2362 2106  782  756 2219 1921 3206
-      Gene110  140  102  140  153   77  136  128  175  108   87   89  136  107  188
-      Gene126   77   37   78   33   37   53   53   34   58   24   65   41   32   46
-      Gene169    2    1    4   10    4    2    .    .    3    3    2    1    9    7
-      Gene177 1937 2142 1349 1240 1627 2459 1403 1691 1108 1662 2092 1564 1043 2311
-      Gene185   37   17   24   12    7   20    6   25    7   17   11   12   11   28
-      Gene195    5   10   14   20   13   28   20   10   11   15   29    4    8    8
-      Gene215    4    2    4    1    3    3    1   10   11    7    .   11    9    6
-      Gene223  189  111   84   67  123  128  143  162   46   79   77   86   72  141
-      Gene230    3    3    2    1    5    4    .    2    5    7    1    1    4    4
-      Gene241   44   44   66   44   33   75   31   65   39   40   25   60   36  109
-      Gene309  437  282  549  471  439  458  368  620  502  342  416  412  464  745
-      Gene338   19    5    3   12   11    5    9    8    2    4    5    4    4    5
-      Gene344   43   10   64   47   17   20   18   16   20    7   10   25   31   33
-      Gene371   37    9   20    4   12    3    9   23   12    3    9    7    7   14
-      Gene378   62   46   45   25   27   61   52   59   42   26   31   38   24   48
-      Gene407    .    .    .    1    1    1    1    4    .    1    .    .    .    .
-      Gene432   29   17   39   24   15   33   12   19   27   20   23   11   33   36
-      Gene436   85   72   45   40   73   94   61   89   16   59   64   63   27   94
-      Gene441   92   78  225  179   53   95   49  102  167   69   76   87  168  117
-      Gene472  117   80  110  152   73  107  129   86   55   91   62   84   76  137
-      Gene475   31   60   39   19   38   48   54   45   30   39   61   49   37   73
-      Gene486   62   42   72   60   32   50   76   47   97   55   72   48   78   93
-      Gene23  2126 1940 2512 2071 1353 2116 1822 2003 1681 1423 1898 2193 1955 3284
-      Gene43    15    7   18    8   10    7   13   11   15   14   11    8   12   18
-      Gene103   26   22   39   57   21   31   43   23   34   18   19   12   61   22
-      Gene122   54   31   23   30   10   34   23   22   23   29   20   31   43   28
-      Gene147   73   55   81   53   68   34  108   74   93   50   89   46   90  102
-      Gene151  149  226  187  211  144  188  180  168   89   98  181  116  194  233
-      Gene179   92  100   66   92   67   72   61   51   45   39   70   83   90   97
-      Gene201    3    3   19   16    5   14    6   18    5    9   12    5    4   10
-      Gene224   33   26   34   27    9   28   20   62   14   13   13   34   21   75
-      Gene233   17   15   14   13   12    5   16   11   15    5    2   10    9   11
-      Gene245   99  103  186  116   69  114   52  121  100   65   59  100  118  163
-      Gene256  137  108   92  105   67  144   72   82   86  118   75   90   94   72
-      Gene259    .    .    .    .    .    1    .    .    .    .    1    1    .    .
-      Gene261  116    8   35   23   19   35    7   43   23   21   40   34   41   30
-      Gene267   51   93   97   38   56   82   30   80   57   57   33   74   63   89
-      Gene268    8    7   18    4    .    .    4    8   13    6    2   37    6    9
-      Gene307   40   17   29   50   26   47   30   33   21   24   15   31   42   40
-      Gene311    3    3    3    8    4   16   10   10   11    9   14   11    7    6
-      Gene347   35   13   20   10   31   20   14   25   13   11   15   32   32   22
-      Gene373   21   24   28    7    7   29   26   11   13   20   27   37   22   25
-      Gene383    .    .    4    .    2    3    .    3    4    1    .    .    .    .
-      Gene405   18   23   21   12    5   24   11   15    5    6   13   20    7   44
-      Gene419    2    4    2    5    8    6    2    6    2    .    .    .    9    1
-      Gene425   77   34   77   46   50   62   34   73   58   35   58   45   66   90
-      Gene446    9   18   10    6   18   25   32   31    9    8   14   13   10   17
-      Gene474   31   24   38   25   22   33   32   24   15   31   17   23   30   52
-      Gene477    6   16   63   34    7   13   12   12   29    8   14   15   21    9
-      Gene492  110   72   66   72   80   85   61  112   32   67   88  115   33  174
+      Gene104   30   23   62   44   25   51   19   30   31   21   14   39   34   36
+      Gene120   30   36   69   57   50   44   48   33   32   47   48   38   38   66
+      Gene148    2    5    3    2    1    7    6   11    5    3    2    9    1   10
+      Gene154   35   70   61   88   25   45   51   58   64   45   57  123   64  123
+      Gene172    6   17   19   22   24   29    1    3   17   12   28   16   30   14
+      Gene243    9   34   20   14   26   30   10   17   16   18   15   27   22   26
+      Gene314   16   55   35   43   80  127   28   33   45   18   59  177   37   28
+      Gene349    2    .    5    4    .    2    5    4    1    3    2    9    2    2
+      Gene358    2    2    2    4    2    3    4    .    3    5    4    2    1    8
+      Gene440   35   10   10    9   18   19   12   10    2   13   16   44    5   18
+      Gene18   767 1931 2375 2517 1427 1934  621  922 1988 1048 1964 3716 1850 1730
+      Gene63    91  108   86   97   63   74   49   95   90  103   81  137   58  205
+      Gene75     2    5    7    8   13    6    3    2    5    2   10    6    9    9
+      Gene112   27   35   17   25   61   63   20   19   22   32   47   87   32   52
+      Gene135   97   68   45   32   64  115   99   90   43  116   46   73   57  232
+      Gene184   29   20   11   25    6   12    7   16    7   25   12   17   11   33
+      Gene197    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene225    .    .    1    .    .    .    .    .    .    .    .    .    1    .
+      Gene229    3    2    1    1    4    7    2   13    .    5    7   17   12   12
+      Gene230  108   62   88   61   67   97   68   67   43   69   86  146   79  185
+      Gene261   43   59   66   79   57   61   29   20   59   21   50   91   87   72
+      Gene263    .    .    .    1    1    .    1    1    .    .    .    .    .    6
+      Gene277   33   31   30   31   35   41   51   41   37   77   55   48   20   88
+      Gene289   54   88  188  179   93   99   29   42   99   68   80  122  175   93
+      Gene327 1230 1551 1597 1780 1821 1799 1045 1452 1294 1646 1557 2708 1630 2296
+      Gene333    3    .    1    .    1    .    .    .    .    .    .    1    .    2
+      Gene341  115  115  129  137   99  105  181  131  102  177  118  205   97  240
+      Gene352  117  102  157  222  120  127  125  121   91  141  108  186  134  216
+      Gene374  150  201  188  191  183  217  158  221  130  234  192  263  170  322
+      Gene393    .    .    2    1    1    .    3    .    1    2    .    .    .    4
+      Gene396  117   72  139  284   36  102  119  142  144  121   78  177  126  306
+      Gene428    .    .    .    2    .    .    .    .    .    1    .    .    .    3
+      Gene468   26   13   26   12   18    9   13   21   18   30   15   23   17   46
+      Gene469    .    .    1    .    1    .    1    .    .    1    .    .    2    4
+      Gene5     11   29   27   47   28   26   16   25   24   36   18   31   16   33
+      Gene7      3   46   41   48   22   41   12   10   22   13   17   26   18   24
+      Gene56   157  122  225  116  153  115  138  190   92  133  134  235  150  323
+      Gene147   51   50   52   53   48   72   70   47   39   44   51   56   56   75
+      Gene187    2   13    1   19    2   19    .    4    4    8    7   12    2   17
+      Gene194   68   66   39   42   34   62   40   67   41   59   85  117   23  143
+      Gene210   17   19   20   26   16   22   17   12   22   19   12   33   20   19
+      Gene220   39   66   45   52   60  109   54   47   36   46   54  103   57  136
+      Gene258  847 1077 1306 1036 1166 1123  991 1243 1018 1394 1046 1924 1041 1885
+      Gene265   27   27   52   21   13   16   55   38   23   31   21   50   37   47
+      Gene281   23   35   32   54   47   18   52   18   14   24   56   67   41   37
+      Gene287    .    .    .    1    .    .    .    .    1    .    .    .    .    .
+      Gene304    .    .    .    .    .    .    .    .    .    1    .    .    .    .
+      Gene309    7    6    1   11    5    3    .   10    9   12    7    1    6    9
+      Gene316  137  143  175  177  105  114  200  154  122  156   99  157  118  364
+      Gene319    7    7   14    5   13   25    2   16    9    8   25   25    3   26
+      Gene328    .    1    .    2    1    1    .    .    2    .    .    .    .    3
+      Gene373   21   24   21   13   31   21   21   37   10   25   30   48   23   74
+      Gene390   62   72   39   57   87   46   41   55   53   42   80  111   29  103
+      Gene420  101  141  109   73   96  132   93  112   47  133  128  217   41  281
+      Gene436  123  122  122  105  133  121   78   83   95   98  143  149  117  232
+      Gene475   46   59   64   64   88  128   28   70   19   75   82  169   40  136
+      Gene496   31   33   15   22   20   35   21   15   14   41   27   68   14   47
                                                                                    
-      Gene33    26   28   22   19   17   16   24   17   21    5   35   60   41   15
-      Gene52     1    2    1    .    .    .    3    3    .    2    2    4    1    .
-      Gene70   123  149   60   84   74   89   70   74   89  107   43  130   79  111
-      Gene76    44   50   30   40   36   29   26   28   22   18   12   36   47   23
-      Gene91    50   90   83   77   16   35   57   74   28   57   23   65   48   51
-      Gene93    18   46   14   33   12   21   31   26   11   23   14   23   10   23
-      Gene108    3    9    4    5    .    1    .   13    2    .    .    4    2   15
-      Gene127   75  103   69   70   98  131  140   84  119  102   85  212  272   66
-      Gene166   61   69   47   62   28   52   64   40   55   46   71   74   76   53
-      Gene208    4   13    1    8    1    1    5    4    3    5    2   10   10    .
-      Gene217   83  142   97  134   31   33   56   83   33   67   39   66   94   97
-      Gene237   89  157   90   93   43   46   32   88   43  118   34   77   94  144
-      Gene238  105  209  124   97   54   72  128  127   61  100   65  144   68  124
-      Gene263   13   21    5    7   10    9    5   11   12    8    9   23   28   10
-      Gene316   11   19    7    1   12   13    5   16   17   17    9    4   12   23
-      Gene392    3    7    3    5    2    2    7    .    5    4   11    5    4    3
-      Gene444   51   88   63  108   31   53   40   72   49   47   43   66  105   42
-      Gene3    461  957  443  584  897  711  651  478  552  882  514 1021  947  471
-      Gene11    16   41   24   24   19   18   41   20   15   26   13   40   19   42
-      Gene38    12   14    4   20   12   13   31   18   26   12    5   20   15   11
-      Gene82     .    5    2    .    1    .    .   10    .    1    1    2    4    8
-      Gene107 2890 3746 2526 3026 1862  845  990 2981  909 2560  754 1211 1457 2935
-      Gene110  102  152  101  119  107   72  131   98   81  138   93  111  174  120
-      Gene126   41   72   28   63   36   32   40   60   61   42   32   70   46   54
-      Gene169    6    3    5    9    3    1    3    2    3    .    2    7    4    4
-      Gene177 1103 1568 1233 1360 1516 2163 2572 1163 2182 1571 1718 2922 2970  990
-      Gene185   29   16   13   37    .   14   14   22   13    8    3   20   24   17
-      Gene195   10   30    8   13    6   14   10   12    7   12   22   20   41   18
-      Gene215    4    2    9    1    5    5    1    3    7    5    5    3   10    3
-      Gene223   83  131   82   46  111  125  174   62   99  140  119  123  238   47
-      Gene230    1    4    .    8    2    .    1    1    3    2    2    4    3   11
-      Gene241   52   48   38   75   74   33   36   46   55   71   60   79   54   64
-      Gene309  480  746  416  538  427  488  516  629  373  348  406  585  513  389
-      Gene338    5    4    2    3    1    3    8   10    4    3    2    4    5    .
-      Gene344   30   35   27   50   22   15   13   15   19   18   16   26   24   33
-      Gene371    9   15   14   13    6    .    5    3   18    3    9   10   17   14
-      Gene378   37   38   30   32   20   35   40   37   43   38   32   69   58   20
-      Gene407    1    .    1    .    .    .    2    5    .    3    2    1    .    .
-      Gene432   48   48   40   27   21   47   31   36   31   26   22   34   35   13
-      Gene436   37   50   42   49   41   68  127   28   69   54   63   96  102   21
-      Gene441  184  203  151  207   46   91   57  124   95   52   69  126   92  169
-      Gene472   80  212   67  107   67  108  101   62   78   97  105   96  145   88
-      Gene475   42   41   44   35   36   47   64   43   50   50   41   82   81   56
-      Gene486   59   44   73   72   69   51   56   52   79   72   58  122  118   87
-      Gene23  1994 3553 1815 2230 1743 1629 2551 1984 1683 1712 1864 2631 2990 1704
-      Gene43     9   27   18   16    3   10    8   12   10    5    9   18   17    4
-      Gene103   63   39   49   20   19   29   34   39   10   18   56   51   56   38
-      Gene122   30   42   27   36   18   23   35   39   21   29   23   39   37   29
-      Gene147   78  108   98  122   46   91   49   78   85   39   31  118  116   49
-      Gene151   65  229  109  154   91  209  234  154  178  131  158  287  312  135
-      Gene179   75  140   70  102   63   62   96   47   42  102   44   90   93   64
-      Gene201   10    8    6    6    3    9   14   13    1    4   10    9   15    8
-      Gene224   21   19   33   24   26   19   39   22   19   38   15   36   29   37
-      Gene233   14   12    4    7    7    4   13   17    3    2    7    9   14   27
-      Gene245  118  173   87  134   55   63  117   98   67   82   70  101   86   78
-      Gene256   98   69   78   99   43   64  129   83   89  105   86  110  156  104
-      Gene259    .    .    1    .    .    .    2    1    .    .    .    .    .    .
-      Gene261    9   41   18   25   36   11   21   18   14   50   23   34   28   26
-      Gene267   40   87   67   86   33   63   56   49   63   43   77   84  116   52
-      Gene268    8   15    3    4    2    2    2   11    7    4   13    3    6    1
-      Gene307   33   44   25   34   50   37   44   21   21   36   35   30   48   51
-      Gene311    9   14    6    6    4   14    4    4    3    8    9   17   10    9
-      Gene347   19   29   24   26   18   33   22   24   14   16   15   18   32   17
-      Gene373   14   25   28   28   18   13   44   38   23   35    8   23   32   33
-      Gene383    3    1    1    2    1    .    2    2    1    .    1    3    .    2
-      Gene405    5   27    6   17   17   14   12   22    4   11   12   24   20    3
-      Gene419   10    2    3    4    .    6    9    5    2    1    2    1    1    1
-      Gene425   50  110   41   45   49   48   76   43   33   47   40   76   99   39
-      Gene446    3   20    6   19    8   14   18   10   19   17   15   30   49    8
-      Gene474   28   23   37   33   27   21   37   57   20   43   15   88   39   41
-      Gene477   27   42   32   30    2   11   11   44   15   13    7   10   30   33
-      Gene492   69   91   42   64  118   73   81   33   51   89   83  105  132   47
+      Gene104   36   13   25   17   41   26   52   30   23   22   31   16   17   72
+      Gene120   51   31   69   23   47   37   43   35   42   20   55   42   25   58
+      Gene148    7    1   10    2    .    4    8    2    5    4    .    2    4    1
+      Gene154   57   50   97   29   41   64   62   65   81   57   61   67   46  162
+      Gene172    7   11   20   33    5   19   19   27    6    2   18   15   11   29
+      Gene243   20   10   11   12    8   21   12   11   26   10   19    7    8   24
+      Gene314   36   16   40   44   21   46   31   26   23   26   61   22   30   45
+      Gene349    2    3    5    4    .    4    3    3    .    1    3    .    1    2
+      Gene358    1    .    3    3    .    2    .   10    1    2    1    5    4    5
+      Gene440   12   12   11   36    7   12   11   14   14   11   19   11   22   23
+      Gene18  1142  809 1945 1698  899 1118 2084 1216 1008  859 1455 1775 1100 3596
+      Gene63   146   92   73   65   55   64   77   94   66   87   60   66  121  107
+      Gene75     4    3    8    6    1    8    4    7    4    3    7    5    5    5
+      Gene112   31   30   41   63   39   34   32   59   34   35   18   39   18   52
+      Gene135  114  111   70   49   66  116   50  125  122   69   27   57  130   79
+      Gene184   24   27   16   10    9   10   14   16   21   16   16   15   40   19
+      Gene197    .    .    .    .    .    .    .    1    .    .    .    .    .    .
+      Gene225    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene229    3    1    4    3    4   11   14    3    3    8    8    1   18   10
+      Gene230   94  108   49   74   58   68   84   59   80   75   55   36   65   86
+      Gene261   52   33   49   28   31   29   68   46   41   17   49   75   24   71
+      Gene263    1    .    2    2    .    .    4    3    1    1    .    8    2    .
+      Gene277   50   29   37   48   29   32   35   83   58   34   27   33   15   33
+      Gene289   67   30  141   29   37   58  278   57   79   29   75  162   18  161
+      Gene327 1725 1247 1418 1337 1058 1095 1501 1263 1555 1146 1300 1245 1213 2232
+      Gene333    .    .    .    .    .    .    .    1    .    .    .    .    .    1
+      Gene341  260  174   85  114  156  125  108  212  222  176   79   63  134  201
+      Gene352  172  135  127   52  130  122  198  108  119  111   47  134  162  200
+      Gene374  273  129  195  151  195  119  169  214  213  147  141  219  154  325
+      Gene393    3    .    3    4    1    .    1    4    4    2    1    .    1    .
+      Gene396  140  132  161   57  146  174  181  132  150  108   60  144  161  286
+      Gene428    .    .    1    .    .    .    .    .    .    .    .    .    .    3
+      Gene468   42   27    9   14    9   21   29   14   15   16   13    9   36   37
+      Gene469    .    .    .    2    1    3    .    1    4    5    .    .    .    .
+      Gene5     26   23   31   14   17   47   36   33   36   34   30   18   28   41
+      Gene7     20   13   29   21   11    7   45    6    9   20   27   22   12   58
+      Gene56   111  153   65   94  113  213  114  129  317  139  112  126  170  157
+      Gene147   48   51   55   41   52   40   46   75   60   24   23   39   22   72
+      Gene187    9    .    7   12    3    4    2    4    6    9    5   11    6   13
+      Gene194   82   57   57   50   64   64   40   80   62   53   70   28   54   52
+      Gene210   37   14   17    6   35   25   25   18   22   11   15   11   22   30
+      Gene220   74   54   40   56   41   48   52   71   98   54   38   27   43   64
+      Gene258 1265  980 1062  768  874 1069  967 1100 1583  953  784  861 1191 1865
+      Gene265   22   23   48   17   13   28   40   46   37   38   12   46   33   67
+      Gene281   41   47   19   20   33   38   22   41   40   49   26   26   34   52
+      Gene287    .    .    .    .    .    .    2    .    .    .    1    .    2    .
+      Gene304    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene309   11   21    1    4    9   12    6   17   35   11    4    .   15   12
+      Gene316  222  188  126   71  172  284  182  173  164   98  119  165  195  268
+      Gene319   12    7   15    4    4   20    3    6   27    7   17    9   21   20
+      Gene328    .    .    .    .    .    .    .    .    .    .    1    .    .    .
+      Gene373   22   29   12   13   47   24   22   50   38   31   30   10   42   24
+      Gene390   45   77   80   62   57   39   75   63   37   53   52   38   61   37
+      Gene420  139  127   82  118  105  123  118  133  113   98  113   64  163  137
+      Gene436  165  125   68   68   84  149   86  121  163   99  107   69  103  156
+      Gene475   62   56   25   51   47   68   47   60   60   39   85   38   49  116
+      Gene496   52   17    7   16   32   42   10   53   36   25   26   22   36   15
                                                                                    
-      Gene33    36   26   24   16    9   13   19   26   18    4   17   19   32   37
-      Gene52     1    2    2    1    .    1    .    2    7    2    2    .    3    .
-      Gene70   121  100  103  111   68   85   58  148   61   75   92  102   50  139
-      Gene76    31   21   64   26   24   42   44   47   26   21   34   40   55   57
-      Gene91    80   31  109   62   48   70   54   29   44   43   23   50   25   78
-      Gene93    30   70   37   30   10   17   23   23   19   14   25   21   16   73
-      Gene108    1    7    7    .    5    6    3    .    7   11    .    2    3   10
-      Gene127  181  141   73  173   75   89   77  132   73   64  101  130  122  158
-      Gene166   31   74   75   47   56   91   43   72   85   60   26   35   68   95
-      Gene208    6    4    8    5    .    .    2    3    3    .    4    5    .    3
-      Gene217   65   46  132   59   50  100   51   69   82   64   26   49   36   79
-      Gene237   74   33  107   91   59   71   71   94  123  113   58   95   63  171
-      Gene238  131   82  223  131  108  111   86   85  149   79   77   79  101  174
-      Gene263   20   19   13    3   18   10    7   14    6    7   10   13   29   14
-      Gene316   13   11   10    7   25    8   15    6    2    4   11    7   11    4
-      Gene392    5    8    1    8    8    8    2    6    7    1    2    3    2    4
-      Gene444   54   86   98   75   69   56   26   48   60   27   52   77   52   99
-      Gene3   1168  702  746  945  359  559  395 1014  424  363  747 1127  603  749
-      Gene11    49   20   38   26   17   11   34   34   25    3   24   22   32   34
-      Gene38    10   15   27    5   11   14   14    3    5    6    5   15   17   20
-      Gene82     2    .    2    4    7    1    .    .    4    .    .    7    4    1
-      Gene107 2664 1041 3668 3084 1665 2878 2065 2721 2620 2156 1822 2491  800 4373
-      Gene110  200  165  116  180  122  113  102  143  148   69  198  193  136  186
-      Gene126   38   51   52   39   47   58   42   31   74   33   16   50   38   92
-      Gene169    .    1   12    6    1    5    4    1    4    .    .    .    .   10
-      Gene177 1599 2151 1449 1561  827 1363  682 1376  961  834  983 1768 1770 2085
-      Gene185    9   26   29   23    .   10   20   13   20    6    8   35   11   20
-      Gene195    8   14    8    8    8   17   10   11   15   10    1    7   26   14
-      Gene215   15    3    1    4    2    5    .   10    5    .    4    3    3    1
-      Gene223  141  159   66  130   65   57   42  145   91   45  120  165   96   86
-      Gene230    3    7    9    3    7    3    2    2    1    2    3    4    3    6
-      Gene241   47   57   55   46   35   67   47   59   51   22   65   77   38   80
-      Gene309  390  427  688  595  305  427  336  358  416  335  326  498  492  607
-      Gene338   10    5   18    8    3    1    3    2    8   10   10    5    7    9
-      Gene344   27   25   43   13   14   24   16   38   41   13   18   24   35   66
-      Gene371   16    6   16    7    9   15    5    8   13    7    5    6    .   18
-      Gene378   55   51   60   67   13   21   15   44   40   18   31   68   53   45
-      Gene407    .    .    .    1    .    1    .    .    .    .    .    .    .    .
-      Gene432   23   72   33   22   24   26   30   16   35   20   30   33   47   41
-      Gene436   78   99   40   82   27   25   25   45   36   10   37  104   83   39
-      Gene441   97  117  239   85  163  205  129   48  249   76   57   92   88  212
-      Gene472  125   98  132   96   71  119   74   97  119   68   95   88  106  142
-      Gene475   47   55   64   34   40   57   55   21   48   28   19   45   51   41
-      Gene486   42   67   91   83   19   70   41   33   51   38   34   84   85   39
-      Gene23  2107 1887 3628 2440 1704 1515 1417 1981 1764 1305 1471 2083 2425 3251
-      Gene43    19   13   15   17   12   10    9    9   20   11    8   18    6   20
-      Gene103    7   39   47   27   42   44   24   24   49   39   12   21   28  104
-      Gene122   55   17   28   45   33   24    8   15   25   43   21   35   27   41
-      Gene147   60   70   86   66   69   64   62   52   59   52   38   45   70   77
-      Gene151  152  181  177  147  135   92  117  174  149   86   97   71  168  199
-      Gene179   80   51   77   52   52   89   47   59   89   73   42   34   96   98
-      Gene201    5    8    9   29    3   17    2    6    5    6    9    9   10   17
-      Gene224   44   36   26   27   11   13   19   39   10   12   22   71   15   30
-      Gene233    3    5   15   14   11   16    3    9   29   16   11    2   12   19
-      Gene245   77   70  129  131  115   94   65   92  167   81   69   77   96  110
-      Gene256   70   51  130  106   34   98   51  112  117  101   75   71  108   96
-      Gene259    .    .    .    .    2    1    1    .    1    .    .    1    .    .
-      Gene261   75   43   36   53   31   19   21   40   19   21   43   41   18   28
-      Gene267   57   69   88   56   33   73   45   47   56   25   44   66   49   63
-      Gene268   21   11    5   13   10    6    2    1    8    2    4   10    2    8
-      Gene307   39   55   62   53   44   26   28   47   30   15   26   45   53   26
-      Gene311    4   10   20   15   10    7    2    1   14    1   11   11   10   13
-      Gene347   20   14   17   26   17   28   10   15   37   16   25   36   20   39
-      Gene373   16   24   35   22   10   10   19   21   20   17   26   16   16   42
-      Gene383    .    3    3    3    5    .    .    3    7    .    .    2    3   11
-      Gene405   17    5   20   22   14    8   10   10    3    5   12   45   11   13
-      Gene419    4    4    4    7    1    2    4    2    .    1   10    5    1    2
-      Gene425   65  115   99   72   52   37   34   38   45   33   52   76   60   83
-      Gene446   15   20   10   12   13   12    6   10   20   19   12   15   13   14
-      Gene474   26   60   30   29   11   52   22   22   24   35   20   34   43   44
-      Gene477   12   19   26    4   21   38   34    2   34   24    5    9   13   45
-      Gene492  139  106   87   93   23   39   37  104   33   46   71  144   84  127
+      Gene104   12   40   27   37   37   47   27   13   28   41   32   25   55   55
+      Gene120   46   34   51   70   42   81   40   46   47   93   69   56  103   87
+      Gene148    2    3    6    4    1    3    1    4    2    2    7    6    4    2
+      Gene154   53   78   69   89   43   94   90   55  102   62   46   58  121  112
+      Gene172   16   11    6   23   11   16   33   28   32   23   29   18   17   24
+      Gene243   20   19   12   16    7   32   32   16   28   12   26   14   23    9
+      Gene314   74   39   44   28   28   26   71   79   44   27  119   76   58   40
+      Gene349    3    1   15    2    .    2    .    4    9    4    .    2    3    1
+      Gene358    .   10    1    1    2    6    5    4    3    8    2    2    8    7
+      Gene440   33   20   15    8    7   25   26   22   10   26   28   14   13    8
+      Gene18  1780 1478 1298 2400 1555 1367 1939 1647 2894 1317 1830 1946 2946 3106
+      Gene63    89  108   99   96   75   97   71   72  116  116  101   78  113  104
+      Gene75    10    1    4   13    1    9    9    4    5    2    7    9    7    2
+      Gene112   37   24   34   33   26   37   52   31   29   39   48   31   43   29
+      Gene135   50  222  157   54   29  227   53   65   55  138   67   51   58   48
+      Gene184   13   27   21    9   15   28   10   27   31   23   14   20   24   17
+      Gene197    .    .    .    .    .    .    .    .    .    .    1    .    .    .
+      Gene225    1    .    .    .    .    .    .    .    .    .    .    3    .    .
+      Gene229   10    3   16    9    .    7   12    7    9    5   10    6    1   11
+      Gene230   88   67   92   97   46  140   90   68   89  115   73   98  112   93
+      Gene261   88   42   52   81   21   32   61   66   79   59   93   90  121   98
+      Gene263    5    .    .    .    3    3    1    3    9    1    1    3    1    2
+      Gene277   35   50   68   63   31   69   44   36   46   78   54   43   45   51
+      Gene289   69   49   58  213  113   92   78   53  227   57   85  112  175  175
+      Gene327 1847 1512 1925 2354 1141 1948 1781 1783 1636 1922 2289 1806 2240 1723
+      Gene333    .    .    2    .    .    .    2    .    .    1    .    .    .    1
+      Gene341  123  184  249  145   87  275  169  131  126  231  148  129  105   89
+      Gene352   69  240  202  225  124  199  120  146  276  138  115  107  113  200
+      Gene374  217  174  288  224  111  224  210  204  208  273  193  185  285  206
+      Gene393    .    .    3    .    .    .    .    .    .    .    .    .    1    .
+      Gene396   37  290  277  176   94  254  119   60  106  123   99   94  254  177
+      Gene428    .    1    .    .    .    .    .    .    1    3    .    .    .    .
+      Gene468   17   33   22   26    7   54   24   11   18   10   15   26   17   23
+      Gene469    3    6    4    2    .    3    3    2    .    2    1    1    1    .
+      Gene5     49   28   36   40   23   54   39   28   12   50   20   25   30   21
+      Gene7     26    5   16   41   34    5   36   28   50   20   23   26   27   37
+      Gene56   112  194  137  230   63  222  137  118  117  193  132  195  140  145
+      Gene147   80   77   53   56   28   79   89   20   53   42   53   30   62   73
+      Gene187    9    7    9    4    3    8    3    .    2    5   10    3   10    7
+      Gene194   63   60   85   35   36  106   61   74   55   94   45   40   67   58
+      Gene210   22   18   31   16   18   23   27   12   49   15   28   10   29   24
+      Gene220   62   96   74   80   34   77   55   53   76   97   77   45   91   57
+      Gene258 1311 1576 1313 1616  882 1734 1524  986 1006 1442 1404 1060  969 1338
+      Gene265   25   39   44   30   24   40   24   19   30   37   25   25   66   30
+      Gene281   29   55   66   14   25   55   38   46   29   40   41   34   31   58
+      Gene287    .    .    .    .    1    1    .    .    .    .    .    .    .    .
+      Gene304    .    .    .    .    .    1    .    .    .    .    .    .    .    .
+      Gene309    7   16    7   10    1   20    5    1    3   21   13   13    1    .
+      Gene316  118  213  264  196   88  329  105  115  145  268  135   91  191  250
+      Gene319   16    7   13    6    8   11    7   15    8    5   10   18   14    2
+      Gene328    .    .    .    .    .    .    .    .    .    .    .    1    .    .
+      Gene373   41   29   34   19    6   43   21   34   31   34   24   22   31   13
+      Gene390   86  101   81   82   70   87  104  116   47  104  102   58   67   97
+      Gene420   72  180  170   58   62  228  220  110  105  242  130  109  124  127
+      Gene436  183  128  156  136   72  191  167   87   80  141   85  153  135  109
+      Gene475   96   64   68   69   42   95   81   79   67   50   87  106   66   72
+      Gene496   38   42   47   20   18   37   31   36   21   38   25   26   20   22
                                                                                    
-      Gene33    14   12   41   45   14   10   54    8   11    5   12   56   34   12
-      Gene52     .    3   16    2    3    1    .    .    .    2    7    1    3    2
-      Gene70    51   45  112   93  133   63   99   43   86   84  133  105  117   77
-      Gene76    27   35   49   51   29   20   40   40   58   20   47   47   39   28
-      Gene91    30   27   60   36   22   43   53   42   66   61   68   25   32   60
-      Gene93    13   28   27   36   39   12   35   27   29   29   25   39   23   23
-      Gene108    .    2    2    3    5    4    5    6    7   11   10    5    3   12
-      Gene127  100   37  181  184  155   71  143   51   53   75   63  234  169   54
-      Gene166   21   58   67   76   58   56   51   34   54   45  120  103   54   70
-      Gene208    9    3    4    2    2    2   11    .    5   10   12    2    2    9
-      Gene217   49   79   39   60   28   80   57   34  110  104   78   78   46   62
-      Gene237   47   70   43   70   36   55   54   40  106   95   96   66   52   92
-      Gene238   90  114  159  109   88   80  137   62  111  112  105  204   94   99
-      Gene263    7    7   19   25   14   13   42   10    3    7   10   16   13    2
-      Gene316   15    4   21    8    8    6   11    5   14   15    6   16    6    5
-      Gene392    5    4    6    3    5    5    4    3    5    3    9   15    6    1
-      Gene444   44   61   72   77   88   28   52   36   62   71   88   89   58   51
-      Gene3    627  327  718  803  735  401  790  292  762  351  615  977  709  379
-      Gene11    22   19   11   38   24   15   22   18   49   22   26   30   40   20
-      Gene38    11   12   20   26   23    8   33    2   19    9   21   13    8   13
-      Gene82     .    .    2    .    .    .    2    1    3    3    .    4    3    1
-      Gene107  607 1830  985 1063 1016 1804 1073 1531 2885 1799 2620 1259  999 2334
-      Gene110  103  118   97  211  113   92  155   72  124   86  103  136  128  104
-      Gene126   51   32   56   57   56   85   41   25   57   46   64   32   59   52
-      Gene169    1    3    6    5    3    6    6    .    3    6    2    2    3    4
-      Gene177 1867  778 2110 2792 2397  971 2449  760 1262  930 1222 2847 1928  834
-      Gene185   31   10   27   21   37   20   24   14   23   18   31   46   16   24
-      Gene195   11   14   26   17   24   17   14    6   21   19    5   15   21   24
-      Gene215    3    .    6    2   10    .    3    1    4    5    8    4    2    5
-      Gene223  137   50  158  119  121   54  179   35   55   64  100  158  220   58
-      Gene230    2    3    3    .    .    1    1    1    7    5    2    1    9    1
-      Gene241   45   57   67   32   26   54   54   31   60   46   54   72   47   48
-      Gene309  436  311  537  643  531  443  723  292  588  451  462  567  389  334
-      Gene338    5    4   21    9    1    6    8    .    1   21    4    6    6    2
-      Gene344   18   11   14   23   21   22   34   19   45   13   17   21   26   33
-      Gene371    5    5   18    5   23   15   27    6    6    2   16    8    7    1
-      Gene378   32   33   46   48   67   27   43    8   40   44   39   73   44   23
-      Gene407    1    1    .    3    .    .    .    1    .    .    1    .    .    .
-      Gene432   33   19   37   17   21   23   24   28   26   37   17   23   37   14
-      Gene436   69   33   83   98   50   28   77   31   31   17   33  129  124   23
-      Gene441   83  172  119   66   90  151  160   75  217  124  142  173  111  128
-      Gene472   64   73   85  132  120  119   95   96  167  115  133  181   88  113
-      Gene475   39   24   68  105   56   15   51   14   53   32   66   64   63   49
-      Gene486   72   48   73   66   72   56   81   57   44   78   58   87   85   55
-      Gene23  1718 1606 2147 2225 2792 1769 2582 1592 2162 2289 2719 2963 2354 1958
-      Gene43     1    7   14   18   13    3   23    6   17   12   18   14    6   11
-      Gene103   31   35   39   39   38   32   29   15   34   71   43   35   34   36
-      Gene122   24   27   35   52   28   30   37   11   26   25   41   43   48   26
-      Gene147   50   28  103   81   81   65   67   49   59   62   98   73   49   46
-      Gene151  202  110  288  266  207  109  235   91   94  102  175  344  266  125
-      Gene179   70   71   79   74   97   56   71   41  105   60   79   86   72   66
-      Gene201    8    2   16    9   13   13    4    7   11    7    9    1   10   11
-      Gene224   26   22   29    8   34   40   10    9   21   15   14   63   22   11
-      Gene233   14    7   16   12    1   13    5    3   15    8   10   13   25    8
-      Gene245   65  110   78   87  107   89   74   46   91  109   98  122  111   90
-      Gene256  127   77   94  130   54   58  119   60   98  106   95  123  100   55
-      Gene259    .    .    .    .    1    .    .    .    .    .    1    1    1    1
-      Gene261   14    9   40   23   42   30   25   23   31   31   34   36   13   24
-      Gene267   46   76  116   77   82   47   61   45   75   64   57   86   74   40
-      Gene268    8    3   13    7    4    2    7    4   11    1   12    7    6    2
-      Gene307   48   37   55   37   30   33   36   20   43   40   45   38   30   19
-      Gene311    7    1   12    6   12    2    8    5    2   10   13   22    9    8
-      Gene347   31   15   14   23   31   20   24   18   30   13   14   42   14    7
-      Gene373   15   19   19   31   20    5   40   13   22   13   43   45    7   44
-      Gene383    1    .    3    .    2    .    .    .    .    1    1    4    .    2
-      Gene405   15    6   10   11   13    8   22    4   16   24   17   29   16    5
-      Gene419    .    .    7    1    5    4    .    .    .    .    .    3    4    1
-      Gene425   53   26   56   65   34   30   52   41   54   47   41   70   41   54
-      Gene446   11    8   13   12   11   20   21   24    2    2   24   33   24    5
-      Gene474   40   23   39   30   31   29   40   11   53   19   27   42   45   19
-      Gene477   12   20   23    9   20   20    4   17   38   19   40   13   19   52
-      Gene492   79   37   78  108   86   56  125   39   71   41   79  115  120   48
+      Gene104   20   35   20   21   26   67    9   36   46   26   42   63   26   29
+      Gene120   36   38   54   18   31   47   19   37   56   20   32   53   50   30
+      Gene148    9   12    3    .    7    1   15    1    5    1    7    .    3    .
+      Gene154   78  117   57   30   45  157   49   85   86   53   60  126   50   61
+      Gene172    5   20   16    7   15   31    4   14   44   43   13   33    3   16
+      Gene243   14   21   14   15   20   27   13   12   14    6   19   17    8   13
+      Gene314   35  100  104   32   63   52   18   33   39   75   84   69   21   68
+      Gene349    1    1    8    7    .    3    .    .    4    5    6    5    1    2
+      Gene358    3    2    4    2    .    6    1    3    .    1    2    4    .    .
+      Gene440   17   21   34   15   11   23    9   12   10   17   21   16   21    7
+      Gene18  1394 2410 1887 1921 1536 3261  758 1947 1729 1495 2228 3562  743 1622
+      Gene63   168  175   60   79   80  110   63   43   90  100   85  117  104   57
+      Gene75     4   10   11    3   12    8    1    3    2    7    7    7    4    .
+      Gene112   50   56   67   48   80   29   17   21   28   33   54   44   21   43
+      Gene135  163  114   58   20   36   60   81   49   42   33   53   75   60   28
+      Gene184    9   27   21    2    9   27    8   13    8   16   13   22   23   30
+      Gene197    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene225    1    .    .    .    .    .    .    1    .    .    .    1    .    .
+      Gene229    8    6    4    3    1   17    6    .    5    1   11    9    5    5
+      Gene230   85   61   93   58   47   75   53   44   60   78   72  118   67   85
+      Gene261   69  107   41   62   40   89   25   50   60   20   73   75   21   77
+      Gene263    2    .    8    3    1    .    .    8    .    .    4    .    .    4
+      Gene277   77   57   27   54   24   54   18   43   44   32   38   27   28   46
+      Gene289   34  116   90   59   45  147   48  115   99   88   92  148   27   97
+      Gene327 1361 2192 1514 1370 1391 2829 1308 1310 1481 1744 1710 3065 1119 1624
+      Gene333    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene341  249  126  103   91   85  102  147   79  129  123  145  168  225  110
+      Gene352  148  109  101   88   75  197   68  100  141   83   98  199  105   91
+      Gene374  250  243  245  145  181  208  110  155  172  142  168  225  142  233
+      Gene393    2    .    .    1    .    .    1    .    1    .    .    7    2    .
+      Gene396  156  118  104   37   42  330   91   96  179   61   94  274   89   77
+      Gene428    1    .    .    .    .    .    .    .    .    3    .    .    .    .
+      Gene468   21   35   29   29   12   19   18   10   14    8   20   22   11   24
+      Gene469    2    .    2    1    .    1    1    1    2    2    1    2    .    .
+      Gene5     40   81   22   21    5   40   25   15   14   21   29   26   26   32
+      Gene7      3   72   33   13   25   67   17   23   41   21   40   38    7   27
+      Gene56   159  206  146  125  124  115  103   84   61  108  122  188  168  136
+      Gene147  122   94   37   56   38   66   48   65   73   35   68   65   32   50
+      Gene187    8   12    4    3    5   15   13   14    4    5    7   17    3    4
+      Gene194   93   54   76   39   43   65   34   62   37   49   91   72   50   36
+      Gene210   20   36   21   19   21   29    8    4   17    9   18   26    4    6
+      Gene220  100   72   84   27   41   54   38   55   39   42   58   61   48   90
+      Gene258 1147 1722 1349  956  869 1469  878  753  760 1041  973 1541 1168 1196
+      Gene265   30   44   27   12   17   35   23   29   32   17   32   41   42   24
+      Gene281   19   49   47   27   24   31   38   19   28   54   44   72   49   25
+      Gene287    .    .    .    .    3    .    .    .    .    .    .    .    .    .
+      Gene304    .    1    .    .    .    .    .    .    .    .    .    .    .    1
+      Gene309   26    3    7    5    1   11   10    4    3    4    3    4   21    5
+      Gene316  223  149   80   90   56  232  112  117  155   99  125  228  125  132
+      Gene319   13    5   23   12   12    9    9    8   12    4   12   11   16    4
+      Gene328    1    1    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene373   26   34   29   14   16   23   25   22   33   29   29   36   24   32
+      Gene390   81  108   70  110   91   76   50   33   40   68   98   60   53   59
+      Gene420  166  165  144  111  124  139   65   60   72   88   99  115   73  145
+      Gene436   87  203  185   67   86  112   70   91  116   88  129  180   75   67
+      Gene475   73   76  104   52   81   67   62   44   45   52  114   55   44   75
+      Gene496   69   42   37   20   17   28   22   13   16   20   27   34   14   43
                                                                                    
-      Gene33    23   26   13   19   41   20   35   21   20   17   23   10   29    7
-      Gene52     7    1    .    1    2    2    2    .    2    3    1    3    .    .
-      Gene70   127  102   88  102  114   67   89  103  117  104  120  112  113   68
-      Gene76    31   19   18    3   61   55   23   35   58   37   29   48   32   46
-      Gene91    68   29   26   72   49   53   48   61   35   95   59   66   37   56
-      Gene93    26   27   29   15   44   24   10   22   38   21    8   12   48   25
-      Gene108    4    .    6    7    3    8    7    1    3    3    8    .    2    8
-      Gene127  217   69   62   66  275   56   71  141   66  121   72   95  121   96
-      Gene166   29   43   47   61   86   47   46   47   50   48   82   44   32   66
-      Gene208    4    7    2    9    4    3    8    2    .    3    3    2    2    .
-      Gene217   39   19   42  114   65  112   88   62   77   58  123   93   83   70
-      Gene237  165   36   78  115   68  122   96  111  121  110  111  110  109  122
-      Gene238  137  123   90  158  164  155  166   98  103   76   91  134   93  152
-      Gene263   16    .    1   12   29    9    8   22   10   20    3   25    5    9
-      Gene316   13    7   10    8   14   10   16   17    6    8    5    7    8    8
-      Gene392    2    .    6    2   13    4    8   15    2    4    3    5    5    7
-      Gene444   73   41   22   64   69   46   65   95   45   82   62   67   58   71
-      Gene3   1072  526  533  611 1238  499  580 1241  667 1128  544 1023  959  558
-      Gene11    46    8   25   18   50   28   35   36   32   33   32   22   15   37
-      Gene38     8    7    1   10   14   27   31   20   10    9    7    6   12   22
-      Gene82     2    .    .    .    4    .    .    2    1    .    .    3    1    4
-      Gene107 3922  619 1614 3367 1165 2026 2246 2615 1844 2310 2447 2820 2056 2338
-      Gene110  204   92  107  134  216  116   73  209   99  151  132  217  151  172
-      Gene126   34   24   35   56  110   84   34   80   36   30   51   63   57   48
-      Gene169    1    1    6    2    4    .    1    4    2    .    .    .    .    1
-      Gene177 2357 1286  889 1404 2875 1141  995 1719 1365 1757 1135 1615 1488 1168
-      Gene185   23   12   16   19   33   18   18   27    8   27   22   13   15   20
-      Gene195    7   14    8   14   17    6   20    4   21    8   16   11    3   20
-      Gene215   12    4    6    2    .    1    5   15    5   10    5    6    7    1
-      Gene223  124  115   55   98  188   71   41  122   43  184   43  171  207   91
-      Gene230    4    1    .    6    6    3    3    4    2    .    3    6    4    3
-      Gene241   67   40   35   40   54   27   37   48   42   37   44   98   49   53
-      Gene309  619  364  343  570  634  461  436  722  485  533  438  471  462  616
-      Gene338    2    5    7    4    3   16   10    3    3    6   10    2    5   12
-      Gene344   61   29   16   17   20   27   30   30   20   28   36   12   16   39
-      Gene371   19   17    6    9   10    .   10   15   11    7    5   11    4    4
-      Gene378   61   42   25   60   57   33   37   65   16   49   36   45   84   29
-      Gene407    1    2    .    1    .    1    2    .    .    2    .    .    .    1
-      Gene432   26   17   12   37   30   16   22   25   29   15   37   16   15   25
-      Gene436   60   44   29   37  151   23   37   85   27   72   70   62   78   27
-      Gene441   50   59   79  178  110  222  163   62  192   74  181   62   48  246
-      Gene472   88  102  130  139  143  100  162   39  155  119  110  132   63  102
-      Gene475   27   24   23   23   91   14   38   30   14   47   33   36   34   14
-      Gene486   67   41   62   71   94   57   82   59   46   69   92   49   50   52
-      Gene23  2471 1373 1753 2613 2736 1723 2111 2526 1874 1843 2557 1929 2100 2462
-      Gene43     9   11    8   12   18    8    5   15   16    3   20   12    3   14
-      Gene103   22   15   16   66   34   43   22   25   29   14   67   16   32   67
-      Gene122   38   29   20   40   35   36   30   57   20   36   30   27   28   31
-      Gene147   78   52   53   77  103   77   89   46   47   49   75   42   64   72
-      Gene151  160  151   95  167  399  137  131  170  140  131  105  109   92  173
-      Gene179   91   47   72   95  108   64   61   50   59   67  112   65   57   70
-      Gene201    7   12    4   16    5   11    6   15   21    8   25    9    7   22
-      Gene224   50   16   27   28   52   26   21   52   35   64   15   43   34   29
-      Gene233    8    7    5   14    8    9   20   20   24   10    5   13   14   15
-      Gene245  129   43   86  125  122  100  123  116  117   98   83   96  119  124
-      Gene256   64   53   56  182  148  104   75   97   89   74   55  104  113   69
-      Gene259    .    .    .    .    .    .    .    .    .    .    .    .    .    1
-      Gene261   64   22   11   23   52   26   34   42   31   42    9   55   42   42
-      Gene267   70   54   31   67   92   43   62   41   98   50   62   76   78  124
-      Gene268    8    .   21    5    7   15    6    4    .    1    1   11    2    5
-      Gene307   52   13   17   39   68   17   39   14   22   23   19   40   48   46
-      Gene311    3    3    6    7   12    5    1    7    5   11   12    5    4    4
-      Gene347   22   11   22   35   59   23   20   23   44   23   28   22   22   29
-      Gene373   27   10   16   25   26   15   30   13   21   21   14   23   13   31
-      Gene383    2    1    .    1    7    .    2    4    3    .    5    .    3    .
-      Gene405   13    4    8   16    8   17   15   24   17   12   19   21   25    8
-      Gene419    2    1    1    7    .    .    .    3    2    2    2    2    5    1
-      Gene425   58   38   39   63   73   61   36   43   36   49   37   41   58   63
-      Gene446   15    7    4   11   29   20   14    9   11   17   15   12    2   16
-      Gene474   63   20   29   31   35   15   46   51   30   44   21   42   55   33
-      Gene477   21    6   20   42   19   31   48   16   29    5   43    7    6   34
-      Gene492  176   42   38   53  122   35   47  124   54  166   51  174   79   75
-                                                                                   
-      Gene33    11   20   16   28   24   15   50   29   32   26   50   29   45    7
-      Gene52     1    3    3    8    3    .    1    .    .    2    1    2    .    .
-      Gene70   132   72   68   80   46  156   89  154   79   80   70   65  109   64
-      Gene76    25   33   44   45   46   54   50   47   42   17   35   28   40   26
-      Gene91    50   30   61   33   83   50   28   69   25   43   27   33   44   47
-      Gene93    11   31   17   13   10   30   46   30   28   24   31   15   12   20
-      Gene108    1    1    3    .   13    1    .    5    3    4    4    2    .    2
-      Gene127   83  221   74  153   68  132  162   80  110  132  130   90  118  151
-      Gene166   50   76   36   60   69   22   44   79   38   19   60   65   58   33
-      Gene208    2   11    2    3   12    4    5    4   12    4    6    2    9    3
-      Gene217   35   30   61   55   60   91   19  137   57   32   28   48   47   55
-      Gene237   98   21  103   52   69   85   48  112   63   29   42   42   74   55
-      Gene238  125  112  149   84  122  118   71  181   88  134   80  139  168  106
-      Gene263   16   10   19   22   13   18   17    9   14   18   14   12   13    9
-      Gene316    9    7   13    4   19   11   10   15   11   10   12   11   12    6
-      Gene392    4    4    5    2    6    .    7    8    4    3    7    5   10    6
-      Gene444   96   38   37   67   44   62   52   76   53   40   35   33   99   41
-      Gene3   1219  731  908  595  736  864  662  473  802  491  696  700  754  781
-      Gene11    56    9   17   32   24   20   35   33   19   26   20   19   22   21
-      Gene38    17   20   10    7    6   19    8   10   11   22   12   10   17   18
-      Gene82     1    .    2    .    .    .    1    1    .    1    .    .    1    4
-      Gene107 2851  911 1775  735 3090 2893 1100 2651  891  658  875  782  965 2060
-      Gene110  175   79  145  110  157  161  101  141  129   81  134   97   62  134
-      Gene126   37   35   46   19   38   50   39   60   31   30   65   31   50   43
-      Gene169    .    2    1    2    5    4    3    8    2    1    .    4    .    5
-      Gene177 1581 1749 1383 1826 1445 1820 2547 1261 2283 1997 2332 2216 2774 1311
-      Gene185    9   12   16   29   24   28   22   17   18    5   11   14   22    4
-      Gene195    4   20    7   22   20    7    9   14   14   16   13   13   16    8
-      Gene215    8    2    6    .    4    4    4    1    2   10    4   10    1    5
-      Gene223  172  111  157  163  104  181  163  104  125   92  152   92  152  130
-      Gene230    2    1    2    .    4    4    2    4    .    3    .    1    4    4
-      Gene241   56   26   56   81   69   46   37   42   54   51   41   49   74   45
-      Gene309  463  386  406  350  550  386  448  651  515  295  380  385  460  361
-      Gene338    5    2    7    3   12    5    3    4   13    3    3    8    8    5
-      Gene344   20   11   12   20   45   18   23   62   15   20   23   31   22   14
-      Gene371   14    8   13    6    7   12   11    6   10    5    4    1   10    2
-      Gene378   45   50   42   38   27   35   81   37   61   48   26   37   51   50
-      Gene407    .    .    .    .    .    .    .    1    .    .    .    .    .    .
-      Gene432   46   28   35   18   40   27   20   16   31   27   44   27   36   20
-      Gene436   68   74   40   65   50   60   75   58  104   80  100   87  134   53
-      Gene441   65  102   55   87  231   61  126  228   66   89   95   90  146   48
-      Gene472   90  131   76  104  167  107  110  111  111   95  136   74  131   90
-      Gene475   24   65   37   44   41   30   53   61   44   59   52   40   56   43
-      Gene486   41   60   33   51   59   39   94   80   53   52   92   53   59   69
-      Gene23  1905 2102 1994 2128 1896 1714 2128 2410 2379 2209 1949 1896 2885 1788
-      Gene43    12    8    8    7   19   11    3   15   17    3   11   17   10    8
-      Gene103   28   35    9   22   57   18   26   39   49   28   27   21   55    4
-      Gene122   47   33   15   37   20   20   33   33   41   35   43   24   33   30
-      Gene147   47   87   27   99   82   44   50   72   51   48   79   38   93   32
-      Gene151  177  198  147  223  192  165  206  209  274  181  184  169  225  123
-      Gene179   87   69   58   67  109   84   70   83   74   76   77   77   52   51
-      Gene201    5    7    8   10   11    5    6    7   18    6    8    2   19   12
-      Gene224   59   23   38   21   36   30   22   30   23   13   26   20   35   26
-      Gene233   10    6    1   20   13   19   10   22   13   38   11   14   17   11
-      Gene245   56   77   57  106   83  127  111  137   44  107   66   72   64   63
-      Gene256   87   82   86   51  101   70  119  128   59   93   77   60  107   66
-      Gene259    2    .    .    .    .    1    .    2    .    .    .    .    5    .
-      Gene261   54   20   58   20   56   38   27   42   57   46   18   19   32   53
-      Gene267   47   61   72   85   96   97   28   68   72   61   71   40   62   53
-      Gene268    8   10    4    2    5    4    3    9    4    2   12   12    6    1
-      Gene307   43   93   41   26   27   41   41   47   31   29   23   46   36   23
-      Gene311    8    7    9   14   12   11    5   17    9    9   12    6   13    7
-      Gene347   31   23   43   19   41   36   20   34   36   13   30   17   23   28
-      Gene373   18   22   27   16   43   23   20   35   27   10   10   25   24   20
-      Gene383    1    .    2    2    .    .    1    1    1    1    3    2    .    .
-      Gene405   10   14   12   12   12   10   17    5    9    5    9   13    9   14
-      Gene419    2    1    6    1    1    1    6    4    5    1    .    1    8    5
-      Gene425   63   48   41   60   58   57   48   67   46   37   57   55   58   36
-      Gene446    7   22    5   16   19   22   30    5   14   10   26   18   24   29
-      Gene474   24   27   56   20   30   57   27   49   27   21   32   11   52   24
-      Gene477    5   15   11   29   29    6   11   26    5    6   20    8   25    6
-      Gene492  108   51  123   99   64  118  101   40   83   70   76   61  117   95
-                                           
-      Gene33    31    8   12   24   36   22
-      Gene52     .    2    1    .    2    6
-      Gene70   175   70  125  160  120   97
-      Gene76    34   20   50   39   47   21
-      Gene91    87   51   83   76   35   80
-      Gene93    43   22   37   50   40   20
-      Gene108    4    5    8    1   10    8
-      Gene127  153   37  131  196  204   86
-      Gene166   56   51   73   62   77   53
-      Gene208   16    1    2    9   11   10
-      Gene217  139   67   75  127   35  107
-      Gene237  212   80  110  114   74   90
-      Gene238  185   98  147  117  164  156
-      Gene263   23    .   10   12   27    9
-      Gene316   20    7   11    8   10   12
-      Gene392   12    2    8    7    6    5
-      Gene444   81   41   82   62   56   72
-      Gene3   2015  449  634 1416  880  524
-      Gene11    57   24   37   33   33   15
-      Gene38    10   14   16   15   45   10
-      Gene82     1    .    2    4    1    .
-      Gene107 3864 1853 2973 4055 1576 2212
-      Gene110  263  107  113  187  138  102
-      Gene126   67   37   58   53   75   36
-      Gene169    3    1    2    3    1    4
-      Gene177 2380  975 1179 2175 2712 1072
-      Gene185   24   27   18   49   29   17
-      Gene195    7    9   19    5   43    9
-      Gene215   13    .    2   10   10    3
-      Gene223  273   47   86  185  132   90
-      Gene230   16    1    5    7    8    6
-      Gene241   89   24   95   48   47   63
-      Gene309  697  341  492  634  746  482
-      Gene338    4    1    9    8    5    6
-      Gene344   57   40   26   34   47   42
-      Gene371   15   13   12   11   10    5
-      Gene378   75   43   44   47   71   24
-      Gene407    .    .    3    1    .    2
-      Gene432   44   29   30   47   30   27
-      Gene436  112   13   26  105   76   57
-      Gene441   76   83  144   79  136  235
-      Gene472  159  110  107   93  190  156
-      Gene475   81   38   44   58   80   44
-      Gene486   83   34   79   81   85   60
-      Gene23  3548 1783 2227 2574 2686 2237
-      Gene43    14   17   16   13   21   11
-      Gene103   49   40   41   29   36   47
-      Gene122   63   15   37   37   48   31
-      Gene147   85   44   99  105  108   78
-      Gene151  149   94  171  224  308  151
-      Gene179  106   69   64   73  103   95
-      Gene201   14    9   12    9   22   15
-      Gene224   66   18   25   59   23   26
-      Gene233   12    7   11    6   18   16
-      Gene245  105   72  106  110   60   87
-      Gene256   94  102   76  121  147   89
-      Gene259    1    .    .    1    1    .
-      Gene261   87   14   21   58   26   15
-      Gene267   83   40   50   68   86   76
-      Gene268    6   13    5   12   11    3
-      Gene307   23   24   24   70   73   21
-      Gene311   10    2    9   16   17    3
-      Gene347   25   24   25   38   26   30
-      Gene373   39   20   11   45   33   34
-      Gene383   12    .    1    4    1    .
-      Gene405   38   28   22   51    5    9
-      Gene419    7    2    3    7    .    1
-      Gene425   74   63   65   81   68   63
-      Gene446   15    9   17   16   25   12
-      Gene474   54   15   21   32   41   24
-      Gene477   13   31   35    9   19   41
-      Gene492  189   41   65  176  127   65
+      Gene104   34   39   17   20   49   24   24   35   38   13   46   52   61    9
+      Gene120   58   37   33   51   54   38   46   40   29   33   54   66   49   26
+      Gene148    1    1   11    .    3    6    6    9    1    2    3    6    5    3
+      Gene154   82   79   62   45   80   45   35   49  124   56  112  132   82   41
+      Gene172   42    8   10    9   17   16   12   16   32   26   17   17   12    6
+      Gene243   21   14   19   10    6    7   14   11   16   12   14   10   26    8
+      Gene314  100   26   67   26   22   56   87   24   24   84   36   38   27   50
+      Gene349    7    1    .    3    .    1    9    3    6    .    3    2    .    3
+      Gene358    2    9    2    6    .    1    1    3    3    6    1    9    3    2
+      Gene440   19   30   23    4   10   10   12    8   23    8   14   28   10   10
+      Gene18  2283 1042 1546 2237 1891 1410 1665  912 1963 1606 2402 2460 2024 1299
+      Gene63   121  120  114   42   74   67   58   64   68   62   85  126   89   71
+      Gene75     5    3    6    4    4    1    4    4    1    3   10    9    1   12
+      Gene112   57   54   36   30   13   30   39   54   43   38   26   29   47   56
+      Gene135   57  182   37   46   29   34   54  134   38   33   52   51   50   53
+      Gene184    7   18    9    7   14   10    8   31   18    9   19   25   10    4
+      Gene197    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene225    .    1    .    .    .    .    1    .    2    .    .    .    .    .
+      Gene229   10   17    4    2    3    2    .    5    5    5   10   15    7    2
+      Gene230   96  111   77   55   79   59   67   79   39   63   89  117   69   93
+      Gene261   90   31   44   67   35   54   18   21   62   41   53   65   41   41
+      Gene263    1    2    5    .    1    1    .    1    .    2    2    2    .    .
+      Gene277   60   57   41   59   20   21   53   56   32   23   37   24   38   17
+      Gene289  100   37   57  148  124   62   62   48  138   67  234  153  262   34
+      Gene327 2434 1408 1363 1530 1239 1335 1799 1048 1736 1357 1407 1624 1580 1117
+      Gene333    .    .    .    .    2    1    .    3    .    .    .    1    .    .
+      Gene341  128  232   77  106  126   69  102  116  100   81  103   84  130  115
+      Gene352  141  145   60  134  115   56   61   94  149   97  120  209  151   54
+      Gene374  275  208  122  197  152  148  182  145  164  122  164  202  174  126
+      Gene393    3    .    .    .    2    .    .    .    1    .    .    2    2    .
+      Gene396   88  218   90  134  132   53   34  107  145   36  134  140  239   73
+      Gene428    1    .    2    .    1    .    .    .    .    .    .    .    .    .
+      Gene468   24   15    8   27   19   21   23   12   10    9   10   27   32   14
+      Gene469    .    5    1    1    .    3    .    6    2    .    2    .    .    .
+      Gene5     26   30   31   20    7   44   14   27   14   27   15   16   45   20
+      Gene7     48    6   11   35   26   38   18   14   27   21   28   31   47   17
+      Gene56   170  216   87  124   95  100  116  140  165   87   85  146  158  105
+      Gene147  104   51   61   52   41   56   37   61   29   62   35   73   66   43
+      Gene187    5   10    4    8    6    2    7   10    3    5   11    7   11    1
+      Gene194   91   52   69   40   48   32   52   65   51   40   32   33   33   57
+      Gene210   18   22   20    9   22   16   19   20   12   15   39   14   25   14
+      Gene220   52   46   51   51   31   53   42   46   55   37   51   72   64   47
+      Gene258 1560 1329  893  966  890 1099 1062  896  868  857 1245 1076 1154 1061
+      Gene265   29   66   26   33   19   15   23   44   36   22   37   34   28    9
+      Gene281   80   48   42   19   14   31   25   21   22   16   19   47   20   41
+      Gene287    .    1    .    .    .    1    .    .    .    .    .    .    .    .
+      Gene304    .    .    .    .    .    .    .    .    .    .    .    1    .    .
+      Gene309    4    8   14    2    8    3    3    5    2    6    1    3    1    2
+      Gene316  167  308   89  160  104  101   95  105  199   68  177  204  198   56
+      Gene319    6    9    5   26   10    2    7    3    9    4    2   10   11    4
+      Gene328    .    .    .    .    .    1    .    .    .    .    .    .    .    .
+      Gene373   32   42   32   21   14   11   34   35   27   23   18   11    6   10
+      Gene390  109   71   87   46   37   55   90   83   47   54   71   50   78   63
+      Gene420  134  157   95   52   81   89   54  127   67   73   99   88   88  122
+      Gene436  188  151   50  106  118   82   71   92   91  112  183   71  134  119
+      Gene475  117   61   87   72   48   63   50   47   32   84   53  109   67   55
+      Gene496   38   54   17   22   19   24   15   42   16   48   15   34   40   13
+                                                                                  
+      Gene104    9   25   43   15   24   34   17   21   18    8   35   13  10   22
+      Gene120   30   44   50   47   50   62   36   27   21   28   25   31  58   46
+      Gene148    .    5    .    1    2    4    .   10    .    1    5    4   .    1
+      Gene154   50   70  106   64   40   67   52   51   55   77   60   35  39   56
+      Gene172    3   25   34   36   29   29   12    8   19   27   11   13   4    4
+      Gene243   10   22   18   22   17   24    7    9   22    9   11   19  22   10
+      Gene314   19  112   44   92   64   39   86   70  123  109   27   76  28   32
+      Gene349    1    2    .    2    4    3    .    1   16    6    1    .   1    1
+      Gene358    3    5    8    2    3    3    2    .    .    8    3    .   .    2
+      Gene440    6   31   12   18   14    7   14   12   19   11    6   11   9   15
+      Gene18   701 1744 2154 1436 1410 2869 1408 1437 1882 2087 1004 1273 580 1179
+      Gene63    73  111   87   89   87   58   78   69  124  133  130   58  82   60
+      Gene75     6    4   14    1    .    9    2    1    3    2    2    2   5    5
+      Gene112   29   52   37   47   43   36   32   29   35   36   22   33  13   25
+      Gene135  116   57   49   70   31   60   39   25   55   62  100   35  69  129
+      Gene184   26   13   18   14   13   10   14    7   11   11   48    7  13   24
+      Gene197    .    .    .    .    .    .    .    .    1    .    .    .   .    .
+      Gene225    1    .    .    .    .    .    .    .    1    .    .    1   .    .
+      Gene229    8    4    2    3    4    2    9    3    5    2    3    6   .    2
+      Gene230   57   67   55   68   39   71   42   56   64   81   65   25  54   62
+      Gene261   34   66   87   54   55   78   55   25   41   41   47   43  25   17
+      Gene263    .    5    1    4    3    .    2    4    .    .    .    .   1    1
+      Gene277   35   64   44   60   41   48   42   19   31   63   32   22  41   22
+      Gene289   28   85  114   73   59  181   59   48  101   58   63   54  25   34
+      Gene327 1254 1826 1849 1603 1343 2013 1538 1346 1851 2141 1072 1012 986 1235
+      Gene333    .    2    .    .    .    .    1    .    .    .    .    1   .    1
+      Gene341  101  120  148   52   85  133  132  126  117  117  183   92 115  174
+      Gene352  125  122  197  103   73  214   80   45   72  102   88   99  84  114
+      Gene374  190  266  122  175  143  235  221  116  195  185  231  139 139  191
+      Gene393    2    1    1    .    .    1    1    1    .    .    2    .   .    .
+      Gene396  102   99  140   86   64  215   99   53   84  124  146   30 113  102
+      Gene428    .    .    .    .    .    1    .    .    .    .    .    1   2    .
+      Gene468   12   19   25    7    9    8   25   15   23   30   16    6   8   28
+      Gene469    2    1    1    .    .    1    1    1    3    .    1    .   4    2
+      Gene5     26   26   20   13   24   18   21   29   30   16   25   27  21   28
+      Gene7      3   30   19   43   29   54   28   13   40   35    7   18  11   19
+      Gene56   135   94  144  135   94  144  113  109   91  154  153   92 117  171
+      Gene147   51   33   44   60   66   92   38   48   48   54   60   38  54   58
+      Gene187    1   11    7    5    .    7    5    1    1    2   11    6   8    3
+      Gene194   35   79   27   59   33   45   23   33   43   39   53   27  35   46
+      Gene210   17   18   13   29   12   25   14   18   24   13   28   10   6   17
+      Gene220   71   59   52   60   49   82   41   52   50   47   54   48  38   59
+      Gene258  989 1443 1148 1237 1340 1445 1230  563 1231 1168 1248 1016 744 1229
+      Gene265   33   29   44   28   19   36   15   12   15   18   33   15  17   28
+      Gene281   43   49   28   47   51   44   37   21   38   25   32   26  30   30
+      Gene287    .    .    .    .    .    .    .    .    .    .    .    .   .    .
+      Gene304    .    .    .    2    .    .    .    .    .    .    .    .   .    .
+      Gene309    2   11    1    7    6    4   13    5    .    5    9    8   4   13
+      Gene316  123  112  168  138   88  185  110   72  164  136  164   72  97  161
+      Gene319    4   13   11    4   11   18    8    7   12   16   13    7   3   15
+      Gene328    .    .    2    1    .    .    .    .    .    .    .    .   1    .
+      Gene373   47   42   15   25   12   31   23   12   34   15   11   11  21   15
+      Gene390   44  108   42   55   41   47   84   61   64   60   65   62  38   56
+      Gene420  154  154   94  148   96   96  105  125  149  183  156  104  70   94
+      Gene436   89  139   86  106  117  126   98   87  134  106  109   92  79   89
+      Gene475   70   70   48   73   57   73   90   50   69   94   57   59  28   86
+      Gene496   29   38   16   14   32   23   20   34   23   36   39   20  10   41
+                                          
+      Gene104   19   37   35  32   30   13
+      Gene120   30   46   33  46   64   51
+      Gene148    .    6    4   1    2    5
+      Gene154   40   42   55  76   80   49
+      Gene172   28   16   37   4   12    4
+      Gene243    6   11   21   9   23   24
+      Gene314   67   48   92  26   40   34
+      Gene349    4    1    2   4    1    1
+      Gene358    .    6    2   .    6    4
+      Gene440    7   23   32  15   16   13
+      Gene18  1368 1611 2101 730 1195  828
+      Gene63    67   85  117  49  102  102
+      Gene75     4    5   10   2    6    7
+      Gene112   47   54   65  17   74   17
+      Gene135   21   43   49  89  158  178
+      Gene184    8    1   27  18   35   45
+      Gene197    .    .    .   .    .    .
+      Gene225    .    .    .   .    .    .
+      Gene229    2    4    7   3    8    5
+      Gene230   61   45   98  53   73   63
+      Gene261   40   57   48  22   28   30
+      Gene263    .    .    .   3    2    6
+      Gene277   35   31   73  33   45   35
+      Gene289   54   62   81  50   90   28
+      Gene327 1286  975 1810 980 1927 1536
+      Gene333    .    .    .   .    1    .
+      Gene341  108   84  151 111  187  183
+      Gene352   58   67   98 108  145  164
+      Gene374  161  147  193 137  229  176
+      Gene393    .    .    .   3    1    .
+      Gene396   48   69   74 153  170  188
+      Gene428    .    .    .   .    7    .
+      Gene468   16   18   27  15   16   26
+      Gene469    .    1    6   .    3    1
+      Gene5     13   23   47  17   37   38
+      Gene7     17   14   25   5   12   12
+      Gene56   122  108  149 102  154  143
+      Gene147   24   42   46  33   51   66
+      Gene187    7    9    3   8   10    7
+      Gene194   44   55  101  61   59   68
+      Gene210    2    9   36  12   16   22
+      Gene220   54   20   86  45   81   65
+      Gene258  643  672 1276 960 1145 1297
+      Gene265   39   12   42  31   57   32
+      Gene281   54   37   35  44   30   65
+      Gene287    .    .    .   .    .    .
+      Gene304    .    .    .   .    .    .
+      Gene309    2    3    9   7   11    9
+      Gene316  130  110  123 125  152  135
+      Gene319    4   31   13  21    9   14
+      Gene328    .    .    .   .    .    .
+      Gene373   21   18   23  21   25   32
+      Gene390  107   91   88  42   66   49
+      Gene420   97  103  148  80  170  170
+      Gene436   60   44   98 124  171  121
+      Gene475   68   72   71  41   71   60
+      Gene496   13   27   36  13   33   22
       
       Slot "nUMI":
           ct3_plat1_TCAACACTTAAGGGTCCCCA     ct1_plat1_TCAAGACTTAAGGGTCCCCA 
-                                   68075                              50734 
+                                   50155                              67354 
           ct2_plat1_TCAATACTTAAGGGTCCCCA     ct2_plat1_TCAAAACTTCAGGGTCCCCA 
-                                   73167                              61953 
+                                   64359                              65599 
           ct1_plat1_TCAACACTTCAGGGTCCCCA     ct1_plat1_TCAAGACTTCAGGGTCCCCA 
-                                   44381                              66179 
-          ct1_plat1_TCAATACTTCAGGGTCCCCA     ct3_plat1_TCAAAACTTGAGGGTCCCCA 
-                                   50138                              60375 
-          ct2_plat1_TCAACACTTGAGGGTCCCCA ct1_plat1_TCAACAACTTAAAGGGTTCCCCAA 
-                                   53968                              44364 
-      ct1_plat1_TCAACCACTTAAAGGGTTCCCCAA ct3_plat1_TCAACGACTTAAAGGGTTCCCCAA 
-                                   54693                              58915 
+                                   56173                              63153 
+          ct3_plat1_TCAATACTTCAGGGTCCCCA     ct3_plat1_TCAAAACTTGAGGGTCCCCA 
+                                   49002                              54167 
+          ct2_plat1_TCAACACTTGAGGGTCCCCA ct3_plat1_TCAACAACTTAAAGGGTTCCCCAA 
+                                   50013                              60416 
+      ct1_plat1_TCAACCACTTAAAGGGTTCCCCAA ct1_plat1_TCAACGACTTAAAGGGTTCCCCAA 
+                                   64101                              99826 
       ct2_plat1_TCAACTACTTAAAGGGTTCCCCAA ct3_plat1_TCAACAACTTACAGGGTTCCCCAA 
-                                   62519                              79277 
-      ct2_plat1_TCAACCACTTACAGGGTTCCCCAA ct2_plat1_TCAACGACTTACAGGGTTCCCCAA 
-                                   60433                              93625 
-      ct2_plat1_TCAACTACTTACAGGGTTCCCCAA ct2_plat1_TCAACAACTTAGAGGGTTCCCCAA 
-                                   55470                              68517 
-      ct3_plat1_TCAACCACTTAGAGGGTTCCCCAA ct1_plat1_TCAAGAACTTAAAGGGTTCCCCAA 
-                                   44483                              55813 
-      ct1_plat1_TCAAGCACTTAAAGGGTTCCCCAA ct2_plat1_TCAAGGACTTAAAGGGTTCCCCAA 
-                                   65116                              59769 
-      ct1_plat1_TCAAGTACTTAAAGGGTTCCCCAA ct3_plat1_TCAAGAACTTACAGGGTTCCCCAA 
-                                   50255                              48103 
-      ct1_plat1_TCAAGCACTTACAGGGTTCCCCAA ct1_plat1_TCAAGGACTTACAGGGTTCCCCAA 
-                                   46299                              80512 
-      ct1_plat1_TCAAGTACTTACAGGGTTCCCCAA ct2_plat1_TCAAGAACTTAGAGGGTTCCCCAA 
-                                   88055                              60959 
-      ct3_plat1_TCAAGCACTTAGAGGGTTCCCCAA ct1_plat1_TCAATAACTTAAAGGGTTCCCCAA 
-                                   61330                              60463 
-      ct2_plat1_TCAATCACTTAAAGGGTTCCCCAA ct3_plat1_TCAATGACTTAAAGGGTTCCCCAA 
-                                   86883                              62205 
-      ct2_plat1_TCAATTACTTAAAGGGTTCCCCAA ct2_plat1_TCAATAACTTACAGGGTTCCCCAA 
-                                   47541                              65024 
-      ct2_plat1_TCAATCACTTACAGGGTTCCCCAA ct3_plat1_TCAATGACTTACAGGGTTCCCCAA 
-                                   47393                              51590 
-      ct2_plat1_TCAATTACTTACAGGGTTCCCCAA ct2_plat1_TCAATAACTTAGAGGGTTCCCCAA 
-                                   59452                              45426 
-      ct3_plat1_TCAATCACTTAGAGGGTTCCCCAA ct3_plat1_TCAAAAACTTCAAGGGTTCCCCAA 
-                                   41612                              57373 
-      ct1_plat1_TCAAACACTTCAAGGGTTCCCCAA ct2_plat1_TCAAAGACTTCAAGGGTTCCCCAA 
-                                   59582                              93028 
-      ct1_plat1_TCAAATACTTCAAGGGTTCCCCAA ct2_plat1_TCAAAAACTTCCAGGGTTCCCCAA 
-                                   51483                              45796 
+                                   55770                             101488 
+      ct3_plat1_TCAACCACTTACAGGGTTCCCCAA ct3_plat1_TCAACGACTTACAGGGTTCCCCAA 
+                                   68307                              52139 
+      ct2_plat1_TCAACTACTTACAGGGTTCCCCAA ct1_plat1_TCAACAACTTAGAGGGTTCCCCAA 
+                                   52507                              55092 
+      ct3_plat1_TCAACCACTTAGAGGGTTCCCCAA ct3_plat1_TCAAGAACTTAAAGGGTTCCCCAA 
+                                   51109                              60927 
+      ct2_plat1_TCAAGCACTTAAAGGGTTCCCCAA ct3_plat1_TCAAGGACTTAAAGGGTTCCCCAA 
+                                   60950                              62730 
+      ct3_plat1_TCAAGTACTTAAAGGGTTCCCCAA ct3_plat1_TCAAGAACTTACAGGGTTCCCCAA 
+                                   65731                              48462 
+      ct1_plat1_TCAAGCACTTACAGGGTTCCCCAA ct2_plat1_TCAAGGACTTACAGGGTTCCCCAA 
+                                   47330                              48330 
+      ct3_plat1_TCAAGTACTTACAGGGTTCCCCAA ct2_plat1_TCAAGAACTTAGAGGGTTCCCCAA 
+                                   54587                              86662 
+      ct1_plat1_TCAAGCACTTAGAGGGTTCCCCAA ct3_plat1_TCAATAACTTAAAGGGTTCCCCAA 
+                                   69189                              75322 
+      ct3_plat1_TCAATCACTTAAAGGGTTCCCCAA ct2_plat1_TCAATGACTTAAAGGGTTCCCCAA 
+                                   78263                              68255 
+      ct2_plat1_TCAATTACTTAAAGGGTTCCCCAA ct3_plat1_TCAATAACTTACAGGGTTCCCCAA 
+                                   40471                              88939 
+      ct1_plat1_TCAATCACTTACAGGGTTCCCCAA ct1_plat1_TCAATGACTTACAGGGTTCCCCAA 
+                                   70564                              62470 
+      ct2_plat1_TCAATTACTTACAGGGTTCCCCAA ct3_plat1_TCAATAACTTAGAGGGTTCCCCAA 
+                                   68290                              79136 
+      ct1_plat1_TCAATCACTTAGAGGGTTCCCCAA ct1_plat1_TCAAAAACTTCAAGGGTTCCCCAA 
+                                   73990                              67565 
+      ct2_plat1_TCAAACACTTCAAGGGTTCCCCAA ct2_plat1_TCAAAGACTTCAAGGGTTCCCCAA 
+                                   76142                              71805 
+      ct3_plat1_TCAAATACTTCAAGGGTTCCCCAA ct1_plat1_TCAAAAACTTCCAGGGTTCCCCAA 
+                                   67598                              89301 
       ct1_plat1_TCAAACACTTCCAGGGTTCCCCAA ct1_plat1_TCAAAGACTTCCAGGGTTCCCCAA 
-                                   71032                              70053 
+                                   70096                              53449 
       ct1_plat1_TCAAATACTTCCAGGGTTCCCCAA ct2_plat1_TCAAAAACTTCGAGGGTTCCCCAA 
-                                   61584                              50550 
-      ct1_plat1_TCAAACACTTCGAGGGTTCCCCAA ct2_plat1_TCAACAACTTCAAGGGTTCCCCAA 
-                                   67405                              37880 
-      ct2_plat1_TCAACCACTTCAAGGGTTCCCCAA ct2_plat1_TCAACGACTTCAAGGGTTCCCCAA 
-                                   66156                              56285 
-      ct2_plat1_TCAACTACTTCAAGGGTTCCCCAA ct1_plat1_TCAACAACTTCCAGGGTTCCCCAA 
-                                   67186                              83614 
-      ct1_plat1_TCAACCACTTCCAGGGTTCCCCAA ct2_plat1_TCAACGACTTCCAGGGTTCCCCAA 
-                                   65852                              50612 
-      ct3_plat1_TCAACTACTTCCAGGGTTCCCCAA ct1_plat1_TCAACAACTTCGAGGGTTCCCCAA 
-                                   71392                              41304 
-      ct2_plat1_TCAACCACTTCGAGGGTTCCCCAA ct2_plat1_TCAAGAACTTCAAGGGTTCCCCAA 
-                                   46573                              69274 
-      ct1_plat1_TCAAGCACTTCAAGGGTTCCCCAA ct2_plat1_TCAAGGACTTCAAGGGTTCCCCAA 
-                                   90849                              54393 
-      ct2_plat1_TCAAGTACTTCAAGGGTTCCCCAA ct3_plat1_TCAAGAACTTCCAGGGTTCCCCAA 
-                                   58930                              62683 
-      ct2_plat1_TCAAGCACTTCCAGGGTTCCCCAA ct3_plat1_TCAAGGACTTCCAGGGTTCCCCAA 
-                                   60863                              60101 
-      ct2_plat1_TCAAGTACTTCCAGGGTTCCCCAA ct3_plat1_TCAAGAACTTCGAGGGTTCCCCAA 
-                                   64284                              61859 
-      ct3_plat1_TCAAGCACTTCGAGGGTTCCCCAA ct2_plat1_TCAATAACTTCAAGGGTTCCCCAA 
-                                   55643                              67877 
+                                   56245                              74350 
+      ct3_plat1_TCAAACACTTCGAGGGTTCCCCAA ct2_plat1_TCAACAACTTCAAGGGTTCCCCAA 
+                                   46007                              44156 
+      ct2_plat1_TCAACCACTTCAAGGGTTCCCCAA ct1_plat1_TCAACGACTTCAAGGGTTCCCCAA 
+                                   52683                              52395 
+      ct1_plat1_TCAACTACTTCAAGGGTTCCCCAA ct2_plat1_TCAACAACTTCCAGGGTTCCCCAA 
+                                   65815                              83771 
+      ct3_plat1_TCAACCACTTCCAGGGTTCCCCAA ct1_plat1_TCAACGACTTCCAGGGTTCCCCAA 
+                                   47523                              59966 
+      ct1_plat1_TCAACTACTTCCAGGGTTCCCCAA ct3_plat1_TCAACAACTTCGAGGGTTCCCCAA 
+                                   85279                              69780 
+      ct1_plat1_TCAACCACTTCGAGGGTTCCCCAA ct2_plat1_TCAAGAACTTCAAGGGTTCCCCAA 
+                                   55412                              52498 
+      ct2_plat1_TCAAGCACTTCAAGGGTTCCCCAA ct1_plat1_TCAAGGACTTCAAGGGTTCCCCAA 
+                                   48209                              48446 
+      ct1_plat1_TCAAGTACTTCAAGGGTTCCCCAA ct3_plat1_TCAAGAACTTCCAGGGTTCCCCAA 
+                                   50075                              53369 
+      ct2_plat1_TCAAGCACTTCCAGGGTTCCCCAA ct1_plat1_TCAAGGACTTCCAGGGTTCCCCAA 
+                                   55758                              49950 
+      ct2_plat1_TCAAGTACTTCCAGGGTTCCCCAA ct2_plat1_TCAAGAACTTCGAGGGTTCCCCAA 
+                                   59073                              70618 
+      ct2_plat1_TCAAGCACTTCGAGGGTTCCCCAA ct1_plat1_TCAATAACTTCAAGGGTTCCCCAA 
+                                   62743                              45080 
       ct3_plat1_TCAATCACTTCAAGGGTTCCCCAA ct1_plat1_TCAATGACTTCAAGGGTTCCCCAA 
-                                   56463                              60928 
-      ct3_plat1_TCAATTACTTCAAGGGTTCCCCAA ct1_plat1_TCAATAACTTCCAGGGTTCCCCAA 
-                                   54170                              58911 
-      ct2_plat1_TCAATCACTTCCAGGGTTCCCCAA ct3_plat1_TCAATGACTTCCAGGGTTCCCCAA 
-                                   70874                              57654 
-      ct1_plat1_TCAATTACTTCCAGGGTTCCCCAA ct2_plat1_TCAATAACTTCGAGGGTTCCCCAA 
-                                   64174                              74415 
+                                   48893                              78949 
+      ct2_plat1_TCAATTACTTCAAGGGTTCCCCAA ct1_plat1_TCAATAACTTCCAGGGTTCCCCAA 
+                                   58978                              60138 
+      ct1_plat1_TCAATCACTTCCAGGGTTCCCCAA ct2_plat1_TCAATGACTTCCAGGGTTCCCCAA 
+                                   53739                              71801 
+      ct1_plat1_TCAATTACTTCCAGGGTTCCCCAA ct1_plat1_TCAATAACTTCGAGGGTTCCCCAA 
+                                   55604                              45456 
       ct1_plat1_TCAATCACTTCGAGGGTTCCCCAA ct1_plat1_TCAAAAACTTGAAGGGTTCCCCAA 
-                                   64449                              52013 
-      ct1_plat1_TCAAACACTTGAAGGGTTCCCCAA ct1_plat1_TCAAAGACTTGAAGGGTTCCCCAA 
-                                   60215                              51816 
-      ct1_plat1_TCAAATACTTGAAGGGTTCCCCAA ct3_plat1_TCAAAAACTTGCAGGGTTCCCCAA 
-                                   71766                              48837 
-      ct3_plat1_TCAAACACTTGCAGGGTTCCCCAA ct2_plat1_TCAAAGACTTGCAGGGTTCCCCAA 
-                                   93224                              49291 
-      ct2_plat1_TCAAATACTTGCAGGGTTCCCCAA ct3_plat1_TCAAAAACTTGGAGGGTTCCCCAA 
-                                   68248                              75318 
-      ct1_plat1_TCAAACACTTGGAGGGTTCCCCAA ct2_plat1_TCAACAACTTGAAGGGTTCCCCAA 
-                                   82626                              62294 
+                                   66801                              67231 
+      ct3_plat1_TCAAACACTTGAAGGGTTCCCCAA ct1_plat1_TCAAAGACTTGAAGGGTTCCCCAA 
+                                   61659                              46290 
+      ct3_plat1_TCAAATACTTGAAGGGTTCCCCAA ct3_plat1_TCAAAAACTTGCAGGGTTCCCCAA 
+                                   38144                              56702 
+      ct1_plat1_TCAAACACTTGCAGGGTTCCCCAA ct1_plat1_TCAAAGACTTGCAGGGTTCCCCAA 
+                                   50949                              54133 
+      ct1_plat1_TCAAATACTTGCAGGGTTCCCCAA ct3_plat1_TCAAAAACTTGGAGGGTTCCCCAA 
+                                   77754                              44674 
+      ct3_plat1_TCAAACACTTGGAGGGTTCCCCAA ct3_plat1_TCAACAACTTGAAGGGTTCCCCAA 
+                                   69318                              63077 
       
       
       Slot "originalSpatialRNA":
       An object of class "SpatialRNA"
       Slot "coords":
                                                    x            y
-      ct3_plat1_TCAACACTTAAGGGTCCCCA     -0.43096549 -0.910590003
-      ct1_plat1_TCAAGACTTAAGGGTCCCCA      1.02345450  0.363329689
-      ct2_plat1_TCAATACTTAAGGGTCCCCA     -0.37723416  1.078665706
-      ct2_plat1_TCAAAACTTCAGGGTCCCCA     -0.37580166  0.885343767
-      ct1_plat1_TCAACACTTCAGGGTCCCCA      0.80558938  0.196699696
-      ct1_plat1_TCAAGACTTCAGGGTCCCCA      0.81200298  0.450601327
-      ct1_plat1_TCAATACTTCAGGGTCCCCA      1.37438927 -0.322920094
-      ct3_plat1_TCAAAACTTGAGGGTCCCCA     -0.79971470 -1.219865301
-      ct2_plat1_TCAACACTTGAGGGTCCCCA     -0.84307443  0.847208532
-      ct1_plat1_TCAACAACTTAAAGGGTTCCCCAA  1.08157095 -0.463061638
-      ct1_plat1_TCAACCACTTAAAGGGTTCCCCAA  0.57352453  0.252656447
-      ct3_plat1_TCAACGACTTAAAGGGTTCCCCAA -0.88984426 -0.755152904
-      ct2_plat1_TCAACTACTTAAAGGGTTCCCCAA -0.31932306  1.182947543
-      ct3_plat1_TCAACAACTTACAGGGTTCCCCAA -0.61352577 -1.096416227
-      ct2_plat1_TCAACCACTTACAGGGTTCCCCAA -0.03482147  1.031008132
-      ct2_plat1_TCAACGACTTACAGGGTTCCCCAA -0.47184864  1.361665823
-      ct2_plat1_TCAACTACTTACAGGGTTCCCCAA -0.73486402  0.425752850
-      ct2_plat1_TCAACAACTTAGAGGGTTCCCCAA -0.34331884  1.315009981
-      ct3_plat1_TCAACCACTTAGAGGGTTCCCCAA -0.37592770 -0.539678254
-      ct1_plat1_TCAAGAACTTAAAGGGTTCCCCAA  0.88538559 -0.278845982
-      ct1_plat1_TCAAGCACTTAAAGGGTTCCCCAA  1.18285317 -0.040068471
-      ct2_plat1_TCAAGGACTTAAAGGGTTCCCCAA -0.78014686  1.263729895
-      ct1_plat1_TCAAGTACTTAAAGGGTTCCCCAA  1.07787765 -0.427002433
-      ct3_plat1_TCAAGAACTTACAGGGTTCCCCAA -0.95215145 -0.861115683
-      ct1_plat1_TCAAGCACTTACAGGGTTCCCCAA  0.73339921 -0.074767140
-      ct1_plat1_TCAAGGACTTACAGGGTTCCCCAA  0.77387731  0.269496168
-      ct1_plat1_TCAAGTACTTACAGGGTTCCCCAA  1.06950742 -0.226109393
-      ct2_plat1_TCAAGAACTTAGAGGGTTCCCCAA -0.36443921  1.079897995
-      ct3_plat1_TCAAGCACTTAGAGGGTTCCCCAA -0.36747551 -0.423062945
-      ct1_plat1_TCAATAACTTAAAGGGTTCCCCAA  0.70757046 -0.107700032
-      ct2_plat1_TCAATCACTTAAAGGGTTCCCCAA -0.17456189  1.017381877
-      ct3_plat1_TCAATGACTTAAAGGGTTCCCCAA -0.81327490 -0.524381685
-      ct2_plat1_TCAATTACTTAAAGGGTTCCCCAA -0.75439558  1.215012342
-      ct2_plat1_TCAATAACTTACAGGGTTCCCCAA -0.32236546  0.399962320
-      ct2_plat1_TCAATCACTTACAGGGTTCCCCAA -0.14578700  0.802363719
-      ct3_plat1_TCAATGACTTACAGGGTTCCCCAA -0.77697015 -0.888575332
-      ct2_plat1_TCAATTACTTACAGGGTTCCCCAA -0.40290587  0.863314285
-      ct2_plat1_TCAATAACTTAGAGGGTTCCCCAA -0.25632522  1.102471147
-      ct3_plat1_TCAATCACTTAGAGGGTTCCCCAA -0.46613592 -0.851603916
-      ct3_plat1_TCAAAAACTTCAAGGGTTCCCCAA -0.77042431 -1.229239705
-      ct1_plat1_TCAAACACTTCAAGGGTTCCCCAA  1.49559321 -0.008709445
-      ct2_plat1_TCAAAGACTTCAAGGGTTCCCCAA -0.33616745  1.154543795
-      ct1_plat1_TCAAATACTTCAAGGGTTCCCCAA  0.59174068  0.096160343
-      ct2_plat1_TCAAAAACTTCCAGGGTTCCCCAA -0.42068203  1.141257998
-      ct1_plat1_TCAAACACTTCCAGGGTTCCCCAA  0.67549395  0.146795060
-      ct1_plat1_TCAAAGACTTCCAGGGTTCCCCAA  0.77150848 -0.331803749
-      ct1_plat1_TCAAATACTTCCAGGGTTCCCCAA  1.14764607 -0.212515530
-      ct2_plat1_TCAAAAACTTCGAGGGTTCCCCAA -0.48124774  0.978915399
-      ct1_plat1_TCAAACACTTCGAGGGTTCCCCAA  1.08950512 -0.253070857
-      ct2_plat1_TCAACAACTTCAAGGGTTCCCCAA -0.70923819  0.869661416
-      ct2_plat1_TCAACCACTTCAAGGGTTCCCCAA -0.62294702  1.098756569
-      ct2_plat1_TCAACGACTTCAAGGGTTCCCCAA -0.37649915  0.706804100
-      ct2_plat1_TCAACTACTTCAAGGGTTCCCCAA -0.11728913  0.993047440
-      ct1_plat1_TCAACAACTTCCAGGGTTCCCCAA  0.98833529 -0.010405353
-      ct1_plat1_TCAACCACTTCCAGGGTTCCCCAA  1.35292463  0.334808641
-      ct2_plat1_TCAACGACTTCCAGGGTTCCCCAA -0.80372004  0.473425921
-      ct3_plat1_TCAACTACTTCCAGGGTTCCCCAA -0.90688477 -0.717079396
-      ct1_plat1_TCAACAACTTCGAGGGTTCCCCAA  1.17866600 -0.212906497
-      ct2_plat1_TCAACCACTTCGAGGGTTCCCCAA -0.62900381  1.198740640
-      ct2_plat1_TCAAGAACTTCAAGGGTTCCCCAA -0.56368734  1.037251343
-      ct1_plat1_TCAAGCACTTCAAGGGTTCCCCAA  0.64842949 -0.322403496
-      ct2_plat1_TCAAGGACTTCAAGGGTTCCCCAA -0.97565520  0.939209519
-      ct2_plat1_TCAAGTACTTCAAGGGTTCCCCAA -0.84476728  1.177591309
-      ct3_plat1_TCAAGAACTTCCAGGGTTCCCCAA -0.30295006 -1.173682582
-      ct2_plat1_TCAAGCACTTCCAGGGTTCCCCAA -0.44045433  1.039943979
-      ct3_plat1_TCAAGGACTTCCAGGGTTCCCCAA -0.43558258 -1.018723492
-      ct2_plat1_TCAAGTACTTCCAGGGTTCCCCAA -0.52339921  1.217100273
-      ct3_plat1_TCAAGAACTTCGAGGGTTCCCCAA -0.63788189 -0.961340725
-      ct3_plat1_TCAAGCACTTCGAGGGTTCCCCAA -0.35734775 -0.903114499
-      ct2_plat1_TCAATAACTTCAAGGGTTCCCCAA -0.83150294  1.053691394
-      ct3_plat1_TCAATCACTTCAAGGGTTCCCCAA -0.60306256 -0.954148821
-      ct1_plat1_TCAATGACTTCAAGGGTTCCCCAA  0.60434458 -0.212289995
-      ct3_plat1_TCAATTACTTCAAGGGTTCCCCAA -0.70554634 -0.559445670
-      ct1_plat1_TCAATAACTTCCAGGGTTCCCCAA  1.24555720 -0.176825903
-      ct2_plat1_TCAATCACTTCCAGGGTTCCCCAA -0.28738269  0.980954131
-      ct3_plat1_TCAATGACTTCCAGGGTTCCCCAA -0.61267430 -0.423312755
-      ct1_plat1_TCAATTACTTCCAGGGTTCCCCAA  1.00090148  0.051504596
-      ct2_plat1_TCAATAACTTCGAGGGTTCCCCAA -0.68401276  1.199331128
-      ct1_plat1_TCAATCACTTCGAGGGTTCCCCAA  1.29544042  0.180742344
-      ct1_plat1_TCAAAAACTTGAAGGGTTCCCCAA  1.36618878 -0.067164530
-      ct1_plat1_TCAAACACTTGAAGGGTTCCCCAA  1.15748056  0.299385472
-      ct1_plat1_TCAAAGACTTGAAGGGTTCCCCAA  1.08735085  0.435586683
-      ct1_plat1_TCAAATACTTGAAGGGTTCCCCAA  1.32058987  0.339609990
-      ct3_plat1_TCAAAAACTTGCAGGGTTCCCCAA -0.47577910 -0.897382818
-      ct3_plat1_TCAAACACTTGCAGGGTTCCCCAA -0.57740019 -0.549452549
-      ct2_plat1_TCAAAGACTTGCAGGGTTCCCCAA -0.38996896  1.023724412
-      ct2_plat1_TCAAATACTTGCAGGGTTCCCCAA -0.76132987  0.591617531
-      ct3_plat1_TCAAAAACTTGGAGGGTTCCCCAA -0.19225713 -1.156926166
-      ct1_plat1_TCAAACACTTGGAGGGTTCCCCAA  0.90477239  0.119871881
-      ct2_plat1_TCAACAACTTGAAGGGTTCCCCAA -0.09579269  1.096560996
+      ct3_plat1_TCAACACTTAAGGGTCCCCA     -0.68509499 -1.223305023
+      ct1_plat1_TCAAGACTTAAGGGTCCCCA      0.67795382 -0.281239084
+      ct2_plat1_TCAATACTTAAGGGTCCCCA     -0.37328407  0.597489127
+      ct2_plat1_TCAAAACTTCAGGGTCCCCA     -0.68203815  0.799629046
+      ct1_plat1_TCAACACTTCAGGGTCCCCA      0.66106757 -0.161626795
+      ct1_plat1_TCAAGACTTCAGGGTCCCCA      0.69313978 -0.302388021
+      ct3_plat1_TCAATACTTCAGGGTCCCCA     -0.41888180 -1.239794053
+      ct3_plat1_TCAAAACTTGAGGGTCCCCA     -0.19471739 -0.637317014
+      ct2_plat1_TCAACACTTGAGGGTCCCCA     -0.26952437  1.216889636
+      ct3_plat1_TCAACAACTTAAAGGGTTCCCCAA -0.23142878 -1.053755757
+      ct1_plat1_TCAACCACTTAAAGGGTTCCCCAA  0.55688695  0.081807981
+      ct1_plat1_TCAACGACTTAAAGGGTTCCCCAA  1.34348085  0.195638868
+      ct2_plat1_TCAACTACTTAAAGGGTTCCCCAA -0.70309648  0.818095359
+      ct3_plat1_TCAACAACTTACAGGGTTCCCCAA -0.10509817 -1.164241571
+      ct3_plat1_TCAACCACTTACAGGGTTCCCCAA -0.07995996 -1.109017068
+      ct3_plat1_TCAACGACTTACAGGGTTCCCCAA -0.33294150 -0.525822661
+      ct2_plat1_TCAACTACTTACAGGGTTCCCCAA -0.78865230  1.181963421
+      ct1_plat1_TCAACAACTTAGAGGGTTCCCCAA  1.45899079  0.073635298
+      ct3_plat1_TCAACCACTTAGAGGGTTCCCCAA -0.80610627 -1.221053406
+      ct3_plat1_TCAAGAACTTAAAGGGTTCCCCAA -0.36810789 -1.289584098
+      ct2_plat1_TCAAGCACTTAAAGGGTTCCCCAA -0.66572130  0.985923898
+      ct3_plat1_TCAAGGACTTAAAGGGTTCCCCAA -0.14623024 -1.198736146
+      ct3_plat1_TCAAGTACTTAAAGGGTTCCCCAA -0.94768844 -0.708314251
+      ct3_plat1_TCAAGAACTTACAGGGTTCCCCAA -0.29033802 -0.991395435
+      ct1_plat1_TCAAGCACTTACAGGGTTCCCCAA  1.46416830 -0.082028471
+      ct2_plat1_TCAAGGACTTACAGGGTTCCCCAA -0.08616565  0.774677170
+      ct3_plat1_TCAAGTACTTACAGGGTTCCCCAA -0.92928701 -0.893643940
+      ct2_plat1_TCAAGAACTTAGAGGGTTCCCCAA -0.55360629  1.202163030
+      ct1_plat1_TCAAGCACTTAGAGGGTTCCCCAA  0.97925853  0.477224040
+      ct3_plat1_TCAATAACTTAAAGGGTTCCCCAA -0.75704872 -0.699431303
+      ct3_plat1_TCAATCACTTAAAGGGTTCCCCAA -0.26392566 -0.548687024
+      ct2_plat1_TCAATGACTTAAAGGGTTCCCCAA -0.62845369  0.574076809
+      ct2_plat1_TCAATTACTTAAAGGGTTCCCCAA -0.61961613  0.551542273
+      ct3_plat1_TCAATAACTTACAGGGTTCCCCAA -0.89228992 -0.574629687
+      ct1_plat1_TCAATCACTTACAGGGTTCCCCAA  0.89340479 -0.346228457
+      ct1_plat1_TCAATGACTTACAGGGTTCCCCAA  1.30810120 -0.309357729
+      ct2_plat1_TCAATTACTTACAGGGTTCCCCAA -0.10688949  0.957073426
+      ct3_plat1_TCAATAACTTAGAGGGTTCCCCAA -0.16213009 -1.084485601
+      ct1_plat1_TCAATCACTTAGAGGGTTCCCCAA  1.06442756  0.336827060
+      ct1_plat1_TCAAAAACTTCAAGGGTTCCCCAA  1.32141149 -0.196491653
+      ct2_plat1_TCAAACACTTCAAGGGTTCCCCAA -0.51131860  1.364964661
+      ct2_plat1_TCAAAGACTTCAAGGGTTCCCCAA -0.44317276  1.206405671
+      ct3_plat1_TCAAATACTTCAAGGGTTCCCCAA -0.88404455 -0.989660322
+      ct1_plat1_TCAAAAACTTCCAGGGTTCCCCAA  0.70357953  0.060416604
+      ct1_plat1_TCAAACACTTCCAGGGTTCCCCAA  1.14563942 -0.150120078
+      ct1_plat1_TCAAAGACTTCCAGGGTTCCCCAA  0.87338000  0.478919590
+      ct1_plat1_TCAAATACTTCCAGGGTTCCCCAA  0.88222559  0.145576662
+      ct2_plat1_TCAAAAACTTCGAGGGTTCCCCAA -0.77840321  1.053723579
+      ct3_plat1_TCAAACACTTCGAGGGTTCCCCAA -0.06047082 -0.753926891
+      ct2_plat1_TCAACAACTTCAAGGGTTCCCCAA -0.58593814  0.595568229
+      ct2_plat1_TCAACCACTTCAAGGGTTCCCCAA -0.83330137  0.840805156
+      ct1_plat1_TCAACGACTTCAAGGGTTCCCCAA  1.14529306  0.457283724
+      ct1_plat1_TCAACTACTTCAAGGGTTCCCCAA  1.01755889  0.345974126
+      ct2_plat1_TCAACAACTTCCAGGGTTCCCCAA -0.41899921  0.718859683
+      ct3_plat1_TCAACCACTTCCAGGGTTCCCCAA -0.52437019 -1.185620909
+      ct1_plat1_TCAACGACTTCCAGGGTTCCCCAA  1.14856198  0.425721347
+      ct1_plat1_TCAACTACTTCCAGGGTTCCCCAA  0.87651796  0.271568851
+      ct3_plat1_TCAACAACTTCGAGGGTTCCCCAA -0.37261056 -1.334513722
+      ct1_plat1_TCAACCACTTCGAGGGTTCCCCAA  0.79629500 -0.447862743
+      ct2_plat1_TCAAGAACTTCAAGGGTTCCCCAA -0.26599353  0.789847344
+      ct2_plat1_TCAAGCACTTCAAGGGTTCCCCAA -0.01445210  0.768457385
+      ct1_plat1_TCAAGGACTTCAAGGGTTCCCCAA  0.68407896  0.225554109
+      ct1_plat1_TCAAGTACTTCAAGGGTTCCCCAA  0.68239713  0.102069958
+      ct3_plat1_TCAAGAACTTCCAGGGTTCCCCAA -0.51383288 -0.583169143
+      ct2_plat1_TCAAGCACTTCCAGGGTTCCCCAA -0.81792326  0.785395918
+      ct1_plat1_TCAAGGACTTCCAGGGTTCCCCAA  1.12385992  0.322339307
+      ct2_plat1_TCAAGTACTTCCAGGGTTCCCCAA -0.20182292  1.254614863
+      ct2_plat1_TCAAGAACTTCGAGGGTTCCCCAA -0.52278076  1.255912782
+      ct2_plat1_TCAAGCACTTCGAGGGTTCCCCAA -0.62840403  0.877396901
+      ct1_plat1_TCAATAACTTCAAGGGTTCCCCAA  0.91771287  0.006961283
+      ct3_plat1_TCAATCACTTCAAGGGTTCCCCAA -0.62545004 -0.597419837
+      ct1_plat1_TCAATGACTTCAAGGGTTCCCCAA  0.58498997 -0.057413888
+      ct2_plat1_TCAATTACTTCAAGGGTTCCCCAA -0.34123689  1.104777584
+      ct1_plat1_TCAATAACTTCCAGGGTTCCCCAA  1.19622695  0.303621554
+      ct1_plat1_TCAATCACTTCCAGGGTTCCCCAA  0.91949795  0.479523390
+      ct2_plat1_TCAATGACTTCCAGGGTTCCCCAA -0.56842980  0.372445899
+      ct1_plat1_TCAATTACTTCCAGGGTTCCCCAA  0.90734585  0.146762610
+      ct1_plat1_TCAATAACTTCGAGGGTTCCCCAA  0.90965551  0.058904363
+      ct1_plat1_TCAATCACTTCGAGGGTTCCCCAA  0.87949988  0.373197646
+      ct1_plat1_TCAAAAACTTGAAGGGTTCCCCAA  0.84494666 -0.262890058
+      ct3_plat1_TCAAACACTTGAAGGGTTCCCCAA -0.70041065 -0.952047232
+      ct1_plat1_TCAAAGACTTGAAGGGTTCCCCAA  0.93661132 -0.020410925
+      ct3_plat1_TCAAATACTTGAAGGGTTCCCCAA -0.14130561 -0.636255958
+      ct3_plat1_TCAAAAACTTGCAGGGTTCCCCAA -0.22320613 -0.832182496
+      ct1_plat1_TCAAACACTTGCAGGGTTCCCCAA  1.34899102 -0.126657355
+      ct1_plat1_TCAAAGACTTGCAGGGTTCCCCAA  0.64458941  0.036142047
+      ct1_plat1_TCAAATACTTGCAGGGTTCCCCAA  0.77722520 -0.236648579
+      ct3_plat1_TCAAAAACTTGGAGGGTTCCCCAA -0.38179649 -1.278343864
+      ct3_plat1_TCAAACACTTGGAGGGTTCCCCAA -0.38202795 -0.425236472
+      ct3_plat1_TCAACAACTTGAAGGGTTCCCCAA -0.88274353 -0.886401491
       
       Slot "counts":
       500 x 90 sparse Matrix of class "dgCMatrix"
@@ -830,4652 +725,4652 @@
         [[ suppressing 90 column names 'ct3_plat1_TCAACACTTAAGGGTCCCCA', 'ct1_plat1_TCAAGACTTAAGGGTCCCCA', 'ct2_plat1_TCAATACTTAAGGGTCCCCA' ... ]]
     Output
                                                                                    
-      Gene1     81   56   63   38   26   49   47   35   37   20   47   25   58   63
-      Gene2     34   28    9   28   16   17   11   25   12   24   26   21   16   36
-      Gene3   1245  497  626  534  484  799  636 1172  401  442  702 1051  602 1195
-      Gene4    267   53   76  123   35  126   61  252   56   34   48  224   70  227
-      Gene5     11    2    7    8    1    7    4    3    3    .    2    2    8    4
-      Gene6     68   49   71   54   30   45   41   62   84   59   45   85  100   81
-      Gene7     84  101  117   66   81   69   79   68   62  103   81   62   57  105
-      Gene8    104   75  180   89   85   47   51   55  140   65   46   60   66   94
-      Gene9     62   40   40   56   37   85   53   84   58   66   53  100   42  137
-      Gene10    16    .   14    9    2    5   11    4    3    3    6   10    9    4
-      Gene11    21   15   35   37   39   26   25   18   38   27   25   27   47   22
-      Gene12    41   17   62   24   20   56   21   40   18   14   35   34   22   37
-      Gene13    81   61   91   62   46   72   79   87   41   38   45   86   63   75
-      Gene14     9    4   16   18    4   11    4   10   28    1   14   15   10   21
-      Gene15   249  155  191  204   87  170  152  103  149  114  171  184  215  260
-      Gene16    49   24   32   14    7   14    8   19   17   11   11   45   21   35
-      Gene17    30   12   22   29   14   11   29   36   14   22   34   23   25   51
-      Gene18    22   21   31    8   14   37    9   26   21   21   28   13   27   14
-      Gene19    41   33   37   21   20   39   24   29   26   20   35   16   25   40
-      Gene20     .    .    .    1    .    1    .    .    .    .    .    .    .    .
-      Gene21     6    .    2    1    4    1    .    2    3    .    3    2    2   18
-      Gene22   162   94  225  262  112  136   86  125  139   77  116  109  221  166
-      Gene23  2126 1940 2512 2071 1353 2116 1822 2003 1681 1423 1898 2193 1955 3284
-      Gene24     3   20   17   23    7   13    9   14   29    6   16    2   14   14
-      Gene25    28   26   57   28   21   26   26   20   26   25   35   18   24   35
-      Gene26    55   21   36   46   39   47   37   54   26   16   29   26   26   44
-      Gene27     .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene28    15   17   30   19   28   34   25   14   30   21   25   27   31   29
-      Gene29    37   58  254  201   33  107   58   56  182   32   67   34  141   61
-      Gene30   125  137  136  135   86  124  100   67  122   90  134   77  184  136
-      Gene31  2051 1967 2114 2143 1292 2465 2151 1433 1865 1616 2457 1737 2489 2060
-      Gene32    62   20   40   77   35   67   22  102   49   35   40   92   51  138
-      Gene33    10   28   49   19   22   33   29   30   16   37   25   14   22   43
-      Gene34    60   41   50   43   15   24   16   58   37   25   26   53   37   57
-      Gene35   545  670  701  587  502 1162  604  646  607  602  854  661  716  592
-      Gene36     5    2    4    6    2    3    5   12    2    7    2    7    6    7
-      Gene37    23    7    4    4   17   55   26   20   12   19    5    7    9   15
-      Gene38    15    9   14    8    7   17   16    9   21    7   20    8    9   15
-      Gene39   426  399  523  491  423  415  404  660  408  279  442  448  643  614
-      Gene40     7    3    4    .    .    5    2    5    1    2    9    4    .    8
-      Gene41    26   27   71   72   35   37   28   46   69    7   27   41  113   56
-      Gene42     8    4    8   18    8   18   10    .    5    9    1    5    9    7
-      Gene43    15    7   18    8   10    7   13   11   15   14   11    8   12   18
-      Gene44    19   17   15   23    4   19   12   48   19    6   11   20   22   19
-      Gene45   113  118  186   99   94  117   88  103  137   99  111   88  163  173
-      Gene46  2994 1797 2762 2188 1539 2580 1835 2394 1940 1653 2208 2547 2190 3115
-      Gene47     .    6   13   13    3   13    3    8    2    2    .    6    2    4
-      Gene48    48   50   93   70   31   57   33   87   57   26   31   41   63   42
-      Gene49    30   13   29   11   24   48   36   33   25   19   23    9   24   31
-      Gene50     5    .    1    .    .    4    1    .    .    .    2    1    .    .
-      Gene51    11   17   55   37   20   10    8   13   42   15   26   17   33   17
-      Gene52     .    3    1    2    2    3    .    2    3    1    3    .    2    4
-      Gene53    51   28   32   37   20   22   70   30   23   15   24   40   31   36
-      Gene54    61   58   71   52   20   37   41   49   36   45   14   54   73   40
-      Gene55     4    .    6    2    2    3    .    5    .    2    7    2    3   22
-      Gene56     6    8    1    6    2    3    7    6    2    4    3    6    3    6
-      Gene57    92   32   82   50   45   51   35   68   35   40   59   36   72  105
-      Gene58    44   26   44   42   36   23   30   37   50   25   40   28   57   36
-      Gene59    16   20   32   18    9   16   17   13   19   12   18    2   17   15
-      Gene60     2    .    1    .    2    2    .    4    .    .    5    4    .    1
-      Gene61     .    .    1    .    .    .    .    .    .    .    .    .    1    .
-      Gene62    51   16   61   35   14   29   14   48   35   14   26   54   49   53
-      Gene63   229  101  163  134  115  271  119  133  121  116  185   84  165  107
-      Gene64   214  121  265  254  185  191  231  236  219  177  261  307  248  257
-      Gene65    54   48   24   43   41   78   49   43   18   62   80   73   38  103
-      Gene66   100   51  164   53   59  103   65  107   52   39  126   77   56   78
-      Gene67   660  265  388  204  250  449  185  582  234  179  275  485  302  689
-      Gene68     .    5    2    2    1    5    4    4    5    9    6    1    7    3
-      Gene69     5   10    4    2    1    9    2    1    5    4    1    6    3    5
-      Gene70   137   65  129   80   47   87   68  162  108   53   47  153   93  140
-      Gene71    72   34   38   26   51   41   22   42   38   19   46   55   41   65
-      Gene72    21   12   18    8    9   12    8   14   19    6    5   29   15    8
-      Gene73     1    1    6    4    1    .    .    4    1    1    .    2    .    3
-      Gene74   938 1270 1606 1502 1091 1292 1133  755 1487 1096 1437 1108 2052 1266
-      Gene75    33   16   17   28   12   24    7   26   21   18   32   35   38   22
-      Gene76    42   25   48   25   34   43   18   35   39   12   46   48   39   59
-      Gene77    66   26   53   64   21   36   28   70   33   18   33   75   73   42
-      Gene78   132  130  216  203   89   94   65  129  224   66  102  153  226  138
-      Gene79   852  561 1072  663  540  774  579  710  724  733  454  718  705 1022
-      Gene80    48   53  108   91   67   37   34   65   45   30   42   52   63  106
-      Gene81    17   17   19   15    4   20   14   29   13    7   13   29   14   33
-      Gene82     .    .    7    1    8    .    .    .    8    .    1    .    .    3
-      Gene83    52   44   85  113   24  105   64   49   57   73   58   72  106   96
-      Gene84    68   31   24   32   44   58   22   66   13   26   23   82   23   95
-      Gene85   925  378  870  771  621  901  446  647  974  597  504  751  755 1174
-      Gene86     .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene87    70   15   28   56   27   18   41   28   43   42   43   50   17   47
-      Gene88   206  106  157  129   93  109  146  121  115  107  129  160  136  184
-      Gene89    47   17   26   12   10   26   10   17   17   22   26   18   16   22
-      Gene90   214  171  241  184  129  207  138  270  174  126  163  147  191  201
-      Gene91    82   15   43   47   30   22   24   76   48   30   23   63   66   70
-      Gene92    20    7   16   13   11   17    3   30    8   10    4   19   17   14
-      Gene93    13   17   27   34    7   33   19   12   30   10   17   32   41   28
-      Gene94   146   46   93   53   19   38   39  148   36   10   29  154   29  144
-      Gene95    21   20    5    1    8   17   24   10    1    7    9    6   11   11
-      Gene96     1    .    3    1    .    .    .    1    5    1    1    .    .    1
-      Gene97     5   11    9    4    1    3    3   12    7    4    1    4   10    6
-      Gene98     6    4    7    6    .    2    6    1   16    5    2    1    .    4
-      Gene99     1    3    3    .    2    6    6    5    1    4    2    .    3    2
-      Gene100  152   77  101   90   51   97   79  145  114   35   45  121  127  127
-      Gene101    5    8    8    8   12    8   16   16   19   12    8   10   18   16
-      Gene102  130   52   67   40   43   43   33  113   76   32   21   84   77  162
-      Gene103   26   22   39   57   21   31   43   23   34   18   19   12   61   22
-      Gene104    1    .    .    1    1    .    2    .    7    .    .    .    .    .
-      Gene105   19   10    5   14    8   12   16   28    8    9   14    6    4   14
-      Gene106   45   25   43   60   33   23   51   26   14   46   40   66   31   47
-      Gene107 2668  757 3262 2974  893  938  919 2362 2106  782  756 2219 1921 3206
-      Gene108    2    .    4    4    .    9    2    2    3    4    1    .   17    4
-      Gene109  265  123  251  350  136  141   96  205  255   85  164  186  306  371
-      Gene110  140  102  140  153   77  136  128  175  108   87   89  136  107  188
-      Gene111  202  456  435  392  206  424  334  191  210  288  329  190  367  211
-      Gene112    4    5    8    3    5    4    3    5    1    7    2    1    7    5
-      Gene113   31   31   33   17   38   51   36   34   29   21   68   45   26   43
-      Gene114    6    9    7   13   14   11   10   12   12   11    6    9    3   21
-      Gene115   54   17   20   29   13   14    6   36   18   12    8   19   20   18
-      Gene116   82   34   53   18   38   49   37  103   43   18   56   66   46   80
-      Gene117  695  498  809  749  703 1133  829  780  532  582  641  873  637 1031
-      Gene118    6    4    6    2    8    8    6    3    5    2    1    8    7    5
-      Gene119    8    2    .    2    6    5    6    3    5    4    2    5    2    5
-      Gene120   49   18   27   30    8   30    9   27   22   16    9   22    5   45
-      Gene121    9    5   11   11   18   10   11    1    3    3    9    2    6    1
-      Gene122   54   31   23   30   10   34   23   22   23   29   20   31   43   28
-      Gene123 2841 1440  974  886 1515 1717 1197 2635 1016 1165 1384 2029 1019 3658
-      Gene124   56   30   16   53   41   41   51   32   26   27   49   57   35   58
-      Gene125 1152 1873 2438 1934 1415 1955 1555 1078 1720 1412 1519 1173 2397 1590
-      Gene126   77   37   78   33   37   53   53   34   58   24   65   41   32   46
-      Gene127  168  118   75   76   78  126  154  142  110   80  139  114   59  214
-      Gene128    3    8    9    2   10   12    7   13    2    6    2    2    5   11
-      Gene129  200   95  188  119   69  161   63  157  167   88  125  143  113  186
-      Gene130   93   68   42   60   23   62   27   57   53   43   26   54   28   75
-      Gene131   30   27   39   35   13   47   24   22   12   24   41   36   24   53
-      Gene132   47    9   35   23   14   28   21   30   29   16   20   23   10   35
-      Gene133    5    5   10    9    5    3    5    3    4    .    2    5    6    6
-      Gene134   23   15   22    6   16   13   12   17   18    6   10   12   31   19
-      Gene135   27    8   14   17   19   28   16   12    5   16   23   14    7   14
-      Gene136  153  101  183  101   96   92  123  175  114  122  105  142  149  259
-      Gene137    4   34   17   11   11   15    9   13   15   11   15    9   15   15
-      Gene138   33   36   38   19   15   39   32   49   11   38   24   36   29   45
-      Gene139   26   21   30   17   19   24    7   17   25   15   22   15   32   34
-      Gene140   12    5   21    4    6    7   14   13   19    9   14   10    5    9
-      Gene141   10    8   21   17   12   15   17   13   14   27    3   17   25   14
-      Gene142  217  167  180  203   88  215  226  154  104  134  194  157  175  193
-      Gene143    1    1    8    3    2    4    5    6    3    2    3    1    2    8
-      Gene144    6    1   11    4    1    6    5   10   15   11    4    3   12    4
-      Gene145   27   33   87  174   34   42   36   29   72   38   40   42  160   34
-      Gene146  159  409  241  110  265  440  303  123   91  276  308  170  122  153
-      Gene147   73   55   81   53   68   34  108   74   93   50   89   46   90  102
-      Gene148  256  126  126  177  103  107   90  170  118   53   91  270  169  180
-      Gene149    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene150   16   11   16   19    4   15    9   11    1    2    6   17    7   18
-      Gene151  149  226  187  211  144  188  180  168   89   98  181  116  194  233
-      Gene152    8   15   22    6    8    2    2   12    5    1    6   18    8   17
-      Gene153    1    2   10    7    1    1    2    7    .    6    .    1    4    4
-      Gene154    1    .    .    .    1    .    1    3    1    .    .    1    .    1
-      Gene155   51   40   50   52    9   25   41   35   18   30   39   16   34   61
-      Gene156   28   40   55   47   56   57   19   19   79   48   25   25   57   57
-      Gene157    .    2    4    5    .    1    1    3    4    2    2    .    5    4
-      Gene158  105   40   83  115   75   96   70   93  142   63   57   89  118  110
-      Gene159   39   20   26   55   22   22   37   30   22   34   25   56   39   45
-      Gene160    5    5    9    9    2    4    8    5    1    3    9    4   11    5
-      Gene161   46   32   59   52   30   39   27   62   60   17   40   57   64   49
-      Gene162    1    .    1    2    .    .    .    .    1    .    1    .    1    .
-      Gene163   32   10   12   11    5    9   12   33   11    7   21   10   21   21
-      Gene164    7    5    6    6    2    4   10    6    3    7    2    8    3    4
-      Gene165   66  109  164  189   75  155   81  174   93   79   87   83  145  152
-      Gene166   58   56   38   38   51   57   52   36   42   32   44   49   61   60
-      Gene167   33   11   26   23    3   10   11   16    7    6    9   12   11   22
-      Gene168    1    .    5    8    5    2    .    9    .    4    1    1    .    7
-      Gene169    2    1    4   10    4    2    .    .    3    3    2    1    9    7
-      Gene170    .    1    .    .    .    .    .    .    1    .    .    .    .    .
-      Gene171  219  123  173  188  104  184  109  283  123  131  133  243  132  289
-      Gene172   12    7    7    4    5    9    5    6    2    7    1    .    3   22
-      Gene173   58   95   46   38   69   95   44   43   33   45   98   21   31   51
-      Gene174   68    4   34   26   11   26   18   91   18   17    7   22   19   78
-      Gene175    7    5    3    2    5    4    6   15    3    4    2    2    .    9
-      Gene176   18   11   13   13    7   31   27    8    3   17   10   12   15   26
-      Gene177 1937 2142 1349 1240 1627 2459 1403 1691 1108 1662 2092 1564 1043 2311
-      Gene178    1    3    .    9    .    3    .    1    2    1    1    .    2    7
-      Gene179   92  100   66   92   67   72   61   51   45   39   70   83   90   97
-      Gene180   44    7   31   37   33   40   20   33   27   32   29   21   37   52
-      Gene181    .    .    .    .    .    .    2    .    .    .    .    .    .    .
-      Gene182   57   76  154  214   56   66   98   62  122   83   69   91  198   86
-      Gene183   42   67   64   39   11   79   18   53   39   45   65   32   22   87
-      Gene184   80   45   46   59   58   60   57   50   46   60   54   68   47  102
-      Gene185   37   17   24   12    7   20    6   25    7   17   11   12   11   28
-      Gene186    9    8   26   18    3    5   14   12   28    8   13    4   25   10
-      Gene187  123   78   49   50   57   87   65   71   77   40   97  117   60   89
-      Gene188    9    5   10    9    6    5    5    2    .    2    8    .    5    8
-      Gene189   73   84  138  113   71  140   77   45  110   70  110   40   65   63
-      Gene190  548 1108 1705 1371  821 1111 1038  562  959  803 1153  386 1059  464
-      Gene191   23   29   22   33   23   38   25   21   29   10   41   40   13   38
-      Gene192    6    4    7    5   10    7    5    5    4    6    3   12    4    1
-      Gene193   28   10    9   13   13    3    7   20   14   14    4   26   10   28
-      Gene194   20   13   10   25   22   31    8   15    2    9   14   18   14   30
-      Gene195    5   10   14   20   13   28   20   10   11   15   29    4    8    8
-      Gene196  178  197  163  243  147  172  145  139  139  112  146  218  226  191
-      Gene197   18   17   30   30    7   33   19   12   50   13   31   11   40   21
-      Gene198  173   75  119  105  114  100  101  127   74   61   60  118   92  156
-      Gene199   37   24   36   54   16   32   15   33   28   16   16   31   49   30
-      Gene200   26   11   21   22   19   19   24   28   23   17   15   17   18   16
-      Gene201    3    3   19   16    5   14    6   18    5    9   12    5    4   10
-      Gene202 1244  622  886 1070  632 1000  663  703  895  706  909  782  921  835
-      Gene203   26   12   13   10   15   10   11   12   14   13   18   19   14   15
-      Gene204    .    .    .    .    .    1    .    1    .    1    .    .    3    .
-      Gene205   52   26   76  129   35   64   26   58   90   26   27   46  124   70
-      Gene206  160   64  105   95   78  137   74  173   90   56   85  139  122  322
-      Gene207   10   14   14   14    .    5    8   17   14   13    7    6   14    9
-      Gene208    2    5    7    2    2    1    2    3    2    4   13    1    1    9
-      Gene209  261  137  175  123  168  225  150  252  234  174  149  220  175  372
-      Gene210   79   72   67   56   36   49   55   43   30   41   46   58   50  100
-      Gene211    .    .    .    .    .    .    2    .    .    .    .    .    .    .
-      Gene212   52   24   13   17   15   12    8   16   12   12   17   32   17   40
-      Gene213    8   11    9   16    2    6    8   13    5   12   16   13   37   23
-      Gene214   46   56   41   31   54   73   29   27   27   33   50   10   28   47
-      Gene215    4    2    4    1    3    3    1   10   11    7    .   11    9    6
-      Gene216   55   38   17    9   11   22   14   50    9   10   30   53   25   42
-      Gene217   54   37  161   80   52   45   42   83   97   39   41   32   92  114
-      Gene218   53   55   51   59   68  104   41   61   55   44   72   45   44   70
-      Gene219    4    4    2    4    2    5    5    1    1    1    3    3    2    1
-      Gene220   96   41   53   48   54   67   60  123   83   73   71   62   80   84
-      Gene221   19   14   35   23    8   20   13   41   40   19   11   23   34   19
-      Gene222   27   14   33   11   28   17   26   11   29   26   27   28   23   35
-      Gene223  189  111   84   67  123  128  143  162   46   79   77   86   72  141
-      Gene224   33   26   34   27    9   28   20   62   14   13   13   34   21   75
-      Gene225   14    7    7    2    3    7    8   13   17    3   11    5    4   18
-      Gene226   49   23   17   13   12   31   23   26   16   21   18   43    8   30
-      Gene227    9   20   14   27   12   36   44   30   30   13    9   35   37   25
-      Gene228   67   45   53   63   35   60   30   53   58   53   43   46   37   57
-      Gene229   18   52   72   80   44   66   46   37   56   62   45   51   52   60
-      Gene230    3    3    2    1    5    4    .    2    5    7    1    1    4    4
-      Gene231    7    5    9    9    1    5    4    5   16    .    7    8   10   11
-      Gene232   81  101   94   83  105  136   97   87   74  104   90   68  112  140
-      Gene233   17   15   14   13   12    5   16   11   15    5    2   10    9   11
-      Gene234    1    2    7    4   13    4    7    6    3    6    3    1    9    8
-      Gene235   37   64   39   56   35   53   34   41   39   28   47   66   70   54
-      Gene236   19    5   34   33    8   29   16   17   24   13   19   32   11   42
-      Gene237   88   48  112  114   58   55   43  117   77   31   19   96   95  129
-      Gene238  169   76  176  124   77   89   89  122  163   81   92   84  117  178
-      Gene239   40   18   64   19   24   22   22   32   24   15   19   16   10   32
-      Gene240   14   13   11   11    4   11   11   17    6    6   12    9    7   23
-      Gene241   44   44   66   44   33   75   31   65   39   40   25   60   36  109
-      Gene242    .    .    .    .    .    .    3    1    .    .    1    8    .    2
-      Gene243  214  139  161  131   97  141  104  165  144   74   97  181  136  167
-      Gene244    1    1    9    9    3    2    2    3   12    5    3    1   10    3
-      Gene245   99  103  186  116   69  114   52  121  100   65   59  100  118  163
-      Gene246   40    6   16   11   12   14   25   20   15   14    5   21   13   17
-      Gene247   19    9   29   18   27   16   14   12    7   13   19   16   26   30
-      Gene248   41   17   23   10   11   24   16   34   12    8   26   37   17   39
-      Gene249    .    .    4    .    .    .    .    .    .    .    .    .    .    .
-      Gene250    6    4    .    4    7    1    1    .    4    5    2    4    1    .
-      Gene251   52   46   46   57   38   53   27   50   43   23   50   29   49   84
-      Gene252   30   44   38    6   19   34   29   10   12    6   31   33   25   49
-      Gene253  226  158  527  374  106  136  178  167  355   84  203  171  351  190
-      Gene254   92   51   68   37   31   86   51   57   39   71   88   46   68   87
-      Gene255  151   58   86   99   73   72   58  132   63   34   66  170   76  162
-      Gene256  137  108   92  105   67  144   72   82   86  118   75   90   94   72
-      Gene257   17   54   20   20   62   99   43   31    7   32   40   26   14   36
-      Gene258   15   15   17   13   13   18    8   17   19   18   10   13   11   22
-      Gene259    .    .    .    .    .    1    .    .    .    .    1    1    .    .
-      Gene260   64   35   86   71   33   50   64   46   78   36   64   85   76   67
-      Gene261  116    8   35   23   19   35    7   43   23   21   40   34   41   30
-      Gene262   10    2    7   14    2   13   11    9    8    9   11    5    3   11
-      Gene263   10   10   12    9   17   18   17   11    5   13   10   16   12   30
-      Gene264   84   36   16   15   42   37   33   36   25   16   17   65   15   75
-      Gene265   26   20   17   22    6   42   18   24   14   12   16   32   30   19
-      Gene266    4    2    5    1    5    .    .    .    1    3    3    1    1    1
-      Gene267   51   93   97   38   56   82   30   80   57   57   33   74   63   89
-      Gene268    8    7   18    4    .    .    4    8   13    6    2   37    6    9
-      Gene269   11    5   13    9    4   18   12    9   14   12    2    8   28    3
-      Gene270  206   83  240  184   85  103  123  247  217  135  128  126  116  243
-      Gene271 1428  734 1191  776  549 1105  853 1011 1077  796  830  923  972 1328
-      Gene272   40  116  144   89  114  184  110   47   69  108  195   67   86   74
-      Gene273    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene274    1    1    2    .    .    2    .    1    .    2    .    1    .    4
-      Gene275    3    1    .    1    7    2    5    1    1    4    .    1    2    7
-      Gene276   10    8    7   12   13    7   14    7    4    1    8   15   13   14
-      Gene277   48   28   27   35   25   21   25   37   26   19   30   54   19   58
-      Gene278   71   74   27   21   35   80   56   75    8   38   32   59   22   44
-      Gene279   49    9   29   32   25   51   27   36   37   19   31   22   21   51
-      Gene280   42   39   28   35   22   48   42   28   24   29   31   22   40   37
-      Gene281   17   22   17   14   23   20   36    8   11    8   14   21   34   14
-      Gene282    7    3    6   10    7    5   13   16    7    4    5    8    5   15
-      Gene283  385  168  355  259   99  213  170  483  395  111  143  347  335  458
-      Gene284    9   10   10   13    7    8    8   16    5    7   17   11    9   15
-      Gene285  215   99  272  226   99  186  103  177  133  107  198  204  221  274
-      Gene286  113   84  139   75   88   59  116   96   90   69   64  158  112  179
-      Gene287   26   16   31   23   20   27   41   38    9   19   17   55   49   35
-      Gene288    7   10    9    7    9    8   14   15   17   16    8   18   22   31
-      Gene289   76   90  104   90   65   84   56  126   73   47   82  107  124  123
-      Gene290   89   32   80   59   19   44   52   83   25   12   24   80   67   59
-      Gene291    2    3    4    6    6    4    6    3    1    3    5    6    6    9
-      Gene292 1169  787 1130 1255  654 1224  988 1096  852  595 1039 1021 1143 1383
-      Gene293   27   16    7   17   25   30   15   37    4   21   15   18   13   23
-      Gene294 1936 1511 2036 1620 1550 2041 1409 1592 1445 1116 1585 1824 1524 2099
-      Gene295   83   36   42   29   47   62   45   50   18   46   44   38   25   59
-      Gene296    1    2    5    8    .    4    7    1    3    2    4   12    1   17
-      Gene297   33   19   35   41   14   19   29   28   20   22   23   68   14   45
-      Gene298    8    .    5    1    .    2    .    .    3    2    2    1    3    5
-      Gene299   49   29  117  139   27   59   33   30   65   29   41   59   88   76
-      Gene300    2    4    4   11   10    8    5   19    7    8    8    8    5   13
-      Gene301 2677 2876 3560 3243 2560 3290 2722 2224 2160 2129 2683 2557 2992 3572
-      Gene302    1    .    4    .    1    .    .    .    3    .    2    .    .    3
-      Gene303   43   30   33   20   23   15   17   47   20    8   12   55   34   87
-      Gene304    1    1    .    .    .    .    3    .    2    1    1    .    .    .
-      Gene305   70   29   35   47   20   36   36   68   56   32   26   94   52  133
-      Gene306  223  118  130  172   85  130  155  236  189  129  108  215  149  318
-      Gene307   40   17   29   50   26   47   30   33   21   24   15   31   42   40
-      Gene308   30   13   17   17    9   24   13   17    3    9   10   32   34   49
-      Gene309  437  282  549  471  439  458  368  620  502  342  416  412  464  745
-      Gene310   62   31   87   56   24   32   40   68   29   30   56   38   30   69
-      Gene311    3    3    3    8    4   16   10   10   11    9   14   11    7    6
-      Gene312   42    6   21   24   20   27   21   28    5   18   33   21   26   49
-      Gene313  179  132  162   74   75  121   93  155   83  102  116  133  121  174
-      Gene314    2    2    4    5    4    4    2    6    3   14   11    2    .    2
-      Gene315    .    1    .    4    1    5    7    .    .    1    3    3    1    .
-      Gene316   11   25   10    7   10   23   16   23   22   10   22   14    6    8
-      Gene317    .    6    5   10    2    7    2    3    6    4    5    .    3    5
-      Gene318   14   28   16   23   15   18    8    9   11    7   10   13   21   31
-      Gene319   13    4   29   19    5   17   13    7   11   16    3   10   13   25
-      Gene320   92   40   69   27   28   71   11   52   29    9   36   63   63   37
-      Gene321   51   62   38   58   29   53   34   41   51   35   30   44   40   64
-      Gene322    6    2    3    2    3    9    5    2    5    .    .    5    1    2
-      Gene323  132   35  110  125   44   54   39  120  105   52   37   95  149  216
-      Gene324    .    .    .    .    .    .    .    .    1    .    .    .    .    .
-      Gene325  426  376  251  187  279  490  365  279  144  303  367  310  299  422
-      Gene326    1    1    1    .    7    1    .    1    8    1    1    1    3    3
-      Gene327  257  221  383  319  210  391  296  208  275  160  299  233  335  288
-      Gene328  239  115  177  202  116  161  123  220  166  156  159  187  205  221
-      Gene329  148   57  108   80   92   80   64   80   77   94   92   74  109  116
-      Gene330  336  244  402  260  187  261  216  299  259  154  236  273  486  333
-      Gene331    5   10   16   15    7   16    8    3    9    9   10    1   14    9
-      Gene332   41   18   32   32   17   22   22   26   30   23   11   21   11   24
-      Gene333   26   19   25   15   15   23    9   22   19   31   23   21   46   22
-      Gene334    1    3    3    .    .    1    1    3    3    .    2    7    2    .
-      Gene335   20   14   18   12   13    9    6   16   14    8    9    3   19   15
-      Gene336  164   76  117  146   58   83   70  129  118  138  123  151  155  177
-      Gene337   31   23   22   20    9   49    9   21   28   15   23   13   32   29
-      Gene338   19    5    3   12   11    5    9    8    2    4    5    4    4    5
-      Gene339   60   74   58   99   64   46   62   47   59   35   66   71   57   58
-      Gene340   51   37  142   91   29   36   31   35   70   26    9   56   95   56
-      Gene341   21    8   13   12    9    6    3    9   21    6    6   10   11   10
-      Gene342   70   41  102   70   49   42   36   56   46   43   44   28   64   51
-      Gene343   10    2    .    9    3    4    .    2    2    .    1    7    .    .
-      Gene344   43   10   64   47   17   20   18   16   20    7   10   25   31   33
-      Gene345   41   13   42   57   47   49   42   31   48   60   29   31   53   48
-      Gene346    .    .    2    3    .    1    .    .    1    1    .    .    .    3
-      Gene347   35   13   20   10   31   20   14   25   13   11   15   32   32   22
-      Gene348   14    9    3   12    6    5    .   17    8    4   10   14   12   10
-      Gene349  101   86  133  133   86  109  109  239  124   56   74  102   73  143
-      Gene350    3    2    9    4    .    6   11    2    1    9    2    1    1    8
-      Gene351   40   20   31   19   33   11   14   41   30    9   18   34   27   44
-      Gene352    4   20    1    6   11    4    3    8    5   11    .    8    3    5
-      Gene353    6    .    .    .    3    .    .    .    1    .    1    .   11    .
-      Gene354  245  172  260  210  168  220  142  246  192  155  203  194  203  353
-      Gene355   14   26   22   30   18   35   20    7   24   21   14    7   13   24
-      Gene356   73   78   65   51   45  115   86   90   70   76   62   92   73   86
-      Gene357   15   33   26   20   16   18   12   14   12   22   12   15   16   21
-      Gene358   33    6   38   40   14   26   28   15   46   23   23   18   72   35
-      Gene359    .    1    .    1    .    1    .    1    3    1    2    1    1    4
-      Gene360    3    2    5   19    3    7    1    .    5    4    6    3    8    2
-      Gene361    3    4    9    3    6   13    .    2   15   12    2    4   16    4
-      Gene362   24    3   40   20   15   35   12   20   25    9   14   20   34   32
-      Gene363   25   22   20    6   15   18   28   22   31   13   12   18   14   35
-      Gene364   16   16   20   19   17   20   23   22    5   32   40   10   21   25
-      Gene365  157   30   73   36   35   47   53   82   60   49   42   80   59  122
-      Gene366  233  297  156  163  341  291  335  260  101  303  294  119  111  301
-      Gene367   67   56   61   55   35   65   32   60   48   53   54   43   51   84
-      Gene368    7    1   13    8    4    5    2    3    3   11    3    5    3    7
-      Gene369    .    2    5    4    6   11    3    8    7    6    9    8    4    9
-      Gene370  187  138  419  364  149  209  113  202  279  114  166  224  227  202
-      Gene371   37    9   20    4   12    3    9   23   12    3    9    7    7   14
-      Gene372  168  112  170  127  123  110  103  130  130   94   93  144  115  200
-      Gene373   21   24   28    7    7   29   26   11   13   20   27   37   22   25
-      Gene374  103   47  158  116   61   94   76  122  128   43   62   73  148   96
-      Gene375   19   21   31   29   17   35   38   23   22   28   32   39   26   39
-      Gene376   30   11   33   21   12   41    7   17   18   21   30   25   34   34
-      Gene377   89   24   40   44   28   87   62   64   43   79   55   60   32   89
-      Gene378   62   46   45   25   27   61   52   59   42   26   31   38   24   48
-      Gene379 1542  988 1231 1040 1040 1483 1070 1030  906 1171 1112 1266 1152 1674
-      Gene380    4    3    1    4    3    5    9   16    7    2    2   10    2    2
-      Gene381    9    5   14    9   15   11   21    2   12   11   13    2    5   10
-      Gene382    2    1    1    1    2    .    1    2    3    1    1    .    .    2
-      Gene383    .    .    4    .    2    3    .    3    4    1    .    .    .    .
-      Gene384   41   49   23   22   13   46   15   48   13   32   26   45   10   36
-      Gene385   49   42   43   68   12   26   32   29   36   27   39   27   44   50
-      Gene386   58   18   40   43   15   32   27   52   40   26   22   63   34   68
-      Gene387  147  123  151  147   86   93  117  125  147   78  128  152  135  186
-      Gene388    .    .    2    .    .    .    .    .    .    .    .    .    .    .
-      Gene389   10    6   11    5   10   17    6   11    5    .   12    3    5    9
-      Gene390  123  196  150  104  177  232  169  116   93  122  185   89  112  112
-      Gene391   13   10    9   18    5   11   11    1    3    7   11   11   18   19
-      Gene392    4    2    2    7    2    4    3    7    5    1   10    5    4    7
-      Gene393   86   25  134   91   18   32   34  184  113   29   31   89  110  104
-      Gene394   14   21   25   31   11   17   13   17    9   11   17   14    6   28
-      Gene395    5   20   22   10    6   28    8    8    6    7    4    3   12    9
-      Gene396   10   10    8   12    5    4    7    5   11    5    9   10   22   11
-      Gene397   20   10   15    7   13    5   17   26   13    9   13    7   20   19
-      Gene398   38   35   49   47   27   70   27   33   29   50   33   32   47   44
-      Gene399   78   52   41   72   30   83   19   57   35   43   47   46   17   50
-      Gene400   32   54   19   10   22   31   25   17   40   27   67   12   48   22
-      Gene401   14    6    9    1    3    6    6   11   11    1    2   12   16   16
-      Gene402   65   40   98   55   49   61   67   83   57   74   84   71   81   84
-      Gene403   16    1    8   12    5   30    5    6    1    6    6    2   11    2
-      Gene404   92   49  100   67   59   88   68   79   64   54   73  100   69   67
-      Gene405   18   23   21   12    5   24   11   15    5    6   13   20    7   44
-      Gene406   18   16   65   35   16   13   14   17   36   23   52   19   46    6
-      Gene407    .    .    .    1    1    1    1    4    .    1    .    .    .    .
-      Gene408   19    7   20   20    7   21   13   33   31   12    4   28   16   22
-      Gene409   25    6    9   11    7   10    9   16    1    4   16   16   15   13
-      Gene410  225  117  209  142   81  138  115  200  117  126  134  184  183  236
-      Gene411   20   16   16   15   13    6    4    9    9    5   11    3   23    8
-      Gene412  114   43   51   26   44   50   66   86   39   83   75   73   19  100
-      Gene413    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene414  203  151   71   82  109  136  119  137   37   77   94  131   95  186
-      Gene415   20   15   19   45    5   13   22   29   16    8   10   21   35   37
-      Gene416   69   46   32   35   42   34   36   37   68   25   47   38   41   53
-      Gene417   23    8   14   12   15   11   11   22   21    3    7   13    7   18
-      Gene418   53   32   84   31   50   69   38   70   62   47   74   71   45  102
-      Gene419    2    4    2    5    8    6    2    6    2    .    .    .    9    1
-      Gene420   16   36   15   40    6    9   21   46   20   22   15   41   33   41
-      Gene421  177   59  154  123  102  153   89  126   73   90  100  157  107  204
-      Gene422   21   24   24   19   12   32   14   34   15   11   13   14   19   27
-      Gene423    .    .    1    5    4    2    .    1    1    .    1    .    2    .
-      Gene424   12    8    5   10   16   13   16    5   11   11   12    5    7    6
-      Gene425   77   34   77   46   50   62   34   73   58   35   58   45   66   90
-      Gene426    4   15   11    5    4    9   20    8    6    6   10    6    4    8
-      Gene427    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene428    5   11    6    4    6    8    1    7    4    3   11   17   16    6
-      Gene429    3    2    5    .    .   12    1    6    4    4    8    .    4    6
-      Gene430   75   56   42   71   28   54   52   62   53   50   61   53   85  100
-      Gene431    2    2    4    4    4    .    1    7    1    1    3    2    3    6
-      Gene432   29   17   39   24   15   33   12   19   27   20   23   11   33   36
-      Gene433  542  751  675  725  737  897  866  431  615  635  664  329  696  559
-      Gene434    6    5    4    3    1    4    4    1    2    7   10    6    9    9
-      Gene435    3    4    3    8    1    4    2    5    .    .    1    1    3    3
-      Gene436   85   72   45   40   73   94   61   89   16   59   64   63   27   94
-      Gene437   41   20   59   81   26   26   20   32   50   31   26   65   49   65
-      Gene438   29   20   75   52   15   37   18   25   39   28   29   32   46   58
-      Gene439   63   30   21   61   33   33   38   20   23   16   33   42   44   45
-      Gene440   18   16   18   21   10   45   19   33   22   17   16   24   36   40
-      Gene441   92   78  225  179   53   95   49  102  167   69   76   87  168  117
-      Gene442  224  269  335  223  191  247  175  252  184  210  290  251  233  378
-      Gene443    2    .    .    4    .    3    .    1    .    .    3    .    .    1
-      Gene444   62   53   57   56   34   47   34   69   71   64   53   54   58   81
-      Gene445   30   13   69   31   22   18   33   23   14   20   22   19   37   35
-      Gene446    9   18   10    6   18   25   32   31    9    8   14   13   10   17
-      Gene447    5    8    2    9    .    5   11    6    6    4    8    4    8    2
-      Gene448   28   20   42   30   17   37   14   27   24   17   21   27   48   35
-      Gene449 2271 1624 2910 1896 1140 2295 1427 2046 2157 1427 1790 1853 2315 2597
-      Gene450   18    3    5    3    7    9    4   14    2    4    7   17    .   21
-      Gene451   37   26   63   38   36   33   31   36   37   13   21   37   24   81
-      Gene452  814  788 1174  829  631 1365  685  741  910  697  668  606 1087 1121
-      Gene453   40   42   29   55   26   42   22   23   45   39   40   22   35   61
-      Gene454   22    6   16   16   11   13   18   20   28   18    7   17   12   31
-      Gene455   20   23   17   19   13   13   21   34   28    6   19    9   16   26
-      Gene456    8   10   24   15    4   10   10   10    5    8    6   11   22   16
-      Gene457 4042 2183 4847 3867 2443 4004 2773 3402 3114 2646 3335 3984 3344 4905
-      Gene458  119   41   48   67   36  101   52   50   46   24   61   65   58  101
-      Gene459 1156 1128 2191 1439  993 1354 1080 1005 1117 1031 1109  769 1581 1250
-      Gene460   27   17   36   25   28   18   26   11    8    4   13   26   13   50
-      Gene461   11   27   13   37   14   15   27   23   29   13   16    9   29   13
-      Gene462   24    5   25   20    2    8    7   24    7    2    1    8   25   16
-      Gene463   44   40   66   80   24   76   33   54   47   34   51   37   62   74
-      Gene464  112   72  173  109   48   98   56  126   65   64   53  122  111  118
-      Gene465   28   13   15   19   13   30   22   13   22   12   32   35   30   31
-      Gene466   18   36   28   42   17   30   12   20   27   32   37   10   61   52
-      Gene467   58    8   42   28   22   20   20   65   18   21   15   36   46   52
-      Gene468    6    1   13    4    2    3    4    5    5    2    1    7    3    2
-      Gene469    .    .    .    1    .    1    .    .    1    .    .    1    2    2
-      Gene470    1    .    6    4    .    7    .    .    4    2    4    1    3    .
-      Gene471   37   23   36   28   19   23   26   49   33    9   21   28   25   70
-      Gene472  117   80  110  152   73  107  129   86   55   91   62   84   76  137
-      Gene473   54   28   87   60   57   56   72   64   62   46   50   60   71   80
-      Gene474   31   24   38   25   22   33   32   24   15   31   17   23   30   52
-      Gene475   31   60   39   19   38   48   54   45   30   39   61   49   37   73
-      Gene476  317  236  347  275  180  227  195  377  267  225  233  270  295  490
-      Gene477    6   16   63   34    7   13   12   12   29    8   14   15   21    9
-      Gene478   20   11   12   21   10    6   12   26   23    8   23   22   19   18
-      Gene479    5    2    3    6    7    6    1    6    3    1    3    3    6    1
-      Gene480   23    9   15   13    9   15    6   12   27    5   13   16   21   25
-      Gene481    4    .    3    .    .    2    1   12    5    7    1    4    4    .
-      Gene482   55   49   45   41   37   35   62   64   57   49   60   64   92  109
-      Gene483    .    .    .    .    2    .    .    .    2    .    .    2    .    .
-      Gene484    .    4   14    6    3   12    1    .    2    3    6    1    5    9
-      Gene485   22    1    9    3   13   18    5   12    4    3    4   23    5    8
-      Gene486   62   42   72   60   32   50   76   47   97   55   72   48   78   93
-      Gene487   84   24  208  177   28   30   48   98  143   26   46  118  178  129
-      Gene488   24   20    5   13   19   19   25   19   17   19   21   16   19   24
-      Gene489  314  437  459  591  313  387  332  464  515  409  420  220  415  527
-      Gene490  358   72  343  279   77   91  113  365  254   50   98  358  271  417
-      Gene491   10    1   20   16   12   25   20    5    5    7    9   12   14    6
-      Gene492  110   72   66   72   80   85   61  112   32   67   88  115   33  174
-      Gene493    5    5   14   15   11   11    5    5   16    7   14   12   23   14
-      Gene494   98   30   18   22   20   26   35   41   19   15   23   78   47   71
-      Gene495 1159 1238 1328  860  963 1546 1248 1320  897  969 1359 1319 1161 1272
-      Gene496   83   84  322  211   45  131  110   66  236   40   62  120  253   99
-      Gene497   75   36   64   41   60   34   22   59   21   35   29   48   54   60
-      Gene498   27   42   20   24   31   39   22   26   15   35   18   28    6   34
-      Gene499    4    7    7    6    4    9    5    7    6    7    9    3    2    5
-      Gene500    1    .    2    1    .    .    .    3    .    .    1    2    .    .
+      Gene1      .    .    .    .    .    .    1    .    .    1    .    .    .    1
+      Gene2      8   21    2    6   12   21    5    8   12    8    9   30   12   10
+      Gene3      3    4   15   10    2    5    5    2    2    6    2    7    4    3
+      Gene4     22   26   19   26   24   22   23   12   11   36   42   23    8   78
+      Gene5     11   29   27   47   28   26   16   25   24   36   18   31   16   33
+      Gene6     10    4    1    3    3    3    3    8    .    1    3    6    6    3
+      Gene7      3   46   41   48   22   41   12   10   22   13   17   26   18   24
+      Gene8    116  219  137  169  161  238  129  202   87  211  253  401  133  351
+      Gene9     71  106   83  121   55  144   85  132   71   79   86  159   50  217
+      Gene10     9    6    1    9    7    7    8   12    4    8    1    1    2   29
+      Gene11    17   18   21   10   14   14   10   21    4   20   10   13   14   41
+      Gene12    26   25   29   25   24   14   19   23   11   22   29   45   18   27
+      Gene13     5   16   11    9    3   12    9    3    5   10    6   14   15   14
+      Gene14    16   32   42   12   23   27   24   15   30   20   19   47   18   59
+      Gene15     .    2    5    .    .    1    2    .    .    9    1    2    1    4
+      Gene16   115  170   71  137  154  114  155  122   74  215  202  223   93  261
+      Gene17   197  442  267  440  377  337  214  318  311  217  353  639  306  506
+      Gene18   767 1931 2375 2517 1427 1934  621  922 1988 1048 1964 3716 1850 1730
+      Gene19     6    8    5    1   15    2    7    1    7    5    8   13    2   18
+      Gene20   163  152  284  214  106  249  138  157  213  185  156  213  278  455
+      Gene21    29   67   33   70   30   51   46   42   33   50   62   86   81   73
+      Gene22  1421 2282 1406 1612 1613 2330 1175 1338  870 1718 2120 3554 1185 2114
+      Gene23     4    3   13    7    7    4    2    7    3   10    4    5    1    5
+      Gene24    62   44  138  146   51   82   42   50  112   42   51   97  162   97
+      Gene25  1549 2206 1804 1765 1811 1910 1311 1903 1475 2107 1877 2466 1782 3431
+      Gene26    45   43   45   65   33   62   41   61   38   44   57   65   29   81
+      Gene27   142  172  209  174  129  208  195  160  147  141  129  185  161  288
+      Gene28    24   25   18   10   14   23   32   11    4   15   20   29   10   33
+      Gene29    50   76   58   66   78   49   52   62   50  101   44   84   66  135
+      Gene30     7   17   12    7    5   13    6    5    9   14    6    3    5   13
+      Gene31     3    .   12    6    2    1    1    1    2   10    7    2    2    4
+      Gene32     6    2    6   15    .    9    4    1    8    1    2    4    8    4
+      Gene33    92  118  120  119   84  110   66   78   84   68  120  131   46  135
+      Gene34    18   40   23   30   20   41   20   36   11   35   28   40   19   26
+      Gene35    75   96  155  132   63  128   89   88   76  117  110  148  133  137
+      Gene36   178   68  184  215   77   39  213  288  126  159   48  132  195  479
+      Gene37    75   70   81   68   85   84   53   67   49   85   86  144   55  149
+      Gene38    60   31   39   78   18   28   52   35   21   41   50   56   35   61
+      Gene39     7    7   25   11    3    7   20   10   18    6   12   13    8   18
+      Gene40    10    4   11   16   13    5    9   17    5   10   15   19    9   11
+      Gene41    25   20    9   24   24   27   33   23   17   39   29   40   27   59
+      Gene42    52   39   52   48   40   63   32   60   23   54   36  106   69   47
+      Gene43    24   25   34   33   22   51   14   28   11   30   27   54   19   61
+      Gene44     3    3    5    3    1    2    3    4    .    3    1    2    1    4
+      Gene45    49   87   55   41   35   69   53   43   44   48   59   69   42   78
+      Gene46    42   37   50   23   35   36   16   19   21   30   24   70   30   57
+      Gene47    96   62  140   97   60   41   83   56   79   80   81   85  112  107
+      Gene48     .    2    9   10    .   12    2    4    .    4    .    8    1    4
+      Gene49   459  641  586  508  391  499  389  437  339  391  537  625  409  791
+      Gene50     2    9    2    7    2    5    1    1    1    3    5   10    6    1
+      Gene51    34   41   41   30   49   49   54   28   33   33   42   84   31   63
+      Gene52    17   67   84   87   52   75   21   40   69   25   78  100   58   82
+      Gene53    14   30   41   20   25   12   20   35   29   33   28   49   11   39
+      Gene54    57   72   45   50   41   44   55   33   46   56   74  125   92   89
+      Gene55     .    2    3    1    3    1    6    9    1    9    2    3    3    1
+      Gene56   157  122  225  116  153  115  138  190   92  133  134  235  150  323
+      Gene57   111  148  274  217   88  124   67  144  176   65  134  151  169  235
+      Gene58     .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene59     .    6    .    5    4    2    8    4    2    2    4    3    5    2
+      Gene60     7   11   19   15   12   26   11   18   35   11   48   58   14   34
+      Gene61    30   45   45   36   29   52   24   33   10   61   37   63   24   63
+      Gene62    34   20   38   14   19   11   27   18   10   25   25   94   13   32
+      Gene63    91  108   86   97   63   74   49   95   90  103   81  137   58  205
+      Gene64   136  147  174  211  145  136  133  123   91  186   93  212  145  244
+      Gene65   129  113  105   94   61  103  121   89   67  100  100  163   67  228
+      Gene66    66   50   32   69   61   39   44   57   37   52   60   65   29   83
+      Gene67     2    1    3    4    .    .    .    .    1    3    1    .    .    2
+      Gene68     6    1    3    4    .    1    3    6    4    7    .    2    2    6
+      Gene69    28   36   42   32   50   25   20   39   38   62   36   58   28   84
+      Gene70    43   61   34   48   57   66   25   35   12   38  108  107   51   86
+      Gene71    10   18   14    6    2   10   14    5    1    9   15   36    5   35
+      Gene72   214  261  213  396  247  268  242  368  192  430  326  426  259  506
+      Gene73    56   52   75   96   55   54   40   56   57  100   61   66   91  109
+      Gene74     .    .    .    1    .    .    .    3    .    .    .    .    .    .
+      Gene75     2    5    7    8   13    6    3    2    5    2   10    6    9    9
+      Gene76     9    5    4    2    4    8   13    9    9    5   14    4    6   25
+      Gene77   292  248  284  282  260  238  241  238  202  275  215  460  287  469
+      Gene78    70   31   67  101   23   24   51   73   40   72   29   80   85   91
+      Gene79    85  115  189  228   96  180  105   97  119   97  117  149  126  178
+      Gene80   188  225  150  273  280  353  294  224  228  339  344  436  245  426
+      Gene81   104  104  106   88   56   81  109  148   50  107   98  192   75  152
+      Gene82    20   42   28   29   27   33   28   37   31   27   25   72   11   72
+      Gene83     7   25    9   13    9   15   18   28   14   32   17   31   15   35
+      Gene84    98  205  132  154  183  221   97  152  121  115  302  284  108  277
+      Gene85    52   41  117  109   50   75   38   60   47   91   82   63  115   78
+      Gene86    80   74  148  142   84  128   91   72  100  138  103  208   81  181
+      Gene87    16    9    1    6    3   12   16    3    9   12    6   11    2   18
+      Gene88    23   15    2    6   20   28    8   28    9   17    9   17    8   32
+      Gene89    15   65   75   30   54   52   33   22   24   36   48   68   28   30
+      Gene90    42    4   31   16   26   29   45   30   11    8   48   53   37   48
+      Gene91   100  125  110   89  103  118   60  107   76   86   73  171  111  171
+      Gene92     1    1    9   10    6    4    3    2    5    2    1    7    5   12
+      Gene93   101  132  112   92  111  151  101  107  147  118  121  224  131  214
+      Gene94     3   24   25   32   18   11   19   10   18   15    9   25    3   25
+      Gene95    73   51   71   89   43   60   53   71   77  107   77   75   62  127
+      Gene96    70   78   57   86   67   64   35   67   75   73   86   77   78  125
+      Gene97    34   20   12   22    7   33   70   34   34   20   21   26   19   91
+      Gene98    23   23   14   16   12    7   15    5    8   12    7   15   15   52
+      Gene99   121  126  141  231   53  107   84   76  136   85  104  109  166  186
+      Gene100   62  119  116   57  160   78   74   74   54  112   76  150   74  182
+      Gene101    1    .    .    .    .    1    .    1    3    .    2    1    3    2
+      Gene102    8   10    8   16    7    8    5    8   13   19   13   15   15   23
+      Gene103    7    6    1    3    8    .    4    8    2    6    .    3    .   22
+      Gene104   30   23   62   44   25   51   19   30   31   21   14   39   34   36
+      Gene105   21   11    4   15    8   24   16   11   20   21   11   20   12   22
+      Gene106   27   28   48   13   21   19   32   31   34   13   70   75   21  118
+      Gene107    5    6    7    5    9    6    7   11    4    9    7    5    7    6
+      Gene108    1    .    .    .    .    3    .    .    .    1    .    1    .    3
+      Gene109   33   20   13   14   19   18   13   14   13   22   10   38   13   37
+      Gene110   19    6    6   17    .    5   15    7   11   23    7    2   16   14
+      Gene111  907 1370 1260 1447 1166 1118 1154 1062 1059  992 1233 1713  939 1877
+      Gene112   27   35   17   25   61   63   20   19   22   32   47   87   32   52
+      Gene113   73  166  193  172  173  155   80   97  140  140  216  364  163  168
+      Gene114   20   22   20   19   20   22   18   26   27   17   29   28   20   39
+      Gene115    .    .    3    2    .    .    .    2    .    2    1    3    3    .
+      Gene116   13   30   22   40   17    7   27   18   27   29   25   29   38   17
+      Gene117   54   79   67   57   83  144   58   84   71   91  100  185   76  117
+      Gene118   21   23   28   52   16   19   37   54   19   22   32   47   22   51
+      Gene119   32   65   58   65   50   44   55   74   26   51   55   85   33   58
+      Gene120   30   36   69   57   50   44   48   33   32   47   48   38   38   66
+      Gene121   47   79   94  109   68   75   35   64   81   32   55   99   79  122
+      Gene122  262  114  122  102   71   60  201  176   62  189   65  164  120  400
+      Gene123    .    .    .    .    .    .    .    2    1    .    .    .    2    4
+      Gene124   38   42   51   45   37   34   35   30   17   38   42   76   37   72
+      Gene125    9    6    8   15    6    5   12    7   11    8   11   21    2   15
+      Gene126  249  262  254  332  272  247  185  257  242  324  294  444  184  436
+      Gene127    4    2    8    4    2    1    5    2   13    3    3    4    2    2
+      Gene128   10    6   10    1    5   10    4    2    3    2    6   13    6    3
+      Gene129   54   81   42   43   70   56   63   47   23   43   69  107   48  130
+      Gene130   41  158   76  116   87  109   59   96   83   89  121  120   96  133
+      Gene131   29   17   34   24    2   17    6   32    1    7   24   28    6   42
+      Gene132    8   14    4   11   13    2    6   13    4   11   13   11    7    6
+      Gene133   24   14   13   15    3   14    4   10   13   33   10   13   45   35
+      Gene134  276  248  340  383  197  280  280  179  342  304  275  415  436  544
+      Gene135   97   68   45   32   64  115   99   90   43  116   46   73   57  232
+      Gene136   56   23   74   44   10   32   56   61   39   77   42   27   66  118
+      Gene137   48  100   90   73   41   51   36   77   49   76   89   87   64  115
+      Gene138   18    9   13   12   13   25   17   15   24   18   32   16   24   50
+      Gene139   60   98   67   27   52   51   66   51   40   49   52   65   42   84
+      Gene140    .    .    .    .    .    .    1    1    .    1    .    2    .    1
+      Gene141    7    7    5    2   11    4    7    5    4    8    8    6    3   18
+      Gene142   47   32   18   24   20   14   42   39   19   46   29   23   20   70
+      Gene143    4    3    1    3    6    4    3    2    6    3    7    8    3    7
+      Gene144    5    6   10    9    5    6    3    6    9    6    1   19    7   16
+      Gene145   15   34   18   47   22   44   15   27   21   36   37   59   16   52
+      Gene146   44   88   73   50   53  117   70   70   34  116   58  131   62  126
+      Gene147   51   50   52   53   48   72   70   47   39   44   51   56   56   75
+      Gene148    2    5    3    2    1    7    6   11    5    3    2    9    1   10
+      Gene149    1    3   11   10    9    2    8   14    3   13    7   15    4   21
+      Gene150   10   32   16   29   15   10   23   18   27   16   13   23   14   68
+      Gene151    2    9    7   11    9   10    5    9    2    9   12   18    7   11
+      Gene152   29   19   38   43   25   11    8   25   31   18   24   15   36   22
+      Gene153    3   31   35   21   34   39   17   28   42   22   39   60   38   52
+      Gene154   35   70   61   88   25   45   51   58   64   45   57  123   64  123
+      Gene155   63   99  156   99  144  132  100   50   70   93  124  195   99  125
+      Gene156    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene157 2169 2091 2446 2050 1894 1941 1568 2484 1666 2264 2102 2587 1924 3803
+      Gene158   58   78   99  100   62   81   48   72   57   56   81  102   45  120
+      Gene159    4    2    2    3    1    4    .    4    3    .    3    4    .    .
+      Gene160    .    1    .    8    3    .    1    1    2    1    .    .    .    .
+      Gene161  127  118  184  195  119  173  141  145  137  183  179  138  226  232
+      Gene162   29   16   41   12    6   10   23   22   17   21   27   18   10   66
+      Gene163    2    1   15    2    5    3    4    1    3    3    2    1    6    5
+      Gene164  381  119  391  272  134  118  328  302  215  317  187  251  244  680
+      Gene165   46   85   90   40   63   56   48   65   40   57   72  137   52   71
+      Gene166   30   22   41   28   15   13   22   17   12   19   25   81   16   33
+      Gene167   80   85   64   70   92  118   73   72   34  103  110  137   28  171
+      Gene168   55   91   67   58   89  136   65   62   56   53  108  192   42  130
+      Gene169    .    5   11    3    1    1    4    9    .    5    4   12    .    9
+      Gene170    2    .    3    5    4    3    7    2    3    8    4    2    3   15
+      Gene171    5   11    6   13   10    5    7   15    9   23   16    9    7   22
+      Gene172    6   17   19   22   24   29    1    3   17   12   28   16   30   14
+      Gene173    5   11    7   22   21   16    6   12   12   14   20    7    3   17
+      Gene174  674 1234  929  920 1015  963  609  531  813  620  659 1423  769 1037
+      Gene175  121   76   90   92  115   83  172  137   99  160   67  120  115  210
+      Gene176 2591 2751 2936 2456 2102 2252 2573 2351 1643 3030 2870 3758 1924 5684
+      Gene177    3    8    3    6    3    2    3    2    5    2   10    6   15   12
+      Gene178    2    6    4    9   10    2    5   10    8    5    4    6    8   17
+      Gene179    6    9   16    8    1    6    6    3   12   15    5    7    5   11
+      Gene180    1    1    1    3    4    .    5    1    4    5    4    7    5    7
+      Gene181   21   24   15   21   26   10   30   40   18   27   14   26   10   26
+      Gene182   72   21   72   32   28   37  106   81   69   76   25   60   42  140
+      Gene183   18    8   14   16   22   32   24   17    8   24    8   18   11   24
+      Gene184   29   20   11   25    6   12    7   16    7   25   12   17   11   33
+      Gene185   57   51  127  128  103   84   56   43  119   49   53  148  132  132
+      Gene186 1543 1473 2976 2707 1286 2102 1458 2098 2607 1453 1535 2379 3279 3445
+      Gene187    2   13    1   19    2   19    .    4    4    8    7   12    2   17
+      Gene188    8   22    5    1    5   16    9   10    6    8   16   18    1   13
+      Gene189   83   88   94   75   78   80   55  103   44  123  153  132   74  146
+      Gene190   14    5    .    3    6    6   21    6    1   10    3    6    1   23
+      Gene191  113  112  135  108  110  127  127  114   96  123  124  208  103  150
+      Gene192    .    3    4    5    .    6    7   13    9    2    .    2    1    7
+      Gene193    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene194   68   66   39   42   34   62   40   67   41   59   85  117   23  143
+      Gene195   79  153  141  181  130  123  117  106   92  137  186  238  116  284
+      Gene196   13   21   20   26   22   25   14    9   23   21   32   34   21   44
+      Gene197    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene198   58   52   62   54   75   46   43   68   60   65   46  102   39  109
+      Gene199   42   56   36   66   46   71   41   38   26   23   65   73   56   74
+      Gene200  814 1074 1319 1390 1171 1145 1091 1181 1012 1182 1296 1799 1173 1748
+      Gene201   44   36   31   20   51   57   20   18   18   36   52   77   15   71
+      Gene202   42   56   63   30   49   25   24   43   16   45   50   63   56  106
+      Gene203    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene204    2    1    4    2    6    4    .   11    5    5    5   20   12    4
+      Gene205   90  135  103   79  105   90   96   47   58  130   97  142   58  189
+      Gene206    3    4   11    5    8   16    9    6    7   14    3   10    9   15
+      Gene207    3    .    1    .    .    .    .    .    2    .    .    .    .    .
+      Gene208   24    4   23   30   13   23    2    8   11   14   12   16   19   25
+      Gene209    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene210   17   19   20   26   16   22   17   12   22   19   12   33   20   19
+      Gene211   84  235   49  102  202  229   62   57   63   59  181  414   44   68
+      Gene212   10    9   16   19    1   16   14   41   19   18   19   26   26   25
+      Gene213    8    3    5   13    4    8    .    1    1    6    6   13    1   13
+      Gene214   42   42   50   62   53   51   43   58   64   40   57   95   57   96
+      Gene215    .    1    4    .    1    .    4    2    .    3    3    1    8    3
+      Gene216  910 1564  866  977 1228 1240  842  942 1017 1132 1170 2220  877 1751
+      Gene217    6    4    4    2   16    3    1    4    4    6    8    2    4   10
+      Gene218   64  127  204  195  117   85   68   91  128   87  128  167   84  131
+      Gene219    1    .    .    .    .    1    2    2    .    .    .    1    1    1
+      Gene220   39   66   45   52   60  109   54   47   36   46   54  103   57  136
+      Gene221    .    1    3    .    .    1    1    .    2    1    2    1    1    2
+      Gene222   19   25   24   21   18   21   22   18   17   27   16   28   32   37
+      Gene223   14   20   18   20    8   16    5   12   23    2   23   28   26   20
+      Gene224   42  141  150  190   75  134   67   96   86   87  101  195  113  159
+      Gene225    .    .    1    .    .    .    .    .    .    .    .    .    1    .
+      Gene226    8   10    6   13    8    9   14    8   28   23   11   31   17   40
+      Gene227    1    9    5    5    2    9    2    3    2    5    9    8    4   12
+      Gene228   17   42   27   32   30   35   16   17   20   26   36   75   16   52
+      Gene229    3    2    1    1    4    7    2   13    .    5    7   17   12   12
+      Gene230  108   62   88   61   67   97   68   67   43   69   86  146   79  185
+      Gene231   10   14   10   15    7    7    8    8    6   16   10   24    9   22
+      Gene232   42  151  116  111   70   72   69   46  102   68  129  159   96  154
+      Gene233  141  173  253  182  137  200  220  183  158  150  181  343  134  271
+      Gene234    .    .    .    .    .    .    .    .    1    .    .    .    .    .
+      Gene235    9    8    6   11   16   11   12    8   10    5   18   13    4   23
+      Gene236   29   19   16   20   27   39   24   33   18   38   30   55   28   30
+      Gene237   79  131   99   92  116   58   91   93   47   82  128  151   58  113
+      Gene238    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene239   49  105   96   50   84   93   67   60   64   85  115  155   59   96
+      Gene240    1    6    2    6    1    3    5    2    4   11    8   10    4    9
+      Gene241   39   91   61   74   68   84   65   69   86   62   68  156   71   90
+      Gene242   43   80   64   82  100   61   36   60   55   60   81   99   45  152
+      Gene243    9   34   20   14   26   30   10   17   16   18   15   27   22   26
+      Gene244    1    1    1    3    .    2    .    .    2    2    2    3    5    1
+      Gene245    1   10    1    9    .    8    1    1    1    6    3   16   10    1
+      Gene246  290  303  270  244  293  318  283  226  201  287  256  340  170  341
+      Gene247   45   44   38   59   45   35   31   33   42   24   28   53   35   52
+      Gene248    3    4    .    .    6    1    .    1    2    5    4    4    .    6
+      Gene249    4    3    .    3    3    2    4    .    5    2    7    4    3    3
+      Gene250    1    .    9   15    3    4    .    1    1    7    8    7    2    5
+      Gene251    1    1    8    .    .    2    4    .    3    .    .    4    6    6
+      Gene252   39   20   48   69   23   20   40   58   28   67   45   27   37  109
+      Gene253   15   59   58   46   40   27   48   20   31   40   43   41   46   66
+      Gene254   12   40   18   61   30   23   26   25   11   20   17   22   18   39
+      Gene255    2    3    3    1    3    1    .    1    .    3    1    .    .    2
+      Gene256   12   10   21   23   27   12   14   15   16   22   21   31   18   27
+      Gene257    2    8    7    7   13    5    1    7   13   11    8    5    4   17
+      Gene258  847 1077 1306 1036 1166 1123  991 1243 1018 1394 1046 1924 1041 1885
+      Gene259   49   56   68   37   40   22   25   40   16   57   36   63   26  121
+      Gene260   21   36   22   29   14   19   17   36   18   27   27   47   10   41
+      Gene261   43   59   66   79   57   61   29   20   59   21   50   91   87   72
+      Gene262   10    9   16    9    7    4    8    3    9    8   13    9    2    7
+      Gene263    .    .    .    1    1    .    1    1    .    .    .    .    .    6
+      Gene264    5    .    5    1    2    9    .    4    .    1    3    .    2    9
+      Gene265   27   27   52   21   13   16   55   38   23   31   21   50   37   47
+      Gene266 1809 1819 1525 2458 1786 2030 1921 1969 1399 2497 1974 3345 1789 3553
+      Gene267    .    .    .    .    .    2    8    .    .    2    1    .    1    5
+      Gene268  137   68   72  119   67   77  116   95  107  141   66  128   77  291
+      Gene269    2    4    3    2    .    1    6    1    .    .    .    .    .    .
+      Gene270  295  258  217  246  168  241  440  426  144  391  191  386  185  635
+      Gene271   43   37   24   31   53   43   55   40   12   68   64  113   28   88
+      Gene272    7    9   25   19   11    9    7   15   18   25   13    9   13   32
+      Gene273   26   23   21   24   28   15   28   13   27   20   32   29   19   36
+      Gene274   50   41   63   61   50   22   31   39   48   41   46   83   40  105
+      Gene275   42   50   64   91   63   50   34   48   97   70   65  101   67  111
+      Gene276   29   14   17   13   25   15    9   20   34   13   11   19   15   37
+      Gene277   33   31   30   31   35   41   51   41   37   77   55   48   20   88
+      Gene278   46   33   53   35   55   52   47   46   39   48   33   97   46  107
+      Gene279   18   24   27    9    5   33   12   54    5   21   21   11   14   30
+      Gene280   18   19   25   60   21   18   14   13   45   26   27   36   26   20
+      Gene281   23   35   32   54   47   18   52   18   14   24   56   67   41   37
+      Gene282   73   32   46   64   33   57   42   53   50   59   45   57   59   98
+      Gene283   86  105   57   56   68  117   60   74   68   95  125  138   60  119
+      Gene284   24   46   65   42   30   64   28   12   84   20   96   76   51   42
+      Gene285   44   86  221  293  115  109   31   47  221   50  155  221  200   49
+      Gene286   86  119   45   49   98   68   81  107   33   71  162  129   51  106
+      Gene287    .    .    .    1    .    .    .    .    1    .    .    .    .    .
+      Gene288   16   38   28   33   24   50   31   21   25   40   30   48   34   91
+      Gene289   54   88  188  179   93   99   29   42   99   68   80  122  175   93
+      Gene290    3    .    .    2    .    2    2    4    6    .    6    1    1    2
+      Gene291    9   16   14   20   16   43   11   17   22   22   19   33   18   32
+      Gene292   25   30   22   29    9   35   40   25   24   33   59   48    7   73
+      Gene293   40   96   51   38   67   61   26   53   24   34   77  132   53  105
+      Gene294    5   10    5    7    7   13   19    9    4    3    .   13    .   17
+      Gene295  389  183  142  200  144  141  310  348  194  409  172  280  156  525
+      Gene296   64   92   39  108   64  114   61   79   42   61   69   97   46  163
+      Gene297   74   61   94   64   63   96   76   41   46   99   78  108   45  167
+      Gene298   72  121   77   78   87   86   91  119   51   81   84  164   69  163
+      Gene299  194  263  300  225  172  245  245  193  224  273  280  388  200  537
+      Gene300   24   47   43   33   38   46   27   17   20   33   32   78   27   52
+      Gene301   89   89   31   37   53   73   79   51   30  129  110  142   41  146
+      Gene302    4    .    5    2    .    3    1    7    1   17    .    2    2    7
+      Gene303   62  177  182  149  104  177  117  124  115   99  126  290  156  255
+      Gene304    .    .    .    .    .    .    .    .    .    1    .    .    .    .
+      Gene305  158  202  206  311  164  180  158  199  208  130  190  214  191  347
+      Gene306   26   64   57   62   70   43   19   29   27   29   89   95   40  105
+      Gene307   73   69   91   72   64   69   72   67   58   63   53  136   46  155
+      Gene308    2    4    4   11    4    7    4    7    9   14    5   15    1    8
+      Gene309    7    6    1   11    5    3    .   10    9   12    7    1    6    9
+      Gene310  177  222  213  209  188  192  210  227  178  209  234  329  112  430
+      Gene311   77   57   53   63   53   81   69   60   57   67   74   83   75  106
+      Gene312   40   49   29   36   43   57   34   33   59   50   58   59   36  123
+      Gene313 2768 7731 3858 4207 5348 5958 2501 2930 2961 3429 6511 9585 4056 6703
+      Gene314   16   55   35   43   80  127   28   33   45   18   59  177   37   28
+      Gene315    6    1    3    2    1    1    1    1    .    2    6    3    .    5
+      Gene316  137  143  175  177  105  114  200  154  122  156   99  157  118  364
+      Gene317   58   39   78   91   63  103   53   70   90   63   57   98   52  112
+      Gene318   27   20   14    7   13    9   14    9   24   20   10   12    5   16
+      Gene319    7    7   14    5   13   25    2   16    9    8   25   25    3   26
+      Gene320   15   21   15   18   19   25    5    6   18   16   36   18   15   26
+      Gene321    7    8    3   15   11    7   10    4    .    6    2   16    3   10
+      Gene322   30   31   20   21   18   28   41   25   18   27   19   31   27   59
+      Gene323   35   16   15   21   11   15   28   22   20   32   19   23   16   23
+      Gene324   56   24   20   36   52   29   16   52   13  102   33   43   38   70
+      Gene325    3    1    1    1   10    4    6    2    2    6    4    3    .    7
+      Gene326    .    5    5    7    6    3    2    3    5    3    8    5    4    4
+      Gene327 1230 1551 1597 1780 1821 1799 1045 1452 1294 1646 1557 2708 1630 2296
+      Gene328    .    1    .    2    1    1    .    .    2    .    .    .    .    3
+      Gene329   39   33  118  106   41   48   30   42   59   48   54   90   76   63
+      Gene330    .    6    1    2    1    1    5    .    4    .    8    3    .    5
+      Gene331   14   22   32   16   14   24    2   14   15   15   10   27   14   18
+      Gene332    .    .    .    .    .    .    .    1    1    .    .    .    .    3
+      Gene333    3    .    1    .    1    .    .    .    .    .    .    1    .    2
+      Gene334   29   26   34   19   22   22   16   37   35   31   47   46   32   59
+      Gene335   13    5    9   22    2   14   13   13    6    7   15   15    8    8
+      Gene336    5    3    3    3    3    8    8    7    8    5    6   11    7    8
+      Gene337 1275 2008 1759 1887 1544 1600  824 1252 1495 1252 1570 2808 2007 1981
+      Gene338    6    9   32   17   10   15    7   25   26    7    3   14    5   21
+      Gene339   67   43  125  134   65   79   73   77  118   62   73   88  109  149
+      Gene340    .    .    .    .    .    .    .    .    1    .    .    .    .    .
+      Gene341  115  115  129  137   99  105  181  131  102  177  118  205   97  240
+      Gene342   25   13   16   18   13   30   36   17    8   18   25   36   12   28
+      Gene343    1    1    2    .    1    1    .    1    .    .    1    2    2    4
+      Gene344   76  192   62  174  145  135   98  111   93  105  182  274   95  207
+      Gene345  299  336  364  593  262  359  359  360  260  324  439  600  458  715
+      Gene346   12   54   95   76   37   38   15   21   54   19   47   50   72   40
+      Gene347   28   19   34   26    3   38   27   18   18   22   17   28   17   63
+      Gene348   77   94   80   63   77   70   75   81   76   95  106  159  116  180
+      Gene349    2    .    5    4    .    2    5    4    1    3    2    9    2    2
+      Gene350   15   23   29   37   30   22   19   12   38   10   24   61   16   21
+      Gene351   34   31   23   31   26   35   28   45   39   43   41   66   35   67
+      Gene352  117  102  157  222  120  127  125  121   91  141  108  186  134  216
+      Gene353    8   13   18   16   11    5    4   13    2    8    3    7   12   25
+      Gene354   38   44   46   69   76   57   25   73   37   39   62   83   30  112
+      Gene355    3    5   10    9    2    8    7    3    5    7    7    2   12   10
+      Gene356  175   77   80   74   92  128  115  135   44  117   89  139   56  211
+      Gene357  136  190  184  133  170  136   79  224  106  172  193  272  164  371
+      Gene358    2    2    2    4    2    3    4    .    3    5    4    2    1    8
+      Gene359    5   27   12   13   29   18   10   22   12   18   10   44   18   17
+      Gene360   13   19    8   36   26   37    9   13   30   13   20   44   27   19
+      Gene361   20   20   44   28   27   35   21   17   37   19   20   35   22   50
+      Gene362  176  248  150  166  179  166  173  139  189  215  231  287  176  332
+      Gene363  110  127   98   55  114  130  142  137   51  219  215  304   68  400
+      Gene364   60   59   66   62   71   48   67   73   43   70   61   56   79  167
+      Gene365   79  171   81   99  165  129   85  102   99  114  118  243  111  217
+      Gene366    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene367  695  871  802  839  671  665  789  793  806  828  768 1378  625 1402
+      Gene368    9   90   37   29   28   60   20   34   31   34   35  101   30   38
+      Gene369    3    3    3    9    1    2    .   12    .    2    1    4    .    5
+      Gene370   25   14   11   12   16   15   18   12   16   18   10   29    6   27
+      Gene371    1    .    2    8    .    .    2    1    5    2    1    .    .    4
+      Gene372   90  117  251  184   86   89   57   84  194   72  125  239  202  127
+      Gene373   21   24   21   13   31   21   21   37   10   25   30   48   23   74
+      Gene374  150  201  188  191  183  217  158  221  130  234  192  263  170  322
+      Gene375  689  874  821  844  667  967  727  734  685  837  625 1190  715 1585
+      Gene376   42   57   32   41   44   42   26   28    9   39   57   65   23   44
+      Gene377   51   37   36   51   43   38   74   38   36   59   42   72   42   60
+      Gene378    9   17   11    6   23   21    2   10    6    6   19   29    8   13
+      Gene379    2    4    2    .    4    4    1    1    .    .    1    1    3    8
+      Gene380   34   95   65   77   64   68   34   59   94   76   67  110   91  108
+      Gene381   36   50   37   41   86   77   42   29   31   21   71   79   30   71
+      Gene382    9    1    2    .    .    .    .    3    .    4    1    .    2    2
+      Gene383  256  272  272  311  204  297  290  232  248  247  316  461  243  544
+      Gene384  171  204  343  205  145  184  260  234  241  294  158  271  301  488
+      Gene385   14   31   19   52   18   24   19    6    9   28   17   58   19   25
+      Gene386  215  146  223  271  209  197  178  127  188  222  201  268  211  424
+      Gene387    .    4    .    7    2    .    4    3    1    .    2    4    2    .
+      Gene388    2    .    3    4    6    2    7    4    2    5    2    4    5    3
+      Gene389   77   72  111   98   79   73   57   65   77   76   89  141   74  138
+      Gene390   62   72   39   57   87   46   41   55   53   42   80  111   29  103
+      Gene391  247  366  234  239  244  283  161  200  272  238  227  403  148  425
+      Gene392   49   40   48   30   28   29   27   26   40   36   23   39   35  130
+      Gene393    .    .    2    1    1    .    3    .    1    2    .    .    .    4
+      Gene394   17   68   31   56   26   64   11   36   40   28   90   93   38   64
+      Gene395    6   11    1   13    4    6    7   16    5    3    8    7    .    7
+      Gene396  117   72  139  284   36  102  119  142  144  121   78  177  126  306
+      Gene397   79  101  104  140   98   74   88  125   97  103   83  160  107  136
+      Gene398    .    1    .    1    .    .    .    .    .    1    .    1    2    .
+      Gene399    .    5    2    5    2    2    5    1    3    1    2    1    1    .
+      Gene400    .    6    3    .    7    .    .    .    1    .    .    2    1    2
+      Gene401  304  262  500  305  332  506  370  272  342  437  328  634  400  717
+      Gene402   25   13   21   48   10    6   22   13   13   13    5   18    5   25
+      Gene403   20   43   21   24   11   14   16   11   20   27   21   28   14   34
+      Gene404  384  351  572  413  259  331  329  375  335  487  358  534  319  540
+      Gene405   62  116  111   91   77  109   30   55   55  120  108  193   81  158
+      Gene406  126  184  249  160  136  196  112  114  206  144  230  218  139  258
+      Gene407    7   15    5   12    9   14   15   18   14    5    9    5   10   18
+      Gene408   73  126   83  110  117   76   65  113  110  102  150  140  141  160
+      Gene409   22   34   22   42   32   34   11   27   30   23   38   67   24   52
+      Gene410   53   44   49   25   38   45   29   28   21   47   54   60   21   85
+      Gene411  249  178  107  118  142  223  330  249   78  354  155  235  102  597
+      Gene412 1600 1904 2047 1715 1521 1550 1428 1265 1504 2120 1663 2879 1398 2864
+      Gene413  366  757  907  685  790  781  386  343  536  385 1000 1243  608  736
+      Gene414   93   45  102  122  105   47   73   86   83   67   63   81   68  155
+      Gene415   45   59   98   86   29   19   33   35   94   55   30   51   83   90
+      Gene416   66  103   76   64   76  115   99   55   54  111   97  172   52  162
+      Gene417   13   17    7    8   11    8   21    5    8   16    7   20    6   20
+      Gene418    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene419   29   55   15   29   22   45   20   28   52   52   59   96   13   54
+      Gene420  101  141  109   73   96  132   93  112   47  133  128  217   41  281
+      Gene421   33   52   55   57   23   28   48   45   23   59   22   58   33   65
+      Gene422   74   31   69  142   36   50   58   46   89   76   57   75   80  110
+      Gene423  210  355  111  137  233  197  223  245   95  229  308  430   95  453
+      Gene424  870 1040  859 1323  696  983  763  757  768 1272  900 1789  825 1542
+      Gene425   25   20   13   10   10   19   10   21   23   28   23   27   20   30
+      Gene426   26   35   43   13   23   22   24   32   25   47   35   55   59   79
+      Gene427    9    3    7    3    2    7   16    9   23   14    1   14   16   10
+      Gene428    .    .    .    2    .    .    .    .    .    1    .    .    .    3
+      Gene429    .    .    .    .    .    .    .    .    .    .    .    .    1    .
+      Gene430    4   13    6    4    3   11    8   11    5    7   13   18   10   18
+      Gene431   16   18   16   31   29   17   13   20   18   13   15   49   14   19
+      Gene432    5   27    2    2   18    6    6    5    .    1    3   25    6    7
+      Gene433  190  111   78  121   64   87  124  203   76  154   78  114  116  279
+      Gene434   14    5   24   20    7    6    7   18    7   25    7   11   29   39
+      Gene435   55   94   75   90   48   46   41   36   53   81   74  129   43  135
+      Gene436  123  122  122  105  133  121   78   83   95   98  143  149  117  232
+      Gene437    8   31   33   39   17   34    7   23   20   15   34   13   30   16
+      Gene438  155  109   64   72   70   96  150  120   73  180  120  155   85  215
+      Gene439    8   14    2   10    7   15   17   10   11   11   10   18    9   21
+      Gene440   35   10   10    9   18   19   12   10    2   13   16   44    5   18
+      Gene441   64   62   72   66   89   74   51   79   32   76   56  103   66   90
+      Gene442   65   63  104  119   56   62   90   82   40   78   86   97   74  135
+      Gene443   15   25   10   13   22   34   16   20   12   22   22   24   16   35
+      Gene444    7    9   19   17    7   17    5   14   15    7   15   28   10   15
+      Gene445    .    .    .    .    1    1    .    .    .    .    .    .    .    .
+      Gene446   45   49   64   36   38   41   26   45   32   60   40   45   36   94
+      Gene447   53  112   62  106   60   91   58   36   41   46   49  113   79   85
+      Gene448   66  141  127   89  130  110  129   89   88   53  103  197   82  161
+      Gene449   73   59   98   57   65   44  100   71   60   89   63  194   68  134
+      Gene450    1    2    1    .    2    .    .    2    .    .    .    .    .    6
+      Gene451   28   66   77   54   65   51   57   79   39   57   64   66   78  112
+      Gene452  128  126  178  113  149  146   79   69   66  153   85  191   92  229
+      Gene453  657  685  848  778  526  595  839  823  609  722  661 1231  614 1291
+      Gene454   28  156   73   57  110  129   47   43   44  104  152  165   52   59
+      Gene455    3    2    4   14    3    .    1    2    2    5    .    5    .    1
+      Gene456   35   25   21   20   36   30   24   17   17   27   33   30   15   65
+      Gene457   88   67   47   77   86  136   81   95   51   71   72  137   64  150
+      Gene458    .    3    3    3    2    4    2    3    3   12    1    9    6    8
+      Gene459   19   44   25   11   20   25   40   13   21   25   39   37   29   27
+      Gene460  649 1534 1689 1588 1302 1215  874  893 1156  979 1400 2271  936 1524
+      Gene461  250  270  209  223  200  237  169  177  166  217  213  475  176  327
+      Gene462    .    1    2    .    .    .    2    .    .    3    1    1    1    1
+      Gene463    8    4    5    4   10    4    4    4    6    4    2    5    2   31
+      Gene464    9    4    2    .    2    .    1    .    1    .    1    .    .    6
+      Gene465   18   29   18   31   32   24   39   23   24   50   21   33   21   51
+      Gene466   10   39   26   37   46   23   23   22   21   22   35   24   27   46
+      Gene467    1    3    5    4    2    6    2    3    2    4    7    1    3    6
+      Gene468   26   13   26   12   18    9   13   21   18   30   15   23   17   46
+      Gene469    .    .    1    .    1    .    1    .    .    1    .    .    2    4
+      Gene470   46   56   85   61   44   65   42   56   33   62   44   51   43   95
+      Gene471    3    9    5    3    8    7    3    4    3    9    9   13    3   13
+      Gene472  174  122  141  135  139  106  193  183   93  220  116  197  116  392
+      Gene473   68   60   31   46   27   76   48   56   21   77   44  127   22  124
+      Gene474    .    .    .    .    .    .    .    .    .    2    .    .    .    .
+      Gene475   46   59   64   64   88  128   28   70   19   75   82  169   40  136
+      Gene476   50   55   43   82   58   77   63   59   63   54   53   88   60  100
+      Gene477   17   30   43   36   56   39   40   28   27   39   58   77   48   66
+      Gene478    3    9   13    4    2    6   12    7    4   14    6    3    2   17
+      Gene479   14    6   10   18    6   13   12    9    .    5    8   24    8   14
+      Gene480   42   37   28   34   67   46   42   22   16   49   56   67   18   84
+      Gene481   27   23   16   33   23   28   12   18   34   12   15   47   19   58
+      Gene482   37   54   58   73   49   79   55   74   53   33   52   91   37   70
+      Gene483   12   10   14    9    1   11   15    9   13   11    3   21    6   27
+      Gene484   42   42   36   24   31   16   22   29   22   15   22   28   35   31
+      Gene485   14   16   31   19   32   19   17   10   15   16   11   34   13   40
+      Gene486    1    8   17    4    8   15    6    7    5    6    7   15    6   10
+      Gene487   81   58   58   45   51   62  134   90   34   91   63   71   49  153
+      Gene488  139  412  166  176  383  404  116  128  163  207  354  695  118  195
+      Gene489  179  108  100  111   80  116  159  142  112  136  142  191   79  268
+      Gene490    2    1    .    3    .    2    .    .    2    1    1    3    8    .
+      Gene491  141  144  139  191  151  103  164  244  173  229  216  256  156  258
+      Gene492   72  112   74   58  111   84   59   64   36   69  113  161   38   83
+      Gene493  143  167  148  176  146  151  180  161   98  226  173  270  185  375
+      Gene494  438  493  693  451  425  409  474  463  417  405  573  911  550  820
+      Gene495    2    .    2    3    1    .    7    3    .    2    4    4    .    .
+      Gene496   31   33   15   22   20   35   21   15   14   41   27   68   14   47
+      Gene497   73  301  233  293  247  283   59  129  184   77  211  346  176  184
+      Gene498   35   43   28   45   37   48   33   83   34   54   74   58   31   87
+      Gene499  154  260  161  216  182  259  257  323  250  333  191  398  153  672
+      Gene500    3    .    1    .    2    2    .    1    .    .    .    3    1    6
                                                                                    
-      Gene1     60   75   41   48   18   36   62   22   21   28   42   49   98   47
-      Gene2     29   35   21   18   19   30   13   28   12   21   15   36   21   19
-      Gene3    461  957  443  584  897  711  651  478  552  882  514 1021  947  471
-      Gene4     64   84   65   96  189   82   79   61   71  134   76  104   75   73
-      Gene5     13    5    8    4    4    1    2    2    1   11    3    1    3    4
-      Gene6     66  104   69   76   48   60   62   51   66   64   47   96   98   76
-      Gene7     76  124   78   94   52   35   80   70   61   62   49  115  106   66
-      Gene8     70  153  106  111   56   73   94   98   71   77   89   70  134  143
-      Gene9     58   72   24   81   46   48   61   50   61   62   37   68   94   45
-      Gene10     1   11    6    5    4    3    8    1    .    1   11    3    5    2
-      Gene11    16   41   24   24   19   18   41   20   15   26   13   40   19   42
-      Gene12    25   29   24   24    8   25   20   30   32   24   19   34   36   12
-      Gene13    60   97   56   82   48   46   70   64   47   34   29   92   88   63
-      Gene14    14   22    9   24    5    2    6   17   11    2    8   21   15   15
-      Gene15   169  264  211  162  160  150  236  231  109  178  120  223  293  173
-      Gene16    14   36   23   13   24   19   17   34    3   26    7   13   19   20
-      Gene17    32   60   13   32   35   28   21   16   11   31   25   41   37   30
-      Gene18    31   44   27   17   14   13   23   25   22   18   23   33   29   19
-      Gene19    35   33   23   60   30   35   46   27   43   24   30   55   37   39
-      Gene20     1    .    .    .    .    1    .    .    .    .    .    .    .    .
-      Gene21     .    3    3    5    1    .    1    1    .    7    .   11    8    9
-      Gene22   214  288  183  310   82  102  147  191   74  101   92   92  111  166
-      Gene23  1994 3553 1815 2230 1743 1629 2551 1984 1683 1712 1864 2631 2990 1704
-      Gene24    24   16   16   16    7   22   20   19   11   13   11   23   31   15
-      Gene25    26   43   18   39   22   14   18   17   15   26   16   38   38   23
-      Gene26    34   56   33   46   30   16   27   44   36   30   23   61   86   33
-      Gene27     .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene28    13   49   26   19   20   22   34   20   13   28   10   61   41   19
-      Gene29   209  350  161  218   47   45   76  147   41   43   45  135   88  220
-      Gene30   101  202  140  136   53  164  164  159  167   87  158  252  207  224
-      Gene31  1868 3518 2237 2713 1059 2023 2144 1975 1439 1053 1233 2668 3595 1741
-      Gene32    43   51   29   56   83   27   70   28   45   88   27   52   65   46
-      Gene33    26   28   22   19   17   16   24   17   21    5   35   60   41   15
-      Gene34    55   57   53   37   46   34   42   24   20   69   20   46   43   33
-      Gene35   507  933  562  709  449  636  797  576  869  500  672 1555 1143  454
-      Gene36     4   11    8    1    .    7    8    5    2    .    6    2    1   10
-      Gene37     7    6   10   10   14   21   17    8   25   15   14   25   29    4
-      Gene38    12   14    4   20   12   13   31   18   26   12    5   20   15   11
-      Gene39   509  552  405  523  330  421  401  431  343  371  377  584  569  394
-      Gene40     2    2    .    2    1    3    1    .    1    1    4    5    3    1
-      Gene41    59  107   48   41   21   37   34   91   29   13   23   30   33   72
-      Gene42    10    5    1    5    5   16   11   12    9    6   14   11   21    .
-      Gene43     9   27   18   16    3   10    8   12   10    5    9   18   17    4
-      Gene44    11   39   15   27    9    5   11   13    7   16    8   17   19   13
-      Gene45   124  164   61  113  102  120  139   85   53  104  147  147  191  175
-      Gene46  1922 3985 1834 2040 1835 2399 2416 2212 1997 1427 1528 3236 3588 2236
-      Gene47     5    1    1    5    9    8    9    3    2    5    3    6    7    1
-      Gene48    57  137   54   94   34   37   52   41   50   29   39   75   95   57
-      Gene49    36   38   18   28   11   29   33   23   37   21   35   43   46   28
-      Gene50     .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene51    64   68   29   51    8   30   24   60   18   17   19   20   21   33
-      Gene52     1    2    1    .    .    .    3    3    .    2    2    4    1    .
-      Gene53    21   40   29   17   30   49   21   26   19   45   18   35   57   22
-      Gene54    48   89   30   41   30   51   34   24   34   20   32   63   64   28
-      Gene55     4    3    7    .    1    .    2    1    1    1    1    5   10    1
-      Gene56     9   17    3    6    3    2    7    5    6    1    8    5   11    2
-      Gene57    35   81   45   54   31   45   69   73   58   54   30   93   97   73
-      Gene58    23   48   56   22   53   38   44   41   47   18   31   46   49   33
-      Gene59    19   37   19   25   12   17   23   18   20   16   16   30   21   17
-      Gene60     1    2    1    .    .    3    1    .    .    2    2    .    4    .
-      Gene61     .    1    .    .    .    .    .    .    .    .    .    .    1    .
-      Gene62    34   90   33   57   32   18   13   39    8   39   23   14   35   40
-      Gene63   165  236  113  181  116  187  133  144  109   98  125  242  260  149
-      Gene64   194  247  183  333  143  240  222  203  213  173  173  242  335  224
-      Gene65    31   72   28   23   31   77   84   42   79   48   65  143  167   41
-      Gene66    89  145   60   73   42   72   53   55   57   49   78   98  137   74
-      Gene67   255  433  192  331  510  291  363  286  245  486  170  416  453  276
-      Gene68     5    3    .    1    .    3    2    5    1    2    2    2    6    6
-      Gene69     8    6    .    2    6    1    4    7    4    8    .    .    4    1
-      Gene70   123  149   60   84   74   89   70   74   89  107   43  130   79  111
-      Gene71    34   45   24   19   31   59   52   32   23   51   23   85   58   27
-      Gene72    11    7    4   18    6   14   16    4    9   14    9   16   23    2
-      Gene73     .    3    .    1    5    1    3    2    1    .    3    3    2    2
-      Gene74  1494 2371 1205 1870  605 1365 1288 1381 1394  685 1223 1572 1869 1399
-      Gene75    36   44   19   30   17   31   26   28   21   21   22   34   43   28
-      Gene76    44   50   30   40   36   29   26   28   22   18   12   36   47   23
-      Gene77    53   92   63   52   33   28   34   55   33   43   25   39   43   54
-      Gene78   227  336  219  265   91   84   97  166  116   68   95  168  174  183
-      Gene79   783 1315  619  697  559  554  771  686  591  761  597  867 1014  705
-      Gene80    91  105   60   49   30   58   79   98   39   31   35   78   76  108
-      Gene81    16   21   11   20   17   15   13   11   12   21   17   14   20   19
-      Gene82     .    5    2    .    1    .    .   10    .    1    1    2    4    8
-      Gene83    92  121   40   64   31   89  115   70   41   61   46   98  107   86
-      Gene84    10   32   14   11   53   40   45   18   14   42   36   41   54   10
-      Gene85   918  992  693  791  653  462  787  765  479  485  549  776  972  809
-      Gene86     .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene87    30   23   21   32   12   23   21   56   36   28   23   28   62   33
-      Gene88   119  155   98  124  110  129  131  115   92   71  115  169  159  100
-      Gene89    17   25   14   24   38   27   25   15   25   19    9   12   40   13
-      Gene90   142  263  197  151  139  183  222  156  162  146  151  240  270  192
-      Gene91    50   90   83   77   16   35   57   74   28   57   23   65   48   51
-      Gene92    12   24    8    9    5   10   12   12    3    6    8    8   19   18
-      Gene93    18   46   14   33   12   21   31   26   11   23   14   23   10   23
-      Gene94    30   76   43   53   69   23   33   40   16  162   40   56   47   58
-      Gene95    11    4    2    4   16   12   15    7   15    1   10   21   37   12
-      Gene96     .    4    .    2    4    1    .    .    3    .    .    3    .    .
-      Gene97     3    7    4    9    2    6    4   11    3    1    2    5    6    4
-      Gene98     5    8    6    2    3    3    2    3    5    1    4    2    5    3
-      Gene99     3    1    8    2    8    .    7    7    2    5    6    8   11    7
-      Gene100  126  193  105  135   95  106  109  171   76   84   61   80  137  117
-      Gene101   10    6    6   10    3    4   13   17    6   10   11   15   11   26
-      Gene102   70   60   67   92   54   39   53   73   54  105   23   37   67   55
-      Gene103   63   39   49   20   19   29   34   39   10   18   56   51   56   38
-      Gene104    .    .    .    .    .    .    6    .    .    .    .    1    .    .
-      Gene105   16   18   20   15    6   11    9   11   14    8    9   12   11   19
-      Gene106   68   82   64   74   25   27   52   29   27   50   36   51   50   50
-      Gene107 2890 3746 2526 3026 1862  845  990 2981  909 2560  754 1211 1457 2935
-      Gene108    3    9    4    5    .    1    .   13    2    .    .    4    2   15
-      Gene109  301  512  286  430  185  137  195  253  154  154  161  190  186  266
-      Gene110  102  152  101  119  107   72  131   98   81  138   93  111  174  120
-      Gene111  398  505  286  403  257  386  346  427  234  183  195  408  559  311
-      Gene112    9    3    3   10   15    5    3    3    7    4    4    9    .    9
-      Gene113   30   50   26   55   12   39   56   46   25   35   49   86   52   28
-      Gene114    9   14    1    7   16   12   12    5    6   17    8    6   17   17
-      Gene115   12   46   16   35   14   14   27   15   21   10   12   18   26   24
-      Gene116   38  110   47   45   51   35   45   20   49   55   26   49   83   56
-      Gene117  698  910  763  797  500  899  943  757  894  478  603 1073 1469  655
-      Gene118    6   41   10   22    2    4    9    9    1    3    5    6   15    2
-      Gene119    2   12    .    6    1    8    .   13   17    3    7   18    9    .
-      Gene120    9   15   26   20   22   19   21   26   17   23   20   36   25   25
-      Gene121    5   17   12    9    2    2    7    9   10    7   14    6    5    8
-      Gene122   30   42   27   36   18   23   35   39   21   29   23   39   37   29
-      Gene123  941 1815 1158 1357 1765 1752 1915  940 1534 2019 1626 2337 3257 1101
-      Gene124   46   64   26   59   28   22   48   56   30   41   31   54   39   42
-      Gene125 2440 2634 2181 1988  742 1875 2081 1981 1707  947 1576 2563 3003 2220
-      Gene126   41   72   28   63   36   32   40   60   61   42   32   70   46   54
-      Gene127   75  103   69   70   98  131  140   84  119  102   85  212  272   66
-      Gene128   12   21    3   10    5    7    8   13    9    2    4   10    9    7
-      Gene129  177  291  136  127  127  166  145  120  125  130   78  190  210  139
-      Gene130   41   83   46   69   55   65   35   43   53   60   49   55   56   28
-      Gene131   33   37   39   41   25   33   27   34   22   29   30   46   45   30
-      Gene132   15   19   37   13   19    9   16   12   11   19   10   27   15   27
-      Gene133    5    7    5    9    4    9   14   11    5    1    3    9    8    5
-      Gene134   22   21   13   22   11   12   22   14    5   12    9   13    6   11
-      Gene135   11   14   13    8   13   14   28    6   29    6   27   14   21    7
-      Gene136  131  245  157  160  152  121  110  113  141  160  107  133  167  138
-      Gene137    6   13    3    5   12   13   13   16    7    5   22   21   17    .
-      Gene138   35   37   38   54   19   16   31   31   21   26   28   59   46   30
-      Gene139   26   14    8   26   10   21   14   15   23   10   16   41   28   20
-      Gene140   18    6   14   13   12   17    7   13   12   12   31   15   20   15
-      Gene141   19   30   19   34    4   10   21   18   23   11   14   23   37   28
-      Gene142  179  200  121  177  115  186  195  108  188  141  157  331  288  112
-      Gene143    .    8    6    7    4    .    7   10    1    3    2   11    9    9
-      Gene144    9   10    3   12    1    5   11   22    5    1    7   17   13    7
-      Gene145   80  109   60  132   24   38   43   98   28   25   34   65   40   79
-      Gene146  154  198  137  187   94  450  431   89  366  112  363  617  470   85
-      Gene147   78  108   98  122   46   91   49   78   85   39   31  118  116   49
-      Gene148  162  308  161  195  116  118  143  144   86  140   80  143  138  153
-      Gene149    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene150    7   11   18    9    9   12   19    9   13    2   18   32   18   12
-      Gene151   65  229  109  154   91  209  234  154  178  131  158  287  312  135
-      Gene152   11    6    5   12    4    9    7    .    1   20    8   14    2    7
-      Gene153    2   18    8    6    2    5    2    2    .    3    2    7    4    4
-      Gene154    .    4    .    .    .    .    .    .    .    .    .    1    .    1
-      Gene155   60   61   47   49   25   40   70   30   16   44   36   43   56   54
-      Gene156   69   95   59   75   13   51  117   67   34   26   59   67  101   55
-      Gene157    2    1    .    .    .    .    4    .    6    1    5    1    2    1
-      Gene158   79  122   86   97   57   67  121   76   90   39   66  149  107   89
-      Gene159   50   58   37   59   14   43   52   33   15   16   16   42   57   17
-      Gene160   19   12   10   25    9    4    4    7    3    2   16   16   15    .
-      Gene161   43   70   27   63   44   31   45   49   45   38   23   55   36   32
-      Gene162    1    .    1    .    .    .    .    .    .    .    .    2    .    .
-      Gene163   11   18   17   21   12   26   13   23   15    9   20   27   40   18
-      Gene164    .    2    7   23    8    5    4    1    8    .    .    8    9    2
-      Gene165   98  227  141  163   89  110  108  143   53  110  118  180  170  122
-      Gene166   61   69   47   62   28   52   64   40   55   46   71   74   76   53
-      Gene167   12   17   10   27   19   10   20    8   25   25   29   25   25    6
-      Gene168    2    .    3    5    1    .    1    2    2    .    .    2    .    7
-      Gene169    6    3    5    9    3    1    3    2    3    .    2    7    4    4
-      Gene170    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene171  159  211  187  244  205  121  136  114   88  131  105  269  184  117
-      Gene172    6    9    2   10    7   15    3    .    1    4    2    6   16    5
-      Gene173   17   40   29   58   54   58   98   51   88   32   85  112  131   16
-      Gene174   28   26   24   20   53   16   16   11    8   51    7   21   29   22
-      Gene175    3    7    .   12    8   10    8    3    5    4    2   17    7   14
-      Gene176    9   13    7    7    8   23   17    7   28   13    7   45   30   11
-      Gene177 1103 1568 1233 1360 1516 2163 2572 1163 2182 1571 1718 2922 2970  990
-      Gene178    .    3    .    1    2    .    1    2    3    .    .    .    1    .
-      Gene179   75  140   70  102   63   62   96   47   42  102   44   90   93   64
-      Gene180   24   32   36   24   17   20   13   27   22   23   27   43   31   42
-      Gene181    5    .    .    2    .    1    .    .    .    .    .    .    .    .
-      Gene182  162  233  175  154   36   91  121  135   70   70   92  158  169  129
-      Gene183   31   53   33   50   34   22   27   23   76   21   53   59   81   49
-      Gene184   39   59   43   63   54   66   60   67   52   49   49   93   94   47
-      Gene185   29   16   13   37    .   14   14   22   13    8    3   20   24   17
-      Gene186   21   47   30   24    1    3    5   23   13    2   11   14    5   12
-      Gene187   45   51   60   76   87   76  125   60   70   88   82  137  133   70
-      Gene188    2    6    5    6    1    3    5    7    .    2    1    3   16    4
-      Gene189   91  163   79  130   43  109  114   83   83   39   88  143  158  117
-      Gene190 1112 1966 1075 1594  443 1117 1220  975  913  518  816 1438 2043 1451
-      Gene191   34   26   16   29    8   48   43   22   39   17   16   37   23   14
-      Gene192    1    1    3    4    3    3    8    8    1   14    5   23    6    .
-      Gene193   19   14   17   27   14    5    9    2    6   12    7   14    9   22
-      Gene194   13   32   10   45   17   23   15   14   19   10   11   22   28   25
-      Gene195   10   30    8   13    6   14   10   12    7   12   22   20   41   18
-      Gene196  163  247  202  140  121  165  173  110  154   77  119  241  152  212
-      Gene197   32   74   36   12    7   26   23   31    6   19   19   16   28   28
-      Gene198   68  149   67   75  121   74   96   76   83   80   87  168  104  109
-      Gene199   97   77   41   53   24    7   23   37   11   21   16   34   54   62
-      Gene200   20   29    7   25   10   13   16   20   17   23   24   32   39   13
-      Gene201   10    8    6    6    3    9   14   13    1    4   10    9   15    8
-      Gene202  960 1343  727  952  655  878 1156 1043  515  759  583 1206 1436  915
-      Gene203   25   29   23   28   12    5   13   19   16   12    8    9   16   17
-      Gene204    .    .    .    .    .    .    1    5    .    1    .    .    .    .
-      Gene205  139  156   81  133   34   30   37   73   51   79   35   65   34   65
-      Gene206  104  102  112  133   90   54   77  107   54  112   50  119  106  115
-      Gene207   14   22    4    5    2    7    5    9    .    9    6    .   10    7
-      Gene208    4   13    1    8    1    1    5    4    3    5    2   10   10    .
-      Gene209  194  251  229  276  110  227  232  153  120  259  177  249  435  250
-      Gene210   45   37   54   77   30   60   81   48   30   40   37   53  101   71
-      Gene211    .    .    .    .    .    .    .    .    .    .    .    .    1    .
-      Gene212   13   19   17    7   27   13    9   33   13   12   16   11   20   20
-      Gene213    4   22   15   10    5    1    9   11   13    7   13   13   15    4
-      Gene214   28   45   40   18   19   33   54   40   29   42   32   70   92   40
-      Gene215    4    2    9    1    5    5    1    3    7    5    5    3   10    3
-      Gene216   25   43   15   31   24   13   34   12   21    9   37   25   45   21
-      Gene217   83  142   97  134   31   33   56   83   33   67   39   66   94   97
-      Gene218   72  135   65   84   35   57   44   69   40   42   36  102   87   64
-      Gene219    2    4    4    .    2    3    1    5    2    2    .    3    3    2
-      Gene220   92  103   69  116   72   92  100   50   56   77   59  104  124   74
-      Gene221   19   69   22   45   16   25   21   20   13    8   23   18   15   38
-      Gene222   26   37   20   16   24   12   18   17   25   14    7   32   31   24
-      Gene223   83  131   82   46  111  125  174   62   99  140  119  123  238   47
-      Gene224   21   19   33   24   26   19   39   22   19   38   15   36   29   37
-      Gene225    5    9    2    7    7    5   10    6    6   14    3    2   15    4
-      Gene226   11   36   12   21   14   22   12   10   24   37   30   28   38   27
-      Gene227   19   48   21   30    8   49   25   15   17   17   21   29   40   24
-      Gene228   50   68   36   81   59   43   50   41   42   39   35   87   98   35
-      Gene229   51  101   49   68   19  111   69   72   48   32   72   88   98   38
-      Gene230    1    4    .    8    2    .    1    1    3    2    2    4    3   11
-      Gene231    6   25    5    6    5    5    6   10    .    5    3    1    3   13
-      Gene232   64  123   68   95   49  126  135   82  100   55   63  138  135   58
-      Gene233   14   12    4    7    7    4   13   17    3    2    7    9   14   27
-      Gene234    9   16    6    3    7    1    .   13    4    1    6   13    5    9
-      Gene235   46   71   34   91   29   32   37   44   39   25   47   71   89   37
-      Gene236   12   28   16   18   17   20   15   18   24    9   11   12   37    7
-      Gene237   89  157   90   93   43   46   32   88   43  118   34   77   94  144
-      Gene238  105  209  124   97   54   72  128  127   61  100   65  144   68  124
-      Gene239   19   59   19   48   12   41   35   21   16   14   11   19   31   18
-      Gene240   10    8   12   10   18   15   16   16    9    7    9   19   21   10
-      Gene241   52   48   38   75   74   33   36   46   55   71   60   79   54   64
-      Gene242    1    2    .    2    1    7    3    3    3    .    3    2    2    2
-      Gene243  208  172  118  257   87  109  145  198  134  130   89  194  179  179
-      Gene244   12   26    3   11    7    3    7   12    3    4    1    3    2   15
-      Gene245  118  173   87  134   55   63  117   98   67   82   70  101   86   78
-      Gene246   22   19   11   35   19   14   14   13    3   13    6   39    9   13
-      Gene247   29   43   24   17    9   16   22   17   27    8   17   19   24   12
-      Gene248   15   19   23   16   27   14   18   16   32   15    8   21   29   21
-      Gene249    .    .    .    .    .    .    .    .    1    .    .    .    .    .
-      Gene250    .    2    2    2    6    4    1    1    .    1    5    2    7    1
-      Gene251   37   70   21   53   44   49   41   34   55   33   51   35   55   59
-      Gene252   21   22   16   32   19   31   34   11    5   14   24   18   38   18
-      Gene253  442  530  345  331  138  115  144  430   75  119  138  207  232  347
-      Gene254   57  103   32   42   32   63   56   33   64   67   45   91  111   54
-      Gene255   48  151  104   78  113   70   79   59   57  135   39  123  129   98
-      Gene256   98   69   78   99   43   64  129   83   89  105   86  110  156  104
-      Gene257   16   28   16   17    7   77   67   30   45   13   62   82   93   23
-      Gene258   16   14    9   24   10    5    6   14    8    4   21   14   11   16
-      Gene259    .    .    1    .    .    .    2    1    .    .    .    .    .    .
-      Gene260   88  119   84   83   54   28   58   68   32   43   59   74   63   83
-      Gene261    9   41   18   25   36   11   21   18   14   50   23   34   28   26
-      Gene262    8   17    6    8    7    4   21    4    7    5    4   21   14    9
-      Gene263   13   21    5    7   10    9    5   11   12    8    9   23   28   10
-      Gene264   17    5   16   25   31   36   71   16   35   29   42   37   51   20
-      Gene265   23   34    4   13   19   16   28   19   10   16   19   26   28   19
-      Gene266    .    2    .    2    .    1    .    1    .    .    1    1    8    4
-      Gene267   40   87   67   86   33   63   56   49   63   43   77   84  116   52
-      Gene268    8   15    3    4    2    2    2   11    7    4   13    3    6    1
-      Gene269    6   16    5   16    4    6    8    9    4    6    7    1   22    7
-      Gene270  148  268  116  143  110  131  164  168  108  168  152  217  200  166
-      Gene271 1319 1619 1112 1040  585  879 1119 1114  930  679  653 1253 1299  872
-      Gene272  101  139   86  157   23  184  171   81  177   17  125  172  231   93
-      Gene273    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene274    3    .    .    .    .    .    .    .    1    .    3    7    3    .
-      Gene275   15    .    .    3    2    1    1    3    1    4    3    1    4    6
-      Gene276   10   15    4   18   12   25   14    9    7   16    5   14    9   12
-      Gene277   34   37   29   38   17   20   24   19   19   37   11   60   35   23
-      Gene278   42   23   16   25   34   33   71   25   40   40   58   76   65   17
-      Gene279   26   38   34   31   15   33   35   30   16   31   13   29   35   41
-      Gene280   20   55   44   42   11   34   55   36   34    9   37   75   55   26
-      Gene281   23   25    8   23   21   24   29   16   21   15   21   42   55   18
-      Gene282    6    5    7    7    2   13    5    9    3    7    5    8   14    9
-      Gene283  255  402  305  431  324  213  195  270  112  253  162  226  296  313
-      Gene284   21   12    7    2    7    2    7    2    5    9    5   14    2   15
-      Gene285  129  228  189  192  175  142  194  244  151  156  187  270  367  165
-      Gene286  134  108  105  171   68   61   62   97   47   85   71  103  116   81
-      Gene287   40   68   22   32   37   28   23   38   18   33   37   25   49   39
-      Gene288   10   19    2   10    9    4   10   24    2    6   13   10   17   18
-      Gene289   65  133   64   90   52   64  103   74   86   60   72  111  134   52
-      Gene290   32   63   53   40   41   35   55   22   29   39   31   44   43   43
-      Gene291    7    6    1    4    5    2    5    3    5    2    4    5    5    4
-      Gene292  987 2080  805 1035  754  727 1195 1145  760  954  780 1418 1139 1028
-      Gene293   16   18    2   10   22   29   26    9    7   13   17   32   49   11
-      Gene294 1531 2739 1563 1714 1401 1453 2151 1733 1346 1251 1375 1841 2833 1840
-      Gene295   45   46   25   30   42   48   54   29   25   27   42   41   42   21
-      Gene296    2   18    3    7    6    1    5    .    4    6    2    3    4    2
-      Gene297   45   32   26   25   29   35   33   27   18   22   27   23   19   28
-      Gene298    2    .    3    1    3    .    .    .    1    .    .    1    1    .
-      Gene299   67  159  107   68   42   35   42   96   25   51   53   94   85   61
-      Gene300    8   10    5   11    6    6    8    7    3    7    4   10   12    1
-      Gene301 2685 4805 2534 3314 2200 3102 3154 3221 2542 2373 2262 3863 4608 2959
-      Gene302    .    .    .    .    .    2    1    .    2    .    1    1    1    .
-      Gene303    6   35   32   18   27   19   24   31   20   80    9   36   46   30
-      Gene304    .    1    .    .    .    .    1    .    .    .    .    2    2    8
-      Gene305   54   71   22   60   55   21   44   43   37   52   40   54   70   71
-      Gene306  137  177  121  197  193  146  156  154  122  232  120  214  218  130
-      Gene307   33   44   25   34   50   37   44   21   21   36   35   30   48   51
-      Gene308   16    8    7   26   26   14    9   34   18   38   13   20   38   19
-      Gene309  480  746  416  538  427  488  516  629  373  348  406  585  513  389
-      Gene310   26  105   40   75   42   28   43   43   29   44   19   56   64   33
-      Gene311    9   14    6    6    4   14    4    4    3    8    9   17   10    9
-      Gene312   23   34   24   21   15   14   19   25   16   30   16   34   17   28
-      Gene313  187  176   91  133  128  111  154  102  113   96   82  111  150  135
-      Gene314    1    1    .    2    2    4    5    .    1    2    8    5    5    2
-      Gene315    2    1    1    1    1    2    1    .    4    .    2    2    1    .
-      Gene316   11   19    7    1   12   13    5   16   17   17    9    4   12   23
-      Gene317    3    4    .    .    1    3    6    2    7    4    2    3    5    3
-      Gene318   11   18   25   36   12   25   14   34   12    4    7   21   26   11
-      Gene319   18   31    7   23    6    9   10   20    5    9    8   16   40   19
-      Gene320   32   85   50   42   41   42   53   53   26   33   35   66   45   49
-      Gene321   80   69   53   57   14   56   58   38   34   26   27   75   69   77
-      Gene322    6    6    2    .    2    .    6    .    3    .    2    7    2    9
-      Gene323  117  131  147  142  129   28   68  105   26   59   42   68   84  153
-      Gene324    .    .    1   11    .    .    .    .    .    .    .    .    .    4
-      Gene325  233  342  126  150  257  318  421  156  282  336  338  507  542  162
-      Gene326    1    3    1    8    1    .    1    7    .    1    1   11    3    2
-      Gene327  244  466  222  337  115  254  266  236  175  169  186  367  371  269
-      Gene328  201  314  178  193  137  142  160  179  116  170  109  233  190  213
-      Gene329   90  182  104  102  107   71  142  107  138   81   92  125  152  205
-      Gene330  367  596  316  456  260  176  236  362  202  210  237  485  294  528
-      Gene331    6   19   16   13    7   10   13    8    5    8    8   14   34    8
-      Gene332   17   38   13   33   22   16   10   23   10   13   17   54   24   29
-      Gene333   30   36   19   18   14   14   38   18   12   26   22   51   36   31
-      Gene334    .    2    2    1    3    1    4    3    .    .    .    1    1    .
-      Gene335   16   24   10   52   13    9   20   17   25   19    7   29   21   17
-      Gene336  192  199  113  118  105  110  130  167   69  120  133  176  145  130
-      Gene337   23   20   33   43   36   24   44   24   26    8   26   45   45   26
-      Gene338    5    4    2    3    1    3    8   10    4    3    2    4    5    .
-      Gene339   89  102   63   82   41   63  145   55   84   94   37  115   92   77
-      Gene340   63  101   68   91   37   23   57  128   29   44   26   69   45   82
-      Gene341    6   15   15   17    4    3   16    6    3    .    9   17   20    8
-      Gene342   57   96   81   73   16   45   67   76   68   33   53   86   94  131
-      Gene343    .    1    .    2    .    .    5    1    .    6    2    1    8    8
-      Gene344   30   35   27   50   22   15   13   15   19   18   16   26   24   33
-      Gene345   67   74   46   26   51   32   61   45   20   44   21   74   47   50
-      Gene346    .    .    .    6    2    2    2    1    .    .    .    .    .    1
-      Gene347   19   29   24   26   18   33   22   24   14   16   15   18   32   17
-      Gene348    9   20   12    4   16   14   12    3    6    7    8   17    7   10
-      Gene349   68  147  110   97   88   93  129   85   77   69   75  107  159  145
-      Gene350   12   10    3    6    1    5    6    3    6    3    2    6    1    7
-      Gene351    9   40   24   25   19   15   18   20   25   17   12   43   32   13
-      Gene352    .   16   11    9   15    6   15    7    6    4    .    8   19    4
-      Gene353    4    8    .    .    .    .    3    .   11    .    2    1    1    1
-      Gene354  234  316  205  263  162  205  243  151  144  172  123  279  257  234
-      Gene355   29   46   26   18    1   29   23   17   11    4   28   43   22   32
-      Gene356   67  105   39   88   30   71   83   53   91   71   54  171  153   50
-      Gene357    7   29   17    4    9   13   22   13   12   10   20   29   16   15
-      Gene358   33   60   29   32    6   16   18   38   15   11   15   27   22   46
-      Gene359    3    .    .    1    .    .    .    1    3    1    .    .    1    .
-      Gene360    4    7    1    7    .    3    3    7    3    4    7    9    8    5
-      Gene361    5   13    7    7    .    2   12    2    6    2    1    5    2    6
-      Gene362   19   38   30   11   27   24   16   25   11   11   15   26   23   39
-      Gene363   26   39   20   14   19    9   18    9   21   12   15   19   16   18
-      Gene364   22   16   14   16    8   24   38   11   37   23   13   42   51   11
-      Gene365   39  120   39   56   56   56   56   49   36   63   32   53  108   51
-      Gene366   92  150  128  229  181  362  585  124  347  174  259  421  449  168
-      Gene367   36  102   44   51   49   56   61   69   38   30   30   81   88   86
-      Gene368    .    2   12   11    2    1    7    4    3    7    5    2    1    6
-      Gene369    2    6    .    6    6    .    3    2    8    4    5    8   10    5
-      Gene370  400  384  384  346  123  129  144  260  171  116  138  250  165  265
-      Gene371    9   15   14   13    6    .    5    3   18    3    9   10   17   14
-      Gene372  154  214  128  141  117  178  147  115  112  118  114  172  190  136
-      Gene373   14   25   28   28   18   13   44   38   23   35    8   23   32   33
-      Gene374  159  228  136  140   70   59   61  175   36   61   60   74   77   97
-      Gene375   25   69   29   39   11   36   27   26   15   25   28   61   43   26
-      Gene376   44   40   41   31   29   13   25   18   15    7   28   14   30   26
-      Gene377   38   96   39   54   47   44   80   45   60   81   53   35  120   44
-      Gene378   37   38   30   32   20   35   40   37   43   38   32   69   58   20
-      Gene379 1242 2002 1116 1387  691 1045 1076 1010 1156  936 1039 2268 1569 1239
-      Gene380    6    6    1    .    2    2    7    .   14    2    4    5    2    .
-      Gene381   17   17    9   16    5    9   22    6   16    4   11   11   10   15
-      Gene382    1    3    .    .    5    3    1    .    5    1    .    .    .    2
-      Gene383    3    1    1    2    1    .    2    2    1    .    1    3    .    2
-      Gene384   14   39   15   26   29   24   57   10   23   25   25   42   32   26
-      Gene385   54   41   51   32   35   39   52   39   36   20   38   70   37   20
-      Gene386   48   75   22   48   40   35   31   27   34   28   48   35   35   45
-      Gene387  136  177  105  139   82  110  120  111   75   88  114  233  159  149
-      Gene388    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene389    9    4    .    6   24    9    2    7   15    2    1    4   17    7
-      Gene390  108  149   85  134   77  186  242   79  184   89  144  304  278  108
-      Gene391   12   12   20   15    4    1    7   16   12    6    7   13   12   12
-      Gene392    3    7    3    5    2    2    7    .    5    4   11    5    4    3
-      Gene393   53  197   89   89   75   41   30   99   58   97   29   61   55   91
-      Gene394   21   17   12   24   10   11   27   15   12   13   13    9   39   15
-      Gene395   18   17    7   15    8    9    7    6   15    1    5   17    4   14
-      Gene396   11   19   21   16    1    4    5    8    2    6    6    6    .   19
-      Gene397   18   13   14   10   13   19   19    9   22   16   16   16   18   27
-      Gene398   23   23   32   23   22   37   82   29   39   25   16   66   62   21
-      Gene399   53   76   52   53   34   44   68   47   40   46    6   46   61   48
-      Gene400   29   51   15   15   17   37   33   22   31   21   27   40   54   22
-      Gene401   10    8    7   13    5    4    2   10    .    1    2    5   17   15
-      Gene402   51   67   46   66   50   53  109   62   47   62   17   74   88   68
-      Gene403   15   18    4    7    3    7   18   12   15    7    8   11    3   14
-      Gene404  103  151   82   89   83   77  122   78   63   88   45  134   69   85
-      Gene405    5   27    6   17   17   14   12   22    4   11   12   24   20    3
-      Gene406   44   56   51   46    6   22   12   36   25    8   30   22   31   53
-      Gene407    1    .    1    .    .    .    2    5    .    3    2    1    .    .
-      Gene408   16   17   15   24   11   27   37   22    4    6   13   33   18   20
-      Gene409    5    8   10   19   22    6    5   18    3    9    8   16    6    4
-      Gene410  118  215  131  202  179  106  124  146  134  165   87  222  179   90
-      Gene411   30   29   11   16    4    7   11   21    3    4    4   10   11   15
-      Gene412   41   74   30  109   56   58   71   38   43   55   51   67   78   99
-      Gene413    .    .    .    .    .    .    .    3    .    .    .    .    .    .
-      Gene414   73   77   48   82   68  111  165   60   96  124   91  161  226   70
-      Gene415    6   57   15   25   14    7   33   26   20   12   16   40   40   24
-      Gene416   38   95   49   62   26   40   71   69   35   49   41   83   37   28
-      Gene417   20   28   19   16    3   10   19   13   14    9    5   14   33    5
-      Gene418   63   73   35   63   62   88   36   90   47   38   52  122   80   97
-      Gene419   10    2    3    4    .    6    9    5    2    1    2    1    1    1
-      Gene420   33   48   18   19   40   33   40   26   30   21   11   28   31   18
-      Gene421  160  187   68  138   81   70  175  119   90   92  108  169  202  166
-      Gene422    5   60   21   24    6   26   30   26   16    5   14   28   24   34
-      Gene423    3    .    .    .    3    .    3    1    4    .    .    1    1    5
-      Gene424   22   20    8   31    3    4    9   20   11    7   12   17   25   13
-      Gene425   50  110   41   45   49   48   76   43   33   47   40   76   99   39
-      Gene426   19   10    6   12    5    7   11    4    5    1    7   11   22    5
-      Gene427    2    .    2    .    .    .    .    .    .    .    .    .    .    .
-      Gene428   14   12    5    3    1    2    4    3    8    5    5    2    8   15
-      Gene429    4    2    2    3    2    7   17    .    4    6    1    3    4    9
-      Gene430   78  130   56   70   40   51   62   54   29   55   52   89   99   52
-      Gene431    5    2    1    1    1    .    1    .    2    2    .    7    1    3
-      Gene432   48   48   40   27   21   47   31   36   31   26   22   34   35   13
-      Gene433  683 1294  647  787  272  829  904  553  791  189  715 1351 1348  907
-      Gene434    3    .    4    3    9    3    1    1   12    1    4    3    9    7
-      Gene435    3    8    9    9    .    3    4    2    2    1    5    2    5    9
-      Gene436   37   50   42   49   41   68  127   28   69   54   63   96  102   21
-      Gene437   69   83   90   75   47   59   28   54   33   43   30   30   41   63
-      Gene438   26   54   14   57   24   15   30   41   22   16   26   37   44   41
-      Gene439   39   47   35   36   40   45   44   34   27   35   37   61   56   43
-      Gene440   15   20   34   11   18   28   22   14    8   14   28   34   26   45
-      Gene441  184  203  151  207   46   91   57  124   95   52   69  126   92  169
-      Gene442  282  268  146  189  240  180  185  185  126  298   95  289  334  242
-      Gene443    3    2    .    .    .    .    .    .    .    .    .    5    3    1
-      Gene444   51   88   63  108   31   53   40   72   49   47   43   66  105   42
-      Gene445   25   94   37   48   33   12   46   13   20   20    7   61   37   21
-      Gene446    3   20    6   19    8   14   18   10   19   17   15   30   49    8
-      Gene447   13   17    4    5    2    .    6    7    5    5    3    7    5    8
-      Gene448   28   50   50   32   17   19   33   37   22   32   16   40   66   43
-      Gene449 2120 2844 2006 2530 1534 1805 2095 2107 1861 1628 1547 2669 2942 2367
-      Gene450    3   11    5    2    1    6    9    5    3    6    5    4    6    7
-      Gene451   37   36   31   40   14   52   36   33   25   22   31   36   29   18
-      Gene452  936 1535  661 1288  561 1042  964 1057  585  545  669 1202 1452  809
-      Gene453   50   52   38   34   35   35   54   39   38   44   40   49   58   43
-      Gene454   18   38   10   10   11   31   11   18   17   13    7   14   16   16
-      Gene455   19   23   16   19   11   31   10   14    6   12    9   34   26   20
-      Gene456   21    8   11   10    9    7   17   17   10    7   12    9   20   13
-      Gene457 3453 4728 2939 3806 2331 3008 3577 3705 2974 2619 2332 4710 4911 3110
-      Gene458   45   68   41   77   77   54   66   52   71   43   25   74   70   39
-      Gene459 1213 2361 1091 1224  526 1208 1509 1343  858  714  897 2045 1668 1590
-      Gene460   25   32   24   42   16   24   27   23   13   12    9   45   28   25
-      Gene461   21   37   19   22   12   19   17   23   11    3   12   51   38   23
-      Gene462   19    7   15    8    9    1    3   15   10   13    1    4    4   26
-      Gene463   48  113   42   76   29   49   37   50   35   28   28   51   57   42
-      Gene464  145  130   73   77   73   67   84   56   78   50   55   84   93   88
-      Gene465   16   26   20   20    6   24    4   30   21   10   28   38   22   19
-      Gene466   34   66   48   46   16   40   61   44   22   20   26   32   58   53
-      Gene467   37   37   36   47   35   15   20   23   23   36   16   36   45   38
-      Gene468    3   19    1    8    4    4    4    7    1    4    5   10    8    4
-      Gene469    .    .    1    1    3    .    1    9    .    1    1    2    .    1
-      Gene470    1    .    4    7    .    1    7    1    .    2    2    7    7    2
-      Gene471   58   46   31   33   32   21   38   40   22   55   11   18   21   36
-      Gene472   80  212   67  107   67  108  101   62   78   97  105   96  145   88
-      Gene473   63   84   56   95   50   63   58   56   49   70   56   59   69   56
-      Gene474   28   23   37   33   27   21   37   57   20   43   15   88   39   41
-      Gene475   42   41   44   35   36   47   64   43   50   50   41   82   81   56
-      Gene476  352  482  222  385  199  305  262  239  229  293  236  333  290  371
-      Gene477   27   42   32   30    2   11   11   44   15   13    7   10   30   33
-      Gene478    8   14    7   12   16   16   15   11   21   10   18   27   23    7
-      Gene479    1    7    2    2    7    .    5    3    3    .    8    2    3    1
-      Gene480   31   47   26   15    4    9   12   31   14   16   22   14   12   20
-      Gene481    3   13    6    3    7    2    1   22    .    2    1    .    .    3
-      Gene482   51  135   47   42   44   60   55   34   33  101   50   86   85   31
-      Gene483    .    1    .    1    .    .    .    .    .    1    .    4    .    .
-      Gene484    4    5    5    3    5    1    1    5    .   10    1   13    8    1
-      Gene485    6    6    5   10    5    4   20    6    3    8    6   16   16    5
-      Gene486   59   44   73   72   69   51   56   52   79   72   58  122  118   87
-      Gene487  151  227  163  186   76   39   38  127   37  122   45   53   61  151
-      Gene488   44   13    6   20   16   26   29   10   36   54   17   25   23   10
-      Gene489  590  940  656  707  271  491  403  650  358  244  304  459  630  643
-      Gene490  326  355  224  332  171  100  104  233   68  207   57  118  146  405
-      Gene491   16   16   12   25    4   19    4   12    8    5    5    9   10   16
-      Gene492   69   91   42   64  118   73   81   33   51   89   83  105  132   47
-      Gene493   18    9    8   17    6    7   31   18    9    1    7   18   24   13
-      Gene494   30   51   28   24   45   30   40   51   23   76   31   36   53   31
-      Gene495  839 1529 1002 1018 1037 1300 1472  904 1246  860 1046 1589 2081  994
-      Gene496  229  471  228  250   64   84   71  318   81   65   89  148  116  276
-      Gene497   35  131   48  131   55   35   59   19   31   77   34   69   65   85
-      Gene498   25   29   22   18   13   41   33   10   33   30   36   39   57   34
-      Gene499    8    7    9   17    1    .    4    8    2    5    2    8    5    9
-      Gene500    2    2    .    .    .    .    .    1    1    .    1    1    .    .
+      Gene1      .    .    .    .    .    .    .    .    2    .    .    .    .    .
+      Gene2     11    7    9   12   11   16    9   25   10   19    8    2    8    8
+      Gene3      2    2    5    2    9    4    8   14    5    1    6    1   13    7
+      Gene4     33   32   23   16   19   25   43   20   24   25   29   21   21   27
+      Gene5     26   23   31   14   17   47   36   33   36   34   30   18   28   41
+      Gene6      2    3    6    6   13    7    .    7    8    5    5    2    4    4
+      Gene7     20   13   29   21   11    7   45    6    9   20   27   22   12   58
+      Gene8    302  150  180  192  212  168  177  174  198  152  130   87  180  338
+      Gene9     93   64   68   89   97  116   97  137   91   84   55   61  100  142
+      Gene10    11   11    1    3   18   22    1   28   10    9    8    2    7    6
+      Gene11    19    2    4    3   10   18   20    4   18   18    3    9   13   15
+      Gene12    20   25   14   16   16   28   17   35   25   11   22   14   11   28
+      Gene13     9    5    7    8    5    6    4   10    9    6    6    1   10    5
+      Gene14    37   26   19   15   28   14   57   25   30   45   13   33   33   28
+      Gene15     8    1    2    .    .    1    .    4    .    6    .    1    .    3
+      Gene16   191  175  115  132  169  129   69  224  134  111  149   64  175   99
+      Gene17   250  189  354  356  298  302  346  260  275  181  254  264  217  485
+      Gene18  1142  809 1945 1698  899 1118 2084 1216 1008  859 1455 1775 1100 3596
+      Gene19     5    7    1    6    3    4    4    6    5    3   20   11   11   10
+      Gene20   297  200  334  143  204  273  249  234  242  159  109  276  188  394
+      Gene21    72   36   39   30   39   51   41   59   67   33   31   56   33   54
+      Gene22  1562 1275 1226 1901 1154 1439 1369 1540 1647  941 1659 1244 1277 1989
+      Gene23    13    5    3    8    2    8    3   10    6    1    6    1    4   11
+      Gene24   115   55  125   46   39   63  104   53   73   52   66  104   50  265
+      Gene25  2198 1594 1481 1639 1580 1742 1596 2173 2020 1305 1308 1262 1907 2615
+      Gene26    74   39   19   55   63   59   32   59   53   32   48   40   47   33
+      Gene27   228  236  140  139  155  150  240  180  189  124  124  133  230  233
+      Gene28    35   21   17   19   28   31   11   28   29   18   11    7   10   22
+      Gene29   119   90   33   74   34  104   44   87   76   99   50   28   92   92
+      Gene30     7   12    5    1    7    5    3   12   10    7    5    6   16   16
+      Gene31     2    2    5    2    2    4    1    4    4    2    2    2    2   12
+      Gene32     5    6    3    5    3    1    1    6   12    .    .    5    4    6
+      Gene33   103   79   94   58   79  118  113  103   59   62   44   48   54  131
+      Gene34    18   14   34   38   13   22   29   37   23   21   19   25   15   33
+      Gene35   104   38   60   57   58  122   81   85   96   82   57   68   49  167
+      Gene36   226  248  185   53  194  205  198  363  287  182   79  151  281  280
+      Gene37    97   69   48   69   62   96  102   82  103   52   72   56  101   61
+      Gene38    46   38   30   39   40   42   23   37   50   59   51   22   56   37
+      Gene39     9    9    4    4    9   15   14   37   18   18   13    7   13   12
+      Gene40    28    6    9   17    8   13   19    4    8   12    4    9   10   22
+      Gene41    59   49   25   20   19   32   19   23   34   34    6   19   19   13
+      Gene42    71   34   37   24   50   41   48   50   49   43   42   20   54   74
+      Gene43    35   19   11   23   27   27   21   31   39   22   39   17   37   32
+      Gene44     2    .    .    3    1    2    .    8    2    .    .    2    .    2
+      Gene45    34   46   76   57   46   30   42   48   55   46   28   53   55   73
+      Gene46    40   15   32   28   23   56   31   34   41   19   15   22   47   39
+      Gene47   101  109   69   25   63  101  118  113   93   76   43   57   64  109
+      Gene48     2    .    3    5    .    5    2    4    .    4    .    2    2    8
+      Gene49   544  500  396  362  376  612  472  477  470  337  377  438  403  601
+      Gene50     2    5    1    4    2    1    .    2    1    4    .    .    4    5
+      Gene51    47   33   21   33   28   57   44   53   46   23   34   30   71   70
+      Gene52    46   55   63   34   34   37   72   39   39   64   60   52   36   62
+      Gene53    17   29   20   24   26   28   29   37   36   19    9   15    8   21
+      Gene54    31   53   50   56   50   58   47   43   56   32   25   53   29   88
+      Gene55     .    6    2    1    2    5    2   12    3    4    4    .    .    1
+      Gene56   111  153   65   94  113  213  114  129  317  139  112  126  170  157
+      Gene57   138  115  227  141   93  105  240  107  160  116   66  195  170  279
+      Gene58     .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene59     3    2    1    3    1    .    2    2    2    4    1    2    3    6
+      Gene60    38   11   11   15   28   23    8   12   50   15   12   28   25   17
+      Gene61    44   39   28   41   42   30   74   44   62   44   37   36   57   52
+      Gene62    23   18   27   13   19   27   16   32   24   25    6   32   21   33
+      Gene63   146   92   73   65   55   64   77   94   66   87   60   66  121  107
+      Gene64   139   92  139  124  156  155  169  166  146  102  113  114  134  207
+      Gene65   164   48   59  111  133  187   55  176  153   79   66   46  106   96
+      Gene66    96   39   25   35   66  104   44   80   53   26   41   63   36   62
+      Gene67     1    .    3    .    4    1    6    .    1    .    .    1    .   15
+      Gene68     .    5    2    .    4    9    .    3    .    .    .    2    3    3
+      Gene69    44   36   32   52   17   52   25   62   42   33   27   53   34   72
+      Gene70    64   62   40   91   33   65   56   87   69   26   44   44   42   52
+      Gene71    27   12    1   13   11   16    1   19   13    2   13    8   12    7
+      Gene72   468  313  217  222  327  361  249  310  407  141  160  265  387  339
+      Gene73    83   68   78   48   55   85   86   38   96   53   39   64   80  117
+      Gene74     .    .    .    .    .    .    .    .    .    .    .    1    .    .
+      Gene75     4    3    8    6    1    8    4    7    4    3    7    5    5    5
+      Gene76    11   11    6    7    8   10   14   17    6   22   13    5   10    5
+      Gene77   388  184  220  264  231  267  314  290  236  227  231  192  223  384
+      Gene78    69   58   60   41   41   59  117   70   70   60   23   57   57  108
+      Gene79    95   67  106  126  108  108  177  151  109  123   88  132  141  293
+      Gene80   310  235  327  266  153  252  227  357  404  194  178  228  219  351
+      Gene81   144  100   55  156   80  136  115   98  108  114   61   57   83  117
+      Gene82    43   20   32   21   19   34   53   31   22   21   24   27   35   47
+      Gene83     8   17   10    9   11    5   18   16   17    6   14    6    6   16
+      Gene84   143   81   93  182   94  133  137  117  168   60  114   95  138  112
+      Gene85    63   43   41   77   55   56   73   56   86   59   23   44   68  127
+      Gene86   102   97  107  109   61  129  107  130  116   77  121   73   98  142
+      Gene87     4    7    2   11    7   14    4    7    8    5    4   10    3    8
+      Gene88    23   17   13   13   17   38   17   28    6   10   12    2    9    4
+      Gene89    29   26   35   61    4   37   25   33   23   12   24   35   46   54
+      Gene90    34   25   14   23   20   20   48   16   14   28   11   10   18   21
+      Gene91   127   88   80   72   95  108   70  127  126   93   92  102  121  112
+      Gene92     7    .    1    .    8    6    3    2    .    7    2    4    2    4
+      Gene93   145  140   66  123  144  139  109  112  144   95  106   77  143  134
+      Gene94    13    8   30   23   22   12   12    8   18   17    7   20    5   38
+      Gene95   106   59   75   51   58   86   52  110   90   37   33   62   38  110
+      Gene96    95   51   60   54   59   98   47   63   74   28   34   45   53   74
+      Gene97    46   42   25   18   24   42   30   40   58   34   18   21   35   26
+      Gene98    54   21   10   24   15   30    3   46   33   38   15   11   22    7
+      Gene99   113   93  162   58   98  130  168   91  141   82   89  172  117  222
+      Gene100  137   76   75   94  105  122   85  116  101   74   93   99  104  104
+      Gene101    2    1    2    .    4    1    .    .    1    2    .    .    2    .
+      Gene102   20    5    3   10   14   18    7   13   27   13    3    7    9    7
+      Gene103   22    7    3    .    5    8    .    7    4   13    8    2    4    2
+      Gene104   36   13   25   17   41   26   52   30   23   22   31   16   17   72
+      Gene105   16    9    3   11    7   18   10    9    5    9    4    7    8   10
+      Gene106   38   26   20   31   22   45   31   37   30   13   31   33   17   39
+      Gene107   11    3   15    .    6   13   10   12    6    .    1   12    7    9
+      Gene108    .    1    .    2    .    .    1    .    .    .    .    .    1    .
+      Gene109   29   24   11    9   24   19   16   26   24   41   10   18   16   13
+      Gene110   18    2    6    1    9    6    8   14    4    6    .    6   11   19
+      Gene111 1486 1046  812 1165  886 1034  917 1141 1066  763  950  854 1228 1215
+      Gene112   31   30   41   63   39   34   32   59   34   35   18   39   18   52
+      Gene113  175   75  136  109  104  105  176  142  168   77  162  232  107  226
+      Gene114   16   10   21   12   22   22   24   33   18   12   18   32   31   32
+      Gene115    1    .    1    2    2    4   13    1    .    1    2    2    1    .
+      Gene116   19   10   16   18   24   23   20   20   26   26   21   20   23   42
+      Gene117  113   61   56  105   70   82   70   86   96   49   60   51   94   63
+      Gene118   27   29   26    7   27   27   19   27   46   46   13   21   16   40
+      Gene119   66   46   28   42   48   57   42   80   50   26   39   35   64   90
+      Gene120   51   31   69   23   47   37   43   35   42   20   55   42   25   58
+      Gene121   61   44   70   62   52   90   53   70   49   44   35   66   36  102
+      Gene122  237  202  105   71  163  196  148  202  200  187   38   93  193  177
+      Gene123    .    2    2    .    .    2    .    1    1    4    .    .    1    4
+      Gene124   42   25   32   39   20   42   40   24   53   43   41   26   39   38
+      Gene125    7    8   10    9    7    8   11   12    4    7    7    5   14   11
+      Gene126  376  202  201  237  232  317  331  359  274  259  236  200  236  348
+      Gene127   11    1    .    3    8    9    1    3    5    6    5    4    7    1
+      Gene128   12    1    7   13    .    3    5    9    9    6    1   10   12   16
+      Gene129   74   49   31   22   39   69   59   83   56   56   51   43   38   53
+      Gene130  140   95  126  118   76   65   83  157   78   86  101   79   75  172
+      Gene131   39   23    9   16   16   28    7   14   34   15   14   12   17   26
+      Gene132   14    5    1    5    6    6    4   19    4    4    4   13    6   10
+      Gene133   22   18   16   30   47   26   19    6   19   17   14    8    4   20
+      Gene134  315  158  315  248  241  353  429  326  260  258  222  246  284  435
+      Gene135  114  111   70   49   66  116   50  125  122   69   27   57  130   79
+      Gene136   87   66   26   12   46   65   38  113   71  103   24   49   67   39
+      Gene137  108   87   99  105   45   51   62   30   53   50   76   20   75  152
+      Gene138   22   16    8   26   13   35   27   29   21   29   16   34   33   25
+      Gene139   69   60   52   51   61   61   51   47   73   46   50   43   60   63
+      Gene140    2    .    .    1    .    .    .    .    .    .    .    .    .    .
+      Gene141   14   16    2    4   10   16   10    7   12    2    3    8    6   14
+      Gene142   47   36   22   21   41   34   29   59   85   44   13   15   37   22
+      Gene143    9    4    2    5    1    .    7    4    1    3    .    .    5   13
+      Gene144   15    6    6    6    4   18   13   22   16    7    6    8    9    6
+      Gene145   40   18   26   20   40   23   22   36   20   29   44   25   33   30
+      Gene146  100   39   54   63   84   94   73   92  197   63   61   54  162  148
+      Gene147   48   51   55   41   52   40   46   75   60   24   23   39   22   72
+      Gene148    7    1   10    2    .    4    8    2    5    4    .    2    4    1
+      Gene149   10    8    7   13    3    3    4   10    6    2    7    3    5   14
+      Gene150   17    8   26   25   22   27   20   26   28   23   22   12   12   29
+      Gene151    9    4    6    6    4    7    5    5    3   10    3    3    9   13
+      Gene152   28   15   18   18   37   19   24   84   34   10   12   17   18   60
+      Gene153   22   17   30   45   14   42   55   40   34   17   30   16   18   88
+      Gene154   57   50   97   29   41   64   62   65   81   57   61   67   46  162
+      Gene155   84   85  100  115   91   81  138   60   87   44   88  105   55  179
+      Gene156    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene157 2447 1786 1704 1503 2513 1996 1738 1709 1943 2021 1606 1153 2257 3073
+      Gene158  158   70   53   55   56   87   51   70  100   55   41   36   89   96
+      Gene159    6    4    3    3    1    2    2    4    2    1    .    2    .    2
+      Gene160    .    .    4    1    .    .    .    2    6    1    1    1    1    .
+      Gene161  199  132  145  127  175  181  215  204  221  157  105  203  123  317
+      Gene162   40   38   14   11   30   54   17   43   52   31    8   24   25   30
+      Gene163    5    2   11    2    6    7    9    1    2   10    .    6    9    4
+      Gene164  381  352  270  147  396  421  242  493  451  278  110  235  372  448
+      Gene165  114   48   69   40   45   59   65   72   59   34   60   29   51  113
+      Gene166   26   34   20   21   11   24   30   30   21    9    7   13   15   38
+      Gene167   85   92   39  124   97  116   47  145  120  103   59   38   81   52
+      Gene168   72   50   48   92   73   85   85   83  109   76   70   44   81   82
+      Gene169    4    5    2    2    5    4    2    4    2    3    4    2    2    6
+      Gene170    6    7    6    7    3    4    2    2    4    1    2    2    1    2
+      Gene171   14   15   13   17   13   14   16    5   11    3    9   11   17   21
+      Gene172    7   11   20   33    5   19   19   27    6    2   18   15   11   29
+      Gene173   19    7   11    2   14    6    7   12    7    7    4   13   10   22
+      Gene174  756  708  889  820  564  638 1021  748  759  515  620  914  629  964
+      Gene175  257  186  107   52  128  146  127  104  107  145   47   86  102  173
+      Gene176 2606 2637 2002 1945 1978 3054 2479 3643 3507 2933 1862 1625 2350 2606
+      Gene177    7    2    4    7    6    4    2    9    2    4    7    .    .   13
+      Gene178   17    5   11    1    6    5    4    3   18    3    8    3    4   15
+      Gene179   11    7   18    2    2   10    3    7    6    7    2    3   16   21
+      Gene180    7    6    1    3    6    1    2    6    4    4    2    8    5    6
+      Gene181   49    7   15   14   27   20   10   21   24   30    6   14   23   23
+      Gene182   76   68   24   20   55   71   52   92   90   87   19   34   60   54
+      Gene183   13   14   17    4    8   22   26   12   30    7    3   18    5   13
+      Gene184   24   27   16   10    9   10   14   16   21   16   16   15   40   19
+      Gene185   77   37   70   67   48   92  151   55   93   40   49  155   53  206
+      Gene186 1817 1790 2333 1440 1387 2008 2247 1899 2428 1304 1232 2165 1157 3777
+      Gene187    9    .    7   12    3    4    2    4    6    9    5   11    6   13
+      Gene188   10    9    1    3   12    5    3    7    7   13   13    7    5    4
+      Gene189  117   56   77   87   85  112   79  109  103   44   80   90   89  101
+      Gene190    8    9    .    3   11   14    4   24   11    5    1    6    7    4
+      Gene191  149   90   76  112  114  108  111   90  154   73   67   97   82  143
+      Gene192    5    6    6    1    .    2    3    3    8    9    .    1    4    4
+      Gene193    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene194   82   57   57   50   64   64   40   80   62   53   70   28   54   52
+      Gene195  148  129   88  156  125  170  113   80  118  131   75  114  178  197
+      Gene196   11   16   18   27   34   18   19   24   23   15   23   19   15   21
+      Gene197    .    .    .    .    .    .    .    1    .    .    .    .    .    .
+      Gene198   86   66   54   82   38   76   62   67   67   52   41   62   35  109
+      Gene199   60   20   51   30   30   58   38   53   48   39   64   44   34   86
+      Gene200 1525  935  912 1108 1118 1257 1048 1453 1271 1111  641 1067 1053 2261
+      Gene201   43   17   29   23   22   34   31   43   17   23   27   11   20   25
+      Gene202   68   25   53   26   32   31   64   57   43   22   61   21   34  103
+      Gene203    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene204    .    4    2    8    1    5    5    7    2    2   14    2    .    7
+      Gene205  101   96   59   81   97   98   80   92  108  102   70   90   50  195
+      Gene206   10    7   10    5    2    5   10    2    5    9   11   11    9    5
+      Gene207    .    .    .    .    4    .    .    .    1    .    .    .    .    2
+      Gene208   19   30   15    5   14   38   29   37   24   19    4   31   20   17
+      Gene209    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene210   37   14   17    6   35   25   25   18   22   11   15   11   22   30
+      Gene211   84   51   58  120   52   60   41   65   59   45  121   40   58   63
+      Gene212   23   18   24   14   10   13   18    7   14   12   19   12   28   29
+      Gene213    2    4    1    7    7    5    3   19    2    7    2    1    6    9
+      Gene214   65   53   44   69   45   47   48   44   50   32   44   48   57   55
+      Gene215    7    1    3    6    .    1    1    4    2    6    2    2    1    5
+      Gene216 1275 1193  845 1667  994  945  998 1191 1240  650 1014  856  890 1362
+      Gene217    3    2    .    1    4    3    7    .    2    2    5    1    2    6
+      Gene218  102   89  132  110   53   83  143   94   90   49   59  162   88  187
+      Gene219    2    .    .    .    .    3    .    2    .    .    .    .    .    .
+      Gene220   74   54   40   56   41   48   52   71   98   54   38   27   43   64
+      Gene221    3    3    .    1    4    1    3    7    .    5    1    .    4    5
+      Gene222   25   18   34    9   27   23   15   35   51   25    6   27   10   27
+      Gene223   17   24    9   14   12   11    7   18   31   11   12   13    7   15
+      Gene224  133  143  100  106  106  133  103   88  126   85   61   67   67  136
+      Gene225    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene226   32    7   18    8   11   19   25   34   19    7    4   26   12   35
+      Gene227   10    2    9    3    6    9    6    1    3    2    .    8    8    9
+      Gene228   35   11   30   51   15   34   22   28   26   15   33   20   28   43
+      Gene229    3    1    4    3    4   11   14    3    3    8    8    1   18   10
+      Gene230   94  108   49   74   58   68   84   59   80   75   55   36   65   86
+      Gene231   20   10    7    2   10   18   11    7   15   16    6   12    7   24
+      Gene232   90   50  107  101   73  107   89   62   73   56   69   79   77  112
+      Gene233  188  216  151  164  203  248  176  208  154  155  112  230  137  254
+      Gene234    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene235   12    6    8    5   10   14    4   13   14    9    4   10    7   17
+      Gene236   29   33   31   21   20   29   41   29   22   22   23   15   20   43
+      Gene237   77   36   55   59   88   74   49   77  121   90   76   85   84  137
+      Gene238    .    .    1    .    .    .    .    .    .    .    .    .    .    .
+      Gene239   67   55   83   87   77   73  112   68   55   51   77  100   54  154
+      Gene240    3    4    5    7    3   11    7    3    4    2    .    3    .    6
+      Gene241   74   51   56  110   39   45   99   51   75   34   37   54   62  115
+      Gene242  103   62   44   59   72  108   64   59  100   87   38   59   77  120
+      Gene243   20   10   11   12    8   21   12   11   26   10   19    7    8   24
+      Gene244    .    1    3    .    .    2    5    2    .    4    1    1    .    1
+      Gene245    9    4    8    1    3    2    6    5    .    1    2    3    3    5
+      Gene246  302  250  236  316  164  266  332  289  166  252  191  260  226  367
+      Gene247   27   25   47   40   26   55   73   36   34   24   23   39   33   74
+      Gene248    4    1    1    1    1    3    3    2    .    6    2    .    5    5
+      Gene249    1    1    1    2    7    4    4    2    9    2    2    1    2    9
+      Gene250    3    6    .    6    6    5    .    .    6    3    2    6    4    7
+      Gene251    7    4    1    1    .    8    1    .    .    1    1    6    .    5
+      Gene252   39   44   58   28   32   37   65   42   58   15   20   38   46  110
+      Gene253   33   39   33   30   23   49   42   24   52   15   32   33   62   33
+      Gene254   46   14    8   15   25   22    9   35   16   23    9   20   27   51
+      Gene255    2    .    .    .    2    .    2    .    5    6    .    1    .    3
+      Gene256   29    8   18   19   13   15   20   21    1    3    7   12   24   11
+      Gene257    5   10    9    3    6    5    6    4   10    .    1    4   12   10
+      Gene258 1265  980 1062  768  874 1069  967 1100 1583  953  784  861 1191 1865
+      Gene259   47   28   23   46   37   24   54   48   61   64   57   51   62   84
+      Gene260   29   23   21   31   23   20   26   37   26   55   28   17   20   38
+      Gene261   52   33   49   28   31   29   68   46   41   17   49   75   24   71
+      Gene262    1    4   12    3    6   10   11    8   14    6    5   11   16   16
+      Gene263    1    .    2    2    .    .    4    3    1    1    .    8    2    .
+      Gene264    2    2    .    1    .    7    1    1    3    1    3    2    3    1
+      Gene265   22   23   48   17   13   28   40   46   37   38   12   46   33   67
+      Gene266 2319 1666 1757 1257 1967 2451 1893 2587 2624 1706 1124 1460 1942 2691
+      Gene267    1    .    .    .    .    3    .    .    4    2    1    2    5    2
+      Gene268  157  194   60   75  109  146   79  149  212  104   64   63  165  105
+      Gene269    2    .    .    2    3    .    .    .    3    .    1    .    3    1
+      Gene270  487  449  137  161  355  580  202  367  492  406  147  146  443  282
+      Gene271   50   80   34   42   63   75   17   50   54   43   28   24   63   30
+      Gene272   20    6    8    6   16    7   30   20   17   20   13   16   13   24
+      Gene273   17   30   11   18   24   30   28   13   26   17   16    7   19   33
+      Gene274   72   53   56   34   59   45   62   56   65   51   41   28   46   55
+      Gene275   75   47   41   44   64   36   64   57   53   43   39   44   40   60
+      Gene276   21   13   23   16   23   15   20   29   34   10   13   19   45   24
+      Gene277   50   29   37   48   29   32   35   83   58   34   27   33   15   33
+      Gene278   91   45   41   49   42   55   46   59   76   83   49   34   50   78
+      Gene279   45   22   11   20   22   18   13   23   25   16   11    6   16   39
+      Gene280   32   29   17   20    8   36   53   12   16   30   10   20   16   43
+      Gene281   41   47   19   20   33   38   22   41   40   49   26   26   34   52
+      Gene282   79   50   44   61   33   51   29   65   56   30   52   20   37   36
+      Gene283   92   66   46   39   76   69   64  105   85   60   52   51   55   48
+      Gene284   22   30   41   61   13   12   46   23   23   15   45   49   23  111
+      Gene285   61   70  180  125   45   74  222   42   41   36   63  205   40  374
+      Gene286  107   98   56  104  108  121   80   72   81   75   77   36  109  141
+      Gene287    .    .    .    .    .    .    2    .    .    .    1    .    2    .
+      Gene288   35   43   21   26   28   25   25   73   32   25   30   13   33   62
+      Gene289   67   30  141   29   37   58  278   57   79   29   75  162   18  161
+      Gene290    1    3    .    1    .    .    4    1    2    .    4    2    3    2
+      Gene291   21   17   52   22   21   19   22   27   26   23   17   26   15   23
+      Gene292   20   42   31   20   18   22   35   44   40    6   14   16   41   25
+      Gene293   59   41   40   41   28   16   46   26   44   34   65   35   24   76
+      Gene294    5    6    2    6    8    4    6   12   11    5    4   17    8    6
+      Gene295  450  304  165  132  350  270  165  355  394  282   85  116  163  221
+      Gene296  112   59   34  104   65   71   60   83   85   75   76   47   77   91
+      Gene297   73   32   64   44   68   70   92   90   84   50   60   58   55  101
+      Gene298   91   77   59  119   72   94   45   94  116   98   81   62   88  103
+      Gene299  271  264  189  218  234  339  182  200  255  105  182  255  219  276
+      Gene300   35   22   32   29   18   26   36   41   52   35   14   15   28   27
+      Gene301  133   58   28   54  111  103   44   88   67   52   59   71   64   63
+      Gene302    1    1    1    .    1    .    .    2    2    3    2    2    5    .
+      Gene303  136  163  139  132  133  140  137  169  230  133   88  126  133  179
+      Gene304    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene305  184  199  139  153  117  166  224  172  216  147  130  182  156  323
+      Gene306   64   65   46   71   50   64   61   23   41   48   70   29   41   74
+      Gene307   88   61   53   51   74   82  113   69   97   63   44   66   66  152
+      Gene308   12    3    3    1    7   10    4   12    3    9    4    7   18    4
+      Gene309   11   21    1    4    9   12    6   17   35   11    4    .   15   12
+      Gene310  321  172  122  201  191  266  195  184  282  220  174  236  199  196
+      Gene311  136   67   36   53   72   52   62   51   83   45   44   63   75   85
+      Gene312   36   39   39   47   39   62   47   76   45   41   30   29   37   69
+      Gene313 4027 3129 3621 6784 3283 3509 4792 3228 4158 3106 5054 2987 3335 7293
+      Gene314   36   16   40   44   21   46   31   26   23   26   61   22   30   45
+      Gene315    .    .    1    2    3    4    3    3    .    2    1    2    1    3
+      Gene316  222  188  126   71  172  284  182  173  164   98  119  165  195  268
+      Gene317   73   38   54   64   60   88   71   53  116   51   46  133   52  136
+      Gene318   10    4   10   17    6    9   23    7   23   15    7    6   14   22
+      Gene319   12    7   15    4    4   20    3    6   27    7   17    9   21   20
+      Gene320   10   16   13   11   26   12   24   18    8    7   11   10   17   29
+      Gene321    3    3    2    2    7    3    3    6   13    1    4    2    6    3
+      Gene322   34   28   16   28   24   23   19   37   45   21   23   27   16   27
+      Gene323    7   16   17   14   18    9   24   16   25   14   12   20   11   17
+      Gene324   60   40   24   45   38   41   34   39  110   39   26   19   65   53
+      Gene325    3    3    3    2    2    3    2    8    2    3    1    6    7    5
+      Gene326    3    1   11    2    4    2    9    .    8    6    2    3    4    7
+      Gene327 1725 1247 1418 1337 1058 1095 1501 1263 1555 1146 1300 1245 1213 2232
+      Gene328    .    .    .    .    .    .    .    .    .    .    1    .    .    .
+      Gene329   58   24   73   21   54   43  101   71   56   28   26   74   27  137
+      Gene330    1    2    1    1    1    2    1    .    .    1    .    5    1    5
+      Gene331    9   20   48   24    7   19   18    6    5    7    8    7   11   16
+      Gene332    1    .    2    .    .    .    .    .    1    .    .    .    1    .
+      Gene333    .    .    .    .    .    .    .    1    .    .    .    .    .    1
+      Gene334   28   28   23   20   23   42   34   38   21   34   23   50   44   48
+      Gene335   13    7   11   18    8   10   10   14   21    2    6   13    6    9
+      Gene336    3    .    1    5    3    4    7    7    2    7    1    .    4    3
+      Gene337 1173  899 1773 1580 1166 1131 1990 1232 1189  960 1386 1662 1374 2703
+      Gene338   12    4   19   13   11   17   25   12   23   17    7   12   10   37
+      Gene339   94   71   93   67   49   89  118   57   60   91   47  152   48  169
+      Gene340    .    .    .    .    .    .    .    .    .    .    .    .    .    1
+      Gene341  260  174   85  114  156  125  108  212  222  176   79   63  134  201
+      Gene342   20    7   12   20   24   15   10   21   20   19   12   13   20   31
+      Gene343    2    .    2    4    1    2    1    .    4    .    .    .    5    .
+      Gene344  139   95   98  126  120  134  101  124  164  144  104   92  147  173
+      Gene345  460  359  336  278  367  392  406  488  468  291  353  274  305  425
+      Gene346   26   25  103   41   16   11  138   22   15    9   50   70   10   86
+      Gene347   35   29   28   20   17   25   43   15   44   30   35   38   27   58
+      Gene348  123   78   63   92   54  102   81   90  120   77   46   78   70  111
+      Gene349    2    3    5    4    .    4    3    3    .    1    3    .    1    2
+      Gene350   33   14   22   28   15   35   24   20   31   16   26    9   25   20
+      Gene351   40   23   28   27   55   53   42   26   37   19   20   36   27   70
+      Gene352  172  135  127   52  130  122  198  108  119  111   47  134  162  200
+      Gene353   18    2    2    8    4    9   12   10    9    5   15    8    6   15
+      Gene354   46   40   23   52   24   31   40   40   27   38   29   55   48   62
+      Gene355    4   14    2   11    4   16   20    5    5    3    4    3   10    3
+      Gene356  209  137   38   87  112  210   61  137  184  107   72   58  144   98
+      Gene357  212  130  116  113  133  184  133  190  141  130  113  134  112  166
+      Gene358    1    .    3    3    .    2    .   10    1    2    1    5    4    5
+      Gene359   21   13   13    8   33    9   16   10   16   16    9   13   17   24
+      Gene360   12   10   39   33    5   19   21   16   15   14   25   36   20   39
+      Gene361   12   13   22   25   20   36   35   35   13   17    7   23   18   23
+      Gene362  174  172  129  138  202  237  162  178  249  201  147  155  166  242
+      Gene363  176  154   97  104  213  218   88  210  185  181  137   80  179  106
+      Gene364   65   81   51   42   74   50   62   81   65   62   38   56   77  114
+      Gene365  150  107  119  192  114  156  111  190  114   99  143  142  116  188
+      Gene366    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene367 1077  801  845  844  615  826  827  977  923  797  633  559  802 1044
+      Gene368   39   28   25   37   26   22   20   14   44   19   29   25   40   30
+      Gene369    4    .    2    1    .    5    8    2    1    .    2    6    1    7
+      Gene370   37    6   21    6   15   27   20   27   15   17   11   14   25   21
+      Gene371    3    .    1    .    2    1    3    1    2    4    1    4    3    4
+      Gene372  106   80  190   42   86  113  216   86   58   97   87  167   95  323
+      Gene373   22   29   12   13   47   24   22   50   38   31   30   10   42   24
+      Gene374  273  129  195  151  195  119  169  214  213  147  141  219  154  325
+      Gene375  948  783  625  640  717  930  771  939  723  719  642  721  897  837
+      Gene376   39   40   20   22   33   28   49   36   40   17   52   15   50   38
+      Gene377   66   36   52   51   43   39   51   50   34   48   38   42   38   58
+      Gene378   14   18    4   15    8    2   26   13   14   13   34    4   12   24
+      Gene379    1    .    2    1    .    .    .    2    1    1    .    .    1   12
+      Gene380   53   31   62   92   39   55  113   76   40   51   36   77   69   93
+      Gene381   43   53   22   25   25   35   39   52   32   35   36   16   28   85
+      Gene382    5    2    .    .    .    .    .    2    .    .    .    .    .    .
+      Gene383  370  242  237  255  271  251  251  317  310  241  205  171  252  380
+      Gene384  295  244  303  284  262  300  235  431  294  265  149  169  265  345
+      Gene385   20    9   15   14   12   25   20    7   30   24    6    7   22   43
+      Gene386  189  255  201  122  169  180  150  295  238  166   98  134  265  320
+      Gene387    .    .    .    .    .    .    .    .    6    1    1    3    1    2
+      Gene388    6    2    6    4    7    3    2    4    .    4    2    2    1    5
+      Gene389   81   71   87   78   94  115  129   75  104   61   79   53   92   80
+      Gene390   45   77   80   62   57   39   75   63   37   53   52   38   61   37
+      Gene391  370  166  163  198  247  307  256  358  298  207  205  153  193  350
+      Gene392   53   34   47   12   36   34   51   17   39   41   23   16   46   40
+      Gene393    3    .    3    4    1    .    1    4    4    2    1    .    1    .
+      Gene394   57   38   34   53   47   47   61   69   38   43   88   51   38   54
+      Gene395    8    .    6    1    1    7    5    2    1    4    .    2    3    7
+      Gene396  140  132  161   57  146  174  181  132  150  108   60  144  161  286
+      Gene397  180   88   76   45   70  132  121  111  101   70   71  108  124  163
+      Gene398    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene399    2    1    6    3    1    9    3    3    8    3    1    9    2   13
+      Gene400    1    .    2    .    4    .    .    1    .    .    1    .    .    1
+      Gene401  425  291  369  240  306  387  347  344  372  381  342  301  337  448
+      Gene402   18   21    8    9   13   11    8   11   21   11   13   21   13   20
+      Gene403   14   13   15   17   17   22   17   14    9   10   26   18    8   42
+      Gene404  412  368  253  277  348  552  582  503  510  314  256  316  333  485
+      Gene405  117   75   78   66   70  128   90   73  122   81   74  104   86  218
+      Gene406  158  132  117  171  203  151  122  224  156  147  169  129  133  242
+      Gene407   17    4    8    1   25   14    3   18   15   12    7    4    8   16
+      Gene408   98  125   82  100   80  141   91  117   99   71   73   88  112  175
+      Gene409   47   35   12   16   37   24   47   15   44   12   42   24   15   38
+      Gene410   53   29   25   24   58   53   24   47   79   63   36   22   35   44
+      Gene411  380  291  106   99  321  359  178  340  377  242  123  113  269  162
+      Gene412 2301 1983 1453 1384 1427 1615 1463 1809 1854 1624 1188 1507 1744 2700
+      Gene413  522  404  569  776  497  386  689  416  526  335  669  496  303 1088
+      Gene414  111   80   89   59   78  159  110  101  104   85   89   53   88   88
+      Gene415   52   66   61   17   23   50  136   52   59   43   36   59   66  137
+      Gene416  151   62   58   82   65   91   75  130   75   80   86   53  146   94
+      Gene417   16   11    6   14    7    5   12   14    8    7    6    2    9    4
+      Gene418    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene419   80   23    8   52   29   28   10   55   69   38   53   11   31   33
+      Gene420  139  127   82  118  105  123  118  133  113   98  113   64  163  137
+      Gene421   51   46   45   12   30   65   42   32   34   42   24   29   53   58
+      Gene422  129   36   81   52   44   56   89   74   61   40   38   96   46   68
+      Gene423  254  185   66  212  241  244  109  218  209  189  161   71  291  189
+      Gene424 1192  807  835  704  814  931 1288 1098 1119  766  647  600  831 1441
+      Gene425   27   28    8   21   12   40   23   42   33   14   30   23   30   24
+      Gene426   41   31   35   27   30   29   45   29   25   54   34   59   42   59
+      Gene427   16    7    3    7   13   18   13   13   21   11    6   13   12   22
+      Gene428    .    .    1    .    .    .    .    .    .    .    .    .    .    3
+      Gene429    .    .    .    1    .    .    .    .    .    .    .    .    .    .
+      Gene430    9    6    2    8   11   18   13   15    4    5   10    9    8   11
+      Gene431   20   12   12    9   10   22   28    6   15   18   12    9    9   30
+      Gene432   14    1    4    4    6    9    5   12    5    .    8   10    9    5
+      Gene433   97  113   79   74  153  208  110  118  152  118   50   48  125  170
+      Gene434    8   13    9    7    7   18   23   23   15   11    9   13   12   22
+      Gene435   80   46   53   69   65   46   59   67   42   48   40   46   80   65
+      Gene436  165  125   68   68   84  149   86  121  163   99  107   69  103  156
+      Gene437   31   14   26   20   20   35   35   15   14   20   17   19   11   33
+      Gene438  144  194   46   74  159  191   42  108  209  148  103   79   75  118
+      Gene439   22   13   10    7   22    9   11    8   21   16   10   15   10   25
+      Gene440   12   12   11   36    7   12   11   14   14   11   19   11   22   23
+      Gene441   58   71   55   53   68   77   89   62   73   63   38   34   58   86
+      Gene442  124   83  109   81  112   77  101  101   87   55   24   71   74  124
+      Gene443   32   27   16   10   14   30   16   23   24   11   10   15   16   24
+      Gene444   19   23   13    6   14   21   11   12   28    9   17   12   11   24
+      Gene445    .    .    .    .    .    .    .    .    .    .    .    .    .    1
+      Gene446   51   32   22   41   35   59   54   52   59   43   29   42   25   61
+      Gene447   47   57   46   35   70   81   64   61   80   64   65   50   70  106
+      Gene448  124   63  109   65   48  107   81   73   84   67   92   73   84  198
+      Gene449   92   82   79   49   80   99   80   99   92   71   61   44   97   96
+      Gene450    .    .    3    .    3    3    2    .    2    .    .    .    3    .
+      Gene451  136   51   41   71   76   66   47   63   80   67   66   39   56  109
+      Gene452  104  132  137   68   85  147  132  139  133   79  115   68  149  198
+      Gene453 1036  607  489  478  695  983  722  771  909  631  715  746  748  957
+      Gene454   90   52   41   78   70   65   54   74   75   40   82   42   44  103
+      Gene455    2    .    2    1    1    .   12    .    3    .    .    .    2    4
+      Gene456   34   20    8   15   23   28   23   31   45   22   19   32   25   57
+      Gene457  137   64   70   98   83   70   75   70   78   99   66   61   81   98
+      Gene458    3    9   10    3    3    7    2    5    9    2    3    6    7    6
+      Gene459   22   17   16   15    9   13   31   26   37   22   28   16   28   34
+      Gene460 1111  824 1465 1247  772  892 1615  825 1085  768 1088 1045  854 1673
+      Gene461  242  228  198  199  165  249  216  313  278  155  143  221  200  409
+      Gene462    .    .    .    2    1    .    .    3    .    .    4    .    .    .
+      Gene463    9    5    1    2   10    9   15   17   11    5    5    4    6    7
+      Gene464    1    1    2    2    5    .    6    1    5    1    2    3    .    3
+      Gene465   38   21   18   39   42   24   27   34   34   21   16   24   33   44
+      Gene466   20   20   18   23   33   42   12   42   24    9   18    8   29   20
+      Gene467    8    .    2    5    .    5    4    5    2    2    2    1    1    6
+      Gene468   42   27    9   14    9   21   29   14   15   16   13    9   36   37
+      Gene469    .    .    .    2    1    3    .    1    4    5    .    .    .    .
+      Gene470   51   39   28   39   74   99   36   60   58   49   21   57   33   65
+      Gene471   15    6    6    9    2    4    9   17    3    1    7    7    4    5
+      Gene472  246  171  169  111  160  192  161  250  286  181   74   89  217  162
+      Gene473   85   59   45   34   44   79   54  102   66   53   31   22   40   72
+      Gene474    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene475   62   56   25   51   47   68   47   60   60   39   85   38   49  116
+      Gene476   48   65   28   62   57   65   58   55   66   45   49   62   85   99
+      Gene477   62   37   32   57   35   41   58   39   59   36   53   27   32   58
+      Gene478   14   10    4    .   12   16    7   15    5   18    2    1   15   12
+      Gene479   23   16    7   10    6    8    7   21   13    6    3    3   17   14
+      Gene480   65   18   38   29   31   44   20   40   67   26   27   56   25   57
+      Gene481   26   19   16    8   20   16   16   19   30   17   18   15   34   21
+      Gene482   51   49   47   42   46   55   34   80   88   26   29   35   62   81
+      Gene483   11    9    9    4    7   13   25   13   18   12   17    4    7   20
+      Gene484   20   18   20    9   16   43   18   48   40   12   25   16   32   35
+      Gene485   25   34   11   11   13   16   17   10   14   12    7   12   19   35
+      Gene486    6   21    8    9    2    .    2   12    7    4    5    2    4    6
+      Gene487  125  109   35   50   99   89   53   97  117  107   49   24   64   71
+      Gene488  150  130  135  302  135  200  145  158  168  133  281   90  100  193
+      Gene489  227  223  103   85   68  265  104  163  230  135   91   90  167  138
+      Gene490    .    9    2    2    .    2    .    1    2    4    .    .    3    1
+      Gene491  306  124  162  200  195  250  129  213  171  225  142  136  184  160
+      Gene492   70   43   50  108   74   84  104   69  100   57   75   53   85   77
+      Gene493  230  164  125  140  134  164  114  191  152  173  111   92  150  270
+      Gene494  530  451  442  443  362  463  598  436  520  347  418  382  431  564
+      Gene495    2    2    .    1    .    1   10    .    2    3    2    3    1    1
+      Gene496   52   17    7   16   32   42   10   53   36   25   26   22   36   15
+      Gene497  146   69  207  186   95   99  181  147  125   86  140  120   94  380
+      Gene498   53   30   28   29   43   63   40   67   33   44   43   43   34   37
+      Gene499  523  231  148  219  390  388  150  372  420  340  188  136  345  290
+      Gene500    2    .    .    .    1    .    .    1    2    2    .    2    .    5
                                                                                    
-      Gene1     57   29   50   51   37   62   33   55   43   23   21   58   70   56
-      Gene2     28   27   38   28   14   16   10   18    8    9   12   26   35   30
-      Gene3   1168  702  746  945  359  559  395 1014  424  363  747 1127  603  749
-      Gene4    208   81  134  157   85   69   37  246   96   60  203  119   70   70
-      Gene5      3   10    6    4    3    1    2    8    3    2    1    9    6    8
-      Gene6     58   72   87   87   73  107   51   38  107   61   42   87   78  124
-      Gene7     63   87   83  107   52   66   43   42   87   53   34   41  103   81
-      Gene8     59   80  148   81  119   77  109   82   96   87   65   78   62  279
-      Gene9     98   60   44   97   67   59   45   69   35   30   82   77   99   53
-      Gene10     8   10    9    5    6    3    4    1    7    5    7    3   12    5
-      Gene11    49   20   38   26   17   11   34   34   25    3   24   22   32   34
-      Gene12    28   57   48   42   12   21   23   20   33   14   26   34   27   37
-      Gene13    67   45  109   52   53   45   55   89   75   44   53   62   39  137
-      Gene14    15    7   12    7   10   12    8    8   12   13    3   13    9   39
-      Gene15   140  176  229  149  194  164  173   89  170  143  139  139  156  177
-      Gene16    16    3   36   16   20    9   23   33   10   18   30   41   10   20
-      Gene17    26   23   41   33   34   39   22   38   43   19   26   34   25   39
-      Gene18    46   20   32   42    9   20   29   12   25   18   23   19   25   33
-      Gene19    12   23   35   29   28   34   27   35   43   20   26   28   26   62
-      Gene20     2    1    2    2    .    1    3    1    .    1    1    1    .    4
-      Gene21     1    .    3    3    .    1    .    5    2    2    2    8    .    9
-      Gene22   115  104  326  101  133  324  236  125  197  128   77  132   91  278
-      Gene23  2107 1887 3628 2440 1704 1515 1417 1981 1764 1305 1471 2083 2425 3251
-      Gene24    10   18   33    4   11   23   13   21   16   11   11    6    8   23
-      Gene25    22   20   27   41   16   33   25   22   23   16   20   30   21   49
-      Gene26    48   30   48   48   17   33   22   37   14   32   34   38   41   50
-      Gene27     .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene28    21   15   33   19   19   25   12   14   25   18   24   28   39   34
-      Gene29    44   65  277   50  137  234  122   35  176  102   39   62   46  283
-      Gene30   111  165  245  111  167  172  146  143  103  101   76  101  144  218
-      Gene31  1361 2484 3013 1445 1686 2981 1462 1293 2108 1764 1000 1103 1987 2936
-      Gene32    67   62   35   42   46   52   31   54   50   37   33   81   54   57
-      Gene33    36   26   24   16    9   13   19   26   18    4   17   19   32   37
-      Gene34    88   26   53   49   52   54   12   43   29   12   41  114   19   71
-      Gene35   490  686  871  502  437  752  403  415  467  378  406  634  677  683
-      Gene36     6    2   13    1    1    6    1    1    3    4    1    8    2   10
-      Gene37    24   34   15   23   12    6    7   19   12    8    7   15   23   11
-      Gene38    10   15   27    5   11   14   14    3    5    6    5   15   17   20
-      Gene39   648  460  534  391  485  569  367  440  402  427  334  552  466  687
-      Gene40     1    2    1    3    1    1    .    .    .    2    3    3    3    2
-      Gene41    34   40   88   23   50   91   45   21   73   80   26   35   40  109
-      Gene42     8    9    2    2    1    6   12    2    7    .    2    1   20    9
-      Gene43    19   13   15   17   12   10    9    9   20   11    8   18    6   20
-      Gene44    44    9   22   26    7   29    8   27   14    5    7   24   14   17
-      Gene45   146  208  240  104  155   90  114  123  115   97  100  105   98  230
-      Gene46  2609 2418 3117 2430 1577 2536 1698 1606 2787 1637 1351 2669 1934 2882
-      Gene47     2   14    9   13    2    4    6    7    2    7    1    .   10    .
-      Gene48    90   72  104   46   35   55   48   51   32   47   37   53   49  105
-      Gene49    25   35   25   27   22   18   27   20   14   25   10   39   54   38
-      Gene50     .    .    1    .    .    .    .    .    1    2    .    .    .    .
-      Gene51    23   15   77    3   33   25   13    8   64   38   10    9   10   44
-      Gene52     1    2    2    1    .    1    .    2    7    2    2    .    3    .
-      Gene53    46   33   26   45   22   42    8   28   10   23   45   40   42   24
-      Gene54    21   30   48   50   16   15   30   43   36   33   16   26   39   35
-      Gene55     .    4    2    2   10    2   14    3    .    2    8    5    8   11
-      Gene56     4    2   22   13    4   10    3    7   12    4    9    1    5   23
-      Gene57    49   55  128   70   21   47   44   57   53   56   38   94   49   78
-      Gene58    35   28   46   32   20   30   26   42   36   15   32   54   23   73
-      Gene59    17   52   29   16   21   17    6   10   36   15   10   19    7   38
-      Gene60     2    7    .    4    .    1    5    .    .    .    1    1    2    .
-      Gene61     .    .    .    1    .    2    4    .    2    .    .    1    .    .
-      Gene62    34   31   75   60   41   47   31   37   45   31   41   27   15   83
-      Gene63    85  112  118  109   83  124  147   74  146  128   97  113  153  245
-      Gene64   256  204  347  257  182  244  226  195  189  167  174  225  228  294
-      Gene65    46   59   47   36   24   31   13   46   26   20   31   50   93   23
-      Gene66   127   48   99   82   52   84   79   72   89  104   45   59   57  100
-      Gene67   423  420  343  550  235  293  165  414  232  212  316  499  328  367
-      Gene68     3    8    3    7    1    5    3    4    1    2    2    .    .    4
-      Gene69     3    5    2    4    2    1    2    2    2    3    1    6   18   12
-      Gene70   121  100  103  111   68   85   58  148   61   75   92  102   50  139
-      Gene71    48   47   55   42   24   33   13   51   20   44   46   42   47   62
-      Gene72    21   28   15   13    4   12    6   16    2    7   16   13   16   22
-      Gene73     5    .    7    5    3    5    2    3    3    .    .    3    3   10
-      Gene74   908 1321 1909 1040 1128 1545  953  933 1238  959  846 1015 1738 2094
-      Gene75    23   22   38   39   31   31   19   21   15   25   20   36   21   50
-      Gene76    31   21   64   26   24   42   44   47   26   21   34   40   55   57
-      Gene77    65   16   75   38   42   44   46   69   51   30   52   57   42  101
-      Gene78   105   78  310  102  177  250  170   86  222  159   92   94  133  372
-      Gene79   753  676 1083  548  432  741  526  658  787  457  560  867  944 1393
-      Gene80    43   51   83   36   72  105   81   47   59   34   61   40   35   95
-      Gene81     1   17   11    5   12   29    7   28   24   12   15   26   14   12
-      Gene82     2    .    2    4    7    1    .    .    4    .    .    7    4    1
-      Gene83    76   86  109  110   64  116   52   92   87   52   36   53   67   92
-      Gene84    33   20   16   51    8   28   13   63   13    9   44   65   35   28
-      Gene85   751  504  930  941  776  913  556  558  609  602  684  999  544 1151
-      Gene86     .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene87    52   27   48   41   25   40   36   27   43   31   14   27   30   55
-      Gene88   158  124  192  186  109  108   88   97  134   64  124  157  108  206
-      Gene89    19   15   26   13   16   11   14    6    6    5   14   20   17   18
-      Gene90   172  188  288  166  160  199  128  133  163  136  151  190  218  329
-      Gene91    80   31  109   62   48   70   54   29   44   43   23   50   25   78
-      Gene92    18    5   23   32    9   12   14    7   12   13    7   20    9   14
-      Gene93    30   70   37   30   10   17   23   23   19   14   25   21   16   73
-      Gene94   187   20   67  138   25   37   50  101   60   40   79  108   36   78
-      Gene95    16    9    9   23    .    1    4   20    2    2   10    9    8    3
-      Gene96     .    1    1    2    3    2    2    2    .    1    .    2    .    3
-      Gene97     3    3   11    7    3   10    2    1    3    5    4    4   11    7
-      Gene98     2    .    4    1    2    2    2    1    8    1    .    2    5    2
-      Gene99     1    .   11    2    .    6    2    1    8    .    1    4    2   13
-      Gene100  145   78  193  178  108  165  101  154   94   96   84  150   64  185
-      Gene101   12    6   29   22    6   12    5    8   12    4    8    5    4   19
-      Gene102   81   37   81   56   63   63   62   62   60   82   46  116   39   80
-      Gene103    7   39   47   27   42   44   24   24   49   39   12   21   28  104
-      Gene104    .    .    .    .    .    .    .    2    .    .    .    .    .    .
-      Gene105   15   13   14   23   13    8    2    4    8   12   11    9    6    9
-      Gene106   61   42   81   75   32   65   25   27   39   44   20   34   70   58
-      Gene107 2664 1041 3668 3084 1665 2878 2065 2721 2620 2156 1822 2491  800 4373
-      Gene108    1    7    7    .    5    6    3    .    7   11    .    2    3   10
-      Gene109  252  169  393  269  250  239  245  192  318  247  178  261  134  435
-      Gene110  200  165  116  180  122  113  102  143  148   69  198  193  136  186
-      Gene111  315  413  376  225  289  404  324  224  365  166  123  223  431  589
-      Gene112    3    1    8    6    6    5    9    9   13    2    5    5    3    6
-      Gene113   26   72   53   37   17   34   27   26   38   13   16   41   52   57
-      Gene114   12   10   11   16    8   14    6   13    1    3    6   12   15    8
-      Gene115   35   20   47   24   15   21    9   22   25   29    8   15   18   31
-      Gene116   96   40   59   55   27   32   29   54   34   18   56   36   42   66
-      Gene117  705 1066  962  857  560  775  537  504  633  585  570  605  907 1346
-      Gene118    3    5    8    5    8   12   25    4   24    7   10   20    5   20
-      Gene119    7    6    8   10    5    2    .    2    .    .    5    3    7    9
-      Gene120   23   23   17   28   20   37   19   28   36   15    9   27   12   42
-      Gene121    7   10   13    5    5   15    2    3    2    7    7    4    9   14
-      Gene122   55   17   28   45   33   24    8   15   25   43   21   35   27   41
-      Gene123 3011 1642 1244 2347  846 1062  865 2602  800  613 1845 2474 1728 1501
-      Gene124   43   43   37   41   27   58   34   23   30   22   67   50   36   63
-      Gene125 1022 1874 3323 1369 1729 2018 1401 1095 1980 1476  826  882 1956 3656
-      Gene126   38   51   52   39   47   58   42   31   74   33   16   50   38   92
-      Gene127  181  141   73  173   75   89   77  132   73   64  101  130  122  158
-      Gene128   12    7   10   10    .   13    .    3    6    3    4    6    3   13
-      Gene129  154  158  229  149   75  152  125  161  217  114   99  134  144  269
-      Gene130   41   55  104   68   47   36   15   41   76   50   49   49   53   77
-      Gene131   16   57   56   43   35   37   14   15   20   29   38   26   33   42
-      Gene132   53    6   12   20   18   39   14   17   21   24   18   43   10   48
-      Gene133   12    3   10    6    7    2   16   16   14    9    2    9    5   12
-      Gene134   21    5   39   10   12   17   13   15    9   12   15    6   12   14
-      Gene135   14   26   15   19    9   10   11   10   15   16   17   10   24   13
-      Gene136  150  116  211  134  107  168   87  119  198   89  117  154  133  217
-      Gene137    4   14   29   18    2    6    6   10   26    5    8   18   14   11
-      Gene138   42   46   38   38   28   43   25   19   34   13   20   33   20   60
-      Gene139   14   10   39   23   11   19   19   20   18    8   12   13   22   29
-      Gene140   22    5   27   13    9   11    8    3    5    6    6   23   22   18
-      Gene141   19   14   27   11   16   15   18   16   11    8    6    5   33   39
-      Gene142  126  203  287  120  150  183   92  178  149   84  108  116  156  199
-      Gene143   15    7    3    8    1    3    3   11    3    3    2    1    .    3
-      Gene144    8    3   14    4    4    6   11    3    5   20    1    2   13    4
-      Gene145   27   32  101   29  103  106   61   24  104   94   33   30   28  133
-      Gene146  188  387  160  174  129   81  102   69  152   83   58  103  228  196
-      Gene147   60   70   86   66   69   64   62   52   59   52   38   45   70   77
-      Gene148  113  125  241  170  132  213  141  200  180  127  123  162  107  277
-      Gene149    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene150    3    9    8   24   11    7   16    8    6   14    5    8   10   21
-      Gene151  152  181  177  147  135   92  117  174  149   86   97   71  168  199
-      Gene152   12    5    4    8    8   10    4   15   11   11   12   15   11   13
-      Gene153   32   12    1    3    2    6   15    2    9    1    3    1    4    4
-      Gene154    .    .    .    .    2    1    .    1    .    .    5    3    .    .
-      Gene155   41   27   63   43   45   35   36   25   37   22   27   43   35   60
-      Gene156   42   88   82   25   39   63   46   28  107   53   17   20   98  142
-      Gene157    1    .    1    1    4    2    .    .    1    2    .    .    1    5
-      Gene158  115   98  137   63   89  105   84   61   81   63   54   49   78  124
-      Gene159   40   45   21   38   31   25   10   20   16   32    8   22   17   43
-      Gene160    4    3   12    2    8    5    4    2   11    7    8    7    6   29
-      Gene161   47   36   72   39   39   60   41   33   70   32   33   58   36   84
-      Gene162    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene163   13   10   25   15   11   11   20   15   23    7   30   19   15   29
-      Gene164    3    8    9    5    2    .    2   10    3    2    6    4    6    7
-      Gene165  133   87  197  192  122  122  139  119  203   75   83  111  123  144
-      Gene166   31   74   75   47   56   91   43   72   85   60   26   35   68   95
-      Gene167   26   20   18   26   12   10   14   10   18   24    7    9   14   13
-      Gene168    2    7    2    2    3    2    .    1    2    .    2    .    5   10
-      Gene169    .    1   12    6    1    5    4    1    4    .    .    .    .   10
-      Gene170    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene171  213  146  219  296  189  118  112  148  131  116  107  234  141  292
-      Gene172    8    1   10    7    3   18    .    3    5    1    2    2    2    5
-      Gene173   34  109   54   28   34   48   15   47   54   58   40   57  124   72
-      Gene174   59    7   35   43   16   33   16   28   33   11   26   69    5   35
-      Gene175    4    4   11    5    2    8    4   10    5    3    3    5    2   10
-      Gene176    9    4   26   12    6   33    2    6    7    3   11    7   24   14
-      Gene177 1599 2151 1449 1561  827 1363  682 1376  961  834  983 1768 1770 2085
-      Gene178    1    6    2    3    .    .    .    3    .    .    3    1    3    .
-      Gene179   80   51   77   52   52   89   47   59   89   73   42   34   96   98
-      Gene180   22   40   18   61   39   24   27   32   12   26   18   40   25   22
-      Gene181    .    .    .    .    .    .    .    .    .    .    .    3    .    .
-      Gene182   87  105  263   64  119  153   74   57  167   92   41   58  102  139
-      Gene183   53   32   50   53   33   63   32   51   29   43   14   40   29   63
-      Gene184   73   44   42   72   32   40   34   64   37   46   46   75   58   77
-      Gene185    9   26   29   23    .   10   20   13   20    6    8   35   11   20
-      Gene186    7    8   48    1   16   14    8   11   36   14   10    1   10   38
-      Gene187   68   70   76   91   58   78   44   58   55   46   56  102   99   74
-      Gene188    5    3   15    2    3    8    6    5    4    2    1    .    7    2
-      Gene189   61   83  149   45   40  114   68   85   84  134   37   46  109  140
-      Gene190  455  799 1641  689  964 1269  960  621 1102  646  424  522 1213 1925
-      Gene191   18   30   20   11   13   32   10    9   21   24    4   17   31   34
-      Gene192    2    2    1    6   15    1    7    6    7    5    1   17    1    2
-      Gene193    5    3   13   13   15   24   11   11   18   13   10   10    8   47
-      Gene194   15   10   17   20   15   17   12    7   14    1   15   14   22    8
-      Gene195    8   14    8    8    8   17   10   11   15   10    1    7   26   14
-      Gene196  158  162  250  169  147  283   94  114  211  178  113  100  200  275
-      Gene197   13   18   47   16   38   29   13   11   12   25    1   16   20   50
-      Gene198  124  114  151  119   58   77   86   99   89   68   50  128   88  148
-      Gene199   21   25   52   21   11   43   68   22   36   31   20   28   27   75
-      Gene200   25   19    7   42   15   17    8   18   18   16   27   34   11   17
-      Gene201    5    8    9   29    3   17    2    6    5    6    9    9   10   17
-      Gene202  873  668 1300 1210  774 1060  722  701  953  909  958 1235  914 1739
-      Gene203   16    9   23    8   11   28   25   16   28   22   23   13   24   33
-      Gene204    .    .    1    1    3    .    3    .    .    2    .    .    1    .
-      Gene205   53   55  138  104   56   62  101   42   82   63   29   73   20   86
-      Gene206  149   91  123  146   58   94   72  145  117   59   86  108  102  206
-      Gene207    6    7   14    3    2    9    6   11    2   13    4    6    7   22
-      Gene208    6    4    8    5    .    .    2    3    3    .    4    5    .    3
-      Gene209  239  183  331  262  114  203  117  179  273  170  189  168  173  254
-      Gene210   49   55   92   82   39   78   26   39   46   40   31   48   50   65
-      Gene211    .    .    .    .    .    1    .    .    .    .    .    .    .    .
-      Gene212   31    4   22   25    9   12   12   41   12   19   22   21   21   17
-      Gene213    6   14   14   21   11    6    5    4   12   10   13   14   19   24
-      Gene214   37   49   34   15   23   48   36   17   19   19   10   18   76   47
-      Gene215   15    3    1    4    2    5    .   10    5    .    4    3    3    1
-      Gene216   49   16   61   36    8   23   16   37   19    7   27   20   27   34
-      Gene217   65   46  132   59   50  100   51   69   82   64   26   49   36   79
-      Gene218   55   57   95   60   63   84   42   38   50   53   29   52   76   92
-      Gene219    2    3    5    4    3   11   12    .    2    1    .    .    2   10
-      Gene220   68   75  102  104   43   57   60   57   56   79   58  130   87  132
-      Gene221   21   21   57   33   39   42   25   13   40   27    6   16   14   29
-      Gene222   27   18   33   19   18   35   23   11   18   10   17   20   24   31
-      Gene223  141  159   66  130   65   57   42  145   91   45  120  165   96   86
-      Gene224   44   36   26   27   11   13   19   39   10   12   22   71   15   30
-      Gene225    7    6    7    7    8   10    2    9    8    4    5   16    1    9
-      Gene226   29   25   17   22    8   12   13   28   18   10   17   22   19   28
-      Gene227   22   21   48   32   21   32   26   18   25   11   18   20   30   38
-      Gene228   39   42   65   41   33   56   36   61   43   20   35   44   41   48
-      Gene229   34   82   86   39   72   63   70   21   66   50   33   28   71   38
-      Gene230    3    7    9    3    7    3    2    2    1    2    3    4    3    6
-      Gene231    8    3   24    4    7    7    7    1    6    .    1    4    4    3
-      Gene232   96  132   90   96   81   60   82   67   78   67   53   72   84   87
-      Gene233    3    5   15   14   11   16    3    9   29   16   11    2   12   19
-      Gene234    4    1    5    4   11    1    3    1    7    8    8    2    .    2
-      Gene235   46   46   54   59   36   56   43   33   44   52   38   49   36   46
-      Gene236   11   32   34   18   30   22   13   10   15   19   13   13   16   23
-      Gene237   74   33  107   91   59   71   71   94  123  113   58   95   63  171
-      Gene238  131   82  223  131  108  111   86   85  149   79   77   79  101  174
-      Gene239   22   19   38   52   18   35   15   24   26   10   10   19   12   32
-      Gene240   18    7    9   26   10   11    7    8    4    6    5   10    9   18
-      Gene241   47   57   55   46   35   67   47   59   51   22   65   77   38   80
-      Gene242    .    1    .    .    1    .    2    .    1    .    1    1    2    1
-      Gene243  107  135  161  133  112  121   86  153  152  133   95   88  187  216
-      Gene244    3    4   14    6    7   10    4    1   11    3    .    2    .   11
-      Gene245   77   70  129  131  115   94   65   92  167   81   69   77   96  110
-      Gene246   10   18   30   27   12   17   12    9   22   14   13    7   22   17
-      Gene247    9   34   35   24   18   10   10   18   28   16    6   19   34   27
-      Gene248   45   13   10   40   14   22    9   20   10   12   29   21    6   17
-      Gene249    1    .    .    .    .    .    .    2    .    .    .    .    .    .
-      Gene250    5    2    6   11    .    .    .    4    .    .    2    .    2    .
-      Gene251   57   38   61   53   22   35   11   37   37   44   18   39   35   46
-      Gene252   39   16   31   41   15   21   15   22   37   19   10   18   15   28
-      Gene253  149  160  611  183  298  475  341  120  330  285  115  123  189  750
-      Gene254  113  113   57   82   39   48   48   59   42   43   60   37   62   63
-      Gene255   96   92   67  132   40   64   51  159   63   47   95  151   95  112
-      Gene256   70   51  130  106   34   98   51  112  117  101   75   71  108   96
-      Gene257   26  103   30   24    5   38    6   12   13   11   10   14   63   19
-      Gene258    7   17   18   11    8   14    7   14    9    6    8    3   14   12
-      Gene259    .    .    .    .    2    1    1    .    1    .    .    1    .    .
-      Gene260   63  103  111   69   76   65   38   83   80   85   38   94   53  116
-      Gene261   75   43   36   53   31   19   21   40   19   21   43   41   18   28
-      Gene262    7   17    6   10   10    6    1    5    2   16    4    7    2   13
-      Gene263   20   19   13    3   18   10    7   14    6    7   10   13   29   14
-      Gene264   59   28   16   40   16   29    8   38   16   14   35   31   32   13
-      Gene265    5   24   34   16   22    8    9   11    8   10   14   17   14   20
-      Gene266    7    .    2    .    4    .    1    1    6    .    1    3    .    2
-      Gene267   57   69   88   56   33   73   45   47   56   25   44   66   49   63
-      Gene268   21   11    5   13   10    6    2    1    8    2    4   10    2    8
-      Gene269    7    6   11   13    1    3    6   11    1   11    6    5    7   24
-      Gene270  137  116  323  160  141  226   88  196  144  141   92  123  146  156
-      Gene271 1146  828 1837 1046  693 1134  851  879 1036  938  696 1077 1241 1519
-      Gene272   32  189  140   27  115   68   63   41   97   96   23   35  160  124
-      Gene273    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene274    2    2    .    .    8    1    .    .    1    2    .    .    1    2
-      Gene275    .    2    2    5    2    2    2    2    6    4    2    1    6    8
-      Gene276   11   17   22   10    9    9   11   10   14   11    1    2   20   18
-      Gene277   36   18   40   25   15   17   27   22   37   30    1   17   19   30
-      Gene278   36   44   31   60   15   35   24   28   22   18   33   47   67   33
-      Gene279   38   35   62   54   22   28   41   37   34   27   27   38   23   38
-      Gene280   38   40   44   49   19   30   23   19   27   22   34   24   45   71
-      Gene281   11   28   23   13   37   23   22    6   15    9    9   11   43   30
-      Gene282    8   15   17    8    9    3    5    5    8   14    3    6    6   10
-      Gene283  237  242  422  397  321  310  257  320  329  236  264  328  254  627
-      Gene284   11    8   11   11    4   10    4    6   13    6   11   17    7   27
-      Gene285  177  213  341  184  168  187  210  212  140  128  134  200  175  286
-      Gene286   96  101  130  137  108  118   87   83   89   75  105  111   86  143
-      Gene287   63   38   50   26   17   19   28   21   25   20   35   36   18   55
-      Gene288    7   16   25   12    8   13   16   15   25    7   12    2    9   19
-      Gene289   93   76   77  102   77   70   86   95  108   88   64   97   80  120
-      Gene290   72   36   54   48   21   42   28   39   48   11   26   48   43  111
-      Gene291   19    6    5   14    .   10    4    7    7    3    2    8    3   23
-      Gene292  865 1094 1378 1062  843 1036  693  934  909  704  692  914 1055 1928
-      Gene293    9   11    8   36    6   11   13   37    7   12   25   12   16   12
-      Gene294 1843 1740 2946 1787  967 1656 1331 1406 1650 1291  957 1713 1279 2171
-      Gene295   36   54   52   25   32   37   21   39   34   29   29   62   42   45
-      Gene296    3   10    7   15    .    2    6    .    5    6    3    2    1   15
-      Gene297   13   32   56   23    8   30   15   28   29   22   29   32   17   49
-      Gene298    2    .    4    3    .    2    3    3    1    .    2    .    1    7
-      Gene299   81   49  114   38   43  108   80   53  133   82   37   81   53  128
-      Gene300    5    3    3    2    5    3    5    5    4    2    .    3    8   13
-      Gene301 3497 3206 3548 3173 2212 3563 2612 2423 2448 2525 1689 2987 3254 4268
-      Gene302    1    3    .    .    1    .    .    .    .    .    1    1    2    .
-      Gene303   54   14   17   33   15   28    8   43   26   21   73   52   35   22
-      Gene304    2    1    1    .    .    2    2    .    .    5    .    .    .    1
-      Gene305   54   57   54   98   30   37   45   70   58   36   39   87   64   77
-      Gene306  238  168  174  288  138  167   88  149  143  134  149  216  160  169
-      Gene307   39   55   62   53   44   26   28   47   30   15   26   45   53   26
-      Gene308   18   16   12   46   19   11   13   18   11    9    7   27   14   17
-      Gene309  390  427  688  595  305  427  336  358  416  335  326  498  492  607
-      Gene310   19   37   57   72   53   47   37   24   50   49   31   31   36   86
-      Gene311    4   10   20   15   10    7    2    1   14    1   11   11   10   13
-      Gene312   13   22   38   18   14   29   19   22   28   34    7   13   31   37
-      Gene313  108  150  144  152   71   97   85  126  123   69   91  196  120  136
-      Gene314    8    4    3    4    .    .    2   10    3    .    1    .    6    8
-      Gene315    1    4    .    .    .    3    1    2    5    4    1    .    3    1
-      Gene316   13   11   10    7   25    8   15    6    2    4   11    7   11    4
-      Gene317    8    3    6    8    4    3    4    .    2    1    .    3    2    2
-      Gene318   25   12   34    9   11   33   42   19    7   16   19   11   19   30
-      Gene319   35   19   32    5   18   35   17    6   41   23   10   11    9   31
-      Gene320   68   57   42   45   64   29   34   27   48   39   75   74   32  115
-      Gene321   38   27   55   56   33   67   39   55   71   37   27   24   61  107
-      Gene322    1    6    1    1    2    4    1    2    4    3    .    5    9    1
-      Gene323  133   47  229  220  119   98   80   84  120  118   76   84   55  132
-      Gene324    .    .    1    .    .    .    .    .    3    1    1    .    .    .
-      Gene325  293  489  212  300  177  175  117  342  235  153  275  324  388  320
-      Gene326    3    2    1    .    4    .    .    4    1    .    1    5    3    3
-      Gene327  201  288  504  167  207  404  251  196  220  202   94  178  236  469
-      Gene328  182  148  256  200  155  220  196  148  172  133  104  172  142  193
-      Gene329  108  114  181  131   79  106   79   93   98   53   74   98  108  130
-      Gene330  369  238  453  233  281  415  230  199  275  292  214  230  219  512
-      Gene331    7    3    6   10   14    9   13    7   21   24    1    7   13   28
-      Gene332   38   17   23   25    9   31   20   28   31   15   14   44   27   22
-      Gene333   48   34   36   34   38   26   13   17   12    6   25   34   29   42
-      Gene334    2    .    .   11    .    3    .    .    .    3    .    1    6    2
-      Gene335   10   15   26   25   19   20   12   12   16   12    9   10   25   24
-      Gene336  158   92  215  195  118  149   87  110  123  103  113  131   80  165
-      Gene337   64   20   43   14   14   21   28   11   25   13   14   21   20   21
-      Gene338   10    5   18    8    3    1    3    2    8   10   10    5    7    9
-      Gene339   60   54   95   84   37   85   54   77   39   46   37   63   47   61
-      Gene340   63   63   93   32   62   70   48   50  114   68   32   41   52   72
-      Gene341    6   10   13    3   13   10    7   17   10    7    6   13   10   13
-      Gene342   42   76   72   40   84   91   64   20   62   63   48   38   25   65
-      Gene343    .    .    1    .    1    7    1    .    1    2    .    .    .    3
-      Gene344   27   25   43   13   14   24   16   38   41   13   18   24   35   66
-      Gene345   37   53   55   40   36   61   25   31   36   31   56   35   26   67
-      Gene346    .    .    .    .    1    2    2    .    2    .    .    .    .    7
-      Gene347   20   14   17   26   17   28   10   15   37   16   25   36   20   39
-      Gene348   14    8   19   19    3    4    2   35   10    2   20   20    1   14
-      Gene349   85  115   97   94  134   69   96   95   90   85  101  137   75  237
-      Gene350   10    3    7    4    1    7    5    1    5    3    6    2    8   11
-      Gene351   21   24   23   35   11   37   18   31    5   21   23   16   28   20
-      Gene352    2    7    9    4    2    5   17    7    8    2    4    7    9    9
-      Gene353    1    .    8    2    3    1    4    1    1    .    .    5    2    2
-      Gene354  204  223  298  194  180  282  207  204  239  145  137  158  254  278
-      Gene355    4   29   29   11   13   32   14    8   24   23    7   18   24   25
-      Gene356   74   94   85  101   49   91   49   59   65   41   66   77   75  137
-      Gene357   16   12   20   12   11   19   14   22   29   12   19   26    7   23
-      Gene358   14   22   51   30   44   52   40   14   39   36    7   16   11   68
-      Gene359    .    2    .    2    .    5    1    .    .    .    .    2    1    2
-      Gene360    3    5    9    4    6    6    3   14    3    .    1    4    2   12
-      Gene361    6    4   16    9    2    9    6   11    5    6    5    4    6   11
-      Gene362   25   36   38   22   16   29   16   17   10   18    7   10   12   37
-      Gene363   14   26   26   13   12   28   22   14   17   14   16   19   13   36
-      Gene364    6   40   15   18    6   16    7   28   24    9   12   19   21   18
-      Gene365   61   44   60   36   42   59   31   56   31   57   67   95   70   92
-      Gene366  149  378  241  269   99  158   66  127  101   90  171  243  239  179
-      Gene367   77   50   57   43   31   52   51   35   46   53   25   70   53   67
-      Gene368    6    6    7    5    2    7    1    6   10    4    2    6   13    8
-      Gene369    6    7    3    4    2    .    1    4    2    3    5    3    4    9
-      Gene370  180  149  481  161  179  296  225  176  321  254  144  196  122  425
-      Gene371   16    6   16    7    9   15    5    8   13    7    5    6    .   18
-      Gene372  146  151  189  234  102  167  112  141  125  168  125  168   79  185
-      Gene373   16   24   35   22   10   10   19   21   20   17   26   16   16   42
-      Gene374   83   68  243   65  106  127  162   60  124  114   34   94   38  227
-      Gene375   39   22   48   21   27   24   18   19   21   23   22   19   15   49
-      Gene376   17   20   32   21   18   22   16   16   39   13    6   41   28   27
-      Gene377   66   63   54   46   49   47   41   73   41   43   27   76   58   77
-      Gene378   55   51   60   67   13   21   15   44   40   18   31   68   53   45
-      Gene379  977 1502 1696 1111 1049 1155  924  974 1146  765  695  898 1320 1675
-      Gene380    6    2   14    1    1    2    1    4    1    4    2    .    7   19
-      Gene381    9   11   17   10   10   18   12    7   18   15   10    5   17   13
-      Gene382    2    1    2    .    1    2   13    .    .    .    .    .    .    .
-      Gene383    .    3    3    3    5    .    .    3    7    .    .    2    3   11
-      Gene384   34   29   39   25   16   23   21   20   10   13   33   22   39   38
-      Gene385   41   42   67   48   24   41   32   53   63   31   28   36   51   61
-      Gene386   29   38   39   41   52   34   30   17   37   19   26   20   29   28
-      Gene387  178  164  148  135   94  122   83  163  151  128   74  135  111  217
-      Gene388    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene389    7   10    8   12    2    8    6    8    6    3   17   14   20    6
-      Gene390   92  241  136  113   69  113   92   80  106   62   70   99  224  215
-      Gene391    2    .   17   10    5   11    1    6    7    1    4   17   12   22
-      Gene392    5    8    1    8    8    8    2    6    7    1    2    3    2    4
-      Gene393   52   54   96   87   80   89   87   52   62   51   66   75   34  152
-      Gene394   12   16   27   23   10   14   17   18   17    9   12   16    4   14
-      Gene395    1    4    9    2    6   10    7    .    5   10    2    4   19   11
-      Gene396   11    .   21   11   18   17    7    4    6    4   11    8    6   12
-      Gene397   24   10   19   16   20   17   15   18   15   12    7   12   16   27
-      Gene398   39   37   59   29   35   46   27   37   33   32   15   31   38   33
-      Gene399   51   35   72   63   37   40   35   32   79   65   34   22   51  105
-      Gene400   30   44   31   20   17   32   22   27   12   17   24   11   44   53
-      Gene401    7    5    8    8    1   10    8   11    8    .    4    7   12   12
-      Gene402  113   65  146   95   68   62   40   54   90   68   33   75   54   78
-      Gene403   10   13    3   15    4   21    1   10   24    4    3   15   12    8
-      Gene404   73   82  127   88   95   52   75   70   84   56   63   87  117  137
-      Gene405   17    5   20   22   14    8   10   10    3    5   12   45   11   13
-      Gene406   39   35   35   13   52   38   32   16   50   36    6   11   22   72
-      Gene407    .    .    .    1    .    1    .    .    .    .    .    .    .    .
-      Gene408   16   33   30   11   14   14   15   20   35   13   23   17   17   24
-      Gene409   18    4   14   27   12   17   15   13   16    1   14   22    3   25
-      Gene410  153  110  199  155  100  137  132  118  125  100   92  166  134  153
-      Gene411   14   15   17    2   11    8   16   13    8   20    4    3   29   16
-      Gene412   74   35   87   99   40   84   48   68   54   57   42   50   82   69
-      Gene413    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene414  126  154  116  137   51   68   44  101   69   38   98   85  141   65
-      Gene415   12   15   20   19    8   41    9   15   20   12    4   10   13   20
-      Gene416   46   37   74   53   45   59   83   52   49   43   26   39   13   87
-      Gene417   15    6   24    9   16   27    6   12   19    7    4   19   21   19
-      Gene418   65   95  111  102   48   67   49   77   47   38   29  104   72  102
-      Gene419    4    4    4    7    1    2    4    2    .    1   10    5    1    2
-      Gene420   31   18   45   20   27   31    8   18    8   11   11   32   29   17
-      Gene421  143   95  140   98  121   99  118  106  154  118  114  107  180  187
-      Gene422   15   24   42   13   21   20   20   39   15   16    7   16   46   38
-      Gene423    1    3    2    1    .    2    .    .    2    .    1    .    .    4
-      Gene424    7   12   15   13    7   19   18    .   20    4    5    5    6   33
-      Gene425   65  115   99   72   52   37   34   38   45   33   52   76   60   83
-      Gene426    .   11   22    1    5    6   13    4    8    9    3    1    3    9
-      Gene427    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene428   10   14    9    8    1    6   11    3    8    4    5    9    6    5
-      Gene429    2    4    1    4    .    2    2    9    2    4    4    1    3   14
-      Gene430  105   68  109   63   48   72   23   66   47   44   43   50   69   74
-      Gene431    6    2    3    3    .    4    .    1    3    4    4    5    5    5
-      Gene432   23   72   33   22   24   26   30   16   35   20   30   33   47   41
-      Gene433  390  916  824  422  521  835  542  233  724  522  193  297  757 1032
-      Gene434    5    3    1   11    2    1    .    8    3    4    4    1    6    7
-      Gene435    8    1    .    1    8    1    6    2    6   12   13    1    .   10
-      Gene436   78   99   40   82   27   25   25   45   36   10   37  104   83   39
-      Gene437   49   30   79   49   85   72   57   36  120   65   32   52   26   94
-      Gene438   26   33   77   14   48   48   13   32   27   22   22   28   17   73
-      Gene439   31   24   65   50   33   43   16   32   26   33   36   39   34   59
-      Gene440   44   25   26   25   22   16   11   43   47   15   12   53   13   30
-      Gene441   97  117  239   85  163  205  129   48  249   76   57   92   88  212
-      Gene442  257  197  249  227  109  294  154  171  245  181  182  189  229  283
-      Gene443    .    .    1    .    6    3    .    .    .    4    .    .    3    .
-      Gene444   54   86   98   75   69   56   26   48   60   27   52   77   52   99
-      Gene445   23   34   50   40   18   31   26   32   27   12   20   32   47   64
-      Gene446   15   20   10   12   13   12    6   10   20   19   12   15   13   14
-      Gene447   10    5   13    3   10   14    1    7    8    5    .   11    4    8
-      Gene448   15   14   65   32   27   54   31   17   21   29   21   17   10   78
-      Gene449 2219 2170 3120 1941 1980 2384 2040 1755 2139 1708 1783 1744 1756 3751
-      Gene450    9    9    7   17    3    4    3    6    5    4   11   13    9   20
-      Gene451   27   33   50   17   28   30   25   28   47   30   38   36   21   66
-      Gene452  789  896 1499  839  652  902  631  564  811  632  406  701  756 1161
-      Gene453   49   49   51   28   32   34   31   51   58   30   35   36   43   71
-      Gene454   21   28   17   12    5   19   22    6   14    3    2   27   19   20
-      Gene455   14   20   35   25   14   22   14   19   16   15   15   18   18   25
-      Gene456    5   11   18   18   12   13   14   12   24   10    7   24   18   41
-      Gene457 3766 3311 5810 3796 2357 3045 3095 2553 3952 2229 2395 2866 3763 5872
-      Gene458   79   85   85   47   40   76   52   60   84   63   36   93   91   58
-      Gene459 1032 1114 1983  967 1136 1492 1156  841 1116  942  648  977 1279 2373
-      Gene460   36   40   23   17   12   41   22   26   29    9   27   13   22    8
-      Gene461   16   26   33   22   20   22   12   18   36   14    4   12   29   25
-      Gene462   21    9   38   27   12   22   17    8   13   10    5   26    2   29
-      Gene463   49   54   98   39   35   89   27   41   72   57   26   57   70   73
-      Gene464   95   91   98   88   53   68   75   54   60   60   54   83   98  140
-      Gene465   23   27   31   12   20   14   16   18   16   16   14   14   11   36
-      Gene466   27   74   90   21   30   32   45   32   42   31   12   22   32   33
-      Gene467   44   24   39   39   12   27   13   30   25   27   10   27   34   50
-      Gene468    6    4    4    3    3    3    4    3    7    5    7    6    2    8
-      Gene469    1    .    2    1    .    1    2    .    .    .    .    2    1    1
-      Gene470    5    5    8    6    1    2    8    3   14    2    1    5    4    1
-      Gene471   39   22   62   38   24   44   30   43   25   24   31   31   24   65
-      Gene472  125   98  132   96   71  119   74   97  119   68   95   88  106  142
-      Gene473   55   59   95   39   45   95   53   59   50   45   39   57   41  103
-      Gene474   26   60   30   29   11   52   22   22   24   35   20   34   43   44
-      Gene475   47   55   64   34   40   57   55   21   48   28   19   45   51   41
-      Gene476  330  247  362  291  255  274  282  342  300  234  278  285  262  418
-      Gene477   12   19   26    4   21   38   34    2   34   24    5    9   13   45
-      Gene478   19   27    7   24   13   27    4   19   13   15   16   14   21    8
-      Gene479    7    4    1    2    .    9    2    1   10    4    1    2    3    8
-      Gene480   25   23   35    9   13   21   30   16   21   16    9    5    6   40
-      Gene481    .    1    8    4    1    8    .    .    5    .    6    3   10    8
-      Gene482   55   56   53   63   26   70   38   39   41   23   46   47   55   89
-      Gene483    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene484    2    9    1    1    .    1    2    .    6   10    2    .    3   11
-      Gene485    5    6    7    8    .    7    4    9    4    3    3   11    6    3
-      Gene486   42   67   91   83   19   70   41   33   51   38   34   84   85   39
-      Gene487  135   36  228   96  147  137  139  135  150  142   53   74   49  372
-      Gene488   28   22   20   31   16   15   15   16    6   13   13   26   21   34
-      Gene489  352  377  861  350  516  621  538  349  647  464  198  277  351  984
-      Gene490  259   78  458  286  205  254  216  291  309  156  195  257   88  389
-      Gene491    2   17   13    4    8   25    8    2   12    6    2    5    9   18
-      Gene492  139  106   87   93   23   39   37  104   33   46   71  144   84  127
-      Gene493    1   16   14    8    7   20    9    4   20   12    5    2   25   14
-      Gene494   48   27   45   57   16   38   23   72   33   18   46   56   15   35
-      Gene495 1124 1285 1056  897  838 1482  755  811 1068  981  900  864 1697 1370
-      Gene496   91   98  396   70  283  271  227  115  247  167   76   69   83  425
-      Gene497   39   65   92   55   32   47   16   44   40   24   44   35   46   68
-      Gene498   18   28   17   31   21   13    5   17   27   23   22   46   37   19
-      Gene499   13    8    4    5   16    2    9    6    9   10    6    5    2   11
-      Gene500    .    1    2    .    1    3    2    1    .    1    1    .    .    .
+      Gene1      .    1    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene2     10    2   28   13   13   35    9   15   12   12    4   18    8    8
+      Gene3      4   17    4    6    6   10    7    .    3    8    3    1    4    .
+      Gene4     22   61   17   19   20   28   18   23   13   51   23   20   27   20
+      Gene5     49   28   36   40   23   54   39   28   12   50   20   25   30   21
+      Gene6     12    5    4   12    1   17    6    4    5   14    7   12    6   10
+      Gene7     26    5   16   41   34    5   36   28   50   20   23   26   27   37
+      Gene8    265  284  318  211  170  239  295  137  194  251  204  250  183  167
+      Gene9    121  138  126   82   49  168   92  105  119  159  154  118  104   63
+      Gene10     3    4    9    6    4   23    5    4    9   17    9    5    2    5
+      Gene11    14   21   25   23   10   12    8    4   13   12   13   13   13    9
+      Gene12    12   29   25   21   11   30   14   21   17   50   20   12   20   23
+      Gene13    17    8    7    3    .   19   11    4    9    9    5    6    7   12
+      Gene14    42   26   35   29   23   30   27   24   24   35   42   24   39   31
+      Gene15     .    6    7    .    1    1    .    .    2    1    3    1    1    1
+      Gene16   171  151  153  115   61  192  166  174  138  244  170  134  142  127
+      Gene17   479  425  451  397  225  299  400  311  522  265  574  414  450  448
+      Gene18  1780 1478 1298 2400 1555 1367 1939 1647 2894 1317 1830 1946 2946 3106
+      Gene19    16   15   17   12    7   12   10    2   11   14   10    6   17    2
+      Gene20   157  387  280  366  172  369  255  167  264  268  200  203  268  348
+      Gene21    51   91   93   50   20   99   56   73   58  117   83   52   76   59
+      Gene22  2332 1522 1683 1416 1071 2066 2272 2853 1587 2079 2789 2085 1564 1559
+      Gene23     3    3   12   10    4   13    9    5    .    6    4    .   17   16
+      Gene24    45   83   86  108  102   78   82   84  206   66   79   38  151   93
+      Gene25  2271 2130 2690 2395 1162 2919 2484 1680 1654 2564 1648 1598 2625 2070
+      Gene26    64   76   52   42   16  106   41   31   54   80   45   57   46   46
+      Gene27   177  252  220  178  116  248  165  157  171  276  172  169  159  236
+      Gene28    22   16   40   11   15   30   12   35   20   22   21   35   34   23
+      Gene29    87  131  101   57   26  149  132   91   63  119  100   40   79   53
+      Gene30    10   28    8    8   11   10   15    3    5    9   10    3   15   17
+      Gene31     .    9   13    4    3   13   10    1    1    .    7    1    .    5
+      Gene32     3    1    2    8    3    3    4    8    2    4    1    6    2    2
+      Gene33   116  153  182  129   37  157  142   70   94  173  141  105  122   96
+      Gene34    17   41   30   38   30   31   24   34   22   32   28   34   30   45
+      Gene35    93  118   88  146   54  155  124  124   93   88  108   94  115  131
+      Gene36    64  382  364  148   96  347   74   88  198  300  104   51  150  199
+      Gene37    57  121   89   72   35  119   77   44  117  112   61   71   57  111
+      Gene38    28   71   68   56   10   45   35   43   43   64   35   67   22   71
+      Gene39    17   12   14    9    6   16    8   25    7   10   10   14   20   10
+      Gene40    11   12   12    6    7   21   10   11   12   13   11   17   11    8
+      Gene41    29   31   37   24   23   53   13   60   40   42   10   40   15   46
+      Gene42    42   52   70   49   27   94   74   32   38   46   59   29   48   45
+      Gene43    49   41   55   23   11   40   27   25   14   44   40   14   12   23
+      Gene44     1    3    1    5    6    2    .    6    6    1    3    3    2   10
+      Gene45    61   44   96   78   22   59   56   56   61   44   36   64   40   45
+      Gene46    31   60   29   34   27   32   40   27   31   44   22   29   45   39
+      Gene47    60  119   95  123   59  161   36   71  118   75   61   64  167  152
+      Gene48     6    2    3    1    1    3    .    1    8    8    .    9    9    7
+      Gene49   575  630  513  591  304  862  558  535  469  783  557  447  520  539
+      Gene50     6    2    3    7    2    3    2    4    1    7    8    3    .    2
+      Gene51    33   55   42   32   40   51   23   44   58   54   50   57   59   33
+      Gene52    80   54   62   62   63   67   70   58   79   67   82   88   75  132
+      Gene53    35   33    9   47    7   29   19   27   16   23   53   18   17   38
+      Gene54    80   42   69   66   43  100   85   42   64   71   67   41   70   68
+      Gene55     8    5    1    .    5    1    5    4    .    2    1    1    4    .
+      Gene56   112  194  137  230   63  222  137  118  117  193  132  195  140  145
+      Gene57   130  167  151  175  112  160  108   65  284  127   92  107  267  249
+      Gene58     .    .    .    .    .    1    .    .    .    .    .    2    .    .
+      Gene59     1    8    4    1    2    4    .    7   12    8    4    1    8    1
+      Gene60    33   27   38   37    9   12   35   40   20   26   39   23   27   17
+      Gene61    21   68   59   50   16   64   23   33   42   49   31   55   42   45
+      Gene62    41   52   38   19   14   11   34   21   21   36   40   27   19   10
+      Gene63    89  108   99   96   75   97   71   72  116  116  101   78  113  104
+      Gene64   171  183  177  255  137  190  191  139  126  220  184  132  196  229
+      Gene65   125  140  157   64   69  165  128   99   72  174  153  106  122  117
+      Gene66    59   71   54   65   39   41   46   49   74   69   54   51   97   70
+      Gene67     .    1    .    .    .    .    .    .    3    .    .    .    1    7
+      Gene68     3    5    5    4    2    3    1   11    .    4    6   11    5    1
+      Gene69    56   37   62   43   25   66   51   60   26   64   69   52   42   40
+      Gene70    80   81   59   37   18   40   88   69   73   57   96   41   66   64
+      Gene71    23   19   13    3    1   33   15   18   10   11   19   15    1    5
+      Gene72   307  348  464  251  198  527  259  215  262  464  333  272  339  248
+      Gene73    46   61   95   79   46   94   60   46   97  101   56   79  101   57
+      Gene74     1    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene75    10    1    4   13    1    9    9    4    5    2    7    9    7    2
+      Gene76    11    4   14    6    6   16    5    6   10   15    8    7    8    8
+      Gene77   188  269  410  341  142  412  252  212  255  445  219  291  275  251
+      Gene78    46   89   85  108   55  108   22   58   84  120   39   33   97   76
+      Gene79   122  105  120  198  141  236  194  110  182  153  156  116  207  143
+      Gene80   244  465  325  315  181  408  293  233  227  323  302  247  362  353
+      Gene81   142  142  128   83   59  102  128   80   57  132  169   65  101   85
+      Gene82    39   45   39   21   23   37   52   23   58   42   32   29   43   54
+      Gene83    16   18   13    6    6   34    5   16   22   31   15    4   13    6
+      Gene84   157  166  159  137  111  246  307  197  126  200  207  184  159  225
+      Gene85    51   83  105   92   48  123   65   75   77   87   66   54   90  142
+      Gene86   124  127  128   89   56  118  132  147  127  133  133  103   99   98
+      Gene87    13   15    9    6    2   15    9   10    6    5   13   12    6   11
+      Gene88    10   20   28    8    1   51   17   19    7   21   13   13   16    5
+      Gene89    56   11   20   83   22   44   50   58   68   33   88   53   47   33
+      Gene90    31   35   39   25   12   24   41   23   31   28   42   29   30   57
+      Gene91   126  137  177  150   67  201  125   94   89  122   89  109  178  161
+      Gene92     7    3    8    1    1   10    2    1   12    4    2    .    .    7
+      Gene93   137   82  152  118   74  221  140  101  139  145   86  142  186  170
+      Gene94    16   17   22   12   11   19   14    6   40   16   24   21   31   14
+      Gene95    58  129   98   86   68  186   72   32   58  158   59   61  113   48
+      Gene96    78   74   74   43   51   73   67   43   61  123   91   63   91   87
+      Gene97    22   62   41   22    9   55   20   37   28   53   24   10   37   14
+      Gene98    34   44   18   24   10   51   20   24   14   29   40   13   16    6
+      Gene99   138  152  166  173   81  171  102   73  266  187  126  111  188  254
+      Gene100  106  135  126   93   63  153   88  107  128  153  142   85  159  150
+      Gene101    .    .    .    1    1    1    2    3    3    .    4    .    .    5
+      Gene102    1   10   15   19   13   16    7   13   17   18   16    4   11   13
+      Gene103    2   12   20    3    .   13    2    .    3   10    4    7   10    7
+      Gene104   12   40   27   37   37   47   27   13   28   41   32   25   55   55
+      Gene105   23   19   19    4    6   26   11   16   18   37   21   15   17   16
+      Gene106   73   27   19   22   30   39   60   16   81   29   30   67   72   27
+      Gene107    2    5   11    8   19    5    8    7   13    6    6    2   11    4
+      Gene108    .    .    2    .    1    5    .    1    .    3    .    .    1    .
+      Gene109   24   21   28   16   11   38   25    8   13   34   32   24   12    3
+      Gene110    4   19   11   14    4   15    2    6   16   16    5    1    8   25
+      Gene111 1110 1313 1574 1221  600 1822 1284 1089 1320 1243 1474 1281 1284 1648
+      Gene112   37   24   34   33   26   37   52   31   29   39   48   31   43   29
+      Gene113  202  121  192  277  114  168  242  224  269  165  260  206  201  187
+      Gene114   17   23   26   17   19   35   22   36   16   29   20   12   27   20
+      Gene115    2    9    4    4    1    5    .    .    .    1    2    2    4    1
+      Gene116   18   31   16    8   15   36   13   24   35   29   35   24   35   23
+      Gene117  133   71   76   73   45  167  121   55  130  104   96  107  158   89
+      Gene118   41   54   71   43   26   92   39   27   38   48   34   13   45   24
+      Gene119   64   74   50   58   31   93   47   50   36   81   37   39   62   39
+      Gene120   46   34   51   70   42   81   40   46   47   93   69   56  103   87
+      Gene121   50   75   90   77   66   85   67   41   77   78   43   50   62   79
+      Gene122   82  298  319   99   84  232   80   74  101  261  132   64  138  132
+      Gene123    1    .    1    .    4    .    2    2    .    .    .    .    .    .
+      Gene124   62   75   79   40   24   84   35   28   38   75   33   61   31   63
+      Gene125    6   13    7   12    3   22   10   12    7   10   11    6   12   11
+      Gene126  261  407  245  243  185  462  373  278  296  419  306  269  313  216
+      Gene127    6    3    4    3    3    6    6   10    1   10    3    4    4    1
+      Gene128    5   15    8    7    4   30    3    2    6   11   12    7   10    4
+      Gene129   59   71   40   30   39   68   42   69   45   54   68   69   66   77
+      Gene130  100  152  104   91   91  133  154  113  147  109  126  112   93   76
+      Gene131   26   17   44    8    3   33   25   50    9   29   27   27   16   14
+      Gene132   11   10   11    6    4   18    3   13    4   16    7   13    8   11
+      Gene133    9   10   18   12    6   20   36    9   16   27   11   13   19   15
+      Gene134  339  404  316  503  253  426  374  291  361  392  286  294  480  446
+      Gene135   50  222  157   54   29  227   53   65   55  138   67   51   58   48
+      Gene136   24   93   81   41   40  112   26   31   20   98   10   17   69   89
+      Gene137   74  106  147  126   78   59  118  122   87   63  107  161  130   82
+      Gene138   54   23   21   20   10   32   27   38   35   14    4   30   18   17
+      Gene139   59   85   86   55   49  128   62  103   65   80   94   80   42   67
+      Gene140    .    .    .    1    .    .    .    .    .    .    .    .    .    .
+      Gene141    9   16   20    9    3   13   11   10    5   13   14   11    4    9
+      Gene142   29   62   58   48   25   88   14   13   23   82   34   39   21   29
+      Gene143   10    4   15    3    6    7    .    8    6    4    .    3    2    2
+      Gene144   10    7    6   19    6   12    4   17   14   18    8    3   10    .
+      Gene145   29   40   20   22   22   27   38   40   23   32   30   32   20   20
+      Gene146  101   68   87   76   77  109   82   80   99  131   71   70  109  161
+      Gene147   80   77   53   56   28   79   89   20   53   42   53   30   62   73
+      Gene148    2    3    6    4    1    3    1    4    2    2    7    6    4    2
+      Gene149   10    5    7   20    2   18   11    5    5   12    3    4    9    4
+      Gene150   22   41   21   13    7   21   45   13   10   23   18   52   26   26
+      Gene151   11   13    4   13    1   24   16    8    6    8   15    3    3    6
+      Gene152   15   34   36   31   19   19   14   25   27   47   13    9   12   34
+      Gene153   38   28   65   32   17   42   12   26   54   22   20   27   36   54
+      Gene154   53   78   69   89   43   94   90   55  102   62   46   58  121  112
+      Gene155  117  150   70  123   70   94   93  109  120   96  136  137  154  150
+      Gene156    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene157 2137 2872 3526 1760 1142 2893 2068 1872 2387 3066 2818 1932 2207 1973
+      Gene158   92   83   74   53   41  150  116  138   84   75   94   78  101   63
+      Gene159    1    4    1    1    2    5   10    1    5    5    1    5    9    1
+      Gene160    1    4    .    6    .    1    .    .    3    2    5    .    .    1
+      Gene161  141  272  216  223  132  237  156  120  280  179  118  118  216  182
+      Gene162   14   30   34   21   19   46   15    9   33   64    3    7    7   22
+      Gene163    4    6    .    7    4   11    9    2    8    4    3    4   13   14
+      Gene164  148  571  524  338  216  435  257  229  322  545  167  134  401  484
+      Gene165   58   79   60   55   46   74   68   45   72   62   67   80   77   44
+      Gene166   36   30   21   25   12   32   17   22   17   38   33   30   19   26
+      Gene167  121  152  177   34   48  227  114  133   36  118  135  108   31   41
+      Gene168  165  106   91   59   40  122  134   84   58  143  100   98   73   70
+      Gene169    4    4    4    6    .    5    3    .    2    5   13    1    3    2
+      Gene170    2    4   11    1    3    4    3    .    .    .    .    7    9    6
+      Gene171   17   36   10   21   14   17    3    8   22   14   20    8   13    9
+      Gene172   16   11    6   23   11   16   33   28   32   23   29   18   17   24
+      Gene173   14   15   23    1    6   29    9   16   12   23   14   21   11   15
+      Gene174  966  808  911 1186  509 1256 1149  773  911 1047  876  958 1458 1014
+      Gene175   81  183  172  128  101  209   92   90  118  196   90   95  119  206
+      Gene176 2052 3414 4337 2338 1756 4467 2133 2065 2600 3271 2707 2997 2624 2754
+      Gene177    2    7    3    3    3    4    7    3    2    7    4    6    9    6
+      Gene178    4   11   10   12    3   15    8    8    4    7    2    2   13   13
+      Gene179    4    4   12   22    1    9    3    6   23    5    2    5   10    7
+      Gene180    5    3    7   11    3   15    1    3    1    8    7    1    4    5
+      Gene181   16   29   33   13   17   33   12   11    5   39   31   23   15   16
+      Gene182   27  124   72   46   31  154   41   28   61  112   62   31   50   41
+      Gene183   12   15   21   32   10   45    5    9   16   32   16   11   21   15
+      Gene184   13   27   21    9   15   28   10   27   31   23   14   20   24   17
+      Gene185   52   67   80  171   98  121   99   49  187   94   79   48  236  151
+      Gene186 2321 1627 2107 3208 1731 2281 1657 1440 2374 2996 1739 2018 3271 3523
+      Gene187    9    7    9    4    3    8    3    .    2    5   10    3   10    7
+      Gene188    5   15   16   10    1    9   17   18    3   16    9    9    6    3
+      Gene189   88  146  127  106   75  144  116  107   91  155  111   87  100  155
+      Gene190    7   18    4    3    .   12    6    2    1   11    8   12    1    6
+      Gene191  133  173  137  116   85  226  121  115  105  149  126  106  156  192
+      Gene192    4    7    2    4   10    6    1    1    1    6    .    2   13   10
+      Gene193    1    .    .    .    .    1    .    .    .    .    .    .    .    .
+      Gene194   63   60   85   35   36  106   61   74   55   94   45   40   67   58
+      Gene195  192  144  181  116   68  202  193   85  164  246  170  126  156  187
+      Gene196   22   16   29   30   16   45   18   20   21   19   32   26   26   30
+      Gene197    .    .    .    .    .    .    .    .    .    .    1    .    .    .
+      Gene198   65  128  102   61   41  146   73   50   76   93   83   55   87   81
+      Gene199   67   82   53   65   35   95   80   77   65   52   47   43   59   77
+      Gene200 1747 1904 1549 1437  917 2112 1352 1043 1145 1538 1615 1716 1731 1369
+      Gene201   36   33   40   35   12   27   37   45   23   55   49   63   12   38
+      Gene202   49   67   56   58   38   84   47   87   40   46   74   52   97   52
+      Gene203    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene204    8    5    1    3    2    5    9    4   13    3   12    4    7    3
+      Gene205   94  143   78  105   83  120   93   92  112  110   90  114   76  126
+      Gene206    9    8   16    4    9   14   10    9   11   10   10   10    9   12
+      Gene207    .    .    1    .    .    1    .    .    .    .    .    .    .    .
+      Gene208   18   20   40   25   23   30   16   15   26   34    9   15   18   32
+      Gene209    .    .    .    .    .    1    .    .    .    .    .    .    .    .
+      Gene210   22   18   31   16   18   23   27   12   49   15   28   10   29   24
+      Gene211  244   98   75   72   45   72  360  274   36   85  249  154   63   72
+      Gene212   23   33   10    9    2   26   20   18   28   18   19   32   12   17
+      Gene213    5   16    7    5    6    7    6    1   14    6    4   13   11    7
+      Gene214   48   76   73   35   58   71   78   67  103   60  102   40   85   76
+      Gene215    4    2    1    4    .    4    5    2    6    3    1    3    2    2
+      Gene216 1502 1613 1369 1078  575 1810 1447 1426 1209 1312 1571 1726 1164 1232
+      Gene217    5    6    4    8    4    8   11    3    1    6    4    4   10    4
+      Gene218  101  145   97  153  121  133  149  120  169  114  193  145  137  192
+      Gene219    .    .    .    .    .    2    .    1    .    .    .    .    4    .
+      Gene220   62   96   74   80   34   77   55   53   76   97   77   45   91   57
+      Gene221    2    3    4    3    1    2    3    .    4    6    .    4    3    2
+      Gene222   23   24   39   15   12   36   19   40   35   57   25   39   23   32
+      Gene223   34   40    3   21    7   15    5    5   25   30   10   16   20    9
+      Gene224  123  107  111  174   57  199  128  103  222  133  100  122  215  107
+      Gene225    1    .    .    .    .    .    .    .    .    .    .    3    .    .
+      Gene226   13   30   21   16   17   37   26    4   31   22   13   14   33   49
+      Gene227    5    7    8    8    4    9    8    1    3   15    9    6    4    5
+      Gene228   37   28   37   25    5   29   62   43   22   53   64   48   46   32
+      Gene229   10    3   16    9    .    7   12    7    9    5   10    6    1   11
+      Gene230   88   67   92   97   46  140   90   68   89  115   73   98  112   93
+      Gene231    5   23   16   15   13   22    8   13   15   11   22   21   18   21
+      Gene232  153   95   63  133   71  119  132  145  166  105   99  106   96  122
+      Gene233  178  254  319  195  159  238  278  144  126  216  222  200  276  244
+      Gene234    .    .    1    .    .    .    .    .    .    .    .    3    .    .
+      Gene235    5    9    9   19    2   15   12    7   11   15   12    7    8    6
+      Gene236   31   48   28   35   21   44   50   23   28   36   33   35   26   27
+      Gene237   79   86   68  109   57  120  133  118   89  102   72   94  123  122
+      Gene238    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene239  130   82  112   98   77  101  116  125   93   60  104  108  108  135
+      Gene240    6    1    2    5    3    5    5    2    4    5    1    2    4    5
+      Gene241   56   64  107  116   43   85   63   66  134   60   82   82  110  125
+      Gene242   55  105  174   59   41  106   50   82   66  120   57   56  130   79
+      Gene243   20   19   12   16    7   32   32   16   28   12   26   14   23    9
+      Gene244    3    7    1    1    4    3    4    .    3    .   11    1    .    3
+      Gene245    1    4    .    1    2    8    4    3    1    4    7    .    6    4
+      Gene246  261  293  315  278  200  400  304  311  322  448  300  272  378  345
+      Gene247   31   25   35   69   41   50   29   39   52   51   28   34   67   62
+      Gene248    3   16    6    4    2    5    4    3    7   10    .    4    3    8
+      Gene249    1    4    2    2    6    3    3    4    9    5    2    2    6    .
+      Gene250    5    9    6    6    6    5    3    2    6    3    7    7    2    5
+      Gene251    .    7    .    1    8    4    3    1    4    5    1    6    1    9
+      Gene252   26   68   62   50   26   84   44   13   75   58   29   34   69   81
+      Gene253   53   87   77   29   39   51   40   22   62   39   56   34   55   43
+      Gene254   17   27   30   18   19   43   22   17   23   19   17   41   34   24
+      Gene255    2    1    2    .    1    3    1    1    1    2    .    1    .    .
+      Gene256   22   25   22   12   13   19   26   23   21   32   14   26   26   11
+      Gene257    6    7    3    1    3    4    8    2    8   15    9    4   11    7
+      Gene258 1311 1576 1313 1616  882 1734 1524  986 1006 1442 1404 1060  969 1338
+      Gene259   27   24  103   61   28   69   40   31   39   83   87   22   57   46
+      Gene260   26   50   34   30   12   57   38   28   24   18   33   38   35   39
+      Gene261   88   42   52   81   21   32   61   66   79   59   93   90  121   98
+      Gene262    9   10   17    3    6   17    9    8    6    6   12    7   16   11
+      Gene263    5    .    .    .    3    3    1    3    9    1    1    3    1    2
+      Gene264    2    3    2    .    2   11    1    2    4    1    3    3    9    1
+      Gene265   25   39   44   30   24   40   24   19   30   37   25   25   66   30
+      Gene266 1970 2900 2736 2636 1078 3158 2388 2016 2432 2818 2058 2052 2710 2929
+      Gene267    .    2    4    4    .    5    1    .    .    2    1    .    2    3
+      Gene268   68  268  206   85   51  225   88   61  106  187  100   85   76   63
+      Gene269    3    1    1    .    4    1    3    1    1    1    2    1    1    1
+      Gene270  226  570  575  247  137  577  250  128  279  610  199  242  242  209
+      Gene271   63  104   49   53   25   55   56   56   24  145   66   37   20   29
+      Gene272    8    7   40   13    7   20    8   14   15   20   18   11   22   19
+      Gene273   39   25   23   37   11   23   45   25   21   21   26   15   35   10
+      Gene274   31  125   65   50   21  106   47   55   50   84   48   46   30   60
+      Gene275   87   55   53   78   49   80   56   79   68   72   79   53  103   85
+      Gene276    5   21   25   13   14   27   26   14   21   62   10   13   36   13
+      Gene277   35   50   68   63   31   69   44   36   46   78   54   43   45   51
+      Gene278   55   62   88   57   30   70   40   71   41   78   47   38   65   59
+      Gene279   23   27   13   25   11   31   26   20   18   41   28    5   11   22
+      Gene280   35   52   11   78   38   33   26   28   69   34   25   17   55   76
+      Gene281   29   55   66   14   25   55   38   46   29   40   41   34   31   58
+      Gene282   47   58   53   40   20   56   68   48   38   52   52   55   79   26
+      Gene283  122   76  100   35   42  109  104   91   77   97  104  121   70   72
+      Gene284   69   28   18   75   35   50   73   62   56   46   74   78   49   64
+      Gene285  126   49   71  348  199   86  156  165  304   98  107  167  246  304
+      Gene286  130  142  123   61   47  107  125  110   71  205  107  103   85   46
+      Gene287    .    .    .    .    1    1    .    .    .    .    .    .    .    .
+      Gene288   35   35   31   26   14   43   16   50   56   24   34   64   21   27
+      Gene289   69   49   58  213  113   92   78   53  227   57   85  112  175  175
+      Gene290    1    4    .    .    1    4    2    .    .    .    3    4    1    .
+      Gene291   25   37   36   12   24   15   24   18   24   33   29   20   35   18
+      Gene292   40   32   49   31    9   51   21   25   27   48   63   30   23   29
+      Gene293   49   62   53   53   38   52   58   88   79   53   83   98   81   43
+      Gene294    3   10   20    4    4   21    4    7    2   13    6    6    2    4
+      Gene295  128  373  375  224   82  486  266  187  226  451  220  192  237  160
+      Gene296   81  146  190   41   43  153  104   65   52  137   98   79   70   64
+      Gene297   54   91   60   55   57   98   93   39   72   76  108   79   95  136
+      Gene298   78   99  117  112   56   88  119   77   73  124  107  108  105   44
+      Gene299  268  384  245  286  170  467  270  202  331  200  223  203  261  206
+      Gene300   40   44   53   61   14   47   22   29   20   42   41   43   50   30
+      Gene301  105   94  120   31   11  118  139   64   42   69   98   79   37   57
+      Gene302    1    .    4    5    4    5    1    .    3    8    1    1    3    .
+      Gene303  191  169  227  199   95  265  132  133  133  265  156  181  131  116
+      Gene304    .    .    .    .    .    1    .    .    .    .    .    .    .    .
+      Gene305  221  212  258  267  120  300  215  181  224  341  242  178  244  277
+      Gene306   56   52   50   57   41   39   55   58   33   66   49   58   81   67
+      Gene307   90   76   73   54   43  130   65   61  123   87  122   89   69   81
+      Gene308    3    7    9    8    .   11    8    9    6   18    8   15    3    5
+      Gene309    7   16    7   10    1   20    5    1    3   21   13   13    1    .
+      Gene310  152  328  285  275  142  450  265  170  188  402  290  143  241  263
+      Gene311   71  100   67   82   30   99   54   52   76   57   46   54   59   86
+      Gene312   68   86   50   56   28   54   56   56   45   59   78   53   50   50
+      Gene313 7335 4236 5157 4139 2866 4926 6719 6844 5010 3847 7270 7016 5795 3971
+      Gene314   74   39   44   28   28   26   71   79   44   27  119   76   58   40
+      Gene315    1    1    5    3    1    7    4    4    6    3    2    1    2    .
+      Gene316  118  213  264  196   88  329  105  115  145  268  135   91  191  250
+      Gene317   80   74  104  118   45  135   79   57   83   96   96   69  131   95
+      Gene318   10   18   20   18    5   29    9   13   21   17    6   21   14   12
+      Gene319   16    7   13    6    8   11    7   15    8    5   10   18   14    2
+      Gene320   13   28   10    7   10   26   13    9   15   25   21   15   12   24
+      Gene321    9    1   15    3    5    6    6    4    .   13    6    3   10    5
+      Gene322   49   29   34   43   36   26   20   20   34   50   43   28   16   51
+      Gene323   10   26   20   13   16   16   20   16   37   13   17   19   32   31
+      Gene324   25   92   61   45   25  102   43   48   29   63   59   57   49   37
+      Gene325    1    2    6    1    3    1    7    3   12    3    2    1    3    6
+      Gene326    6    6    3    4    4   14    7   12    6    5    9    6    9   13
+      Gene327 1847 1512 1925 2354 1141 1948 1781 1783 1636 1922 2289 1806 2240 1723
+      Gene328    .    .    .    .    .    .    .    .    .    .    .    1    .    .
+      Gene329   43   69   55   69   60   87   43   37  119   43   57   50  118  104
+      Gene330    5    2    3    1    .    .    3    3    2    2    3    2    8    4
+      Gene331   22   24   11   34    8   16   11   16   35   18   22   21   17   15
+      Gene332    .    .    .    1    .    .    .    .    .    .    .    .    .    2
+      Gene333    .    .    2    .    .    .    2    .    .    1    .    .    .    1
+      Gene334   25   51   37   40   21   47   25   42   20   59   22   24   53   39
+      Gene335    8   20    5   10   10    1    5   19   11    9   18    6   10    5
+      Gene336    4    4    3    2    4    .    7    5    2    .    9    3    2    2
+      Gene337 1684 1379 1312 2063 1222 1952 1862 1552 1805 1714 2132 2324 2167 1943
+      Gene338    4   41   18   20    5   20    9   13   18   20   15    6   29   19
+      Gene339   72   63   76  160   87   83   90   81  136   95   83   87  140   96
+      Gene340    .    .    .    .    .    .    4    .    .    .    1    .    .    .
+      Gene341  123  184  249  145   87  275  169  131  126  231  148  129  105   89
+      Gene342   24   29   24   15    3   36   24   24   11   19   29   28   18   19
+      Gene343    .    3    4    .    1    .    2    .    1    .    .    4    2    .
+      Gene344  156  149  140  141   56  183  149  149   91  155  232  212  165  194
+      Gene345  406  430  521  378  271  721  554  425  396  444  502  387  553  494
+      Gene346   51   17   13   78   37   13   43   38   97   21   32   67  116   69
+      Gene347   22   61   49   20   12   57   41   27   57   28   41   33   38   55
+      Gene348  107  184  118   95   47  211  106   71   75  148  158  101  120  115
+      Gene349    3    1   15    2    .    2    .    4    9    4    .    2    3    1
+      Gene350   25   24   29   38    7   19   31   17   30   47   29   32   22   21
+      Gene351   30   73   37   64   34   53   20   30   48   35   39   42   55   64
+      Gene352   69  240  202  225  124  199  120  146  276  138  115  107  113  200
+      Gene353   16   21   20    9    6   12    2   10   12   10   17    8    7   19
+      Gene354   42   58   66   61   29   88   62   46   65   67  112   61   77   58
+      Gene355    4   10   10   17   10   28    4    4    5    3    9    8   13   10
+      Gene356  149  229  131   68   42  200   72   78   77  253   96  141  120   54
+      Gene357  108  193  220  168   72  243  120  140  201  232  141  111  172  209
+      Gene358    .   10    1    1    2    6    5    4    3    8    2    2    8    7
+      Gene359   24   11   17   23   17   17   32   18    9   21   34   23   14   12
+      Gene360   30   42   18   17   10   19   29   22   15   21   26   25   29   21
+      Gene361   21   40   11   57   19   47   30   25   41   22   21   26   60   31
+      Gene362  181  252  225  215  146  296  173  192  213  287  235  215  229  149
+      Gene363  200  282  214  121   37  316  174  150   77  318  168  204   80  100
+      Gene364   79  133  109   88   51   88   31   40   82   99   48   50   73   91
+      Gene365  153  146  166  143   54  157  179  137   98  136  147  245  131  109
+      Gene366    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene367  807 1202 1370  940  416 1353 1134  706  668 1087  959  905  787 1203
+      Gene368   78   46   40   25   26   45   78   41   47   40   50   47   49   31
+      Gene369    6    2    2    .    .    2    1    2    2    6    8    3    1   15
+      Gene370   22   28   15   21    2   31   25   22   20   31   34   14   36   21
+      Gene371    .    8    8    4    1    6    2    2    .    .    .    .    4    5
+      Gene372  135  113  124  272  228   92   92  154  293  164  106  122  269  256
+      Gene373   41   29   34   19    6   43   21   34   31   34   24   22   31   13
+      Gene374  217  174  288  224  111  224  210  204  208  273  193  185  285  206
+      Gene375 1074  880 1161  808  508 1091  805  757  870 1051 1259  973  902  972
+      Gene376   47   63   33   17   23   61   60   58    9   38   73   57   26   29
+      Gene377   31   66   85   36   36   86   62   75   39   47   59   34   71   59
+      Gene378   29   26   12   13   10   34   23   21    8    5   28   14    5   14
+      Gene379    1    1    4    6    3    1    6    2    4    9    2    .    4    4
+      Gene380   57   58   91  100   36   80   75   67   62   68   99   69  108   61
+      Gene381   54   52   60   23   33   69   73   55   44   50   70   39   57   22
+      Gene382    .    1    5    .    .    3    .    2    .    .    .    .    .    .
+      Gene383  302  412  369  272  166  501  263  313  336  424  356  237  282  417
+      Gene384  221  358  317  298  230  489  370  285  308  397  259  213  232  393
+      Gene385   25   22   20   26    5   19   40   28    9   29   29   20   29   16
+      Gene386  128  260  330  326  140  290  194  166  290  270  247  229  345  239
+      Gene387    1    .    1    .    1    2    3    .    .    1    1    1    .    .
+      Gene388    2    .    1    2    3    6    7    6    2    2    3    6    7    1
+      Gene389   69  146  140   94   56  157  115   67   86  150  131   75  145  103
+      Gene390   86  101   81   82   70   87  104  116   47  104  102   58   67   97
+      Gene391  254  356  399  291  168  411  305  277  375  286  339  222  363  374
+      Gene392   34   66   56   53   31   58   33   25   32   54   73   32   34   31
+      Gene393    .    .    3    .    .    .    .    .    .    .    .    .    1    .
+      Gene394   68   33   42   62   39   63   60   68   44   35  123   66  107   39
+      Gene395   11    1    4    7    1    6    4    1    6   10    2    3    5    4
+      Gene396   37  290  277  176   94  254  119   60  106  123   99   94  254  177
+      Gene397   83  157  111  126   82  150  108   64  167  157  104   84  163  122
+      Gene398    .    1    .    .    1    .    .    .    .    1    3    .    .    .
+      Gene399    3    2    4    6    2    3    4    4    2    1    2    6    7    8
+      Gene400    .    .    .    .    .    4    2    .    2    1    .    1    1    .
+      Gene401  435  551  492  550  216  654  379  440  466  618  474  321  627  486
+      Gene402   15   21   34    8    5   19   21    9   25   17   17   12   19   11
+      Gene403    9   22   23   19   14   19   58   22   22   21   25   30   21   33
+      Gene404  560  421  585  339  228  585  327  288  473  433  450  340  569  547
+      Gene405  111  158  125  108  100  168  110  120  143  102  167  130  127   90
+      Gene406  228  235  168  170  119  264  204  284  194  216  151  209  190  151
+      Gene407   14   10    5    5   16   11   12   25    2    6   15    6    5   16
+      Gene408  101   97  116   87  101  219  154   84   92  145  134   97  153  141
+      Gene409   61   20   40   11    9   38   23   33   25   37   20   27   43   29
+      Gene410   45   70   78   48   43   86   44   41   52   42   76   61   74   47
+      Gene411  141  459  425  132   93  591  156  157  146  414  112  145  165  172
+      Gene412 1844 2194 2561 1754 1201 2635 1857 1564 2020 2384 2127 1544 2352 1803
+      Gene413 1161  433  759  719  461 1094 1038 1009  820  566 1227  969  604  981
+      Gene414   81  123   92   93   51  146   42   61   86  143   57   60  106   91
+      Gene415   31   91   66  105   78  122   41   34  100   52  105   46  109  133
+      Gene416  118   97  118   50   39  230   98   87   67  109  103   95   60   85
+      Gene417   13    9    8   14    3   15    9   13    3   13   16    9   18    6
+      Gene418    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene419   45   45   29   24   19   22   21   62   25   52   84   48   33   20
+      Gene420   72  180  170   58   62  228  220  110  105  242  130  109  124  127
+      Gene421   24   48   85   40   36   52   18   42   56   70   33   19   66   63
+      Gene422   95   57   91   50   83   87   46   60  111  115   59   41  112  148
+      Gene423  307  281  325  117   71  347  284  292  127  347  291  270  163  107
+      Gene424 1058 1116 1470  940  505 1439 1011 1016 1261 1288 1183 1166 1161 1037
+      Gene425   14   25   27   19    2   42   19   27   11   55   22   25   41   33
+      Gene426   29   51   41   42   27   67   28   21   38   27   38   36   52   36
+      Gene427    7   18    3    5    6   28    8    8   22   13    3   11   12    5
+      Gene428    .    1    .    .    .    .    .    .    1    3    .    .    .    .
+      Gene429    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene430   16    4    8   24    5   27   22    4    2   13   16    6   17   11
+      Gene431   15   15   15   10   16   26   25   17   27   15   24   12   36   13
+      Gene432   17    8    9    2    5    5   17   10    5    7   11   18    8    4
+      Gene433   99  233  198  117   50  242   97   72  111  235  149  121  103  106
+      Gene434    8   13   12   15    6   54    8   14   25   21    9    6   42   19
+      Gene435   71   69   79   84   43   89  118   63   76  103   96   82   73   56
+      Gene436  183  128  156  136   72  191  167   87   80  141   85  153  135  109
+      Gene437   23   30   24   58   29   38   34   12   23   22   18   21   23   28
+      Gene438   70  221  157   79   31  218  186   79  113  228   76   87   69   45
+      Gene439   15    4   10    8    4   27   10   22    4   33   30   25   10   21
+      Gene440   33   20   15    8    7   25   26   22   10   26   28   14   13    8
+      Gene441   42  110   78  106   42   87   58   62   68   88   77   61  115   64
+      Gene442   63   78  109  108   47  134   60   49  126   96   86   52   79  107
+      Gene443   25   19   14   12   21   42   27   28    8   29   11   17   14   22
+      Gene444   12   21   19    7    5   21   20   10   13   13   23   18   30   21
+      Gene445    .    .    1    1    .    2    .    .    .    3    .    .    .    .
+      Gene446   38   82   81   18   43   55   46   15   46   82   83   73   54   36
+      Gene447   59   95   80   59   35  102   45   55   78   99  106  115  102   72
+      Gene448  174  119  119  137   75  159  119   75  126  127  160  180  133  191
+      Gene449   55  163  134   87   29  160  102   53   92  128   65   32   69   89
+      Gene450    2    1    1    .    2    1    .    .    1    .    .    4    6    2
+      Gene451   58  109   85   66   34   56   41   54   55   91   60   71   62   93
+      Gene452  156  169  126  217   82  144  157  105  126  147  133  209  132  164
+      Gene453  928 1072  925  746  526 1128  834  724  742 1304  837  742 1029  885
+      Gene454   98   89   75   83   38  145  162   91   34   80  113  106  100   59
+      Gene455    .    7    1    2    1   11    1    .    .   11    6    4    2    7
+      Gene456   42   60   41   29   22   47   27   20   25   36   25   31   33   45
+      Gene457  115  110  116   62   46  162  107   82   30  177   71   69   71   82
+      Gene458    2   13    2   10    .    4    2    6    1    6    2    2    6    9
+      Gene459   26   31   20   23   14   27   37   17   39   29   25   44   17   23
+      Gene460 1547 1055 1126 1289  632  831 1621 1458 1695 1469 1346 1448 1484 1258
+      Gene461  226  362  288  218  166  300  216  256  257  358  259  236  313  225
+      Gene462    .    .    1    .    .    .    1    1    .    .    .    .    .    .
+      Gene463    9    7    8    8    4   14    6    3    9    7    8   10    5    2
+      Gene464    1    1    2    2    1    7    2    .    .    1    4    .    7    1
+      Gene465   42   52   30   26   37   45   51   39   41   32   49   32   34   30
+      Gene466   56   23   29   25   12   40   39   16   54   65   26   25   26   28
+      Gene467    5   12    7    4    2    3    4    8    4   13    3    3    8    5
+      Gene468   17   33   22   26    7   54   24   11   18   10   15   26   17   23
+      Gene469    3    6    4    2    .    3    3    2    .    2    1    1    1    .
+      Gene470   48  116   73   48   36  128   79   69   61  100   71   58   93   63
+      Gene471    5    9   15   10    .    9    5    9   16    .    9    9    6    9
+      Gene472  155  253  204  169   66  343  197  119  121  240  105  132  153  173
+      Gene473  103   72  103   34   26  100   69   55   32   76   55   82   36   37
+      Gene474    1    .    .    .    .    .    .    .    .    2    .    .    .    .
+      Gene475   96   64   68   69   42   95   81   79   67   50   87  106   66   72
+      Gene476   64  120   79   73   52   86   94   79   41   49   64   55   75   72
+      Gene477   53   48   58   47   41   48   52   43   53   37   61   24   37   55
+      Gene478    6   28   28    5    1    8   10    2    4   13    5    6    4    5
+      Gene479   22    6   21   10    1   17   14   10    5   13    5    3    5   15
+      Gene480   70   62   82   34   34   33   76   37   35   69   56   83   38   40
+      Gene481   20   39   14   41   12   53   12    5   18   34   36   50   18   45
+      Gene482   54   69   79   50   26   85   84   65   63   53   88   63   77   52
+      Gene483   18   16   17    8    3   11    9   21    9   11   17   12   16   22
+      Gene484   25   34   34   30    8   56   22   28   30   35   34   29   26   13
+      Gene485   18   29   39   18   12   36   15   30   18   32   27   11   15   13
+      Gene486    9   10    7    8    5   13   18    3   19   12    6    4    6   13
+      Gene487   62  136  120   57   37  145   85   65   31  160   70   69   43   50
+      Gene488  512  135  155  142   61  239  496  377  235  173  411  360  167  183
+      Gene489  124  187  212  113   70  203  102  136  141  244  128  118  151  167
+      Gene490    .    3    .    .    .    3    1    1    7    1    1    2    1    .
+      Gene491  183  418  209  160  106  312  145  228  164  236  213  151  170  158
+      Gene492  139   88   97   74   66  130  118   76   80  120  150  144   55  112
+      Gene493  156  311  205  173   92  235  199  169  168  266  179  159  186  176
+      Gene494  479  740  565  531  457  822  422  341  690  664  577  496  691  542
+      Gene495    .    6    4    2    1    4    3    1    4    1    3    2    3    1
+      Gene496   38   42   47   20   18   37   31   36   21   38   25   26   20   22
+      Gene497  176  159  145  204  148  159  193  296  250  121  227  236  228  218
+      Gene498   32   49   68   62   30   63   41   53   40   57   42   43   63   34
+      Gene499  330  476  559  214  184  574  189  248  286  589  238  252  249  296
+      Gene500    1    .    1    2    .    3    3    1    1    6    .    1    3    .
+                                                                                    
+      Gene1      .     1    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene2     15    11    2   16    9    9    6    8    6   13    5   16    2    7
+      Gene3      5     2    2    .    .    5    1    1    5    2    .    6    9    1
+      Gene4     38    22   35   34   30   30   17   17   16   14   14   25   19   12
+      Gene5     40    81   22   21    5   40   25   15   14   21   29   26   26   32
+      Gene6      4     5    5    4    8    8    2    3    8    .    8    .    6    2
+      Gene7      3    72   33   13   25   67   17   23   41   21   40   38    7   27
+      Gene8    257   314  146  154  153  159  200  131   80  207  220  294  118  171
+      Gene9     87   128  127   86   99   94   61   64   76   70   78   62   93  102
+      Gene10    18     2    6   12    8    5    4    4    .    6    8    7   11   11
+      Gene11     8     5   12   13   10    6   15    6   16    9    8   19    9   28
+      Gene12    26    15   15   15   19   40   13    4   10   25   25   26   16   21
+      Gene13     8    11    1    1   13    8    4    5   11    1   21   14   13    3
+      Gene14    14    29   11   20   13   28   11   20   24   11   24   35   21   17
+      Gene15     1     2    1    6    .    3    1    .    4    1    3    4    .    1
+      Gene16   115   215  147  120  154  120   98  105   87   95  113  115  127  126
+      Gene17   286   463  370  297  274  620  270  241  375  367  384  408  203  293
+      Gene18  1394  2410 1887 1921 1536 3261  758 1947 1729 1495 2228 3562  743 1622
+      Gene19     6     8    7    7    7    6    2    8    9    4    9    8    6    4
+      Gene20   215   205  195  124  150  437  247  208  244  141  219  363  101  174
+      Gene21    55    49   81   52   39   87   40   48   38   34   63   80   67   56
+      Gene22  1794  3444 2072 2062 1794 1619 1293  923 1029 1830 2221 1818 1016 1979
+      Gene23     4     4    3    1    4    3   13    3    2    7    2    3    8    9
+      Gene24    57    72   73   60   70  175   29   96   87   43   66  238   42   51
+      Gene25  1926  2307 1804 1484 1520 2057 1878 1308 1450 1503 2132 2401 1607 1700
+      Gene26    47    46   74   28   79   32   34   36   23   33   52   72   29   50
+      Gene27   247   136  180  125  155  325  133  150  235   92  136  235  149  175
+      Gene28    20    24   38    9   32   27    9    9    9   17   33   23   15   30
+      Gene29   109   132   71   76   84   63   69   34   29   60   51   97   51   58
+      Gene30    11     7   18    2    4   15    6    7   15    5   10   15    8    6
+      Gene31     3     8    3    3    2    3    3    .    6    3    6    7    1    1
+      Gene32     4     9    5    3    9    3    2    .    1    1    3    4    .    2
+      Gene33   130   139  108   73  130   88   97   66   92  101  103  113   52  100
+      Gene34    35    36   14   16   18   28   34   11   26   25   28   38   25   22
+      Gene35    80   156   91   80   71  116   65   89   48   49   92  114   81   92
+      Gene36   255   102  103   55   78  183  106  178  161   61   49  264  189   67
+      Gene37    93   114   88   63   47  100   84   54   41   61   60   83   54   48
+      Gene38    39    66   53   18   28   55   30   17   37   24   47   24   45   23
+      Gene39    26    20    8   13   13   11    6    5    2   15   29   16    8   16
+      Gene40     8     4    9    5    8   10    7   15    8    1    8   12   15   11
+      Gene41    32    32   27   19   30    8   18   12   25   18   35   39   15   24
+      Gene42    60    65   42   36   32   61   33   43   32   28   30   68   29   31
+      Gene43    34    39   24   34   43   25   17    6   11   26   25   23   15   18
+      Gene44     .     3    .    .    4    8    1    .    5    1    2    6    .    5
+      Gene45    29    77   33   18   71   67   32   31   52   46   56   61   37   69
+      Gene46    48    45   39   10   46   38   18   25   26   25   46   34   21   24
+      Gene47    84    59   89   53   41  135   76   74   60   50   38  144   78   44
+      Gene48     2     3    1    .    .    .    8    3    1    .    .    2    .    .
+      Gene49   456   618  457  400  433  628  478  375  252  361  516  711  455  437
+      Gene50     .     9    3    4    .    5    .    1    5    3    1    3    .    2
+      Gene51    46    61   34   19   39   75   42   42   39   32   43   69   39   23
+      Gene52    53    78  103   55   53  109   23   63   52   50   49   80   27   54
+      Gene53    10    53   26   23   15   21   14   15   33   28   18   28   23   32
+      Gene54    58    72   64   56   79   55   22   49   56   53   69  116   28   48
+      Gene55     1     1    3    3    8    5    .    6    2    .    4   10    4    8
+      Gene56   159   206  146  125  124  115  103   84   61  108  122  188  168  136
+      Gene57   194   152  105   98   86  286   87  170  196   91  100  292  101  105
+      Gene58     .     .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene59     2     2    4    2    4    2    1    2    4    .    5    9    1    4
+      Gene60    29    48   21   10   30   22    8   12   13   11   18   25   22   24
+      Gene61    60    43   51   44   40   38   21   26   26   39   26   69   41   30
+      Gene62    15    42   25   16   13   28   11   20   12   17   42   46   12   18
+      Gene63   168   175   60   79   80  110   63   43   90  100   85  117  104   57
+      Gene64   237   183  152  102  138  265   83  138  159  144  156  220  129  157
+      Gene65   160   134  148   82   67   88   99   78   82   79  127  115   48  150
+      Gene66    78    96   68   56   51   61   27   47   34   58   87   77   35   83
+      Gene67     2     3    5    .    2    7    .    3    1    .    .    .    .    1
+      Gene68     4     6    1    2    7    .    3    .    5    1    1    7    2    3
+      Gene69    48    67   38   26   59   65   23   29   46   28   51   42   34   53
+      Gene70    57   112   45   53   50   54   50   19   24   67   68   58   35   47
+      Gene71     8    12   20   24   21    9    9    3   11   11    7    5    9   13
+      Gene72   439   376  292  167  245  300  212  225  278  208  319  397  276  258
+      Gene73   107    51   56   38   26   75   32   48   49   42   38  107   35   47
+      Gene74     1     2    .    .    .    .    .    .    1    .    .    .    1    .
+      Gene75     4    10   11    3   12    8    1    3    2    7    7    7    4    .
+      Gene76    11    17    6   12   17   13    5    5    8    4   10   23   11    9
+      Gene77   402   427  333  194  253  271  257  160  161  280  306  300  214  215
+      Gene78    58    61   58   46   41  126   39   67   47   38   44  108   54   43
+      Gene79   191   140  155   86  109  252  124  115  168  121  121  244   82  166
+      Gene80   270   434  325  235  307  354  169  151  231  191  227  462  310  340
+      Gene81   120   173   67   60   72  110  102   79   32  130  111  110  102  150
+      Gene82    34    34   25   27   26   34   23   32   34   28   50   59   26   33
+      Gene83    13    15   18    9   18   16   11    6   12   12   16   18    9    2
+      Gene84   151   254  184  137  190  157  144  109  131  176  268  161  137  180
+      Gene85    90    93   71   31   62  137   38   52   36   83   59  108   69   57
+      Gene86    99   127   76  108   99  113   69  103   85   97  133   95  124  107
+      Gene87     7    18    8    7   12    2    1    2   15    8   35    7    8    4
+      Gene88    19    16   14   16   22    7   26    2    7    4   13   19   13   30
+      Gene89    47    90   29   44   55   43   14    9   34   37   41   45   39   55
+      Gene90    35    29   36   36   24   39   15   23   21   20   17   27   36   23
+      Gene91   141   156  111   74   88  159  131   94   98   77   98  166   75  105
+      Gene92     5     3    7    2    .    4    1    1    7    .    3   19    3    1
+      Gene93   160   172  156   57  137  163   78   80   93  108  106  158   60  123
+      Gene94    31    23    6    3   15   48   17   14   21   14   14   20    9    9
+      Gene95   105    70   40   46   79  112   85   68   86   63   61   94   74   40
+      Gene96    71   108   65   31   76   94   49   64   48   56   92  126   50   58
+      Gene97    55    31   27    4   15   41   10   31   16   26   13   10   42   19
+      Gene98    42    13   37    8   17   17   12    8   12   17   23   21   27    8
+      Gene99   123   108   70   83   91  237   89  168  159   99  122  221   85   90
+      Gene100   82   101  101  107   74  144   75   69   67   97   89  124   76  121
+      Gene101    .     2    .    2    1    3    2    .    .    1    1    2    .    1
+      Gene102   19    10    7   10    7    8   12    9   10    5    1   22   20   18
+      Gene103    5     2    4    3    2    4    8    .    8    7    2    1   10    1
+      Gene104   20    35   20   21   26   67    9   36   46   26   42   63   26   29
+      Gene105   12    34   23    4   22    9   15    1   14   21   23   17    7   13
+      Gene106   51    66   39   15   64   26   20   15   25   41   25   45   30   32
+      Gene107    2     1    8   10    2   13    5    4    4    1    5   15   11    6
+      Gene108    .     .    3    1    1    .    1    .    .    .    1    1    .    2
+      Gene109   30    48   28   14   16   23   15   17   11   24   23   24   20   23
+      Gene110   10     3   11    4   11   13   11   10   11    4    2   16   17    3
+      Gene111 1759  1532 1260 1079 1091 1601  960 1163  856  794 1217 1412 1100 1058
+      Gene112   50    56   67   48   80   29   17   21   28   33   54   44   21   43
+      Gene113  114   315  287  137  162  239   50  154  174  177  205  221  115  207
+      Gene114   27    29   34   17   19   24   19   12    9   13   37   42   12   20
+      Gene115    1     .    .    1    .    3    .    .    1    4    .    3    1    5
+      Gene116   22    41   19   15    8   20   29   23   25   15   42   55   19   29
+      Gene117  101   113  113   82  100   75   62   46   83  106   94   98   69   67
+      Gene118   92    67   53   26   15   51   31    8   39   17   16   43   33   40
+      Gene119   54    61   59   40   38   88   29   51   55   35   46   73   40   47
+      Gene120   36    38   54   18   31   47   19   37   56   20   32   53   50   30
+      Gene121   51    72   79   57   52   84   25   47   95   42   63   94   54   39
+      Gene122  207    97   85   52   86  146  151   98  105   56  134  156  123  104
+      Gene123    .     .    .    .    1    .    .    .    .    1    .    .    .    .
+      Gene124   36    46   40   33   27   53   54   44   48   36   49   59   28   19
+      Gene125   12    14    3   10    3   12    6   10   16    5    4   13   14    4
+      Gene126  317   258  314  197  285  322  170  169  218  205  257  394  200  254
+      Gene127    2     2    3    7    5    2   10    3    2    .    3    9    .    5
+      Gene128   15     9    2    5    5    4    5    5    9    3    6    9    2    3
+      Gene129   85   104   28   68   41   54   64   33   19   34   75   61   48   43
+      Gene130  113    96  138  147   73  112   74   82  107   90  107  183   60   53
+      Gene131   46    35   32   18   21    9   32    6   22    9   33   22   21   14
+      Gene132   18    11   17    5    5    3   17    2    7   13    8   12    6    5
+      Gene133   13     9   11    9    3   21   12   15   11    7   13   10   12    3
+      Gene134  283   329  267  196  274  458  120  234  299  232  278  426  228  317
+      Gene135  163   114   58   20   36   60   81   49   42   33   53   75   60   28
+      Gene136   99    21   26    5   15   72   28   34   37    8   37   39   47   25
+      Gene137   83   129   79   84  131  121   77   91   68   87   69  163   51   67
+      Gene138   42    35   14    6   13   26   21   16   29   22   23   34   20   20
+      Gene139   58    82   75   46   68   75   51   18   23   47   67   66   33   27
+      Gene140    .     .    .    .    .    .    .    .    .    .    2    1    .    .
+      Gene141    9    26   13    7   16    8    6    2    3    7    8    8    8    4
+      Gene142   45    31   18   10   23   16   38   13    7   23   23   16   37   23
+      Gene143    1     2    2    2    4    4    3    3    8    2    7    9    2    3
+      Gene144   15     8    6    1   13   10    4   14    7    4    3   19    9    9
+      Gene145   26    55   16   22   38   26   36   37   26   28   36   53   25   36
+      Gene146   76   125  119   75   52   98   69   40   71   35   59  168   98  103
+      Gene147  122    94   37   56   38   66   48   65   73   35   68   65   32   50
+      Gene148    9    12    3    .    7    1   15    1    5    1    7    .    3    .
+      Gene149    6     4    9    2   16   11    3    1    3    2   15   10    5    2
+      Gene150   14    26   34   25   19   53   17   23   26    4   19   21   12   18
+      Gene151   13    10    7    2   11   25    4    5   12   14    6   17   16   14
+      Gene152   35    46   12   20   15   45   39   22   13   15   30   45   20    5
+      Gene153   42    48   43   25   19   40   34   33   53   29   20   82   40   28
+      Gene154   78   117   57   30   45  157   49   85   86   53   60  126   50   61
+      Gene155   91   176  150  107  141  150   67  110  171  134  162  155   72  100
+      Gene156    .     .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene157 1986  2142 1930 1649 2181 2810 1427 1482 1847 1674 2168 3164 1593 2059
+      Gene158   75    95   81   48   65   42   44   38   50   58   88  172   67   57
+      Gene159    4     3    1    4    2    5    1    6    1    3    4    2    6    4
+      Gene160    .     .    1    2    .    .    .    1    3    1    2    .    .    .
+      Gene161  219   187  114   96  144  214  127  135  121  115  132  202  106  106
+      Gene162   37    17    6    4    6   45   27   18   21    6   28   22   32   15
+      Gene163    5     7    1    3    1   10    4    3    6    6    1   11    3    5
+      Gene164  489   211  177  137   98  318  332  257  241  152  151  392  250  177
+      Gene165   60   111   64   71   75   57   68   41   29   48   51   62   52   60
+      Gene166   27    15   26   15   18   28   23   13   32   19   20   31    9   22
+      Gene167  122   244  142  101  113   58   82   38   49   83  142   41   67   75
+      Gene168   93   146  112   87   51   58   44   63   49   68  118   77   66   79
+      Gene169    1     2    1    8    .    2    2    3    2    5    5    5    3    1
+      Gene170    2     5    3    2    3    1    1    4    5    7    3    8    4    6
+      Gene171   14    10    7    8    7   20    3    7   13   14   17   12    9    3
+      Gene172    5    20   16    7   15   31    4   14   44   43   13   33    3   16
+      Gene173   13    18   12   12   15    8   10    5    3   18    7    6    1    5
+      Gene174  843  1253  835  680  981 1264  395  530  825  656  795 1202  609  884
+      Gene175  250   149  131   92  116   98   99   58   99   93  111  130  108   73
+      Gene176 3149  3110 2769 1917 1691 1826 2652 1303 2053 1983 2634 2758 2732 2102
+      Gene177    6     7    7    3    1    5   15    .    4    4    8   10    4    9
+      Gene178   11     6    6    7    1   10    6    4   13    5   10    9    4   18
+      Gene179   10     4   12    9    5   19    5    3    7    5    4    7    1   13
+      Gene180    4     3    .    .    5    4    .    2    5    2    1    7    3    5
+      Gene181   30    38   11   10    8   20   30   10   12   15   35   35   13   20
+      Gene182   98    51   33   42   41   63   54   59   42   32   21   71   66   30
+      Gene183   21    23    8   11   10   23   15   16   15    7    3   27   12   10
+      Gene184    9    27   21    2    9   27    8   13    8   16   13   22   23   30
+      Gene185   69    94   73   59   59  169   63   88  123   44   83  216   63   75
+      Gene186 2082  2021 2246 1408 1559 2865 1207 2020 3108 1232 1493 3320 1279 1871
+      Gene187    8    12    4    3    5   15   13   14    4    5    7   17    3    4
+      Gene188   13    10   16    5   21    3    6    4    6    6    7    1    9    9
+      Gene189   89   105  119   72  137  137   81   64   70   49  147  151   91  102
+      Gene190   11     6    5    4    9    9    6    .    .    4    8    4   10    4
+      Gene191  126   167   81  109   93  160   61   49   95   90  160  164   75   60
+      Gene192    .     5    .    .    3    4    1    2    7    .    4    1    5    1
+      Gene193    .     .    .    .    .    .    .    .    .    .    2    .    .    .
+      Gene194   93    54   76   39   43   65   34   62   37   49   91   72   50   36
+      Gene195  138   198  140  102   98  172   81  109  136  145  142  198   66  116
+      Gene196   30    33   18   12   30   25   10   24   34   18   43   25   16   35
+      Gene197    .     .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene198   95    74   47   48   81  100   66   59   45   37   66   85   57   53
+      Gene199   70    89   48   54   63   73   35   40   20   41   65   52   26   51
+      Gene200 1233  1541 1591 1298 1200 1544  896  961 1056 1505 1353 2160 1067 1138
+      Gene201   31    55   81   35   21   23   31   16   21   13   11   37   34   28
+      Gene202   43    77   69   53   40   57   47   56   29   46   63   67   53   48
+      Gene203    .     .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene204    3    14   10    4    5   14    6    3   10    6    1    6    3    4
+      Gene205  105   130  102   76   89   95   53   54  134   98  100  150   85   88
+      Gene206   12     9   14    9    8   11    2    3   17    9   10   12   15    8
+      Gene207    2     .    .    .    .    .    1    1    1    .    .    1    1    .
+      Gene208   33    24    8   20    8   29   20   17    5    7   17   19   34    6
+      Gene209    .     .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene210   20    36   21   19   21   29    8    4   17    9   18   26    4    6
+      Gene211   58   304  177  180  168   80   64   38   42  197  234   52   49  177
+      Gene212   27    22   27   11    9   13   10   14    9    8   16   19   12   15
+      Gene213   14    12    7    4    4    8    4    4    1   12   10   10    .    4
+      Gene214   53    74   76   68   44   46   46   69   52   41   69   75   46   44
+      Gene215    2    11    .    .    2    .    7    5    8    2    2    2    1    1
+      Gene216 1377  2074 1600 1127 1386 1045  886  593  668 1026 1514 1467  676 1342
+      Gene217    5     1    1    1    2    9    1    2    1    6    4    6   10    2
+      Gene218  111   182  120  106  113  221   43  129  155   90  135  274   92  125
+      Gene219    .     .    3    .    .    1    .    .    5    .    2    .    .    .
+      Gene220  100    72   84   27   41   54   38   55   39   42   58   61   48   90
+      Gene221    4     4    1    1    1    3    7    .    1    2    3    6    5    1
+      Gene222   25    22   17   27   22   18   11   14   12   17   32   28    7   30
+      Gene223    8    10   14   12    8   21   10    3   10   15   15   22    8   10
+      Gene224  119   144  106   62   89  121   61  115   87   65   97  190  109  120
+      Gene225    1     .    .    .    .    .    .    1    .    .    .    1    .    .
+      Gene226   26    13   40    7   14   10    9   18   18   15   10   43   26   12
+      Gene227    2     9   13    2    6    3    2    2    2   10    1    3    5    2
+      Gene228   28    56   42   31   42   25   11   18   16   33   63   41   24   32
+      Gene229    8     6    4    3    1   17    6    .    5    1   11    9    5    5
+      Gene230   85    61   93   58   47   75   53   44   60   78   72  118   67   85
+      Gene231   15    18   14    3   17   24    3   10   15    6    8   27   23   16
+      Gene232   52   178  113   77   82  211   62   98   95   93  133  204   71  151
+      Gene233  194   252  218  150  165  130  158  129  137  178  224  172  141  191
+      Gene234    .     .    3    1    .    .    .    .    .    .    .    .    .    .
+      Gene235    7    12   21    3    6    2    8    4    2   10   17    4    2   13
+      Gene236   38    30   33   24   31   36   50   28   30   26   23   45   28   35
+      Gene237  105   122   50   88   82  134   63   58   41   93   82  167   54   55
+      Gene238    .     .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene239   72   126  112   66   95  112   37   35   60   51  119  147   52   67
+      Gene240    3     5   15    5    4    7    1    2    .    1    1    8    3    .
+      Gene241   73   109   69   56   54   96   64   63   87   40   76  129   68   56
+      Gene242  119   110   50   32   48   85   32   56   60   30   52   83   64   71
+      Gene243   14    21   14   15   20   27   13   12   14    6   19   17    8   13
+      Gene244    .     .    .    1    3    1    .    .    3    1    1    1    .    .
+      Gene245    .     3    7    7    6    8    5    5    5    1    3    2    .    4
+      Gene246  267   388  284  361  290  329  241  250  136  274  388  434  181  300
+      Gene247   26    35   62   25   25   55   17   26   35   16   23   67   27   18
+      Gene248    1     3    2    4    7    .    .    .    4    2    2    1    4    6
+      Gene249    2    11    2    2    4    5    .    1    .    3    4    1    2    1
+      Gene250    7     6    4    5    5    2    3    2    3    3   10    5    .    6
+      Gene251    1     .    5    2    4    1    1    .    .    4    2    1    2    .
+      Gene252   45    41   26   19   26   45   31   36   37   19   21   84   24   18
+      Gene253   40    43   42   24   33   56   28   38   44   25   54   71   29   46
+      Gene254   32    32   23   12   26   17   20   18   21   22   33   20   28   20
+      Gene255    .     1    5    .    1    3    .    1    .    1    7    .    .    4
+      Gene256   23    17   14   20   18   25   11   10   14   19   12   30    5   12
+      Gene257   13     8    2    1    5    9    5    3    2    3   12   13    2    5
+      Gene258 1147  1722 1349  956  869 1469  878  753  760 1041  973 1541 1168 1196
+      Gene259   36    36   80   38   30  136   25   33   44   66   79   65   41   44
+      Gene260   26    40   16   20   25   35   30   18   36   15   29   35   22   22
+      Gene261   69   107   41   62   40   89   25   50   60   20   73   75   21   77
+      Gene262   14    11   20   16   14   10    5    6    9   12    8    7    .    1
+      Gene263    2     .    8    3    1    .    .    8    .    .    4    .    .    4
+      Gene264    3     3    1    1    .    5    7    1    4    3    3    6    5    8
+      Gene265   30    44   27   12   17   35   23   29   32   17   32   41   42   24
+      Gene266 2315  3218 2129 1419 1706 2179 1688 1167 1705 1446 2217 2981 1573 1710
+      Gene267    1     .    7    6    3    2    3    4    .    .    .    1    2    .
+      Gene268  220    98   87   55   41  118  108   52   46   67   64   76  167   44
+      Gene269    2     .    1    .    .    .    .    .    1    .    2    .    .    1
+      Gene270  533   340  203  137  168  364  248  162  222  198  235  261  390  163
+      Gene271   52    98   44   49   44   31   50   14   15   45   67   37   30   29
+      Gene272   17    12   13   11   19   20   12   10   14   23   12   18    7   26
+      Gene273   33    23   14   13   12   40   26   17   19   28   22   33   13   38
+      Gene274   85    59   30   19   31   44   26   43   44   37   52   50   37   39
+      Gene275   49    53   57   30   29  106   57   47   72   44   41  102   42   58
+      Gene276   43    23   28   14   21   28   18    8   26   16   15   19    9   28
+      Gene277   77    57   27   54   24   54   18   43   44   32   38   27   28   46
+      Gene278   89    73   60   70   40   57   40   31   32   52   44   92   77   43
+      Gene279   17    25   15   19   20   14   14    9   14    9   13   32    8    6
+      Gene280   24    34   30   20   15   60   18   31   20   14   14   56   15   18
+      Gene281   19    49   47   27   24   31   38   19   28   54   44   72   49   25
+      Gene282   60    68   93   29   35   44   31   23   47   59   54   51   57   14
+      Gene283  113    96  100   56   64   83   68   72   31   55   62   83   70   52
+      Gene284   29    98   60   52   54  133   23   73   82   85   50  101    7   38
+      Gene285   67   183  105   81  109  310   69  145  235   95  110  268   34  100
+      Gene286  124   146  125   88   80   56  104   27   48   67   95   66   79   89
+      Gene287    .     .    .    .    3    .    .    .    .    .    .    .    .    .
+      Gene288   27    29   22   33   37   27   20   20   14   34   18   21   30   24
+      Gene289   34   116   90   59   45  147   48  115   99   88   92  148   27   97
+      Gene290    2     1    1    3    .    3    2    1    1    .    3    3    .    1
+      Gene291   13    47   17   21   21   37   40    6   16   13   20   27   16   12
+      Gene292   64    41   34   21   26   39   29   20   16   42   16   34   39   21
+      Gene293   54   101   95   37   53   54   54   21   25   36   53   43   52   78
+      Gene294   11    13    6    5    .   12    4    3    9    .    6   10    3    2
+      Gene295  407   309  215  148   94  156  389  141   92  140  218  216  333  108
+      Gene296   66    99  113  109   87   99   63   30   39   83   89   52   74   84
+      Gene297   41   117   45   59   65   79   73   41   64   60   68  128   47   97
+      Gene298  134   116   83   49   75  122   55   78   61   59   71   98   46   93
+      Gene299  226   346  228  230  203  331  152  108  234  216  278  274  219  281
+      Gene300   47    37   47   19   18   27   35   41   30   24   33   39   34   24
+      Gene301   99   134  103   86   85   42   68   41   48   84   84   33   53   53
+      Gene302    .     .    .    3    1    3    4    4    1    .    1    3    .    3
+      Gene303  164   224  206  128  189  172  136   96  103  149  127  164  109  175
+      Gene304    .     1    .    .    .    .    .    .    .    .    .    .    .    1
+      Gene305  225   279  210  168  150  277  119  133  172  137  176  288  189  128
+      Gene306   60    93   59   59   58   86   26   43   34   62   61   86   27   72
+      Gene307   60   165   79   67   65   65   45   51   55   34   88  120   64   65
+      Gene308    4     9   12    4    2   19    1    9    8   13    7   12    5    2
+      Gene309   26     3    7    5    1   11   10    4    3    4    3    4   21    5
+      Gene310  282   270  181  205  157  289  150  205  199  168  179  306  270  152
+      Gene311   85    95   61   66   59   57   37   37   50   40   57  110   52   61
+      Gene312   70    78   54   23   34   57   18   37   49   41   43   77   63   49
+      Gene313 4262 10468 8528 6146 5748 4457 3056 2473 3517 5162 6066 5784 2912 6988
+      Gene314   35   100  104   32   63   52   18   33   39   75   84   69   21   68
+      Gene315    1     2    6    .    1    6    6    3    6    3    4    3    2    1
+      Gene316  223   149   80   90   56  232  112  117  155   99  125  228  125  132
+      Gene317   47    88   83   65   73  107   57   53   60   75   46  182   60   82
+      Gene318   18    19   13   11    3    4   10   13   18   10   11   21    1    8
+      Gene319   13     5   23   12   12    9    9    8   12    4   12   11   16    4
+      Gene320   15    25   19   17   10   20   12    6   12   10    9   17    .   20
+      Gene321    4    15    1    3    1    1    1    1    3    2    4    1    3    2
+      Gene322   32    31   23   29   33   33   17   19   16   27   27   42   14   16
+      Gene323   19    30   18   24   11   23   12   24   23    7   12   33   17   11
+      Gene324   32    59   57   24   13   34   48   36   26   36   49   40   50   30
+      Gene325    2     7    2    6   11    .    5    2    1    6    2    .    3    4
+      Gene326    5    12    5    8    4    7    4    3    8    6   17   10    3   10
+      Gene327 1361  2192 1514 1370 1391 2829 1308 1310 1481 1744 1710 3065 1119 1624
+      Gene328    1     1    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene329   53    82   48   35   33  132   45   57  104   27   33  111   53   39
+      Gene330    1     3    6    .    5    .    .    1    1    1   11    1    .    .
+      Gene331   11    13   21   13   23   11   11    8   11    6   25   15    2   33
+      Gene332    2     5    .    .    1    .    .    .    .    1    .    .    1    2
+      Gene333    .     .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene334   24    19   37   32   16   31   27   30   25   33   28   41   14   50
+      Gene335   13     9   22   18    .    5    6    2   23    8    9   13   17    4
+      Gene336    3     6    5    2    4    4    5    7    3    5    5   10    3    .
+      Gene337 1129  2513 2540 1463 1658 1992  620 1244 1364 1583 1353 2176 1083 1628
+      Gene338   16     9   22   17    4   19   11   17   11    8    8   18    4    6
+      Gene339   68    99   71   70   75  150   54  103  107   79   49   99   64   52
+      Gene340    .     .    .    .    .    .    .    2    .    .    .    .    .    1
+      Gene341  249   126  103   91   85  102  147   79  129  123  145  168  225  110
+      Gene342   33    15   16   18   12   29   19   12   12   12   29   29   21   20
+      Gene343    1     6    1    2    1    4    4    .    1    1    .    1    .    .
+      Gene344  138   229  106  117  169  131   72  107  100  168  174  151   74  181
+      Gene345  608   485  586  340  387  503  351  233  307  407  422  421  358  464
+      Gene346   10    49   42   31   31   70   10   64   77   43   42  115    5   45
+      Gene347   31    45   42   26   13   16   16   25   41   29   26   34   43   28
+      Gene348  106   129   73   53   57   83   53   62   67   72   95   95  107   99
+      Gene349    1     1    8    7    .    3    .    .    4    5    6    5    1    2
+      Gene350   11    42   24   32   20   31    8   15   30   33   29   36   11   17
+      Gene351   40    25   29   28   29   71   25   33   39   13   25   98   25   28
+      Gene352  148   109  101   88   75  197   68  100  141   83   98  199  105   91
+      Gene353   12    12    9    3   17   15    3    4   15   20    4    7   14    2
+      Gene354   93   135   60   35   56   73   31   30   64   30   61   84   16   51
+      Gene355   22     9   11    7    6   13    1    5    8    1    9   12   10    2
+      Gene356  125   118   94   95   59   76  108   76   72   83  132   79   83  103
+      Gene357  187   155  160  126   98  138  121   90  171  107  113  141  140  162
+      Gene358    3     2    4    2    .    6    1    3    .    1    2    4    .    .
+      Gene359   24    20   15   26   17   23   12   11   17    6   29   20   10   17
+      Gene360   15    37   24   22   16   18   25   18   28   13    5   17   16   26
+      Gene361   28    20   19   14   46   36   11   14   32   12   26   40    7   33
+      Gene362  213   202  263  166  152  209  184   68  133  184  206  237  196  146
+      Gene363  271   210  194  123  181   75  253   73   88  143  230  127  127  171
+      Gene364  102    70   49   37   36   70   79   24   64   44   56   73   47   42
+      Gene365  106   183  140  151  149  136   57   97   98   56  154   97   78  135
+      Gene366    .     .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene367 1028  1312  898  741  643  795  644  622  696  555  805 1155  634  767
+      Gene368   43    96   45   34   24   28   31   19   22   40   72   47   27   43
+      Gene369    8     5    4    1    .    2    6    .    5    4    3    5    5    1
+      Gene370   20    20   11   11    4   18   19    9   21   21    8   25   23   21
+      Gene371    3     .    .    .    1    1    4    .    8    1    .    5    2    2
+      Gene372   92   129  119  110  109  287   78  165  131   79   89  324   44   73
+      Gene373   26    34   29   14   16   23   25   22   33   29   29   36   24   32
+      Gene374  250   243  245  145  181  208  110  155  172  142  168  225  142  233
+      Gene375  892  1553  908  641  671  960  818  531  727  829 1121  866  526  624
+      Gene376   43    97   86   43   32   26   15   26   19   50   50   37   43   40
+      Gene377   63    46   41   37   32   67   47   60   49   48   42   74   53   46
+      Gene378   19    37   34   10    5   10   10    2    2   18   18    9    6   26
+      Gene379    .     3    2    5    .    2    1    2    2    1    2    3    1    5
+      Gene380   36   123   59   80   61  107   34   64   92   51   83   94   42   77
+      Gene381   48   105   37   57   73   28   15   48   27   36   55  123   26   85
+      Gene382    .     4    .    4    5    .    1    .    .    1    .    .    2    .
+      Gene383  356   364  304  218  287  295  214  222  263  233  317  320  266  240
+      Gene384  308   259  241  154  201  313  166  249  233  146  233  275  196  182
+      Gene385   22    39   37   23   16   26   13   13   18   25   51   30   24   42
+      Gene386  242   222  126   85  194  315  138  203  241  179  162  295  155  166
+      Gene387    5     .    6    1    2    5    1    .    1    1    1    3    1    .
+      Gene388    2     2    2    2    7    1    2    3    2    1    .    3    1    9
+      Gene389   90    95   96   45   79   79   95   65   87   64   93  128   73   90
+      Gene390   81   108   70  110   91   76   50   33   40   68   98   60   53   59
+      Gene391  284   388  212  201  236  348  205  154  169  236  271  411  169  206
+      Gene392   50    31   20    9   28   23   40   39   38   33   44   47   48   25
+      Gene393    2     .    .    1    .    .    1    .    1    .    .    7    2    .
+      Gene394   63    67   64   60   40   57   29   20   50   54   65   50   39   35
+      Gene395    4     9    4    8   13    2    1    .    7    4    2    5    3    1
+      Gene396  156   118  104   37   42  330   91   96  179   61   94  274   89   77
+      Gene397  145   149  120   71  121  166  105   83  101   66   90  179   52   91
+      Gene398    .     .    .    .    .    1    .    .    .    .    2    5    .    .
+      Gene399    .     7    1    3    9    2    .    9    2    6    .    3    6    5
+      Gene400    2     .    3    .    1    6    1    1    .    1    2    4    1    6
+      Gene401  487   510  313  416  327  490  225  281  345  309  276  524  319  294
+      Gene402    6    19   24   19   15   14    6   17   15   12   37   28   10   17
+      Gene403   21    34   19   15   28   21   11    6   28   16   37   35    9   21
+      Gene404  422   522  314  403  325  503  357  376  312  240  302  487  253  293
+      Gene405   80   181  134   80   93  101   55   96   60  113  108  132  100  133
+      Gene406  148   257  181  139  217  273  155  107  154  181  179  247  137  155
+      Gene407   12    22    6   10   11   11   11    2   11   13   13   15   13   11
+      Gene408  103   176   89  111   67  114   93   61   40   89  149  122   91  102
+      Gene409   21    39   30   27    5   28   12   17   17   18   39   33   28   15
+      Gene410   61    53   45   29   61   37   50   27   20   38   70   57   49   34
+      Gene411  347   208  166  113  148  123  236   89  117  110  153  210  225  101
+      Gene412 2180  2229 2044 1456 1402 1977 1257 1100 1644 1297 1679 2340 1447 1473
+      Gene413  473  1474 1207  727  827  710  303  511  606  824 1029  740  293  992
+      Gene414  145    66   40   19   26  100   92   65   54   43   50  131   59   43
+      Gene415   80    48   29   20   20  105   24   75   84   22   53  107   42   19
+      Gene416   88   109  118  102   83   69   64   26   50  108   93   60   67   95
+      Gene417    9    17    6    5    9    5    9    6    7    8   27    6   15   13
+      Gene418    .     .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene419   54    70   71   30   54   27   19   41   19   49   58   26   26   37
+      Gene420  166   165  144  111  124  139   65   60   72   88   99  115   73  145
+      Gene421   43    55   29   22   24   56   48   37   45   25   48   51   43   25
+      Gene422   82    64   55   29   30   85   21   68   90   18   29  133   39   50
+      Gene423  323   426  270  192  240  108  184  102  122  224  221  130  195  274
+      Gene424 1145  1287 1093  978  751 1010  651  727  991  687 1025 1126  702  893
+      Gene425   26    21   22   16   12   23   13   12   25    8   45   21   19   21
+      Gene426   45    74   26   25   21   31   37   18   15   23   48   32   17   26
+      Gene427   18     3    8    6    8   14    7    8    4    7    4   17   12    8
+      Gene428    1     .    .    .    .    .    .    .    .    3    .    .    .    .
+      Gene429    .     .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene430    8     9   10    6    4   10    6   10    2   10   21   11   10    5
+      Gene431   25    25   19    6   10   10   12   12   25   11   16   39    7   16
+      Gene432    5     5   13    4    9    5    6    .    4    4    7    5    3   18
+      Gene433  137   161   59   40   94  105   77  133   98   60   93   66   69   85
+      Gene434   13     9    7   11   12   25    9    8   13    4   12   25    8    5
+      Gene435   57   118   98   69   69   61   70   29   58   80  120   68   54  100
+      Gene436   87   203  185   67   86  112   70   91  116   88  129  180   75   67
+      Gene437   27    36   46   10   30   31    6    3   34   20    9   39   22   18
+      Gene438  133   104   78   48   77   85   70   46  108  107   79   48  107   63
+      Gene439    8    17   18   11    8   18   11   21   15    6   30   11    3   14
+      Gene440   17    21   34   15   11   23    9   12   10   17   21   16   21    7
+      Gene441   68    90   45   54   71   98   38   64   35   71   63   89   46   73
+      Gene442   86    88   59   41   40   71   57   57   64  100   62   79   83   97
+      Gene443   24    37   31   11    9   23   27   27   22   19   24   14   20   20
+      Gene444   18    21   18   12   13   12   10   25   12   15   27   18    4   13
+      Gene445    .     .    .    .    .    .    1    .    1    .    .    .    .    .
+      Gene446   38    48   39   34   43   50   55   37   31   23   27   39   40   15
+      Gene447   39   107   74   68   45   72   68   60   68   25   61   90   43   59
+      Gene448  115   158  104  130  118  140   75   48  107  105  153  173   95  104
+      Gene449   66   108  123   72   58   72   50   48   83   63   86   75   54   69
+      Gene450    3     1    2    2    .    1    .    1    2    3    .    4    .    4
+      Gene451   50    67   34   63   25   86   37   40   81   48   64   67   54   48
+      Gene452  161   230   86   89  127  166   95  114   79   87  132  163  112  145
+      Gene453  866   968  723  595  686  676  697  596  530  596  917 1346  729  645
+      Gene454   56   163  123   63   81   29   53   62   59   76   87   82   69  111
+      Gene455    2     7    7    .    2    7    3    5    2    8    3    2    3    .
+      Gene456   24    41   27   10   21   43   20   18   32   14   17   40   13   17
+      Gene457   99    98   85   65   63   67   60   85   52   76   98  142   73   78
+      Gene458   12     4    .    6   18    9    1    2    7    5    2   17    9    3
+      Gene459   13    31   28    8   40   43   22   38   29   20   29   29   10   38
+      Gene460  944  2010 1223 1060 1249 1898  683  753 1247 1102 1255 1765  633  932
+      Gene461  205   297  205  158  211  284  209  141  140  181  202  292  171  188
+      Gene462    1     1    2    1    .    5    .    .    .    .    .    .    .    .
+      Gene463   22    15   11    2    2    9    5    1    7    2   12    6    1    2
+      Gene464    3     3    4    .    1    2    1    .    .    2    .    .    3    .
+      Gene465   34    20   35   30   31   24   25   11   39   22   22   37   25   24
+      Gene466   56    29   28   22   23   13   24   21   35   36   30   32   14   23
+      Gene467    5     2    4    .    1    7    4    .    4    4    1    8    5   14
+      Gene468   21    35   29   29   12   19   18   10   14    8   20   22   11   24
+      Gene469    2     .    2    1    .    1    1    1    2    2    1    2    .    .
+      Gene470   89    51   48   49   47   74   35   59   36   42   72   65   53   76
+      Gene471    2     7    3    1    3   15    7    1    1    4    5    4    3    2
+      Gene472  214   233  144  143  124  186  136   73  106   91  152  170  185  103
+      Gene473   69    79   66   49   47   51   54   29   20   44   78   37   44   65
+      Gene474    .     .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene475   73    76  104   52   81   67   62   44   45   52  114   55   44   75
+      Gene476   84    58   53   57   39   73   94   60   44   38   68   89   92   60
+      Gene477   68    43   46   34   50   36   37   26   40   39   36   52   48   60
+      Gene478   26     4    .   15    1    9   13    5    .    7   10    4   20    6
+      Gene479   10    17    8   18   10    5   11    6    4    7    7   10    4   12
+      Gene480   62    61   57   36   63   31   32   46   26   60   47   49   22   99
+      Gene481   26    37   24   26   26   36   18   29   26   22   23   30   36   14
+      Gene482   59    59   76   68   30   60   47   42   58   37   58   55   56   29
+      Gene483    8     3    4    5    7   10    4    9    8    6   11   12    5    6
+      Gene484   62    31   36   10   24   30   18   10   40   13   35   29   31   25
+      Gene485   25    26   27    6   30   21    5   19   14   16    8   13   14   19
+      Gene486   11     9   14    2    6    6    3    2    6    2    7    8    7    4
+      Gene487   83    79   86   51   59   59   65   30   30   33   35   73   70   63
+      Gene488  127   628  386  286  363  201  106  113  138  279  354  202   99  459
+      Gene489  281   229   87  140  143  161  161  121  100  131  164  154  176  120
+      Gene490    .     1    .    1    1    8    3    1    .    3    1    4    2    8
+      Gene491  317   221  170  101  150  167  147  103  165  126  162  205  147  202
+      Gene492  141   142  112   80   93  106   64   63   71   80  120   81   36  128
+      Gene493  233   300  210  147  221  245  125  103   76  115  211  213  196  166
+      Gene494  546   536  489  366  458  815  408  343  377  373  655  722  340  417
+      Gene495    2     4    .    .    3    2    2    .    .    .    3    .    5    3
+      Gene496   69    42   37   20   17   28   22   13   16   20   27   34   14   43
+      Gene497  129   309  256  150  176  284   55  253  230  143  283  208   60  232
+      Gene498   50    56   38   46   30   55   41   60   21   27   68   49   34   28
+      Gene499  498   415  244  130  213  310  225  150  203  190  353  239  356  143
+      Gene500    .     4    1    1    .    2    3    .    .    2    3    3    .    .
                                                                                    
-      Gene1     22   52   47   47   38   28   44   26   36   39   55   66   33   29
-      Gene2     17   13   10   26   34   32   18   11   14   16    8   33   15   27
-      Gene3    627  327  718  803  735  401  790  292  762  351  615  977  709  379
-      Gene4     49   69   68  103  126   68   60   36   86   64   86   88   72   66
-      Gene5      3    5   13    4    2    3    8    1   11    1    3    3    1    3
-      Gene6     51   50   69  103   57   76   55   45   75   76  140   76   86   92
-      Gene7     75   33  115   98   74   56   86   45   71   68   95  149   53   64
-      Gene8     59   88   60  106   82  106   86   73  169  152  170  140   95   55
-      Gene9     55   34   60  101   41   23   46   23   56   33   42  122   52   60
-      Gene10     3   13    .   14   11    3    3    1    8    8    5    5    9    7
-      Gene11    22   19   11   38   24   15   22   18   49   22   26   30   40   20
-      Gene12    26   12   28   36   35   33   45    7   14   18   21   59   38   28
-      Gene13    26   45   80   66   22   22   65   43   75   51   68   31   85   54
-      Gene14     7    9    7    9    2   13   20    8   19    6   11    1    3   10
-      Gene15   181  113  152  219  182  168  157  106  184  170  219  208  214  111
-      Gene16     6   11    7    6    7   15   11   12   27   23   15   17   19   19
-      Gene17    13   12   30   12   26   22   30   16   31   34   45   45   24   13
-      Gene18    15   14   12   22   18   12   27   11   27   24   21   54   32   25
-      Gene19    15   17   53   37   38   43   31   27   36   44   59   34   49   28
-      Gene20     3    .    .    .    2    .    1    .    .    .    .    .    .    .
-      Gene21     .    7    1    2    3    2    6    .    5   11    1    .    2    .
-      Gene22    81  171  128  118  121  185   92  105  238  201  349  182  155  159
-      Gene23  1718 1606 2147 2225 2792 1769 2582 1592 2162 2289 2719 2963 2354 1958
-      Gene24    21   13   21   22   24   16    5   11   18   22   18   22   14   17
-      Gene25    21   15   23   19   23   22   27   21   30   31   17   39   50   12
-      Gene26    19   17   23   37   33   24   39   34   24   28   41   34   28   32
-      Gene27     .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene28    19   14   20   33   32   31   17   11   40   14   28   21   43   11
-      Gene29    77  122   61   89   79  154   98  117  141  143  205  107   68  154
-      Gene30   131   76  167  151  148  131  174   70  213  134  145  233  133  167
-      Gene31  1659 1761 2017 2238 2364 2044 2478 1368 2428 1995 1837 3139 2516 1607
-      Gene32    29   29   61   47   54   46   65   17   54   85   75   74   20   66
-      Gene33    14   12   41   45   14   10   54    8   11    5   12   56   34   12
-      Gene34    36   30   18   27   21   19   38   33   56   23   31   43   19   21
-      Gene35   470  410  860 1114  800  433  806  425  579  414  697 1273  767  511
-      Gene36     3    2    4    8    2    1    3    2   11    7    6    8    1    2
-      Gene37    40   11   48   33   17   14   14    2    3    3   12   16   44    7
-      Gene38    11   12   20   26   23    8   33    2   19    9   21   13    8   13
-      Gene39   373  440  585  591  485  403  451  332  471  345  499  625  515  409
-      Gene40     4    1    .    .    .    4    4    1    2    6    .    2    6    3
-      Gene41    27   79   29   39   51   68   48   37   59   72   89   47   21   55
-      Gene42     3    3    8   24    8    1   10    .   10    8    7    9    7    5
-      Gene43     1    7   14   18   13    3   23    6   17   12   18   14    6   11
-      Gene44     2   14    8   28   13    9   26   13   15   23    9   16   22   13
-      Gene45    82   78  141  188   84  155  137   54  103  108  153  225   91   89
-      Gene46  1946 1733 3413 2162 2338 2104 2740 1383 2485 2592 2534 3028 3375 1611
-      Gene47     7    2    6    9    7    3   14    1    8    1    6    7   13    2
-      Gene48    48   67   89   61   61   43   96   25   57   48   41   37   56   41
-      Gene49    33   37   17   46   31   17   33   15   21   21   40   62   36   18
-      Gene50     .    1    .    1    .    .    .    .    .    .    1    .    .    .
-      Gene51    24   39   18   30   22   44   25   17   53   37   53   49   28   39
-      Gene52     .    3   16    2    3    1    .    .    .    2    7    1    3    2
-      Gene53    44   20   35   34   38   10   37   13   26   35   32   51   47   22
-      Gene54    43   28   33   38   53   40   36   31   35   47   45   66   44   31
-      Gene55     6    .    2    1   12    8    3    3    3    4    1    6    5    1
-      Gene56     1   10   14    4    2    5    9    5    2   11    9   10   14    9
-      Gene57    53   53   58   55   37   38   71   19   56   69   58  105   70   45
-      Gene58    16   16   33   32   41   41   53   15   32   22   50   47   43   20
-      Gene59    18   12   21   31   40   23   16   25   16   19   18   18   10    7
-      Gene60     .    .    1    .    1    2    .    .    .    .    .    4    3    .
-      Gene61     .    .    .    .    .    .    .    .    .    .    .    .    .    1
-      Gene62    40   30   20   36   23   41   10   38   49   35   50   21   23   50
-      Gene63   195   70  212  219  152  140  202   70  190  102  161  239  189  138
-      Gene64   228  160  201  348  189  162  270  113  302  206  250  300  171  158
-      Gene65    72   24   87  102   74   49  126    7   30   18   40  117   83   34
-      Gene66    58   88   83  109   93   66   88   71   80   69  112  151   62   80
-      Gene67   280  183  329  349  228  234  384  180  221  266  305  539  362  236
-      Gene68    10    2    4    .    1    1    7    2    1    6    6    4    5    1
-      Gene69     1    1    3    4    7    5    8    5    4    3    .   17    7    2
-      Gene70    51   45  112   93  133   63   99   43   86   84  133  105  117   77
-      Gene71    29   19   73   50   45   69   34   15   44   26   32   72   66   25
-      Gene72    20    2   24   10    7   15    7    6    6    9    9   34   20   11
-      Gene73     1    .    .    3    4    .    .    .    6   10    3    4    .    .
-      Gene74  1245 1180 1576 1488 1345 1297 1828  961 1606 1319 1567 2413 1346 1280
-      Gene75    23   25   29   26   27   21   28   11   26   12   58   34   38   29
-      Gene76    27   35   49   51   29   20   40   40   58   20   47   47   39   28
-      Gene77    11   32   49   48   38   37   53   34   66   39   63   27   32   41
-      Gene78    88  140  127  148   98  153  132   98  280  224  207  180  111  183
-      Gene79   646  866  772  738  655  540  892  518  978  608  941  906  611  665
-      Gene80    26   62   81   72   94   52  111   18  115   74   74  125   62   66
-      Gene81    23   10   55    5   17   13   12    5   17   12   20   40   12   28
-      Gene82     .    .    2    .    .    .    2    1    3    3    .    4    3    1
-      Gene83    62   64   90  171   70   48  116   53   88   54   94  110   64   79
-      Gene84    28    9   62   30   17   16   32    8    8   15   23   46   29   19
-      Gene85   499  885  937  848  554  631  548  572  703  603  836  919  946  651
-      Gene86     .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene87    21   21   39   47   20   23   49   19   49   28   41   38   42   33
-      Gene88   160  110  217  172   91   82  109  119  136  115  121  198  115  126
-      Gene89    30   19   15   27   24   11   25    6   18    7   24   28   20   23
-      Gene90   126  120  227  163  182  182  163   95  173  135  204  227  218  153
-      Gene91    30   27   60   36   22   43   53   42   66   61   68   25   32   60
-      Gene92    12    9    9   16    7   35    7    5   20   15   15   12    4   22
-      Gene93    13   28   27   36   39   12   35   27   29   29   25   39   23   23
-      Gene94    23   48   49   27   50   76   39   40   57   48   52   51   30   35
-      Gene95     9    2    9   23    8   16   18    1   15    8    9   15    6    4
-      Gene96     3    .    4    .    .    2    1    .    .    .    .    .    .    .
-      Gene97     .    4    6    3    1    2    1    4    5    2    3    7    4    4
-      Gene98     .    2    3    3    2    2    5    2   10    9    9   10   10    4
-      Gene99     5    3    3    5    .    1    6    1    7    4    2    9    .    2
-      Gene100   66   97  115   66   58  152   58   56  112  129  154  118   60  118
-      Gene101   10    3    9    5   11    5   20    7   11   11    5   19   12   10
-      Gene102   46   42   47   44   63   55   49   37   83   62   56   66   37   66
-      Gene103   31   35   39   39   38   32   29   15   34   71   43   35   34   36
-      Gene104    .    .    .    2    .    .    .    1    1    .    .    .    .    .
-      Gene105    5    5   19   15    6   10   18    9    9   13   20   12    7   11
-      Gene106   21   45   34   36   56   26   36   40   55   59   37   46   55   16
-      Gene107  607 1830  985 1063 1016 1804 1073 1531 2885 1799 2620 1259  999 2334
-      Gene108    .    2    2    3    5    4    5    6    7   11   10    5    3   12
-      Gene109  144  170  179  182  174  257  155  135  389  267  389  219   91  213
-      Gene110  103  118   97  211  113   92  155   72  124   86  103  136  128  104
-      Gene111  261  245  485  472  424  279  370  227  473  408  379  431  419  376
-      Gene112    5    1    9    2    .   11    3    5   13    6    9    7   12    3
-      Gene113   39   37   43   60   48   36   61   23   30   35   42   87   37   27
-      Gene114    8    7   13   12   13    2    8    2    6   11    4    5    7   25
-      Gene115    2    8   20   20   21   11   20   10   21    3   25   29   22    6
-      Gene116   24   13   53   40   29   21   44   30   46   65   43   37   37   36
-      Gene117  754  550  978  809  797  541 1154  467  751  751  664 1197 1096  546
-      Gene118    5    6    3    9   12    6    4    9    3    9    6    7    3    6
-      Gene119    1    5    5    4    3    7    8    2    5    3    7    1   15    3
-      Gene120    5    2   27   20   13   13   12   14   14    8   32   38   32    3
-      Gene121   12    1    3   18   14    7    2    7   10   13    4   24   23    8
-      Gene122   24   27   35   52   28   30   37   11   26   25   41   43   48   26
-      Gene123 1680  825 2121 2268 2332  827 2329  633 1171  814 1022 1902 2194  691
-      Gene124   24   34   46   33   24   55   37   18   80   43   32   25   31   46
-      Gene125 1875 1564 2206 2624 2190 1783 1930 1346 2150 2376 2418 3115 2028 1678
-      Gene126   51   32   56   57   56   85   41   25   57   46   64   32   59   52
-      Gene127  100   37  181  184  155   71  143   51   53   75   63  234  169   54
-      Gene128   12    1    5    7   10   11    7    6    6    2    3   17    4    4
-      Gene129   75   96  205  152  162   95  103   71  160  115  114  284  163  131
-      Gene130   34   62   48   54   40   31   91   21   41   56   46   71   60   72
-      Gene131   28   14   27   27   33   26   49   34   35   23   22   51   59   37
-      Gene132   10   15   26   22    9   17   22    4   18   26   21   24   15   19
-      Gene133    4    3   16   20    2   10    8    7    4    6   15   13    1    3
-      Gene134   15   11   18   19   10   13   10   10   15   11   18   29   17    8
-      Gene135   10    5   47   28   13    8   21   16   15   16   10   17   19    5
-      Gene136  108   56  136  112  151  111  151   91   82  146  256  181  156  109
-      Gene137   14   13   16   22   28    6   25    4   11   15    1   41   23    9
-      Gene138   27   15   41   29   30   30   31    8   30   28   28   48   39   42
-      Gene139    9   36   22   21   20   16   21    4   30   25   18   30   28   22
-      Gene140   12    5    9   11   11    6   25    9   14    6   17   21    9   14
-      Gene141    2    3   19   21   10   23    7   20   17   15   25   13   23   29
-      Gene142  137   92  210  262  169   99  205  108  147  104  164  321  256  159
-      Gene143   11    3    2    7    3    2    6    2   11    7    6    5    2    .
-      Gene144   17    5   13   12   10    7    8    6   14    2    5   13    7   16
-      Gene145   30   48   45   52   40   98   57   39  109   92  126   52   39   69
-      Gene146  219  109  448  523  255   69  422   56  136  111  146  476  289   98
-      Gene147   50   28  103   81   81   65   67   49   59   62   98   73   49   46
-      Gene148   49   82  169   96  146  196  157   86  151  157  181  193  111  166
-      Gene149    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene150   14    9   13   17   18   13   25    2   10   15   13   13   11   13
-      Gene151  202  110  288  266  207  109  235   91   94  102  175  344  266  125
-      Gene152    3   15   12    4    4    4    5    3    7    3    2    6   19    9
-      Gene153    2    .   12    6    2    3    4    5   10    5    .    5    4   12
-      Gene154    .    .    .    .    2    1    1    .    1    .    .    2    3    .
-      Gene155   25   24   47   26   41   27   33   24   42   40   63   54   42   15
-      Gene156   72   92   75   69   69   54   61   54   81   39   59   60   56   71
-      Gene157    .    1    4    2    1    1    .   10    2    1    .    3    .    .
-      Gene158   81   66   85   99   95   72   86   43   85   87   65  132  162   61
-      Gene159   30   23   28   46   32    8   23   38   34   24   47   33   26   25
-      Gene160    7    3    7    9    4    3    8    4    4   11    9   11   12    9
-      Gene161   49   23   52   65   31   62   32   27   55   42   35   44   22   42
-      Gene162    .    .    1    .    .    1    .    .    .    .    .    .    .    .
-      Gene163    7    9   14   16   10   17   14   10   23   13   19   25   23   16
-      Gene164    2    .    5    7    2    1    4    3    3    1    4    8    5    7
-      Gene165   59   98   94  135  139   64  103  122  124  173  204  178  180  110
-      Gene166   21   58   67   76   58   56   51   34   54   45  120  103   54   70
-      Gene167    7    4    5   40    9   33   11    9    5   17   28   17   21    7
-      Gene168    .    .    .    4    2    1    1    .    3    .    1    1    2    2
-      Gene169    1    3    6    5    3    6    6    .    3    6    2    2    3    4
-      Gene170    .    1    .    .    .    .    .    .    .    .    .    .    2    .
-      Gene171  126   96  277   94  127  121  191   88  168  156  178  275  128  112
-      Gene172    7    .   13   14    9    1    5    .    6    2    3    6   12    5
-      Gene173  100   57  111   90  173   14  113   24   44   47   48  172  115   38
-      Gene174   18   14   29   11   27   22   29   11   31    7   30   26   18   21
-      Gene175    4    1   20    6    7    4    2    2    1    9   11    .    .    8
-      Gene176   15   12   18   20   12   14   20    2    7   17   10   21   39   17
-      Gene177 1867  778 2110 2792 2397  971 2449  760 1262  930 1222 2847 1928  834
-      Gene178    .    .    .    1    3    .    1    .    .    1    .    4    4    .
-      Gene179   70   71   79   74   97   56   71   41  105   60   79   86   72   66
-      Gene180   24   10   37   18   13   26   14   35   38   19   21   35   25   44
-      Gene181    .    1    .    .    .    .    .    .    2    .    1    1    .    .
-      Gene182  103  106  106   85   83   86   91  127  174  156  152   91  112  137
-      Gene183   34   48   49   64   42   32   72   29   79   24   41   36   62   38
-      Gene184   56   49   95   82   51   36   72   21   56   47   26   69   73   50
-      Gene185   31   10   27   21   37   20   24   14   23   18   31   46   16   24
-      Gene186   16    8   19   14    7   20   10    7   35   24   23   17    9    8
-      Gene187   72   43   95   86   83   56  102   48   88   38   72  127   92   48
-      Gene188    2    6   13    6    9    2    1    3    2    9    3   11    5    2
-      Gene189   97   52  102  120  115   96  110   76  129  106  122  239  168   74
-      Gene190  980  648 1539 1489 1257  953 1315  822 1453  855 1347 1428 1343  827
-      Gene191   23    3   31   30   44   13   22   10   25   18   17   36   34   22
-      Gene192    5    1   10    5   15    7   17    .   10    9    1    5    4   10
-      Gene193    2   10    3   17   18   13   13   21   16   11   10   10    5   12
-      Gene194   13   10   17   13   21   10   29    6   16   27   18    9   13   22
-      Gene195   11   14   26   17   24   17   14    6   21   19    5   15   21   24
-      Gene196  154  138  224  227  155  115  190   76  190  261  283  241  279  200
-      Gene197   28   31   25   28   27   17   39   17   46   28   51   23   28   25
-      Gene198   74   61   88  106   77  113   99   48   80   99   76  122  102   89
-      Gene199   17   29   38   24   22   35   13   43   70   20   47   17   19   60
-      Gene200    7   10   37   29   24   18   25    4   15   13   12   23   24    4
-      Gene201    8    2   16    9   13   13    4    7   11    7    9    1   10   11
-      Gene202  784  747 1438  874  785  710  909  633 1381  958 1086 1197 1109  816
-      Gene203   15   16   31   25   12   18   15    5   21   24   14   33   16   17
-      Gene204    3    .    1    .    .    4    1    .    .    .    3    1    .    1
-      Gene205   18   30   86   36   67   73   31   73   86   82  169   68   42   50
-      Gene206   48   59   93  166  102   53   78   75   86  101   73   89  103   77
-      Gene207   16    8    9    7    2    6    1    7   10    2    9   17    6    5
-      Gene208    9    3    4    2    2    2   11    .    5   10   12    2    2    9
-      Gene209  191  155  321  235  298  138  268  222  231  189  206  234  287  181
-      Gene210   30   41   66   66   41   64   50   51   83   54   61   59   65   29
-      Gene211    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene212    7   10   29   20   18   11   11    8    3   16   10   13    9    7
-      Gene213    8    7    3   19   12   18   13   19    8    4    5   18   19    5
-      Gene214   43   21   46   69   53   17   37   15   34   15   53   55   64   25
-      Gene215    3    .    6    2   10    .    3    1    4    5    8    4    2    5
-      Gene216    7    4   20   55   43   26   49    4   14   29   11   67   30   12
-      Gene217   49   79   39   60   28   80   57   34  110  104   78   78   46   62
-      Gene218   43   35   71   92   69   36   69   56   73   69   79   84   51   33
-      Gene219    6    2    7    3    .    4    3    2    4    1    2    .   11    1
-      Gene220   70   54   68   64   99   52   84   66   70   67   58  105   78   69
-      Gene221   18   16   38   15   37   32   10   25   43   34   55   23   12   40
-      Gene222   36    5   35   24    9   28   18    6   28   30   29   35   24   14
-      Gene223  137   50  158  119  121   54  179   35   55   64  100  158  220   58
-      Gene224   26   22   29    8   34   40   10    9   21   15   14   63   22   11
-      Gene225    5   12    5   11    8    3    8    4   12    2    7   11    4    5
-      Gene226   13    5   37   33   28   16   27    6   13   15   11   39   19   13
-      Gene227   16   19   25   41   29   11   31   14   19   18   19   56   32   12
-      Gene228   56   22   62   53   40   43   42   27   36   43   49   63   38   52
-      Gene229   29   33   69   27  100   56   80   67   62   64   97   82   99   43
-      Gene230    2    3    3    .    .    1    1    1    7    5    2    1    9    1
-      Gene231    5    7    5    6    3   11    3    3    3    3   11    3    3    8
-      Gene232  126   66   69  137  147   54  125   44   70   87   69  156  139   54
-      Gene233   14    7   16   12    1   13    5    3   15    8   10   13   25    8
-      Gene234    2    3    2    3   10    2    2    3   18    3    .   12    6    6
-      Gene235   43   17   57   38   40   33   59   33   40   24   63   75   65   30
-      Gene236   33   12   33   39   13   14   20   10   25   16   20   47   22   14
-      Gene237   47   70   43   70   36   55   54   40  106   95   96   66   52   92
-      Gene238   90  114  159  109   88   80  137   62  111  112  105  204   94   99
-      Gene239   19   15   23   33   25   27   36   12   11   13   41   47   31   30
-      Gene240   10    3    8   19   20   19   13    9   14    6    9   11   14   17
-      Gene241   45   57   67   32   26   54   54   31   60   46   54   72   47   48
-      Gene242    .    1    5    1    5    1    2    .    1    2    1    1    2    1
-      Gene243  146  125  209  210  149  114  167  111  146  149  156  228  124  151
-      Gene244    3    5    3    3    6    2    2    4    7   13    9   12    1   14
-      Gene245   65  110   78   87  107   89   74   46   91  109   98  122  111   90
-      Gene246   19   13   15   20    6   14    9    8    9   12   17   23   17   19
-      Gene247   10   12   17   26   10   11   23    8   24   31   29   39   22   18
-      Gene248   19   13   19   22   20   15   20    9   17    7   21   35   13    5
-      Gene249    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene250    1    .    8    2    3    .    3    2    1    2    .    2    4    2
-      Gene251   38   14   32   34   32   34   25   31   25   28   33   50   99   42
-      Gene252   14   19   23   25   26   42   38   19   35   12   33   34   20   35
-      Gene253  173  327  158  166  183  334  160  169  437  364  438  220  119  449
-      Gene254   48   36   59   90   57   41   80   14   46   33   38   56   77   22
-      Gene255   64   58  101   71   64   64   47   42   74   77   84  104   88   83
-      Gene256  127   77   94  130   54   58  119   60   98  106   95  123  100   55
-      Gene257   46   16   91   65   61   12   80   16   18   22   21  111   65   22
-      Gene258   18   11   26   11    7    4    7    6   10   16   15    4    4    5
-      Gene259    .    .    .    .    1    .    .    .    .    .    1    1    1    1
-      Gene260   51   50   70   59   41   79   72   51   66   66   72   68   66   83
-      Gene261   14    9   40   23   42   30   25   23   31   31   34   36   13   24
-      Gene262    1    1   10    9   10    5   11    4   12    4    3    8   11    4
-      Gene263    7    7   19   25   14   13   42   10    3    7   10   16   13    2
-      Gene264   27   13   54   56   25    3   33    3   17   19   21   72   53   22
-      Gene265   16    8   14    9   17   13   13   32   31   26    6   28   26    5
-      Gene266    .    .    .    1    .    3    .    3    4    1    1    4    6    1
-      Gene267   46   76  116   77   82   47   61   45   75   64   57   86   74   40
-      Gene268    8    3   13    7    4    2    7    4   11    1   12    7    6    2
-      Gene269    5    3   11   16    9   10    5    2    7    9   12   12   12    7
-      Gene270  111  124  174  169  170  117  167  123  135  203  200  184  104  145
-      Gene271  811  774 1338  917 1197  717 1242  566 1275  787 1172 1351 1056 1070
-      Gene272  146   60  212  209  131   76  131   67   82  112   91  161  179   72
-      Gene273    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene274    .    1    1    .    2    .    .    .    1    4    .    .    .    .
-      Gene275    2    2    7    2    1    2    6    2    6    .    .    5    8   11
-      Gene276    4   10   12   23   14   17   20    6    7   14    9   20   13   12
-      Gene277   18   23   39   30   33   15   33   11   43   21   34   31   50   23
-      Gene278   54   15   52   87   57   25   60   17   22   23   26   88   51   18
-      Gene279   34   16   45   40   32   30   43   22   37   33   30   27   25   16
-      Gene280   42   19   45   74   38   30   50   14   33   43   39   29   52   28
-      Gene281   16   17   15   40   18   11   35    8   21    7   25   41   39   19
-      Gene282    5    2    2   12   10   10   12    9   11    9    5   10   21    8
-      Gene283  133  250  227  199  145  242  299  210  331  300  313  252  298  268
-      Gene284    5    5   10   16    4    8    5    6    7   16    6   10    3    9
-      Gene285  211  137  259  238  211  174  212  178  196  198  214  271  199  201
-      Gene286  105  118  102  108  141   83  127   99   74   81  134  127   67  104
-      Gene287   42   18   27   35   56   14   31   29   28   22   55   37   19   32
-      Gene288   12    8   19   14   12   17    2   12   16   11   12   14    5   13
-      Gene289   65   57  117  149  119   66   77   72  111   75  112  121   64   77
-      Gene290   52   27   53   48   26   51   27   56   29   46   71   70   71   39
-      Gene291    2    .    4   11   10    2    4    9    8    1    4   13    7   10
-      Gene292  970  640 1107 1258 1093  757  727  496 1462  989  995 1515  962  820
-      Gene293   23   13   23   39   19   11   21    5    6   19    9   23   13   13
-      Gene294 1086 1343 2113 1837 1436 1216 1676  866 1550 1773 1454 2316 1462 1586
-      Gene295   45   20   41   77   55   26   37   29   30   24   25   60   53   33
-      Gene296    .    5   10    4    3    .    4    2    6    .    7    7    3    5
-      Gene297   27   48   29   28   27   23   42   15   34   11   36   43   20   15
-      Gene298    2    2    .    .    .    .    .    .    .    1    7    .    .    3
-      Gene299   30   54   60   29   49   70   49   67  109   84   85   80   60   71
-      Gene300    2    7    4    5    8    5    9    1    7    8    4    9    6    5
-      Gene301 2805 2230 3091 3741 2725 2910 3206 2092 2685 2840 2988 3691 3228 2424
-      Gene302    .    2    1    .    .    1    4    1    1    .    .    2    2    1
-      Gene303   22    6   39   33   34   14   26   16   39   35   35   34   24    5
-      Gene304    .    2    1    2    .    1    1    .    3    .    2    1    7    .
-      Gene305   57   29   37   36   46   41   56   20   42   42   35   58   50   40
-      Gene306  138  155  150  197  126  110  152   40  149  135  134  168  151  123
-      Gene307   48   37   55   37   30   33   36   20   43   40   45   38   30   19
-      Gene308    7   10   11   12   19    4   12    6   10    3   16   23   15   14
-      Gene309  436  311  537  643  531  443  723  292  588  451  462  567  389  334
-      Gene310   26   59   31   31   32   35   35   42   50   54   39   47   29   38
-      Gene311    7    1   12    6   12    2    8    5    2   10   13   22    9    8
-      Gene312   15   11   14   23   15   16   25   20   33   32   27   33   26   13
-      Gene313   92   81  131  112   74   55  115   52  130  142  130  237  125  134
-      Gene314    1    .    3    6    1    .    4   10    2    9    .    5    4    1
-      Gene315    2    4    1    2    3    1    .    1    1    9    .    2    1    1
-      Gene316   15    4   21    8    8    6   11    5   14   15    6   16    6    5
-      Gene317    8    3    7    4    2   10    .    3    4    3   11    .    2    1
-      Gene318   16   15   21   30   42   31   13    5   32   16   45   24   13   20
-      Gene319   13   21   12   21   16   18    5   13   17   22   18   16   15   14
-      Gene320   10   21   30   50   17   39   71   28   55   20   46   43   61   38
-      Gene321   55   16   40   69   48   44   30   32   62   46   69   59   61   49
-      Gene322    8    .    5    7   16    2    1    .    2    1    2    3    3    .
-      Gene323   35   65   46   38   48  113  103   88  149  122  113   77   51  102
-      Gene324    .    .    .    2    .    5    .    .    .    .    .    1    .    .
-      Gene325  221   98  436  427  406  167  334   99  306  203  209  582  355  166
-      Gene326    4    5    2    5    5    3    2    3    .    9    1    2    5    .
-      Gene327  247  187  342  243  220  248  444  173  357  311  342  457  320  240
-      Gene328  116  140  157  219  115  218  196  128  245  160  204  239  120  149
-      Gene329   74   79   95  168  104  102   96   50  110   94  116  116  106   76
-      Gene330  268  267  234  254  231  300  236  197  457  386  401  293  272  274
-      Gene331   11   16    9   25   12   25   17    9   28    3   11   26    9    8
-      Gene332   11   19    8   20   25   31   33    4   32   11   30   37   28   17
-      Gene333   29   22   41   24   30   34   33   17   29   24   18   36   29   21
-      Gene334    .    .    .    .   10    2    .    .    4    .    .    4    6    2
-      Gene335    6   17   21   24   22   19   30    3   35   14   19    9   25   15
-      Gene336  118   81  150  227  132   66  111   66  139  114  156  134  125  102
-      Gene337   19    8   21   19   14   13   30   22   32   24   24   25   17   23
-      Gene338    5    4   21    9    1    6    8    .    1   21    4    6    6    2
-      Gene339   56   56   82  119   57   41  107   34   86   61   64   63   80   59
-      Gene340   27   75   47   60   43   69   41   47   68   94  117   71   34   60
-      Gene341    4    4    5   10    2    8    5    6   11    5   13    6   10   13
-      Gene342   38   59   44   46   56   35   44   46   70   66   80   63   58   69
-      Gene343    1    .    2    1    .    6    8    .    1    .    1    4    1    .
-      Gene344   18   11   14   23   21   22   34   19   45   13   17   21   26   33
-      Gene345   45   32   42   28   26   52   54   28   56   51   42   52   55   30
-      Gene346    1    .    4    .    .    .    1    1    .    2    1    .    .    2
-      Gene347   31   15   14   23   31   20   24   18   30   13   14   42   14    7
-      Gene348    5    3    6    8    1    2    6    4    3    3   10   26   12    6
-      Gene349   68   56   76  114   60   75   90  119  138  106  133   85  111   86
-      Gene350    4    1   11    5    4    4    4    2    3    7    6   16    8    1
-      Gene351   28   20   28   13   28   10   17   22   20   20   31   32   16   14
-      Gene352    5    2   14    3   12   10    6    6    1    8   10   13    7   10
-      Gene353    5    .    8    .    2    1    .    2    .    2    3   10    6    1
-      Gene354  135  196  238  223  216  170  214  152  227  209  200  268  262  147
-      Gene355   14   19   20   31   19   30   30   17   21   31   35   23   23   11
-      Gene356   90   67  105  126   74   43  112   29   57   42   82  123   89   76
-      Gene357   10    8   13   17   20   15   23   17   11   15   18   17   23   22
-      Gene358   11   24   18   16   12   27   34   18   38   33   58   25   13   43
-      Gene359    1    .    1    2    .    .   16    .    .    .    4    .    1    .
-      Gene360    2    5    6    4    6   20    5    1    8    5    6    8    5    8
-      Gene361    2    4    7    7    1    5    4    4    5    9    6    2   10    7
-      Gene362   15   17   19   18   32   15   19    4   22   20   16   23   20   29
-      Gene363   17   19   43   24   18   14   17   17   25   21    6   15   42   20
-      Gene364   20    3   34   42   18   11   37    6    2   14   25   43   40   12
-      Gene365   43   45   57   53   58   37   51   21   57   67   85   48   65   56
-      Gene366  299  108  509  348  300  145  512   67  102   96  202  367  586  107
-      Gene367   57   27   76  103   88   30   45   30   40   26   67   90   82   49
-      Gene368   10    .    4   10    2    3    7    6   12    .    5    1   10    4
-      Gene369    5    3   14    6    9    4    3    .    4    1    .    5    5    .
-      Gene370  109  188  186  203  186  224  149  195  356  279  307  231  177  282
-      Gene371    5    5   18    5   23   15   27    6    6    2   16    8    7    1
-      Gene372  127  159   89  145  134  137  137   81  165  145  161  176  189  113
-      Gene373   15   19   19   31   20    5   40   13   22   13   43   45    7   44
-      Gene374   51  132   60   72   50  130   72   95  119  110  165   94   72   86
-      Gene375   13   21   31   25   34   28   28   17   37   23   33   27   25   36
-      Gene376   24   17   21   22   22   20   13   10   30   11   14   25   21   20
-      Gene377   47   53   63   56   51   40   79   49   46   41   94  127   64   35
-      Gene378   32   33   46   48   67   27   43    8   40   44   39   73   44   23
-      Gene379 1145  790 1739 1681 1241  781 1744  627 1089  945 1606 1794 1350  962
-      Gene380   14    2    .    5    2    2    .    6    2    3   11    2    1    2
-      Gene381   23    4   13   11   11   10   22    5    7   16    9   18   14   19
-      Gene382    4    3    1    1    1    .    1    .    .    3    .    6    .    1
-      Gene383    1    .    3    .    2    .    .    .    .    1    1    4    .    2
-      Gene384   23   13   29   56   47   13   39   18   21   32   17   19   32   18
-      Gene385   46   26   54   37   56   36   29   20   58   39   50   80   54   47
-      Gene386   25   11   25   40   20   34   39   20   39   23   46   44   31   30
-      Gene387   77   89  121  127  118  120  101   98  117  131  142  162  159  137
-      Gene388    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene389    6    2    5    9    6    1   10    8    8    .    9    7    7    7
-      Gene390  197   92  216  208  204  127  169   78  108   76  100  244  240   84
-      Gene391    7   10    4   17    5   13    8    5   12   14   22    5   10    8
-      Gene392    5    4    6    3    5    5    4    3    5    3    9   15    6    1
-      Gene393   66   44   42   47   57  100   57   57  100   90   98  115   49  125
-      Gene394   15   15   24   25   27   10   18   10   41   19   14   33   13    8
-      Gene395    8    4   11   10    2   14   14   10   21   28   15   17    6    6
-      Gene396    8    7   12    4   11   12   10    4   24    9    1    8    1    8
-      Gene397   12    8   17   34   12   14   27    8   29   21   17   24   25   10
-      Gene398   64   21   86   42   59   29   40   17   33   29   45   62   40   41
-      Gene399   29   41   70   76   30   43   85   37   41   53   46  116   46   32
-      Gene400   30    8   45   46   34   25   53   10   35   17   28   37   44   18
-      Gene401    7   13    2   10    5    2    6    4   12    8    7    2    2    7
-      Gene402   49   72   37  138   69   45   54   42   68   52   44   71   55   51
-      Gene403   15    3    4    6    3   10   15    7    5    8   18   18   21    5
-      Gene404   69   39   87   83   82   52   51   52   83  100   95  120   82   79
-      Gene405   15    6   10   11   13    8   22    4   16   24   17   29   16    5
-      Gene406   40   12   22   19   33   27    6   40   55   51   44   41   23   31
-      Gene407    1    1    .    3    .    .    .    1    .    .    1    .    .    .
-      Gene408   21    5   24   16    9   23   19   15   43   19   22   21   19   13
-      Gene409   12   16   13   14   12   13    8    5   15    5   10   13   12   19
-      Gene410  109  113  161  207  120  113  114  104  185  126  141  183  175  118
-      Gene411    3   14   22    6   15   12   10    2   22   27   23   11    7    5
-      Gene412   68   36   92   82   59   38  114   35   35   49   44   79   88   40
-      Gene413    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene414   97   60  195  112   61   57  138   30  104   26   66  208  197   46
-      Gene415   16   11   29   25   16   26   19    3   27   11   20   27   36   22
-      Gene416   42   32   84   54   42   32   55   55   75   56   43   32   50   28
-      Gene417    6    7   14   42   14   18   34    5   10   24   14   11    9    7
-      Gene418   45   46   66   77   73   40   48   28   95   55   55   95   61   51
-      Gene419    .    .    7    1    5    4    .    .    .    .    .    3    4    1
-      Gene420   30   17   20   32   17   12   26   32   20   27   40   38   14   15
-      Gene421   80   84  129  146  186  103  125   98  149  142  135  234  107   78
-      Gene422   18   17   20   17   13   28   30    5   18    9   17   26   17   20
-      Gene423    .    .    9    .    2    .    5    1    1    2    .    1    1    1
-      Gene424    9    7   13   20    5    4    9    4    9   14   28   33   17   19
-      Gene425   53   26   56   65   34   30   52   41   54   47   41   70   41   54
-      Gene426    5    4   13    7    .    7    2    9    2   13   12   14    8   13
-      Gene427    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene428    9   15   11    8    .    5   17    4    5    8    5    2    5    3
-      Gene429    2    5    4    8    4    2   10    2    2    3    1    4    8    4
-      Gene430   42   30   68   82   51   36   60   40   72   36   52   78   50   37
-      Gene431    .    .    1    7    5    2    3    .    2    3    5    .    2    8
-      Gene432   33   19   37   17   21   23   24   28   26   37   17   23   37   14
-      Gene433  719  556 1044  681  596  543  989  412  849  518  775 1138  927  616
-      Gene434    4    1   10    4    2    1    2    2    7    4    3    8    4    3
-      Gene435    3    1    6    4    2    4    3    4    1    4    4    5    4   15
-      Gene436   69   33   83   98   50   28   77   31   31   17   33  129  124   23
-      Gene437   18   23   37   23   25   30   33   25   46   90   81   57   38  105
-      Gene438   30   57   33   16   16   30   38   38   57   38   53   28   25   33
-      Gene439   46   39   54   55   44   38   62   31   42   70   30   69   56   38
-      Gene440   10   14   44   40   20   26   37   11   38   25   15   24   22   19
-      Gene441   83  172  119   66   90  151  160   75  217  124  142  173  111  128
-      Gene442  184  114  232  181  201  231  170  128  171  187  228  336  190  124
-      Gene443    3    3    .    1    .    .    3    1    1    .    .    3    .    .
-      Gene444   44   61   72   77   88   28   52   36   62   71   88   89   58   51
-      Gene445   22   21   41   52   23   26   54   14   38   17   40   85   32   22
-      Gene446   11    8   13   12   11   20   21   24    2    2   24   33   24    5
-      Gene447    6    1    9    8    4    2    7    .   17    3    6    4    4    7
-      Gene448   21   57   20   21   22   53   22   16   25   34   38   20   20   19
-      Gene449 1683 1617 2317 2331 1845 1891 2379 1129 2110 2222 2400 2805 2000 1834
-      Gene450    1    7    6   10    3    .   15    4    4    5    7    5   13    5
-      Gene451   33   23   33   35   29   31   34   27   54   28   53   64   42   38
-      Gene452  796  754 1030 1148 1168  745  811  585  851  884 1090 1554 1031  740
-      Gene453   53   24   59   61   61   31   37   16   49   47   35   39   44   30
-      Gene454    7    7   24   10   22   10    8    6   12   24   10   30   22    4
-      Gene455   19   21   20    7   17   13   17   20   27    9   25   24   17   10
-      Gene456   10    9   15   17   22   17    9    6   14   24   16   17   19   17
-      Gene457 3827 2729 4609 3758 3424 2998 3623 2171 3755 2773 3967 4898 3335 2460
-      Gene458   35   42   84   46   69   30   67   44   75   55   79   68   48   68
-      Gene459 1036 1118 1884 1636 1452  887 1560  814 1387 1301 1536 1691 1373  861
-      Gene460   16   19   19   17    7   17   31   11   17   34   38   21   25   14
-      Gene461   29   18   30   31   24   22   37   30   19   23   42   55   16   13
-      Gene462    6    6    4   13    4    7    9   11   10    9   17   18   14    9
-      Gene463   61   35   75   45   27   50  107   28   89   47   79   47   67   59
-      Gene464   85   57   86   87  136   75   49   47   59   83   81  105   86   72
-      Gene465   17    9   22   37    9   20   18   25   27   10   19   21   18   29
-      Gene466   46   30   73   36   65   26   54   32   56   46   46   35   54   48
-      Gene467   16   19   37   33   38   26   40   16   30   15   37   35   21   50
-      Gene468    4    8    4    2    1    1    5    2    6    2    6   11   10    3
-      Gene469    .    .    2    .    1    3    .    .    .    1    1    2    2    .
-      Gene470    5    2    .    1    .    5    .    3    6    4   12    6    2    .
-      Gene471    8   12   38   15   24   21   28   18   35   21   19   25   19   33
-      Gene472   64   73   85  132  120  119   95   96  167  115  133  181   88  113
-      Gene473   58   37   78   36   59   40   95   54   81   50   66   89   82   74
-      Gene474   40   23   39   30   31   29   40   11   53   19   27   42   45   19
-      Gene475   39   24   68  105   56   15   51   14   53   32   66   64   63   49
-      Gene476  213  154  417  267  229  225  236  131  297  387  360  355  280  220
-      Gene477   12   20   23    9   20   20    4   17   38   19   40   13   19   52
-      Gene478   14   14   16   20   13    7   25    8   26    9   23   20    9   13
-      Gene479    8    2    2    .    1    3    3    3    1   12    .   10    1    3
-      Gene480    7    7    6   14    6    9   15   14   21   17   22   27   10   15
-      Gene481    2    4    5    2    4    2    8    .    2    1    .    1    .    3
-      Gene482   35   47  103   62   77   31   94   23   84   64   80  129   61   26
-      Gene483    .    .    .    .    .    .    1    .    .    .    1    1    .    .
-      Gene484    2    1    2   10    .    1    3    .    2    .    3    9    .    7
-      Gene485   14    4    5   11    5    8    8    3    5    1    6   12   19    5
-      Gene486   72   48   73   66   72   56   81   57   44   78   58   87   85   55
-      Gene487   48  144   45   44   45  169   57  102  250  133  162   66   53  124
-      Gene488   21   15   40   21   18   10   38   24   18   13   10   38   30   17
-      Gene489  342  411  526  545  349  472  480  315  533  408  714  693  568  480
-      Gene490   77  212  139  178  108  287   79  153  309  220  356   99   90  290
-      Gene491    3    2    3   18   17    9   13   17    4   11   11   10   14    7
-      Gene492   79   37   78  108   86   56  125   39   71   41   79  115  120   48
-      Gene493    9    9    6   21   22   13   21    6    8    9   30   25   20    7
-      Gene494   25   23   21   46   30   27   41   22   10   28   29   40   22   38
-      Gene495 1051  950 1455 1724 1478  945 1447  580 1103  934 1041 1802 1805  870
-      Gene496   63  168   78  119   75  304  116  173  371  251  409  109  122  329
-      Gene497   37   22   52   62   33   21   59   49   78   67   56   81   65   39
-      Gene498   27   12   72   65   38    9   44    3   11    7   12   43   41   13
-      Gene499    4    6    3    1    6    5    7    6   10    6   21   13    9    3
-      Gene500    .    .    1    1    .    1    1    6    1    1    5    .    1    .
+      Gene1      .    1    1    .    .    .    .    .    .    .    .    .    .    .
+      Gene2     14   17    5    7    4    7    8    8    3    3    5    6   12    3
+      Gene3      3   15    2   17    7    .    .    6    4    1    5    4    .    .
+      Gene4     38   32   17   18   33   19   15   42   14   22   28   15   20   21
+      Gene5     26   30   31   20    7   44   14   27   14   27   15   16   45   20
+      Gene6      1    9    1    1    1    1   12    5    .    3    5    9    .    2
+      Gene7     48    6   11   35   26   38   18   14   27   21   28   31   47   17
+      Gene8    227  208  166  156  118  169  182  160  145  139  184  215  205  169
+      Gene9    117   85   50   84   78   56   64   91   74   66  110  112   81   79
+      Gene10     3   13    9    2    1    7    8   13    3    9    1    5    1    2
+      Gene11    31    9   14   19    9   11   14   27   18   14   13   15    7   10
+      Gene12    19   23   25   10    7   12   19   37   12    9   21   19   15   11
+      Gene13     6   15    6    6    8    1    2   15    4    .    6   16    5    8
+      Gene14    49   37   12   13   16   20   27   29   31   23   36   25   21   17
+      Gene15     5    .    .    1    .    .    1    .    .    .    .    2    3    1
+      Gene16   150  121  141   51  121  100  124  215   80  151  101   79   81   91
+      Gene17   647  323  344  252  270  258  329  246  361  296  288  445  432  368
+      Gene18  2283 1042 1546 2237 1891 1410 1665  912 1963 1606 2402 2460 2024 1299
+      Gene19     5    4    7    6    .    8   12    5    5    8    7    3   11    3
+      Gene20   231  305  195  309  209  127  166  249  267  160  300  413  347   89
+      Gene21    71   55   43   19   54   39   31   40   25   28   57   50   48   30
+      Gene22  2551 1650 2010 1013  992 1734 2017 1215 1222 1646 1097 1286 1659 1754
+      Gene23     7    5    2    5   13    5    1    6    5    4    1    4    8    4
+      Gene24   115   52   59  114  120   26   40   44  116   32  126   77  114   67
+      Gene25  2366 1999 1905 1367 1585 1412 1170 1696 1678 1311 1594 2169 1710 1073
+      Gene26    60   54   20   50   29   54   35   38   30   22   26   34   45   16
+      Gene27   204  175  122  128  121  100  119  177  157  131  147  193  187   92
+      Gene28    21   46   11    9   17   13   12   22   11   15    5   19   23    8
+      Gene29    82   94  107   61   43   37   66   44   71   57   40   22   29   49
+      Gene30    14   11    2   16   10    3   15    9   10    7   16   34    9    2
+      Gene31     1    4    5    5    1    3    8    7    3    7    5   15    8    1
+      Gene32     5    1    .    1    1    3    2    1    4    1    .    2    2    1
+      Gene33   111  136   70   46   56   74   59  135   87   72   99   92  114   78
+      Gene34    13   40   24   39   15   15   20   11   17   35   30   33   56   17
+      Gene35   171  137   99   92   89   82   61   89   55  107  111   79   74   78
+      Gene36    72  334   76  153  116   47   65  280  157   53  173  153  213   39
+      Gene37   120   89   96   60   49   43   82   74   89   47   70   89   81   49
+      Gene38    48   77   24   17   40   47   43   42   16   30   40   48   29   24
+      Gene39    22   18   19    9   13    7    5    8    5   14   17   10    5    9
+      Gene40    15   12    8    1   13    7    7   13    5    8   15   26    8    9
+      Gene41    23   53   10    8   29   13   19   35   15    9   35   23   36   17
+      Gene42    60   57   37   29   30   32   27   19   43   60   44   17   47   32
+      Gene43    36   40   25   13   13   15   13   28    6   20   18   23   31   25
+      Gene44     3    .    2    6    4    3    .    1    3    8    1    9    8    3
+      Gene45    59  103   32   37   23   32   38   57   36   36   30   77   64   17
+      Gene46    41   33   26   25   24   23   30   16   25   38   39   27   62   14
+      Gene47    54  139   51   71   98   53   26  107   78   57  119  149  117   31
+      Gene48     2    8    .    5    2    1    1    1    7    3    3    8    4    .
+      Gene49   700  635  399  506  301  462  351  411  416  452  479  512  491  395
+      Gene50     3    3    3    1    2    4    7    3    5    3    3    2    5    1
+      Gene51    80   35   27   37   47   19   28   51   36   33   43   66   95   20
+      Gene52    96   43   46   68   58   43   39   30   67   66   54   80   62   63
+      Gene53    38   19   15   22   17   10   13    8   24    9   25   15   19   10
+      Gene54    68   56   55   51   37   42   34   57   73   73   57   35   70   62
+      Gene55     5    3    3    1    .    1    .   10    1    .    9    4    2    3
+      Gene56   170  216   87  124   95  100  116  140  165   87   85  146  158  105
+      Gene57   148  102   96  147  138   91  101  143  264   83  250  292  247  104
+      Gene58     .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene59     9    2    3    9    2    2    2    .    4    .    7    1    5    3
+      Gene60    37   29   34   27    7   37   15   12   16   16   14   29   16   21
+      Gene61    56   68   19   20   38   40   34   42   34   48   39   57   38   24
+      Gene62    41   31    9   19   10   31   16   38   23   23   14   24   33   10
+      Gene63   121  120  114   42   74   67   58   64   68   62   85  126   89   71
+      Gene64   209  205  159  155  126  168  123  124  149  117  178  205  136   96
+      Gene65   105  123   82   40   82   76   98  108   37  110   80   76   82   82
+      Gene66    53   49   63   43   46   40   64   36   63   38   62   62   84   27
+      Gene67     4    .    1    3    4    .    .    .    7    .    1    2    2    1
+      Gene68     7    2    1    5    4    6    2    4    5    2    4    6    6    4
+      Gene69    60   53   44   38   49   26   69   40   36   48   44   40   52   32
+      Gene70    68   38   44   23   23   61   33   47   26   91   35   58   45   39
+      Gene71    32    9    4    2    4   16   16   10    1   20    4    7    3   15
+      Gene72   273  393  231  228  140  230  209  355  216  239  202  298  307  174
+      Gene73    72   72   37   52   58   45   28   72   77   30   84   81  126   38
+      Gene74     .    .    .    1    .    .    .    .    .    .    .    .    1    .
+      Gene75     5    3    6    4    4    1    4    4    1    3   10    9    1   12
+      Gene76    14   10   10    2    8    3   10    3    3    6    9    4   10    4
+      Gene77   391  507  222  166  166  269  190  249  251  192  269  319  270  191
+      Gene78    54   77   26   83   71   25   17   49   58   31   55  103   75   16
+      Gene79   119  150  114  159  138  112  101  145  214   90  167  229  136  131
+      Gene80   399  280  288  301  149  262  235  207  243  179  268  357  285  272
+      Gene81   139  107  109   74   65   67   77   95   79   68   78   88   73   65
+      Gene82    30   53   42   53   34   26   36   17   30   31   30   25   41   15
+      Gene83    15   16   12   15    6    7   15   13    6    9    9   22   13   13
+      Gene84   327  183  171  135  116  150  133  114   88  171  100  127  174  121
+      Gene85    89   76   87   64   42   47   57   25   59   35  110   97   72   43
+      Gene86   154  153  118  154   87   63   59   86  100   88   80   82  102  113
+      Gene87     7    8    3    7   12    8   11    4    8    6    9    6    1   11
+      Gene88    14   18    5    9   18    4   18    8    7    2   10   15    3    7
+      Gene89    44   27   41   42   35   55   44   18   77   63   37   79   30   58
+      Gene90    42   45   44   44   10   23   13   32   19   11   24   29   21   26
+      Gene91   135  120   81   62   73   54   91  114  119   83   99  181  108   79
+      Gene92     2   14    2    4    8    .    3    .   15    5    2    1    1    .
+      Gene93   189  116  103  113   70   60  114   97  124  123   98   76  127   74
+      Gene94    18   25   19   20   16    7    6   22   27   13   19   28   13    4
+      Gene95    91  127   35   47   64   36   52   73  103   53   57   89   68   47
+      Gene96    55   78   61   65   92   47   46   55   59   69   80   93   83   37
+      Gene97    17   61   18   22   21   11   17   43    8   24   20   22   23   25
+      Gene98    22   33   21   11    7   15   13   23    9   11   13   12   10   15
+      Gene99    85  125  111  165  127   48   79  111  217   71  175  224  145   68
+      Gene100  146  102   76  136   54   56   93   76   72   37   96  115   68   48
+      Gene101    3    .    3    .    .    .    4    .    .    .    4    .    1    .
+      Gene102   12   15    3    5    8    8    7   11    6    6   16   18   11    5
+      Gene103    5    4    4    2    2    1    1   21    1    1    8    3    9    3
+      Gene104   34   39   17   20   49   24   24   35   38   13   46   52   61    9
+      Gene105   14   19   15   10    8    9   25   19   11   10   16    7    5   21
+      Gene106   70   44   20    9   22   33   23   21   26   53   37   43   36   29
+      Gene107   15   19    4    6    6    1    3    7   14    1    6    9    6    2
+      Gene108    .    .    2    .    .    .    .    1    2    .    2    .    .    1
+      Gene109   15   17   12   17   11    8   28   18   15    6    9   29   15   19
+      Gene110    8   24   11    6   29    1    7    6   15    .   23   18   14    2
+      Gene111 1484 1257  790  990  742  780  910  979 1190  857 1076 1639 1054  885
+      Gene112   57   54   36   30   13   30   39   54   43   38   26   29   47   56
+      Gene113  355   83  168  149  174  180  185  119  164  198  118  277  243  143
+      Gene114   23   17   26   33   22    4   14   29    9   11   19   24   28   12
+      Gene115    4    1    .    2    5    5    2    4    .    1    .    .    .    .
+      Gene116   22   22   12   14   23   17   12   22   18   20   19   23   23   14
+      Gene117  147   91   79   45   43   73   88   61   47   70   50   92   82   55
+      Gene118   23   43   32   18   21   32   19   21   52   16   20   37   36   13
+      Gene119   74   60   41   38   50   23   30   56   33   44   39   56   45   32
+      Gene120   58   37   33   51   54   38   46   40   29   33   54   66   49   26
+      Gene121   80   99   45   66   86   32   28   65   80   32   88   86   56   31
+      Gene122  137  217   53   73   74   49   54  198  109   67  129  134  133   62
+      Gene123    .    .    .    .    1    .    .    4    1    .    .    1    .    .
+      Gene124   59   50   47   31   39   34   35   52   33   39   32   32   39   27
+      Gene125   10   15    4    3    9   11    7    6    1    2   12    9    6    8
+      Gene126  441  422  263  248  214  198  243  263  286  224  188  264  302  187
+      Gene127    2    4    6    4    9    5    2    7    4    4    1    6    4    1
+      Gene128    4    7    1    7    3    9    1   12    5    .    6    6    8    4
+      Gene129   98   89   51   30   34   72   40   72   54   46   38   37   36   32
+      Gene130  164  100  114   97  107   61   48   85  127  129   85  147  156  117
+      Gene131   35   36    9    7    5   25   51    9   12   28   11   17    5   15
+      Gene132   18    6    3   10    5    1    1   15    4    7    5    6    5    1
+      Gene133   15   15   11    8   10   11    6   12    7    5   21    6    5   14
+      Gene134  399  310  198  326  340  243  267  295  387  264  354  330  344  240
+      Gene135   57  182   37   46   29   34   54  134   38   33   52   51   50   53
+      Gene136   32   85   18   21   32   13   13  131   29   14   44   48   58   30
+      Gene137  124   94  101   69   63   55   74   70   93   64   84   72  129   99
+      Gene138   38   11   21   23   21   20   14   15   13   27   16   25   19   14
+      Gene139   76   68   42   38   35   57   60   55   68   40   52   71   51   44
+      Gene140    .    .    1    .    1    .    .    .    1    .    .    1    .    .
+      Gene141   14   14    5    1    7    6    4    9    2   14    8    2    2   10
+      Gene142   24   75   14   17   20   32   19   33   20   25   16   19   23   18
+      Gene143    5    2    1    3    2    5    3    2    4    .    3    3    4    1
+      Gene144   12    4    6   14    7    7    3   11    5    9   10    7   17    5
+      Gene145   39   29   20   25   21   22   34   38   12   29   26   28   22   27
+      Gene146  153  119   74   60   60   59   83   64   88   49   72  103   92   47
+      Gene147  104   51   61   52   41   56   37   61   29   62   35   73   66   43
+      Gene148    1    1   11    .    3    6    6    9    1    2    3    6    5    3
+      Gene149    8    6   14    3   21    3    3    1    9    4    1    9    5    4
+      Gene150   33   26    1   24    9   22   19   21   10   11   26   23   20   30
+      Gene151    7    7    4    9    2    3   17    4    5    6    9    5    5    4
+      Gene152   17   43    3   34   24   12   14   43   45    8   38   54   22   11
+      Gene153   29   91   22   64   41   20   38   36   31   26   23   47   24    9
+      Gene154   82   79   62   45   80   45   35   49  124   56  112  132   82   41
+      Gene155  153  146  128   89   78   89  112   64  114   71  133  127  129   93
+      Gene156    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene157 3368 2567 1359 1673 1674 1621 1670 1822 1353 1493 2092 2824 2195 1444
+      Gene158  105  102   68   68   81   64   63   56   48   58   93   52   36   53
+      Gene159    8    6    1    .    2    1    3    5    2    5    3    3    2    5
+      Gene160    4    5    2    2    1    .    .    3    .    .    .    .    3    .
+      Gene161  110  152  154  220  191   88   97  209  183   83  218  263  246   92
+      Gene162   13   48    7   11   15    4   14   38   11    4   23   22   19    9
+      Gene163    .    4    6    8    7    4    4    5    3    1    7   16   17    1
+      Gene164  221  461  161  296  187   92  107  295  247  166  207  360  233  151
+      Gene165  112   64   44   32   47   56   40   75   38   26   39   48   59   36
+      Gene166   33   30    5   31   27   13   14   26   15    6   20   40   25    5
+      Gene167  155  168  121   26   28   75   58  121   32   95   50   48   39   61
+      Gene168  137  134   53   43   50   60   75   43   45   62   67   50   97   65
+      Gene169    3    3    4    2    2    9    3    3    .    .    .    5    .    5
+      Gene170    4    3    .    2    6    5    3    4    1    .    2    2   11    .
+      Gene171    9    6    6   17    2    6   15   28   12   17    9    7   38   11
+      Gene172   42    8   10    9   17   16   12   16   32   26   17   17   12    6
+      Gene173   14   13   29    9   10    9   17    8   27    6   20    9   16    7
+      Gene174 1217  700  844 1035  929  737  696  567  578  741  695  939  800  660
+      Gene175   87  210   71  106   78   71   88  168  134   80  133  169  115   66
+      Gene176 2636 3087 2330 1665 1781 1499 1437 2145 2597 2004 2359 3078 1981 1664
+      Gene177    5    8   12    3   14    1    2    5    8    4    3    3    4    7
+      Gene178   15    4   11   13    5    5    6    4    2    2    8   11   11   11
+      Gene179   14   10    6    6    3    2    3    7    7   11    7    5    5    2
+      Gene180    3    3    .    2    .    1    3    .    1    5    2    2   10    3
+      Gene181   17   13   16   15    4   15    6   18   24   10   24   21   20   19
+      Gene182   55  134   26   33   47   32   24   70   35   21   34   46   30   29
+      Gene183   19   24    6   20    9    8    8   12   13   16   17   17   10    7
+      Gene184    7   18    9    7   14   10    8   31   18    9   19   25   10    4
+      Gene185   65   71   55  115  121   49  105   83   83   62  119  168  190   40
+      Gene186 1501 1744 1671 1808 1841 1436 1360 1613 2847 1260 2808 3050 2957 1264
+      Gene187    5   10    4    8    6    2    7   10    3    5   11    7   11    1
+      Gene188    6    8    6    5    .    7    .   11    1    6    1    5    4   22
+      Gene189  143  114   75   58   84   57   75   90   65  107  117  108  107   64
+      Gene190    5    8    2    .    2    3    8   13    2    2    4    4    3    4
+      Gene191  176  191   69  137   77   80   67   87  103  105  116  134  105   62
+      Gene192    4    5    1    .    2    .    .    4    7    3    3    6    8    4
+      Gene193    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene194   91   52   69   40   48   32   52   65   51   40   32   33   33   57
+      Gene195  128  198  111  151   94  116  168   97  133   85  100  136  146  129
+      Gene196   43   24   12   13   20   21   22   16   18   29   17   16   18   17
+      Gene197    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene198   98   69   54   37   56   55   43   51   44   72   74   79   79   58
+      Gene199   53   62   53   73   42   50   49   38   40   46   49   54   38   24
+      Gene200 1523 1485 1090 1260  998  959  898 1083  894 1041 1381 1635 1322 1026
+      Gene201   56   37   52   20   11   25   26   23   24   34   18   54   16   25
+      Gene202   77   77   63   56   55   37   65   29   41   29   21   75   57   28
+      Gene203    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene204   12    6    6    6    2    .    8    8    6    9    5    2    6    .
+      Gene205  198   95  102   60   94  104  108   93   82   64   87   84   68   76
+      Gene206    6   11    5    8    9    7   12    4    6    4    1    8   14    5
+      Gene207    .    .    .    .    .    1    .    2    3    1    .    .    .    .
+      Gene208   14   22   21   26    4   10   31   15   11   15    7   24   15   16
+      Gene209    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene210   18   22   20    9   22   16   19   20   12   15   39   14   25   14
+      Gene211  304   79  168   52   54  173  170   58   18  184   73   72   43  131
+      Gene212   24   24   16   12   13    5   10   25   22    6   16   30   15   11
+      Gene213   10    8    2    1    4    6    8    .    6    1    2    2    8    3
+      Gene214   85   69   63   46   44  100   48   80   62   57   35   62   81   57
+      Gene215    .    5    2    1    3    6    3    5    2    2    1    1    .    1
+      Gene216 1897 1230 1149  861  708  954 1390 1016  876 1244  997 1147  919  987
+      Gene217    5    4    9    4    2    4    7    3    5    3    4    6    5    6
+      Gene218  108   85   96  137  118   82   68   82  126  113  164  166  156  104
+      Gene219    .    .    1    .    6    .    .    .    .    .    .    .    .    .
+      Gene220   52   46   51   51   31   53   42   46   55   37   51   72   64   47
+      Gene221    5    1    2    3    .    .    1    2    3    2    5    8    6    .
+      Gene222   29   16   12   25   33   14   26   27   27   19   20   36   21   12
+      Gene223   25   11   25   11   10   13   13   10   11   25   13    7    5    5
+      Gene224  126  104  115  155   92   98   83  127  106   68  139  109  118   53
+      Gene225    .    1    .    .    .    .    1    .    2    .    .    .    .    .
+      Gene226   21   24   14   29   31    7   12   27   12   10   18   16   11   10
+      Gene227    6    9    7    .    1    6    5    3    3    7    8    1    5    1
+      Gene228   37   30   25   13   15   33   21   37   20   23   19   22   53   35
+      Gene229   10   17    4    2    3    2    .    5    5    5   10   15    7    2
+      Gene230   96  111   77   55   79   59   67   79   39   63   89  117   69   93
+      Gene231   16   17    8   13   12    7   11    7   15    9   19   22   31    6
+      Gene232  150  142   68  109  130   80   66   67   94   90  121  149   97  112
+      Gene233  276  443  121  135  147  114  126  240  208   93  204  123  141  171
+      Gene234    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene235   19   13    7    5    1   20    1    9    2    1   14   11   16    7
+      Gene236   50   33   35   23   18   11   28   19   16   16   11   34   38   18
+      Gene237  114  149   75   78   90   65   47   65   38   56   81  105  107   81
+      Gene238    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene239  112   96  105  109   69   88   55   48   95   69   75  135   65   33
+      Gene240   11    9    2    5    4   14    4    6   12   11    6   26    9    5
+      Gene241   94   42   86   67   89   52   46   82   65   50   98   99   60   49
+      Gene242   93   79   42   31   34   33   51   81   75   79  100   96   49   35
+      Gene243   21   14   19   10    6    7   14   11   16   12   14   10   26    8
+      Gene244    3    3    1    3    .    2    2    4    2    3    .    .    .    5
+      Gene245    7    .    5    3    4    .    3   14    1   10    2    2    3    .
+      Gene246  424  338  219  260  256  197  230  221  271  275  274  290  442  308
+      Gene247   47   29   27   44   31   39   26   20   40   20   54   82   45   19
+      Gene248    8    3    2    .    .    5    4    6    .    .    2    3    3    3
+      Gene249    5    4    9    2    2    1    .    2    5    1    2    3    3    5
+      Gene250    8    4    3    5    1    5    1    4    1    5    3    6    3    .
+      Gene251    2    2    5    .    4    2    2    3    2    4    .    .    4    2
+      Gene252   37   80   20   22   31   12   22   32   21   16   35   55   50   15
+      Gene253   41   38   35   38   37   29   16   65   31   44   49   37   36   36
+      Gene254   13   24   21   24   34   23   28   19   14   36   13   35   42   10
+      Gene255    1    1    3    1    1    2    5    .    2    .    1    3    1    .
+      Gene256   36   25   12   15   16    6   11   17   31   30   26   13   18   20
+      Gene257    8    3    4   14    7    6    2    .   13   10    7    6    6    1
+      Gene258 1560 1329  893  966  890 1099 1062  896  868  857 1245 1076 1154 1061
+      Gene259   79   51   60   19   57   29   13   50   53   13   26   23   45   47
+      Gene260   43   32   24   28   24   20   25   14   20   32   24   52   39   18
+      Gene261   90   31   44   67   35   54   18   21   62   41   53   65   41   41
+      Gene262   11   10    4   13    3   19   11    5   17    3    4   16   12    4
+      Gene263    1    2    5    .    1    1    .    1    .    2    2    2    .    .
+      Gene264    7    .    4    .    .    2    .    5    3    .    1    .    2    1
+      Gene265   29   66   26   33   19   15   23   44   36   22   37   34   28    9
+      Gene266 3036 2431 1625 2028 1882 1636 1683 2249 1972 1717 1720 2520 1407 1346
+      Gene267    1    .    .    .    2    3    1    .    2    6    .    .    .    7
+      Gene268  100  169   67   63   44   73   56  142   73   60   78  118   67   73
+      Gene269    3    1    .    1    .    .    1    .    .    .    .    2    2    .
+      Gene270  229  665  218  195  213  114  187  445  177  190  201  267  194  122
+      Gene271   67   67   38   23   53   31   47   57   43   54   31   39   42   64
+      Gene272   18   28   13   19   12    9    8   26   11   13   14   27   19    1
+      Gene273   40   19   20   28   19   17   16   15   31   31   37   23   31   20
+      Gene274   38   73   36   19   24   12   23   43   49   21   40   49   33   28
+      Gene275   76   75   46   35   72   40   58   53   72   52   70   76   40   26
+      Gene276   19   14    6   11   12   19   21   30   23   17   28   24   26   10
+      Gene277   60   57   41   59   20   21   53   56   32   23   37   24   38   17
+      Gene278   73   66   58   35   53   21   31   67   36   31   43   56   58   39
+      Gene279   21   10   13   14   10   15   11   18   23   24   20   18   16    7
+      Gene280   29   17   21   28   28   15   19   13   36   11   52   41   42   13
+      Gene281   80   48   42   19   14   31   25   21   22   16   19   47   20   41
+      Gene282   69   62   66   24   39   40   30   65   25   50   49   43   59   61
+      Gene283  113  103   62   53   45   67   78   69   43   55   64   69   31   85
+      Gene284   67   24   56   56   47   34   43   13   20   51   44   76   61   49
+      Gene285  142   74  127  191  186  112  127   58  164   76  270  293  262   86
+      Gene286  114  144   74   66   46   90   94  149   47  104   52   77   98   53
+      Gene287    .    1    .    .    .    1    .    .    .    .    .    .    .    .
+      Gene288   27   76   56   32   18   22    9   51    8   21   24   29   29   16
+      Gene289  100   37   57  148  124   62   62   48  138   67  234  153  262   34
+      Gene290    1    2    1    4    1    3    1    1    6    2    4    2    7    6
+      Gene291   20   39   11   12   14   20   19   11   24   30   10   16   13   19
+      Gene292   56   47   42   17   18   30   13   32   18   36   30   22   22   17
+      Gene293   87   59   52   22   23   75   31   26   35   62   28   38   46   33
+      Gene294    6   11   10    4    8    3    1    3    1   16    7    3    9   10
+      Gene295  276  356  140   78  138  107  175  307  127  168  131  210  192  105
+      Gene296  127  125   91   42   38   56   69   83   75   90   64   82   64   47
+      Gene297   62   58   60   70   70   91   54   38   89   50   71  101   54   42
+      Gene298  114  102   98   49   56   62   95   73   44   58   77   88   71   38
+      Gene299  319  313  206  187  200  139  168  208  260  191  238  216  204  200
+      Gene300   39   58   22   34   37   19   32   22   23   20   30   32   52   16
+      Gene301  175  103   62   67   23   56   73  101   21   56   52   57   29   55
+      Gene302    .    6    2    .    1    .    1    3    2    3    1    1    1    .
+      Gene303  187  207  111  106  181  112  151  178  114  136  143  161  144   82
+      Gene304    .    .    .    .    .    .    .    .    .    .    .    1    .    .
+      Gene305  248  205  157  152  167  109  150  142  166  112  146  315  181  118
+      Gene306   81   48   38   56   39   41   51   58   54   66   69   59   64   68
+      Gene307  116   76   41   52   40   27   49   90   70   48   41   70   90   67
+      Gene308   16    8    3   10    5    5    4    7   12    5    6    2   14    5
+      Gene309    4    8   14    2    8    3    3    5    2    6    1    3    1    2
+      Gene310  296  232  153  159  112  155  166  235  195  119  245  294  144  115
+      Gene311   58   82   28   56   38   46   51   57   51   54   47   70   77   41
+      Gene312   56   46   30   55   41   38   43   44   37   32   45   48   50   26
+      Gene313 8805 3857 5635 3156 3091 5264 4890 2872 4359 5044 3643 4752 5002 4124
+      Gene314  100   26   67   26   22   56   87   24   24   84   36   38   27   50
+      Gene315    1    1    2    1    .    4    1    3    1    2    2    3    2    3
+      Gene316  167  308   89  160  104  101   95  105  199   68  177  204  198   56
+      Gene317  104   83   53   93   69   29   52   48  114   50   59  103   83   49
+      Gene318   28   11    8    4    9    4   11   15    8    6    9   30    1    9
+      Gene319    6    9    5   26   10    2    7    3    9    4    2   10   11    4
+      Gene320   14   19   17   10    3    4   19    7    2    9   17   11   22   10
+      Gene321   10   11    1    2    1    1    4    9    .    4    7    .    2    7
+      Gene322   60   37   15   13   22   26   25   50   26   29   30   25   40   25
+      Gene323   19   24    6   23   26   16   12   31   16    7   14   19   20    4
+      Gene324   62   46   47   40   16   31   32   56   27   18   43   28   37   16
+      Gene325   12    8    1    1    2    3    1    1    2    5    3    3   10    7
+      Gene326    9    8   12   13    7    4    7    6    6    2    9    7   12    3
+      Gene327 2434 1408 1363 1530 1239 1335 1799 1048 1736 1357 1407 1624 1580 1117
+      Gene328    .    .    .    .    .    1    .    .    .    .    .    .    .    .
+      Gene329   67   30   37   70   67   45   33   58   70   50  102  106   93   51
+      Gene330    6    2    .    .    3    1    1    .    3    1    1    3    3    5
+      Gene331   12   26    9    9   22   12   15    8    7   24   17   12   19   11
+      Gene332    1    .    .    .    .    1    4    .    .    .    .    .    .    .
+      Gene333    .    .    .    .    2    1    .    3    .    .    .    1    .    .
+      Gene334   30   40   34   21   19   23   24   38   31   22   36   39   45    8
+      Gene335   11    9   11    6    4    2    4    7    3    2    8    5    9    3
+      Gene336    5   10    6    9   11    1    5    6    .    7    1    6    3    4
+      Gene337 2800 1668 1668 1581 1313 1256 1189 1316 1649 1193 1910 2272 1972 1250
+      Gene338   12   18   11   17   30   10    8    4   17    2   10   31   25    4
+      Gene339  116   71   69   90  144   53   59  100   97   52   99  122   93   50
+      Gene340    .    .    .    .    .    .    .    1    .    .    .    .    .    .
+      Gene341  128  232   77  106  126   69  102  116  100   81  103   84  130  115
+      Gene342   24   35   21   19   24   12    8   18    8   13   11   17   13   26
+      Gene343    4    1    .    .    .    2    2    1    .    2    .    .    .    .
+      Gene344  193  115  143  130   81  121  118  129   72  117  135  164  102  129
+      Gene345  722  441  396  476  316  359  251  258  334  249  325  474  500  202
+      Gene346   60   21   46   77   69   30   58   15   87   23   88   69   82   40
+      Gene347   36   37   29   32   16   13   12   23   19   33   21   25   21   21
+      Gene348  140  128   66   91   73   72   46   78   63   87   89   87   56   54
+      Gene349    7    1    .    3    .    1    9    3    6    .    3    2    .    3
+      Gene350   39   10   36   29   19   25    7   17   11   19   26   24   32   19
+      Gene351   44   40   18   40   50   40   10   36   24   24   55   42   42   13
+      Gene352  141  145   60  134  115   56   61   94  149   97  120  209  151   54
+      Gene353   16    7    9    6    1   20    6    6   10   11    3    8    9    7
+      Gene354   49   61   48   48   61   50   50   38   32   46   52   59   30   51
+      Gene355   16   14   12   13    5    8    2    5    1   12    1   24    6   10
+      Gene356   93  187   92   86   63   71   71  197   65   74   56   74   90   79
+      Gene357  238  156  148  170  138  107  127  185  107   61  118  157  196  101
+      Gene358    2    9    2    6    .    1    1    3    3    6    1    9    3    2
+      Gene359   12   17    9   14    9   16   11   17   20   21    9   24   18   14
+      Gene360   15    6   23   13   24   26   18   21   15   17   36   34   42    8
+      Gene361   48   26   25   22   17   32   13   11   30    8   15   81   30   25
+      Gene362  241  287  133  144  139  140  137  165  178  100  186  273  168  127
+      Gene363  224  271  108   67   67  124  131  144   78  109   61   90   95   99
+      Gene364   67   96   59   22   71   26   46   52   44   34   95   69   95    9
+      Gene365  149  135  143  106   72   88  126  129   89  134  129  105  109   96
+      Gene366    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene367 1011  997  682  603  716  582  641  571  629  443  848  949  632  577
+      Gene368   45   55   45   26   23   27   46   31   27   61   42   37   20   38
+      Gene369   13    5    6    .    .    1    .    3    1    2    2    1    .    4
+      Gene370   31    9   20    7    7    6   10    8   21    7   18   17   27   10
+      Gene371    1    2    1    .    2    .    .    .    1    .    2    6    2    2
+      Gene372  161  115  111  148  183   53   81   83  192  146  254  259  232   70
+      Gene373   32   42   32   21   14   11   34   35   27   23   18   11    6   10
+      Gene374  275  208  122  197  152  148  182  145  164  122  164  202  174  126
+      Gene375 1404 1149  796  805  585  681  670  719  728  800  814  825  876  508
+      Gene376   80   56   50   25   21   21   40   14    9   37   26   23   35   40
+      Gene377   58   63   48   31   56   26   33   45   53   26   47   49   46   28
+      Gene378   42    8   15    4   11   11   36    6    5   17   10   13    3   13
+      Gene379    4   12    7    3    2    .    .    3    .    3    2    2    1    2
+      Gene380   87   69  131   60   69   70   28   54   87   61   87  111   68   69
+      Gene381   62   64   46   42   36   25   72   50   21   51   31   22   38   74
+      Gene382    1    2    .    1    .    .    .    .    .    1    .    5    .    .
+      Gene383  402  254  257  251  232  216  208  289  208  248  235  402  340  183
+      Gene384  227  388  196  235  221  168  133  271  184  142  210  201  200  106
+      Gene385   35   13    5   24   17   12   10   29   18   11   22   42    6   11
+      Gene386  233  305  144  173  207   91  174  255  164   93  212  264  293  139
+      Gene387    1    7    2    1    .    2    3    .    .    .    1    1    1    .
+      Gene388    3    2    2    8    3    3    5    1    2    3    3    2    5    2
+      Gene389  106  104   91   97   71   66   64   72   61   87   88   95   73   70
+      Gene390  109   71   87   46   37   55   90   83   47   54   71   50   78   63
+      Gene391  328  351  135  193  205  183  267  281  268  176  230  212  211  181
+      Gene392   35   57   46   46   42   15   18   39   32   18   33   37   43   35
+      Gene393    3    .    .    .    2    .    .    .    1    .    .    2    2    .
+      Gene394   89   50   41   22   41   48   49   38   39   51   50   31   75   61
+      Gene395   12    5    1   20    2    3    1    4    7    7    5   13    7    6
+      Gene396   88  218   90  134  132   53   34  107  145   36  134  140  239   73
+      Gene397  106  150   55   86   96   60   93   68  112   61  112  124  132   65
+      Gene398    .    .    .    .    .    .    1    .    .    .    .    .    .    .
+      Gene399    3    2    2    1    1    .    9    2    6    1    2    6    5    6
+      Gene400    .    .    4    .    1    2    2    6    .    .    1    1    .    .
+      Gene401  550  451  348  452  275  216  231  288  423  332  374  543  466  219
+      Gene402   23   20   22   18    7   13   13   20    8   10   17    5   22   13
+      Gene403   29   24   20   24   14   17   17   17   21   11   13   16   21   18
+      Gene404  448  513  337  272  371  192  257  471  303  283  479  504  412  244
+      Gene405  180  208   72  100   52  102   81   92  117   80   77   83  110  102
+      Gene406  239  187  179  162  120  159  149  191  177  167  198  170  197  114
+      Gene407    3    5    5    6    7    8   16    8   13   14    5    9    7    7
+      Gene408   97  128   98   54   49   70   89   81  107   67  110   87   97   87
+      Gene409   65   32   25   21   24   21   12   18   16   17   31   14   22   27
+      Gene410   57   41   22   15   23   37   21   67   29   42   35   60   35   24
+      Gene411  172  438  126  145   79  116  107  283   90   94  104  152  162  124
+      Gene412 2263 2032 1438 1568 1323 1304 1059 1687 1493 1182 1515 1867 1754 1295
+      Gene413 1170  520  847  687  541  698  840  427  641  788  675  804  854  589
+      Gene414   58  112   60   43   67   41   45  102   34   47   57   69   76   45
+      Gene415   55   93   42   54   89   18   31   34  131   30   59   89   89   30
+      Gene416  188  129   98   59   36   76   54   89   43  101   43   44   48   62
+      Gene417   14   16   12    9    5    7   11    6    7   18   12    8    5    8
+      Gene418    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene419  105   65   41   16   21   47   43   35   22   48   25   24   59   42
+      Gene420  134  157   95   52   81   89   54  127   67   73   99   88   88  122
+      Gene421   44   53   30   33   25   29   17   50   49   27   44   47   41   20
+      Gene422   71  104   32  124  102   29   26   73  111   31   90   79   74   18
+      Gene423  379  267  218   95   96  173  205  307  122  194   87   99  106  166
+      Gene424 1406 1217  842  691  815  819  627  813  718  844  935 1069  897  693
+      Gene425   19   20   27   15   14   15    8   26   21   11   11   28    6    5
+      Gene426   38   63   18   45   27   16   17   28   36   43   18   27   29   13
+      Gene427   12    8    2   20    2    6    4    9    3    9    4   16   18    1
+      Gene428    1    .    2    .    1    .    .    .    .    .    .    .    .    .
+      Gene429    3    .    .    .    .    .    .    .    1    .    .    .    .    1
+      Gene430    7   13    4    7    5    6    9    2    2    9   17    6   15    4
+      Gene431   38   18   17   11   21    7   10   29    8   13   16   17   27   17
+      Gene432    5    6   12   16    2   12   14    9    7    8    7    4    5    9
+      Gene433   95  161   88   94   56   50   95  112   78   40  114  116  126   95
+      Gene434   18   18   15   11   22    8   11    9    7   11   16   28   21    4
+      Gene435   97   69   56   34   43   88   53   48   45   69   68   50   75   75
+      Gene436  188  151   50  106  118   82   71   92   91  112  183   71  134  119
+      Gene437   33   12   19   12   12   17   29   14   13   12   41   21   40   21
+      Gene438  117  184   76   76   61   37   75   87   92  125  122   72  116   86
+      Gene439   13    2    9    7   17   11    7    6    9    8   13   23    8    4
+      Gene440   19   30   23    4   10   10   12    8   23    8   14   28   10   10
+      Gene441   96   97   44   50   63   61   42   43   38   40   94   80   75   30
+      Gene442   98   98   78   71   83   36   56   64   60   58   81   93   98   32
+      Gene443   26   24   14   11   19    7   17   18    8   25   13   10   30   12
+      Gene444   12   33    7   15   13    9    7    8    7    5   16    8   18   21
+      Gene445    .    .    .    1    3    1    .    1    .    .    4    .    .    .
+      Gene446   76   32   33   34   36   14   22   51   21   34   23   49   50   33
+      Gene447  104   70   56   48   46   50   32   70   48   40   50   47   61   33
+      Gene448  161  115  107  113   73   73   75   83  140  112  102  110   83   88
+      Gene449  106  110   50   69   60   56   56  100   89   72   69   72   76   57
+      Gene450    2    .    4    3    .    4    .    2    2    .    1    2    .    1
+      Gene451   79   70   56   38   51   36   69   35   74   53   47   63   32   54
+      Gene452  143  128  151  135  141  102   92  116   78   72  120  170   92   69
+      Gene453  999  818  639  751  577  706  594  718  724  543  673  890  849  520
+      Gene454  172   92   63   59   56  112   91   44   56   93   53   43   52  113
+      Gene455   14    1    .    4    .    2    3    5    2    1    .    4    1    .
+      Gene456   29   37   17   11   22   15   17   20   61   17   21   39   43   26
+      Gene457  127  130  110   72   38  104   81   62  117   98   98   57   89   77
+      Gene458    2   12    .    2    .    3    5    5    5    8    7    5    6    7
+      Gene459   27   35   18   37   32   14   20   18   26   24   11   32   19   24
+      Gene460 1783 1163 1198  987  721 1044 1017  791 1291  987 1647 1404 1112  912
+      Gene461  281  282  182  228  176  170  177  202  248  168  168  336  185  170
+      Gene462    1    .    .    1    .    .    .    .    .    .    .    .    .    .
+      Gene463    4    8    5    4    8    9    4   13    1    3    8    7    6    3
+      Gene464    1    .    1    .    3    3    3    3    .    3    .    .    2    .
+      Gene465   52   40   29   28   20   30   30   38   24   18   22   67   59   17
+      Gene466   43   26   57   19   29   16   11   20   31   26   29   43    6   31
+      Gene467    4    3    2    5    5    7    5   10    2    4    4    3    3    7
+      Gene468   24   15    8   27   19   21   23   12   10    9   10   27   32   14
+      Gene469    .    5    1    1    .    3    .    6    2    .    2    .    .    .
+      Gene470   98   61   33   53   49   54   32   72   71   59   25   37   79   40
+      Gene471    8    8    .   12   30    4    2    9    8    3    4    7    7    8
+      Gene472  175  262   73   94  102  121  107  337   90   87   86  145  120  101
+      Gene473   55   70   44   20   33   52   39   76   33   31   37   30   47   48
+      Gene474    .    .    .    .    .    .    .    .    1    .    .    1    .    .
+      Gene475  117   61   87   72   48   63   50   47   32   84   53  109   67   55
+      Gene476  103   83   24   49   57   40   62   52   40   43   56   90   89   45
+      Gene477   88   53   56   31   23   21   16   41   31   38   32   44   49   24
+      Gene478    6   20    1   12    2    3    4    4    4    .    5    4    8    1
+      Gene479   27   12   10    6    5    7    2   14    7    7    3   23   10   18
+      Gene480  103   44   78   50   39   50   38   35   45   40   42   41   41   49
+      Gene481   33   39   16   10   28   10   14   26   36   31   27   22   20   23
+      Gene482   57   94   59   38   47   39   37   54   37   31   43   46   63   25
+      Gene483   19    7    4   14   10    8    9   16    6    9   17   14    7    8
+      Gene484   36   36   35   10   15   16    5   37   19   17   14   28   26   15
+      Gene485   21   30    8    9    4    7    5   17   21    6   21   14   18    9
+      Gene486   10   10    5    9    8    8    8    5    .    2    3    4    5    6
+      Gene487   70  158   46   39   46   33   50  119   40   64   41   44   44   41
+      Gene488  530  160  360  105  146  237  343  152   97  363  180  168  144  268
+      Gene489  168  142  117  159  127  117   69  162   67  126  140  190  118   83
+      Gene490    1    4    .    3    .    1    1    3    .    4    2    5    1    .
+      Gene491  258  325  164  126  124  117  115  178  196  109  172  202  170  110
+      Gene492  136   95   73   78   43   55   95   81   71   49   61   88   96   87
+      Gene493  248  199  171   99  119   92  154  205  128  112  120  178  156  101
+      Gene494  656  512  436  377  364  302  420  347  379  396  469  544  431  260
+      Gene495    6    1    .    4    3    2    3    2    .    3    3    4    2    1
+      Gene496   38   54   17   22   19   24   15   42   16   48   15   34   40   13
+      Gene497  272  118  178  140  188  137  160   87  207  191  226  332  242  145
+      Gene498   44   65   44   41   29   29   48   31   23   26   42   44   51   37
+      Gene499  328  384  301  288  178  214  177  267  182  142  205  250  244  174
+      Gene500    5    1    .    .    1    .    1    2    .    1    .    .    .    2
                                                                                    
-      Gene1     49   36   33   38   41   46   76   65   59   91   34   36   66   64
-      Gene2     30   25   19   20   22   12   12   23   30   25   37   13   35   20
-      Gene3   1072  526  533  611 1238  499  580 1241  667 1128  544 1023  959  558
-      Gene4    204   38   57   59   83   78   79  208   82  176   50  218  214   79
-      Gene5      2    6    1    1    2    2    8    1    4    8    3    3    1   12
-      Gene6     78   64   61   78   97   67   97   54  120   64   76   70   81   95
-      Gene7     74   41   55   57  114   71   77   70   67   54   63   91   42   57
-      Gene8    110   74  113  114  122   88  152   61  130   87  122   60   77  156
-      Gene9     60   29   39   66   92   25   49  113   41  101   28   82   94   44
-      Gene10     2    5    2   13    4    1    7    4    7    6    7    7    2    9
-      Gene11    46    8   25   18   50   28   35   36   32   33   32   22   15   37
-      Gene12    24   27   35   23   39   25   17   27   20   32   20   36   47   50
-      Gene13    69   46   57   68   77   30   41   77   51   56   51   71   92   64
-      Gene14    14    2   10   10   13   20   13   14   10   15   19    8    5   15
-      Gene15   235  120  149  157  191  116  154  183  141  204  139  159  181  212
-      Gene16    42    6   29    9   15    8    3   28    9   38   12   34   19   32
-      Gene17    27   16   17   38   52   29   11   20   20   24   48   37   47   18
-      Gene18    31    6    6   15   38   18   17   23   25   25   21   19   16   22
-      Gene19     7   19   35   56   63   50   27   31   18   35   44   18   26   27
-      Gene20     1    2    .    1    .    .    .    1    .    .    1    .    .    .
-      Gene21     4    1    2    .    4    2    1    1    .    1    4    1    3    5
-      Gene22   126   53  113  270  200  151  245  193  244  122  212   94  116  198
-      Gene23  2471 1373 1753 2613 2736 1723 2111 2526 1874 1843 2557 1929 2100 2462
-      Gene24    12   13    7   26   17   27   14    7    9    8    4    7    1   15
-      Gene25    53   26   28   30   37   28   17   22   33   17   15   39   38   15
-      Gene26    26   24   28   43   56   32   28   47   17   35   52   40   40   31
-      Gene27     .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene28    26   20   26   32   27   15   26   16   23   21   18   38   19   39
-      Gene29    54   89   93  210  110  158  164   49  185   77  130   65   81  163
-      Gene30   146   96  118  170  287  129  188   56  177   74  135   67   67  216
-      Gene31  1503 1291 1401 2372 2982 1837 1848 1468 2035 1645 2221 1072 1129 2927
-      Gene32   106   55   30   39   84   29   50   80   31   87   59   63   78   44
-      Gene33    23   26   13   19   41   20   35   21   20   17   23   10   29    7
-      Gene34    48   15   31   45   33   41   33   45   29   84   41   46   72   31
-      Gene35   676  574  292  487 1006  411  498  444  547  509  553  581  524  531
-      Gene36     2    3    4    4   14    6    4    4    7    5    1    1    1    3
-      Gene37     3    6    5   10   44    2   13    6    5   23   13    6   19   22
-      Gene38     8    7    1   10   14   27   31   20   10    9    7    6   12   22
-      Gene39   601  305  408  449  595  413  487  545  496  555  528  541  389  409
-      Gene40     2    .    1    1    5    .    3    1    1    .    4    .    .    5
-      Gene41    34   30   83   71   51   62   68   36   84   34   86   43   14   81
-      Gene42     3    5    8   11    9    9    4    6    1    5    4    5   11    5
-      Gene43     9   11    8   12   18    8    5   15   16    3   20   12    3   14
-      Gene44    29   16   12   18   21   13   26   26   11    7   17   14   13   18
-      Gene45   155   89   68  114  136   89   85  114  127  107  123  145   95  190
-      Gene46  2553 1311 1940 2788 4080 1686 2322 2594 2515 2453 2454 2614 2108 2862
-      Gene47     6    4    1    9   14    4    7    4    8    7    1    2    6    6
-      Gene48    50   36   54   72   95   43   64   55   67   46   82   47   42   70
-      Gene49    27   36   16   28   54   25   23   15   16   27   21   22   33   23
-      Gene50     .    .    .    .    .    .    .    .    .    2    .    .    .    .
-      Gene51    11   10   40   51   29   36   25   22   53    8   26   10   29   56
-      Gene52     7    1    .    1    2    2    2    .    2    3    1    3    .    .
-      Gene53    62   34   21   16   69   26   29   42   40   36   29   37   49   30
-      Gene54    37   25   29   71   69   35   26   44   40   41   44   85   42   44
-      Gene55     3    1    1    6    7    .    3    2    1    .    4    8    8    8
-      Gene56     2    .    2    7   12    8    5   11    8   11   10    7    9    8
-      Gene57    87   60   48   55  111   36   73   36   60   53   58   36   62   93
-      Gene58    49   24   24   45   52   33   40   35   35   41   51   24   31   36
-      Gene59    19   17   12   21   36   20   49   11   26   14   15   23    6   29
-      Gene60     1    .    .    .    6    .    .    2    .    2    .    3    .    1
-      Gene61     .    .    .    .    .    .    .    .    .    .    1    .    1    .
-      Gene62    56   14   22   44   25   25   63   40   47   47   48   33   46   41
-      Gene63   110  118  134  147  245  153  218   83  185  118  166  140   90  171
-      Gene64   297  150  131  270  412  216  230  236  243  264  256  292  214  275
-      Gene65    40   63   20   32  139   33   59   48   60   37   35   59   62   49
-      Gene66    65   53   54   74   99   59   80   83   63   48  137  135   92   69
-      Gene67   516  218  268  251  472  175  267  546  300  544  289  458  460  403
-      Gene68     1    1    2    .    7    2    4    .    2    6    1    1    3    6
-      Gene69     3    2    1    5    9    3    8    4    4    4    4    4   13    7
-      Gene70   127  102   88  102  114   67   89  103  117  104  120  112  113   68
-      Gene71    64   38   21   41   65   14   28   39   28   48   16   48   20   44
-      Gene72    34   10   11   14   17    3   11   26   15   16    6   27   32    6
-      Gene73     3    1    .    3    4    1    .    3    2    2    4    4    2    4
-      Gene74   827 1023 1124 1349 2135 1251 1575  924 1476 1012 1618 1204  942 1341
-      Gene75    30   12   22   44   33   11   30   49   23   32   37   19   23   46
-      Gene76    31   19   18    3   61   55   23   35   58   37   29   48   32   46
-      Gene77    76    4   60   51   52   43   57   54   52   70   72   58   63   55
-      Gene78   146   89  155  242  147  200  252  105  224   92  253  128  155  289
-      Gene79   648  385  503  903 1051  553  750  920  933  904  849  750  740  778
-      Gene80    69   37   41   90  112   46   65   32   59   61  111   62  113   92
-      Gene81    31   11   24   22   24   16   10   14   29    6   25    9   25    8
-      Gene82     2    .    .    .    4    .    .    2    1    .    .    3    1    4
-      Gene83    97   41   60  118  123   77   88   58   50   52   92   78   72   66
-      Gene84    56   18    5   10   84   19   14  111   16   45   10   78   48    8
-      Gene85   995  444  712 1089  976  785  743  791  664  658  888 1159  720  757
-      Gene86     .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene87    36   21   31   44   39   25   52   26   37   30   34   31   41   19
-      Gene88   153   70   78  137  204   85  145  114  102  145  114  180  159  177
-      Gene89    27   11   10   35   55   20   14   31   26   24   14   24   44   18
-      Gene90   224   98  161  175  329  217  174  192  212  148  140  208  157  242
-      Gene91    68   29   26   72   49   53   48   61   35   95   59   66   37   56
-      Gene92    15    8    6   29    6    6   11   28   27   29   11    5   17   12
-      Gene93    26   27   29   15   44   24   10   22   38   21    8   12   48   25
-      Gene94   123   38   31   29   46   38   59  128   58  110   64  150   84   45
-      Gene95    17    7    6   11   29    7    1   13    6   15   10    4   19    7
-      Gene96     2    .    .    .    .    .    1    2    2    1    .    .    .    .
-      Gene97    10    5    8    4    6    2    1    4    3    7    2    6    9    3
-      Gene98     3    .    3    8    4    3    5    1    1    3    3    .   11    5
-      Gene99     4    .    2    9    2    7    1    .    4    5    2    1    3    5
-      Gene100  147   56   99  115   92  168   99  159  119  153  110  106  120  133
-      Gene101   12   16   10    5   12   14   17   12   17    2    4   11   10   19
-      Gene102  120   27    8   63  118   41   75  162   53  139   78  121  100   65
-      Gene103   22   15   16   66   34   43   22   25   29   14   67   16   32   67
-      Gene104    .    .    .    .    1    1    .    .    2    .    .    .    .    .
-      Gene105   23    5   15   13   10    5    8    6   15   16   13   20    6    2
-      Gene106   79   28   44   37   49   46   52   37   50   33   74   41   39   35
-      Gene107 3922  619 1614 3367 1165 2026 2246 2615 1844 2310 2447 2820 2056 2338
-      Gene108    4    .    6    7    3    8    7    1    3    3    8    .    2    8
-      Gene109  168   83  188  390  216  187  185  233  226  182  412  177  213  385
-      Gene110  204   92  107  134  216  116   73  209   99  151  132  217  151  172
-      Gene111  292  212  269  501  541  368  273  227  453  180  360  239  183  259
-      Gene112   18    5    2   10    5    8    5    2    5    7    5    5   12    7
-      Gene113   21   16   31   51   63   36   37   54   26   47   46   23   58   33
-      Gene114   14   14    5    7   22   11    5   16   10   13    8   13    7    2
-      Gene115   38   14   18   25   26   20    9   28   10    7   39   18   41   26
-      Gene116   70   19   23   41   52   26   42   75   52   54   55   79   68   55
-      Gene117 1190  789  479  804 1466  547  746  870  900  689  741  763  570  809
-      Gene118    4    4    7   10   13   11    8    7    3    7    8    3    2    2
-      Gene119    8    6    5    6    6    2    5    7    4    1    2    6    5    2
-      Gene120   25   11    7   17   24   16   22   49   25   24   25   54   19   23
-      Gene121    3    3    6   16   21    9    6    9    9    8    9    8    .    6
-      Gene122   38   29   20   40   35   36   30   57   20   36   30   27   28   31
-      Gene123 2967 1265  621 1178 3560  940  887 2192  847 2645  981 2819 3098 1148
-      Gene124   39   36   21   69   64   45   35   41   52   27   48   41   11   80
-      Gene125 1428 1275 1508 2215 2542 1968 1758  972 2506 1061 2277 1366 1102 2443
-      Gene126   34   24   35   56  110   84   34   80   36   30   51   63   57   48
-      Gene127  217   69   62   66  275   56   71  141   66  121   72   95  121   96
-      Gene128    5    2    2    9   16    .    7    1    9   12    9    5    7   18
-      Gene129  143   53   90  136  177  126  141  179  106  147  127  125  214  126
-      Gene130   79   37   40   75   84   42   36   63   46   63   48   57   49   38
-      Gene131   31   39   37   42   46   35   36   41   20   38   27   38   36   47
-      Gene132   40   11    6   19   24    9   13   26    8   31    9   33   41   28
-      Gene133    7    1    3    6   10    3    6   12    8    9    7    4    8   13
-      Gene134    5   11    5   20   26   17    5   16   18    9   15   16   18   16
-      Gene135   14    5    8    9   22    4    3    9    9   14    8   11    7    5
-      Gene136  216   62   76  140  182  128  155  181  144  134  137  206  162  141
-      Gene137   13    9    6   12   22    6   16   10    7    5   13   13   21    8
-      Gene138   47   26   46   37   63   25   24   46   33   32   32   25   45   23
-      Gene139   25   10    4   19   32   17   17   19   20   32   15   18   26   26
-      Gene140   10    9    7   24   27   16   15   14   17    3   21   10    8   23
-      Gene141   10    7    7   22   33    4   14   12   12    2   12   18    3   21
-      Gene142  195  206  133  208  385  159  133  260  157  110  116  165  172  105
-      Gene143    5   11    4    4    5    4    6    7    3    2    3    8    4    1
-      Gene144    5    2    3    6    3    3    2    1   10    1   12    4    4   14
-      Gene145   34   35   80  123   53   97  109   13   50   25   70   44   45  128
-      Gene146  124  208   72  108  606   97  139  173  163   52  201  193  105  154
-      Gene147   78   52   53   77  103   77   89   46   47   49   75   42   64   72
-      Gene148  205   62  116  155  140  179  231  189  154  159  222  150  151  213
-      Gene149    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene150    9    7    9   23   23   14   10   21   17    9   12   14   10    9
-      Gene151  160  151   95  167  399  137  131  170  140  131  105  109   92  173
-      Gene152   12    3    4   10    6   12   16    5   11   11    9   10    2    4
-      Gene153    7   13    4    8    2    1    1    6    6   15    8    8    3    .
-      Gene154    1    .    2    .    1    .   10    .    .    1    5    .    7    .
-      Gene155   60   16   39   45   40   35   30   46   26   43   33   44   40   35
-      Gene156   37   35   39   81   63   52   58   46   78   35   55   33   40   58
-      Gene157    5    4    1    .    4    2    .    3    3    4    .    1    2    3
-      Gene158   82   77   73   43  154   75   67  100   90  106   74   74  107   52
-      Gene159   54   14   19   29   36   13   19   23   21   28   41   18   17   20
-      Gene160    6    8    2   29   21   11    9    3    8    4    6   20    6    2
-      Gene161   47   19   40   54   64   27   50   51   63   52   61   26   57   63
-      Gene162    .    2    .    .    .    1    .    1    .    .    1    .    .    .
-      Gene163   26   12    3   25   40    6   20   32   10   18   29   17   19   15
-      Gene164    4    2    5    .   17    1    1   12    7   16    4    3    3    4
-      Gene165  122   84   75  180  165  114  197  129  174  123  165  138   98  164
-      Gene166   29   43   47   61   86   47   46   47   50   48   82   44   32   66
-      Gene167   13   10    3   13   13   24    7   14   13   25   19   22   24   14
-      Gene168    2    2    .    1   11    2    4    .    1    2    .   11    1    2
-      Gene169    1    1    6    2    4    .    1    4    2    .    .    .    .    1
-      Gene170    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene171  246  114  122  162  199  105  162  242  115  171  141  166  242  158
-      Gene172    6    1    4    6    5    2    7    3    2    5    5    2    5   11
-      Gene173   54   59   21   57  133   33   33   55   39   61   24   41   38   20
-      Gene174   72   11   21   33   26   21    8   47   15   39   41   46   71   19
-      Gene175    5    2    .    2    9    2    3   13    5    .    7    4    8    8
-      Gene176    7   12    9   11   17    9    8    8   11    5   18    2    5    7
-      Gene177 2357 1286  889 1404 2875 1141  995 1719 1365 1757 1135 1615 1488 1168
-      Gene178    .    .    .    .    .    5    .    2    .    .    1    .    .    .
-      Gene179   91   47   72   95  108   64   61   50   59   67  112   65   57   70
-      Gene180   21   14   10   30   38   38   49   26   38   20   21   36   13   30
-      Gene181    1    .    .    .    .    .    1    .    1    1    .    1    .    .
-      Gene182  107   76  174  122  156  127  194   90  178   95  171   62   93  152
-      Gene183   72   38   67   61   63   50   54   48   51   31   44   43   54   56
-      Gene184   57   36   26   66   87   41   62   80   25   61   50   54   46   67
-      Gene185   23   12   16   19   33   18   18   27    8   27   22   13   15   20
-      Gene186    1    3   13   19    9   24   27    5   28    6   14   12    5   19
-      Gene187   91   75   42   77  113   62   62   76   54   70   75   87   67   53
-      Gene188    6    .    1    2    4    5    2    2    .    3    1    4    .    5
-      Gene189   42   62   45   73  179   93   82   55   73   56  130   36   53  137
-      Gene190  889  768  769 1404 1510 1126  939  504  960  603 1418  655  414 1045
-      Gene191   28   20   20   20   46    6    7   23   25   22    7   28   10   11
-      Gene192    6    3    4    .    9    .    1   13    7    4    7    3    8    4
-      Gene193   21   10    7   23   24   19    8    7   18   10    6   13   32   20
-      Gene194   20   19   10   20   12   12    9   12   12   12   17   14   18   25
-      Gene195    7   14    8   14   17    6   20    4   21    8   16   11    3   20
-      Gene196  176  170  108  171  336  219  161  130  184  114  172  169  137  220
-      Gene197   29   22   26   30   40   45   53   11   30   13   26   18    6   44
-      Gene198  151   79   68   73  115   94  117  119   95  122   87  215  165   69
-      Gene199   37   19   27   68   40   21   40   33   59   22   35   26   37   47
-      Gene200   35   31    8   29   55   16    5   24    4   15   15   17   18   25
-      Gene201    7   12    4   16    5   11    6   15   21    8   25    9    7   22
-      Gene202 1292  621  723 1140 1571  958 1088 1112 1069  746  964 1029  804 1048
-      Gene203   18    7    7   16   29   32   17   21   16   16   31    9   15   26
-      Gene204    1    .    2    2    1    .    1    2    .    .    .    2    .    .
-      Gene205   62   10   58  166   69   78   84   59  158   61  141   39   67  129
-      Gene206  159   55  116  103  173   77   74  156   90  152  103   91  142   73
-      Gene207   13    9    2    5    7    3    5   10   10   12    6    6   13    8
-      Gene208    4    7    2    9    4    3    8    2    .    3    3    2    2    .
-      Gene209  299  241  154  302  255  170  187  279  305  199  211  172  262  227
-      Gene210   60   53   56   58   86   57   50   75   39   55   60  128   40   80
-      Gene211    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene212   40    7   12   20   20   15   11   25   10   35   13   15   16   35
-      Gene213    3    4    4   13    7    8    7    5   14    2    6   18   16   15
-      Gene214   28   49   25   36   80   23   23   23   38   37   25   26   31   25
-      Gene215   12    4    6    2    .    1    5   15    5   10    5    6    7    1
-      Gene216   22   20    9   20   64    9   31   26    4   26   17   24   32   22
-      Gene217   39   19   42  114   65  112   88   62   77   58  123   93   83   70
-      Gene218   64   48   35   42  142   61   92   43   75   59   53   39   65   78
-      Gene219    4    3    4    1    9    2    1    6    3    .    5    5    1    1
-      Gene220   85   58   49   89   93   62  104  115   66   59   80   57   69   72
-      Gene221   20   24   20   43   24   32   38   14   34   20   52    7   17   29
-      Gene222   46    9   15   24   24   27   23   26   22   16   37   17   14   30
-      Gene223  124  115   55   98  188   71   41  122   43  184   43  171  207   91
-      Gene224   50   16   27   28   52   26   21   52   35   64   15   43   34   29
-      Gene225   17    5    2   13   13    3    5   10   18   14    .   12    7    3
-      Gene226   42    6   13   18   35   10   18   26   20   20   10   26   12    8
-      Gene227   32   12    8   26   23   31   25   24   41   14   28   11   21   30
-      Gene228   46   27   38   63   65   51   37   45   56   32   51   45   72   69
-      Gene229   38   37   27   86   83   42   37   42   67   29   50   60   45   66
-      Gene230    4    1    .    6    6    3    3    4    2    .    3    6    4    3
-      Gene231   12    .    5   10   14    9    7    8    6    3   11    4    4    9
-      Gene232   71   75   44   95  147   74   88   65   77   68   65   68   40  119
-      Gene233    8    7    5   14    8    9   20   20   24   10    5   13   14   15
-      Gene234    8   10    2   11    6    2    3   10    5   12    1    5    2    .
-      Gene235   67   28   67   43  106   37   47   45   57   73   75   49   26   55
-      Gene236   25   14    7   11   38   18   10   21   13   15   14   25    8   28
-      Gene237  165   36   78  115   68  122   96  111  121  110  111  110  109  122
-      Gene238  137  123   90  158  164  155  166   98  103   76   91  134   93  152
-      Gene239   29   14   25   19   31   16   15   36   12   33   24   41   21   27
-      Gene240   21    8   13    7   26    4   19    3    8   13   14    9    3   16
-      Gene241   67   40   35   40   54   27   37   48   42   37   44   98   49   53
-      Gene242   11    1    .    1    3    5    1    .    1    4    1    4    7    1
-      Gene243  195   92  120  150  183  122  145  131  114  155  120  152  131  138
-      Gene244    6    .    8    7    3   11    9    6    5    .   12    3    2    4
-      Gene245  129   43   86  125  122  100  123  116  117   98   83   96  119  124
-      Gene246   13   11   17   11   26   17   10   18   17   13   11   19   25   23
-      Gene247   37   13   10   22   40   15   17   16   28   31   27   11   18   20
-      Gene248   45   25    8    6   21   10   10   43   10   50   28   25   42   10
-      Gene249    .    .    .    .    .    1    .    .    .    .    .    2    .    .
-      Gene250    2    3    .    .    8    1    .    5    .    .    1    2    2    2
-      Gene251   30   35   34   42   74   23   35   44   29   60   33   33   14   31
-      Gene252   36   21   21   31   45   45   23   14   12   54   19   29   38   37
-      Gene253  209  101  276  434  189  367  452  195  412  132  279  154  158  595
-      Gene254   87   29   43   54   85   51   46   70   41   50   70   58   33   76
-      Gene255  195   75   49  117  105   79   81  117   80   91  127  179  113   93
-      Gene256   64   53   56  182  148  104   75   97   89   74   55  104  113   69
-      Gene257   34   48    9   12   82   17   10   16   12   41   26   34   11   13
-      Gene258   12    7   14   24   16    3    9   15   10   13    9   13   13   15
-      Gene259    .    .    .    .    .    .    .    .    .    .    .    .    .    1
-      Gene260   65   27   59   88  109   53   89   58   69   71   64   41   49  108
-      Gene261   64   22   11   23   52   26   34   42   31   42    9   55   42   42
-      Gene262   12    3    4   14   10    6    2   11    5   17    5    6    4    7
-      Gene263   16    .    1   12   29    9    8   22   10   20    3   25    5    9
-      Gene264   91   11    9    8   60   16   15   37   22   38   16   39   38   19
-      Gene265   16   16   23   23   37   31   24   20   18   15   13   29   13   17
-      Gene266    8    2    1    3    9    1    2    .    2    1    2    4    3    1
-      Gene267   70   54   31   67   92   43   62   41   98   50   62   76   78  124
-      Gene268    8    .   21    5    7   15    6    4    .    1    1   11    2    5
-      Gene269   23    2    2   10    7    2   11    3    9   16    7   12    5    6
-      Gene270  165   69  132  206  144   93  148  175  190  179  226  143  178  245
-      Gene271 1206  814  873 1079 1613  991 1064 1251  956 1241  987 1052 1001 1432
-      Gene272   55  107   69  111  280   83  108   29   72   25   98   28   27  113
-      Gene273    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene274    .    .    .    2    2    2    .    2    3    3    .    .    .    .
-      Gene275    6    6    .    2    4    6    .    1    2    4    5    .    .    5
-      Gene276   12    5   14   11   17   13   13   12   23   10   16   20   25   17
-      Gene277   42    9   25   29   41   23   43   41   37   47   33   24   34   16
-      Gene278   62   52   15   15   77   35   22   79   16   74   27   62   36   30
-      Gene279   47   16   16   46   37   27   22   27   20   19   22   16   28   41
-      Gene280   32   23   27   35   58   29   28   21   40   26   40   36   30   25
-      Gene281    9   12   19   28   24   20   16    6   11   13   21   11   13   51
-      Gene282   12    5    8   15   19   12    7    9    3   16   10    7    7    8
-      Gene283  345  119  239  420  275  209  385  350  306  207  373  304  326  358
-      Gene284    9    8    6    9   17    6   13   14    6   11    5   12    7   11
-      Gene285  272  147  145  143  294  158  176  200  189  177  298  183  158  246
-      Gene286  178   55   74  157   91   89  110  107  105   99  112  130   96  121
-      Gene287   46   19   12   22   50   17   40   50   47   27   37   62   24   46
-      Gene288   17    9   13    8   16   21    1    6    7   10   22    9   11   20
-      Gene289  115   64   55   69  132   75   85   85   91  102  149  104   83  127
-      Gene290   57   38   32   59   61   43   53   41   45   87   30   38   72   52
-      Gene291    4    5    2   16    5   14    4   22    9    8    1    7    8    4
-      Gene292 1304  921 1020  660 1361  788  997  929 1140 1069  887  941  694 1008
-      Gene293   36   14   19    9   35   10   12   18    6   28    8   11   29   12
-      Gene294 1987  937 1076 1591 3205 1510 1384 1774 1549 1400 1867 1491 1354 1942
-      Gene295   20   25   28   60   67   27   15   26   33   57   22   33   39   63
-      Gene296    1    3    1    3    5    4    4    7    4    4    2    6    4    8
-      Gene297   27   16   16   18   36    9   44   36   10   20   26   27   16   31
-      Gene298    .    4    1    .    3    3    1    .    2    1    3    1    2    .
-      Gene299  102   18  116   64   69  104   72   45   96   45   91   59   33  138
-      Gene300    3    5    5    9   14    9    2    4    8    5    .    7    4   10
-      Gene301 3786 2315 2482 3749 4328 2735 2082 3400 2598 3151 2723 3166 2568 3117
-      Gene302    .    .    .    .    1    1    1    .    1    .    .    5    1    .
-      Gene303   69    4   18   25   35   15   14   92   39   63   32   76   69   18
-      Gene304    .    .    .    1    .    .    .    5    .    .    .    .    .    .
-      Gene305   79   47   26   44   62   49   39   56   30   68   35   64   89   47
-      Gene306  236  138   62  153  169  115   92  249  148  225  115  287  188  178
-      Gene307   52   13   17   39   68   17   39   14   22   23   19   40   48   46
-      Gene308   34   11   19   16   20   23   15   15   18   22   21   23   26   30
-      Gene309  619  364  343  570  634  461  436  722  485  533  438  471  462  616
-      Gene310   49   33   35   45   57   40   50   56   61   54   64   33   34   79
-      Gene311    3    3    6    7   12    5    1    7    5   11   12    5    4    4
-      Gene312   37    7   19   33   16   23   29   17   17   15   26   20   29   14
-      Gene313  124   70   82  149  184  148  100  114  116  156  203  115  119  136
-      Gene314    3    .    1    6   13    7    4    3    2    6    1    .    1    2
-      Gene315    2    .    .    1    3    .    2    3    .    .    4    1    .    6
-      Gene316   13    7   10    8   14   10   16   17    6    8    5    7    8    8
-      Gene317    2    2    .    1    3    3    7    5    1    3    3    4    3    5
-      Gene318   22    8   25   19   18   24   18   17   19   20   29   11   23   42
-      Gene319   14    8   14   12   22   35   15    8   18   12   20    7   20   17
-      Gene320   77   42   37   32   46   26   54   40   35   30   83   27   49   52
-      Gene321   71   37   51   56   71   75   52   56   74   53   52   54   27   74
-      Gene322    1    6    6    3    9    5    2    .    1    1    7    1    .    1
-      Gene323  152   24   55   90   78   86  124  124  119  121  165  102   61   95
-      Gene324    .    .    .    .    .    .    2    1    .    1    .    .    .    .
-      Gene325  360  216  153  171  470  132  154  495  180  573  221  308  292  194
-      Gene326    4    2    2    8    7    3    1    1    2   16    3    5    4    .
-      Gene327  188  179  202  262  478  207  161  160  332  233  317  208  226  339
-      Gene328  168   93  147  247  249  209  197  270  194  151  215  231  258  150
-      Gene329  102   66   83  123  143  128  142  154  112  160  125  123  105  159
-      Gene330  297  186  251  476  399  302  388  351  402  344  317  232  258  415
-      Gene331    5    8    1   13   20   11   25    4    5    8   12    6   13   15
-      Gene332   13   12   21   20   52   25   18   24   35   28   31   31   19   25
-      Gene333   30   19   13   33   49   36   17   23   22   38   16   48   29   20
-      Gene334    2    .    1    1    2    .    .    3    2    2    2    1    2    .
-      Gene335   27    9   23   13    9   14    9   10   13   30    9   14   10   13
-      Gene336  156   74  107  171  137  103  134  153  128  103   90  178   81  194
-      Gene337   32   13   17   31   39   22   30   29   16   28   44   41   32   30
-      Gene338    2    5    7    4    3   16   10    3    3    6   10    2    5   12
-      Gene339   70   47   23   75   87   33   66   44   38   54   89   98   38   41
-      Gene340   72   15   60   96   55   56   93   43  107   38   58   49   34   86
-      Gene341    9   12    6   15   16    5    6    2   14    5    8   16    5    8
-      Gene342   36   34   56   65   50   57   37   23   83   39   90   31   16  100
-      Gene343    1    .    .    .    3    1    1    1    4    1    .    3    7    4
-      Gene344   61   29   16   17   20   27   30   30   20   28   36   12   16   39
-      Gene345   43   27   38   56   38   39   48   60   43   54   37   52   56   49
-      Gene346    .    1    1    .    .    1    .    .    .    1    .    .    1    .
-      Gene347   22   11   22   35   59   23   20   23   44   23   28   22   22   29
-      Gene348   19    7    5   12   11    4    1   24    3    8   15    9   16    5
-      Gene349  167   54   63   58  159   88  117   93   84   96   91  177   58  135
-      Gene350    1    2    2    3    8    3    1    4    1   16    5    9    1    8
-      Gene351   33   31   23   28   32   12   20   20   26   27    6   29   23   14
-      Gene352    6    5    8    3   15    8    4    9    3    9    3    4    2    2
-      Gene353    3    4    .    5    .    .    .    2    .    6    .    2    2    3
-      Gene354  281  167  169  233  200  225  185  260  183  224  196  233  135  300
-      Gene355    2   23   17   31   25   17   29   14   28   15   55    4    6   22
-      Gene356   70   81   59   65  156   60   53   89   79  113   78   84   69   93
-      Gene357   14   15   12   23   25   15    9   27   19    3   14   13    4    8
-      Gene358   25    7   37   50   45   41   53   11   71   15   70   10   21   39
-      Gene359    .    5    1    1    1    1    3    1    1    .    .    3    .    3
-      Gene360    6    1    5    8    7    .    8    4    4    7    1    6    4   10
-      Gene361    5    7    6    2    6   11   12    5   11   13    8    8    1    4
-      Gene362   18   10   45   24   38   27   29   28   15   27   10   22   23   12
-      Gene363   30   13    5   14   24   34   30   24   18   13   12    9   16   16
-      Gene364   17   17    3   27   49   15    8   22   11   12   23   29   14   20
-      Gene365  103   42   30   88  102   36   53   69   61   77   66   58   77   47
-      Gene366  171  247  135  138  463  153  174  191  122  171  157  234  172  191
-      Gene367   61   30   32   66   62   69   72   71   42   53   47   81   73   71
-      Gene368    7    2    2    4   15    5    2    4   11    7   11    6    2    1
-      Gene369   13    1    1    6    9    2    1   13    4    6    3    4    5    5
-      Gene370  198  145  183  299  237  325  389  186  260  197  296  203  174  332
-      Gene371   19   17    6    9   10    .   10   15   11    7    5   11    4    4
-      Gene372  175  114  121  146  156  126  137  145   95  147  129  165  135  151
-      Gene373   27   10   16   25   26   15   30   13   21   21   14   23   13   31
-      Gene374   93   46   88  184   69  127   84   98  150   92  144   73   89  145
-      Gene375   25   16   18   30   32   39   28   33   23   23   34   23   27   17
-      Gene376   27    6   29   28   24   16    9   15    6   13   37   15   16   14
-      Gene377  101   57   59   61   75   55   43   54   54   61   43   69   40   58
-      Gene378   61   42   25   60   57   33   37   65   16   49   36   45   84   29
-      Gene379 1357 1005  910 1321 1701  973 1218 1129  909 1152 1225  927 1084 1268
-      Gene380    3    .    .    1    2    .    8    5    1    7    3    7    9    3
-      Gene381    9   11    5   18   29    5    6    8    8   10   26    4    4   25
-      Gene382    1    .    .    1    1    8    5    6    .    1    1    3    .    3
-      Gene383    2    1    .    1    7    .    2    4    3    .    5    .    3    .
-      Gene384   36   37   22   29   56   23   14   16   18   55   25   26   31   21
-      Gene385   38   36   30   61   55   34   60   37   39   29   39   37   40   59
-      Gene386   46   12   18   35   55   37   38   37   51   36   29   39   37   40
-      Gene387  139   83   89  129  104  100  128  129  175  130  149  114  131  139
-      Gene388    .    .    .    .    .    .    .    .    .    .    .    .    1    .
-      Gene389   11    5    2    5   14    7    9   13    6   11    9   15   10    6
-      Gene390  113  178  104  106  291   91  134  102  124  100  123   72  128  127
-      Gene391   18    6    1    9   20   14    6   25   19    7    9   11    6   20
-      Gene392    2    .    6    2   13    4    8   15    2    4    3    5    5    7
-      Gene393   94   50   62  107   59   94   90   76   74   47  123   91   48   82
-      Gene394    8    5   16   12   47   28   14   21   12   15    7   13   18   31
-      Gene395    7    5    6   18   15    4   12    3   11    4    3   13    3    6
-      Gene396    6    3    6   13    3   12    4    8   10    8   10    6    5    6
-      Gene397   17    8    5   26   40   16   22    7   11    8   24   18    6   15
-      Gene398   54   28   27   23   74   27   32   50   23   49   36   40   50   33
-      Gene399   29   27   50   64   76   36   90   41   30   50   64   57   51   40
-      Gene400   46   13   18   34   54   19   22   23   31   20   39   19   33   29
-      Gene401    9    4    8    9    1    8    1    6    7   11   10    4    2    1
-      Gene402   66   60   39   64  145   79   67   35   65   68   62   79   45   48
-      Gene403    6    8    3    5    7   14    1    9   15   23    5    6   10   10
-      Gene404   78   47   70   58  115   78   78   47   86  100   91   82  100   93
-      Gene405   13    4    8   16    8   17   15   24   17   12   19   21   25    8
-      Gene406   22    8    7   46   27   41   54   11   48   21   19   23    9   37
-      Gene407    1    2    .    1    .    1    2    .    .    2    .    .    .    1
-      Gene408   12   29   13   35   27   13   12    9   16   10   32   14   16   12
-      Gene409   28    4   10   10   22   19    7   20   13   21   18   39   20   12
-      Gene410  158   74   93  146  189  156  148  191  156  236  193  210  202  126
-      Gene411    2    8   10   26   22   21   15    7    4    9   19    6   14    6
-      Gene412   86   51   35   50  107   68   60   60   54   51   40   85   72   39
-      Gene413    .    .    3    .    .    .    .    .    .    .    .    .    .    .
-      Gene414  151   72   39   71  171   46   74  172   56  118   35  170  104   36
-      Gene415   14   14    5   31   21   16   19   14   15   15   18   21   25   28
-      Gene416   48   33   23   96   45   57   47   71   41   43   68   62   30   90
-      Gene417   13   17   11   24   30    9    4   12   11   22   17   29   11   38
-      Gene418   90   54   57   89  108   82   52   81   63   80   80   70   78   42
-      Gene419    2    1    1    7    .    .    .    3    2    2    2    2    5    1
-      Gene420   29   20   38   41   54   17   13   30   30   41   15   36   18   16
-      Gene421  141   62   82  155  226   83  148  120  130  118  150  134  104  145
-      Gene422   53   19   16   11   37   13   21   18   15   20   17   18   15   12
-      Gene423    .    1    1    4    .    .    .    .    6    .    4    .    .    5
-      Gene424    7   13    7    7   21   18   20    7    9    .   18   13    .   29
-      Gene425   58   38   39   63   73   61   36   43   36   49   37   41   58   63
-      Gene426   11   11    6    9    8   11   11    4    5    3    4    2    1    5
-      Gene427    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene428   10    4    3    5    8    5    8    2    1   18    3    5    5    3
-      Gene429    .    8    1    1    9    4    6    8    .    2    4    .    .    5
-      Gene430   90   42   53   63   90   22   47   53   52   65   41   48  100   58
-      Gene431    2    .    2    4    1    1    .    5    1    1    .    3    1    1
-      Gene432   26   17   12   37   30   16   22   25   29   15   37   16   15   25
-      Gene433  389  509  594  712 1332  610  704  325  720  353  737  386  420  751
-      Gene434   17    4    .    .    2    1    2    4    2    .    2   10    4    7
-      Gene435    .    1    3    8    1    3    1    1   10    1    5    1    2    9
-      Gene436   60   44   29   37  151   23   37   85   27   72   70   62   78   27
-      Gene437   68   17   39   73   38   62   79   57   79   54   56   54   78   90
-      Gene438   48   16   52   43   32   22   34   21   36   22   20   41   18   60
-      Gene439   66   22   29   64   70   64   53   55   47   74   25   39   41   45
-      Gene440   38   10   20   12   29   12    9   36   18   41   26   33   18   11
-      Gene441   50   59   79  178  110  222  163   62  192   74  181   62   48  246
-      Gene442  359  110  104  307  352  209  183  341  243  290  236  270  286  172
-      Gene443    1    2    1    .    .    2    2    1    1    .    1    .    .    2
-      Gene444   73   41   22   64   69   46   65   95   45   82   62   67   58   71
-      Gene445   21   28   25   27   24   39   33   43   48   38   45   19   23   35
-      Gene446   15    7    4   11   29   20   14    9   11   17   15   12    2   16
-      Gene447   12    4    2    2   11    6   11    8    5    6    9    5    6    8
-      Gene448   42   16   23   29   46   24   41   23   32   35   47   14   13   34
-      Gene449 3003 1391 1915 2410 3207 2181 2166 2069 2235 2148 2375 1922 2190 2232
-      Gene450    7    8    2    7    5    6    2    9    2    5   12    9    9    7
-      Gene451   77   41   23   55   50   43   69   38   22   21   39   30   49   32
-      Gene452  873  629  581 1041 1370  790 1034  621  971  742  909  726  701 1132
-      Gene453   46   29   32   38   76   42   57   46   44   40   62   45   52   67
-      Gene454   22    6    9   10   38   12   13   27   28   19    6   24   11   13
-      Gene455   20   14   10   16   32   26   14   31   30   22   37   22   13   14
-      Gene456   20    9    3   19   21   20    5   14    5    3   18    6    6    4
-      Gene457 3424 2150 3476 4583 5025 3531 3861 3735 4134 3928 3903 3994 2965 3820
-      Gene458   93   48   35   68   73   29   50   67   42   76   83   76   74   46
-      Gene459 1392 1011 1020 1273 2021 1095 1378 1109 1060 1033 1606 1156 1020 1543
-      Gene460   13   37   11   22   29    8   18   28   16   13   19   16   27   18
-      Gene461   13   20    7   28   42   18   19   11   22   17   23   26    8   30
-      Gene462   13    2    4   11    8   11    8    8   21   25   14   10   20   12
-      Gene463   72   22   45   60   69   49   68   52   62   48   61   64   43   89
-      Gene464  108   31   87   84  142  111  101   83   86   89   89  103  106   93
-      Gene465   30   18    6   23   24   22   13   49   20   20   18   14   34   36
-      Gene466   19   19   42   34   75   61   56   24   28   31   55   22   44   28
-      Gene467   44   17   15   38   26   40   28   59   13   32   35   29   21   39
-      Gene468    2    2    8    6    9    .    3    5    5    5    7    2    2    5
-      Gene469    3    .    2    2    .    .    2    5    .    .    1    4    .    .
-      Gene470    .    2    2    1    1    1    2    1    1    .    5    .    .    3
-      Gene471   33   10   18   52   40    8   25   48   30   34   46   55   48   55
-      Gene472   88  102  130  139  143  100  162   39  155  119  110  132   63  102
-      Gene473   53   30   44   64   96   41   37   64   77   82   67   78   53   83
-      Gene474   63   20   29   31   35   15   46   51   30   44   21   42   55   33
-      Gene475   27   24   23   23   91   14   38   30   14   47   33   36   34   14
-      Gene476  372  174  243  325  583  315  247  337  280  351  326  335  282  252
-      Gene477   21    6   20   42   19   31   48   16   29    5   43    7    6   34
-      Gene478   20   10    6   21   24    8   10   27   17   23   18   18   10   26
-      Gene479    4    1    1    5   10    2    5    7    2    .    5    2    2    6
-      Gene480    9   10   12   25   33   15   34   12   13    6   22   22    6   18
-      Gene481   11    1    3    4    3    4    .    2    3    .    3    .    .    3
-      Gene482   67   39   34   63  103   65   36   35   45   55   47   90   54   45
-      Gene483    .    .    .    1    .    .    .    4    .    .    1    1    .    .
-      Gene484    4    1    3    5    2    .    2    1    4    3    7    .    4    2
-      Gene485   19    1    .    6    2    4    3    9    3   10    3   11   16    3
-      Gene486   67   41   62   71   94   57   82   59   46   69   92   49   50   52
-      Gene487  116   22  132  211   65  150  188  121  163   84  213   75   81  181
-      Gene488   13   22   21    6   40   16   20   36    8   20   30   20   17   18
-      Gene489  392  346  401  742  896  582  664  307  714  334  594  312  376  782
-      Gene490  363   67  200  358  194  222  333  274  317  274  288  290  347  416
-      Gene491    1    6    9   16    7   12    9   13    9    5   10    8    5   14
-      Gene492  176   42   38   53  122   35   47  124   54  166   51  174   79   75
-      Gene493    6   12    4   22   34   21   21    7   18   21   15   17    7   26
-      Gene494   73   22   16   28   56   36   29   94   11   53   20   76   30   25
-      Gene495 1610 1033  916 1229 2121  875  840 1148 1077 1024 1083 1262  992 1178
-      Gene496  109   56  179  332  114  190  281   92  355   89  277  105  110  316
-      Gene497   34   32   22   46   92   63   57   79   41   87   66   57   66   71
-      Gene498   28   17   12   10   70   14   17   38    3   41   16   54   37   14
-      Gene499    9    3    1    6    2    2    7    9   10    4    3    7    2   10
-      Gene500    .    .    .    .    .    1    4    2    .    3    .    3    .    .
-                                                                                   
-      Gene1     45   82   44   39   48   46   67   97   41   47   37   22   56   18
-      Gene2     36   14   43   31   20   17   25   33   30   13   17   26   14   16
-      Gene3   1219  731  908  595  736  864  662  473  802  491  696  700  754  781
-      Gene4    207   91  188   73  101  276  114   98   73   71   54   56   64  164
-      Gene5     10    8    6    4    2    1    7    6    8    4    4    5    6    .
-      Gene6     69   55   69   59   92   55   62  113   94   60   65   43   86   47
-      Gene7     56   83   89   92   84   60  101  121   88   87  102   67   91   53
-      Gene8     56   64   86   91  170  139   90  134  103   99   91   72  144  104
-      Gene9     72   71   71   75   60   93   63   74   62   53   51   38   67   41
-      Gene10     4   13    6    5   11    4    8    4   10    9    7    4    8    1
-      Gene11    56    9   17   32   24   20   35   33   19   26   20   19   22   21
-      Gene12    33   18   14   40   30   30   43   39   48   23   40   11   53   20
-      Gene13    39   48   39  106   59   81   75   88   90   52   79   45   80   80
-      Gene14    19   13    5    5   11    7   11   17    7    1    7    9   22    8
-      Gene15   167  179  187  180  200  228  211  181  308  122  168  122  223  178
-      Gene16    35   10   16    8    8   35    8   29   17    7    7   10    6   47
-      Gene17    38   24   21   11   24   44   28   28   29   35   12   25   37   35
-      Gene18    44   34   17   27   27   24   20   41   17   22   14   25   45   30
-      Gene19    40   29   31   40   35   32   16   63    9   38   45   28   32   41
-      Gene20     .    .    .    1    .    .    7    1    .    .    .    .    .    .
-      Gene21     .    .    6    2    1    .    8    8    4    .    1    3    .    1
-      Gene22   142  122   87  104  260   72   86  209  104   98   86  105  122   72
-      Gene23  1905 2102 1994 2128 1896 1714 2128 2410 2379 2209 1949 1896 2885 1788
-      Gene24     6    9    1    7   23    5   36   10   17   26   18   21   20    8
-      Gene25    32   22   26   34   23   24   21   24   34   18   27   38   27   12
-      Gene26    49   51   31   45   28   42   42   42   41   28   19   29   58   30
-      Gene27     .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene28    12   40   20   37   30   25   27   34   26   14   15   19   44   25
-      Gene29    36   58   43   55  221   36   66  216   78   71   73   74  120   59
-      Gene30    93  191   80  129  207   96  157  125  223  132  157  158  205   74
-      Gene31  1442 2059 1620 2579 2220 1467 3498 2775 2702 2113 2413 1919 2012  767
-      Gene32   104   52   60   33   33   79   39   96   23   68   72   46   57   81
-      Gene33    11   20   16   28   24   15   50   29   32   26   50   29   45    7
-      Gene34    83   12   63   46   67   24   41   64   44   33   43   14   29   40
-      Gene35   450  790  405  857  695  592  683  532  724  537  829  588  832  392
-      Gene36     2    9   11    9    3    8    .   11    3    2    3    6    3    4
-      Gene37    21   30   10   14    6   12   21    9   25   29   14   46   16    5
-      Gene38    17   20   10    7    6   19    8   10   11   22   12   10   17   18
-      Gene39   510  437  398  494  531  419  503  789  547  286  464  398  589  376
-      Gene40     .    2    .    9    .    4    1    1    6    .    1    2    1    6
-      Gene41    26   20   30   32   86   33   30   79   23   28   38   26   13   32
-      Gene42     5    3    1    8    8    6    9    9   15    6   12    6    8    8
-      Gene43    12    8    8    7   19   11    3   15   17    3   11   17   10    8
-      Gene44    22   11    5   13   19   17   12   27   16    7   12    5   19   11
-      Gene45   117  145   98  120  162   99  152  149  153   97  112   72  117  105
-      Gene46  1760 2314 2362 2498 1968 1970 2130 2766 2244 1638 2110 2454 3252 1852
-      Gene47     5    5    1   16    2    3    6    8    3    6    5    4    5    5
-      Gene48    67   43   59   45   62   69   47   75   74   36   32   32   89   42
-      Gene49    22   25   10   33   16   19   41   37   25   28   33   36   28   32
-      Gene50     .    1    .    .    1    .    .    .    .    3    1    .    1    .
-      Gene51    21   22   20   20   53    9   38   76   16   20   20   14   29   10
-      Gene52     1    3    3    8    3    .    1    .    .    2    1    2    .    .
-      Gene53    58   42   29   56   50   30   37   35   60   43   36   24   32   63
-      Gene54    34   26   35   52   38   33   62   45   51   41   40   32   71   38
-      Gene55    12   10    5    2    3    8    .    5    2   16    2    .    5    .
-      Gene56    10    .    7    9   16    7   13    2   10    2    8   11   10    7
-      Gene57    34   53   32   52   69   47   66   82   57   57   57   29   89   48
-      Gene58    28   40   26   34   41   37   45   39   37   41   28   21   37   45
-      Gene59    12   30    6   10   35   18   32   21   38   23   14   25   28   10
-      Gene60     .    .    2    4    1    5    .    .    .    1    1    .    .    1
-      Gene61     .    .    .    .    1    .    .    1    1    .    .    .    .    .
-      Gene62    36   18   21   13   33   48   28   55   19   20   39   22   35   42
-      Gene63   124  163   74  144  209   69  182  211  148  105  178  216  173   94
-      Gene64   221  182  209  231  218  224  306  316  229  229  225  209  326  193
-      Gene65    49   82   41   79   50   72  143   22   30  116   87   40  112   41
-      Gene66    47   85   91   75  119   71   75   78  102  132   90   64  111   69
-      Gene67   406  422  550  313  350  499  313  288  323  347  361  212  345  421
-      Gene68     4    .    6    2    3    1    .    1    7    .    8    1    8    1
-      Gene69     5    1    3    8    4   10    3    2    9    9    8    4    5    3
-      Gene70   132   72   68   80   46  156   89  154   79   80   70   65  109   64
-      Gene71    40   26   50   33   37   53   44   49   57   52   27   46   62   19
-      Gene72    12    7   10    7   13   32    8    2    9   20   13    4   26    9
-      Gene73     4    1    2    .    1    1    .    2    4    1    2    2    .    8
-      Gene74   772 1377  861 1242 1749  986 1457 1948 1379 1152 1314 1236 1678  828
-      Gene75    19   34   27   21   22   27   31   20   16   14   19    9   15   28
-      Gene76    25   33   44   45   46   54   50   47   42   17   35   28   40   26
-      Gene77    61   20   54   28   49   61   30   76   47   23   59   13   56   72
-      Gene78   103  123   97  128  321   84  134  305  122   83   93   87  150   78
-      Gene79   721  657  730  616  864  770  704  902  663  576  676  609  839  644
-      Gene80    50   59   50   65   57   72   51   49   71   57   31   41   64   56
-      Gene81    23    9   13   23   12   10    9   30   11   15   31   19   28    8
-      Gene82     1    .    2    .    .    .    1    1    .    1    .    .    1    4
-      Gene83    59   94   49   98   85   71   82   99   64  106   77   59   51   47
-      Gene84    58   46   81   16   12   72   40   31   17   30   37   11   34   54
-      Gene85   856  733  532  589  910  705  474 1040  667  711  491  501  730  695
-      Gene86     .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene87    44   43   20   21   53   29   33   36   31   37   30   21   72   22
-      Gene88   160  173  145  109   94  118  124  169   92   91  139  207  163   70
-      Gene89    36   25   21   35   19   16   20   25   18   19   21   12    9   12
-      Gene90   176  177  159  221  177  156  238  238  232  111  174  113  209  168
-      Gene91    50   30   61   33   83   50   28   69   25   43   27   33   44   47
-      Gene92    25    8   13    7   25   19   30   40   17    3   15    5   18    5
-      Gene93    11   31   17   13   10   30   46   30   28   24   31   15   12   20
-      Gene94   114   38  113   45   64  147   53   85   23   34   41   22   27   80
-      Gene95    12   16   12   15    3   10    6   12   10   11   15   21   18   12
-      Gene96     .    .    .    .    2    1    2    .    .    3    1    .    .    1
-      Gene97     5    2    8    2    4    3    .    5    4    3    1    2    8    3
-      Gene98     9    3    1    1   11    1    6   10    6    9    4    .    7    1
-      Gene99     5    8    4    8    2    1    .    3    7    5    5    1    6    3
-      Gene100  140   72  100   99  169   74   69  134   82   81   78   58   85  128
-      Gene101   13   11    4   11    8   15   10    9    4   10   24   16   20   18
-      Gene102   87   29  106   36   85  122   21   74   48   39   50   43   80  128
-      Gene103   28   35    9   22   57   18   26   39   49   28   27   21   55    4
-      Gene104    1    1    .    .    1    .    .    .    .    .    .    .    .    3
-      Gene105    7   15   16   12   12   19    7   18   36    3   10    9   16    2
-      Gene106   32   21   39   49   74   48   57   52   31   37   51   13   66   34
-      Gene107 2851  911 1775  735 3090 2893 1100 2651  891  658  875  782  965 2060
-      Gene108    1    1    3    .   13    1    .    5    3    4    4    2    .    2
-      Gene109  252  113  190  128  260  264  230  343  162   93  134   94  155  169
-      Gene110  175   79  145  110  157  161  101  141  129   81  134   97   62  134
-      Gene111  207  272  156  340  435  239  463  371  343  403  334  314  511  164
-      Gene112    1   10    4    1    8    7    3    7    5    1    2    4    3    6
-      Gene113   28   30   19   59   41   26   50   37   32   24   47   47   49   17
-      Gene114   22   20    4    8    9    5   11    7   18    9   28    8   17   11
-      Gene115   34   20   11   11   20   27   33   16   19   17   10   14   18   17
-      Gene116   74   41   47   32   58   62   47   58   25   37   41   55   40   39
-      Gene117  875  934  617 1142  567  763  803  682 1027  912 1045  715 1106  609
-      Gene118   18    7    3    8   21    2    3   21   22    6    4   11   10   11
-      Gene119    6    5    2    2    3    7    6    1    4    6    8    3    4    5
-      Gene120   22   19   28   14   27   29   18   37   24   26   15    8   11   40
-      Gene121    .    6    9   14    5    7    7   10    9   17    7    1   14    1
-      Gene122   47   33   15   37   20   20   33   33   41   35   43   24   33   30
-      Gene123 2560 1496 2863 1673 1233 2409 2007 1159 2244 1597 1923 1181 1930 2226
-      Gene124   48   60   57   28   30   62   30   71   68   31   35   31   72   23
-      Gene125 1196 2132 1028 1778 2772 1217 2175 2344 2277 1705 1786 1699 2433  776
-      Gene126   37   35   46   19   38   50   39   60   31   30   65   31   50   43
-      Gene127   83  221   74  153   68  132  162   80  110  132  130   90  118  151
-      Gene128    2   10    2    5   11    4   11    4    9    5    5    7   10    5
-      Gene129   76  122  132  102  209  175  148  172  104  145  163  158  198  123
-      Gene130   33   55   44   76   34   53   50   78   56    9   49   57   65   18
-      Gene131   42   34   26   33   38   18   72   61   57   41   53   27   41   22
-      Gene132   29   23   31   32   28   39   15   42   29   20   23   19   16   25
-      Gene133    9    4    4    7    6    2    4    4   14    3    5    2    8   11
-      Gene134   30   13   12   19   14   17   18   19   21    5   11   10   11   19
-      Gene135   24   21   12   18   10   22   23    7    8   19   12   14   43    9
-      Gene136  127  113  153   77  139  131  148  161   94   93  132   94  132  138
-      Gene137   10   32    8   26    8    7   29   14   17   25   17    9   23   22
-      Gene138   10   22   33   29   33   42   45   53   20   39   35   34   57   30
-      Gene139   11    8   13   28   32   15   29   57   21   16    9   16   22   13
-      Gene140   12   15   12    7   13   12    5   12    9   16   12   12   21   14
-      Gene141    8   16    7   15   25    9   14   21   11   15   27    7   22   10
-      Gene142  128  244  142  246  196  115  276  253  278  174  145  213  251  144
-      Gene143    .    1    9    .    2    1    5    2    6    3    5   10    5    .
-      Gene144    3   18    7   16   14    4    5    7   21   10   11   11    3    7
-      Gene145   43   37   26   29   89   28   25  121   79   50   54   40   44   15
-      Gene146  121  360   75  312  231  119  317  144  385  249  423  362  401   96
-      Gene147   47   87   27   99   82   44   50   72   51   48   79   38   93   32
-      Gene148  150  109  143   90  224  135  114  206  135  123  102  134  114  140
-      Gene149    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene150   10   16   11   13   21   14   11   19   11   12   11    4    9    8
-      Gene151  177  198  147  223  192  165  206  209  274  181  184  169  225  123
-      Gene152   14    4   13   15   11   11   15   14    1   10    4    9    9    6
-      Gene153    2    9    9   12   12   10    6   10    7    5    1    1   10    2
-      Gene154    1    .    1    1    1    4    .    2    2    .    2    .    .    .
-      Gene155   32   52   32   37   31   33   67   45   37   32   30   30   37   17
-      Gene156   22   81   35   80   68   18   49   77   46   30   66   55   71   33
-      Gene157    .    .    1    3    .    .    2    2    .    2    3    6    3    7
-      Gene158   69   64   67   84   98   62   83  106   89   68  101  113   89   68
-      Gene159   12   45   43   36   33   44   15   39   48   27   47   23   42   14
-      Gene160    3    6   11    9   28    7    2   21    4    2   11   13   17    4
-      Gene161   46   37   48   44   73   33   31   52   45   29   43   32   42   39
-      Gene162    .    2    .    .    .    .    1    .    .    .    .    .    .    .
-      Gene163   22   17   24   14    5   19   33   43   19   25   13   13   18   18
-      Gene164    7    4    3    5    5   12    6    2    .    6    4    2    9    6
-      Gene165  113   93   99   78  188   64  100  242   92   82   96  121   89   69
-      Gene166   50   76   36   60   69   22   44   79   38   19   60   65   58   33
-      Gene167   24   11   27   10   16   19   17   13   11    9   14   11   12    7
-      Gene168    1    .    2    2    .   13    1    1    5    2    7    .    3    5
-      Gene169    .    2    1    2    5    4    3    8    2    1    .    4    .    5
-      Gene170    .    1    .    .    .    .    1    .    .    .    .    .    .    .
-      Gene171  245  128  173  171  173  230  171  201  196   88  117  108  163  144
-      Gene172    8    9    6    4    3    1    9    3   14    6    9    7   17    .
-      Gene173   24   92   52  100   32   33   88   44   93   91  109   83  106   27
-      Gene174   56   31   36   10   23   80    4   17    6   23   19   29   18   16
-      Gene175   17   14    8    5    9    9    8   12   11    6   10    6    9    8
-      Gene176    .   16   13   22   12    4   11   16    9   21   23    9   32    6
-      Gene177 1581 1749 1383 1826 1445 1820 2547 1261 2283 1997 2332 2216 2774 1311
-      Gene178    .    .    .    2    1    1    1    1    .    .    1    1    .    1
-      Gene179   87   69   58   67  109   84   70   83   74   76   77   77   52   51
-      Gene180   24   24   28   21   41   17   17   37   32   17   18   19   27   22
-      Gene181    .    .    .    1    .    .    .    .    .    .    .    .    2    .
-      Gene182   90   78   75  155  199   66  125  199  117   61  113   58  123   56
-      Gene183   56   50   50   46   53   35   38   61   26   26   30   35   49   22
-      Gene184   65   69   64   44   58   61   67   65   71   86   86   70  120   62
-      Gene185    9   12   16   29   24   28   22   17   18    5   11   14   22    4
-      Gene186    .    9   12   13   13    6    4   17   14    8    8    5   16    2
-      Gene187   89   76   73   72   71   69   85   80   82   80   82   74  118   96
-      Gene188    2    8    5    8   10    .    7    7    8    7    1    3    4    .
-      Gene189   32   69   62  107  148   39  138  120  121   95  127  105  139   18
-      Gene190  535 1366  446  914 1457  521 1151 1768 1321  807 1005 1058 1470  462
-      Gene191   11   29   20   28   19   12   18   26   29   21   18   71   44   19
-      Gene192    3    3    5    9    3    3   11    1    8    4    9    4    1    1
-      Gene193   20   18   15    9   16   28   13   33    7    6   10    5    8   18
-      Gene194   17   20    8   32   27   26   36   25   45    7   27   25   15   22
-      Gene195    4   20    7   22   20    7    9   14   14   16   13   13   16    8
-      Gene196  156  169  127  196  240  154  186  271  200  164  175  114  203  132
-      Gene197    6   20   14    6   37    7   31   11   30   24   20    7   23   16
-      Gene198  103  117  137   68  115  132  103   98  120   51   95   60   87  118
-      Gene199   11   25   23   17   66   34    7   67   15   18   37   18   29   24
-      Gene200   15   24   13   18   18   16   22   20   31   24   25   24   19   11
-      Gene201    5    7    8   10   11    5    6    7   18    6    8    2   19   12
-      Gene202 1186 1211 1088  891 1247  926  937 1130  791  813 1202  856 1119  853
-      Gene203    6   16   21   14   29   23   18   24    8   12   21   23   13   23
-      Gene204    .    .    .    .    .    .    .    .    .    .    .    .    .    3
-      Gene205   48   30   42   23  151   91   70  108   44   31   36   55   60   69
-      Gene206   76  115  102   94   97  106   74  106   85   91   89   78   87  115
-      Gene207   11   10   10    7    8    7   15   21    6    3    3   18    1   10
-      Gene208    2   11    2    3   12    4    5    4   12    4    6    2    9    3
-      Gene209  257  283  232  302  268  186  218  258  314  239  172  191  153  182
-      Gene210   70   51   49   70   87   75   43   68   44   53   43   50   74   47
-      Gene211    2    .    1    .    .    .    .    .    .    .    .    .    .    .
-      Gene212   28   18   28   10   16   14   17   14   25   13   21    9    3   28
-      Gene213   16   13    9   11    9   11   14    9    7    8    7    2    8   21
-      Gene214   24   55   30   33   26   11   31   29   54   47   73   48   95   20
-      Gene215    8    2    6    .    4    4    4    1    2   10    4   10    1    5
-      Gene216   46   48   17   25    5   30   33   17   29    8   27   38   20   20
-      Gene217   35   30   61   55   60   91   19  137   57   32   28   48   47   55
-      Gene218   50   96   45   61   69   44   89   66   88   50   54   47   68   33
-      Gene219    .    3    2    2    4    1    2    2    7    5    1    4    4    2
-      Gene220   72   64   79   73  117  120   82  120   59   61  120   86   95   38
-      Gene221   20   39   20    6   34   24   21   40   15   19   13   17   10   24
-      Gene222   23   13   14   25   24   20   27   21   22   31   13   27   24    7
-      Gene223  172  111  157  163  104  181  163  104  125   92  152   92  152  130
-      Gene224   59   23   38   21   36   30   22   30   23   13   26   20   35   26
-      Gene225   15    1   15    2    3   10   14   10    2    7   13    8   13    7
-      Gene226   20   30   19   17    6   21   27   20   13   26   34   18   18   27
-      Gene227   14    7   15   17   43   26   34   55   20   18   27   16   34   13
-      Gene228   31   49   49   37   46   52   47   67   42   33   45   46   57   46
-      Gene229   25   62   31   57   58   69   41   87   43   33   60   65   74   43
-      Gene230    2    1    2    .    4    4    2    4    .    3    .    1    4    4
-      Gene231   10    2    9    1    4    9    6    6    6    2    1    2   12    3
-      Gene232   78   98  112  129   97   88   99  149   99   79  107  143  106   57
-      Gene233   10    6    1   20   13   19   10   22   13   38   11   14   17   11
-      Gene234    5   13    7    1    9    4    1   12    2    6    8    2    2    6
-      Gene235   48   55   54   46   57   84   51   96   25   36   20   20   72   46
-      Gene236   14   17   10    5   15   21   23   22   21   20   21   15   18   14
-      Gene237   98   21  103   52   69   85   48  112   63   29   42   42   74   55
-      Gene238  125  112  149   84  122  118   71  181   88  134   80  139  168  106
-      Gene239   25   28   23   27   30   27   33   31   56   17   12   17   32   19
-      Gene240   13    7    9   13   12   12   13    6   11    9   17   14   16    9
-      Gene241   56   26   56   81   69   46   37   42   54   51   41   49   74   45
-      Gene242    1    .    .    1    .    1    1    2    1    .    6    1    3    2
-      Gene243  146  154  157  128  217  149  101  136  146  133  115   85  172  144
-      Gene244    4   10    5    5   17    6    4   14    6   12    6   11    7    4
-      Gene245   56   77   57  106   83  127  111  137   44  107   66   72   64   63
-      Gene246   54   14   13   14    4   22   16   21    9    3    8    4   12   11
-      Gene247   15   12   22   18    7   32   11   21   23   15    8   15   45   21
-      Gene248   34   31   30   13   24   47   23   12   12   23   15   23   12   16
-      Gene249    .    .    .    .    .    .    .    .    .    .    .    .    1    .
-      Gene250    4    7    1    .    .    .    7    1    8    4    .    3   11    2
-      Gene251   48   44   27   67   38   26   42   39   41   55   34   35   43   32
-      Gene252   26   46   14   25   38   41   48   38   25   39   37   20   31   32
-      Gene253  175  141  170   90  497  134  170  631  192  130  175  136  194  159
-      Gene254   70  112   78   64   44   98   72   52  101   60   74   40   87   38
-      Gene255  115   60  100   74   79  100   74   84  104   55   76   76   88  116
-      Gene256   87   82   86   51  101   70  119  128   59   93   77   60  107   66
-      Gene257   36   62   15   74   25   14   40    8   52   37   71   77   68   31
-      Gene258    8   19   11   19   23    6   13   20   13    6    4    6    6    4
-      Gene259    2    .    .    .    .    1    .    2    .    .    .    .    5    .
-      Gene260   46   57  100   47   73   64   32  107   38   45   46   69   56   51
-      Gene261   54   20   58   20   56   38   27   42   57   46   18   19   32   53
-      Gene262   14    9    6    5    6   19    7    3    7    7   16    7   17    5
-      Gene263   16   10   19   22   13   18   17    9   14   18   14   12   13    9
-      Gene264   27   44   39   26   20   42   35   12   43   31   10   32   26   44
-      Gene265   17   14   29   23   25   15   15   13   22    2   18   12   25   15
-      Gene266    .    5    .    1    1    1    3    1    .    .    5    .    3    1
-      Gene267   47   61   72   85   96   97   28   68   72   61   71   40   62   53
-      Gene268    8   10    4    2    5    4    3    9    4    2   12   12    6    1
-      Gene269    7    .   13    4    5    9    7   14    5    2    2   20   11    6
-      Gene270  270  171  111  121  212  210  112  170  129   62  120  118  142  112
-      Gene271  742 1040  914 1254 1157 1202  690 1301  932 1044 1258  816 1637  981
-      Gene272   37  100   52   96  133   39  149  143  131   99  200  142  211   31
-      Gene273    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene274    1    .    .    .    2    .    2    .    1    2    .    1    .    2
-      Gene275    5    1    2    1    3    3    1    3    4    3    2    4    7    2
-      Gene276   20    8   16   12   12    4    9   18    9    .    9   12   20   12
-      Gene277   30   23   26   25   36   48   30   58   30   16   22   26   27   31
-      Gene278   23   65   55   43   32   58   56   27   96   57   52   49   56   43
-      Gene279   49   40   34   42   22   32   29   39   43   28   22   33   31   37
-      Gene280   48   35   26   29   21   26   19   36   33   41   35   37   98   26
-      Gene281   16   24   11   25   15    4   17   23   22   35   28   20   15    5
-      Gene282   11    5    8    6   11    6    6    3    7    9    .   12   14   15
-      Gene283  386  204  305  151  389  317  143  375  228  138  183  155  226  268
-      Gene284    8    9   12    4   10    9    9    6    4    5    9    8    7    7
-      Gene285  193  272  192  196  185  250  205  305  208  224  162  165  162  196
-      Gene286  121   76  109   88  116  123  113  144   78   77   74   64  134  117
-      Gene287   30   24   55   32   50   19   24   27   22   35   37   17   41   31
-      Gene288   11    7   15   13   33    5    7   15    6    2    2    6   18    5
-      Gene289   53   99   53  117  123  117  102   89   65   74   68   58  140   71
-      Gene290   65   39   37   25   59   61   21   40   23   41   35   27   31   46
-      Gene291    6    9    1    4    7    4    7    2    7    4    7    .   11    .
-      Gene292  870 1081  917 1040 1403  893  962 1397  992 1246 1221  814 1398  579
-      Gene293   39    8   14   30   11   24   17    3   21   21   11   24   21   18
-      Gene294 1499 1554 1679 1264 2195 1664 1558 1750 2021 1325 1478 1702 2053 1493
-      Gene295   60   45   75   51   41   12   48   40   29   31   44   45   36   25
-      Gene296    3    2    6    4    5    1    3    6    1   10    2    1    5    9
-      Gene297   30   39   49   12   37   23   26   54   24   27   31   15   14   19
-      Gene298    2    1    3    .    .    .    3    1    .    1    .    1    .    .
-      Gene299   54   47   61   34   69   67   41  116   23   21   56   43   38   44
-      Gene300    2    8    7    5   13    9   13   11    2    .    6    9   11    3
-      Gene301 2766 2906 2889 2431 3403 2602 2795 3416 3159 2814 2783 2150 3445 2864
-      Gene302    1    2    .    1    2    .    1    1    2    .    .    1    5    1
-      Gene303   29    7   38   18   21   56   20   28   30   40   50   17   32   42
-      Gene304    3    .    6    1    2    .    2    1    .    1    .    .    .    .
-      Gene305   68   46   47   23   56   79   50   77   40   46   26   30   30   67
-      Gene306  101  132  291  158  175  227  173  154  129  125  156  137  208  139
-      Gene307   43   93   41   26   27   41   41   47   31   29   23   46   36   23
-      Gene308   37   16   17   20   14   28   14    8   23   13   25   24   22   13
-      Gene309  463  386  406  350  550  386  448  651  515  295  380  385  460  361
-      Gene310   31   28   48   16   53   45   48   73   34   12   29   18   30   56
-      Gene311    8    7    9   14   12   11    5   17    9    9   12    6   13    7
-      Gene312   18   27   22   20   20   15   16   36   22   21   28    9   24    9
-      Gene313  120   93   88  106  193  115  170  132   95  129  124  112  128   83
-      Gene314    2    3    1    3    2    8    2   17   18    2    2    7    4    5
-      Gene315    .    1    .    .    7    5    1    7    6    4    3    .    .    .
-      Gene316    9    7   13    4   19   11   10   15   11   10   12   11   12    6
-      Gene317    5    5    8    2    6    4    .    7    3    2    3    1    1    .
-      Gene318   16   36   14   17   21   10   11   43   25   25   18    9   17    6
-      Gene319    9   21   10   19   45   12   12   19    5    7   19    9   17    9
-      Gene320   36   41   35   62   46   58   49   47   41   21   45   34   64   31
-      Gene321   46   82   25   31   70   63   58   63   76   59   42   24   70   52
-      Gene322    .    .    2    2    5    4    7    2    6    4    2    4    1    .
-      Gene323  114   25  159   36  157  127   28  150   37   45   67   52   42   96
-      Gene324    .    .    .    .    .    1    .    3    1    .    .    .    7    .
-      Gene325  256  326  378  459  191  378  301  132  383  331  455  379  407  361
-      Gene326    2    1    1    5    6    1    4    4    8    5   10    5    6    5
-      Gene327  233  277  128  302  297  235  292  291  337  265  207  221  313  154
-      Gene328  183  133  197  134  167  191  146  213  132  122  170  111  140  131
-      Gene329   86  114   68  155  141  100  139  125  103   90   98   87  112   85
-      Gene330  216  225  304  340  396  296  273  493  350  191  229  177  255  215
-      Gene331    2    7    6    7    3    2   16    8    6    6   18    5    6   15
-      Gene332   22   13   11   42   26   19   26   37   24   10   24   17   39   27
-      Gene333   39   22   25   38   29   20   23   30   22   22   22   34   22   23
-      Gene334    4    .    .    .    1    2    .    2    2    .    3    1    5    .
-      Gene335   23    3   19   11   17   24    9   20   13   14    9   19   20    3
-      Gene336  136  138  100   98  158  151  192  112  121   76   95  115   85   66
-      Gene337   13   15   18   35   41   20   34   41   32   34   25   16   35   13
-      Gene338    5    2    7    3   12    5    3    4   13    3    3    8    8    5
-      Gene339   58   58   78   78   67   80   74   76   93   45   62   71   90   49
-      Gene340   45   29   38   41   62   26   39  103   43   27   44   43   87   53
-      Gene341   10   10   13    8   13    4   10    6    8    9    1   14    8    5
-      Gene342   25   58   33   60  108   30   72   87   59   46   51   41   90   34
-      Gene343    .    2    .    .    6    1    .    .    3    3    1    6    .    3
-      Gene344   20   11   12   20   45   18   23   62   15   20   23   31   22   14
-      Gene345   30   49   29   31   59   39   30   60   47   46   62   15   78   44
-      Gene346    .    .    5    1    .    .    3    2    3    2    .    .    .    .
-      Gene347   31   23   43   19   41   36   20   34   36   13   30   17   23   28
-      Gene348   12   10   24   10    6   23    6    7    4   16   19    2   14   13
-      Gene349   82  121  111  100  115   84  132  118   51   84  115   93   79   98
-      Gene350    1    1    3    1    1    4    5    6    5   12    8    2   11    8
-      Gene351   34   22   10   27   23   19   18   20   30   25   10   24   35   20
-      Gene352   13    8    5    6    6   12   15    3   15    3    5    6   11    8
-      Gene353    1    2    3    .    4    1    2    .    2    1    1    1    4    1
-      Gene354  166  131  204  178  297  232  226  179  198  172  230  195  257  188
-      Gene355   14   24    9   44   26   12   28   16   25   24   16   21   24    6
-      Gene356   82   94   84   77   93   64   72   89   73   74   89   93  120   43
-      Gene357   12    8    9   13   20   36   15   19   22   28   17   10   29    5
-      Gene358   12   20   17    8   81   13   27   56   12   21   10   11   33   20
-      Gene359    3    .    .    .    1    .    .    2    6    .    2    .    .    1
-      Gene360    4    3    5    3    2    6    6    6    6    5    7    1    7    3
-      Gene361    3    1    4    .    8   15    3    2    8    4    2    5    2    8
-      Gene362   22    6   18   26   20   10   42   11   31   26   30   17   22    7
-      Gene363   24   18   21   13   25   22   26   26   36    9   10   21   20   27
-      Gene364   35   28   10   13   26   20   39   15   22   32   40   25   30   14
-      Gene365   93   41   72   48   52   81   59   51   35   47   54   48   61   97
-      Gene366  228  471  246  287  103  276  379  182  315  250  271  278  627  154
-      Gene367   46   72   34   43   90   56   54   58   78   43   55   63  115   38
-      Gene368    6    3    5    6    4    2    5    8    2    1    3    8   12    4
-      Gene369    6    8    5    6    .    3    5    2    7    3    8    8   11    6
-      Gene370  212  194  157  136  436  170  176  337  198  169  191  177  156  154
-      Gene371   14    8   13    6    7   12   11    6   10    5    4    1   10    2
-      Gene372  165  117  161   98  114  159  150  179  161  117  196  127  184  113
-      Gene373   18   22   27   16   43   23   20   35   27   10   10   25   24   20
-      Gene374   58   52   52   52  130   95   74  157   62   69   79   55   64   47
-      Gene375   22   35   28   18   26   27   26   47   17   52   33    9   35   26
-      Gene376   19   28   15   22   26   13   15   19   24    9   25   15   32   20
-      Gene377   38   94   52   60   69   57   54   62   75   50   69   38   78   37
-      Gene378   45   50   42   38   27   35   81   37   61   48   26   37   51   50
-      Gene379  902 1433  821 1468 1294  891 1774 1494 1271 1062 1553 1062 1382  905
-      Gene380    3    3    2    1    3    2    3    1    2    4    .    3    3    4
-      Gene381    9   10   12   15   15    5   12   10   19    5    4   21   20    1
-      Gene382    2    .    2    2    2    1   11    1    4    5    1    1    1    .
-      Gene383    1    .    2    2    .    .    1    1    1    1    3    2    .    .
-      Gene384   18   35   24   43   18   35   69   15   43   45   27   24   42   21
-      Gene385   35   20   32   63   64   32   50   55   42   42   39   33   46   35
-      Gene386   48   35   49   39   44   45   21   37   40   17   24   24   36   18
-      Gene387  133  133  132  154  229  142  131  135   97  117  112  112  113  135
-      Gene388    2    .    .    .    .    .    3    .    .    .    .    .    .    .
-      Gene389    2    1   13    4    5   11    5    8    3   10    3    6    4   12
-      Gene390   84  166   65  205  127  104  245  136  215  166  194  153  250   64
-      Gene391    9    6    9   27    7   12   11   13    5   15    6    9    7    9
-      Gene392    4    4    5    2    6    .    7    8    4    3    7    5   10    6
-      Gene393  136   45  153   46  146   69   46  121   77   43   56   36   58   70
-      Gene394   17   27   23   20    9    5   29   15    8   24   12   28   24   23
-      Gene395    1    6    9    4   19    1    1   13   13    6    2   11    7    5
-      Gene396    3   14    6    6    8    3    2   16   11    4    4   12    4    4
-      Gene397   13    7   15   14   18   19   21   22   15    7   11   11   35   25
-      Gene398   69   67   67   43   28   37   61   40   38   33   25   54   87   53
-      Gene399   37   61   48   44   55   89   44   60   40   32   41   45   49   36
-      Gene400   30   53   21   49   21   33   42   34   31   29   51   30   64   12
-      Gene401   12    5    7    9    8    4    2   16    6    7    4    3   11   15
-      Gene402   33   77   38   76   67   64   87   84   55   90   55   42   63   69
-      Gene403    9    7   12    6   11   17    3    4    4    6    8   16    7    1
-      Gene404   89   64  107  108  110   88   76  127   72   54   56   83  105   84
-      Gene405   10   14   12   12   12   10   17    5    9    5    9   13    9   14
-      Gene406   12   27   10   44   56   21   14   45   28   13   32   16   28   10
-      Gene407    .    .    .    .    .    .    .    1    .    .    .    .    .    .
-      Gene408   16   15   16   24   41   49   35   26   20   12   10   27   17    9
-      Gene409   15    3   35    7    6   34    8    5   17   10   11    5   18    7
-      Gene410  144  151  134   97  168  127  146  193  100   71  143  103  124  143
-      Gene411   25    7   19    9   11   29    6   15    9    8   17    3   13   10
-      Gene412   64   63   92   70   83   46   83   63   74   75   66   33   53   71
-      Gene413    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene414  136  186  119   79   69  133  141   65  135  115  112  115  149   98
-      Gene415    3   22   36    6   18    6   17   22   13    5   17   10   27   11
-      Gene416   31   25   33   49   36   44   57   54   55   40   30   39   24   28
-      Gene417    5   22    2   19    4   10   10   11   11    6   14   21    4   16
-      Gene418   89   79   55   36  100   55   75   45   73   42   74   45   58   46
-      Gene419    2    1    6    1    1    1    6    4    5    1    .    1    8    5
-      Gene420   34    8   24   24   29   29   38   41   21   27   29   10   25   12
-      Gene421  129  160   78  125  124  127  148  185  121   61  127  100   88  109
-      Gene422   19   34   34   28   26   17   26   29   30   12   25   20   19    9
-      Gene423    1    .    .    6    1    .    3    4    .    3    4    4    3    1
-      Gene424    5   13    8    7    8    5   19   13   13   21   21    5    6    4
-      Gene425   63   48   41   60   58   57   48   67   46   37   57   55   58   36
-      Gene426    3   14    .    5   16   12   14    2    4    8   11   11   13    1
-      Gene427    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene428    5    3    6    7   15    4    2    5    2    3    1    4    8    2
-      Gene429    2    3    .    6    5    1    4    3    2    2    6    2   13    3
-      Gene430   87   38   29   40   53   72   71   54   76   34   57   63   84   56
-      Gene431    .    1    .    2    2    2    1    1    .    4    2    1    .    1
-      Gene432   46   28   35   18   40   27   20   16   31   27   44   27   36   20
-      Gene433  280  812  468  817  805  468  901  863  951  574  770  766 1092  301
-      Gene434   10    2    3    1    1    2    .    6    8    .    3    9    7    1
-      Gene435    4    4    7    2    5    2    1    1    2    2    4    2    7    5
-      Gene436   68   74   40   65   50   60   75   58  104   80  100   87  134   53
-      Gene437   50   31   32   44   72   44   35   99   23   13   16   23   29   37
-      Gene438   12   23   23   29   46   29   26   53   33   30   34   35   20   41
-      Gene439   55   43   39   46   51   50   48   78   47   36   43   35   47   17
-      Gene440   22   13   49   31   23   26   28   25    5   17   22   22   19   21
-      Gene441   65  102   55   87  231   61  126  228   66   89   95   90  146   48
-      Gene442  234  185  259  254  260  339  158  314  307  163  189  210  203  166
-      Gene443    .    .    .    .    .    .    .    1    5    .    .    .    .    2
-      Gene444   96   38   37   67   44   62   52   76   53   40   35   33   99   41
-      Gene445   34   20   25   41   38   34   43   53   45   37   27   34   30   33
-      Gene446    7   22    5   16   19   22   30    5   14   10   26   18   24   29
-      Gene447    6    2    6    1    5    9    4   10   10    3    9    6   14    3
-      Gene448   21   26   26   30   23   20   43   58   31   22   16   16   31   23
-      Gene449 2263 2072 1756 1907 2466 1747 1770 2697 2309 1636 1940 1392 2269 1786
-      Gene450    5   13    9    9    2    8    7    3    1    1    7   10    7    7
-      Gene451   36   18   32   23   21   31   44   29   26   31   27   40   40   21
-      Gene452  587 1012  641  862  842  570  976 1025  957  831  834  773  999  526
-      Gene453   44   39   53   55   78   56   46   44   50   38   45   36   44   42
-      Gene454   26   19   16   33   24   20   16   14    5    8   16   11   28   21
-      Gene455   16   10   22   18   15   29   18   24   25   12   25   17   21   20
-      Gene456   11   21   11   12   13    9   20   18    7    2   12    4   16   12
-      Gene457 2747 3922 3077 3659 4710 3405 4054 5231 3555 2728 3438 2910 4239 3170
-      Gene458   65   41   94   47   78   66   48   59   55   42   50   42   70   75
-      Gene459  903 1226  823 1060 1430  931 1410 1506 1529 1126 1277 1046 1522  816
-      Gene460   23   12   19   27   14   16   24   25   62    6   20   16   16   22
-      Gene461    7   28   10   26   34   26   23   13   26   25   20   20   44   10
-      Gene462   15    9   10   14   17   15   10   10    4    6    8   10    4   22
-      Gene463   63   61   75   46   59   37   22   88   64   53   40   40   58   38
-      Gene464   99   91   62  133   82   61   90  107  103   61   56  120  105   71
-      Gene465   30    8   11   33   27   10   23   58   27   33   17   27   16   25
-      Gene466   32   20   20   26   62   16   22   78   36   22   45   37   39   20
-      Gene467   33   27   25   35   34   54   39   30   24   36   25   23   47   60
-      Gene468    6    2   10    7    5    4    7   11    4    2    8    8    4    1
-      Gene469    4    .    .    .    .    .    .    1    .    2    4    .    1    4
-      Gene470    1    .    .    .    1   12    3    2    .   11   10    1    6    5
-      Gene471   44   18   30   12   53   19   41   41   28   29   25   22   17   40
-      Gene472   90  131   76  104  167  107  110  111  111   95  136   74  131   90
-      Gene473   80   49   37   65   53   53   77   78   57   45   58   57   73   89
-      Gene474   24   27   56   20   30   57   27   49   27   21   32   11   52   24
-      Gene475   24   65   37   44   41   30   53   61   44   59   52   40   56   43
-      Gene476  219  264  293  265  264  326  320  326  293  214  217  249  271  338
-      Gene477    5   15   11   29   29    6   11   26    5    6   20    8   25    6
-      Gene478    9   16   11   12   24    9   12   11    8   13   10   16   44   11
-      Gene479    1    5    8    8    5    4    1    6    1    .    3    3    2    .
-      Gene480    9   12   14    9   16    9   15   27    8    8   15    3    9    6
-      Gene481    2    3    .    1    6    .    5    .    .    1    1    6    .    1
-      Gene482   69   68   15   79   65   57   74   59   55   41   45   43   81   53
-      Gene483    .    .    .    .    .    .    .    .    2    .    .    .    1    .
-      Gene484    5    1    .    1    1    9    3    4    3    .    2    4    3    .
-      Gene485    9    8    8   15    3   10    6    5    7   10    7    8   11   16
-      Gene486   41   60   33   51   59   39   94   80   53   52   92   53   59   69
-      Gene487  104   31   69   34  258   83   28  170   35   19   71   42   39  107
-      Gene488   18   32   25   14   12   11   44   21   25   33   18   15   25   26
-      Gene489  309  512  295  457  723  245  452  594  502  358  561  387  557  225
-      Gene490  281   81  194  103  256  264   84  333  118   75  113   83   87  238
-      Gene491    6    9   10   12    9   15    6   11   11   14   14   13    7    5
-      Gene492  108   51  123   99   64  118  101   40   83   70   76   61  117   95
-      Gene493    6   17    9   18   19    4   13   21   28   11   24   18   19   11
-      Gene494   75   25   55   39   28   60   32   22   23   21   28   29   25   65
-      Gene495 1155 1660  903 1583 1171 1108 1771 1079 1491 1124 1532 1185 1360  727
-      Gene496   84   74   48   93  356  104   58  433   67   67  111   72  132   71
-      Gene497   54   43   63   46   62   21   56   44   46   45   31   37   66   38
-      Gene498   24   57   28   45   16   14   48   16   42   69   52   44   27   31
-      Gene499    9    3    4    8   10    9   10   14    8    2    1    3    6    3
-      Gene500    .    .    .    .    1    .    .    .    .    .    .    .    .    .
+      Gene1      .    .    .    .    .    .    .    .    .    .    1    .    .    1
+      Gene2      6    5   10   19   15    5   11   11   15    7   10   13   19    9
+      Gene3      4    .   10    4    .    3    2    1    3    2    1    3    4    5
+      Gene4     25   41    7   14   33   37   14   29    8   20   25   16   18   46
+      Gene5     26   26   20   13   24   18   21   29   30   16   25   27   21   28
+      Gene6      2    3    3   12    1   15    5    7    5    4    5    4    .    2
+      Gene7      3   30   19   43   29   54   28   13   40   35    7   18   11   19
+      Gene8    168  219  145  196  170  193  126  106  193  214  243  163  135  145
+      Gene9     86  119  118  134   93  122   95   53  102   75   95   91   98   83
+      Gene10     3   12    3    7    .    9    5    6    7    5   13    5    6   12
+      Gene11    15   20   28    7   24    4    3    8    7    8   27   14    9   13
+      Gene12     9   24   13   15   18   15   33   21   10   26   25    8   16   17
+      Gene13    10   10    5    6   19   13    2    2    3    7   23    6    9   16
+      Gene14    17   35   22   25   11   42   10   45   21   39   23   22   15   33
+      Gene15     1    1    1    1    .    3    .    .    .    .    .    .    .    4
+      Gene16   121  261   50  155  103  104  178   67  206  131  110   78   86  190
+      Gene17   168  484  392  440  310  458  399  309  301  394  273  340  177  296
+      Gene18   701 1744 2154 1436 1410 2869 1408 1437 1882 2087 1004 1273  580 1179
+      Gene19    13   12    9   13    6    4    3    3    6   22    4    .    6    7
+      Gene20   206  160  418  189  119  312  104   68  207  170  232  153  176  214
+      Gene21    42   99   47   50   29   54   44   39  107   73   50   41   64   60
+      Gene22  1206 3175 1075 1870 2317 1376 1993 1900 2784 2903 1288 1802  883 1468
+      Gene23     5    9    3   10    8    4    4    .    7    5    3    8    4    7
+      Gene24    19   88  106   56   38  115   46   31   47   66   52   31   46   71
+      Gene25  1666 2181 1437 1748 1618 2344 1594 1607 1500 1618 1861 1317 1464 2004
+      Gene26    36   87   38   36   34   54   41   53   71   47   53   27   39   36
+      Gene27   130  177  194  169  116  232  207  105  135  167  207  129   85  188
+      Gene28    11   42   19    9   10   12   26   14   27   31    9   12   30   24
+      Gene29    72   60   46   50   68   50   64   81   89   58   69   49   55   91
+      Gene30     9   13   14    7    6   13   12   11   10    9   13    6    5   11
+      Gene31     4    3    5    5    6    3    1    6    1    5    3    1    1    1
+      Gene32     2    4    2    2    3   10    3    8    2    1   10    1    .    1
+      Gene33    87   92  108  114   99   99   58  117   60   92  115   62   75  100
+      Gene34    25   22   11   16   14   32   36   18   20   40   18   19   15   23
+      Gene35    65  128   98   70  149   99   50   65  107  134   75   68   59  119
+      Gene36   175   88  187   61   63  230   78   40   65   62  281   52  155  302
+      Gene37    57   87   81   81   42   89   63   42   62   75  154   44   55   58
+      Gene38    35   37   27   35   32   66   30   23   48   23   65   43   34   35
+      Gene39     3   12   11   16    5    7    7   11   10   18   16   13   17   10
+      Gene40    11   11    9    6    3   10    5    9   11   10    3    3    3    8
+      Gene41    32   37   18   30   23   33   10   25   23   31   26   12   17   13
+      Gene42    59   43   54   52   31   53   26   17   62   35   43   43   36   41
+      Gene43    13   35   14   51   19   43   11   20   25   22   49   18   19   23
+      Gene44     .    2    4    .    .    9    .    2    2    1    .    4    1    2
+      Gene45    63   74   38   37   57   65   64   50   57   61   77   55   28   39
+      Gene46    25   32   37   33   24   50   24   29   48   44   29   30   26   22
+      Gene47    83   76  119   54   45  115   44   35   43   66   81   70   64   96
+      Gene48     .    .    3    .    .    4    .    .    .    2    .    .    .    2
+      Gene49   435  591  513  483  414  592  412  398  437  546  451  272  322  489
+      Gene50     3    3    4    6    4    2    4    3    4    3    5    3    3    7
+      Gene51    68   47   47   64   20   51   38   25   46   47   79   46   28   46
+      Gene52    22   71   81   92   52  112   59   35   70   52   62   50   13   52
+      Gene53    21   48   17   31   24   19   14   14   35   41   31   16   13   25
+      Gene54    29  106   54   67   49   76   44   49   97   49   34   50   26   36
+      Gene55     2    4    3    1    3    2    1    1    3    4    4    1    2    3
+      Gene56   135   94  144  135   94  144  113  109   91  154  153   92  117  171
+      Gene57    94  172  259   81  100  237  102   76  125   94  110   76   81  144
+      Gene58     .    .    1    .    .    .    .    .    .    .    .    .    .    .
+      Gene59     1    2    4    4    2    3    4    3    2    4    1    .    1    1
+      Gene60    16   39    8   19   27   25    7   11   53   18   11   13   12   26
+      Gene61    24   44   38   27   51   44   26   34   48   45   33   34   30   30
+      Gene62    13   30   44   26   33   25   24   13   27   30   25   17   23   15
+      Gene63    73  111   87   89   87   58   78   69  124  133  130   58   82   60
+      Gene64   182  207  183  117  171  155  108  127  182  156  213   74  111  148
+      Gene65    92  196   88   75   95   96  172  119  111   81   88   67  105  154
+      Gene66    50   50   52   58   24   57   57   36   42   29   81   44   24   56
+      Gene67     .    .    1    .    1    8    .    3    5    1    1    .    .    .
+      Gene68     2    1    2    2    1    1    7    .    5    2    2    .    6    1
+      Gene69    49   68   31   39   20   45   27   20   39   40   38   31   30   43
+      Gene70    30   69   30   45   56   71   30   53   65   84   32   48   21   50
+      Gene71    14   21    3   26   13    9    4   12   16   15    5    4    2    6
+      Gene72   242  272  309  306  222  361  205  236  267  249  349  189  211  359
+      Gene73    63   49   58   27   40  117   43   27   35   59   52   32   38   61
+      Gene74     .    .    .    .    .    .    .    .    .    .    1    .    2    2
+      Gene75     6    4   14    1    .    9    2    1    3    2    2    2    5    5
+      Gene76    19    9   12    3   13   22   16    5   11    9   20   27    1    1
+      Gene77   195  217  196  243  210  282  252  205  310  237  292  148  169  239
+      Gene78    61   81   46   38   35  111   45   53   25   34   53   25   41   75
+      Gene79    86  136  117  113  127  162   90   61  139  120  111   97   82   91
+      Gene80   227  335  333  312  241  284  332  215  266  302  344  229  209  245
+      Gene81   109  161   80   83   94  117  128   69   94   95   90   73  143  103
+      Gene82    26   48   37   31   34   36   29   25   27   45   33   24   36   50
+      Gene83     6    9    9    3   15   20   21    4   12   11   13   14    6   10
+      Gene84   114  189   73  170  245  132  144  126  217  186  168  184   40  124
+      Gene85    77   93   99   35   69   79   57   71   80   89   60   55   57   58
+      Gene86    88   95  126   96   99  104   66   82  108   88  128  118   67  126
+      Gene87     3   16    6    8   11   10   11   13   15   11    6    9    3    4
+      Gene88    13   13   14   12    5   12    9   15   18   26   23    6   24   15
+      Gene89    44   54   28   51   41   58   50   49   81   48   51   43   10   17
+      Gene90     8   33   28   22   35   34    9    9   28   20   16   15   17   45
+      Gene91   100   92   74  110   70   96   98   80  120   85  108   39   56   78
+      Gene92     1    3    2    2    4    4    .    1    1    .    .    1    .    3
+      Gene93    94  150   98   92   99  156   71   92  103  142   93   82   69  108
+      Gene94    12   36   34   16   10   20   15    4   36   25    9    6    5   18
+      Gene95   125   62   61   45   27   64   56   30   56   50   87   29   53   85
+      Gene96    58   62   55   71   56   67   48   63   58   82   44   38   32   49
+      Gene97    27   38   16   18   16   16    8   15   15   34   46   11   45   19
+      Gene98    14   25   10   18    9   10   21   17   21    6   34    5   26   13
+      Gene99   113  136  206   65  129  201   95   70   80   91  114   45   81   89
+      Gene100   87  123   85   75  111   92  139   73  112  105   88   82   69   99
+      Gene101    .    6    .    .    1    .    1    .    1    1    5    .    1    .
+      Gene102   16    8   10    6   10   23    8    6    3    5   10    2   20   10
+      Gene103    6    4    4    6    2    5    2    6    2    1   12    4    2    6
+      Gene104    9   25   43   15   24   34   17   21   18    8   35   13   10   22
+      Gene105    4   13    5   14   16   10   14    9   20    8   10    6    8   24
+      Gene106   28   41   40   26   23   42   46   20   33   23   20   33   29   18
+      Gene107    7    5   15    6    2   11    6    5    3    8    .   11    1   10
+      Gene108    2    1    .    1   16    .    .    2    .    .    2    .    .    .
+      Gene109   13   17   18   11   21   24   11   24   20   20   23   22   21   24
+      Gene110    7    4    6    1    3   18    1    9    6    5   10    2   10    7
+      Gene111  926 1452 1032 1055  951 1469  904  877 1439 1204 1332  826  674 1298
+      Gene112   29   52   37   47   43   36   32   29   35   36   22   33   13   25
+      Gene113   68  246  131  201  171  176  201  151  199  217  150  176   61   93
+      Gene114   17   29   22   16   20   28   17   22   16   21   24   17   13   14
+      Gene115    1    1    .    .    .    .    .    .    .    1    .    2    1    1
+      Gene116   26   18   43   22   23   35   14   16   24   32   16   12    7   22
+      Gene117   71  121   75  109   65   93   85   63  139  107  101   77   17   99
+      Gene118   41   33   40   13   15   28   20   24   26   20   48   33   24   26
+      Gene119   28   69   50   38   46   53   37   44   45   47   75   38   31   33
+      Gene120   30   44   50   47   50   62   36   27   21   28   25   31   58   46
+      Gene121   72   49   90   55   39   79   50   42   55   59   58   19   35   57
+      Gene122  172   87   95   70   92  177   64   60  107   63  225   43  159  249
+      Gene123    .    .    .    .    .    2    .    .    .    .    .    .    .    .
+      Gene124   26   35   29   43   42   58   51   32   46   61   28   19   33   47
+      Gene125    9    5    8   14    5   14   15    2   11   12   14    7    2    3
+      Gene126  290  378  310  238  199  248  261  287  275  329  278  164  168  282
+      Gene127    2    8    3    .    3   13    5    5    3   13    6    5    4    8
+      Gene128    2    3    5    8    5   11    3    3    3    8   13    2    2   11
+      Gene129   46   81   43   48   49   58   59   32   82   48   55   49   49   67
+      Gene130   97  114   90   99  124  122  108   91   85  127   61   74   62   86
+      Gene131   19    9   15   11   24    6   31    1   33   12   11   19    6   28
+      Gene132    7    6    3    4    1    5    3   11    2    8   11    7    5    8
+      Gene133    6   17    3    9    8   22    7    6   19   15   15   12   13   20
+      Gene134  274  330  344  333  243  355  221  161  336  174  258  168  217  272
+      Gene135  116   57   49   70   31   60   39   25   55   62  100   35   69  129
+      Gene136   76   18   45   27   10   47    6   16   18   31  107    7   92   89
+      Gene137   62   77  150   77   61  114   86   67   95   95   74   66   38   50
+      Gene138    7   30   20   26   13   17    9    9   30   19   11    2    7   22
+      Gene139   22   60   42   58   37   57   54   45   86   35   75   43   34   64
+      Gene140    .    .    1    .    .    2    .    .    1    2    .    .    .    .
+      Gene141    9    7    3   15   11    9   10   10   14   10   13    5    8    4
+      Gene142   62   24   38   30   17   55   21   19   26   21   58   25   44   26
+      Gene143    .    3    .    3    2    .    4    9    1    6    9    6    1    3
+      Gene144    3   22    5   10   11   10    6    5    8   20    6    8    3    2
+      Gene145   25   37   18   43   33   31   29   23   31   27   26   14   15   14
+      Gene146   48  146   73   58   58   76   34   56   45   65   72   43   60   53
+      Gene147   51   33   44   60   66   92   38   48   48   54   60   38   54   58
+      Gene148    .    5    .    1    2    4    .   10    .    1    5    4    .    1
+      Gene149    6    7    4    5    6    7    5    7    7    4   18    3    8   13
+      Gene150    9   19   19   14   17   13   15   20   29   17   20   25   12   47
+      Gene151    4   13    9    4   12    8    2   11    8    6    9    8    5   15
+      Gene152   67   19   13   29    6   48   10   19   15   18   14   13    8   33
+      Gene153   29   46   77   41   13   31   22   29   42   51   29   20   23   18
+      Gene154   50   70  106   64   40   67   52   51   55   77   60   35   39   56
+      Gene155   66  122  103  136  128  182  132   65  122  130   65  122   37   44
+      Gene156    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene157 1761 2180 2186 1583 1767 2334 1869 1431 1851 1980 2144 1535 1333 1981
+      Gene158   78   74   81   59   45   82   88   65   85   88   77   64   59   66
+      Gene159    3    8    3    1    1    5    3    4    4    2    4    .    1    1
+      Gene160    1    1    2    .    .    .    .    .    1    .    3    .    .    .
+      Gene161  111  143  192  151   95  217  139  103  164  114  135  112  114  182
+      Gene162   30   13    6   20   16    8    8   11   17   12   33    7   33   35
+      Gene163    5    1    3    3    .    6    .    3    7    .    5    5    1    .
+      Gene164  362  211  304  135  217  444  109  111  155  145  372  105  261  312
+      Gene165   53   75   32   75   24   44   31   37   52   63   47   40   27   41
+      Gene166   32   17   29   11    9   21   26   31   41   40   31   16   23   21
+      Gene167   80  143   51   75   83   70  126   87  106  106   62  124   59   88
+      Gene168   52  102   54  102   75   59   85   92   92  148  111   58   42  131
+      Gene169    5    3    3    2    5    4    9    2    .    5    1    1    1    .
+      Gene170    6    2    1    2    4    9    3   13    1    .    2    3    5    .
+      Gene171    8   14   16   21    7   14   10    9   17   18    6   11    3    5
+      Gene172    3   25   34   36   29   29   12    8   19   27   11   13    4    4
+      Gene173   10   14   13    3    2   11    6   12   26   19    8   12   15   20
+      Gene174  611 1509  665 1088  856  829 1082  442  878  834  852  525  560  655
+      Gene175  134   69   77   92   58  107   43   46   77  102  195   67  121  186
+      Gene176 2049 3501 2324 2289 1775 2241 2256 1523 2455 2657 2839 1747 1526 2188
+      Gene177    4    8    8    3    7   17    2    5    2    5    5    5    3    4
+      Gene178    5   11    7    4    6    8    7   12    9   20    3    5    .    7
+      Gene179    6    8    5    4    6    7    3    2    6    9    4    1    6    5
+      Gene180    .   14    4    6    4    6    .    .    9    .    1    .    4    4
+      Gene181   23   13   19   15    8    9   31   10   15   25   17    2   27   10
+      Gene182   56   54   62   25   28   20   38   22   39   43   83   14   52   45
+      Gene183    4   10   15   10   11   12    5   10   15   15    8    9   23   21
+      Gene184   26   13   18   14   13   10   14    7   11   11   48    7   13   24
+      Gene185   95   67  121   49   56  136   83   32   61   77   40   80   57   45
+      Gene186 1621 2293 2349 1682 1468 3517 1705 1242 1549 1827 1520 1026 1072 1528
+      Gene187    1   11    7    5    .    7    5    1    1    2   11    6    8    3
+      Gene188    9   15    3    5   18    5    1    8    9    6   17    5    8    7
+      Gene189  107  145  110   70   83   91   91   86  112   55   95   93   57   70
+      Gene190   15    6    2   12    3    5    4    5    6    1    7    8    9    5
+      Gene191   56  122  105  101   87  153  106   91  133  110  112   85   35   89
+      Gene192    .    .    6    8    .    6    2    6    .    1    1    .    3    3
+      Gene193    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene194   35   79   27   59   33   45   23   33   43   39   53   27   35   46
+      Gene195   88  179   99  166  111  126   89  104  154  126  125   89   95  113
+      Gene196   16   40   10   27    5   30   17   25   14   18   19   26   10   13
+      Gene197    .    .    .    .    .    .    .    .    1    .    .    .    .    .
+      Gene198   41   69   62   75   45   94   66   54   81   62   65   30   55   32
+      Gene199   38   76   64   41   52   91   60   43   40   48   61   34   23   53
+      Gene200 1209 1665 1397 1044 1005 1428  933  923 1578  962 1493  953  828 1163
+      Gene201   28   53   21   33   29   30   55   22   41   67   25   33   20   31
+      Gene202   47   59   59   47   35   72   71   27   69   38   51   39   25   77
+      Gene203    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene204    8   11    1    6    6   11    8    9    4    6    1    2    6    4
+      Gene205  105   93   79   87   91  163   86   64   66  101   92   51   50   67
+      Gene206    4    6   14    5   11   10   11    6   10   11    7    2    7    3
+      Gene207    .    5    .    .    .    .    .    .    .    1    .    3    .    .
+      Gene208   12   15   15    8    2   21   21    8    8    5   10   25    2   18
+      Gene209    .    .    .    .    .    .    .    .    .    1    .    .    .    1
+      Gene210   17   18   13   29   12   25   14   18   24   13   28   10    6   17
+      Gene211   48  279   55  178  172   68  216  153  197  202   70  192   61   49
+      Gene212   10   33   25   21    9   26   13   15   13   26   22   13   12   15
+      Gene213    6    9    6   16    5    3    9    4    6    7    5    1    2    2
+      Gene214   18   74   33   54   39   87   45   41   53   37   50   63   54   75
+      Gene215    .    3    3    7    1    3    .    .    .    2    3    .    2    2
+      Gene216  831 1768 1083 1438 1136 1254 1217  821 1642 1418 1251 1335  646  898
+      Gene217    5    6    5    1    2    1    2    2   10    5    2   10    .    1
+      Gene218   78  127  117  119  128  158   94  103  121  138  120   92   58   96
+      Gene219    .    1    .    .    .    .    .    1    .    .    1    .    .    .
+      Gene220   71   59   52   60   49   82   41   52   50   47   54   48   38   59
+      Gene221    1    3    3    .    2    7    .    2    .    1    2    .    .    .
+      Gene222   20   47   44   13   28   24   13    9   25   32   25   13   12   19
+      Gene223   23   14   16   19    9   14   22    6    5   15   24   27   15   31
+      Gene224   92  106  135   71  101  128   75   71  105   96  117   74  104   88
+      Gene225    1    .    .    .    .    .    .    .    1    .    .    1    .    .
+      Gene226    9   17   29   15   12   46   26   24   23   25   26   10   12   22
+      Gene227    3    1    2    4    .    2    5    7    3    1    5    6    1    .
+      Gene228   37   65   13   23   31   31   26   23   29   31   43   35   11    9
+      Gene229    8    4    2    3    4    2    9    3    5    2    3    6    .    2
+      Gene230   57   67   55   68   39   71   42   56   64   81   65   25   54   62
+      Gene231   17   20   18    7    6    9   19   18   17    8   15   17    8   11
+      Gene232   56  121  101   73  110  179   70   63  129  124   53  107   61   47
+      Gene233  212  291  144  261  265  144  182  104  247  188  289  137  103  151
+      Gene234    .    .    .    .    .    5    .    .    .    .    .    .    .    .
+      Gene235   21   21    8   12   10    6    2    4   16    5    6   21   11   12
+      Gene236   20   33   19   26   20   46   28   28   29   25   27   23   11   18
+      Gene237   58  116  102   69   59  112   75   44   58   90   86   58   92   88
+      Gene238    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene239   63  125  115   77   71   57   73   88   79  110   67   44   44   41
+      Gene240    6    8    6    6    4    9    8    7    .    9    2    2    1    1
+      Gene241   58   91   98   75   43   67   69   47   80  124   63   54   28   57
+      Gene242  119   50   70   42   76   72   57   59   51   55  110   43   64   80
+      Gene243   10   22   18   22   17   24    7    9   22    9   11   19   22   10
+      Gene244    7    1    3    1    1    4    1    2    1    6    .    4    .    .
+      Gene245    .    6    .   11    1   14    5    1    3    5    2    7    .    1
+      Gene246  192  339  249  257  247  448  326  241  292  310  261  185  167  343
+      Gene247   21   28   60   27   37   73   26   13   16   28   38   16   19   27
+      Gene248    3    4    1    1    1    1    4    8    1    1    5    4    1    4
+      Gene249    .    5    5    1    .    4    4    1    3    9    2    1    .    4
+      Gene250    .    5    3    .    4    4    4    8    .    6    5    3    1    4
+      Gene251    .    2    1    1    2    5    4    .    5    4    3    1    1    2
+      Gene252   29   29   46   30   16   62   37   15   29   22   43   22   19   47
+      Gene253   38   72   33   28   46   65   52   24   61   50   60   20   18   40
+      Gene254   18   17   22   37   13   22   16   27   39   28   17   12   12   27
+      Gene255    .    .    .    2    .    1    .    .    .    3    .    1    .    1
+      Gene256   24   18   21   20    6   16   12    7   28   10   18   11    7   19
+      Gene257    3    7    4    3    1    5    3    6    .    3    2    3    5    4
+      Gene258  989 1443 1148 1237 1340 1445 1230  563 1231 1168 1248 1016  744 1229
+      Gene259   46   52   33   32   43   79   49   37   47   16   36   30   45   73
+      Gene260    9   42   37   23   22   26   19   15   13   36   22   20    5   21
+      Gene261   34   66   87   54   55   78   55   25   41   41   47   43   25   17
+      Gene262    5    7    7    6    7   14    1   19    5   11    9    4    6    6
+      Gene263    .    5    1    4    3    .    2    4    .    .    .    .    1    1
+      Gene264    3    1    2    2    2    3    1    1    4    .    3    .    .    4
+      Gene265   33   29   44   28   19   36   15   12   15   18   33   15   17   28
+      Gene266 1770 2322 2177 1645 1542 2580 2091 1474 2348 2448 2561 1621 1437 2248
+      Gene267    1    3    .    .    3    1    .    4    2    5    .    4    .    .
+      Gene268  141  131   56   56   44  116   60   74   98   86  160   57   95  153
+      Gene269    1    1    5    .    .    1    1    1    .    .    2    .    1    1
+      Gene270  347  246  184  190  172  220  200  274  166  246  577  157  350  480
+      Gene271   41   93   30   59   91   31   74   42   80  110   61   26   34   50
+      Gene272   13   38   25    3   17   23    6   14   12    9   26    8    7   11
+      Gene273   16   18   25   27   28   43   26   11   27   27   24   11    5   20
+      Gene274   63   76   59   33   29   43   40   30   47   59   58   19   33   48
+      Gene275   56   34   51   36   37   55   60   43   71   59   36   47   45   39
+      Gene276   17   20   32   26   10   32   12    8   24   26   24    8   21    5
+      Gene277   35   64   44   60   41   48   42   19   31   63   32   22   41   22
+      Gene278   33   70   66   49   62   52   44   55   64   48   90   26   35   60
+      Gene279    8   11   13   17   14   12   10   15   16   13   11    8   16    9
+      Gene280   23   39   70   27   20   68   37   14   31   27   27    8   20   33
+      Gene281   43   49   28   47   51   44   37   21   38   25   32   26   30   30
+      Gene282   51   89   35   43   51   82   39   24   43   53   57   27   42   43
+      Gene283   66   89   69   74   62   64   79   68   60   97  106   75   59  122
+      Gene284   11   81   31   67   57   74   49   58   63   72   34   30   21   18
+      Gene285   54  187  260  133  117  257   94   82  114  164   44   88   31   55
+      Gene286  102  109   61   95   69   61   66   97   86  108   91   42   66   77
+      Gene287    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene288   17   26   12   19   19   12   15   35   43   22   44   30   25   13
+      Gene289   28   85  114   73   59  181   59   48  101   58   63   54   25   34
+      Gene290    .    1    3    2    1    4    4    .    2    1    4    6    .    4
+      Gene291   35   17   14   17   20   13   18   17   27   44   21   26   18   31
+      Gene292   20   36    3   50   26   26   61   26   39    9   29   18   30   33
+      Gene293   37   91   97   73   60   67   79   36   36   83   56   33   31   61
+      Gene294    4   11    6    1    1    6    3    6    5    5   14    1    8   10
+      Gene295  328  172  131  238  148  205  136  133  140  172  328   83  191  373
+      Gene296   73   72   53   89   72   53   43   53  125   69  107   82   63   52
+      Gene297   32   93   86   73   73   92   45   53   66   79   86   38   37   78
+      Gene298   52  125   81   65   63   78   78   99  107   69   64   74   71  120
+      Gene299  198  286  241  309  248  268  233  180  206  234  248  167  192  234
+      Gene300   39   78   49   35   26   35   31   20   40   46   56   14   26   45
+      Gene301   64  110   48   76   42   36   85   51   70   70   72   76   49   59
+      Gene302    1    .    .    1    1    4    2    2    1    1    5    .    .    8
+      Gene303  117  227  128  137  134  187  139  112  274  109  136  132  126  199
+      Gene304    .    .    .    2    .    .    .    .    .    .    .    .    .    .
+      Gene305  134  182  194  153  179  222  165  141  143  226  208   88  107  167
+      Gene306   63   72   68   44   43   69   44   43   31   33   51   44   23   52
+      Gene307   58   60   55   73   77   74   48   85   45   68  120   70   29   81
+      Gene308    .   17   23    5    4   15    2    6    5    5   10    4    2   13
+      Gene309    2   11    1    7    6    4   13    5    .    5    9    8    4   13
+      Gene310  172  236  185  215  163  207  162  215  319  244  150  226  105  345
+      Gene311   40   58   62   79   29   78   78   55   72   51   78   33   25   57
+      Gene312   51   62   57   33   48   29   26   26   80   60   39   25   13   58
+      Gene313 2498 8231 3951 6626 4709 4385 4830 3915 7026 7504 3727 4906 2045 3360
+      Gene314   19  112   44   92   64   39   86   70  123  109   27   76   28   32
+      Gene315    1    .    4    .    .    2    2    .    1    3    3    3    3    5
+      Gene316  123  112  168  138   88  185  110   72  164  136  164   72   97  161
+      Gene317   53   78   46   62   59  118   59   77   63   79   53   31   37   59
+      Gene318   10   12    6   13   15   23   13    5    7    7   12   15   12    6
+      Gene319    4   13   11    4   11   18    8    7   12   16   13    7    3   15
+      Gene320    8   22    3   12    5   16    3   11   23   15   19    4   25    7
+      Gene321    3    1    6    5    4    9    5    6    .    3    5    4    .    8
+      Gene322   35   42    9   24   28   27    9   31   28   26   22   30   11   12
+      Gene323   26   31   24   10   14   33    8   12   16   21   20   12    3   28
+      Gene324   51   39   24   44   32   29   17   26   36   36   72   18   31   48
+      Gene325    4    3    1    4    1    5    .    7    6    6    1    2    2    5
+      Gene326    2    3    9   15    5    9    3    4   11    8    1    7    3    8
+      Gene327 1254 1826 1849 1603 1343 2013 1538 1346 1851 2141 1072 1012  986 1235
+      Gene328    .    .    2    1    .    .    .    .    .    .    .    .    1    .
+      Gene329   48   85   77   37   30   86   33   39   63   47   26   33   26   22
+      Gene330    1    3    3    6    3    .    .    1    1    2    2    .    .    1
+      Gene331    4   19   23   17   20   17   17    7   20   35    9   25    .   13
+      Gene332    .    4    .    .    .    .    .    .    2    2    2    3    .    3
+      Gene333    .    2    .    .    .    .    1    .    .    .    .    1    .    1
+      Gene334   33   48   43   33   13   30   30   16   21   10   44   14   10   14
+      Gene335   12   13    6    6    2   18   13   11    7   16    7    6    1   13
+      Gene336    1    3    6   10    3    2    8    9   11    9    8    4    1    2
+      Gene337 1010 2289 1752 1483 1619 2313 1626  834 1816 2140 1147 1472  829 1391
+      Gene338   16   11   33    7   17   17   17    4   16    4   15   19    7   10
+      Gene339   58   83  103   67   62  138   40   68   49   67   83   51   44   57
+      Gene340    .    1    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene341  101  120  148   52   85  133  132  126  117  117  183   92  115  174
+      Gene342   16   35   15   12   17   21   20   18   14   18   22    9    6   23
+      Gene343    2    2    .    9    .    8    .    .    .    .    .    .    .    1
+      Gene344   86  249   86  187  168  129  136  121  185  128  162  101   50  168
+      Gene345  258  564  560  371  377  528  301  191  392  336  477  282  190  357
+      Gene346   12   60  117   37   39  117   27   15   57   34   30   34    5   11
+      Gene347   35   35   25   18   17   31   23   23   11   24   29   20   13   18
+      Gene348   49  121   79   62   65  121   59   55   57   76   78   66   81   65
+      Gene349    1    2    .    2    4    3    .    1   16    6    1    .    1    1
+      Gene350   19   42   16   18   11   25   24   16   30   34   40   16    9    9
+      Gene351   17   42   74   22   23   50   28   33   32   50   52   13   23   31
+      Gene352  125  122  197  103   73  214   80   45   72  102   88   99   84  114
+      Gene353   10    5    3   10    6    6   16   10   10   16    8   12    7   18
+      Gene354   42   88   41   47   50   63   66   47   59   42   51   35   26   43
+      Gene355    5    7   11    5   16   10    7    9    4    6    8    5    2    5
+      Gene356   67  110   57   71   70  101   70   92   98   82  171   76   79  164
+      Gene357  196  177  150  165  171  158  181   87  184  100  198   77  111  130
+      Gene358    3    5    8    2    3    3    2    .    .    8    3    .    .    2
+      Gene359   20   23   14    9    4   19    .   14   10   22   30    8    4   22
+      Gene360    9   18   23   30   17   23   19   17   26   32   12   15    2   11
+      Gene361   13   26   16   35   46   52   14   11   28   40   40   17   10   25
+      Gene362  191  214  148  134  151  180  138  145  169  202  262  115  152  237
+      Gene363  202  188  106  133  157   74  189  110  178  238  239  115  123  209
+      Gene364   79   47   59   60   42   81   33   42   56   82   87   19   22   67
+      Gene365   97  147  184  158  138  143  119  118  193  127  116   96   85  140
+      Gene366    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene367  669  896  736  780  565 1025  701  560  668  883  851  727  594  898
+      Gene368   28   98   35   55   43   35   50   28   51   53   34   27   22   40
+      Gene369    7    6    2    .    7    2    .    3    3    .    5    1    .    1
+      Gene370   18   20    8   12    6   19   17   13   23   16   11   16   13   15
+      Gene371    2    2    3    .    4    3    .    .    .    2    1    .    .    3
+      Gene372   54  117  238   69   93  271  118   52  117  103   70  108   31   73
+      Gene373   47   42   15   25   12   31   23   12   34   15   11   11   21   15
+      Gene374  190  266  122  175  143  235  221  116  195  185  231  139  139  191
+      Gene375  680  877  578  935  757  886  846  592  857  760  959  662  544  621
+      Gene376   48   55   30   57   67   31   40   33   73   57   64   31   33   21
+      Gene377   44   59   60   31   55   71   35   32   48   41   34   35   40   69
+      Gene378   10   33   20   12   24   10   10   14   31   34    3   10    3    6
+      Gene379    1    2    2    .    2    2    .    6    4    2    7    7    3    3
+      Gene380   31   86   67  115  114  147   75   70  100   83   36   58   43   36
+      Gene381   15   85   21   72   91   53   57   69   77   53   55   40   26   32
+      Gene382    2    2    .    1    2    .    1    .    1    .    2    .    3    3
+      Gene383  268  260  302  188  263  339  217  241  270  182  419  205  156  271
+      Gene384  191  340  190  179  197  300  120  125  148  260  260  132  177  234
+      Gene385    5   20   27   35   18   23    9   16   25   25   26   23   15    9
+      Gene386  192  203  254  139  209  296  168  131  205  221  316  110  185  272
+      Gene387    1    .    .    1    1    5    .    1    5    3    2    2    9    .
+      Gene388    .    5    2    2    1    3    4    1    6    1    2    5    1    1
+      Gene389   58  116   50   64   51  109   55   62  117  100   68   55   44  101
+      Gene390   44  108   42   55   41   47   84   61   64   60   65   62   38   56
+      Gene391  203  354  261  322  278  326  236  157  309  267  286  173  144  238
+      Gene392   33   32   25   19   23   60   23   26   27   18   47   12   20   29
+      Gene393    2    1    1    .    .    1    1    1    .    .    2    .    .    .
+      Gene394   39   61   47   91   81   87   43   71   82   67   33   41   21   42
+      Gene395    3    1    1    6    2    5    5    2    1    4   12    2    2    .
+      Gene396  102   99  140   86   64  215   99   53   84  124  146   30  113  102
+      Gene397  115  111  105   73   84  166  100   38   94  110   77   76   62   97
+      Gene398    .    1    1    .    .    .    .    .    .    .    .    .    1    .
+      Gene399    .    9    8    2    6    2    1    2    3    3   12    2    .    1
+      Gene400    .    .    3    .    .    1    2    .    3    4    .    .    .    .
+      Gene401  271  453  393  371  256  458  318  281  402  409  372  275  240  339
+      Gene402   13   28   13   32    9   41    8   13   29   22   13    7   12    8
+      Gene403   30   41   40   25   14   27   15    8   14   15   23   15   28   28
+      Gene404  468  300  351  319  333  347  362  366  334  224  450  224  361  435
+      Gene405   74   87   64  102   61  110   77   94  100  102  150   77   62   91
+      Gene406  181  246  203  110  203  209  205  152  191  190  160  146   99  187
+      Gene407   22   11    5   18    7   13   10    6    5    8   10    6    3    4
+      Gene408   66  160   65  110   88   88   65   92  112   97  107   60   61   86
+      Gene409   11   53   30   27   16   57   23   13   48   26   28   13   11   33
+      Gene410   46   44   33   38   40   45   33   20   36   63   40   48   29   32
+      Gene411  283  254  128  104  170  164   93   86  131  161  329  106  185  342
+      Gene412 1228 2195 1555 1843 1589 2073 1433 1326 1904 1681 1875  987 1237 1550
+      Gene413  343 1351  643  704  670  660  732  778  898 1022  332  596  257  448
+      Gene414   87   69   94   36   21  106   45   28   48   44   99   43   80   89
+      Gene415   34   21   87   63    8   68   22   34   38   51   72   41   46   20
+      Gene416  123   99   75   73   90   92   73   75   87   83  121   84   54   81
+      Gene417   11   11   13   16    4   14   10    6    8    9    9    9    8    6
+      Gene418    .    .    .    .    .    .    .    .    .    1    .    .    .    .
+      Gene419   26   60   19   40   85   19   81   40   63   72   51   39   12   34
+      Gene420  154  154   94  148   96   96  105  125  149  183  156  104   70   94
+      Gene421   33   30   32   30   20   43   15   15   47   47   48   25   34   47
+      Gene422   61   48  134   33   49   45   83   38   71   49   60   21   45   34
+      Gene423  206  280   90  249  219   94  203  146  233  241  263  195  131  259
+      Gene424  720 1223  711  762  816 1181  681  629 1090  930 1049  799  508  899
+      Gene425   19   20   33   13   13   24   19   18   26   30   15   20   14   30
+      Gene426   43   34   25   22   46   50    9   19   42   31   40   53   14   46
+      Gene427   10   10   14    4    2    8    7    4    7    6   12    1    3   21
+      Gene428    .    .    .    .    .    1    .    .    .    .    .    1    2    .
+      Gene429    .    .    .    3    .    .    .    .    .    .    .    1    .    .
+      Gene430    3    2    4   10   13    8   13    9   10    7    5    4    7    7
+      Gene431   14   22   29   22   20   13   23   14   15   23   15    6   11   15
+      Gene432    3    9    3    5    3    4    5   15   10    8    4    2    3    1
+      Gene433   87   70   84  103   60   90  103   71   69   69  109   61   82  142
+      Gene434   13   33   12   16   12   28    8   16    8   19   14    7    3   14
+      Gene435   43   95   66   84   63   94   86   67  104   91   79   42   43   77
+      Gene436   89  139   86  106  117  126   98   87  134  106  109   92   79   89
+      Gene437   17    7   19   11    6   49   24   12   23   30   17    9    8   36
+      Gene438   92  113  111   95   65   78   67   58   89  114  134  105   88  116
+      Gene439   18   16   15   18    8    1   10    3    5    9   11    2    3    9
+      Gene440    6   31   12   18   14    7   14   12   19   11    6   11    9   15
+      Gene441   77   87   46   52   58   61   34   53   97   78   70   30   57   66
+      Gene442   86   86  116   46   62  162   72   47   45   67  110   49   82   92
+      Gene443   20   28   11   17   21   17   10   20   12    9   24   22   19    5
+      Gene444    6   21   21    8   11   18    6    9   21   32   10    8    6   11
+      Gene445    .    .    1    1    .    .    .    .    .    .    1    .    .    .
+      Gene446   42   42   47   41   20   40   18   22   40   50   70   21   15   36
+      Gene447   52   89   33   97   30   92   67   52   62   25   64   50   41   73
+      Gene448  108  126  144   67   76  121   53   69  118   76   62   75   72  100
+      Gene449   68  104   75   67   62   90   73   48   57   82   82   54   66  100
+      Gene450    .    .    .    1    2    1    1    1    9    .    2    3    .    2
+      Gene451   52   88   83   30   64  109   39   33   57   59   47   24   30   37
+      Gene452  122  200   84  119   84  113  123   67  142  146  165   58   87  136
+      Gene453  843  966  858  730  665  804  595  488  763  785  866  528  452  646
+      Gene454   37  203   34  154   74   70   77  114  125   95   68   84   53   53
+      Gene455    9    4    5    2    3    2    3    6    1    .    4    .    2    3
+      Gene456   34   28   29   14   19   35   17   28   35   18   39   14   12   33
+      Gene457   50  101   95   54   54   88   82   58  123   82  122   73   64  121
+      Gene458    3    3    4    4    3    2    4    1    2    2    2    1    3    5
+      Gene459   28   23   21   33   12   21   26   20   21   41   42   19   15   31
+      Gene460  804 1976 1068 1342  953 1653 1168 1106 1359 1422 1011  881  643  922
+      Gene461  135  297  177  281  178  230  231  166  287  265  241  177  108  200
+      Gene462    .    2    .    2    1    .    .    .    6    1    .    .    .    .
+      Gene463   13    5   11    4    6    3    1    2    9    3    5    1    3   13
+      Gene464    3    1    1    2    1    1    .    .    1    6    .    2    .    .
+      Gene465   40   46   25   31   37   45   35   37   30   41   39   24   36   32
+      Gene466   39   43   36   40   19   24   37   12   34   22   18   26   19   20
+      Gene467    2    5    4    5    4    1    .    7    2    1    4    2    .    5
+      Gene468   12   19   25    7    9    8   25   15   23   30   16    6    8   28
+      Gene469    2    1    1    .    .    1    1    1    3    .    1    .    4    2
+      Gene470   71   62   75   50   46   78   47   45   48   53   62   40   57   49
+      Gene471   12    7    4    1    7   10   21    4   10    4    6    5    4    2
+      Gene472  189  167  109  101  148  182  114   67   84  150  305   78  121  204
+      Gene473   73   76   33   47   84   30   50   54   82   72   62   36   57   64
+      Gene474    .    .    .    .    .    .    .    .    .    1    .    .    .    .
+      Gene475   70   70   48   73   57   73   90   50   69   94   57   59   28   86
+      Gene476   56   61   81   61   57   53   71   37  128   69   91   40   35   79
+      Gene477   35   60   41   51   43   81   30   26   41   27   40   22   43   59
+      Gene478   23   12    5   12    2   10    1    1    8    3   12    .   13   22
+      Gene479   12   11    7   33    7   11   11    7    9   14    8    7    5   17
+      Gene480   44   57   41   55   54   38   39   39   89   63   35   46   58   48
+      Gene481   14   38   18   24   22   22    9   16   15   13    7   24   10   34
+      Gene482   28   62   50   48   61   59   26   22   59   37   44   39   24   53
+      Gene483   13   10   18   14    2   21   15    5   17   10   12    9   13   13
+      Gene484   34   39   29   33   17   43   23   36   38   24   39   23   29   17
+      Gene485   17   40   14   13   17   26   13   13   37   31   22   17   16   14
+      Gene486    6   11    8    9    3    9    7    6    7    8   11    5    6    .
+      Gene487   97   90   33   52   43   63   34   29   49   93  134   46   56   99
+      Gene488  130  458  128  489  342  152  392  322  525  391  216  250  101  143
+      Gene489  126  141  139  124   65  138  172   91  171  138  215   81  115  175
+      Gene490    .    .    1    4    .    .    .    .    .    3    1    3    .    .
+      Gene491  161  181  115  128  119  151  101  106  176  161  240  134  144  205
+      Gene492   61  111  122   81  124   96   83   88   82  112   49   57   64   62
+      Gene493  195  210  130  261  191  166  172  127  186  225  223   62  156  174
+      Gene494  368  583  503  397  470  626  352  300  498  458  483  332  310  403
+      Gene495    2    1    4    1    .    5    1    .    2    3    .    1    .    1
+      Gene496   29   38   16   14   32   23   20   34   23   36   39   20   10   41
+      Gene497   72  268  196  173  222  291  265  169  192  197  119  226   63   80
+      Gene498   28   42   35   42   47   47   47   29   34   45   17   28   36   53
+      Gene499  367  243  175  222  179  214  212  163  196  299  384  163  259  406
+      Gene500    .    4    .    3    5    .    3    1    .    2    .    .    .    1
                                            
-      Gene1    110   39   47   68   40   51
-      Gene2     31   12    6   41   35   13
-      Gene3   2015  449  634 1416  880  524
-      Gene4    322   48   70  253  115   76
-      Gene5      4    4    3    5    8    4
-      Gene6    108   79  122   73   81  118
-      Gene7    111   48   75   98  114   52
-      Gene8    137   70  111  113  121  164
-      Gene9    158   35   56  107   56   45
-      Gene10    16    2    4    2    6    4
-      Gene11    57   24   37   33   33   15
-      Gene12    38   21   35   22   48   32
-      Gene13    97   60   74  104   88   88
-      Gene14    31   23   18   17   15    8
-      Gene15   332  145  167  212  258  217
-      Gene16    70   22   43   30   18    8
-      Gene17    44   13   46   37   17   42
-      Gene18    28   28   32   28   41   21
-      Gene19    61   41   34   31   61   34
-      Gene20     2    .    1    .    .    1
-      Gene21     1    4    .    4    4    6
-      Gene22   194  211  240  224  172  203
-      Gene23  3548 1783 2227 2574 2686 2237
-      Gene24    15    8   19   14   23   11
-      Gene25    43   28   41   33   24   25
-      Gene26    48   26   35   63   46   30
-      Gene27     .    .    .    .    .    .
-      Gene28    55   34   24   35   42   16
-      Gene29    54  135  182   69   91  161
-      Gene30   142  101  143  107  308  206
-      Gene31  2088 1676 2631 1785 3243 2331
-      Gene32   108   42   32  103   85   53
-      Gene33    31    8   12   24   36   22
-      Gene34    98   19   18   68   44   34
-      Gene35   991  386  673  720 1125  477
-      Gene36     4    1    1   14    6    2
-      Gene37    33    7   11   13   26    2
-      Gene38    10   14   16   15   45   10
-      Gene39   683  308  384  620  590  502
-      Gene40     3    1    .    5    .    2
-      Gene41    52   47   73   21   29  100
-      Gene42     9    7    8   13   25    3
-      Gene43    14   17   16   13   21   11
-      Gene44    45   12   27   50   15    7
-      Gene45   153  163  135  153  147  100
-      Gene46  3821 2066 2894 2899 3004 2095
-      Gene47    15    1    4   11    7    1
-      Gene48    97   44   75   84   89   64
-      Gene49    52   16   14   23   43   38
-      Gene50     .    .    .    .    .    .
-      Gene51    20   47   52   21   37   52
-      Gene52     .    2    1    .    2    6
-      Gene53    50   21   28   37   61   15
-      Gene54    54   28   47   68   91   40
-      Gene55     5    .    8    4    1    4
-      Gene56     3    7   12    7   16    4
-      Gene57   104   40   61   61   81   51
-      Gene58    46   22   55   40   45   16
-      Gene59    35   12   14   22   34   31
-      Gene60     1    2    .    .    .    .
-      Gene61     .    .    .    .    2    .
-      Gene62    88   30   70   47   29   49
-      Gene63   135   63  168  139  191  157
-      Gene64   284  206  294  257  287  291
-      Gene65    85   29   26   17   69   30
-      Gene66   122   44   62  141   77   91
-      Gene67  1057  176  310  608  464  321
-      Gene68     5    4    4    2   12    3
-      Gene69     3    5    4    8    8    2
-      Gene70   175   70  125  160  120   97
-      Gene71    69   21   26   50   84   29
-      Gene72    25    5    7   29   25    3
-      Gene73     5    .    3    5    6    .
-      Gene74  1594 1216 1580 1099 1957 1631
-      Gene75    30    7   37   43   15   25
-      Gene76    34   20   50   39   47   21
-      Gene77    93   46   53   89   37   60
-      Gene78   191  187  255  163  160  234
-      Gene79  1063  630  918 1010  883  686
-      Gene80    63   54   76   60  119   75
-      Gene81    11    7   15   20   16   18
-      Gene82     1    .    2    4    1    .
-      Gene83   120   56   76   75  110  134
-      Gene84    95    4   29   98   49   25
-      Gene85  1553  913  736 1059  777  642
-      Gene86     .    .    .    .    .    .
-      Gene87    43   30   44   30   38   38
-      Gene88   260   86  193  148  131  106
-      Gene89    19   14   12   21   26   17
-      Gene90   336  124  186  295  278  172
-      Gene91    87   51   83   76   35   80
-      Gene92    29   11   14   35   35    9
-      Gene93    43   22   37   50   40   20
-      Gene94   144   50   57  202   37   67
-      Gene95    26    6    8   22   16    7
-      Gene96     1    2    .    .    4    1
-      Gene97    10    5    2    9   16    9
-      Gene98    13    8    3    1    3   12
-      Gene99     .    1    .    5    2    6
-      Gene100  143  135  100  157  104  157
-      Gene101    8    3    8   21    8   13
-      Gene102  186   66   54  129   85   70
-      Gene103   49   40   41   29   36   47
-      Gene104    1    .    .    .    .    .
-      Gene105   17   14   14   19   24   15
-      Gene106   62   33   53   62   67   43
-      Gene107 3864 1853 2973 4055 1576 2212
-      Gene108    4    5    8    1   10    8
-      Gene109  418  292  281  314  223  332
-      Gene110  263  107  113  187  138  102
-      Gene111  375  272  332  287  478  375
-      Gene112    4    7    1    6    4   14
-      Gene113   31   26   31   61   50   24
-      Gene114   22   10    5   15   10    5
-      Gene115   25   22   22   40   24   11
-      Gene116   92   40   26   61   90   40
-      Gene117 1039  331  714 1032 1015  671
-      Gene118    7    2    9    7   10    4
-      Gene119    4    2    2    8    3    1
-      Gene120   23   30   12   71   29   28
-      Gene121   12    3   15    8   11    6
-      Gene122   63   15   37   37   48   31
-      Gene123 3931  895 1313 3110 2498 1162
-      Gene124   59   30   44   74   61   60
-      Gene125 2204 1831 2108 1777 2896 2422
-      Gene126   67   37   58   53   75   36
-      Gene127  153   37  131  196  204   86
-      Gene128   13    4   14    9    9   19
-      Gene129  169  104  124  214  176  127
-      Gene130   65   40   70   74   68   56
-      Gene131   41   33   22   48   39   23
-      Gene132   53   16   30   49   34   36
-      Gene133   20    6   10   10    5   15
-      Gene134   20   12   25   18   15   11
-      Gene135   13   10   12   12   34   27
-      Gene136  339  122  185  196  208  133
-      Gene137   20    9    5   16   27    5
-      Gene138   59   37   38   67   47   26
-      Gene139   15   16   24   28   46   22
-      Gene140   10    3   16   31   15    8
-      Gene141   15   18   11    6   18   47
-      Gene142  230  144  220  189  346  122
-      Gene143    4    7   13   15    1    2
-      Gene144    7    2    9    7    6   13
-      Gene145   38   99  105   62  113   78
-      Gene146  225   92  113  125  472  132
-      Gene147   85   44   99  105  108   78
-      Gene148  233  155  178  152  187  214
-      Gene149    .    .    .    .    .    .
-      Gene150   16    7    9   14    9   15
-      Gene151  149   94  171  224  308  151
-      Gene152    6    7   15   13    6   12
-      Gene153    6    6    4    3    9    4
-      Gene154    .    2    1    1    3    3
-      Gene155   60   31   47   28   70   32
-      Gene156   53   38   99   32   80   45
-      Gene157   10    1    2    .    4    .
-      Gene158   86   99   96   89  115  106
-      Gene159   64   16   26   50   36   37
-      Gene160    5    1   19    9   14    7
-      Gene161   53   36   49   55   56   47
-      Gene162    .    .    4    .    .    .
-      Gene163   31   10   32   25   34   16
-      Gene164    8    4    .    4    1   10
-      Gene165  172  132  240  169  111  202
-      Gene166   56   51   73   62   77   53
-      Gene167   29   15   20   19    6    8
-      Gene168    3    .    5    3    8   16
-      Gene169    3    1    2    3    1    4
-      Gene170    .    .    .    .    .    .
-      Gene171  212  147  119  245  228  145
-      Gene172    2    2    1   11    5    6
-      Gene173   60   45   40   55   92   71
-      Gene174   77    9   16   57   26   28
-      Gene175   11    3    1    3   22    7
-      Gene176   12   13    9   10   43    8
-      Gene177 2380  975 1179 2175 2712 1072
-      Gene178    2    .    .    .    .    1
-      Gene179  106   69   64   73  103   95
-      Gene180   41   24   22   28   24   47
-      Gene181    .    .    .    .    .    .
-      Gene182   97  144  199   75  148  237
-      Gene183   33   25   15   31   49   34
-      Gene184  105   40   80   63   61   51
-      Gene185   24   27   18   49   29   17
-      Gene186   16   16   20    6   13   39
-      Gene187  130   28   68  108  151   70
-      Gene188    2    5    1    1    6    5
-      Gene189   44   48  116   43  179   92
-      Gene190 1035  704 1399  695 1327 1183
-      Gene191   29   29   22   31   42   10
-      Gene192    7    2    2   14    6    3
-      Gene193   17   21   31   20   10   20
-      Gene194   34   10   20   21   21   12
-      Gene195    7    9   19    5   43    9
-      Gene196  219  115  183  130  154  162
-      Gene197    9   19   45   24   37   32
-      Gene198  164   97   89  188  117  109
-      Gene199   52   35   71   54   29   45
-      Gene200   17   13   18   23   34   25
-      Gene201   14    9   12    9   22   15
-      Gene202 2118  704 1177 1404 1279 1282
-      Gene203   33   29   12   36   32   25
-      Gene204    4    .    .    .    .    .
-      Gene205   75   36   64  103   99   55
-      Gene206  172   96  117  128  100  107
-      Gene207   11    9    9    4   14   10
-      Gene208   16    1    2    9   11   10
-      Gene209  366  139  264  258  408  225
-      Gene210   71   77   57   72  103   54
-      Gene211    .    .    .    .    .    .
-      Gene212   46   12   31   31   18    9
-      Gene213   15    3   23   10   18    9
-      Gene214   37   34   21   20   62   20
-      Gene215   13    .    2   10   10    3
-      Gene216   32   29    8   57   37   25
-      Gene217  139   67   75  127   35  107
-      Gene218   80   56   56   77   94   83
-      Gene219    3    3    1    4    2    2
-      Gene220   88   47   97  102  127   91
-      Gene221   28   15   33   13   35   36
-      Gene222   49   18   15   35   31   22
-      Gene223  273   47   86  185  132   90
-      Gene224   66   18   25   59   23   26
-      Gene225   36    .    3    2   10    4
-      Gene226   40    5    7   19   49    9
-      Gene227   10    9   38   17   43   41
-      Gene228   72   48   76   40   52   36
-      Gene229   61   50   59   35   70   61
-      Gene230   16    1    5    7    8    6
-      Gene231   11    3   12   10    6    7
-      Gene232  128   79   79   94  114   55
-      Gene233   12    7   11    6   18   16
-      Gene234    7    6    2   14    3    5
-      Gene235   84   37   66   56   58   35
-      Gene236   24   15   10   23   32   15
-      Gene237  212   80  110  114   74   90
-      Gene238  185   98  147  117  164  156
-      Gene239   39   29   45   13   43   19
-      Gene240   19   11   12   20   17   12
-      Gene241   89   24   95   48   47   63
-      Gene242    6    .    4    1    1    .
-      Gene243  306  130  157  228  262  109
-      Gene244   22   11    3    4    .   20
-      Gene245  105   72  106  110   60   87
-      Gene246   23   12   13   35   21   20
-      Gene247   36   10   10   17   32   33
-      Gene248   68   13   15   49   22    7
-      Gene249    .    .    .    .    .    .
-      Gene250    4    .    1    2    3    .
-      Gene251   53   40   33   66   60   44
-      Gene252   57   15   19   35   30   28
-      Gene253  287  295  330  132  282  397
-      Gene254  104   42   48   72   94   35
-      Gene255  129   82   71  123  152   80
-      Gene256   94  102   76  121  147   89
-      Gene257   28   25   23   28   82    9
-      Gene258   17    3   13   17   23   10
-      Gene259    1    .    .    1    1    .
-      Gene260  173   31   90   64   94   90
-      Gene261   87   14   21   58   26   15
-      Gene262   10    4   13    4   11    6
-      Gene263   23    .   10   12   27    9
-      Gene264   82    8   20   62   47   20
-      Gene265   31    8   16   32   35   44
-      Gene266    4    .    .    3    6    4
-      Gene267   83   40   50   68   86   76
-      Gene268    6   13    5   12   11    3
-      Gene269   13    3   12   13   12    6
-      Gene270  266  249  240  204  229  227
-      Gene271 1593 1160 1119 1495 1677 1161
-      Gene272   70   87  128   47  189  100
-      Gene273    .    .    .    .    .    .
-      Gene274    9    .    .    .    3    .
-      Gene275    .    .    3    1    9    9
-      Gene276   26    7   16   18   12    9
-      Gene277   46   16   17   35   30   25
-      Gene278   98   14   20   56  105   18
-      Gene279   56   12   24   31   47   47
-      Gene280   64   28   45   29   65   42
-      Gene281   28    7   33   27   35   27
-      Gene282   16    4    6   26   11   10
-      Gene283  511  280  296  562  293  416
-      Gene284    8    7   18   10    7   10
-      Gene285  263  141  152  305  285  196
-      Gene286  244   62   97  150  123  125
-      Gene287   70   17   24   20   28   30
-      Gene288   19   18   32   10   15   18
-      Gene289  102   98   65  117   90   99
-      Gene290   81   38   34   69   57   49
-      Gene291   16    8   11   12    6    7
-      Gene292 1799  762 1152 1377 1401 1142
-      Gene293   59    7   13   34   23    4
-      Gene294 2752 1219 2029 2050 2193 1234
-      Gene295  103   31   23   56   62   24
-      Gene296    4    2    5   10    9    2
-      Gene297   49   25   11   53   43   28
-      Gene298    .    .    1    1    6    1
-      Gene299  107   86   88   57   52   68
-      Gene300    8    6    4    6   10   18
-      Gene301 4321 2092 4149 3645 3776 2578
-      Gene302    3    .    1    1    1    2
-      Gene303   95   26   35   55   33   32
-      Gene304    .    .    .    .    1    1
-      Gene305   95   46   81  112   54   44
-      Gene306  257  147  140  238  231  145
-      Gene307   23   24   24   70   73   21
-      Gene308   26   14   31   36   19   16
-      Gene309  697  341  492  634  746  482
-      Gene310   52   62  101   39   46   57
-      Gene311   10    2    9   16   17    3
-      Gene312   34   20   23   38   21   30
-      Gene313  157  108  125   97  131  187
-      Gene314    7    3    5    5    1    1
-      Gene315    4    2    2    1    6    3
-      Gene316   20    7   11    8   10   12
-      Gene317    8    .    3    3    7    7
-      Gene318   30   14   31   17   21   24
-      Gene319   12   28   31   15   25   15
-      Gene320   90   37   50   92   46   20
-      Gene321   79   27   48   61   79   48
-      Gene322    .    .    1    .    .    2
-      Gene323  140   76  153  223   87   44
-      Gene324    1    4    .    .    1    .
-      Gene325  624  161  275  423  665  209
-      Gene326   11    9    4    2    4    5
-      Gene327  248  258  248  176  451  347
-      Gene328  339  146  163  292  191  221
-      Gene329  180   85  107  170  116  137
-      Gene330  387  228  429  405  294  459
-      Gene331   15   17   16   15   21   10
-      Gene332   49    9   30   14   26   46
-      Gene333   49   18   40   49   35   41
-      Gene334    .    1    2    7    .    3
-      Gene335   21   23   26   19   24   13
-      Gene336  189   96  110  161  189  173
-      Gene337   48   26   33   37   34   28
-      Gene338    4    1    9    8    5    6
-      Gene339   89   30   44   50   98   50
-      Gene340   81   51  117   46   83   65
-      Gene341    4    9   11   10   17   17
-      Gene342   77   28   75   58  105  103
-      Gene343    3    2    1    3    5    3
-      Gene344   57   40   26   34   47   42
-      Gene345   52   34   62   69   55   49
-      Gene346    .    .    3    .    .    3
-      Gene347   25   24   25   38   26   30
-      Gene348   36    6    3   19   21   15
-      Gene349  146   98   76  175  118   99
-      Gene350    7    4    8    6   15    6
-      Gene351   55   10   20   36   23   16
-      Gene352   13    1    7    5    8    4
-      Gene353    1    1    .    .    .    3
-      Gene354  310  189  218  285  276  283
-      Gene355   16   22   30    9   32   20
-      Gene356  102   43  108   74  149   71
-      Gene357   31   17   34   20   20   18
-      Gene358   16   41   68   32   41   52
-      Gene359    2    1    2    .    3    1
-      Gene360    4    4    4    6    3    5
-      Gene361    8   10    6    5   12    1
-      Gene362   41   19   24   33   18   22
-      Gene363   11   17   23   24   33   21
-      Gene364   16    8   14   28   71   18
-      Gene365  157   85   77  113   51   40
-      Gene366  372   66  131  263  609  167
-      Gene367  146   57   41   73  103   70
-      Gene368   11    .    4    9    4    6
-      Gene369   15    2    .    5    5    3
-      Gene370  222  148  307  244  247  370
-      Gene371   15   13   12   11   10    5
-      Gene372  167  127  194  189  186  162
-      Gene373   39   20   11   45   33   34
-      Gene374  133  116  183   97  126  128
-      Gene375   52   32   40   20   48   31
-      Gene376   39   29   21   22   39   33
-      Gene377   80   37   70   85  114   55
-      Gene378   75   43   44   47   71   24
-      Gene379 1629  981 1605 1428 2136 1015
-      Gene380    6    .    2    3    1    .
-      Gene381   22   13   14    9   27   27
-      Gene382    5    .    .    .    .    .
-      Gene383   12    .    1    4    1    .
-      Gene384   57   11   12   27   50   20
-      Gene385   33   53   21   42   59   58
-      Gene386   60   35   27   41   34   31
-      Gene387  175  108  128  182  177   90
-      Gene388    .    .    .    .    .    .
-      Gene389   17    .    4   13    9    2
-      Gene390  145   98   74  136  311  103
-      Gene391   12    6    8   14   20   17
-      Gene392   12    2    8    7    6    5
-      Gene393  138  103   73   99   71   89
-      Gene394   18   10    7   13   22   17
-      Gene395    6    8    3    7   12    8
-      Gene396    5   10   15    9   14   16
-      Gene397   21   13   13    9   19   14
-      Gene398   57   17   14   59   54   33
-      Gene399   54   43   60   74   49   43
-      Gene400   38   24   21   19   36   31
-      Gene401    6    8   15    7    1   10
-      Gene402   98   60   84  130  123  108
-      Gene403   18    6    4   12   11    8
-      Gene404  135   62  101   72   92   45
-      Gene405   38   28   22   51    5    9
-      Gene406   34   25   33   28   30   32
-      Gene407    .    .    3    1    .    2
-      Gene408   40    8   17   24   17   28
-      Gene409   27   12   21   20   33    5
-      Gene410  308  111  174  136  172  166
-      Gene411   12    5   19   14    8   27
-      Gene412  122   44   54   94   77   61
-      Gene413    .    .    .    .    .    .
-      Gene414  162   31   67  143  227   52
-      Gene415   23    9   32   18   18   26
-      Gene416   46   44   64   56   46  109
-      Gene417   24    6    8   27    8   17
-      Gene418  115   64   41  136  108  102
-      Gene419    7    2    3    7    .    1
-      Gene420   23   19   14   22   21   19
-      Gene421  128   85  121  120   84  188
-      Gene422   26   19   23   31   24   18
-      Gene423    2    1    .    1    .    .
-      Gene424    8    8   10    7   13   28
-      Gene425   74   63   65   81   68   63
-      Gene426    6   11    6   11   22    4
-      Gene427    .    .    .    .    .    .
-      Gene428    6    .   14   17    8    5
-      Gene429    2    4    3    6    3    1
-      Gene430  125   15   56   45   71   42
-      Gene431    5    4    .    5    3    .
-      Gene432   44   29   30   47   30   27
-      Gene433  514  627  800  503 1020  752
-      Gene434    6    1    3    5    1    6
-      Gene435    5   10    .    3    5    6
-      Gene436  112   13   26  105   76   57
-      Gene437  114   52   71   50   44   82
-      Gene438   44   65   75   34   39   35
-      Gene439   83   39   35   83   59   38
-      Gene440   58   14   31   49   32   26
-      Gene441   76   83  144   79  136  235
-      Gene442  414  143  194  315  229  164
-      Gene443    7    1    .    3    .    1
-      Gene444   81   41   82   62   56   72
-      Gene445   52   32   49   52   40   62
-      Gene446   15    9   17   16   25   12
-      Gene447    4    3   13   13   15   10
-      Gene448   31   20   52   20   36   31
-      Gene449 3206 1950 2598 2753 2388 2121
-      Gene450   10    6    7   14    5    4
-      Gene451   66   29   37   43   51   37
-      Gene452 1137  848  862  832 1041  866
-      Gene453   60   30   43   67   64   69
-      Gene454   35   21   11    9   37   13
-      Gene455   25   34   10   12   24   18
-      Gene456   21   25    9   22   27   18
-      Gene457 4900 2869 3777 3223 5028 3413
-      Gene458   93   53   47   88  101   35
-      Gene459 1421 1039 1249 1088 1602 1387
-      Gene460   45   26   17   32   28   11
-      Gene461   17   22   34   11   21    7
-      Gene462   14   25   26   12   13    7
-      Gene463   99   41   54   57   87   80
-      Gene464  114   55   92  109  124  120
-      Gene465   39   21   28   28   24   12
-      Gene466   62   14   45   33   41   25
-      Gene467   70   16   54   53   74   31
-      Gene468    3    5    4    9    2    4
-      Gene469    1    1    1    3    2    6
-      Gene470    .    6    2    1    5    .
-      Gene471   48   18   30   44   29   37
-      Gene472  159  110  107   93  190  156
-      Gene473  106   65   73  137   65   41
-      Gene474   54   15   21   32   41   24
-      Gene475   81   38   44   58   80   44
-      Gene476  631  188  256  350  426  333
-      Gene477   13   31   35    9   19   41
-      Gene478   42   13   21   25   33   17
-      Gene479    9    1    1    6    2    1
-      Gene480   34   20   24   12   10   19
-      Gene481    4    2    4    1    1    4
-      Gene482   71   28   72   96   96   69
-      Gene483    .    .    .    1    .    .
-      Gene484    5    .    5    .    1    1
-      Gene485   20    4    1   12   18    6
-      Gene486   83   34   79   81   85   60
-      Gene487  158  130  185  115   41  111
-      Gene488   43    4    9   25   31   26
-      Gene489  469  618  531  381  697  682
-      Gene490  456  232  311  495  114  317
-      Gene491    8   10    7   10   10    5
-      Gene492  189   41   65  176  127   65
-      Gene493   14    7   20    8   10   18
-      Gene494   60   30   18   55   48   39
-      Gene495 1839  751 1144 1221 1465  996
-      Gene496  142  220  289  133  137  247
-      Gene497   68   57   52   39   81   52
-      Gene498   29    5    8   33   79   13
-      Gene499   22    7    5    4    5   10
-      Gene500    .    .    5    .    3    .
+      Gene1      .    .    .    .    .    .
+      Gene2     10    7   12   11    7   14
+      Gene3      .    4    .    4    6    9
+      Gene4      6   12   45   26   24   31
+      Gene5     13   23   47   17   37   38
+      Gene6      5    7    5    .    .   13
+      Gene7     17   14   25    5   12   12
+      Gene8    184  128  278  153  179  172
+      Gene9     87   61  157   67   67  114
+      Gene10     5   11   16   14    8   19
+      Gene11     6   16   23    3   23    7
+      Gene12    22   31   13   17   20    8
+      Gene13     .    3   26    5    7   17
+      Gene14    15   22   47   22   44   20
+      Gene15     1    .    3    3    .    1
+      Gene16   114   88  195   76  179  158
+      Gene17   321  318  477  179  301  257
+      Gene18  1368 1611 2101  730 1195  828
+      Gene19     5    1   10    4   13    8
+      Gene20   132  177  159  157  301  212
+      Gene21    31   50   77   65  104   86
+      Gene22  1906 1973 3175  928 1897 1418
+      Gene23     1    1    2    8    9    8
+      Gene24    36   42  106   55   83   35
+      Gene25  1550 2036 2415 1319 1597 2223
+      Gene26    18   31   67   26   55   50
+      Gene27   128  150  156  138  221  220
+      Gene28    15   12   16   19   30   14
+      Gene29    73  118  145   68   99   97
+      Gene30    12    5   17    8    8   10
+      Gene31     6    3    8    4    2   12
+      Gene32     6    4    1    .    4    2
+      Gene33    69   63  124   89  102  151
+      Gene34    15   25   15   10   34   24
+      Gene35    81   74  132   74   92  122
+      Gene36    66   91  104  217  264  269
+      Gene37    65   70   85   90   76   81
+      Gene38    66   25   59   53   45   44
+      Gene39     4   10   12   13   16   10
+      Gene40    20    5    6   14    8   15
+      Gene41     8   27   24   48   45   36
+      Gene42    30   47   46   29   54   45
+      Gene43    26   22   41   10   42   23
+      Gene44     4    2    5    3   12    5
+      Gene45    42   30   43   36   52   43
+      Gene46    31   25   34   13   28   23
+      Gene47    46   21   66  101  128   71
+      Gene48     .    3    1    2    1    .
+      Gene49   470  460  683  378  808  532
+      Gene50     1    7   11    1    8    5
+      Gene51    27   30   83   22   48   39
+      Gene52    37   44   71   21   54   27
+      Gene53    30   26   31   35   19   22
+      Gene54    42   33  101   24   50   65
+      Gene55     1    1    5    .    3    5
+      Gene56   122  108  149  102  154  143
+      Gene57   151   72  122   70   79  149
+      Gene58     .    .    .    .    .    1
+      Gene59     .    .    3    1    .    3
+      Gene60    50   30   62   14   26   16
+      Gene61    23   15   45   52   65   46
+      Gene62    22   23   45   20   22   30
+      Gene63    67   85  117   49  102  102
+      Gene64   133  115  153  117  200  129
+      Gene65    81   79   94  115  137  121
+      Gene66    53   51   88   34   51   30
+      Gene67     .    .    1    1    3    .
+      Gene68     1    3    7    2    4    3
+      Gene69    36   28   48   36   53   61
+      Gene70    44   66  115   17   46   60
+      Gene71     7    7   18    9   30   10
+      Gene72   176  234  197  261  393  413
+      Gene73    28   46   53   65   75   79
+      Gene74     .    .    .    .    3    6
+      Gene75     4    5   10    2    6    7
+      Gene76    11    9   15    2    2   16
+      Gene77   185  227  232  163  339  364
+      Gene78    19   36   41   38   57   58
+      Gene79   100   58  181   48  135  115
+      Gene80   167  233  277  234  288  289
+      Gene81    99   97   99   83   85  111
+      Gene82    28   23   37   25   56   26
+      Gene83    13    1   10   14   10    7
+      Gene84   222  198  297   93  184  140
+      Gene85    47   57   60   78   42   72
+      Gene86    53   78  131   66  128  130
+      Gene87     6    5   16    6    9    6
+      Gene88     8    6   37   17   33   30
+      Gene89    41   54   49   14   24   32
+      Gene90    21   32   23   39   38   18
+      Gene91    67   95  121  106   78  125
+      Gene92     1    1    6    1    1    8
+      Gene93   115  104  176   74  142  120
+      Gene94     7   11   19    4   22    3
+      Gene95    58   33   67   84   87  108
+      Gene96    48   70   68   59   95   79
+      Gene97    10   16   19   20   67   26
+      Gene98    22    5   14   12   33   26
+      Gene99    64   54  103   72  177  129
+      Gene100   77   92  120   39  109  123
+      Gene101    1    2    5    .    .    3
+      Gene102   13    8    9   19   12   25
+      Gene103    3    1    3    7   22    3
+      Gene104   19   37   35   32   30   13
+      Gene105   28   12   19   10   11   16
+      Gene106   28   21   50   19   38   26
+      Gene107    3    6    9    1    6    4
+      Gene108    .    .    2    .    3    .
+      Gene109    9   20   24   18   24   34
+      Gene110    4    3    5    1   11   11
+      Gene111  938  817 1362  913 1786 1330
+      Gene112   47   54   65   17   74   17
+      Gene113  155  140  244   49  106   92
+      Gene114   11   21   35    8   33   24
+      Gene115    .    .    1    2    1    .
+      Gene116   11   30   24   23   54   35
+      Gene117   76   64  111   60   88   83
+      Gene118   25   19   33   29   46   19
+      Gene119   24   43   53   66   44   56
+      Gene120   30   46   33   46   64   51
+      Gene121   38   24   57   52   87   55
+      Gene122   99   73  117  141  183  231
+      Gene123    1    .    .    .    .    .
+      Gene124   17   65   35   33   55   41
+      Gene125    7   16   20    8   11   19
+      Gene126  216  167  317  213  356  280
+      Gene127    5    1    1    3   18    .
+      Gene128    .   14   16    9    3    7
+      Gene129   36   44   60   39   51   80
+      Gene130   81   78  155   84   99  132
+      Gene131    8   18   27   18   26   23
+      Gene132    6   14   15    8    8   14
+      Gene133   12   20   10   20   15   24
+      Gene134  200  156  395  237  387  366
+      Gene135   21   43   49   89  158  178
+      Gene136   13    7   20   59   63   88
+      Gene137   58   78  116   45  103   50
+      Gene138   18   12   18   17   12   20
+      Gene139   36   85   69   49   69   89
+      Gene140    .    .    .    .    .    1
+      Gene141    9   10   11    7   14   10
+      Gene142   21   21   50   26   74   49
+      Gene143    2    4    1    4    3    2
+      Gene144    2   10    4    7    7    1
+      Gene145   22   33   40   17   28   28
+      Gene146   55   54   77  116   75   57
+      Gene147   24   42   46   33   51   66
+      Gene148    .    6    4    1    2    5
+      Gene149    8    5    6    2   18    8
+      Gene150    7   28    9   13   27   39
+      Gene151    4    6    9    6    3   15
+      Gene152   16    2   23    9   58   37
+      Gene153   13   16   53   25   40   39
+      Gene154   40   42   55   76   80   49
+      Gene155   87  102  171   48   71   94
+      Gene156    .    .    .    .    .    .
+      Gene157 1248 1414 2986 1418 2079 1899
+      Gene158   51   77  116   84   82   94
+      Gene159    2    .    5    .    1    4
+      Gene160    .    2    .    .    .    5
+      Gene161   77   88  197  100  191  210
+      Gene162    7   12   13   26   49   31
+      Gene163    4    4   10    5    6   11
+      Gene164  146  145  149  272  436  359
+      Gene165   47   31   76   49   53   56
+      Gene166   18   37   19   15   20   37
+      Gene167   91   72  133  112  193   92
+      Gene168   87   75  106   66   91   92
+      Gene169    4    .    .    1    1    3
+      Gene170    2    6    3    8    .    3
+      Gene171   15   13   14   12   17   10
+      Gene172   28   16   37    4   12    4
+      Gene173   16    8    8   19   11   14
+      Gene174  872  787 1048  547  884 1065
+      Gene175   36   86  105   88  211  134
+      Gene176 1745 2673 2292 2657 2222 3694
+      Gene177    5    4    7    1    8    9
+      Gene178    2    4   10    1    2    4
+      Gene179    3    4    8    6    5   12
+      Gene180    2    4    3    5    5   12
+      Gene181   15   18   25   13   27   30
+      Gene182   35   24   22   35   67   72
+      Gene183    5    9   19   17   13   15
+      Gene184    8    1   27   18   35   45
+      Gene185   46   43  117   63  102   70
+      Gene186 1187 1562 1878 1596 2064 1810
+      Gene187    7    9    3    8   10    7
+      Gene188    5    4   21    4   13   11
+      Gene189   78   59  114   72  129  115
+      Gene190    .    8    3   13   15    6
+      Gene191   60   83  144   80  122   99
+      Gene192    .    1    1   12    5    4
+      Gene193    .    .    .    .    .    .
+      Gene194   44   55  101   61   59   68
+      Gene195  140   81  152  112  175  160
+      Gene196   27   27   23    3   17   25
+      Gene197    .    .    .    .    .    .
+      Gene198   56   56   67   63   65   72
+      Gene199   42   58   49   29   48   43
+      Gene200 1079 1357 1215  868 1803 1364
+      Gene201   34   34   51   20   27   48
+      Gene202   23   53  103   33   67   36
+      Gene203    .    .    .    .    .    .
+      Gene204    2    5    9    2    4    6
+      Gene205   69  104  135   57  131   85
+      Gene206    1    5   13    2   14   16
+      Gene207    4    .    .    .    1    .
+      Gene208   13   24   32   13   22   38
+      Gene209    .    .    .    .    .    .
+      Gene210    2    9   36   12   16   22
+      Gene211  170  203  198   48   78   60
+      Gene212   33    7   29   22    8   33
+      Gene213    8   11   17    5   23    3
+      Gene214   64   44   54   47   44   71
+      Gene215    1    .    .    2    8    .
+      Gene216 1387 1241 1795  771 1327 1092
+      Gene217    .    4    7    7    2    .
+      Gene218  129  155  156   69   91  105
+      Gene219    .    .    3    .    .    .
+      Gene220   54   20   86   45   81   65
+      Gene221    2    .    5    .    2    .
+      Gene222    9    6   32   17   20   28
+      Gene223    5   26   50   10   29   27
+      Gene224   51   68  110   89  103   68
+      Gene225    .    .    .    .    .    .
+      Gene226   15    4   13   11   11   26
+      Gene227    7    7    5    .    9    3
+      Gene228   38   35   31   19   21   15
+      Gene229    2    4    7    3    8    5
+      Gene230   61   45   98   53   73   63
+      Gene231   11   13   14   15   20   29
+      Gene232   89   89  121   71   99   92
+      Gene233  108  126  223  159  283  215
+      Gene234    .    .    .    .    .    .
+      Gene235   11    4    6    4   10   27
+      Gene236   24   24   48   19   20   34
+      Gene237   95  104   76   54  150  125
+      Gene238    .    .    .    .    .    .
+      Gene239   74   56   94   54   75   51
+      Gene240    3    4    4    2    5    6
+      Gene241   43   36   63   42  106   81
+      Gene242   47   31   89   67   82   71
+      Gene243    6   11   21    9   23   24
+      Gene244    .    2    1    2    2    .
+      Gene245    2    7   12    4    5    2
+      Gene246  305  376  477  264  305  217
+      Gene247   17   30   79   31   21   43
+      Gene248    .    5    7    4    4    1
+      Gene249    3    .    1    5    2    1
+      Gene250    4    1   12    4    7    3
+      Gene251    4    3    1    .    1    5
+      Gene252   13   32   28   24   36   38
+      Gene253   41   31   34   20   60   62
+      Gene254   25   17   33   22   40   34
+      Gene255    .    1    1    1    .    .
+      Gene256   14   15   16   14   31   21
+      Gene257   11    3    9    3    3    6
+      Gene258  643  672 1276  960 1145 1297
+      Gene259   28   75   33   20   72   60
+      Gene260   20   10   22   17   36   31
+      Gene261   40   57   48   22   28   30
+      Gene262   14    3    5    3   11   12
+      Gene263    .    .    .    3    2    6
+      Gene264    .    4    5    2    6    4
+      Gene265   39   12   42   31   57   32
+      Gene266 1722 1529 2710 1450 2439 2322
+      Gene267    3    .    2    4    .    .
+      Gene268  103   47   89  160  184  206
+      Gene269    1    3    2    .    .    2
+      Gene270  153  129  237  387  629  368
+      Gene271   44   50   96   87   84   62
+      Gene272   18   14   18    8   20    9
+      Gene273    9   31   39    9   26   24
+      Gene274   50   34   57   22   68   62
+      Gene275   48   69   58   44   57   56
+      Gene276   16   14   31   11   28   14
+      Gene277   35   31   73   33   45   35
+      Gene278   45   60   56   37   70   43
+      Gene279   18    7   25   11   33   13
+      Gene280   12   17   45    8   26   23
+      Gene281   54   37   35   44   30   65
+      Gene282   76   54   52   41   38   51
+      Gene283   81   68   70   68  116   81
+      Gene284   36   37   60   11   29   35
+      Gene285  101   78  146   28   45   73
+      Gene286  114  105  104   86  104   96
+      Gene287    .    .    .    .    .    .
+      Gene288   24   31   21    8   24   24
+      Gene289   54   62   81   50   90   28
+      Gene290    .    2    4    4    3    4
+      Gene291   22    7   20   19   30   19
+      Gene292   29   27   51    7   44   33
+      Gene293   58   71   84   36   63   73
+      Gene294    .    4    2    9    8   11
+      Gene295  105   90  169  215  347  378
+      Gene296   44   59  128   47  124   77
+      Gene297   73   65  141   61   83  128
+      Gene298   72   59   94   59   95   89
+      Gene299  201  200  279  168  320  309
+      Gene300   31   23   42   38   61   40
+      Gene301   59   56  104   71  119   91
+      Gene302    .    .    .    2    6    2
+      Gene303  141  133  230   82  179  219
+      Gene304    .    .    .    .    .    .
+      Gene305  142  104  195  169  194  162
+      Gene306   46   53   51   51   46   39
+      Gene307   32   52   78   57   51   49
+      Gene308    4    3   12    5    3    9
+      Gene309    2    3    9    7   11    9
+      Gene310  153  154  234  204  297  208
+      Gene311   52   40   75   71   79   50
+      Gene312   46   58   69   64   22   36
+      Gene313 5492 5750 7348 2018 4066 2706
+      Gene314   67   48   92   26   40   34
+      Gene315    2    .    1    2    2    5
+      Gene316  130  110  123  125  152  135
+      Gene317   58   44   87   53   79   44
+      Gene318   15    7   23   12    4   10
+      Gene319    4   31   13   21    9   14
+      Gene320    9   13   18    8   13   29
+      Gene321    3    8    9    1    6    .
+      Gene322   16   21   39   22   22   21
+      Gene323   10    9   34   10   30   28
+      Gene324   25   19   50   34   96   36
+      Gene325    2    4   11    3    5    .
+      Gene326    8    4    8    .    3    6
+      Gene327 1286  975 1810  980 1927 1536
+      Gene328    .    .    .    .    .    .
+      Gene329   32   41   52   31   68   30
+      Gene330    .    .    2    1    1    2
+      Gene331   23   10   11    9   42   14
+      Gene332    1    .    1    .    1    2
+      Gene333    .    .    .    .    1    .
+      Gene334   12   17   31   19   41   21
+      Gene335    5    4    8    9   17   10
+      Gene336    .    2    5    1   10    5
+      Gene337 1135 1721 2085  922 1996 1491
+      Gene338    5    2   12    9   34   16
+      Gene339   81   73  105   78   47   99
+      Gene340    .    .    .    .    .    .
+      Gene341  108   84  151  111  187  183
+      Gene342   11   19   28   22   26   43
+      Gene343    .    .    6    1    .    1
+      Gene344  193  145  228   79   95  110
+      Gene345  344  409  485  238  645  569
+      Gene346   45   40   46    4   19   10
+      Gene347   34   35   50   12   43   41
+      Gene348   57   64  125   58  110  119
+      Gene349    4    1    2    4    1    1
+      Gene350   35    7   29   23   18   22
+      Gene351   27   30   25   30   37   35
+      Gene352   58   67   98  108  145  164
+      Gene353    8    3   14   12    4    4
+      Gene354   37   29   53   57   41   40
+      Gene355    9    6    6    2    4    7
+      Gene356   77   53   96  132  200  155
+      Gene357   81   88  190  138  215  207
+      Gene358    .    6    2    .    6    4
+      Gene359    9    9   30   10   35   26
+      Gene360   29   29   19   15   11    6
+      Gene361   28   30   18   15   27   24
+      Gene362  146  139  290  136  226  208
+      Gene363  160  142  210  158  242  206
+      Gene364   47   36   47   50   96   87
+      Gene365  132  133  120   96  143  111
+      Gene366    .    .    .    .    .    .
+      Gene367  604  619  926  614 1124  780
+      Gene368   58   32   62   36   39   33
+      Gene369   14    .    5    1   11    1
+      Gene370   13   23   20   18   24   16
+      Gene371    .    2    1    9    2    .
+      Gene372   67   68  157   64   84  125
+      Gene373   21   18   23   21   25   32
+      Gene374  161  147  193  137  229  176
+      Gene375  762  722 1132  558  836  868
+      Gene376   22   48   59   53   68   54
+      Gene377   49   30   47   35   45   54
+      Gene378   16   15   22    9   18    8
+      Gene379    1    2    5    1    6    5
+      Gene380   61   79   99   54   93   53
+      Gene381   53   50   83   39   47   37
+      Gene382    .    .    .    2    2    5
+      Gene383  233  195  326  244  291  435
+      Gene384  146  112  211  265  354  278
+      Gene385   37   14   36   12   20   10
+      Gene386  132  129  232  124  330  258
+      Gene387    .    .    1    .    4    2
+      Gene388    2    1    7    .    2    4
+      Gene389   84  104   98   70   93   75
+      Gene390  107   91   88   42   66   49
+      Gene391  134  154  402  214  300  215
+      Gene392   22   27   39   37   53   33
+      Gene393    .    .    .    3    1    .
+      Gene394   47   48   51   22   44   47
+      Gene395    4    1    9    1    2    4
+      Gene396   48   69   74  153  170  188
+      Gene397   64   92  120   75  108  100
+      Gene398    .    .    .    .    .    2
+      Gene399    2    3    6    2    3    2
+      Gene400    2    .    .    .    2    .
+      Gene401  283  355  411  262  470  464
+      Gene402    7   16   21    6   25   10
+      Gene403   19   12   23   22   44   19
+      Gene404  401  295  430  207  619  412
+      Gene405   76   79  174   78  123  157
+      Gene406  141  127  286  154  237  218
+      Gene407   10    7    3    9   19    9
+      Gene408   96   94  147  105  144  135
+      Gene409   34   38   37   17   25   21
+      Gene410   33   49   65   57   29   73
+      Gene411   90  127  175  190  314  272
+      Gene412 1196 1696 2475 1377 2187 1783
+      Gene413  779 1035 1194  287  635  398
+      Gene414   63   24   64   87   62   83
+      Gene415   25   26   29   28   55   74
+      Gene416   57   93  113   69  123  112
+      Gene417   12   10   11    2    8   15
+      Gene418    .    .    .    .    .    .
+      Gene419   28   51   76   17   41   72
+      Gene420   97  103  148   80  170  170
+      Gene421   19   12   29   46   78   67
+      Gene422   30   29   58   42   58   69
+      Gene423  179  195  345  235  259  279
+      Gene424  904  835 1245  842 1434  977
+      Gene425   29   10   44   27   26   27
+      Gene426   41   36   41   45   46   48
+      Gene427   11    4   10    7   12   12
+      Gene428    .    .    .    .    7    .
+      Gene429    .    .    .    .    .    .
+      Gene430    6    8   10    1   13    5
+      Gene431   13   10    6   16   20   15
+      Gene432   13    8   17    3   10    7
+      Gene433   98   81  142  119  183  137
+      Gene434    7   19   18   12   15   10
+      Gene435   71   92   72   48  100   81
+      Gene436   60   44   98  124  171  121
+      Gene437    6   21   40   22   24   24
+      Gene438   38   99  136  102  172  129
+      Gene439   28   18   26    4   29    6
+      Gene440    7   23   32   15   16   13
+      Gene441   66   73   91   75   58   42
+      Gene442   54   36  104   70  136   47
+      Gene443   10   19   27   22    8   31
+      Gene444    5   12   22    7   10   12
+      Gene445    .    .    1    .    .    .
+      Gene446   33   33   34   59   79   68
+      Gene447   98   67   84   61   77   69
+      Gene448  108   75  128   92   95  113
+      Gene449   59   39  119   42  140  106
+      Gene450    3    .    .    .    1    1
+      Gene451   68   42  107   42   53   81
+      Gene452  119  116  222  118  168  160
+      Gene453  635  491 1025  615  821  802
+      Gene454   58   62  143   72   93   66
+      Gene455    4    .    4    .    3    4
+      Gene456   17   12   25   49   38   57
+      Gene457   63  122  127   81  112   80
+      Gene458    4    3    .   11    7    1
+      Gene459   14   17   20    3   31   24
+      Gene460 1118 1274 1781  669  756 1272
+      Gene461  199  160  300  137  196  267
+      Gene462    .    1    3    .    .    2
+      Gene463    4    2    2    6   17    5
+      Gene464    1    .    .    2    2    .
+      Gene465   36    9   36   20   22   57
+      Gene466   14   24   58   23   19   31
+      Gene467    2    4    5    2    8   10
+      Gene468   16   18   27   15   16   26
+      Gene469    .    1    6    .    3    1
+      Gene470   79   27   59   42   90   82
+      Gene471    2    4    2    6   11    9
+      Gene472  148   90  181  271  187  245
+      Gene473   41   67   82   54   65   51
+      Gene474    .    .    .    1    .    .
+      Gene475   68   72   71   41   71   60
+      Gene476   83   40   50   40   53   83
+      Gene477   50   32   56   43   49   32
+      Gene478    8    5    2    5   24   31
+      Gene479    5   18   17    4    7   12
+      Gene480   43   28  105   51   49   61
+      Gene481   16   35   25   17   35   37
+      Gene482   46   64   61   38   54   74
+      Gene483    8    4   23   20   22   10
+      Gene484   31   22   22   34   39   41
+      Gene485   18   13   21   13   16   14
+      Gene486    1    1    4   17    5    6
+      Gene487   51   47   54   82  109  108
+      Gene488  417  383  587  141  167  211
+      Gene489  149  107  176  110  197  226
+      Gene490    1    .    .    .    4    .
+      Gene491  147  134  172  185  243  275
+      Gene492   64   70  115   86   68  103
+      Gene493  197  126  229  166  221  177
+      Gene494  300  343  528  452  615  513
+      Gene495    2    3    .    2    7    1
+      Gene496   13   27   36   13   33   22
+      Gene497  143  154  266   68   77   76
+      Gene498   40   38   53   47   29   40
+      Gene499  140  214  316  217  411  339
+      Gene500    .    3    .    .    .    2
       
       Slot "nUMI":
           ct3_plat1_TCAACACTTAAGGGTCCCCA     ct1_plat1_TCAAGACTTAAGGGTCCCCA 
-                                   68075                              50734 
+                                   50155                              67354 
           ct2_plat1_TCAATACTTAAGGGTCCCCA     ct2_plat1_TCAAAACTTCAGGGTCCCCA 
-                                   73167                              61953 
+                                   64359                              65599 
           ct1_plat1_TCAACACTTCAGGGTCCCCA     ct1_plat1_TCAAGACTTCAGGGTCCCCA 
-                                   44381                              66179 
-          ct1_plat1_TCAATACTTCAGGGTCCCCA     ct3_plat1_TCAAAACTTGAGGGTCCCCA 
-                                   50138                              60375 
-          ct2_plat1_TCAACACTTGAGGGTCCCCA ct1_plat1_TCAACAACTTAAAGGGTTCCCCAA 
-                                   53968                              44364 
-      ct1_plat1_TCAACCACTTAAAGGGTTCCCCAA ct3_plat1_TCAACGACTTAAAGGGTTCCCCAA 
-                                   54693                              58915 
+                                   56173                              63153 
+          ct3_plat1_TCAATACTTCAGGGTCCCCA     ct3_plat1_TCAAAACTTGAGGGTCCCCA 
+                                   49002                              54167 
+          ct2_plat1_TCAACACTTGAGGGTCCCCA ct3_plat1_TCAACAACTTAAAGGGTTCCCCAA 
+                                   50013                              60416 
+      ct1_plat1_TCAACCACTTAAAGGGTTCCCCAA ct1_plat1_TCAACGACTTAAAGGGTTCCCCAA 
+                                   64101                              99826 
       ct2_plat1_TCAACTACTTAAAGGGTTCCCCAA ct3_plat1_TCAACAACTTACAGGGTTCCCCAA 
-                                   62519                              79277 
-      ct2_plat1_TCAACCACTTACAGGGTTCCCCAA ct2_plat1_TCAACGACTTACAGGGTTCCCCAA 
-                                   60433                              93625 
-      ct2_plat1_TCAACTACTTACAGGGTTCCCCAA ct2_plat1_TCAACAACTTAGAGGGTTCCCCAA 
-                                   55470                              68517 
-      ct3_plat1_TCAACCACTTAGAGGGTTCCCCAA ct1_plat1_TCAAGAACTTAAAGGGTTCCCCAA 
-                                   44483                              55813 
-      ct1_plat1_TCAAGCACTTAAAGGGTTCCCCAA ct2_plat1_TCAAGGACTTAAAGGGTTCCCCAA 
-                                   65116                              59769 
-      ct1_plat1_TCAAGTACTTAAAGGGTTCCCCAA ct3_plat1_TCAAGAACTTACAGGGTTCCCCAA 
-                                   50255                              48103 
-      ct1_plat1_TCAAGCACTTACAGGGTTCCCCAA ct1_plat1_TCAAGGACTTACAGGGTTCCCCAA 
-                                   46299                              80512 
-      ct1_plat1_TCAAGTACTTACAGGGTTCCCCAA ct2_plat1_TCAAGAACTTAGAGGGTTCCCCAA 
-                                   88055                              60959 
-      ct3_plat1_TCAAGCACTTAGAGGGTTCCCCAA ct1_plat1_TCAATAACTTAAAGGGTTCCCCAA 
-                                   61330                              60463 
-      ct2_plat1_TCAATCACTTAAAGGGTTCCCCAA ct3_plat1_TCAATGACTTAAAGGGTTCCCCAA 
-                                   86883                              62205 
-      ct2_plat1_TCAATTACTTAAAGGGTTCCCCAA ct2_plat1_TCAATAACTTACAGGGTTCCCCAA 
-                                   47541                              65024 
-      ct2_plat1_TCAATCACTTACAGGGTTCCCCAA ct3_plat1_TCAATGACTTACAGGGTTCCCCAA 
-                                   47393                              51590 
-      ct2_plat1_TCAATTACTTACAGGGTTCCCCAA ct2_plat1_TCAATAACTTAGAGGGTTCCCCAA 
-                                   59452                              45426 
-      ct3_plat1_TCAATCACTTAGAGGGTTCCCCAA ct3_plat1_TCAAAAACTTCAAGGGTTCCCCAA 
-                                   41612                              57373 
-      ct1_plat1_TCAAACACTTCAAGGGTTCCCCAA ct2_plat1_TCAAAGACTTCAAGGGTTCCCCAA 
-                                   59582                              93028 
-      ct1_plat1_TCAAATACTTCAAGGGTTCCCCAA ct2_plat1_TCAAAAACTTCCAGGGTTCCCCAA 
-                                   51483                              45796 
+                                   55770                             101488 
+      ct3_plat1_TCAACCACTTACAGGGTTCCCCAA ct3_plat1_TCAACGACTTACAGGGTTCCCCAA 
+                                   68307                              52139 
+      ct2_plat1_TCAACTACTTACAGGGTTCCCCAA ct1_plat1_TCAACAACTTAGAGGGTTCCCCAA 
+                                   52507                              55092 
+      ct3_plat1_TCAACCACTTAGAGGGTTCCCCAA ct3_plat1_TCAAGAACTTAAAGGGTTCCCCAA 
+                                   51109                              60927 
+      ct2_plat1_TCAAGCACTTAAAGGGTTCCCCAA ct3_plat1_TCAAGGACTTAAAGGGTTCCCCAA 
+                                   60950                              62730 
+      ct3_plat1_TCAAGTACTTAAAGGGTTCCCCAA ct3_plat1_TCAAGAACTTACAGGGTTCCCCAA 
+                                   65731                              48462 
+      ct1_plat1_TCAAGCACTTACAGGGTTCCCCAA ct2_plat1_TCAAGGACTTACAGGGTTCCCCAA 
+                                   47330                              48330 
+      ct3_plat1_TCAAGTACTTACAGGGTTCCCCAA ct2_plat1_TCAAGAACTTAGAGGGTTCCCCAA 
+                                   54587                              86662 
+      ct1_plat1_TCAAGCACTTAGAGGGTTCCCCAA ct3_plat1_TCAATAACTTAAAGGGTTCCCCAA 
+                                   69189                              75322 
+      ct3_plat1_TCAATCACTTAAAGGGTTCCCCAA ct2_plat1_TCAATGACTTAAAGGGTTCCCCAA 
+                                   78263                              68255 
+      ct2_plat1_TCAATTACTTAAAGGGTTCCCCAA ct3_plat1_TCAATAACTTACAGGGTTCCCCAA 
+                                   40471                              88939 
+      ct1_plat1_TCAATCACTTACAGGGTTCCCCAA ct1_plat1_TCAATGACTTACAGGGTTCCCCAA 
+                                   70564                              62470 
+      ct2_plat1_TCAATTACTTACAGGGTTCCCCAA ct3_plat1_TCAATAACTTAGAGGGTTCCCCAA 
+                                   68290                              79136 
+      ct1_plat1_TCAATCACTTAGAGGGTTCCCCAA ct1_plat1_TCAAAAACTTCAAGGGTTCCCCAA 
+                                   73990                              67565 
+      ct2_plat1_TCAAACACTTCAAGGGTTCCCCAA ct2_plat1_TCAAAGACTTCAAGGGTTCCCCAA 
+                                   76142                              71805 
+      ct3_plat1_TCAAATACTTCAAGGGTTCCCCAA ct1_plat1_TCAAAAACTTCCAGGGTTCCCCAA 
+                                   67598                              89301 
       ct1_plat1_TCAAACACTTCCAGGGTTCCCCAA ct1_plat1_TCAAAGACTTCCAGGGTTCCCCAA 
-                                   71032                              70053 
+                                   70096                              53449 
       ct1_plat1_TCAAATACTTCCAGGGTTCCCCAA ct2_plat1_TCAAAAACTTCGAGGGTTCCCCAA 
-                                   61584                              50550 
-      ct1_plat1_TCAAACACTTCGAGGGTTCCCCAA ct2_plat1_TCAACAACTTCAAGGGTTCCCCAA 
-                                   67405                              37880 
-      ct2_plat1_TCAACCACTTCAAGGGTTCCCCAA ct2_plat1_TCAACGACTTCAAGGGTTCCCCAA 
-                                   66156                              56285 
-      ct2_plat1_TCAACTACTTCAAGGGTTCCCCAA ct1_plat1_TCAACAACTTCCAGGGTTCCCCAA 
-                                   67186                              83614 
-      ct1_plat1_TCAACCACTTCCAGGGTTCCCCAA ct2_plat1_TCAACGACTTCCAGGGTTCCCCAA 
-                                   65852                              50612 
-      ct3_plat1_TCAACTACTTCCAGGGTTCCCCAA ct1_plat1_TCAACAACTTCGAGGGTTCCCCAA 
-                                   71392                              41304 
-      ct2_plat1_TCAACCACTTCGAGGGTTCCCCAA ct2_plat1_TCAAGAACTTCAAGGGTTCCCCAA 
-                                   46573                              69274 
-      ct1_plat1_TCAAGCACTTCAAGGGTTCCCCAA ct2_plat1_TCAAGGACTTCAAGGGTTCCCCAA 
-                                   90849                              54393 
-      ct2_plat1_TCAAGTACTTCAAGGGTTCCCCAA ct3_plat1_TCAAGAACTTCCAGGGTTCCCCAA 
-                                   58930                              62683 
-      ct2_plat1_TCAAGCACTTCCAGGGTTCCCCAA ct3_plat1_TCAAGGACTTCCAGGGTTCCCCAA 
-                                   60863                              60101 
-      ct2_plat1_TCAAGTACTTCCAGGGTTCCCCAA ct3_plat1_TCAAGAACTTCGAGGGTTCCCCAA 
-                                   64284                              61859 
-      ct3_plat1_TCAAGCACTTCGAGGGTTCCCCAA ct2_plat1_TCAATAACTTCAAGGGTTCCCCAA 
-                                   55643                              67877 
+                                   56245                              74350 
+      ct3_plat1_TCAAACACTTCGAGGGTTCCCCAA ct2_plat1_TCAACAACTTCAAGGGTTCCCCAA 
+                                   46007                              44156 
+      ct2_plat1_TCAACCACTTCAAGGGTTCCCCAA ct1_plat1_TCAACGACTTCAAGGGTTCCCCAA 
+                                   52683                              52395 
+      ct1_plat1_TCAACTACTTCAAGGGTTCCCCAA ct2_plat1_TCAACAACTTCCAGGGTTCCCCAA 
+                                   65815                              83771 
+      ct3_plat1_TCAACCACTTCCAGGGTTCCCCAA ct1_plat1_TCAACGACTTCCAGGGTTCCCCAA 
+                                   47523                              59966 
+      ct1_plat1_TCAACTACTTCCAGGGTTCCCCAA ct3_plat1_TCAACAACTTCGAGGGTTCCCCAA 
+                                   85279                              69780 
+      ct1_plat1_TCAACCACTTCGAGGGTTCCCCAA ct2_plat1_TCAAGAACTTCAAGGGTTCCCCAA 
+                                   55412                              52498 
+      ct2_plat1_TCAAGCACTTCAAGGGTTCCCCAA ct1_plat1_TCAAGGACTTCAAGGGTTCCCCAA 
+                                   48209                              48446 
+      ct1_plat1_TCAAGTACTTCAAGGGTTCCCCAA ct3_plat1_TCAAGAACTTCCAGGGTTCCCCAA 
+                                   50075                              53369 
+      ct2_plat1_TCAAGCACTTCCAGGGTTCCCCAA ct1_plat1_TCAAGGACTTCCAGGGTTCCCCAA 
+                                   55758                              49950 
+      ct2_plat1_TCAAGTACTTCCAGGGTTCCCCAA ct2_plat1_TCAAGAACTTCGAGGGTTCCCCAA 
+                                   59073                              70618 
+      ct2_plat1_TCAAGCACTTCGAGGGTTCCCCAA ct1_plat1_TCAATAACTTCAAGGGTTCCCCAA 
+                                   62743                              45080 
       ct3_plat1_TCAATCACTTCAAGGGTTCCCCAA ct1_plat1_TCAATGACTTCAAGGGTTCCCCAA 
-                                   56463                              60928 
-      ct3_plat1_TCAATTACTTCAAGGGTTCCCCAA ct1_plat1_TCAATAACTTCCAGGGTTCCCCAA 
-                                   54170                              58911 
-      ct2_plat1_TCAATCACTTCCAGGGTTCCCCAA ct3_plat1_TCAATGACTTCCAGGGTTCCCCAA 
-                                   70874                              57654 
-      ct1_plat1_TCAATTACTTCCAGGGTTCCCCAA ct2_plat1_TCAATAACTTCGAGGGTTCCCCAA 
-                                   64174                              74415 
+                                   48893                              78949 
+      ct2_plat1_TCAATTACTTCAAGGGTTCCCCAA ct1_plat1_TCAATAACTTCCAGGGTTCCCCAA 
+                                   58978                              60138 
+      ct1_plat1_TCAATCACTTCCAGGGTTCCCCAA ct2_plat1_TCAATGACTTCCAGGGTTCCCCAA 
+                                   53739                              71801 
+      ct1_plat1_TCAATTACTTCCAGGGTTCCCCAA ct1_plat1_TCAATAACTTCGAGGGTTCCCCAA 
+                                   55604                              45456 
       ct1_plat1_TCAATCACTTCGAGGGTTCCCCAA ct1_plat1_TCAAAAACTTGAAGGGTTCCCCAA 
-                                   64449                              52013 
-      ct1_plat1_TCAAACACTTGAAGGGTTCCCCAA ct1_plat1_TCAAAGACTTGAAGGGTTCCCCAA 
-                                   60215                              51816 
-      ct1_plat1_TCAAATACTTGAAGGGTTCCCCAA ct3_plat1_TCAAAAACTTGCAGGGTTCCCCAA 
-                                   71766                              48837 
-      ct3_plat1_TCAAACACTTGCAGGGTTCCCCAA ct2_plat1_TCAAAGACTTGCAGGGTTCCCCAA 
-                                   93224                              49291 
-      ct2_plat1_TCAAATACTTGCAGGGTTCCCCAA ct3_plat1_TCAAAAACTTGGAGGGTTCCCCAA 
-                                   68248                              75318 
-      ct1_plat1_TCAAACACTTGGAGGGTTCCCCAA ct2_plat1_TCAACAACTTGAAGGGTTCCCCAA 
-                                   82626                              62294 
+                                   66801                              67231 
+      ct3_plat1_TCAAACACTTGAAGGGTTCCCCAA ct1_plat1_TCAAAGACTTGAAGGGTTCCCCAA 
+                                   61659                              46290 
+      ct3_plat1_TCAAATACTTGAAGGGTTCCCCAA ct3_plat1_TCAAAAACTTGCAGGGTTCCCCAA 
+                                   38144                              56702 
+      ct1_plat1_TCAAACACTTGCAGGGTTCCCCAA ct1_plat1_TCAAAGACTTGCAGGGTTCCCCAA 
+                                   50949                              54133 
+      ct1_plat1_TCAAATACTTGCAGGGTTCCCCAA ct3_plat1_TCAAAAACTTGGAGGGTTCCCCAA 
+                                   77754                              44674 
+      ct3_plat1_TCAAACACTTGGAGGGTTCCCCAA ct3_plat1_TCAACAACTTGAAGGGTTCCCCAA 
+                                   69318                              63077 
       
       
       Slot "reference":
       An object of class "Reference"
       Slot "cell_types":
-      ct1_plat1_TCAATGACTTCAAGGGTTCCCCAA ct1_plat1_TCAAAAACTTCAAGGGTTCCCCAA 
+      ct1_plat1_TCAAACACTTGCAGGGTTCCCCAA ct1_plat1_TCAACCACTTACAGGGTTCCCCAA 
                                      ct1                                ct1 
-      ct1_plat1_TCAACTACTTAAAGGGTTCCCCAA ct1_plat1_TCAAAAACTTGCAGGGTTCCCCAA 
+      ct1_plat1_TCAACGACTTACAGGGTTCCCCAA ct1_plat1_TCAATGACTTAAAGGGTTCCCCAA 
                                      ct1                                ct1 
-      ct1_plat1_TCAAACACTTGAAGGGTTCCCCAA ct2_plat1_TCAATTACTTAAAGGGTTCCCCAA 
+          ct1_plat1_TCAACACTTGAGGGTCCCCA ct2_plat1_TCAAAGACTTCCAGGGTTCCCCAA 
                                      ct1                                ct2 
-      ct2_plat1_TCAAGAACTTCAAGGGTTCCCCAA ct2_plat1_TCAAATACTTGCAGGGTTCCCCAA 
+      ct2_plat1_TCAACCACTTAGAGGGTTCCCCAA ct2_plat1_TCAAGAACTTCCAGGGTTCCCCAA 
                                      ct2                                ct2 
-      ct2_plat1_TCAAGGACTTAAAGGGTTCCCCAA     ct2_plat1_TCAACACTTGAGGGTCCCCA 
+      ct2_plat1_TCAAGCACTTACAGGGTTCCCCAA ct2_plat1_TCAAGTACTTAAAGGGTTCCCCAA 
                                      ct2                                ct2 
-      ct3_plat1_TCAACGACTTACAGGGTTCCCCAA     ct3_plat1_TCAAGACTTCAGGGTCCCCA 
+      ct3_plat1_TCAACTACTTAAAGGGTTCCCCAA ct3_plat1_TCAAGCACTTCCAGGGTTCCCCAA 
                                      ct3                                ct3 
-      ct3_plat1_TCAATCACTTCGAGGGTTCCCCAA ct3_plat1_TCAACCACTTCAAGGGTTCCCCAA 
+      ct3_plat1_TCAATTACTTAAAGGGTTCCCCAA ct3_plat1_TCAATTACTTACAGGGTTCCCCAA 
                                      ct3                                ct3 
-      ct3_plat1_TCAACAACTTACAGGGTTCCCCAA 
+      ct3_plat1_TCAATGACTTCAAGGGTTCCCCAA 
                                      ct3 
       Levels: ct1 ct2 ct3
       
       Slot "counts":
       500 x 15 sparse Matrix of class "dgCMatrix"
     Message
-        [[ suppressing 15 column names 'ct1_plat1_TCAATGACTTCAAGGGTTCCCCAA', 'ct1_plat1_TCAAAAACTTCAAGGGTTCCCCAA', 'ct1_plat1_TCAACTACTTAAAGGGTTCCCCAA' ... ]]
+        [[ suppressing 15 column names 'ct1_plat1_TCAAACACTTGCAGGGTTCCCCAA', 'ct1_plat1_TCAACCACTTACAGGGTTCCCCAA', 'ct1_plat1_TCAACGACTTACAGGGTTCCCCAA' ... ]]
     Output
                                                                                    
-      Gene1     51   80   93   92   56   51   79   39   33   55  104   65   45   96
-      Gene2     22   56   30   16   23   49   60   29   32    8   33   47   15   24
-      Gene3      6    9   13   17    8   14   17    4   16   10    2    4    1    7
-      Gene4    321  418  389  391  255  187  227  217  226  201  246  320  207  238
-      Gene5      3    1    1    4    .    .    1    1    .    .    .    2    .    1
-      Gene6     37   69   38   33   49   93   86   33   79   59   52   74   58   53
-      Gene7    396  696  471  498  418  420  524  410  334  384  246  452  451  300
-      Gene8      5    .    1    1    3    .    2    1    8    1    3    5    3    .
-      Gene9      9   25    8    4   15   15   18   14   15   13    4   11   10   11
-      Gene10     3    2    .    8    .    .    .    1    .    1    1    5    .    1
-      Gene11     8   40   56   33   39   45   58   62   50   43   20   33   31   33
-      Gene12   291  553  513  557  386  185  216  223  212  180  286  366  272  260
-      Gene13     6   18   11    1    1    7    9    .    5    5    3    4    5    5
-      Gene14     8   25   16   16   15    1    9    4    7    4    7   23    7   10
-      Gene15    10   17   22   22   22   13   15    5    6   17   18   28    7   18
-      Gene16    52   88   74   66   73   62   63   83   49   52   50   88   50   95
-      Gene17    21   17   18   11   16   11    8   21    3    7   12   25   17    8
-      Gene18     6    4    3   11    .    1    1    9    2    4    3    3    .    4
-      Gene19     1   12    1    3    1    2    7    5    6    3    7    .    5    2
-      Gene20   348  489  382  377  264  311  453  278  202  258  346  391  240  257
-      Gene21    30   56   95   55   20   80   87   81   85   62   34   83   45   78
-      Gene22  1641 3100 3010 2279 1861 2443 2063 1814 1707 1874 2375 2587 1640 2030
-      Gene23    18   48   40   30   24   11   11   10   13   19   41   54   45   47
-      Gene24     6   20   19    9   12    1    9   12   19    2    2    5   12   15
-      Gene25     1    8    2    .    1    5    6    5    3    .    3    2    .    3
-      Gene26  1455 2379 2157 1860 1477 1929 2368 1783 1839 1792  920 1399  925 1417
-      Gene27    18   47   28   41   26    8   13   16    7    6   24   21   12   12
-      Gene28    35   88  133   64  103  110   99   69   67   80   64  110  124   85
-      Gene29     9   10   25   28   18   26   23   11   28   11    9    9    9   14
-      Gene30    43   42   55   44   28   24   29   33   29   33   16   24   30   34
-      Gene31    34   36   71   58   60   56   30   41   48   37   42   20   42   34
-      Gene32    23   27   26   59   46   30   32   20   34   26   32   24   10    5
-      Gene33  1901 3471 3193 2517 2953 1061 1847 1452  823 1311 1158 2064 1174 1461
-      Gene34    12   21   17   14   14   21   23   15   17   26    7   14    6   10
-      Gene35    82  133  115  103   80   74   76   81   65   76   52   43   64   45
-      Gene36    23   87   63   36   59   43   51   64   46   39   73   55   50   46
-      Gene37    26   28   30   20   38   26   31   38   39   31   26   23    7   30
-      Gene38     7    6   12   19    8   17   17    6    9   19    9    6    1    7
-      Gene39    13   22   20   20   16   20   20   16   19   12   15   17    7   23
-      Gene40    99  122  114   82   43   64   78   63   38   96   56   70   73   51
-      Gene41    42   74   69   91   74   63  102   58   64   70   84   80   73   48
-      Gene42     5   18   13   12   14   14   10    8    3    5   16   14    2    4
-      Gene43    10   30   11    9    7    3   14    9   14    8   21   25   33    6
-      Gene44     .    .    .    1    1    2    2    .    .    .    .    .    .    .
-      Gene45  2952 5129 4804 4249 2952 3321 4171 3141 3618 3157 3076 4022 2535 3407
-      Gene46    39   44   35   53   22   45   30   28   41   10   51  105   43   84
-      Gene47    16   10    8   10   19    9   16   14   20    7   16   13    4   10
-      Gene48    80  184  107   74   70  129   83   63   94   70  117  101   80  113
-      Gene49    10   10   70   33   23   37   13   11   12   19   14   25   21   17
-      Gene50  1124 1936 1445 1444 1112 1406 1561 1141 1341  874 1124 1282  777 1268
-      Gene51    15   59   28   22   27   29   19   34   25   18   12   15   14   19
-      Gene52    46   71   46   52   56   21   56   21   30   19   29   46   16   17
-      Gene53    13   16    6   15    4   19   34   25    8   26    8   16   11   11
-      Gene54     .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene55    54   91   37   69   61   31   43   12   13   37   45   37   29   37
-      Gene56    16    9   13    6   12    6   11    6   16    8    9    4   10   21
-      Gene57    38   81   83   50   54   43   67   22   39   41   34   73   35   64
-      Gene58    34   86   56   74   39   48   92   34   70   29   31   63   41   46
-      Gene59     8   22   23    9   12   27   12    9   19   18   34   26   16   25
-      Gene60   459 1088 1061 1175  698  859  936  537  740  741  506  901  633  604
-      Gene61    13   38   34   25   18   24   31   11   13   32   11   22   15   28
-      Gene62    41   71   75   42   43   24   37   58   46   30   22   49   28   31
-      Gene63     7   27   14    9   36   24   16   21   25   12    9   16    .    8
-      Gene64  1657 2483 2575 1978 1767 2083 2169 1554 1650 1865 1547 2535 1508 1684
-      Gene65    33   28   41   22   27   23   30    8   19   10   34   24    7   19
-      Gene66    32   31   24   35   24   26   25   14   19   24   26   31   16   21
-      Gene67     3    9    4    7    6    2   11    2   10    7   13   14    9    5
-      Gene68    36   82   73   68   50  105  131   56   80   85   68  109   60   71
-      Gene69     7    7    4    5    2    1    2    .    1    3    3   10    9    .
-      Gene70    66  125   81  141  120   63   66   59   35   58   97  123   76   82
-      Gene71    99   95  108  120   80   66  112   88   84   94   96  112   60   66
-      Gene72    46  128   90   76  129   49   54   37   48   70   61  158   71   84
-      Gene73   783 1422 1213  935  812 1190 1453 1040 1118  893  488  618  480  535
-      Gene74     1    9    3    5    6    1    7    .    7    .   13    5    4    2
-      Gene75     2    1    .    .    1    .    2    .    .    .    1    4    .    1
-      Gene76     8   19   14   24   15    8   13   10    8   10    7    9    3   12
-      Gene77    16   55   26   16   16   32   34   12   32   27   40   25   25   26
-      Gene78    29   62   61   33   46   31   56   30   31   43   25   38   31   26
-      Gene79    84  227  110  193  159  118  145   96   75   76  127  164   55  121
-      Gene80    18   45   23   32   19   14   23   37   22   16   32   31   17   27
-      Gene81  1238 2060 1847 1770 1500 1700 2224 1875 1509 1392  809 1128  569  949
-      Gene82    22   66   52   45   46   92  111   83   63   84   69   64   54   78
-      Gene83    42  152   81   94   64   17   45   62   52   53   34   60   26   56
-      Gene84     1    5    3    3    6    5    4    2    1    .    .    4    1    .
-      Gene85    18   93   51   26   31   49   11   47   33   30   17   53   25   25
-      Gene86     7   20   14    4   17   10    9   13   17    6   31   24   13   20
-      Gene87     .    1    3    6    .    1    1    3    2    2    4    2    .    4
-      Gene88    23   14   15   14   22    9   26   12   22    6   11   41    6   11
-      Gene89     7   19   19   18   21   22   18   17   21   16    8   14    6   11
-      Gene90    12   68   61   55   48   71  112   62   52   53   61   93   50   73
-      Gene91    30   78   62   49   30   35   28   13   15   15   10   19    5   18
-      Gene92    77  141  127  116  128   93   89   72  116  102   98  113  110  118
-      Gene93    18   18   20   29   19   22   14   14    7    1   12   20   12   10
-      Gene94  1286 2794 1915 2433 1689 1471 2217 1603 1424 1320 1749 2414 1500 1718
-      Gene95     6   15    9    3   11    2    5    4   16    9    6    4   12    5
-      Gene96     7   13   19   22   38    7   18   13   15   13    7   21    5    1
-      Gene97    39   43   42   50   38   82   67   36   34   64   40   28   28   39
-      Gene98    74  104   81  100   85   67  118   73   62   79   75   78   44   66
-      Gene99     3    .    .    5    1    .    .    .    4    .    1    .    .    .
-      Gene100    4    6    4    7    .    3    2    1    .    2    .    5    3    .
-      Gene101    8   21   13    5   12    9    7   13   12   10   15    8   12   14
-      Gene102   17   49   29   36   27   37   69   57   26   18   47   42   26   39
-      Gene103    4   35   17   13   20    5   11    3    4    5   25   33   31   30
-      Gene104    6   10   10    8    7   10   11    8   13   10   13    4    4   15
-      Gene105   54   79   53   61   43   69   62   58   39   57   50   79   46   82
-      Gene106    .    3    .    1    .    .    2    .    .    .    6    .    .    .
-      Gene107    4    7    3    2    4   11   15    9    5    8    3    .    .    3
-      Gene108 1574 2521 2150 1954 2001 1179 1845 1508 1104 1132  547  577  373  467
-      Gene109    3    1    .    4    3    1    2    1    3    2    2    2    .    5
-      Gene110   21   46   34   28   23   54   81   57   50   45   64   14   21   36
-      Gene111   84  150  136  138   92  125  184  161  114  113  170  151  132  111
-      Gene112   32   35   22   31   14   35   11   25   17   11   15   19   29   14
-      Gene113   12   10   17   10    6    7    7    3    3    5    5   13    4    5
-      Gene114    2    8    1    2    4    4    4    3    2    2    5    1    3    2
-      Gene115  669 1605 1058 1430  853 1098 1139  911  867  766  814 1304  713 1021
-      Gene116   75  174  178  167  147  122  148  106   74   76  131  115   96  115
-      Gene117    .    8    1    .    3    2    .    1    .    .    3    .    1    .
-      Gene118    5   14    9    5   12    6    4   10    3    4    1   10    3    5
-      Gene119  166  176  283  186  179  170  196  181  142  183   95  141  107   91
-      Gene120    2    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene121   49   53   61   62   51   37   78   87   54   35   35   62   43   35
-      Gene122   10   15   20   31    7   40   57   19   27   42   29   65   44   72
-      Gene123    8   24   36   42   21   31   34   22    6   14    2   21    4   14
-      Gene124   19   72   39   26   39   61   58   59   40   71   63   81   40   69
-      Gene125    4   10   10    5    6    6   10    4    7    5    2    9    6    2
-      Gene126    9   14    6    3    3   22   19   24   33    7    7   22    8    7
-      Gene127   39   64   52   19   35   20   12    3    7   12   17   14   15    4
-      Gene128    6   19   47   19   31   16   30   17   16   42   38   16   16   25
-      Gene129   40   87   81   63   15   35   41   51   42   23   45   71   31   33
-      Gene130   60   69  135   57   74   97   99   68   61   71   80   84   51   51
-      Gene131   10    7    9    6    6   15   18    9    5    6    6   14   12    1
-      Gene132    .    3    .    .    .    .    3    .    .    .    2    .    1    2
-      Gene133    2    1    1    .    1    .    7    1    1    .    2    .    4    2
-      Gene134   36   47   55   58   48   54   69   48   49   37   61   39   35   43
-      Gene135    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene136   30   77   53   46   61  138  105   83   49   57   85   81   59   60
-      Gene137   13   16    8   19   12   12   11    4   10    9   10   14    9   22
-      Gene138    6   15   10    9    5   24   32   26   10   15   24   34    9   28
-      Gene139    6    3   14    9   11   12   14   12    5    4   15    9    6   16
-      Gene140   14   46   53   32   11   24   50   26   33    9   42   68   21   46
-      Gene141   42   69   55   50   34   37   44   33   32   29   35   30   13   14
-      Gene142   77   88   71   43   57   45   59   48   41   44   63   61   37   47
-      Gene143    7   24    9    7   12    4    8    5   12    4    7    2    7    9
-      Gene144   13   10   18   31   16   35   28    7    7   15    9   12   15   17
-      Gene145   75  138   64   89   69   58   65   57   65   57   61   81   77   48
-      Gene146   13   54   64   33   14   51   84   54   45   29   17   39   40   65
-      Gene147   69  221  157  148  113   84   64   58   46   90  181  232  196  203
-      Gene148  142  260  214  176  177  138  185  167  143  145  109  128  100  114
-      Gene149  203  370  365  333  304  238  298  295  155  198  141  195  155  203
-      Gene150   23   70   59   12   41   28   33   29   24   13   35   72   49   36
-      Gene151    8   21   37   25   27   38   55   22   37   27   54   75   54   66
-      Gene152   28   47   37   27   36   31   17   22   20   28   30   48   22   34
-      Gene153  126  187  140  139  191  197  169  126  119  135  179  183  145  137
-      Gene154   72  164  145  128  126  105   89   78  104  100   93  133   39   65
-      Gene155    .    .    1    .    .    .    2    .    .    .    .    .    1    1
-      Gene156   32   40   60   25   51   34   37   18   25   26   16   41   27   31
-      Gene157   68  119  156  124   78   77  114   80   85   88   60  126   68   84
-      Gene158   11   42   37   36   19   47   50   30   36   27   20   32   29    7
-      Gene159    5    5    5    .    7   19    3   23    1    3    7    9    2    .
-      Gene160   17   43   31   30   35   28   62   35   38   27   17   22   13    8
-      Gene161   98  152   73  102   69   81  112   51   65   64   93   84   33   64
-      Gene162   62   93   94  101   72   72  137   78   60   99  151   82   96   79
-      Gene163    .    1    .    2    2    .    .    .    .    .    1    1    .    1
-      Gene164   29   52   21   29   28   30   22   17   24   40   24   12   18   39
-      Gene165   32  137   74   41   84   56   88   48   62   63   90   82   45   48
-      Gene166   70  129  134  123  102   80   87   69   58   30   96   77   61   50
-      Gene167    4    .    .    .    .    .    2    .    2    1    7    1    1    .
-      Gene168   20    4   17   13    6    3    7    3    8    8    2   30    7   19
-      Gene169    2   11   16    2   15   13    9   12   22    9    3    3    2    3
-      Gene170   70  161  180  104  118  121  161  100  103   79  115  116   90  118
-      Gene171   89  260  212  147  169  228  197  133  122  123  126  170  115  198
-      Gene172   32   74   59   32   12   24   35   28   27   30   20   38   12   25
-      Gene173   21   56   47   43   44   25   36   31   66   41   61   47   24   47
-      Gene174   11   45   74   29   24   22   37   41   14   12   23   35   48   27
-      Gene175    5   28   15   37   15   11   23   23   11   22   15   23    9    5
-      Gene176    5   13   30   19    9    4   22   12    5   21    7   10    4   13
-      Gene177   62   61   53   68   64  101  167   94  136   93   59   70   48   56
-      Gene178   76  100   83   55   84   58  124   61   99  117   72  108   56  143
-      Gene179 1085 1418 1640 1187  880 1465 1431 1885  801 1856 2093 2694 2281 2158
-      Gene180   34  120   87   84   84   54   93   72   77  109   64  114   57   55
-      Gene181   54  171   68  116   89   68  124  123   68   71   70   99   86   80
-      Gene182    5    .    .    1    .    .    .    .    .    .    1    .    .    .
-      Gene183   28   49   44   33   24   38   34   27   26   11   26   37   20   29
-      Gene184  130  184  157  149  165  127  142  152   85  169   86  204   84  127
-      Gene185   99  102  206  133   95  163  312  226  195  177   72  195   86  114
-      Gene186   17   58   58   78   54   39   55   18   30   36   57   82   31   36
-      Gene187    1    .    .    .    2    .    1    .    .    .    .    .    .    .
-      Gene188   60  141  134  124   80   63  136  118  104   79  125   92   81   75
-      Gene189   76   99   79   86   54   59  106   75   89   64   56   67   52   34
-      Gene190    1    4    1    1    2    1    3    2    4    5    6    7    .    4
-      Gene191   14   27   29   11   13   19   16    9    3   31   20    8   13   29
-      Gene192   19   23   17   26   16   22   33   13    9   17   15   35   18   13
-      Gene193    .    3    .    .    .    3    9    .   11    2    .    8    1    .
-      Gene194    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene195  217  329  384  217  227  968 1315  844  725  850  324  555  324  440
-      Gene196    2    3    3    1    3    1    1    7    .    6    1    5    .    1
-      Gene197  161  333  218  258  211  268  320  306  210  235  131  164  141  141
-      Gene198    .    1    .    1    3    1    .    1    .    .    2    .    .    .
-      Gene199    1    2    3    .    2    5    7    6    1    3    5   14    2    5
-      Gene200    5    8    2    5    1    6   14   15    2    3    1    4    3    7
-      Gene201   14   35   49   25   30   15   27    6   28   22   66   69   27   52
-      Gene202   36  129   91   55   68   69  126   64   45   52   59   82   55   55
-      Gene203   20   27    9   45   29   17   13   12   23   12   15   14   15   17
-      Gene204   97  241  250  119  113  141  141  138  112   96  110  272   65  120
-      Gene205    7   13    8   21    4    8    5    8    4   10    7    7    2    6
-      Gene206   91  171  137   55   93  153  287  144  122  122   55  151   70   85
-      Gene207  107  236  137  149   94  122  194  104   94  109   94  154   66  133
-      Gene208    6   30    9   13   20    4    6    3    3    3    2    .   11   12
-      Gene209    .    1    .    .    1    .    1    6    1    2    .    1    1    .
-      Gene210    2    .    7    .    1    1    .    3    .    .    6    .    1    1
-      Gene211    .    1    2    1    2    2    .    5    1    2    2    .    .    .
-      Gene212    .   20    3   17   14   11   14    5   14    4    9   11   10    5
-      Gene213   26   14   39   63   39   17   37   26   20   20   18   42   29   21
-      Gene214   96  148  128  155   89   75  141   76   81   80   87   97   61  111
-      Gene215   55  136  124   57   46   86  169  111  134   86   29   61   36   47
-      Gene216    .    .    .    4    2    1    .    9    .    .    2    1    3    .
-      Gene217   24   15   14   17   18   12   20   12    7   17    8    5   22    8
-      Gene218   21   26   34   41   22   40   42   23   19   29   26   25   36   37
-      Gene219    .    1    .    .    2    .    1    .    2    2    2    .    2    .
-      Gene220   19   33   10   32   26   12   17   22   21   12   18   10    9    6
-      Gene221   54   88   37   77   63   51   95   30   55   62   67   68   48   64
-      Gene222   45  134  122  123   90  113   79  107   70   73  102   52   69  135
-      Gene223   76  170  116  156  130  190  299  227  252  277  110   83   56   70
-      Gene224  127  271  283  171  174  276  416  273  312  335  414  531  243  550
-      Gene225   41  112  133   63   70   81   54   68   43   41  100  104   73   88
-      Gene226   38   37   19   42   23   29   45   33   25   18   20   38   17   17
-      Gene227   46   40   57   45   49   60   79   33   28   67   41   67   34   54
-      Gene228    .    5    .    2    4    1    2    1    1    9    1    3    .    .
-      Gene229    .    2    2    .    .    .    .    1    1    3    2    1    2    .
-      Gene230   10    7   38   27   13   25   15   36   24   17   10    2    6   14
-      Gene231 1383 2221 2374 1884 1675 1977 2497 1810 1404 1397 1974 2862 1682 2149
-      Gene232    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene233   18   28   35   49   13   18   30   13   10   22   29   45   18   49
-      Gene234    .    2    1    .    .    2    1    4    2    1    1    2    5    4
-      Gene235    8   27   32   29   23   22   49    9   19   17   18   44    7   19
-      Gene236   25   66   44   55   62   52   87   57   84   85   73   62   45   53
-      Gene237   97  123  136   76   83   48   61   35   62   48   25   29   38   39
-      Gene238   10   50   37   41   27   10   13   12    4   15   20   15    5   28
-      Gene239    2    4    5    2    1    5    8    1    2    .    .    4    .    2
-      Gene240   23   52   34   65   64   51   36   53   23   28   23   21   32   39
-      Gene241    7   35   38   23   23   42   67   37   43   43   34   34   27   20
-      Gene242    7   21   20   12   13    1   10   10    7    1    8    7    5    2
-      Gene243   30   57   64   54   46  115  100   52   71  105   55   86   71   85
-      Gene244   36   73   89   62   53   55   78   61   29   45   37   39   22   64
-      Gene245   12   22   37   27   26   15   30   25   22   13   28   41   22   49
-      Gene246    .    3    .    4    1    4    2    .    .    2    1    7    .    .
-      Gene247   13   43   35   35   30   32   35   14   21   19   44   56   16   39
-      Gene248   12   27    7    3    9    9   12   19   12    9    6   13   11   16
-      Gene249   51   85   58   31   36   70   79   78   68   69   56   70   31   47
-      Gene250   46  106   75   75  109   57  119   58   45   86   87   84   62   99
-      Gene251   17   40   39   33   21   28   59   30   12   12   11    9    3   16
-      Gene252  105  153  120   68  122  120  134   96   84   68   81  118   61   77
-      Gene253    4   14   16    3   16   14   15    5    6   15    7   19    6   22
-      Gene254    .    .    1    2    1    1    9    9    .    2    .    5    .    .
-      Gene255  249  452  410  333  381  168  299  240  147  173  372  378  197  256
-      Gene256    9   25   10   37   10   17   13   13   10   18   25   37   10    9
-      Gene257   16   35   32   37   26   27   29   19   26   21   22   35   20   10
-      Gene258    .    5    1    1    1    .    .    .    .    1    .    1    1    1
-      Gene259   15   18   19   13   17   14   19   15   21   14   22   21   15   41
-      Gene260   14   32   35   10   20   23   19   37   27   20   24   28   21   27
-      Gene261    6   16   11   15   20    6   33    4   14   16   17   24   28   37
-      Gene262    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene263   32   36   33   16   23    5   10    1    3    9   10    8   18    6
-      Gene264   53   54   71   38   34   27   28   23   28   37   15   27   32   26
-      Gene265   92  117  186  200  127  122  144   88   68   81  210  228  135  144
-      Gene266   13   21   33   21   24   19   32   14   27   23    9   62   16   28
-      Gene267    3   16    3   11    4    3    3    4    .    8    4   17    4   15
-      Gene268   56   60   28   25   15   28   53   34   36   19   56   73   40   34
-      Gene269   40   66   48   60   56   52   22   29   26   59   36   31   22   27
-      Gene270    2    .    9    2    4    4    2    1    1    5    1    9    .    2
-      Gene271   37   35   31   37   26   33   25   21   24   27   19   28   25   15
-      Gene272  416  601  602  475  569  385  313  287  242  240  448  594  281  548
-      Gene273    7   16   19   30   21   26   16   13    8   13   37   26   22   40
-      Gene274   24   38   36   41   38   36   72   40   49   48   57   62   32   33
-      Gene275    .   11   14    4    9    5    6    3    .    5    1    6    5   13
-      Gene276    1    2    5    .    3    3    1    7    1    .    2    5    9    3
-      Gene277    1    .    1    2    .    1    2    3    6    2    2    1    .    1
-      Gene278   11   21    8   20    4   23    7    6   10   19   22   30   32   24
-      Gene279    9    7    2    2    2    .    6    5    .    .    1    1    7    1
-      Gene280  135  225  184  216  171  131  170  135  105   98   97  188   82  112
-      Gene281   44  146   45  133   59   54  118   66   34   31  101   72   41   69
-      Gene282   10   24   25    7   17   22   25    9    6    3    9   13    9    4
-      Gene283    4    8    3    2    3    2    .    .    2    .    .    1    1    2
-      Gene284   30   45   75   43   40   16   30    8   16   14   28   29   18   26
-      Gene285   19   60   35   25   32   42   33   25    8   29   17    8    9    .
-      Gene286    2    2    .    2    5    5    8    4    1    1    .    6    4    8
-      Gene287  163  259  293  154  162  277  383  271  247  227  288  399  135  321
-      Gene288   42   44   26   22   46   49   46   36   28   29   36   44   42   17
-      Gene289  122  144  148  175   78  112  112   68  133   94   94  177   96  106
-      Gene290   18   19   41   18   23   10   39   25   24   11   40   42   30   26
-      Gene291   74  100  150  109   93   61  116   91   96   80   60   99   43   97
-      Gene292    3   18   19    8    3   10    8   17    8   11    7   11    5    8
-      Gene293    1    .    1    1    1    .    .    .    .    1    5    .    1    .
-      Gene294  314  519  625  458  431  351  370  398  306  308  307  416  267  329
-      Gene295   43   41   40   40   60   32   21   40   31   23   39   44   15   22
-      Gene296    3    .    5    .    .    4    6    7    5    3    2    9    3    .
-      Gene297    3    1    1    .    .    .    1    .    .    .    .    .    .    .
-      Gene298   25   39   44   20   15   17   18   21    9   20   23   23   21   17
-      Gene299    3    1    4    2    5    2    3    4    4    3    4    6    4    2
-      Gene300    7   22   20   12   13   10   22   11   14    6    4   10    7    4
-      Gene301   43   98   76   54   91   53   71   85   69   65   40   91   53   64
-      Gene302    5   10    8   17    7    4    4   10    6    1   14    1    5    4
-      Gene303   79   78  129   99   55   82   76   67   71   59   92   91   23   71
-      Gene304   15   41   38   35   58   34   50   56   27   36   33   28   41   18
-      Gene305   15   20   16   10    5   13   12   29   15   21   14   25   11   15
-      Gene306   31   26   11   24   17   49   29   28   21   19   21   27   13    9
-      Gene307  151  116  162  171  131  145  163  112   95  124  247  246  187  268
-      Gene308    .    4    .    1    .    .    3    .    1    1    .    1    .    1
-      Gene309   16   35   39   42   19   59   92   63   56   36   45   24   18   39
-      Gene310    .    2    3    .    .    .    2    .    .    .    .    .    .    1
-      Gene311   58  128   66   56   99   98   93  102  101   69  194  211  118  162
-      Gene312    5    9    8   14   12    5    9    6    3    .    1   14    5    3
-      Gene313   32   34   39   41   20   51   55   51   23   42   54   50   38   40
-      Gene314   14   47   36   25   19    7   26   11   19   43   30   30   15   30
-      Gene315    .    .    .    .    .    .    .    1    .    .    .    1    .    .
-      Gene316   96  189  162  142  152  112  126  118  133   86   50   48   30   63
-      Gene317    1    1    8    .    .    5    6    4    4    3    .    .    1    3
-      Gene318    2    5    4    1    1   10    8    2    4    6   11    3    3    3
-      Gene319   36   59   53   53   27   31   69   35   35   38   22   18   22   27
-      Gene320    1    3    7    3    6    1    2    1    .    2    3    .    1    3
-      Gene321   15   26   24   25   41   36   26   35   17   12   29   38   16   22
-      Gene322 1418 2348 1725 1423 1487 1067 1424 1215  814  973 1195 1535  619 1319
-      Gene323    5    3    2    .    1    4    .    2    .    .    .    1    .    3
-      Gene324   36   15   45   36   55   51   76   55   36   31   41   49   41   35
-      Gene325   90  140  173  124   80   87  106   94   51  122   80   94   80   99
-      Gene326   73   97   82   80   82   85   86   84   78   84   58   91  105  125
-      Gene327   32   68   43   54   28   26   16    9   10   19   26   40   26   32
-      Gene328   15   24   17   18   21   29   19   24   11   12   13   14    3    2
-      Gene329    3    1    3    4   18    2    2    4    1    1    6    3    2   11
-      Gene330   61   46   56   47   45   46   55   40   19   55   25   52   15   49
-      Gene331   27   20   73   59   48   65   36   50   43   24   47   44   26   38
-      Gene332    .    3    .    .    .    .    .    4    .    .    4    .    2    .
-      Gene333    1    9    7    9    9    4    5    8    3    1   12    2    3    5
-      Gene334   16   39   48   24   21   32   14   17   24   14   34   35   14   25
-      Gene335    9   16    8   10    9   12    8    7   16   10    5    9   11   13
-      Gene336  158  295  204  157  151  133  223  190  132  139  157  233  135  127
-      Gene337    1    2    2    6   10    5    6    5    .    5    8   12    1    1
-      Gene338    8    5   16   13    9   32   28   17   27   11   10   15   14    4
-      Gene339    6    4    2    7    5    4    6    3    1    .    2    8    1    4
-      Gene340   57  141   90  127   62   39   59   51   33   42  125   72   70   86
-      Gene341    .    5    2    2    .    1    .    3    .    .    3    3    4    3
-      Gene342   40   68   26   22   32   46   57   18   30   34   51   30   43   21
-      Gene343   14   25   25   21    9   14    8    8   22   17   21   13   14    3
-      Gene344  253  371  390  284  316  520  446  347  385  380  151  180  138  176
-      Gene345    .    5    3    3    4    .    1    2    2    4    1    7    5    .
-      Gene346  100   90   85  102  105   36   53   36   61   40   52   57   39   62
-      Gene347   53   87   66   77   34   33   61   29   51   56  106  165   84   68
-      Gene348   50   93   67   67   43   48   52   25   27   41   69   69   45   48
-      Gene349   69  102   76   97   67   44   85   62   38   60   68   46   39   71
-      Gene350    3    2    1    .    2    .    1    1    .    1    .    .    2    1
-      Gene351  724 1558 1219 1060  786  976 1083  925  759  862 1158 1003  767  912
-      Gene352   30   63   36   57   57   20   31   17   22   58   38   25   19   71
-      Gene353   49   82   67   61   44   70   52   28   41   53   44   66   23   46
-      Gene354    1    .    .    .    .    .    .    .    1    .    .    .    1    .
-      Gene355    .    .    .    1    .    .    .    .    .    6    1    .    .    .
-      Gene356   38   29   43   35   37   21   50   37   38   31   21   49   22   22
-      Gene357    5    2    .    7    3    4    1    1    8    1    4   12    .    8
-      Gene358   22   37   16    8   18   17   19   22   18   12   16   22   12   12
-      Gene359   27   40   35   26   33   42   35   34   21   33   15   29    9   39
-      Gene360   50   69   95   62   42   85  119   47   67   90   79   67   36   96
-      Gene361    7   19   18   13    3    6   15    2    4   13   11    8    6    5
-      Gene362   40   56   43   31   76   38   65   31   35   56   41   29   16   27
-      Gene363    .    .    .   11    3    2    .    2    .    2    2    1    .    .
-      Gene364    .    1    .    .    .    .    3    1    .    .    .    .    .    1
-      Gene365    5    9    9    4    8   21    5   11    9    .    7    7    2   12
-      Gene366   26   38   28   21   32   19   38   31   20   19   28   18   18   21
-      Gene367    4   24   22   15   14   18   11    8    4   15   11   22   12   13
-      Gene368  101  148   87  150  151  163  158  107  135  110  108  161   71   98
-      Gene369    1   11    3    4   19    5    5    3    8   11    .    4    4    5
-      Gene370    4   11   18   12    3   20   20    4   14    9    2   10    4    7
-      Gene371    9   25   11   26   10   66   41   26   15   24    6    9   14   10
-      Gene372 1489 1830 2358 1727 1646 1558 1824 1454 1599 1601 1647 2000 1414 1480
-      Gene373   20   68   45   42   31   39   71   30   44   45   80  105   75   73
-      Gene374   54  106   80   81   75   41   61   24   34   33   34   60   24   45
-      Gene375   25   31   37   29   25   10   42    5   14    9   24   35   36   41
-      Gene376   13   48   23   25   16   33   52   14    9   33   44   20   23   23
-      Gene377   10    8    5    5    4    7    7    2    3    .    6   11    7    9
-      Gene378  740 1259 1307  942  858 1330 1826 1783 1121 1518  807  985  557  950
-      Gene379   42   40   37   51   41   44   24   38   27   17   21   21   15   22
-      Gene380   10   32   26   14   16   11   25   10   13   24   11   13   12    8
-      Gene381  516  963 1014  717  625  551  896  700  878  824  670  818  616  631
-      Gene382  228  411  280  181  223  212  384  281  240  186  241  203  173  242
-      Gene383    2   15    8    6    9    3    8    5    7   16    9   11   21   23
-      Gene384    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene385   68  143  122   81   68   40  122   72   72   65   52   74   34   68
-      Gene386    .    .    3    .    1    4    1    3    .    4    .    3    1    1
-      Gene387    3   13    5   11    4    6    4    .    .    1    6    8    .    5
-      Gene388   24   37   35   48   46   41   73   17   30   31   47   38   31   47
-      Gene389    2   12   13    8    1    5    7    7    7    7    2   11    .    7
-      Gene390    2    8    6    8    7    7    7    4    3    1    6    9    9    5
-      Gene391    1    1    5    5    4    5    1    1    1    1    2    1    .    9
-      Gene392   22   18   12    6   22    3    1    5    .    3    4    3    2    3
-      Gene393  133  134  148   90  151  162  166   88  113  137   47   74   47   51
-      Gene394   10    2    9    3    7    .    3    1    .    3    .    3    3    3
-      Gene395    2    1    .    7    1    2    1    1    .    1    2    .    1    4
-      Gene396    1    2    3    4    .    1    .    1    2    3    3    2    .    .
-      Gene397   28  104  103   70   50   46   75   29   29   29   52   52   35   58
-      Gene398   90  263  166  184  188  261  289  188  244  209  166  236  100  139
-      Gene399    .    1    2    1    3    1    1    .    2    .    2    2    2    2
-      Gene400   60  102  109   91   63   60   91   96   89   64   93  132   54   73
-      Gene401   35   32   27   10    5   15   30   11   19   18   24   12    4    9
-      Gene402    .    .    3    .    .    .    4    .    .    .    6    .    1    2
-      Gene403    4   16   15   10    6    5   12   13    9   10    4   11   18    9
-      Gene404    1   22    1    2    3    1   11    3    9    1    .    .    1    8
-      Gene405   21   34   10   21   28   32   52   46   40   55   69   73   46   46
-      Gene406    5    4    5    2    4    5    8   10    2    .    3    2    1   13
-      Gene407    1    8    4   17    3    2   14   10   10    4    5    3    6   11
-      Gene408   86  135  124   73  113  104  171   88   76   77   81  216  108  114
-      Gene409    5   21   24    9   12   19   17   23    8   24   15   11   13    8
-      Gene410    4    4    3    1    1    4    1    2    1    4    1    3    7    3
-      Gene411   17   49   30   41   22   32   44   20   49   36   44   23   13   23
-      Gene412   97  149  113  121   78   95  124  104   71   81   45   34   30   25
-      Gene413   93  118  103   90   93  107  129   95  102  102   88  159   71   72
-      Gene414   58  164  120   76   86   62  128  120   66   69   79   81   58   54
-      Gene415   63  155  112  162  168  102  139   78   57   88   57   93   54   96
-      Gene416   19   43   35   38   20   41   36   31   34   27   23   35   33   29
-      Gene417   20   18   10   21    8   17   28   20   14   24   23   10   11   18
-      Gene418    9   28   23   17   14    .    6    8    1    3   22   18   14   14
-      Gene419    7   53   25   18   26    4   13   14   14   10   23   28   31   33
-      Gene420    9   36    8    8   21    9   22   13   12   15   18   11    6   10
-      Gene421   36   46   88   47   41   28   14   16   21    5   40   28   33   48
-      Gene422  969 1797 2013 1182 1279 1200 2106 1123 1327 1646 1516 1937 1285 1843
-      Gene423   24   25   30   25   18   22   20   25   28   16   23   15   20   15
-      Gene424   25   50   85   76   41   38   56   42   63   23   65   52   43   54
-      Gene425   14   12   10    8    5   10    6    2    7   12   10   14    7   16
-      Gene426   96  210  127  177  175  117  238  107   73  108  185  114   58  113
-      Gene427   37   91  102   72   51   89   93   71   46   58   61   51   24   27
-      Gene428    1    .    1    4    4    .   13    1    1    8    .    .    .    2
-      Gene429   37   54   42   55   35   59   70   60   36   45   21   40   41   33
-      Gene430    .    3    1    3    1    .    5    2    .    .    1    5    1    .
-      Gene431    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene432   47   88   94   45   47  185  144  119   97  142   30   34   27   28
-      Gene433    .    6    .    .    .    8    5    1    .    .    3    .    7    .
-      Gene434   51   76   51   65   31   27  115   29   38   33   44   42   34   36
-      Gene435   77  128  105   93  114   77   72   81   76   49   56  105   49   64
-      Gene436   10   16    9   18    6   22   19   29   30   19   18   13    7   17
-      Gene437   21   19   30   18   19   13   27   10    3    7   34   30   12    6
-      Gene438  523  893  751  825  730  484  695  522  492  473  805  896  592  914
-      Gene439   13   21   14   20   15   12   17   15    2    4   21   23    5    8
-      Gene440    2    2    .    8   12    5    4    9    3    2    4    9    2   11
-      Gene441   20   30   15   36   24   46   31   45   32   25   22   16   22   31
-      Gene442    .    1    4    .    2    4    1    .    .    .    .    .    .    2
-      Gene443   30   70   39   52   60   44   74   37   19   55   32   44   30   34
-      Gene444   14   28   19   40   37   12   16   16    6   12    2    9    3   10
-      Gene445    .    1    2    4    1    .    .    .    1    2    .    5    3    5
-      Gene446   23   54   27   14   18   18   24   32   26   36   42   52   36   44
-      Gene447 1727 4263 2984 3191 2709 2406 3109 2469 2313 2601 2967 2583 1715 2165
-      Gene448   33  107   82  122   66   92   97   39   63   44   73   58   56   59
-      Gene449  300  417  394  272  269  175  347  158  183  227  168  190  182  204
-      Gene450  107  167  201  131  133  118  120   82  141   81  104  175   69  117
-      Gene451   43   35   19   14   11   14   18   30   14   18   28   11   10   19
-      Gene452    1    6    5   11    4    3   11    1    2    2    1    6    .    1
-      Gene453   92  223  240  176  116  100  174  143  129  119   90  147  142  122
-      Gene454   35   27   27   41   23   28   86   19   26   27   20   35    8   36
-      Gene455    .    .    .    .    .    .    .    .    .    .    .    2    .    .
-      Gene456    2   12    9    9    2   10   11    5    8    2   11    6    7   10
-      Gene457    8   13    9   12   24   10    4    2    4    9   16   12   11   14
-      Gene458    8    9   14   38   16   20   42   12    8   16   26   12   21   11
-      Gene459   27   58   44   33   41   64   83   48   62   40   26   39   35   26
-      Gene460   49   79   81   50   42   57   83   55   56   39   61   66   39   64
-      Gene461   55  133  100   68   61  119   88   85   52  105   45   42   42   42
-      Gene462    7   33   19    9   12   12   18   17    6    7   15    9    7    6
-      Gene463   28   60   58   30   25   36   47   44   33   22   30   24   31   22
-      Gene464   13   19   14    9    6    5   18    6   11   12    8   14    5    6
-      Gene465    9    9   13    7    5    8    6    1    4    5    3    5   10    8
-      Gene466    1    2    .    .    4    .    .    .    .    1    .    1    1    4
-      Gene467  296  337  455  266  360  258  289  206  179  178  253  312  190  286
-      Gene468 2396 3338 4525 2890 3216 3107 3375 2816 3029 2516 2790 3574 1809 2778
-      Gene469 1409 2144 1533 1483 1631 1589 1767 1229 1178 1131 1502 1767  901 1214
-      Gene470    6   33   31   40    7    8   20   40    6   14   18   19   10   26
-      Gene471   28   36   24   29   30   15   21   25    6   14    8   14    4   15
-      Gene472   16   24   17   19    8   24   22   16   17   15   12    9    4   12
-      Gene473    1    4    6   13    7    1    6    1   10   11    5    5    1    1
-      Gene474  124  220  198  153  159  162  149  115  110  157  268  278  238  243
-      Gene475    4    2    6    4    4    9    6   15    4   10    7    2    2    1
-      Gene476   72  183   78   80   76   82  177   72   78   42   98   82   47   79
-      Gene477   16   12   31   20   20   15   24    9   11   19   30   45   13   41
-      Gene478  173  213  293  223  166  108   96   77   57  111  184  162   91  154
-      Gene479   26   33   13   18   25   20   13   32   31   14   15   20   22   13
-      Gene480    4    8   23   15    8   17   16    8   13   16   16    5   17    8
-      Gene481    2    6    6    4    3    1    9    5    2    3    9   15    2    1
-      Gene482    .    1    1    .    .    .    2    4    .    3    4    1    1    1
-      Gene483   77  143  186  120  114  124  165   95  131   71   91  120  115  133
-      Gene484    .    .    .    .    .    .    .    .    .    .    .    .    .    .
-      Gene485   13   35   22   26   40   43    7   24   30   17   36   28   24   25
-      Gene486   36   79   67   57   54   99   96  113  104  133   60   62   44   62
-      Gene487   40   67   26   19   28   43   50   43   36   26   30   48    8   26
-      Gene488    5   47   22   10   25   23   19   45   28   32   26   30   22   33
-      Gene489    2    .    .    6    4    .    .    2    .    .    1    3    1    .
-      Gene490   18   87   71   52   60   32   42   26   66   38   20   57   38   49
-      Gene491   65  116  158   52   50   51   50   55   51   49   62   73   39   35
-      Gene492    8    6    4    8    7   10   23    2    3    5   23   26   21   13
-      Gene493   25   41   35   27   15   19   21   24   20   22   46   49   20   28
-      Gene494  144  191  202  178  182  112  149  165  106  110  112  151  100  168
-      Gene495  179  314  282  229  167  271  295  300  297  186  202  228  183  185
-      Gene496    6   21   21    8   12    8    9    6    1    9    2    9    1   10
-      Gene497   49  127  117   96  121  127  147   67  122  116   82   67   47   62
-      Gene498  205  361  308  227  229  186  177  234  182  175  104  113   91  126
-      Gene499   19   47   47   33   47   20   38   27   32   20   34   57    9   43
-      Gene500    .    1    2    .    1    1   10    6    1    5    3    2    4    .
+      Gene1   2511 2097 1845 2280 2798 2153 1989 2717 3141 3053 3860 2069 2862 2927
+      Gene2     19   26   25   24   24   17   20   16   67   40   25    8   27   20
+      Gene3     17    5   13   10   48   14   22   36   10   14   36   22   15   10
+      Gene4      1    3    .    2    1    .    .    7    3    7    2    8    8    7
+      Gene5     73   83   93   66   96   61   38   42   84   52  189  107  140  160
+      Gene6     45   53   29   42   24   39   37   38   53   60   56   22   39   33
+      Gene7     30   17    8   20   25   20    9   11   11    9   52   46   36   31
+      Gene8      2    .    .    .    1    4    1    1    .    .    1    .    2    .
+      Gene9     44   53   24   72   70   20   32   41   37   39   37   22   46   35
+      Gene10   234  231  156  155  190  156  102  177  222  198  359  263  262  245
+      Gene11    31   11   16   27   24   12   15   26   18   48   21   10   20   10
+      Gene12   136   96   86   78  109   96   94  115  116  115  113   44   92   89
+      Gene13    78   53   47   62   74   38   33   41   62   72   63   44   66   83
+      Gene14     .    .    .    .    .    .    3    1    2    1    7    1    1    .
+      Gene15   678  708  643  788  891  576  472  790  865  936  906  533  849 1306
+      Gene16    30   37   35   27   55   33   29   20   69   85   71   27   28   59
+      Gene17     8    4    5   10    3    6    3    4    4    6    4    6    5   12
+      Gene18    17   24   21   22   30   17    9   43   41   46   20    5   24   12
+      Gene19    20    6    9   12    5   10    7    6    5   10    5    5    8   10
+      Gene20    10   20   15   17   18   16    7    9   20    8   16   17   25   15
+      Gene21    25   12   27   44   15   11   21   24   38   50   18   29   17   17
+      Gene22    45   40   11   11   60   60   36   37   80   70   81   46   67   54
+      Gene23    44   21   41   34   37   30   11   36   44   29   50   21   17   21
+      Gene24     7   13    2   10    6    6   12    4   12   15    8    9    5   15
+      Gene25   344  250  175  292  208  183  177  217  150  267  279  246  401  432
+      Gene26   207  236  165  165  273  246  147  252  333  381  390  223  254  298
+      Gene27  1087  934  970  737 1185  844  803 1529 1514 1617 1010  923 1234  832
+      Gene28   175  183  150  127  180  132   63  157  121  191  166  120  183  167
+      Gene29     2    2    3    1    1    .    .    1    1    5    1    4    .    2
+      Gene30    31   52   20   53   40   21   18   20   25   56   43   42   28   48
+      Gene31     .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene32    30   17   21   20   22   38   13   18   30   26   24   22   23   28
+      Gene33   267  311  170  256  330  152  160  223  191  230  177  109  195  217
+      Gene34    72   83   35   74   60   71   51   75   63  100   74   36   86   81
+      Gene35  1027  669  805  765 1041  529  495  636  680 1060  906  824  967  951
+      Gene36    77   50   29   31   49   87   43   44   58   59   32   18   26   36
+      Gene37    13   10   15   14   11   21   17   13    5   11   18   10   38    5
+      Gene38    49   52   37   33   27   41   18   29   50   35   24   33   53   39
+      Gene39    60   47   32   42   64   61   68   94  136  114   77   76  110   68
+      Gene40   165  194  147  151  168  209  210  187  273  386  144   75  177  125
+      Gene41     2    9    .    4    5    3    1    6    4    5    3    6    6   13
+      Gene42   137   62   90   90   74   95   77   58   96  136   73   85  108  104
+      Gene43     8    7   11    6   20    1    4   16    7   12   15   22    9   14
+      Gene44    43   27   29   20   49   23   13   42   15   39   30   26   30   48
+      Gene45    84   34   59   50   55   69   28   37   84  122   55   60   47   61
+      Gene46    20   30   26   16   27   32   18   21   20   14   21   23   29   32
+      Gene47     .    .    2    .    .    .    1    .    1    .    .    .    .    .
+      Gene48    68   96   54   60   81   95   58   72  117   53   57   48   94   93
+      Gene49  1533 1710 1341 1769 2054 1156  832 1674 1479 1903 1886 1229 1922 1658
+      Gene50    10   15    8   14   13   18   15   31   30   24   32    8   16   35
+      Gene51   121   86   96   71   91   59   90   97  128  114  110   82   92  142
+      Gene52     .    1    1    .    .    .    .    .    .    .    .    .    .    6
+      Gene53     .    1    .    .    .    1    4    .    .    2    2    2    1    .
+      Gene54     .    .    .    .    .    .    .    .    .    .    .    1    .    .
+      Gene55     2    .    2    .    3    .    .    .    1    .    .    .    6    1
+      Gene56    58   52   31   39   71   46   33   33   23   63   53   71  137  111
+      Gene57    42   38   49   45   86   36   47   45   48   93   68   36   59   41
+      Gene58    74   49   52   61   85   56   84   78  119   82   74   65   98   74
+      Gene59    45   26   53   19   27   34   19   27   24   31   16   27   52   11
+      Gene60   190  116  118  118  143  108   98  146   83  103  145   86  146  145
+      Gene61   124  120   77   81  150   47   50   79   99  102   89   94   85   63
+      Gene62    12    2    2    1    4    1    8    5    2    2    1    .    .    .
+      Gene63    31   17   28   16   35   38   20   85   52   77   25   16   40   44
+      Gene64     2    .    .    3    3    1    .    2    1    2    1    2    6    5
+      Gene65    68   40   43   25   45   19   20   29   36   48   41   64   50   72
+      Gene66    32   18   23   19   26   34   15   11   29   26   32   32   20   30
+      Gene67   254  261  218  300  293  285  243  199  336  307  280  285  276  264
+      Gene68    23    7    7    4    3    2   16    5    8    6    9    6   10    5
+      Gene69    17   23   19   19    9   14    5   15   19    8   17    9   14    8
+      Gene70     7    1    2    6    1    1    1    1    6    5    2    3    3    3
+      Gene71   270  157  143  144  229  207  111  135  216  209  207  121  126  222
+      Gene72   144  145  128  134  167  195   94  135  188  191  291  167  205  134
+      Gene73    35   31   14   22   36   17   63   34   36   28   21   24   42   23
+      Gene74    25   13   19    6   32   19   19   14   18   32   29    9   26   25
+      Gene75   134  108   75   85  147  259  171  343  397  407  155  126  147  117
+      Gene76    20   31   28   41   32   21   20   30   37   45   28   18   14   12
+      Gene77     5    1    6    2   14   20    1    1   11    6   12    4   11    6
+      Gene78    41   27   24   26   42   23   37   29   42   72   44   47   45   32
+      Gene79     .    3    .    .    .    3    2    .    .    2    5    2    .    2
+      Gene80    25   45   41   48   40   24   22   25   30   62   42   22   32   42
+      Gene81   126  141  132  120  117  123  148  141  220  216   92   64  138  136
+      Gene82     1    .    .    .    1    .    4    1    1    4    1    5    3    .
+      Gene83    62   42   60   41   72   62   36   69   93   96   56   56   84   67
+      Gene84   121   74   72  102  137   69   65   69  140  137  101   53   60  152
+      Gene85     7    4    .    2    .    4    3    3    2    2    7    3    1    1
+      Gene86   183  165   92  122  163   81  122  115  155  118  133   87  163  222
+      Gene87   245  172  188  179  219  113  135  196  151  210  195  148  212  151
+      Gene88    52   61   38   38  111   78   41   92   92   83   93   51   43   86
+      Gene89    28   15   17    6   23   33    6    7   25   18   14   15   13   14
+      Gene90    27   41   28   38   38   28   15   28   62   17   55   37   60   49
+      Gene91    53   21   42   50   57   32   35   35   50   64   60   31   74   29
+      Gene92    10   11    2    7   34   24    8   15   27   27   29   16   19   21
+      Gene93     .    .    .    5    .    .    .    .    .    .    .    .    .    .
+      Gene94    27   15    7   19   16    9   12   12   37   26   29   20   14    9
+      Gene95     9   15   11   16   12   12   17   23    8   19   13    5   23   13
+      Gene96   149  122   98  123  195   85  119  150  110  134  109   59  117   90
+      Gene97     9   16   14    5   25   14    4    8   16    4    8    4   11   24
+      Gene98    14    9    9   10   20   11   11    8   13   32   14   14    7   20
+      Gene99     .    2    .    3    1    2    .    2    9    2    4    1    9    1
+      Gene100   64   81   73   52   97   25   26   43   52  107   69   39   75  102
+      Gene101   53  103   67   78   56   76   89  125   99  185  115   48  113  107
+      Gene102   67   43   47   55   70   75   35   45   83  104   78   30   81   59
+      Gene103    1    .    .    .    .    1    .    .    1    1    .    .    .    .
+      Gene104  348  304  190  228  402  148   84  109  160  101  114  107  173  123
+      Gene105   19   12   24   19   20    7   23   13   30   14   36   10    9   25
+      Gene106    6    2    2    1    2    4    1    3   10    4    7    1    3    2
+      Gene107   22   13   13   27   15    2    7    5    1    6    4   11   17   13
+      Gene108  139  105   42   88  156  170   62  108  190  156   93  105   82  166
+      Gene109   35   18   30   16   20   20    4   31   23   46   29   18   44   22
+      Gene110    .    .    4    2    1    .    1    .    1    .    2    .    .    .
+      Gene111    2    .    .    .    .    1    .    .    .    .    .    .    .    .
+      Gene112   15    3    6    4    3    5    2    8    3    9    6    2    1    .
+      Gene113   55   32   56   30   18   36   28   45  100   75   55   42  110   51
+      Gene114    4    6    2    1    4    .    .    4    .    2    5    1    1    1
+      Gene115    .    .    .    .    .    .    .    .    .    5    .    .    .    .
+      Gene116   75   40   50   41   67   70   22   71   55   66   70   55   95   48
+      Gene117  149   66  118   97  144  116   88  156  128  195  135   89  141  125
+      Gene118    4    1    .    6    1    .    3    .    .    5    .    2    .    .
+      Gene119   53   43   61   38   55   53   28   67   58   52   39   34   40   52
+      Gene120  105   49   71  132  100   35   21   48   40   55   31   18   29   46
+      Gene121   36   43   38   20   30   59   12   38   53   49   25   27   26   18
+      Gene122   27   27    7   15   15   10    3    5   10    8   19   22   46   30
+      Gene123    1    .    7    7    7    3    4    3    7    1    .    1    8    5
+      Gene124   26   28   21   24   11   10   19   25   36   32   48   38   31   11
+      Gene125    3    3    4    .    6    7    6   13    2    1    2    8    7    2
+      Gene126   85   38   27   39   54   34   32   45   71   40   49   26   42   73
+      Gene127   12    9    6    9   11    7    8    6    7   14   10   10    5   15
+      Gene128    4    9    .    3    3    3    .    2    4    1    3    1    7    2
+      Gene129    5    3    .    1    2    .    4    8    3    1    .    2    3    1
+      Gene130   15    4    8    4    6    7    1    1    5    5    2    2    6    8
+      Gene131    .    .    2    7    1    1    .    .    2    1    1    3    2    .
+      Gene132   69  100   45   96   73   57   46   95   99   66  104   79  113  128
+      Gene133  145  185   92  100  177  141   93  168  161  201  169  132  153  179
+      Gene134    .    2    .    3    .    .    .    .    .    .    2    1    .    .
+      Gene135   29   17   11   21   37   44   30   37   53   40   12    5   11   38
+      Gene136  111  104   63  174  146  139   61   91  153  144  125   79  115  137
+      Gene137  113   84   67   67   81  120   66   92  175  146   75   83   98  123
+      Gene138  118   69   63   58  107   59   51   73   74  120   93   94   97   96
+      Gene139    3    2    .    3    .    1    4    1    8   20    1    .    2    3
+      Gene140   22   20   23   12   10   17   18   37   37   70   52   33   46   61
+      Gene141   57   43   23   21   56   35   29   40   56  100   34   35   46   76
+      Gene142   77   85  104   68   82   55   43   61   55   86   73   46   74   69
+      Gene143   16    7   10    6   19    5    1    2    9   17   15   17   13   12
+      Gene144   17    5   15   33   25    9   12    8   14   13   15   12   12   18
+      Gene145    4    3    .    1    2    .    1    2    2    1    4    .    .    3
+      Gene146   31   23   14   16   41   16   10   15   19   10   20   14   40   25
+      Gene147   57   59   62   55   76   42   17   32   40   29   59   55   78   57
+      Gene148   13   14   12    3   18   21   14    7    9    9    7   10    7    5
+      Gene149   14   10    8   10   12    7    5    7   12   16    2    8    4   13
+      Gene150    .    .    .    .    .    .    .    .    .    1    1    .    .    .
+      Gene151    8   12   12    8   11   29   14   33   38   25   13   15   14   32
+      Gene152  107  100   59  122  143  127   60  202  114  184  122   88  133   78
+      Gene153  446  442  466  357  271  515  395  520  562  593  521  476  786  653
+      Gene154 4287 3487 2999 2911 3294 1106  931 1473 1614 2047 1712 1014 1182 1074
+      Gene155    3    7    3    2    4    5    1    4    3    6    4    2    3    1
+      Gene156   41   36   12   25   26   14   11   22   25   20   20   18   22   11
+      Gene157   57   45   57   59   62   51   56   73   69   77   82   33  101   68
+      Gene158   12   13    9    4   10    9    2   11   11   33   13   10    9   21
+      Gene159  210  165  139  109  188  101  124  205  187  287  214  142  300  134
+      Gene160   17   27   10   13   11   15   18    4   38    6    4   28   23   24
+      Gene161  124  141   89  170  168  142   71  108  207  282  142  133  154  161
+      Gene162    4   10    7    1    1    9    2    1    7    1    2    1   14    2
+      Gene163   19    9    3    7    6   13    6    8   11   12   14    7   22   14
+      Gene164  148  189   94  118  143  111   85  130  161  172  127  130  201  212
+      Gene165   19   27    9    9    7    6   13    8    6   17    3    7   17   15
+      Gene166   24   12   22    9    9    7   25   18   20   46   14   18   16   24
+      Gene167    .    .    1    1    .    .    .    2    .    1    .    1    .    3
+      Gene168    1    2    .    .    3    .    1    1    1    7    2    .    1    2
+      Gene169  130  113   67  118  138   57   69  112   90  108  108   83  101  142
+      Gene170    7   24   27    6   19   33   19   30   11   16   22   11   11   21
+      Gene171    3   14    4    7   10    3    2    9    3    4    6    9    1   11
+      Gene172    2    2    .   13    .    3    1    .    5    3   16    6    3    1
+      Gene173   54   41   28   60   93   29   41   51   67   74   69   48   68   73
+      Gene174   26   12    8    4   31   10   10   15   28   20    5   21   18   17
+      Gene175  135   95   89  146  178  167   74  101  181  257  164  110  121  134
+      Gene176   60   38   25   21   52   38   36   62   43   70  101   83  131   69
+      Gene177  164  140   92  144  168   82  118  140  150  186  108  154  156  174
+      Gene178   28   41   33   11   37   28   27   34   50   58   52   31   55   59
+      Gene179   23   18   18   22   21   24   12   30   33   15    9    8    3   21
+      Gene180   74   42   32   70   57   25   30   30   34   26   68   38   90   50
+      Gene181   60   36   27   31   86   50   46   50   33   79   57   27   51   39
+      Gene182  132   75   63   46  105   65   45  183  156  266   77   70   76   63
+      Gene183   32   26   33   37   59   61   35   49   48   66   31   31   34   44
+      Gene184   19   11    9   14   22   24   28   26   39   58   19   25   13   33
+      Gene185  222  188  141  280  236  252  263  288  306  352  350  387  248  308
+      Gene186   12    6   11    8    1    2    5    8    7   12    7    5   10    7
+      Gene187    2    2    .    1    3    3    .    5   12    2    6   16    9    3
+      Gene188    .    .    .    .    3    1    .    .    .    2    .    .    4    .
+      Gene189   15   22   26   28   12   12    2   15   14   21   20   16   20   27
+      Gene190   80  101   49   52   71   61   33   91  152  111  146   68  106  108
+      Gene191   53   38   29   24   31   60   58   61  115  111   61   45   69   99
+      Gene192  166  163   89  158  168  148   71  137  136  252  213  111  181  112
+      Gene193  113  106   52   69  103  130   98  121  192  213  124   87  156  145
+      Gene194 1341  956  960 1052 1409  419  413  765  686  656 2047 1654 2140 2114
+      Gene195   58   30   26   27   38   36   25   37   54   51   38   32   56   38
+      Gene196   38   34   14   48   44   51   37   39   56   93   36   39   57   36
+      Gene197   17   11    6   12   24    9    4   13   29   19    8    2   10   10
+      Gene198   31   24   17    7   22   17   14   44   20   31   37   19   28   15
+      Gene199  134  121   65  154  166   83   83  123  169  156  185   98  170  145
+      Gene200    .    .    .    .    .    3    .    .    .    .    .    .    .    .
+      Gene201   60   58   54   40   48   78   43   45   87   66   90   59   86   81
+      Gene202    4    3    1    .    2    .    1    2    3    2    4    1    4    2
+      Gene203   48   47   14   41   41   23   29   21   57   50   65   52   44   40
+      Gene204   14    9    7    3   21   22   18    7   14   17    8   10   10    9
+      Gene205   59   31   77   71  105   87   96  101  131  114  108   76   70   88
+      Gene206  107   56   83   63  151   38   45   56   58   78   74   58   84   37
+      Gene207   11   10    2    8    4   12    4    6    1   14    3    6   10    4
+      Gene208 1540 1453 1008 1438 1500  863  829  995 1493 1710 1938 1078 1773 1824
+      Gene209   46   61   51   42   27   57   48   64  101   85   59   34   74   65
+      Gene210   66   40   21   42   60   16   12   21   40   25  104   58  104  116
+      Gene211    .    .    3    .    .    .    .    .    1    .    .    .    .    1
+      Gene212   60   43   44   38   50   30   40   56   62   73   73   58   82   74
+      Gene213   28   30   33   24   17   18   13    6   18   23   38    4   34   17
+      Gene214    1    1    2    1    1    .    1    .    .    1    4    8    6   18
+      Gene215   88   77   82   60  118   71   97  154  118  165  121   99  101  160
+      Gene216    5    2   13    2    9    .    8    7   14    4   10    4   11    3
+      Gene217  127   66   81   56  106   65  100  131   86  188  165   82  140  100
+      Gene218   19   10    2    6   10    3    6   29   13   31    9   14   16    6
+      Gene219    5   10    4    9    1    6    5    2    8   14    4    2    6    8
+      Gene220   37   20   19   21   23    9   22   27   17   30   80   33   71   51
+      Gene221   20   27   11   19   26   21   19   35   16   26   29   22   43   24
+      Gene222   28   37   19   24   30   26   24   33   46   41   48   32   39   35
+      Gene223    7   17   20   17   22    9   14   13   18   18   18   21   22    5
+      Gene224   10    3    .    2    8    2    1    7    6   11    6    3    1    9
+      Gene225    7    6    4   12    6   15   20   24    6   15    8   23   15   25
+      Gene226    4   14   10   12    7    2   10    9   11    6   12    8   22   13
+      Gene227    2    1    .    .    4    3    1    .    2    .    .    .    .    .
+      Gene228    .    .    3    .    5    1    1    .    2    3    .    .    3    1
+      Gene229  685  476  504  546  658  861  676 1224 1271 1367  999  516  936  854
+      Gene230  119   93   53   78  123  223  146  188  328  276  122  127  131  162
+      Gene231   23   14   10   37   27   13   18   11   11   17   18   23   30   32
+      Gene232   39   75   41   37   68   49   44   93   76   65   78   39   40   54
+      Gene233   12    1    4    3    3    6   16    7    5    5    2    3    3    7
+      Gene234   99  124  113  114  136  139   62   91  133  159  130   86  144  118
+      Gene235   23   17   24   15   20   42   24   40   49   46   50   22   34   41
+      Gene236    .    .    .    .    .    .    .    .    .    3    .    .    .    .
+      Gene237   31   48   39   67   50   41   59   69   94  116   69   24   71   49
+      Gene238   73   57   39   48   87   44   33   50   59   66   61   52   67   46
+      Gene239   63   69   47   94   71   60   62   74  158  100   73   79   88  106
+      Gene240   19   21   14   27   29   17    4   11   11   44   15   15   32   17
+      Gene241    6   10    .    2    7    7    1    5   13   10    2    4    6    2
+      Gene242   56   48   11   29   33   11   13   31   15   20   18   13   20   40
+      Gene243  587  481  517  471  575  274  190  368  397  429  297  259  357  270
+      Gene244    3    3    2    2    1    2    .    .    .    1    5    .    2    4
+      Gene245   39   19   23   48   55   17   17   12   20   25   20   19   30   40
+      Gene246   96   58   58   52   70   42   43   49   62   73   21   13   23    7
+      Gene247  258  269  215  258  260  190  127  202  255  223  125   69  145   93
+      Gene248   74   87   67   66   51   63   32   38  102   93  130   45   71   61
+      Gene249  116   52   32   56  111   63   45   41   54   57   66   64   64   85
+      Gene250   69   46   32   42   50   39   67   74   65   88   74   84   64   89
+      Gene251  154  118   89  109  139   65  119   94  130  134  135  128  144  162
+      Gene252    .    .    2    1    1    .    1    .    2    2    .    .    5    .
+      Gene253   21    2    1   25   15   10    6   14   19    5   14    3   11   14
+      Gene254   22    3    7   12    8    8    6    2   18    7   15    5   12   20
+      Gene255   35   14   28   22   27   24   17   59   31   36   41   21   61   56
+      Gene256   10    1    4    1    7    7    7   10    6    3    5    .   16    3
+      Gene257   30   14   34    6   10   22   13   45   32   30   31   14   38   10
+      Gene258   70   80   57   54   79   90   42  106   93   66  104   95  142  147
+      Gene259    2    6    2    .    1    2    2    .    .    .    .    1    1    2
+      Gene260   19    6   23   12   20    5    3    4   24    9   13   28   10   30
+      Gene261   10   12   11    9    7   14   25   26   66   53   39   37   40   13
+      Gene262   56   57   41   26   53   35   47   60   49   71   54   36   67   43
+      Gene263    .    4    2    3    5    7    2    6   11   15   17    5    4    6
+      Gene264 5929 4106 4186 4057 4669 4135 3216 4798 4699 5924 4112 2555 4571 4021
+      Gene265   15   21    3    6   15    7    6   11   37   26   82   45   53   54
+      Gene266   36   24   18   11   26   11    7   38   20   13   24   29   22   25
+      Gene267   80   59   43   32   75  196   78  123  196  256  108  125  177  143
+      Gene268    6    7    3    9    4    6    .    1    5   11    5    .    1    2
+      Gene269   15    5    5   11   13    7   14    9   14    9    6    3    8   14
+      Gene270 1102  781  790  985  836 1258  994 1201 1316 1266 1123  580 1302 1081
+      Gene271   28   20   16   14   43   17   10   10   14   23   18   26   19   24
+      Gene272    .    .    9    3    5    3    8    7    4    4    2    2    1    5
+      Gene273   14    9    7    8   27    .    8    5    4   10    6    6    9    3
+      Gene274    9    5   10   14   11   18    5   17    9   10    8   12   19   14
+      Gene275 1239 1337 1341 1345 1785 1578  932 1536 1722 2159 2001  995 1526 1737
+      Gene276   87  124   70   60   91   68   64  118   89  100  114   78  106  102
+      Gene277    6   13    7    5    9    4    6   15   20   12   14   10   10    4
+      Gene278  149  106   54   87  101   96   72   90  111  129  110  103  148  114
+      Gene279   46   33   34   40   33   25   33   36   23   55   24   14   41   32
+      Gene280  382  335  202  340  464  367  279  376  453  460  349  225  528  411
+      Gene281   46   21   26   25   30   24   56   29   39   25   83   64  112   54
+      Gene282    5    6    1    7    9    1    4    6    6    3   10    6   11    5
+      Gene283  144  143  120  110  201  169  132   98  220  289  171   99  145  143
+      Gene284   55   11   15   28   33   16   12   13   15   26   44   17   26   19
+      Gene285   57   45   26   84  106   53   38   93   96   96   86   47   73  103
+      Gene286   85   34   34   82   74   62   87   77  122   77   78   62   82   83
+      Gene287  210  202  182  153  281  217  119  281  433  327  417  337  572  528
+      Gene288  225  131  145   70  154  143  118  155  210  196  152   57  113  127
+      Gene289  112   76   77   67   76  227  138  242  296  301  112   79   92  112
+      Gene290    9   10   14   19   10   16   13   44   35   40    6   12   14   12
+      Gene291    7    8    7   10    9    3    7    7   24   23   19    2   19   19
+      Gene292    7    8    7    6    3    7    .    8    1    5    4    .    3    3
+      Gene293    9    5    3    8    5   23   16    9   10   22   29    1   26   19
+      Gene294  108   73   71   83  107   69   75   77  146   92   78   77  132  151
+      Gene295    7    8   13    2    5    8    5   13   18   19   19    1   18    9
+      Gene296    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene297   82   76   38   48   76   52   34   62   84  102   95   85  110   94
+      Gene298  146  166  125  191  174  156   92  210  205  170  206  130  141  159
+      Gene299    8    8    7   12    7   10    4   10    8    5   14    4    7   10
+      Gene300   76   57   85  113   94   91   64   68  141  127   81   79  108  108
+      Gene301    .    1    .    .    .    .    .    .    3    1    .    .    .    .
+      Gene302  116   73   64   82  107   78   33   91  131  122  100   82  147  104
+      Gene303    .    .    1    .    1    1    .    3    .    .    .    1    3    1
+      Gene304  142  143   79  127  113  146  132  147  258  326  249  213  316  210
+      Gene305  186  205  132  109  146  183   90  162  212  213  239  199  172  133
+      Gene306    .    .    .    .    .    .    .    2    .    .    .    .    .    .
+      Gene307    .    .    1    7    1    6    6    .    .    4    .    .    2    .
+      Gene308   62   15   57   53   66   34   45   44   63   51   63   35   26   70
+      Gene309    6    8    1    3   10    4    8    2    3    8   11   13    6    6
+      Gene310  124  142   85  142  192  123   85  155  129  208  120   26  108   55
+      Gene311   33   22   16   29   39   18   21   27   24   35   47   19   33   53
+      Gene312    2    .    1    .    .    3    3    6    .    3    .    1    .    2
+      Gene313  144   83   79   96   89  116   84  115  136  150  143   83  139  131
+      Gene314 4181 4082 2943 3368 4290 1533 1569 2180 2114 2571 2236 1468 2001 1715
+      Gene315    1    .    .    .    .    .    .    .    .    .    1    .    .    .
+      Gene316   16   12   12    5   20   12   13   23   14   24   25   46   51   29
+      Gene317   15   12   21    9   11   15    4   19   15   21   15   19   15   20
+      Gene318   10   23   18   36   20   41   30   35   29   49   36   20   29   24
+      Gene319    9    3    5    .    7    2    1   11   12   23    8    4    6   20
+      Gene320   51   44   40   39  109  100   80  134  137  144   53   56  105  119
+      Gene321   27   27   28   39   35   51   28   30   47   40   54   31   51   58
+      Gene322  181  250  214  200  253  205  183  215  365  344  309  232  173  281
+      Gene323   28   13   12   15    3   12    3   14   14   21   25   24   41   22
+      Gene324   18   36   11   21   21   28   13   18   28   18   25   18   26   10
+      Gene325  127   90   64  111   91   32   74   52  112  153   81   43  136   82
+      Gene326    8   13   14    3   13    5    8   25   31   13   19    5   12   18
+      Gene327   51   55   44   26   66   51   62   70  122   68   26   19   39   30
+      Gene328   49   59   64   53   73   43   55   90   87  147  176   96  160  146
+      Gene329   15    6    7    1    4    9    7    1    9    3    5    2    5    5
+      Gene330   41   18   34   28   63   38   38   64   66   37   44   43   28   38
+      Gene331    4    1    7    4    7    8    4    6    9    5    5    1   15    1
+      Gene332   10    .    1    5    6    4    1    3   16    5   10    3    6    7
+      Gene333    5    7   13    7    8   15   21   23   28   44    5    5    9    2
+      Gene334    2    3    1    .    .    .    1    1    1    6    .    1    4    4
+      Gene335  182  168  125  136  155  110   78  188  126  100  109   61  101   90
+      Gene336  196  159  157   97  173  219  163  135  211  275   85   48   59   74
+      Gene337   58   87   53   43   71   58   48   63   78   82  134   74   70   98
+      Gene338   62   67   49   39   63   27   36   15   87   78   67   39   37   45
+      Gene339    .    .    .    .    .    .    .    .    1    .    .    .    1    .
+      Gene340    2    .    .    1    1    2    1    .    6    1    2    1    1    .
+      Gene341   12    2    8    3    4    6    2    5   37   20   15    8    1    4
+      Gene342  123   35   54   89   90   69   68   72  130  184   87   87   96   93
+      Gene343    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene344   32   27   22   29   54   39   29   41   62   76   34   37   36   36
+      Gene345  257  167  173  215  253  311  289  353  337  496  212  182  244  302
+      Gene346   11    7    3    3    6    9    .   11   16   11    4    6    4    5
+      Gene347  254  251  208  125  211  171  172  182  256  346  164  200  170  172
+      Gene348    9    8    6    7    3    1    3    5    8    4   11   11    8    9
+      Gene349   82   74   61   80  102   13   24   43   50   52   27   30   23   39
+      Gene350   56   48   32   31   41   29   22   25   45   85   63   38   62   63
+      Gene351   15   14   12    7   36   28    7   10   21   22   26    8   22   11
+      Gene352    3    4    5    1    2    5    7   13   11    8    3    6    4    .
+      Gene353 2783 1698 1515 1561 2102 1624 1294 1885 2397 2952 1937 1531 1972 2367
+      Gene354   14   12    7    6   10   11   14   32   26   15   11    8    6    4
+      Gene355    2    .    3    1    .    .    2    3    .    6   10    .    5    4
+      Gene356  160  164   79  109  173   45   61   89   98   84  110   73   95   69
+      Gene357 1705 1159  978 1041 1367 1115  933 1395 1230 2142 1572 1175 1870 1348
+      Gene358   10   14    7    5   12    5    2    .    5   14    4    7    4    4
+      Gene359    1    4    .    1    4    .    .    1    .    .    1    .    3    2
+      Gene360   16   15    5   21   30   17   14   22   33   26   39   14   17   29
+      Gene361   33   39   13   29   46   20   35   56   23   46   44   58   38   33
+      Gene362    .    .    .    .    .    .    .    5    .    1    4    .    .    .
+      Gene363 1028 1302 1013 1063 1439 1325  982 1317 1216 1692 1628 1076 1309 1385
+      Gene364   40   40   25   29   30   45   36   52   71   60   33   32   54   31
+      Gene365    5    1    4    .    1    2    .    1    .    2    3    .    4    3
+      Gene366   74   51   50   67   97   67   55   56   48   72   60   79   79   79
+      Gene367   27   29   23   26   33   20   10   29   38   16   19    7   25   35
+      Gene368   41   76   25   85   47   35   27   86   58   50   82   45   45   47
+      Gene369    3    1    1    .    3    1    1    6   12   11    2    3    3    4
+      Gene370    9    .    4    1    2    7   10    1    1    5    3    .    4    5
+      Gene371   10    2    1    7    3    4    1    5    5    5    5    7    1    6
+      Gene372   21   17    5   13    6   34   17    5    9   22   13    8   12   16
+      Gene373   40   24   16   26   31   26   38   40   13   36   49   46   56   77
+      Gene374   21   22   14   35   33   79   26   47   89   56   82   21   54   41
+      Gene375    2    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene376  178  146  202  158  213  160  152  228  249  214  118  106  162  206
+      Gene377  243  208  202  190  300  247  165  252  378  444  246  193  247  286
+      Gene378   16   20   14   13   35   12    5   30   29   31   21   22   37   21
+      Gene379   67   80   63   53   53   45   51   70   89   70   79   57   44   75
+      Gene380    9    6    1   17   25   10    5    6    9   28   18    2   20    4
+      Gene381  109   91   96  114  111   93   77  118  116  117   50   39   78   32
+      Gene382  125  140  128  111  151  130   73  108  130  202  250  112  166  202
+      Gene383   12   13   15    6   23    8   16   24   26   25   33   19   25   19
+      Gene384   53   24   39   21   38   47   23   31   56   56   27   23   34   15
+      Gene385    6    6   15    6    7    8   18    4   16   12   11    9    3   10
+      Gene386  314  350  497  347  625  502  268  400  769  746  417  408  599  406
+      Gene387    .    .    2    .    .    3    .    .    .    4    .    .    2    1
+      Gene388  137   90   77  109  139  208  133  178  209  183  182  115  171  251
+      Gene389   80  101   95  126   99   72   55  132  140  196  139  170  231  123
+      Gene390  193  192  169  105  221  486  465  329  411  784  714  432  678  767
+      Gene391    1    3    9    5    5    .    1    5    1    6    .    1    5    1
+      Gene392    2    2    .    3    1    8    5   10    3   16   12    6    2    3
+      Gene393   67   64   56   50   60  148   69  136   80  171  121   44  112  136
+      Gene394   42   26   40   36   34   47   58   56   71   65   47   54   57   38
+      Gene395    .    .    1    6    2   14    5    3   14    7    .    2    1    5
+      Gene396  119  188   71  122  166  148  184  141  266  352  113   88  103  104
+      Gene397   15   16   12   24   31   19    3   13   16   25   21    7   13   19
+      Gene398    1    .    .    1    .    .    .    .    1    3    .    2    1    .
+      Gene399   28   26   16   22   20   40   13   20   48   27   37    9   19   10
+      Gene400   23   19    8   28   32   23   23   20   50   25   14   11   22   32
+      Gene401   15   10   20    7   19   11    9   28   14   40   27   17   21   25
+      Gene402   16   21    3   34    6    9   34   25   34   22   17   10   12    9
+      Gene403   59   38   79   43   74   82   59   77   73  120   73   70  155  116
+      Gene404    6    2    2   13    3    1    .    1    .    4    5    1    8    1
+      Gene405   11    1    1    5    4    3    .    .   10    7    6    2   11   11
+      Gene406   66   73   94   52   82   75   51   78   30   86   58   86   85   85
+      Gene407   65   67   56   77   77   63   37   75   76   61   82   62   55   48
+      Gene408    .    .    .    .    1    .    .    .    .    .    .    .    .    .
+      Gene409    .    .    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene410    3    1    5    2    9   11    6    6   11   11    8    5    8    6
+      Gene411   36   16   14   22   21   13    9   14   15   23   24    8   14   18
+      Gene412    .    .    1    .    .    .    1    1    1    1    .    1    .    .
+      Gene413   17   16    9    8   14   21   27   22   21   34   14   22    9   10
+      Gene414   90   57   53   72   88   55   50   73  109  120  122  113  108  118
+      Gene415   16    9   10   17    8   14   20   26   18   21   18   20   33   18
+      Gene416  106   89   68   87   90   63   56   72  139  206   78   59   86  103
+      Gene417   17   35   20   25   35   23   15   14   25   19   13    9   22   24
+      Gene418   13   16    5   13   19   10    7   15   26   11    7   13   17   13
+      Gene419    2    2    2    .    4    4    3    .    2    3    2    .    2    1
+      Gene420   25   21   23   24   40   16   15   26   18   20   60   42   95   78
+      Gene421   59   48   49   43   72   96   34   95  106   74   53   38   67   59
+      Gene422   21   13   21   23   26   32    9   27   16   24   19   14   30   20
+      Gene423   43   16   10   22   25   16   12   21   25   28   31   21   25   32
+      Gene424   33   29   42   43   52   35   25   30   23   47   72   42   58   58
+      Gene425  412  349  277  297  398  290  259  348  442  455  418  330  370  413
+      Gene426    1    6    .    6    4    1   10    6   15    2    .    5    1    9
+      Gene427    4    4    6    6    2    5    6    3    2    4    3    6   13    5
+      Gene428   23    6    7    5    2   28    8   40   27   43   13   11   22   18
+      Gene429    .    1    4    2    5    9    1    .    4    2   10    1    1    3
+      Gene430    1    .    .    .    2    1    .    1    6    6    .    1    3    5
+      Gene431    .    .    .    1    .    3    1    1    7    6    .    .    .    .
+      Gene432   25   32   16   17   23   20   21   23   12   19   40   14   21   23
+      Gene433    .    1    .    .    .    1    .    .    .    5    .    .    .    .
+      Gene434   32   25   26    8   22    8    5    9   15   27   28   19   19   22
+      Gene435   22   21   15   34   23   28   13   35   33   24   66   26   50   25
+      Gene436   48   25   40   36   42   43   43   38   66   58  117   80   91  114
+      Gene437   31   21   36   33   32    5   40   17   52   40   26   24   25   41
+      Gene438   31   35   22   36   26   28   28   33   32   53   39   19   32   17
+      Gene439   53   82   54   51   79   84   34   43  122   82   75   54   88  110
+      Gene440    8    3    6    5   24    2    8    7    4    4    3    4    6    5
+      Gene441   28   36   18   26   30   25   39   27   26   38   21   21   25   32
+      Gene442   25   18   12   24   16    9    4   18   27   30   15   12   34   26
+      Gene443   15   16   23    9   32    5   18   31   22   27   32   22   18   21
+      Gene444 1078 1043  833  694  944  964  900  984 1522 1572 1213  666  998 1157
+      Gene445  457  379  321  305  468  332  268  365  424  576  354  291  398  324
+      Gene446   63  109   50   57   60   96   82   94  124  153   98   88  134  183
+      Gene447   14   26   27   21   40   14   14   13    3   13   15   27   19   37
+      Gene448   45   25   25   24   45   36   36   38   34   84   41   30   21   33
+      Gene449   83   68   60   57   46   56   48   58   85  101   80   48  107   87
+      Gene450    .    2    3   10    9    2    3    .    3    3    3    1   10    3
+      Gene451  121   91   73  101  115   69   41   75  126  177  125   65  132  138
+      Gene452    2    1    2    2    2    1    .    1    1    .    2    .    .    3
+      Gene453   11   14   11   16   13    8   11   18   19   18   16    2    5    1
+      Gene454    4    4    5    .    .    1    5    1    .    1    1    1    2    4
+      Gene455   19    7   14   10   12   29   16   14   23   22   21   14   29   21
+      Gene456   74   63   53   46   45   41   31   43   45   40   65   41   52   55
+      Gene457    6   13    3   11    9    4    3    2    9    5    6   12   13    4
+      Gene458  944  826  805  807 1126  890  645  883 1060 1348  760  553  993  779
+      Gene459   18    9   23   18   17   13   16   14   36   37   12    4    9   10
+      Gene460    .    2    .    2    1    .    1    1    .    1    1    .    .    3
+      Gene461   20   22   13   10   19    8   11   30   14    4   32    6   15   20
+      Gene462    1    2    .    .    .    .    .    .    .    .    .    .    .    .
+      Gene463   94  101   93   92  173  109  115  136  230  203  179  122  139  169
+      Gene464   12   18    3   13   14    4   16    5    6   23    9   19    4   21
+      Gene465  108   82  100   91  130   64   50   77  151   98   62  107  104  120
+      Gene466   31   29   12   24   23   23   11   34   37   35   41   19   39   33
+      Gene467   46   21   25   39   35   15   27   28   34   66   49   30   35   30
+      Gene468   14   17    .   14   12   24   18   29   20   21   14   10   10    5
+      Gene469  338  407  342  431  473  688  606  779  931 1309  615  395  765  601
+      Gene470   75   28   38   46   69   48   59   82   66   77   85   33   59   42
+      Gene471   35   22   13   10   21   30   19   32   45   33   19   32   33   23
+      Gene472 1117 1083  889 1198 1461 1005 1034 1438 1357 1662 1665 1143 1638 1688
+      Gene473  466  544  321  294  500  398  348  588  606  669  776  331  685  582
+      Gene474   31   27   21   25   53   17   12   34   47   61   30   11   10   17
+      Gene475   10   10    7    7    8   12    6    9   26   20   17   12   26   18
+      Gene476   24   18   12    5   22   36   15   39   60   52   55   27   47   64
+      Gene477   53   75   71   78   99   38   26   69   55   78   39   44   53   30
+      Gene478   15   10   15   17   25   23   18   24   21   17   31   29   40   29
+      Gene479   27   18    9   48   16   16   11   24   22   26   38   16   27   28
+      Gene480   62   27   29   31   32   38   26   43   47   50   47   17   66   82
+      Gene481  100   99   85  139   73   61   61   74  130  209   99   36   42   45
+      Gene482    6    2    .    8   12    4    .    4    1   10    6    6    3   13
+      Gene483   72   36   32   34   38   47   44   46   94   68   50   17   56   58
+      Gene484    9    9    3    3    5    6    1   17    3    4    6    6    9   11
+      Gene485 2051 1546 1097 1033 2064  850  799 1139 1311 1451 1277 1107 1839 1161
+      Gene486  559  469  518  461  615  328  398  406  595  505  644  407  634  691
+      Gene487   55   61   56   47   57   49   28   54   58   90   73   22   65   51
+      Gene488   29   23   36   25   25   18   16   19   45   20   36   18   20   22
+      Gene489   18   24   28   25   31   16   14   23   24   19   33   18   18   30
+      Gene490 2087 1569 1637 1784 1784 1621 1328 1422 2383 2264 2016 1455 2176 2163
+      Gene491   39   28   13   53   37   38   12   57   64   63   34   22   64   37
+      Gene492   10   13   20   21   12   20   12   19   15   31   21   16   23   15
+      Gene493   56   54   63   70   55   74   40   33   60   88   58   99  110   93
+      Gene494    6    6   10    4    9    6    6    3    5    7    9    5    8   12
+      Gene495   45   39   34   55   64   29   37   36   60   44   80   52   65   74
+      Gene496   14   30   24   29   38    8   20   36   20   36   77   59  103   99
+      Gene497    8    4   12    7   10   10    5    6    9   15    4   14    5    9
+      Gene498    3    3    7    4    3    .    6    3    3    4    .    5    3    2
+      Gene499  130   92  101   55   79  100  114  133  116  178  116   63   63  120
+      Gene500   90  138   82   79   80  140   81  144  144  142  138  112  161  173
                   
-      Gene1     49
-      Gene2     27
-      Gene3      1
-      Gene4    207
-      Gene5      7
-      Gene6     43
-      Gene7    353
-      Gene8      1
-      Gene9     13
-      Gene10     3
-      Gene11    18
-      Gene12   285
-      Gene13     4
-      Gene14     6
-      Gene15     4
-      Gene16    18
-      Gene17    13
-      Gene18     2
-      Gene19     2
-      Gene20   215
-      Gene21    56
-      Gene22  2002
-      Gene23    17
-      Gene24     1
-      Gene25     .
-      Gene26   862
-      Gene27     8
-      Gene28    58
-      Gene29     1
-      Gene30    16
-      Gene31    25
-      Gene32    14
-      Gene33  1638
-      Gene34     3
-      Gene35    37
-      Gene36    44
-      Gene37    21
-      Gene38     5
-      Gene39    27
-      Gene40    62
-      Gene41    77
-      Gene42     6
-      Gene43    38
-      Gene44     .
-      Gene45  2474
-      Gene46    12
-      Gene47    17
-      Gene48   103
-      Gene49    20
-      Gene50  1000
-      Gene51    34
-      Gene52    23
-      Gene53    37
+      Gene1   3257
+      Gene2     46
+      Gene3     12
+      Gene4      6
+      Gene5    139
+      Gene6     41
+      Gene7     29
+      Gene8      .
+      Gene9     53
+      Gene10   256
+      Gene11    24
+      Gene12    96
+      Gene13    51
+      Gene14     .
+      Gene15   864
+      Gene16    63
+      Gene17     2
+      Gene18    19
+      Gene19    12
+      Gene20    23
+      Gene21    40
+      Gene22    40
+      Gene23    33
+      Gene24     8
+      Gene25   386
+      Gene26   300
+      Gene27  1168
+      Gene28   232
+      Gene29     .
+      Gene30    52
+      Gene31     .
+      Gene32    33
+      Gene33   167
+      Gene34    85
+      Gene35  1110
+      Gene36    32
+      Gene37    36
+      Gene38    39
+      Gene39    66
+      Gene40   153
+      Gene41     2
+      Gene42   154
+      Gene43     7
+      Gene44    36
+      Gene45    63
+      Gene46    18
+      Gene47     .
+      Gene48    90
+      Gene49  1868
+      Gene50    39
+      Gene51   113
+      Gene52     .
+      Gene53     1
       Gene54     .
-      Gene55    15
-      Gene56     5
-      Gene57    30
-      Gene58    38
-      Gene59    17
-      Gene60   585
-      Gene61     4
-      Gene62    59
-      Gene63     7
-      Gene64  1357
-      Gene65    11
-      Gene66    20
-      Gene67     8
-      Gene68    50
-      Gene69     1
-      Gene70    53
-      Gene71    92
-      Gene72   105
-      Gene73   519
-      Gene74     2
-      Gene75     .
-      Gene76     6
-      Gene77    32
-      Gene78    20
-      Gene79   130
-      Gene80    27
-      Gene81   773
-      Gene82    36
-      Gene83    28
-      Gene84     2
-      Gene85    27
-      Gene86    15
-      Gene87     .
-      Gene88    24
-      Gene89     9
-      Gene90    46
-      Gene91    15
-      Gene92    67
-      Gene93     4
-      Gene94  1369
-      Gene95     3
-      Gene96    17
-      Gene97    35
-      Gene98    49
-      Gene99     .
-      Gene100    .
-      Gene101    9
-      Gene102   33
-      Gene103   18
-      Gene104    8
-      Gene105   61
-      Gene106    .
-      Gene107    2
-      Gene108  381
-      Gene109    2
-      Gene110   23
-      Gene111  134
-      Gene112   17
-      Gene113    2
+      Gene55     1
+      Gene56   117
+      Gene57    70
+      Gene58   126
+      Gene59    20
+      Gene60   181
+      Gene61    45
+      Gene62     3
+      Gene63    50
+      Gene64     3
+      Gene65    67
+      Gene66    41
+      Gene67   352
+      Gene68    10
+      Gene69    18
+      Gene70     .
+      Gene71   154
+      Gene72   237
+      Gene73    45
+      Gene74    28
+      Gene75   167
+      Gene76    45
+      Gene77    17
+      Gene78    25
+      Gene79     2
+      Gene80    36
+      Gene81   143
+      Gene82     .
+      Gene83    90
+      Gene84    78
+      Gene85     3
+      Gene86   162
+      Gene87   143
+      Gene88    78
+      Gene89    21
+      Gene90    37
+      Gene91    68
+      Gene92     7
+      Gene93     .
+      Gene94    35
+      Gene95    15
+      Gene96   105
+      Gene97    13
+      Gene98    26
+      Gene99     8
+      Gene100   85
+      Gene101  150
+      Gene102   98
+      Gene103    .
+      Gene104  228
+      Gene105   41
+      Gene106    7
+      Gene107   17
+      Gene108  113
+      Gene109   33
+      Gene110    .
+      Gene111    3
+      Gene112    8
+      Gene113  105
       Gene114    5
-      Gene115  893
-      Gene116  130
-      Gene117    1
-      Gene118    3
-      Gene119   83
-      Gene120    .
-      Gene121   34
-      Gene122   29
-      Gene123   14
-      Gene124   55
-      Gene125    1
-      Gene126   15
-      Gene127    7
-      Gene128   27
-      Gene129   19
-      Gene130   45
+      Gene115    .
+      Gene116   67
+      Gene117  112
+      Gene118    .
+      Gene119   59
+      Gene120   18
+      Gene121   26
+      Gene122   18
+      Gene123    1
+      Gene124   61
+      Gene125    6
+      Gene126   72
+      Gene127   17
+      Gene128    .
+      Gene129    1
+      Gene130    4
       Gene131    8
-      Gene132    .
-      Gene133    .
-      Gene134   21
-      Gene135    .
-      Gene136   59
-      Gene137    4
-      Gene138   21
-      Gene139   15
-      Gene140   18
-      Gene141    9
-      Gene142   38
-      Gene143    3
-      Gene144   25
-      Gene145   48
-      Gene146   35
-      Gene147  169
-      Gene148  104
-      Gene149  117
-      Gene150   39
-      Gene151   34
-      Gene152   15
-      Gene153  159
-      Gene154   85
-      Gene155    2
-      Gene156   27
-      Gene157   56
-      Gene158   14
-      Gene159    .
-      Gene160   17
-      Gene161   47
-      Gene162   69
-      Gene163    .
-      Gene164   28
-      Gene165   48
-      Gene166   46
-      Gene167    1
-      Gene168   13
-      Gene169    6
-      Gene170   98
-      Gene171  154
-      Gene172    9
-      Gene173   41
-      Gene174   21
-      Gene175   11
-      Gene176   10
-      Gene177   75
-      Gene178   89
-      Gene179 1718
-      Gene180   69
-      Gene181   50
-      Gene182    .
-      Gene183   16
-      Gene184  112
-      Gene185   69
-      Gene186   55
-      Gene187    .
-      Gene188  108
-      Gene189   51
-      Gene190    4
-      Gene191   10
-      Gene192   19
-      Gene193    1
-      Gene194    .
-      Gene195  321
-      Gene196    1
-      Gene197  158
-      Gene198    .
-      Gene199    2
-      Gene200    2
-      Gene201   46
-      Gene202   62
-      Gene203   34
-      Gene204   60
-      Gene205    9
-      Gene206   68
-      Gene207   83
-      Gene208    2
-      Gene209    1
-      Gene210    .
-      Gene211    .
-      Gene212   10
-      Gene213   21
-      Gene214   67
-      Gene215   38
-      Gene216    .
-      Gene217    3
-      Gene218   29
-      Gene219    1
-      Gene220   15
-      Gene221   71
-      Gene222   71
-      Gene223   82
-      Gene224  429
-      Gene225   78
-      Gene226   20
-      Gene227   49
-      Gene228    3
-      Gene229    .
-      Gene230    8
-      Gene231 1478
-      Gene232    .
-      Gene233   24
-      Gene234    2
-      Gene235   26
-      Gene236   45
-      Gene237   14
-      Gene238   15
-      Gene239    2
-      Gene240   19
-      Gene241   21
-      Gene242   11
-      Gene243   53
-      Gene244   24
-      Gene245   42
-      Gene246    .
-      Gene247   30
-      Gene248   13
-      Gene249   36
-      Gene250   90
-      Gene251   13
-      Gene252   40
-      Gene253    7
-      Gene254    .
-      Gene255  230
-      Gene256   52
-      Gene257   13
-      Gene258    .
-      Gene259   25
-      Gene260   26
-      Gene261   25
-      Gene262    .
-      Gene263    3
-      Gene264   21
-      Gene265  141
-      Gene266   30
-      Gene267    .
-      Gene268   34
-      Gene269   45
-      Gene270    1
-      Gene271   20
-      Gene272  308
-      Gene273   13
-      Gene274   68
-      Gene275    5
-      Gene276    4
-      Gene277    .
-      Gene278    3
-      Gene279    1
-      Gene280  128
-      Gene281   71
-      Gene282   45
-      Gene283    1
-      Gene284   20
-      Gene285    3
-      Gene286    1
-      Gene287  270
-      Gene288   20
-      Gene289   76
-      Gene290   30
-      Gene291   89
-      Gene292    8
-      Gene293    .
-      Gene294  288
-      Gene295   44
-      Gene296    2
-      Gene297    .
-      Gene298   28
-      Gene299    1
-      Gene300   10
-      Gene301   27
-      Gene302   21
-      Gene303   51
-      Gene304   32
-      Gene305   14
-      Gene306   14
-      Gene307  191
-      Gene308    .
-      Gene309   35
-      Gene310    .
-      Gene311  129
-      Gene312    3
-      Gene313   36
-      Gene314   15
+      Gene132   73
+      Gene133  137
+      Gene134    .
+      Gene135    6
+      Gene136  122
+      Gene137   97
+      Gene138   63
+      Gene139    .
+      Gene140   65
+      Gene141   54
+      Gene142   58
+      Gene143    9
+      Gene144   22
+      Gene145    1
+      Gene146   39
+      Gene147   79
+      Gene148    3
+      Gene149    3
+      Gene150    .
+      Gene151   27
+      Gene152   80
+      Gene153  556
+      Gene154 1073
+      Gene155    3
+      Gene156   19
+      Gene157   30
+      Gene158   20
+      Gene159  154
+      Gene160    7
+      Gene161  149
+      Gene162    8
+      Gene163    8
+      Gene164  190
+      Gene165   24
+      Gene166   33
+      Gene167    4
+      Gene168    .
+      Gene169  103
+      Gene170   22
+      Gene171    4
+      Gene172    1
+      Gene173   94
+      Gene174    9
+      Gene175  123
+      Gene176   78
+      Gene177  172
+      Gene178   51
+      Gene179   31
+      Gene180   44
+      Gene181   28
+      Gene182  123
+      Gene183   42
+      Gene184   10
+      Gene185  335
+      Gene186    6
+      Gene187   17
+      Gene188    .
+      Gene189   17
+      Gene190   91
+      Gene191   58
+      Gene192  199
+      Gene193  163
+      Gene194 2224
+      Gene195   67
+      Gene196   70
+      Gene197   12
+      Gene198   24
+      Gene199  124
+      Gene200    .
+      Gene201   77
+      Gene202    1
+      Gene203   43
+      Gene204   15
+      Gene205   80
+      Gene206   72
+      Gene207    7
+      Gene208 1596
+      Gene209   61
+      Gene210   87
+      Gene211    1
+      Gene212   82
+      Gene213   15
+      Gene214    7
+      Gene215  113
+      Gene216    7
+      Gene217   54
+      Gene218    3
+      Gene219   11
+      Gene220   57
+      Gene221   36
+      Gene222   36
+      Gene223   16
+      Gene224    3
+      Gene225    2
+      Gene226    5
+      Gene227    .
+      Gene228    1
+      Gene229  758
+      Gene230  190
+      Gene231   33
+      Gene232   53
+      Gene233    2
+      Gene234  116
+      Gene235   32
+      Gene236    .
+      Gene237   61
+      Gene238   53
+      Gene239   96
+      Gene240    6
+      Gene241   12
+      Gene242   17
+      Gene243  238
+      Gene244    3
+      Gene245   37
+      Gene246   17
+      Gene247  109
+      Gene248   85
+      Gene249   74
+      Gene250   44
+      Gene251  139
+      Gene252    2
+      Gene253   12
+      Gene254    8
+      Gene255   28
+      Gene256    2
+      Gene257   16
+      Gene258  121
+      Gene259    2
+      Gene260    6
+      Gene261   39
+      Gene262   29
+      Gene263    5
+      Gene264 3920
+      Gene265   79
+      Gene266   12
+      Gene267  155
+      Gene268    1
+      Gene269   14
+      Gene270  897
+      Gene271   17
+      Gene272    2
+      Gene273    5
+      Gene274   10
+      Gene275 1637
+      Gene276  114
+      Gene277    6
+      Gene278  126
+      Gene279    8
+      Gene280  335
+      Gene281   79
+      Gene282    7
+      Gene283  217
+      Gene284   28
+      Gene285   72
+      Gene286   77
+      Gene287  454
+      Gene288   88
+      Gene289   77
+      Gene290   24
+      Gene291   19
+      Gene292    2
+      Gene293   16
+      Gene294  121
+      Gene295   16
+      Gene296    .
+      Gene297  111
+      Gene298  166
+      Gene299   10
+      Gene300  155
+      Gene301    1
+      Gene302  110
+      Gene303    .
+      Gene304  221
+      Gene305  219
+      Gene306    .
+      Gene307    1
+      Gene308   63
+      Gene309   14
+      Gene310  114
+      Gene311   42
+      Gene312    2
+      Gene313   86
+      Gene314 2114
       Gene315    .
-      Gene316   45
-      Gene317    2
-      Gene318    6
-      Gene319   22
-      Gene320    .
-      Gene321   22
-      Gene322  699
-      Gene323    2
-      Gene324   23
-      Gene325   66
-      Gene326   88
-      Gene327   29
-      Gene328   12
+      Gene316   25
+      Gene317   21
+      Gene318   25
+      Gene319    8
+      Gene320   84
+      Gene321   52
+      Gene322  235
+      Gene323   12
+      Gene324   30
+      Gene325   71
+      Gene326   16
+      Gene327   13
+      Gene328  137
       Gene329    8
-      Gene330   37
-      Gene331   28
-      Gene332    .
-      Gene333    6
-      Gene334   11
-      Gene335    7
-      Gene336  177
-      Gene337    3
-      Gene338    8
+      Gene330   61
+      Gene331   11
+      Gene332    4
+      Gene333    5
+      Gene334    1
+      Gene335   82
+      Gene336   98
+      Gene337   82
+      Gene338   48
       Gene339    .
-      Gene340   97
-      Gene341    .
-      Gene342   25
-      Gene343   12
-      Gene344   99
-      Gene345    6
-      Gene346   67
-      Gene347   85
-      Gene348   57
-      Gene349   39
-      Gene350    .
-      Gene351  766
-      Gene352   20
-      Gene353   34
-      Gene354    .
-      Gene355    .
-      Gene356   14
-      Gene357    3
-      Gene358    4
-      Gene359    9
-      Gene360   62
-      Gene361    8
-      Gene362   28
-      Gene363    .
-      Gene364    1
-      Gene365    4
-      Gene366   14
-      Gene367   13
-      Gene368  103
-      Gene369    3
-      Gene370    1
-      Gene371   10
-      Gene372 1609
-      Gene373   71
-      Gene374   47
-      Gene375   20
-      Gene376   27
-      Gene377    4
-      Gene378  816
-      Gene379   42
-      Gene380    6
-      Gene381  666
-      Gene382  135
-      Gene383   13
-      Gene384    .
-      Gene385   63
-      Gene386    .
+      Gene340    1
+      Gene341    8
+      Gene342  151
+      Gene343    .
+      Gene344   44
+      Gene345  275
+      Gene346    9
+      Gene347  250
+      Gene348    6
+      Gene349   29
+      Gene350   43
+      Gene351   18
+      Gene352    4
+      Gene353 2185
+      Gene354   18
+      Gene355    2
+      Gene356   61
+      Gene357 1683
+      Gene358    8
+      Gene359    2
+      Gene360   38
+      Gene361   37
+      Gene362    .
+      Gene363 1629
+      Gene364   35
+      Gene365    3
+      Gene366   98
+      Gene367   18
+      Gene368   59
+      Gene369    1
+      Gene370    3
+      Gene371    1
+      Gene372   12
+      Gene373   59
+      Gene374   23
+      Gene375    .
+      Gene376  257
+      Gene377  271
+      Gene378   33
+      Gene379   76
+      Gene380   13
+      Gene381   59
+      Gene382  170
+      Gene383   25
+      Gene384   33
+      Gene385   15
+      Gene386  379
       Gene387    .
-      Gene388   35
-      Gene389    3
-      Gene390    1
-      Gene391    .
-      Gene392    1
-      Gene393   54
-      Gene394    8
+      Gene388  161
+      Gene389  205
+      Gene390  652
+      Gene391    4
+      Gene392    6
+      Gene393   80
+      Gene394   61
       Gene395    .
-      Gene396    .
-      Gene397   49
-      Gene398  146
-      Gene399    .
-      Gene400  111
-      Gene401    8
-      Gene402    3
-      Gene403    9
-      Gene404    .
-      Gene405   46
-      Gene406    2
-      Gene407    8
-      Gene408  175
-      Gene409    6
-      Gene410    4
-      Gene411   20
-      Gene412   20
-      Gene413  112
-      Gene414   95
-      Gene415   41
-      Gene416   17
-      Gene417   19
-      Gene418   20
-      Gene419   20
-      Gene420    8
-      Gene421   25
-      Gene422 1115
-      Gene423   14
-      Gene424   35
-      Gene425   20
-      Gene426  103
-      Gene427   48
-      Gene428    7
-      Gene429   29
-      Gene430    .
-      Gene431    .
-      Gene432   30
-      Gene433    1
-      Gene434   65
-      Gene435   78
-      Gene436    9
-      Gene437   14
-      Gene438  686
-      Gene439   20
-      Gene440    1
-      Gene441   12
-      Gene442    .
-      Gene443   34
-      Gene444   12
-      Gene445    1
-      Gene446   22
-      Gene447 1776
-      Gene448   73
-      Gene449  243
-      Gene450   89
-      Gene451   20
+      Gene396   83
+      Gene397   21
+      Gene398    .
+      Gene399   25
+      Gene400   16
+      Gene401   17
+      Gene402   17
+      Gene403   62
+      Gene404    8
+      Gene405    4
+      Gene406   76
+      Gene407   39
+      Gene408    .
+      Gene409    .
+      Gene410    8
+      Gene411   30
+      Gene412    1
+      Gene413   27
+      Gene414   96
+      Gene415    8
+      Gene416  104
+      Gene417   21
+      Gene418   12
+      Gene419    4
+      Gene420   75
+      Gene421   65
+      Gene422   28
+      Gene423   34
+      Gene424   52
+      Gene425  345
+      Gene426    1
+      Gene427    6
+      Gene428   12
+      Gene429   10
+      Gene430    3
+      Gene431    3
+      Gene432   17
+      Gene433    .
+      Gene434   34
+      Gene435   41
+      Gene436  103
+      Gene437   43
+      Gene438   37
+      Gene439   77
+      Gene440    6
+      Gene441   33
+      Gene442    8
+      Gene443   11
+      Gene444 1452
+      Gene445  364
+      Gene446  118
+      Gene447   11
+      Gene448   35
+      Gene449   96
+      Gene450    6
+      Gene451  110
       Gene452    1
-      Gene453   96
-      Gene454   32
-      Gene455    .
-      Gene456    2
+      Gene453    4
+      Gene454    1
+      Gene455   19
+      Gene456   68
       Gene457   13
-      Gene458    9
-      Gene459   31
-      Gene460   51
-      Gene461   30
-      Gene462   10
-      Gene463   30
-      Gene464    3
-      Gene465    3
-      Gene466    5
-      Gene467  222
-      Gene468 2501
-      Gene469 1089
-      Gene470    9
-      Gene471   29
-      Gene472    7
-      Gene473    2
-      Gene474  193
-      Gene475    3
-      Gene476   81
-      Gene477   18
-      Gene478   97
-      Gene479   15
-      Gene480   19
-      Gene481    5
-      Gene482    1
-      Gene483   97
-      Gene484    .
-      Gene485   26
-      Gene486   49
-      Gene487   15
-      Gene488   15
-      Gene489    .
-      Gene490   42
-      Gene491   48
-      Gene492    7
-      Gene493   13
-      Gene494  117
-      Gene495  161
-      Gene496    .
-      Gene497   68
-      Gene498   83
-      Gene499   46
-      Gene500    .
+      Gene458  808
+      Gene459    8
+      Gene460    .
+      Gene461    7
+      Gene462    .
+      Gene463  167
+      Gene464    5
+      Gene465  104
+      Gene466   26
+      Gene467   35
+      Gene468   28
+      Gene469  460
+      Gene470   62
+      Gene471   48
+      Gene472 1444
+      Gene473  646
+      Gene474   14
+      Gene475    9
+      Gene476   55
+      Gene477   80
+      Gene478   10
+      Gene479   19
+      Gene480   52
+      Gene481  127
+      Gene482   11
+      Gene483   50
+      Gene484    6
+      Gene485 1781
+      Gene486  682
+      Gene487   82
+      Gene488    9
+      Gene489   20
+      Gene490 2026
+      Gene491   37
+      Gene492   14
+      Gene493  102
+      Gene494    1
+      Gene495   57
+      Gene496   68
+      Gene497   13
+      Gene498    3
+      Gene499  151
+      Gene500  114
       
       Slot "nUMI":
-      ct1_plat1_TCAATGACTTCAAGGGTTCCCCAA ct1_plat1_TCAAAAACTTCAAGGGTTCCCCAA 
-                                   48482                              84504 
-      ct1_plat1_TCAACTACTTAAAGGGTTCCCCAA ct1_plat1_TCAAAAACTTGCAGGGTTCCCCAA 
-                                   77119                              66127 
-      ct1_plat1_TCAAACACTTGAAGGGTTCCCCAA ct2_plat1_TCAATTACTTAAAGGGTTCCCCAA 
-                                   58607                              59419 
-      ct2_plat1_TCAAGAACTTCAAGGGTTCCCCAA ct2_plat1_TCAAATACTTGCAGGGTTCCCCAA 
-                                   73716                              56807 
-      ct2_plat1_TCAAGGACTTAAAGGGTTCCCCAA     ct2_plat1_TCAACACTTGAGGGTCCCCA 
-                                   52382                              53899 
-      ct3_plat1_TCAACGACTTACAGGGTTCCCCAA     ct3_plat1_TCAAGACTTCAGGGTCCCCA 
-                                   54343                              68294 
-      ct3_plat1_TCAATCACTTCGAGGGTTCCCCAA ct3_plat1_TCAACCACTTCAAGGGTTCCCCAA 
-                                   42998                              55387 
-      ct3_plat1_TCAACAACTTACAGGGTTCCCCAA 
-                                   46003 
+      ct1_plat1_TCAAACACTTGCAGGGTTCCCCAA ct1_plat1_TCAACCACTTACAGGGTTCCCCAA 
+                                   66773                              56593 
+      ct1_plat1_TCAACGACTTACAGGGTTCCCCAA ct1_plat1_TCAATGACTTAAAGGGTTCCCCAA 
+                                   48862                              52919 
+          ct1_plat1_TCAACACTTGAGGGTCCCCA ct2_plat1_TCAAAGACTTCCAGGGTTCCCCAA 
+                                   66467                              49781 
+      ct2_plat1_TCAACCACTTAGAGGGTTCCCCAA ct2_plat1_TCAAGAACTTCCAGGGTTCCCCAA 
+                                   40919                              57966 
+      ct2_plat1_TCAAGCACTTACAGGGTTCCCCAA ct2_plat1_TCAAGTACTTAAAGGGTTCCCCAA 
+                                   67204                              77342 
+      ct3_plat1_TCAACTACTTAAAGGGTTCCCCAA ct3_plat1_TCAAGCACTTCCAGGGTTCCCCAA 
+                                   65831                              45229 
+      ct3_plat1_TCAATTACTTAAAGGGTTCCCCAA ct3_plat1_TCAATTACTTACAGGGTTCCCCAA 
+                                   66131                              62980 
+      ct3_plat1_TCAATGACTTCAAGGGTTCCCCAA 
+                                   64078 
       
       
       Slot "config":
@@ -5544,506 +5439,506 @@
       $info
       $info[[1]]
                        ct1          ct2          ct3
-      Gene1   1.140633e-03 8.568354e-04 1.245195e-03
-      Gene2   5.511574e-04 5.503140e-04 5.384265e-04
-      Gene3   1.092255e-04 1.654579e-04 6.608090e-05
-      Gene4   4.499075e-03 4.155022e-03 4.002419e-03
-      Gene5   2.175406e-05 2.808889e-05 4.160359e-05
-      Gene6   7.607845e-04 1.207445e-03 1.106822e-03
-      Gene7   6.626665e-03 6.717517e-03 6.977374e-03
-      Gene8   6.821500e-05 9.846968e-05 3.625556e-05
-      Gene9   1.824326e-04 2.166481e-04 2.509783e-04
-      Gene10  3.148455e-05 1.710016e-05 3.150145e-05
-      Gene11  5.291840e-04 1.005816e-03 4.937355e-04
-      Gene12  7.314516e-03 3.785192e-03 6.573630e-03
-      Gene13  1.241609e-04 1.261628e-04 9.652910e-05
-      Gene14  1.693612e-04 1.276674e-04 2.400518e-04
-      Gene15  2.850970e-04 2.433280e-04 2.818673e-04
-      Gene16  1.023860e-03 1.096066e-03 1.028849e-03
-      Gene17  2.609585e-04 1.961271e-04 2.812470e-04
-      Gene18  4.143283e-05 4.647283e-05 3.436269e-05
-      Gene19  3.961341e-05 4.921350e-05 3.273093e-05
-      Gene20  5.764911e-03 5.641683e-03 5.712338e-03
-      Gene21  7.052043e-04 1.394384e-03 1.143100e-03
-      Gene22  3.413527e-02 3.326846e-02 3.576061e-02
-      Gene23  5.475080e-04 2.582337e-04 7.109625e-04
-      Gene24  1.091016e-04 1.209845e-04 1.288873e-04
-      Gene25  4.058091e-05 4.275655e-05 5.357742e-05
-      Gene26  3.053692e-02 3.532062e-02 2.060448e-02
-      Gene27  3.490633e-04 1.887930e-04 3.680303e-04
-      Gene28  1.360098e-03 1.577805e-03 1.476263e-03
-      Gene29  2.509011e-04 3.116747e-04 2.926389e-04
-      Gene30  6.263237e-04 5.739060e-04 5.865029e-04
-      Gene31  6.556947e-04 6.774352e-04 6.964862e-04
-      Gene32  4.848285e-04 3.562442e-04 3.450825e-04
-      Gene33  4.355688e-02 2.240163e-02 2.831442e-02
-      Gene34  1.999366e-04 3.312476e-04 2.291027e-04
-      Gene35  1.598809e-03 1.143828e-03 9.573536e-04
-      Gene36  8.360010e-04 6.684228e-04 8.270694e-04
-      Gene37  3.997603e-04 5.357617e-04 5.338342e-04
-      Gene38  1.254539e-04 2.812125e-04 1.040712e-04
-      Gene39  2.747633e-04 2.731317e-04 3.196869e-04
-      Gene40  1.312616e-03 1.259037e-03 1.193686e-03
-      Gene41  1.055704e-03 1.294357e-03 1.329269e-03
-      Gene42  2.292982e-04 1.858999e-04 1.494396e-04
-      Gene43  2.036739e-04 1.556828e-04 5.339253e-04
-      Gene44  8.290186e-06 1.625209e-05 1.077057e-05
-      Gene45  5.949006e-02 5.907323e-02 5.498030e-02
-      Gene46  6.231888e-04 5.802852e-04 9.098744e-04
-      Gene47  2.125066e-04 2.292713e-04 2.345841e-04
-      Gene48  1.526532e-03 1.456840e-03 2.156012e-03
-      Gene49  3.838288e-04 3.369409e-04 3.138953e-04
-      Gene50  2.157591e-02 2.071877e-02 2.210918e-02
-      Gene51  4.806888e-04 4.431035e-04 4.285246e-04
-      Gene52  7.719710e-04 4.186049e-04 4.790427e-04
-      Gene53  1.858654e-04 3.123972e-04 2.348631e-04
-      Gene54  0.000000e+00 0.000000e+00 0.000000e+00
-      Gene55  7.613689e-04 4.880517e-04 7.195934e-04
-      Gene56  1.521179e-04 1.731423e-04 1.940892e-04
-      Gene57  7.383270e-04 7.234327e-04 8.661834e-04
-      Gene58  8.227690e-04 8.536119e-04 8.974156e-04
-      Gene59  2.765946e-04 3.016180e-04 4.147179e-04
-      Gene60  1.325685e-02 1.236227e-02 1.307623e-02
-      Gene61  4.108159e-04 3.423750e-04 3.529808e-04
-      Gene62  8.180000e-04 7.312922e-04 7.386514e-04
-      Gene63  2.316343e-04 2.532993e-04 1.568963e-04
-      Gene64  3.154598e-02 3.197776e-02 3.168069e-02
-      Gene65  3.524755e-04 3.122099e-04 3.049765e-04
-      Gene66  4.523430e-04 3.794131e-04 4.074192e-04
-      Gene67  8.998450e-05 9.909735e-05 1.364234e-04
-      Gene68  1.147143e-03 1.492727e-03 1.316858e-03
-      Gene69  7.228284e-05 8.204635e-05 8.629045e-05
-      Gene70  1.990245e-03 9.671150e-04 1.375159e-03
-      Gene71  1.609773e-03 1.545866e-03 1.558427e-03
-      Gene72  1.750797e-03 8.580436e-04 1.861739e-03
-      Gene73  1.365874e-02 1.875605e-02 9.627592e-03
-      Gene74  5.201978e-05 4.525686e-05 7.801088e-05
-      Gene75  1.816003e-05 2.479233e-05 1.791899e-05
-      Gene76  2.666278e-04 1.429348e-04 1.323130e-04
-      Gene77  3.422969e-04 3.769641e-04 4.795066e-04
-      Gene78  6.347375e-04 5.772714e-04 6.103047e-04
-      Gene79  2.378933e-03 1.735958e-03 2.111267e-03
-      Gene80  4.031810e-04 3.518692e-04 4.309082e-04
-      Gene81  2.659701e-02 2.718718e-02 1.599514e-02
-      Gene82  7.895995e-04 1.527464e-03 1.038613e-03
-      Gene83  1.283034e-03 7.837578e-04 8.053377e-04
-      Gene84  4.225089e-05 2.873990e-05 2.601996e-05
-      Gene85  5.215002e-04 6.259313e-04 6.218443e-04
-      Gene86  1.719089e-04 2.134903e-04 3.910592e-04
-      Gene87  4.282787e-05 2.540566e-05 2.244957e-05
-      Gene88  3.070734e-04 2.928875e-04 3.144182e-04
-      Gene89  2.168341e-04 2.620692e-04 2.574962e-04
-      Gene90  7.184677e-04 1.091323e-03 1.202699e-03
-      Gene91  6.860463e-04 3.023537e-04 2.538382e-04
-      Gene92  2.040242e-03 1.987708e-03 2.040815e-03
-      Gene93  3.365611e-04 1.468452e-04 2.361179e-04
-      Gene94  2.832685e-02 2.782252e-02 3.537722e-02
-      Gene95  1.396277e-04 1.506996e-04 1.599401e-04
-      Gene96  2.386666e-04 2.112654e-04 1.438623e-04
-      Gene97  6.512380e-04 1.022550e-03 6.145337e-04
-      Gene98  1.295599e-03 1.350017e-03 1.341883e-03
-      Gene99  1.338041e-05 8.472399e-06 9.022174e-06
-      Gene100 4.208245e-05 4.512186e-05 3.364948e-05
-      Gene101 2.253896e-04 2.140253e-04 1.903092e-04
-      Gene102 5.986023e-04 6.934693e-04 6.791923e-04
-      Gene103 2.395825e-04 1.897006e-04 4.451067e-04
-      Gene104 1.491154e-04 1.920706e-04 1.630611e-04
-      Gene105 9.195717e-04 9.305966e-04 1.187383e-03
-      Gene106 1.326455e-05 1.168827e-05 1.410218e-05
-      Gene107 9.808903e-05 1.680517e-04 9.338442e-05
-      Gene108 3.040858e-02 2.253091e-02 9.221154e-03
-      Gene109 3.960904e-05 4.256791e-05 4.189916e-05
-      Gene110 4.964371e-04 9.290949e-04 5.137431e-04
-      Gene111 2.009237e-03 2.268590e-03 2.346394e-03
-      Gene112 3.198145e-04 2.891796e-04 3.217928e-04
-      Gene113 1.268383e-04 7.669872e-05 1.282383e-04
-      Gene114 6.336225e-05 7.167263e-05 5.139120e-05
-      Gene115 1.570446e-02 1.540600e-02 1.907925e-02
-      Gene116 2.160307e-03 1.932924e-03 2.233901e-03
-      Gene117 2.747966e-05 1.527834e-05 1.665284e-05
-      Gene118 1.326409e-04 1.182517e-04 8.915723e-05
-      Gene119 3.117204e-03 2.896685e-03 2.027448e-03
-      Gene120 5.590649e-06 0.000000e+00 6.918021e-07
-      Gene121 1.014244e-03 1.023919e-03 9.319421e-04
-      Gene122 2.434133e-04 6.615025e-04 9.308663e-04
-      Gene123 3.220174e-04 3.149448e-04 1.919098e-04
-      Gene124 5.688023e-04 9.337193e-04 1.042345e-03
-      Gene125 9.211767e-05 8.003144e-05 6.893769e-05
-      Gene126 1.332397e-04 3.234325e-04 2.586275e-04
-      Gene127 5.743011e-04 1.651276e-04 2.730476e-04
-      Gene128 3.982454e-04 3.689490e-04 3.702759e-04
-      Gene129 7.452491e-04 7.350198e-04 7.179858e-04
-      Gene130 1.043962e-03 1.129987e-03 1.043627e-03
-      Gene131 1.509379e-04 1.710781e-04 1.583645e-04
-      Gene132 3.363278e-06 7.401513e-06 5.433685e-06
-      Gene133 3.071151e-05 2.416987e-05 2.873456e-05
-      Gene134 6.585277e-04 7.321577e-04 8.027363e-04
-      Gene135 2.410430e-06 4.859606e-06 2.233262e-06
-      Gene136 7.644322e-04 1.557781e-03 1.210288e-03
-      Gene137 1.818495e-04 1.518548e-04 2.033999e-04
-      Gene138 2.044747e-04 3.960507e-04 4.565378e-04
-      Gene139 1.464387e-04 1.730296e-04 2.230452e-04
-      Gene140 4.269015e-04 4.930058e-04 6.108948e-04
-      Gene141 7.114032e-04 6.757501e-04 3.493858e-04
-      Gene142 9.284727e-04 8.754130e-04 8.927814e-04
-      Gene143 1.459832e-04 1.531973e-04 1.009303e-04
-      Gene144 2.845535e-04 2.815456e-04 2.895429e-04
-      Gene145 1.255698e-03 1.192522e-03 1.309060e-03
-      Gene146 5.035682e-04 7.373962e-04 7.057382e-04
-      Gene147 2.099854e-03 1.076544e-03 3.614812e-03
-      Gene148 2.799539e-03 2.587066e-03 2.254528e-03
-      Gene149 4.291204e-03 4.228524e-03 2.885705e-03
-      Gene150 7.210706e-04 4.644362e-04 8.726537e-04
-      Gene151 3.455247e-04 5.579496e-04 1.328769e-03
-      Gene152 4.548302e-04 5.159396e-04 5.317389e-04
-      Gene153 2.721706e-03 2.693030e-03 2.696647e-03
-      Gene154 1.842291e-03 1.405131e-03 1.815503e-03
-      Gene155 3.231185e-06 5.132272e-06 1.240375e-05
-      Gene156 5.075810e-04 5.097390e-04 5.415768e-04
-      Gene157 1.577114e-03 1.550828e-03 1.547461e-03
-      Gene158 4.196566e-04 6.483927e-04 4.509295e-04
-      Gene159 1.020818e-04 1.198671e-04 1.064925e-04
-      Gene160 3.972671e-04 6.088139e-04 4.468120e-04
-      Gene161 1.410517e-03 1.223233e-03 1.232266e-03
-      Gene162 1.209840e-03 1.615003e-03 1.685666e-03
-      Gene163 1.360638e-05 9.072819e-06 1.658255e-05
-      Gene164 3.977619e-04 3.819064e-04 3.821477e-04
-      Gene165 1.018748e-03 1.059705e-03 1.102729e-03
-      Gene166 1.728153e-03 1.005367e-03 1.061403e-03
-      Gene167 2.507667e-05 2.707267e-05 2.464691e-05
-      Gene168 1.786695e-04 1.783350e-04 1.724597e-04
-      Gene169 1.182971e-04 2.062701e-04 6.585879e-05
-      Gene170 1.800495e-03 1.798081e-03 2.007139e-03
-      Gene171 2.512019e-03 2.495852e-03 2.688365e-03
-      Gene172 5.825388e-04 5.920356e-04 3.797671e-04
-      Gene173 6.995751e-04 6.213396e-04 8.302363e-04
-      Gene174 4.826033e-04 4.954195e-04 5.296328e-04
-      Gene175 3.063770e-04 3.210259e-04 2.732983e-04
-      Gene176 1.610216e-04 1.571353e-04 1.608446e-04
-      Gene177 9.888531e-04 1.995819e-03 1.116978e-03
-      Gene178 1.318605e-03 1.768324e-03 1.742357e-03
-      Gene179 2.400370e-02 2.380224e-02 3.982095e-02
-      Gene180 1.055316e-03 1.488898e-03 1.423534e-03
-      Gene181 1.526633e-03 1.603956e-03 1.585535e-03
-      Gene182 8.628586e-06 4.523173e-06 7.571629e-06
-      Gene183 4.499859e-04 4.775717e-04 5.350940e-04
-      Gene184 2.094236e-03 2.242266e-03 1.988941e-03
-      Gene185 1.983823e-03 3.618758e-03 1.947263e-03
-      Gene186 6.612779e-04 6.042556e-04 8.370831e-04
-      Gene187 6.118264e-06 1.954212e-06 2.662448e-06
-      Gene188 1.592651e-03 1.570084e-03 1.672339e-03
-      Gene189 1.278812e-03 1.249408e-03 1.018445e-03
-      Gene190 3.961071e-05 4.951555e-05 5.515726e-05
-      Gene191 2.639217e-04 2.428001e-04 2.522870e-04
-      Gene192 3.481816e-04 3.286955e-04 3.921149e-04
-      Gene193 3.189006e-05 4.657338e-05 4.740722e-05
-      Gene194 0.000000e+00 0.000000e+00 0.000000e+00
-      Gene195 3.827217e-03 1.785580e-02 7.182313e-03
-      Gene196 3.700046e-05 5.481979e-05 3.320277e-05
-      Gene197 3.323682e-03 4.286127e-03 2.550929e-03
-      Gene198 2.020587e-05 1.151400e-05 1.988477e-05
-      Gene199 2.583998e-05 5.628075e-05 6.548578e-05
-      Gene200 6.656377e-05 1.350878e-04 1.207770e-04
-      Gene201 4.549503e-04 3.192915e-04 9.492167e-04
-      Gene202 1.192984e-03 1.215967e-03 1.290753e-03
-      Gene203 3.786763e-04 3.624534e-04 3.722472e-04
-      Gene204 2.288956e-03 2.320956e-03 2.397750e-03
-      Gene205 1.303532e-04 1.259875e-04 1.312000e-04
-      Gene206 1.843012e-03 2.711547e-03 1.514118e-03
-      Gene207 2.301382e-03 1.981719e-03 2.059799e-03
-      Gene208 1.741452e-04 1.162590e-04 8.903984e-05
-      Gene209 1.215704e-05 2.242539e-05 1.508175e-05
-      Gene210 3.008294e-05 1.191146e-05 1.447586e-05
-      Gene211 3.258307e-05 4.701185e-05 3.786742e-05
-      Gene212 1.731481e-04 1.599923e-04 1.225738e-04
-      Gene213 5.366171e-04 5.267233e-04 5.639019e-04
-      Gene214 1.791009e-03 1.784341e-03 1.804757e-03
-      Gene215 1.183320e-03 1.894357e-03 7.387310e-04
-      Gene216 3.403026e-05 2.525966e-05 1.834810e-05
-      Gene217 3.131010e-04 2.093858e-04 1.681852e-04
-      Gene218 4.827484e-04 5.178883e-04 5.689864e-04
-      Gene219 1.262094e-05 1.403613e-05 1.954586e-05
-      Gene220 3.087948e-04 2.900535e-04 2.881713e-04
-      Gene221 1.048440e-03 9.132807e-04 1.074234e-03
-      Gene222 1.573762e-03 1.615948e-03 1.618978e-03
-      Gene223 1.810742e-03 4.030190e-03 1.671427e-03
-      Gene224 2.914032e-03 4.867332e-03 7.801096e-03
-      Gene225 1.308326e-03 8.132870e-04 1.725453e-03
-      Gene226 4.477691e-04 4.981232e-04 5.127592e-04
-      Gene227 7.782176e-04 8.567433e-04 9.501533e-04
-      Gene228 2.292559e-05 3.025425e-05 2.156855e-05
-      Gene229 1.947605e-05 1.041659e-05 1.036186e-05
-      Gene230 2.391453e-04 3.719855e-04 1.863715e-04
-      Gene231 2.921364e-02 2.699786e-02 3.647179e-02
-      Gene232 1.609606e-06 9.619508e-07 5.006067e-07
-      Gene233 3.651326e-04 3.383601e-04 7.329485e-04
-      Gene234 2.645022e-05 2.480034e-05 3.391379e-05
-      Gene235 3.809705e-04 3.812586e-04 4.779834e-04
-      Gene236 7.490390e-04 1.118507e-03 1.167430e-03
-      Gene237 1.587245e-03 9.495385e-04 6.683379e-04
-      Gene238 4.605925e-04 1.865810e-04 2.719189e-04
-      Gene239 6.135099e-05 7.815865e-05 4.699309e-05
-      Gene240 6.331187e-04 6.698226e-04 6.581092e-04
-      Gene241 3.552209e-04 7.822833e-04 3.985875e-04
-      Gene242 1.937269e-04 9.607051e-05 2.207504e-04
-      Gene243 7.621862e-04 1.436394e-03 1.311181e-03
-      Gene244 9.596684e-04 8.607199e-04 6.321019e-04
-      Gene245 3.649009e-04 4.022520e-04 7.277629e-04
-      Gene246 2.204744e-05 3.479817e-05 3.403424e-05
-      Gene247 4.974185e-04 4.486718e-04 5.779473e-04
-      Gene248 1.646282e-04 1.872026e-04 1.765160e-04
-      Gene249 9.527199e-04 1.405451e-03 1.196871e-03
-      Gene250 1.298599e-03 1.203707e-03 1.433868e-03
-      Gene251 4.961758e-04 4.586168e-04 3.301871e-04
-      Gene252 1.790903e-03 1.601434e-03 1.252802e-03
-      Gene253 1.554681e-04 1.593944e-04 1.746141e-04
-      Gene254 1.924539e-05 2.896974e-05 2.791681e-05
-      Gene255 5.177229e-03 3.322275e-03 5.278844e-03
-      Gene256 2.458693e-04 2.757674e-04 4.375774e-04
-      Gene257 4.428161e-04 4.186889e-04 4.133004e-04
-      Gene258 1.589718e-05 1.894547e-05 1.438118e-05
-      Gene259 2.781736e-04 2.322076e-04 5.456529e-04
-      Gene260 4.607248e-04 4.462813e-04 5.377108e-04
-      Gene261 2.796197e-04 2.085501e-04 4.635551e-04
-      Gene262 0.000000e+00 0.000000e+00 0.000000e+00
-      Gene263 5.369852e-04 1.481857e-04 1.684641e-04
-      Gene264 7.819602e-04 5.509212e-04 5.487936e-04
-      Gene265 1.855186e-03 1.714475e-03 2.908443e-03
-      Gene266 3.191079e-04 4.407136e-04 4.080848e-04
-      Gene267 1.077627e-04 8.642499e-05 1.742780e-04
-      Gene268 4.584903e-04 5.207406e-04 9.989827e-04
-      Gene269 7.611925e-04 6.304103e-04 7.224808e-04
-      Gene270 5.087146e-05 4.167243e-05 3.604285e-05
-      Gene271 4.343528e-04 4.890361e-04 4.826344e-04
-      Gene272 6.935564e-03 4.680733e-03 7.467619e-03
-      Gene273 2.494612e-04 2.920246e-04 5.327157e-04
-      Gene274 6.251996e-04 7.311138e-04 8.242446e-04
-      Gene275 8.275661e-05 7.746691e-05 8.484851e-05
-      Gene276 3.749926e-05 5.633149e-05 7.024703e-05
-      Gene277 2.314329e-05 3.270221e-05 2.508807e-05
-      Gene278 2.579024e-04 3.049060e-04 3.595904e-04
-      Gene279 5.148406e-05 3.183257e-05 5.681103e-05
-      Gene280 2.882073e-03 2.365774e-03 2.067882e-03
-      Gene281 1.246484e-03 9.665723e-04 1.220107e-03
-      Gene282 2.070549e-04 2.680644e-04 2.187604e-04
-      Gene283 3.314243e-05 3.247955e-05 2.079183e-05
-      Gene284 6.821246e-04 3.312381e-04 6.068328e-04
-      Gene285 4.920809e-04 5.201552e-04 2.094006e-04
-      Gene286 3.216506e-05 3.602775e-05 3.826730e-05
-      Gene287 2.964957e-03 4.651598e-03 5.157104e-03
-      Gene288 5.978247e-04 6.303488e-04 6.677695e-04
-      Gene289 1.846876e-03 1.909840e-03 1.915190e-03
-      Gene290 3.638241e-04 2.846704e-04 5.206999e-04
-      Gene291 1.476379e-03 1.640731e-03 1.473314e-03
-      Gene292 1.663931e-04 1.720628e-04 2.039739e-04
-      Gene293 1.143530e-05 1.213154e-05 9.148445e-06
-      Gene294 6.712428e-03 5.222322e-03 6.306779e-03
-      Gene295 5.750164e-04 6.222458e-04 5.153943e-04
-      Gene296 2.100716e-05 2.974892e-05 5.545999e-05
-      Gene297 1.108361e-05 5.505246e-06 4.959941e-06
-      Gene298 3.296801e-04 2.818751e-04 4.080850e-04
-      Gene299 6.108197e-05 5.445573e-05 6.220927e-05
-      Gene300 1.848384e-04 1.746668e-04 1.861086e-04
-      Gene301 1.016793e-03 1.009946e-03 1.071324e-03
-      Gene302 1.312703e-04 1.139337e-04 1.340502e-04
-      Gene303 1.278536e-03 1.087744e-03 1.133173e-03
-      Gene304 5.775541e-04 5.554673e-04 6.248807e-04
-      Gene305 2.260637e-04 2.501094e-04 3.034109e-04
-      Gene306 3.068899e-04 4.239422e-04 3.552119e-04
-      Gene307 2.272166e-03 2.209368e-03 4.525505e-03
-      Gene308 8.401917e-06 9.593995e-06 1.268006e-05
-      Gene309 4.572939e-04 1.007389e-03 4.982316e-04
-      Gene310 1.153713e-05 1.328717e-06 8.755419e-06
-      Gene311 1.485578e-03 1.296443e-03 2.469314e-03
-      Gene312 9.188827e-05 9.064679e-05 1.191439e-04
-      Gene313 5.192000e-04 8.673618e-04 9.342857e-04
-      Gene314 3.730972e-04 3.831973e-04 4.239344e-04
-      Gene315 1.667007e-06 2.669920e-06 2.164927e-06
-      Gene316 2.517292e-03 2.066587e-03 9.533035e-04
-      Gene317 4.679675e-05 7.048355e-05 4.090189e-05
-      Gene318 3.446617e-05 1.050870e-04 9.696114e-05
-      Gene319 6.515322e-04 7.641496e-04 5.295823e-04
-      Gene320 4.291696e-05 5.145223e-05 5.995957e-05
-      Gene321 4.329332e-04 4.181413e-04 4.432896e-04
-      Gene322 2.340381e-02 1.984364e-02 2.031944e-02
-      Gene323 2.203684e-05 2.090319e-05 1.412110e-05
-      Gene324 6.522724e-04 8.007522e-04 7.959479e-04
-      Gene325 1.729277e-03 1.496310e-03 1.521653e-03
-      Gene326 1.368315e-03 1.457598e-03 1.477675e-03
-      Gene327 6.083510e-04 3.047668e-04 6.107738e-04
-      Gene328 2.532606e-04 2.397983e-04 2.437194e-04
-      Gene329 7.618469e-05 5.626320e-05 1.006892e-04
-      Gene330 7.154808e-04 6.168950e-04 5.767094e-04
-      Gene331 7.872920e-04 7.961817e-04 7.657700e-04
-      Gene332 9.685795e-06 1.169268e-05 1.421859e-05
-      Gene333 1.027276e-04 9.619709e-05 1.110508e-04
-      Gene334 4.118884e-04 2.817130e-04 4.347844e-04
-      Gene335 1.881413e-04 1.319092e-04 1.787342e-04
-      Gene336 2.919458e-03 3.071674e-03 3.209461e-03
-      Gene337 6.882785e-05 9.100998e-05 6.342380e-05
-      Gene338 1.747167e-04 3.737325e-04 2.186268e-04
-      Gene339 8.974810e-05 7.355192e-05 7.344706e-05
-      Gene340 1.226773e-03 9.686639e-04 1.296940e-03
-      Gene341 1.775275e-05 1.422983e-05 2.053172e-05
-      Gene342 6.533975e-04 7.381168e-04 6.942549e-04
-      Gene343 2.540284e-04 2.257816e-04 2.601217e-04
-      Gene344 4.785706e-03 7.103260e-03 2.650675e-03
-      Gene345 3.489446e-05 3.416199e-05 4.253630e-05
-      Gene346 1.313184e-03 8.836603e-04 1.066312e-03
-      Gene347 9.225057e-04 9.585309e-04 2.012770e-03
-      Gene348 1.076007e-03 6.521286e-04 1.197549e-03
-      Gene349 1.087052e-03 9.545146e-04 1.081643e-03
-      Gene350 1.775971e-05 1.460818e-05 2.298448e-05
-      Gene351 1.541299e-02 1.541195e-02 1.707543e-02
-      Gene352 5.873056e-04 5.496809e-04 7.530161e-04
-      Gene353 7.900433e-04 8.459565e-04 8.679836e-04
-      Gene354 1.329851e-06 5.130016e-06 7.311514e-06
-      Gene355 1.271153e-06 5.691373e-06 3.457596e-06
-      Gene356 4.550883e-04 4.939815e-04 5.592359e-04
-      Gene357 4.309718e-05 4.543336e-05 1.179376e-04
-      Gene358 2.485167e-04 2.483293e-04 2.787981e-04
-      Gene359 4.711825e-04 5.015293e-04 4.513269e-04
-      Gene360 9.024826e-04 1.280971e-03 1.279064e-03
-      Gene361 1.441651e-04 1.532539e-04 1.265232e-04
-      Gene362 8.586843e-04 7.537999e-04 4.675371e-04
-      Gene363 3.373584e-05 1.543837e-05 2.954513e-05
-      Gene364 5.039721e-06 9.144675e-06 8.660075e-06
-      Gene365 1.042057e-04 1.224459e-04 1.125907e-04
-      Gene366 5.075694e-04 4.218215e-04 4.098016e-04
-      Gene367 2.364992e-04 2.465279e-04 3.008595e-04
-      Gene368 2.098778e-03 2.060285e-03 2.112512e-03
-      Gene369 1.316051e-04 9.857516e-05 6.319292e-05
-      Gene370 1.367989e-04 1.590316e-04 1.091265e-04
-      Gene371 2.015854e-04 5.404007e-04 1.772367e-04
-      Gene372 2.696968e-02 2.582761e-02 2.892435e-02
-      Gene373 7.562299e-04 6.910151e-04 1.510032e-03
-      Gene374 9.727385e-04 6.617774e-04 8.548891e-04
-      Gene375 5.047028e-04 3.308602e-04 4.698929e-04
-      Gene376 4.090146e-04 3.331824e-04 5.247935e-04
-      Gene377 1.462648e-04 1.134290e-04 1.205924e-04
-      Gene378 1.512819e-02 2.689788e-02 1.590692e-02
-      Gene379 5.983557e-04 5.173049e-04 5.854200e-04
-      Gene380 2.450917e-04 2.583453e-04 1.776825e-04
-      Gene381 1.244077e-02 1.282587e-02 1.255051e-02
-      Gene382 3.863891e-03 4.738088e-03 3.862783e-03
-      Gene383 1.907777e-04 1.727836e-04 3.138471e-04
-      Gene384 7.595241e-07 5.067029e-06 1.596213e-06
-      Gene385 1.390564e-03 1.161079e-03 1.218185e-03
-      Gene386 2.262031e-05 2.034571e-05 2.472127e-05
-      Gene387 1.060122e-04 5.730151e-05 8.595860e-05
-      Gene388 5.760374e-04 5.697329e-04 6.609803e-04
-      Gene389 9.264627e-05 9.571123e-05 8.684631e-05
-      Gene390 1.136902e-04 8.233548e-05 1.251143e-04
-      Gene391 3.214772e-05 4.780896e-05 4.275821e-05
-      Gene392 2.417655e-04 7.820677e-05 7.745807e-05
-      Gene393 1.670973e-03 2.102379e-03 1.039659e-03
-      Gene394 9.352904e-05 7.794057e-05 8.637982e-05
-      Gene395 3.861507e-05 3.662686e-05 3.150299e-05
-      Gene396 3.524725e-05 2.360602e-05 2.503479e-05
-      Gene397 9.313561e-04 6.441931e-04 1.004654e-03
-      Gene398 2.407722e-03 3.702032e-03 2.597518e-03
-      Gene399 1.897873e-05 1.850777e-05 2.386551e-05
-      Gene400 1.286297e-03 1.113091e-03 1.567807e-03
-      Gene401 2.407461e-04 3.576773e-04 2.225378e-04
-      Gene402 2.053978e-05 9.215135e-06 1.598396e-05
-      Gene403 2.076873e-04 2.072868e-04 2.150101e-04
-      Gene404 9.512793e-05 9.702259e-05 8.946679e-05
-      Gene405 4.383543e-04 8.238278e-04 1.125325e-03
-      Gene406 9.189653e-05 1.073209e-04 7.893495e-05
-      Gene407 5.284997e-05 1.470037e-04 1.207022e-04
-      Gene408 1.661434e-03 1.557937e-03 2.583681e-03
-      Gene409 2.497414e-04 2.701840e-04 2.224608e-04
-      Gene410 4.754840e-05 5.099019e-05 4.080127e-05
-      Gene411 4.612932e-04 5.510114e-04 4.735831e-04
-      Gene412 1.491773e-03 1.560297e-03 7.132557e-04
-      Gene413 1.720282e-03 1.826933e-03 1.798400e-03
-      Gene414 1.522945e-03 1.542409e-03 1.465216e-03
-      Gene415 2.129218e-03 1.446387e-03 1.548900e-03
-      Gene416 4.304330e-04 5.056980e-04 5.195133e-04
-      Gene417 3.238469e-04 3.135893e-04 3.289871e-04
-      Gene418 2.561809e-04 7.769721e-05 2.718674e-04
-      Gene419 3.809909e-04 1.601048e-04 5.109370e-04
-      Gene420 2.618333e-04 2.523691e-04 2.453023e-04
-      Gene421 6.319494e-04 3.087400e-04 6.832595e-04
-      Gene422 2.243607e-02 2.322195e-02 2.962362e-02
-      Gene423 3.922690e-04 3.237758e-04 3.228819e-04
-      Gene424 7.760168e-04 7.378737e-04 7.268541e-04
-      Gene425 1.587258e-04 1.764039e-04 2.982664e-04
-      Gene426 2.347000e-03 2.232388e-03 2.355121e-03
-      Gene427 1.022160e-03 1.040374e-03 9.902365e-04
-      Gene428 3.354845e-05 4.560844e-05 3.312389e-05
-      Gene429 6.458101e-04 7.837803e-04 7.152958e-04
-      Gene430 2.066986e-05 1.942493e-05 1.911188e-05
-      Gene431 4.586836e-07 0.000000e+00 0.000000e+00
-      Gene432 1.160391e-03 2.292380e-03 5.032983e-04
-      Gene433 3.083862e-05 4.769762e-05 3.507778e-05
-      Gene434 8.437990e-04 8.676201e-04 8.853518e-04
-      Gene435 1.438347e-03 1.456915e-03 1.347237e-03
-      Gene436 1.637139e-04 3.621875e-04 2.222429e-04
-      Gene437 2.898295e-04 2.539590e-04 2.980365e-04
-      Gene438 1.207155e-02 9.527055e-03 1.320727e-02
-      Gene439 2.617672e-04 2.236006e-04 2.903469e-04
-      Gene440 1.285220e-04 8.968731e-05 7.672636e-05
-      Gene441 3.933927e-04 6.622411e-04 4.051113e-04
-      Gene442 2.086500e-05 1.280925e-05 1.850507e-05
-      Gene443 6.655980e-04 6.801722e-04 6.621266e-04
-      Gene444 4.445517e-04 2.584499e-04 1.665243e-04
-      Gene445 3.098297e-05 1.686264e-05 3.719793e-05
-      Gene446 4.307657e-04 3.264186e-04 6.630928e-04
-      Gene447 4.437849e-02 4.423912e-02 4.593595e-02
-      Gene448 1.118013e-03 1.023598e-03 1.093351e-03
-      Gene449 4.801617e-03 3.623257e-03 3.782176e-03
-      Gene450 2.214827e-03 1.826731e-03 2.217275e-03
-      Gene451 3.491720e-04 3.573453e-04 3.417337e-04
-      Gene452 5.258300e-05 7.040754e-05 4.757569e-05
-      Gene453 2.497925e-03 2.577644e-03 2.472927e-03
-      Gene454 5.429609e-04 4.810307e-04 5.108257e-04
-      Gene455 0.000000e+00 0.000000e+00 1.045898e-06
-      Gene456 1.320779e-04 1.389111e-04 1.005980e-04
-      Gene457 1.955250e-04 1.928903e-04 2.729427e-04
-      Gene458 2.727427e-04 2.559738e-04 2.887343e-04
-      Gene459 7.360676e-04 1.076377e-03 6.516971e-04
-      Gene460 7.975779e-04 9.398109e-04 8.459736e-04
-      Gene461 1.200509e-03 1.566714e-03 9.088674e-04
-      Gene462 3.268984e-04 2.104719e-04 2.139527e-04
-      Gene463 5.621747e-04 7.346964e-04 6.173872e-04
-      Gene464 1.475077e-04 1.793926e-04 1.633545e-04
-      Gene465 1.492574e-04 8.778722e-05 1.399640e-04
-      Gene466 2.830380e-05 1.720334e-05 2.529579e-05
-      Gene467 4.591071e-03 4.251520e-03 4.637577e-03
-      Gene468 4.856616e-02 5.103137e-02 5.098346e-02
-      Gene469 2.411757e-02 2.370044e-02 2.367998e-02
-      Gene470 3.716917e-04 2.957313e-04 3.548057e-04
-      Gene471 3.287394e-04 2.940340e-04 3.748656e-04
-      Gene472 2.611226e-04 3.590315e-04 1.427976e-04
-      Gene473 1.099267e-04 8.160850e-05 7.673845e-05
-      Gene474 2.589005e-03 2.080863e-03 4.286230e-03
-      Gene475 5.271898e-05 1.385916e-04 5.403854e-05
-      Gene476 1.527895e-03 1.433300e-03 1.520350e-03
-      Gene477 3.505586e-04 2.971457e-04 6.636327e-04
-      Gene478 2.730189e-03 1.700216e-03 2.706531e-03
-      Gene479 3.596952e-04 4.085368e-04 3.899875e-04
-      Gene480 1.485916e-04 1.967911e-04 1.952455e-04
-      Gene481 5.333810e-05 8.808894e-05 1.100139e-04
-      Gene482 1.424071e-05 2.815201e-05 2.478354e-05
-      Gene483 1.940617e-03 2.023489e-03 2.155749e-03
-      Gene484 0.000000e+00 5.156255e-07 1.751874e-06
-      Gene485 4.071883e-04 4.527001e-04 5.525423e-04
-      Gene486 7.036468e-04 2.085199e-03 9.151113e-04
-      Gene487 6.182456e-04 6.696945e-04 4.383830e-04
-      Gene488 2.740401e-04 3.836166e-04 5.386491e-04
-      Gene489 3.302848e-05 1.554312e-05 2.794261e-05
-      Gene490 8.198550e-04 7.600097e-04 7.798763e-04
-      Gene491 1.023093e-03 1.020001e-03 8.796546e-04
-      Gene492 1.213270e-04 1.173250e-04 2.788848e-04
-      Gene493 3.728739e-04 3.692140e-04 5.785278e-04
-      Gene494 2.273820e-03 2.271049e-03 2.360550e-03
-      Gene495 3.483556e-03 4.528191e-03 3.635039e-03
-      Gene496 1.737958e-04 1.328111e-04 9.643804e-05
-      Gene497 1.562696e-03 1.806569e-03 1.136499e-03
-      Gene498 3.746117e-03 3.620287e-03 1.948812e-03
-      Gene499 6.133061e-04 5.477130e-04 5.470749e-04
-      Gene500 3.967912e-05 5.240940e-05 3.234365e-05
+      Gene1   4.198777e-02 4.707591e-02 4.701549e-02
+      Gene2   3.781965e-04 4.233336e-04 4.154687e-04
+      Gene3   2.933853e-04 2.930333e-04 3.195120e-04
+      Gene4   5.754234e-05 6.812561e-05 7.422893e-05
+      Gene5   1.499628e-03 8.983815e-04 2.940046e-03
+      Gene6   6.526813e-04 7.267274e-04 7.037151e-04
+      Gene7   2.479843e-04 2.118044e-04 5.105955e-04
+      Gene8   2.205188e-05 4.340308e-05 2.327484e-05
+      Gene9   8.599445e-04 8.146008e-04 7.467404e-04
+      Gene10  3.347446e-03 3.450475e-03 4.220679e-03
+      Gene11  4.159235e-04 5.119417e-04 3.006389e-04
+      Gene12  1.976081e-03 1.668338e-03 1.329013e-03
+      Gene13  9.723448e-04 1.043737e-03 1.132409e-03
+      Gene14  1.983515e-05 2.146487e-05 2.081115e-05
+      Gene15  1.295005e-02 1.387531e-02 1.301157e-02
+      Gene16  7.370741e-04 7.770082e-04 6.779122e-04
+      Gene17  1.239405e-04 1.056012e-04 1.106203e-04
+      Gene18  2.819289e-04 4.401674e-04 2.496201e-04
+      Gene19  1.784599e-04 1.245712e-04 2.029570e-04
+      Gene20  3.988373e-04 2.495453e-04 2.805559e-04
+      Gene21  4.199754e-04 4.480990e-04 4.125216e-04
+      Gene22  6.951237e-04 8.251377e-04 7.192303e-04
+      Gene23  4.499269e-04 4.753487e-04 5.060282e-04
+      Gene24  1.281198e-04 1.576795e-04 1.269728e-04
+      Gene25  4.338587e-03 3.475804e-03 5.509198e-03
+      Gene26  4.266789e-03 4.797563e-03 4.894825e-03
+      Gene27  1.758786e-02 1.960286e-02 1.852973e-02
+      Gene28  2.472419e-03 2.690053e-03 2.773793e-03
+      Gene29  3.320874e-05 3.530202e-05 1.678910e-05
+      Gene30  6.163060e-04 6.891129e-04 7.278156e-04
+      Gene31  0.000000e+00 0.000000e+00 0.000000e+00
+      Gene32  3.764125e-04 3.918545e-04 4.394573e-04
+      Gene33  4.516883e-03 3.417766e-03 3.290893e-03
+      Gene34  1.136147e-03 1.266653e-03 1.254304e-03
+      Gene35  1.413125e-02 1.114954e-02 1.442325e-02
+      Gene36  8.354759e-04 8.637835e-04 5.884197e-04
+      Gene37  2.877189e-04 2.089216e-04 2.941071e-04
+      Gene38  6.112995e-04 5.415973e-04 6.451837e-04
+      Gene39  1.052346e-03 1.612325e-03 1.498760e-03
+      Gene40  3.401732e-03 3.647224e-03 2.426593e-03
+      Gene41  6.412910e-05 7.924741e-05 7.517406e-05
+      Gene42  1.317158e-03 1.390786e-03 1.858875e-03
+      Gene43  2.126448e-04 1.804399e-04 1.927145e-04
+      Gene44  5.840776e-04 5.537657e-04 5.894545e-04
+      Gene45  8.970543e-04 1.346682e-03 1.055994e-03
+      Gene46  3.491981e-04 4.083091e-04 3.602010e-04
+      Gene47  1.273049e-05 9.785769e-06 4.847560e-06
+      Gene48  1.177274e-03 1.281905e-03 1.193593e-03
+      Gene49  2.720975e-02 2.357624e-02 2.772791e-02
+      Gene50  2.352237e-04 4.226711e-04 4.284455e-04
+      Gene51  1.641836e-03 1.706687e-03 1.679908e-03
+      Gene52  7.201306e-06 1.033087e-05 1.325090e-05
+      Gene53  6.209292e-06 8.983141e-06 1.450367e-05
+      Gene54  0.000000e+00 1.210791e-06 3.744684e-06
+      Gene55  7.559083e-06 3.908954e-06 1.853962e-05
+      Gene56  6.768413e-04 7.369366e-04 1.444278e-03
+      Gene57  9.469365e-04 8.942332e-04 9.663533e-04
+      Gene58  1.242046e-03 1.361924e-03 1.316693e-03
+      Gene59  5.982545e-04 5.395658e-04 4.762460e-04
+      Gene60  2.014314e-03 2.071534e-03 2.103146e-03
+      Gene61  2.082616e-03 1.363514e-03 1.275723e-03
+      Gene62  5.463668e-05 6.463059e-05 4.162154e-05
+      Gene63  4.842804e-04 9.590872e-04 5.212313e-04
+      Gene64  3.682829e-05 3.798443e-05 4.529362e-05
+      Gene65  8.427905e-04 5.169483e-04 8.826407e-04
+      Gene66  4.822555e-04 4.742285e-04 6.079979e-04
+      Gene67  4.355926e-03 4.919407e-03 5.340390e-03
+      Gene68  9.267227e-05 1.221996e-04 1.032772e-04
+      Gene69  2.250178e-04 2.593243e-04 2.314124e-04
+      Gene70  6.518587e-05 4.861314e-05 5.185756e-05
+      Gene71  3.244141e-03 3.250947e-03 2.597496e-03
+      Gene72  2.602779e-03 2.612086e-03 3.229453e-03
+      Gene73  5.572312e-04 4.999479e-04 6.031086e-04
+      Gene74  3.456239e-04 3.198673e-04 4.065834e-04
+      Gene75  1.751073e-03 4.538927e-03 2.105466e-03
+      Gene76  4.379642e-04 4.299436e-04 4.449910e-04
+      Gene77  1.019494e-04 1.820243e-04 1.817155e-04
+      Gene78  6.173123e-04 6.751446e-04 6.298585e-04
+      Gene79  3.705223e-05 3.296519e-05 4.136408e-05
+      Gene80  5.722552e-04 5.407200e-04 6.352320e-04
+      Gene81  2.298521e-03 2.657911e-03 1.761968e-03
+      Gene82  2.232572e-05 5.215162e-05 3.598320e-05
+      Gene83  1.058243e-03 1.115604e-03 1.158111e-03
+      Gene84  2.116024e-03 1.569785e-03 1.513758e-03
+      Gene85  3.621411e-05 4.751155e-05 4.382654e-05
+      Gene86  2.360677e-03 2.416559e-03 2.430416e-03
+      Gene87  3.302350e-03 2.698144e-03 2.715074e-03
+      Gene88  9.906735e-04 1.185467e-03 1.198929e-03
+      Gene89  2.693088e-04 3.044382e-04 2.828821e-04
+      Gene90  6.417715e-04 4.512700e-04 8.577603e-04
+      Gene91  7.365283e-04 7.866384e-04 7.927048e-04
+      Gene92  2.312047e-04 3.427183e-04 3.195169e-04
+      Gene93  3.875382e-06 1.795834e-06 5.402564e-06
+      Gene94  2.461279e-04 2.952820e-04 3.096582e-04
+      Gene95  3.172028e-04 3.317367e-04 3.229054e-04
+      Gene96  2.145798e-03 2.159259e-03 1.450268e-03
+      Gene97  1.765054e-04 1.025769e-04 1.482111e-04
+      Gene98  2.370339e-04 2.244037e-04 2.288709e-04
+      Gene99  3.913003e-05 5.255226e-05 5.965302e-05
+      Gene100 1.159601e-03 7.635904e-04 1.145524e-03
+      Gene101 1.111473e-03 1.714087e-03 2.031189e-03
+      Gene102 1.020330e-03 1.231255e-03 1.128459e-03
+      Gene103 8.748197e-06 7.263803e-06 6.404868e-06
+      Gene104 5.147355e-03 2.242437e-03 2.601977e-03
+      Gene105 2.602627e-04 3.308619e-04 3.368884e-04
+      Gene106 6.578533e-05 7.901124e-05 5.250917e-05
+      Gene107 1.815301e-04 1.099057e-04 1.982713e-04
+      Gene108 1.642228e-03 1.966576e-03 1.789201e-03
+      Gene109 3.844161e-04 4.139405e-04 4.556471e-04
+      Gene110 1.395823e-05 1.400502e-05 1.013081e-05
+      Gene111 8.149617e-06 1.560306e-05 1.098928e-05
+      Gene112 9.281183e-05 1.278894e-04 6.196716e-05
+      Gene113 8.457919e-04 1.278329e-03 1.309412e-03
+      Gene114 7.274163e-05 3.856296e-05 4.969346e-05
+      Gene115 0.000000e+00 2.154931e-06 6.064384e-06
+      Gene116 8.732953e-04 9.722195e-04 1.065101e-03
+      Gene117 2.069357e-03 2.363176e-03 2.131438e-03
+      Gene118 2.607760e-05 1.731910e-05 1.974371e-05
+      Gene119 8.986622e-04 9.473465e-04 8.972822e-04
+      Gene120 1.512323e-03 7.819266e-04 6.817398e-04
+      Gene121 6.049114e-04 7.498954e-04 4.738548e-04
+      Gene122 3.697054e-04 1.447602e-04 4.129259e-04
+      Gene123 6.599984e-05 4.628025e-05 4.966016e-05
+      Gene124 3.954385e-04 4.078812e-04 4.935891e-04
+      Gene125 6.000347e-05 6.217500e-05 7.291975e-05
+      Gene126 8.275313e-04 9.423790e-04 8.735776e-04
+      Gene127 1.831192e-04 1.489212e-04 1.477407e-04
+      Gene128 4.745138e-05 4.011222e-05 4.771773e-05
+      Gene129 3.555172e-05 5.447031e-05 5.358320e-05
+      Gene130 1.109492e-04 1.112085e-04 7.712671e-05
+      Gene131 1.975061e-05 3.539637e-05 2.458884e-05
+      Gene132 1.290778e-03 1.266288e-03 1.471787e-03
+      Gene133 2.278676e-03 2.398107e-03 2.488662e-03
+      Gene134 6.703116e-06 5.953020e-06 5.688282e-06
+      Gene135 3.293336e-04 8.097480e-04 3.102233e-04
+      Gene136 1.812572e-03 2.005067e-03 1.868318e-03
+      Gene137 1.351259e-03 1.996027e-03 1.498613e-03
+      Gene138 1.328885e-03 1.237004e-03 1.387440e-03
+      Gene139 5.984840e-05 7.044747e-05 5.320198e-05
+      Gene140 2.396138e-04 7.680043e-04 7.134712e-04
+      Gene141 7.672652e-04 8.129392e-04 8.260016e-04
+      Gene142 1.551421e-03 1.126106e-03 1.041582e-03
+      Gene143 2.131296e-04 1.078786e-04 1.657858e-04
+      Gene144 2.785669e-04 2.514943e-04 2.655540e-04
+      Gene145 3.336954e-05 3.154601e-05 2.986489e-05
+      Gene146 4.612996e-04 2.060075e-04 4.673584e-04
+      Gene147 9.125545e-04 5.835638e-04 1.268435e-03
+      Gene148 2.071814e-04 1.551313e-04 8.707536e-05
+      Gene149 1.516285e-04 1.667464e-04 1.029287e-04
+      Gene150 5.763586e-06 1.157748e-05 1.057167e-05
+      Gene151 2.570414e-04 3.350739e-04 3.368460e-04
+      Gene152 1.612490e-03 2.740009e-03 1.772574e-03
+      Gene153 7.781948e-03 8.438895e-03 1.014957e-02
+      Gene154 5.779453e-02 2.568475e-02 2.098151e-02
+      Gene155 6.024540e-05 5.272073e-05 4.185751e-05
+      Gene156 4.395114e-04 2.939462e-04 3.613270e-04
+      Gene157 9.939526e-04 9.987623e-04 1.040218e-03
+      Gene158 1.947456e-04 2.224254e-04 2.201272e-04
+      Gene159 3.000433e-03 3.421051e-03 3.323196e-03
+      Gene160 2.042772e-04 2.517503e-04 2.702774e-04
+      Gene161 2.405277e-03 2.666898e-03 2.477042e-03
+      Gene162 6.886254e-05 8.467187e-05 6.291520e-05
+      Gene163 1.900810e-04 1.837511e-04 2.596871e-04
+      Gene164 2.463746e-03 2.753395e-03 2.823455e-03
+      Gene165 2.534715e-04 3.073008e-04 1.938006e-04
+      Gene166 3.008011e-04 4.025709e-04 3.539329e-04
+      Gene167 2.051401e-05 2.277138e-05 2.661690e-05
+      Gene168 3.752904e-05 3.422423e-05 2.781336e-05
+      Gene169 1.882126e-03 1.486455e-03 2.088838e-03
+      Gene170 3.094603e-04 3.236512e-04 3.295783e-04
+      Gene171 8.989210e-05 6.515554e-05 1.107016e-04
+      Gene172 1.277089e-04 5.437783e-05 7.712607e-05
+      Gene173 9.026498e-04 1.027249e-03 1.033723e-03
+      Gene174 2.412967e-04 2.535343e-04 2.538563e-04
+      Gene175 2.162895e-03 2.443968e-03 2.239002e-03
+      Gene176 9.090524e-04 9.716581e-04 1.383741e-03
+      Gene177 2.928520e-03 2.596692e-03 2.665196e-03
+      Gene178 4.005580e-04 7.276196e-04 7.760227e-04
+      Gene179 3.118227e-04 3.301415e-04 2.842341e-04
+      Gene180 9.539205e-04 5.568199e-04 9.567529e-04
+      Gene181 7.134756e-04 9.376595e-04 5.694975e-04
+      Gene182 1.458012e-03 2.165750e-03 1.494226e-03
+      Gene183 7.454025e-04 8.876532e-04 7.761680e-04
+      Gene184 2.808016e-04 6.128413e-04 3.429686e-04
+      Gene185 3.430494e-03 5.112253e-03 5.257757e-03
+      Gene186 1.303306e-04 1.253313e-04 1.299423e-04
+      Gene187 5.378169e-05 5.813595e-05 1.632196e-04
+      Gene188 5.101058e-06 1.450393e-05 1.883377e-05
+      Gene189 3.156277e-04 2.806498e-04 2.988022e-04
+      Gene190 1.334541e-03 1.410773e-03 1.674131e-03
+      Gene191 7.100974e-04 1.353263e-03 1.339701e-03
+      Gene192 2.448305e-03 2.487223e-03 2.635476e-03
+      Gene193 1.410659e-03 2.433054e-03 2.030020e-03
+      Gene194 1.947313e-02 9.973119e-03 3.146069e-02
+      Gene195 7.173462e-04 7.042691e-04 7.582866e-04
+      Gene196 5.679754e-04 1.054017e-03 8.108692e-04
+      Gene197 1.594851e-04 3.516408e-04 1.525679e-04
+      Gene198 3.480672e-04 4.450908e-04 3.801497e-04
+      Gene199 2.056185e-03 2.065304e-03 2.319976e-03
+      Gene200 5.894829e-06 5.826047e-06 8.135923e-06
+      Gene201 9.990385e-04 1.026612e-03 1.131494e-03
+      Gene202 6.006311e-05 3.193922e-05 5.066901e-05
+      Gene203 6.335197e-04 7.384309e-04 7.228828e-04
+      Gene204 2.226601e-04 2.547182e-04 1.826843e-04
+      Gene205 1.344006e-03 1.662196e-03 1.547347e-03
+      Gene206 1.463518e-03 1.004239e-03 9.726353e-04
+      Gene207 1.255132e-04 1.561110e-04 1.519860e-04
+      Gene208 2.444256e-02 1.890078e-02 2.699165e-02
+      Gene209 7.265007e-04 1.134455e-03 1.053982e-03
+      Gene210 7.354114e-04 5.375996e-04 1.576162e-03
+      Gene211 9.255163e-06 3.820469e-06 4.854720e-06
+      Gene212 8.052844e-04 8.098519e-04 1.265821e-03
+      Gene213 4.651364e-04 3.081884e-04 3.220078e-04
+      Gene214 1.090906e-05 2.088505e-05 7.766053e-05
+      Gene215 1.754237e-03 1.881444e-03 1.841939e-03
+      Gene216 1.124526e-04 1.136055e-04 1.158013e-04
+      Gene217 1.576408e-03 1.817613e-03 1.728527e-03
+      Gene218 1.549120e-04 1.837396e-04 1.789132e-04
+      Gene219 1.261951e-04 1.724939e-04 9.423478e-05
+      Gene220 4.557468e-04 4.295158e-04 9.892933e-04
+      Gene221 3.510639e-04 4.368991e-04 4.180991e-04
+      Gene222 5.712987e-04 6.293945e-04 6.630322e-04
+      Gene223 3.479039e-04 3.099150e-04 2.910580e-04
+      Gene224 6.699853e-05 7.992746e-05 9.072190e-05
+      Gene225 1.274703e-04 2.901460e-04 1.729393e-04
+      Gene226 1.237721e-04 1.360093e-04 1.870303e-04
+      Gene227 2.066659e-05 1.451082e-05 7.264295e-07
+      Gene228 2.312190e-05 3.063481e-05 1.976285e-05
+      Gene229 9.268434e-03 1.854508e-02 1.255314e-02
+      Gene230 1.734356e-03 3.817071e-03 2.279042e-03
+      Gene231 3.612185e-04 3.247533e-04 3.649562e-04
+      Gene232 9.185239e-04 8.837882e-04 8.376358e-04
+      Gene233 1.112832e-04 1.369667e-04 6.361553e-05
+      Gene234 1.955011e-03 1.967491e-03 2.039311e-03
+      Gene235 3.762162e-04 5.865017e-04 6.674801e-04
+      Gene236 2.002339e-06 3.468219e-06 2.255503e-06
+      Gene237 8.316498e-04 1.248803e-03 9.162771e-04
+      Gene238 9.495608e-04 1.059620e-03 1.065658e-03
+      Gene239 1.381005e-03 1.534776e-03 1.486085e-03
+      Gene240 3.031205e-04 2.748088e-04 2.682908e-04
+      Gene241 7.649740e-05 1.174915e-04 1.042882e-04
+      Gene242 5.436901e-04 3.382559e-04 3.730434e-04
+      Gene243 8.973032e-03 5.607614e-03 4.920331e-03
+      Gene244 3.734043e-05 6.131870e-06 3.571217e-05
+      Gene245 6.301696e-04 3.923726e-04 4.217140e-04
+      Gene246 9.973474e-04 9.553770e-04 3.094362e-04
+      Gene247 4.281884e-03 3.564011e-03 1.799604e-03
+      Gene248 1.228501e-03 1.395231e-03 1.317323e-03
+      Gene249 1.029059e-03 9.931783e-04 1.460733e-03
+      Gene250 8.693003e-04 1.174518e-03 1.246131e-03
+      Gene251 2.079770e-03 2.248286e-03 2.155668e-03
+      Gene252 1.744159e-05 2.006203e-05 1.443258e-05
+      Gene253 1.714008e-04 1.514358e-04 2.083861e-04
+      Gene254 1.690323e-04 1.784389e-04 1.784605e-04
+      Gene255 4.661036e-04 5.781315e-04 5.988586e-04
+      Gene256 1.009706e-04 9.965482e-05 9.737355e-05
+      Gene257 3.431041e-04 4.637129e-04 3.715838e-04
+      Gene258 1.294538e-03 1.192581e-03 2.050922e-03
+      Gene259 1.549089e-05 1.801339e-05 1.533523e-05
+      Gene260 2.537945e-04 1.575111e-04 2.956607e-04
+      Gene261 1.754121e-04 5.734035e-04 4.975230e-04
+      Gene262 8.169545e-04 9.539144e-04 9.064118e-04
+      Gene263 4.223197e-05 1.266066e-04 9.195443e-05
+      Gene264 7.215119e-02 7.643317e-02 6.321708e-02
+      Gene265 2.023616e-04 2.828390e-04 9.851397e-04
+      Gene266 3.163948e-04 3.366770e-04 3.636602e-04
+      Gene267 9.406544e-04 2.267224e-03 2.293798e-03
+      Gene268 6.186901e-05 6.877399e-05 3.047139e-05
+      Gene269 1.409319e-04 1.877543e-04 1.813051e-04
+      Gene270 1.522211e-02 2.281611e-02 1.515579e-02
+      Gene271 3.365785e-04 3.539819e-04 3.997611e-04
+      Gene272 5.559054e-05 7.425610e-05 6.632571e-05
+      Gene273 2.241773e-04 1.744983e-04 1.391868e-04
+      Gene274 2.039367e-04 2.465686e-04 2.285436e-04
+      Gene275 2.494280e-02 2.703611e-02 2.770384e-02
+      Gene276 1.566761e-03 1.650803e-03 1.754195e-03
+      Gene277 9.221169e-05 2.106464e-04 1.093384e-04
+      Gene278 1.718050e-03 1.876993e-03 2.039131e-03
+      Gene279 7.740525e-04 6.623052e-04 3.478777e-04
+      Gene280 5.482325e-03 5.878310e-03 6.020071e-03
+      Gene281 5.682063e-04 6.916522e-04 1.104562e-03
+      Gene282 9.104581e-05 1.072259e-04 1.398018e-04
+      Gene283 2.336795e-03 3.512291e-03 2.774189e-03
+      Gene284 3.577775e-04 4.235730e-04 3.841987e-04
+      Gene285 1.113111e-03 1.138955e-03 1.218816e-03
+      Gene286 1.369120e-03 1.473846e-03 1.410997e-03
+      Gene287 3.730395e-03 4.038766e-03 7.744603e-03
+      Gene288 2.576456e-03 3.050411e-03 2.029547e-03
+      Gene289 1.717204e-03 3.834122e-03 1.803895e-03
+      Gene290 2.731465e-04 3.982996e-04 2.677355e-04
+      Gene291 1.653808e-04 2.128378e-04 1.906531e-04
+      Gene292 1.093796e-04 8.238756e-05 8.835148e-05
+      Gene293 1.764117e-04 2.007085e-04 1.888982e-04
+      Gene294 1.516797e-03 1.727507e-03 1.549368e-03
+      Gene295 1.347628e-04 2.056747e-04 2.164528e-04
+      Gene296 1.721050e-06 0.000000e+00 0.000000e+00
+      Gene297 1.043825e-03 1.121300e-03 1.414758e-03
+      Gene298 2.695028e-03 2.757420e-03 2.862738e-03
+      Gene299 1.109529e-04 1.387613e-04 1.711691e-04
+      Gene300 1.630935e-03 1.741415e-03 1.682405e-03
+      Gene301 9.913122e-06 4.836119e-06 6.713111e-06
+      Gene302 1.344954e-03 1.543076e-03 1.979360e-03
+      Gene303 7.305894e-06 2.137244e-05 1.401356e-05
+      Gene304 1.628294e-03 2.914552e-03 4.056905e-03
+      Gene305 3.042930e-03 3.253397e-03 3.211579e-03
+      Gene306 3.754230e-07 3.169817e-06 6.263278e-07
+      Gene307 2.671243e-05 3.070027e-05 1.096275e-05
+      Gene308 1.049199e-03 8.545877e-04 7.210740e-04
+      Gene309 9.072960e-05 1.232008e-04 1.770670e-04
+      Gene310 2.160504e-03 2.179057e-03 1.460748e-03
+      Gene311 5.786224e-04 4.268261e-04 6.034828e-04
+      Gene312 2.252078e-05 4.072245e-05 2.183617e-05
+      Gene313 1.627740e-03 1.879139e-03 1.990572e-03
+      Gene314 6.905394e-02 3.283908e-02 3.166856e-02
+      Gene315 6.051440e-06 4.243162e-06 8.478558e-06
+      Gene316 3.481353e-04 3.275273e-04 6.476038e-04
+      Gene317 2.568405e-04 2.760913e-04 2.761688e-04
+      Gene318 4.525783e-04 4.591036e-04 4.350809e-04
+      Gene319 1.125978e-04 7.105405e-05 1.590546e-04
+      Gene320 1.109227e-03 1.901208e-03 1.242881e-03
+      Gene321 5.409310e-04 6.253185e-04 8.487863e-04
+      Gene322 3.692226e-03 4.099865e-03 4.066999e-03
+      Gene323 2.723168e-04 2.739599e-04 3.785517e-04
+      Gene324 3.849179e-04 4.037589e-04 3.758502e-04
+      Gene325 1.679447e-03 1.341463e-03 1.281557e-03
+      Gene326 2.156133e-04 2.146833e-04 2.333287e-04
+      Gene327 5.244029e-04 1.282550e-03 5.102731e-04
+      Gene328 9.728275e-04 1.098518e-03 2.196348e-03
+      Gene329 1.238258e-04 1.234155e-04 9.979918e-05
+      Gene330 8.208359e-04 8.719916e-04 6.874324e-04
+      Gene331 8.437637e-05 1.123213e-04 1.257733e-04
+      Gene332 6.567036e-05 9.390338e-05 1.041386e-04
+      Gene333 2.014671e-04 2.736072e-04 1.276269e-04
+      Gene334 3.094545e-05 3.254139e-05 2.890532e-05
+      Gene335 2.797985e-03 2.012198e-03 1.693394e-03
+      Gene336 3.022917e-03 3.261669e-03 1.124714e-03
+      Gene337 1.261686e-03 1.327342e-03 1.355899e-03
+      Gene338 8.663097e-04 8.279493e-04 8.534795e-04
+      Gene339 2.189178e-06 2.331462e-06 2.923839e-06
+      Gene340 7.694267e-06 1.091908e-05 2.550934e-05
+      Gene341 1.105804e-04 2.169994e-04 1.006661e-04
+      Gene342 1.525801e-03 1.718437e-03 1.684285e-03
+      Gene343 1.501692e-06 0.000000e+00 0.000000e+00
+      Gene344 6.207310e-04 7.245622e-04 6.663340e-04
+      Gene345 3.749294e-03 6.214098e-03 3.800575e-03
+      Gene346 1.306570e-04 1.536264e-04 1.325839e-04
+      Gene347 3.743526e-03 3.479555e-03 2.952350e-03
+      Gene348 1.303293e-04 1.051571e-04 1.020788e-04
+      Gene349 1.354383e-03 7.322282e-04 4.424481e-04
+      Gene350 6.307185e-04 8.141051e-04 7.846835e-04
+      Gene351 2.630702e-04 2.852447e-04 3.399194e-04
+      Gene352 7.898237e-05 1.854587e-04 3.933649e-05
+      Gene353 3.276235e-02 3.387922e-02 3.422774e-02
+      Gene354 2.398072e-04 3.457161e-04 1.965602e-04
+      Gene355 5.500791e-05 5.490521e-05 6.380502e-05
+      Gene356 1.949044e-03 1.537258e-03 1.419067e-03
+      Gene357 2.024324e-02 2.256577e-02 2.399470e-02
+      Gene358 1.817023e-04 9.456238e-05 8.846058e-05
+      Gene359 3.602208e-05 2.924425e-05 3.955059e-05
+      Gene360 4.301337e-04 4.005620e-04 4.468062e-04
+      Gene361 5.712932e-04 6.378554e-04 7.009216e-04
+      Gene362 6.009637e-07 8.060016e-06 5.650892e-06
+      Gene363 2.055996e-02 2.304509e-02 2.310056e-02
+      Gene364 6.839883e-04 1.077306e-03 6.348196e-04
+      Gene365 2.974191e-05 2.722102e-05 4.347253e-05
+      Gene366 1.129940e-03 1.120915e-03 1.171372e-03
+      Gene367 4.282961e-04 3.750417e-04 3.457035e-04
+      Gene368 8.695324e-04 1.081389e-03 9.897346e-04
+      Gene369 5.491982e-05 8.017448e-05 4.747827e-05
+      Gene370 5.060735e-05 8.036389e-05 4.932287e-05
+      Gene371 5.305710e-05 5.966555e-05 3.402589e-05
+      Gene372 2.095243e-04 2.550397e-04 2.399010e-04
+      Gene373 5.553535e-04 5.824377e-04 9.416123e-04
+      Gene374 2.923458e-04 9.767163e-04 6.607008e-04
+      Gene375 1.836843e-06 1.438207e-06 0.000000e+00
+      Gene376 2.871536e-03 3.267160e-03 3.001745e-03
+      Gene377 3.581565e-03 4.141588e-03 4.215053e-03
+      Gene378 3.747233e-04 3.730807e-04 4.155925e-04
+      Gene379 1.049918e-03 1.224546e-03 1.048635e-03
+      Gene380 1.955905e-04 2.337831e-04 1.906255e-04
+      Gene381 1.842946e-03 1.891236e-03 7.750798e-04
+      Gene382 2.157760e-03 2.129634e-03 2.890924e-03
+      Gene383 3.655040e-04 3.768460e-04 4.233236e-04
+      Gene384 5.850601e-04 5.609059e-04 4.829193e-04
+      Gene385 1.380913e-04 1.615511e-04 1.332529e-04
+      Gene386 7.640157e-03 9.594373e-03 7.723996e-03
+      Gene387 4.744567e-06 1.256427e-05 1.407872e-05
+      Gene388 1.864925e-03 2.886169e-03 2.807246e-03
+      Gene389 1.651157e-03 1.839132e-03 2.803389e-03
+      Gene390 2.770421e-03 9.119093e-03 1.088487e-02
+      Gene391 6.601534e-05 7.364629e-05 6.626311e-05
+      Gene392 7.223995e-05 1.140893e-04 1.115701e-04
+      Gene393 1.104785e-03 2.372411e-03 1.663128e-03
+      Gene394 7.493179e-04 8.535627e-04 8.825072e-04
+      Gene395 5.749856e-05 1.184403e-04 4.627038e-05
+      Gene396 2.166461e-03 3.315623e-03 1.699237e-03
+      Gene397 4.271142e-04 2.585893e-04 3.078422e-04
+      Gene398 1.346089e-05 7.830621e-06 7.473153e-06
+      Gene399 4.331290e-04 5.069043e-04 3.038522e-04
+      Gene400 4.135235e-04 4.154002e-04 4.194660e-04
+      Gene401 3.085997e-04 3.273541e-04 3.352775e-04
+      Gene402 2.537414e-04 3.179679e-04 2.740655e-04
+      Gene403 1.127258e-03 1.182575e-03 1.531151e-03
+      Gene404 4.971598e-05 3.779050e-05 6.014626e-05
+      Gene405 5.879734e-05 9.532709e-05 1.268092e-04
+      Gene406 1.259189e-03 1.230178e-03 1.131883e-03
+      Gene407 9.757412e-04 1.241504e-03 9.498498e-04
+      Gene408 8.356651e-07 0.000000e+00 0.000000e+00
+      Gene409 0.000000e+00 0.000000e+00 0.000000e+00
+      Gene410 1.051028e-04 1.378224e-04 1.003483e-04
+      Gene411 4.034711e-04 2.849942e-04 2.640046e-04
+      Gene412 1.378780e-05 2.888675e-05 6.789131e-06
+      Gene413 2.891160e-04 3.549494e-04 2.965719e-04
+      Gene414 1.367605e-03 1.345965e-03 1.776278e-03
+      Gene415 2.812555e-04 2.869226e-04 2.895051e-04
+      Gene416 1.535166e-03 1.768983e-03 1.567219e-03
+      Gene417 4.420803e-04 3.726966e-04 3.454581e-04
+      Gene418 2.387224e-04 2.431918e-04 2.455587e-04
+      Gene419 3.617539e-05 3.818553e-05 1.251160e-05
+      Gene420 5.307586e-04 2.859777e-04 1.042078e-03
+      Gene421 8.980407e-04 1.311692e-03 8.240591e-04
+      Gene422 3.505335e-04 3.583771e-04 4.181747e-04
+      Gene423 3.870290e-04 3.274932e-04 4.900174e-04
+      Gene424 7.044445e-04 4.774931e-04 9.356981e-04
+      Gene425 5.725395e-03 6.525308e-03 6.390698e-03
+      Gene426 4.886501e-05 4.797851e-05 4.946833e-05
+      Gene427 1.013185e-04 1.156943e-04 1.228515e-04
+      Gene428 1.344608e-04 4.831097e-04 2.729644e-04
+      Gene429 6.183551e-05 4.614573e-05 3.684041e-05
+      Gene430 1.062269e-05 2.431200e-05 2.013751e-05
+      Gene431 2.068973e-05 4.146860e-05 1.765465e-05
+      Gene432 3.523243e-04 3.403647e-04 3.933122e-04
+      Gene433 2.549483e-06 5.543973e-06 2.794832e-06
+      Gene434 4.342620e-04 3.250527e-04 3.599186e-04
+      Gene435 4.879497e-04 5.529495e-04 7.461810e-04
+      Gene436 6.674089e-04 7.275146e-04 1.519414e-03
+      Gene437 4.991951e-04 4.312387e-04 5.152517e-04
+      Gene438 4.992044e-04 5.555598e-04 4.487038e-04
+      Gene439 8.849279e-04 1.053235e-03 1.226354e-03
+      Gene440 1.682593e-04 9.011055e-05 7.917119e-05
+      Gene441 5.988363e-04 5.812599e-04 3.769405e-04
+      Gene442 2.770152e-04 2.795721e-04 2.768583e-04
+      Gene443 3.086782e-04 3.376728e-04 2.902932e-04
+      Gene444 1.624590e-02 1.900210e-02 1.890256e-02
+      Gene445 5.871090e-03 6.713613e-03 6.147259e-03
+      Gene446 1.239172e-03 1.864008e-03 1.817777e-03
+      Gene447 3.921338e-04 2.337032e-04 3.776351e-04
+      Gene448 6.070678e-04 6.761929e-04 7.282329e-04
+      Gene449 1.109144e-03 1.224629e-03 1.301176e-03
+      Gene450 5.703366e-05 5.087761e-05 5.831250e-05
+      Gene451 1.494429e-03 1.448397e-03 1.860055e-03
+      Gene452 1.800086e-05 3.074104e-05 1.776827e-05
+      Gene453 1.874312e-04 1.748267e-04 1.066699e-04
+      Gene454 4.105769e-05 2.903316e-05 2.844755e-05
+      Gene455 2.395100e-04 3.815725e-04 2.587194e-04
+      Gene456 8.711148e-04 8.689932e-04 9.597173e-04
+      Gene457 1.082641e-04 9.146467e-05 1.275533e-04
+      Gene458 1.446899e-02 1.597113e-02 1.390085e-02
+      Gene459 3.272643e-04 3.060249e-04 2.311821e-04
+      Gene460 1.807541e-05 1.260429e-05 1.384148e-05
+      Gene461 3.120501e-04 2.893707e-04 3.014806e-04
+      Gene462 1.069646e-05 5.340410e-06 4.222683e-06
+      Gene463 1.799297e-03 2.393280e-03 2.447801e-03
+      Gene464 2.399599e-04 1.774226e-04 1.803480e-04
+      Gene465 1.553113e-03 1.383082e-03 1.571747e-03
+      Gene466 4.100611e-04 4.906564e-04 5.362336e-04
+      Gene467 4.865969e-04 5.479188e-04 5.445980e-04
+      Gene468 2.237029e-04 3.895151e-04 2.481269e-04
+      Gene469 6.807835e-03 1.447824e-02 1.005902e-02
+      Gene470 7.494155e-04 9.423444e-04 8.603108e-04
+      Gene471 4.900307e-04 5.455482e-04 5.711536e-04
+      Gene472 2.227171e-02 2.357562e-02 2.339656e-02
+      Gene473 8.178104e-03 8.772763e-03 9.106613e-03
+      Gene474 5.162214e-04 5.290575e-04 3.556756e-04
+      Gene475 1.225476e-04 1.418938e-04 2.772390e-04
+      Gene476 2.778960e-04 6.748718e-04 6.839786e-04
+      Gene477 1.121256e-03 8.813431e-04 7.935620e-04
+      Gene478 3.549392e-04 4.057361e-04 4.559244e-04
+      Gene479 3.627579e-04 4.845786e-04 3.918736e-04
+      Gene480 7.047395e-04 7.847182e-04 7.922521e-04
+      Gene481 1.707581e-03 1.754004e-03 9.019453e-04
+      Gene482 1.266386e-04 1.086017e-04 9.676616e-05
+      Gene483 7.667806e-04 9.884066e-04 8.544144e-04
+      Gene484 1.087238e-04 1.222803e-04 9.601866e-05
+      Gene485 2.494897e-02 1.914482e-02 2.446017e-02
+      Gene486 8.579377e-03 7.983570e-03 1.017850e-02
+      Gene487 9.390346e-04 9.684567e-04 9.539204e-04
+      Gene488 4.288715e-04 4.070607e-04 4.247033e-04
+      Gene489 3.821236e-04 3.384563e-04 3.837814e-04
+      Gene490 2.896269e-02 3.159339e-02 3.162869e-02
+      Gene491 5.965425e-04 6.671620e-04 6.486426e-04
+      Gene492 3.013653e-04 3.409809e-04 3.100677e-04
+      Gene493 9.477637e-04 9.735912e-04 1.350622e-03
+      Gene494 1.068267e-04 1.444294e-04 1.388217e-04
+      Gene495 7.002247e-04 7.630860e-04 8.876789e-04
+      Gene496 4.757569e-04 4.192334e-04 1.268240e-03
+      Gene497 1.428595e-04 1.515365e-04 1.661007e-04
+      Gene498 7.070344e-05 6.804192e-05 6.374357e-05
+      Gene499 1.995677e-03 2.151433e-03 1.704282e-03
+      Gene500 1.649663e-03 2.131305e-03 2.317645e-03
       
       $info[[2]]
       [1] "ct1" "ct2" "ct3"
@@ -6058,22 +5953,20 @@
       
       Slot "internal_vars":
       $gene_list_reg
-       [1] "Gene91"  "Gene127" "Gene263" "Gene392" "Gene38"  "Gene169" "Gene195"
-       [8] "Gene223" "Gene371" "Gene432" "Gene486" "Gene43"  "Gene147" "Gene151"
-      [15] "Gene201" "Gene259" "Gene347" "Gene492"
+       [1] "Gene104" "Gene154" "Gene314" "Gene349" "Gene75"  "Gene135" "Gene197"
+       [8] "Gene289" "Gene327" "Gene428" "Gene5"   "Gene7"   "Gene194" "Gene210"
+      [15] "Gene220" "Gene265" "Gene328" "Gene420" "Gene436" "Gene496"
       
       $gene_list_bulk
-       [1] "Gene33"  "Gene52"  "Gene70"  "Gene76"  "Gene91"  "Gene93"  "Gene108"
-       [8] "Gene127" "Gene166" "Gene208" "Gene217" "Gene237" "Gene238" "Gene263"
-      [15] "Gene316" "Gene392" "Gene444" "Gene3"   "Gene11"  "Gene38"  "Gene82" 
-      [22] "Gene107" "Gene110" "Gene126" "Gene169" "Gene177" "Gene185" "Gene195"
-      [29] "Gene215" "Gene223" "Gene230" "Gene241" "Gene309" "Gene338" "Gene344"
-      [36] "Gene371" "Gene378" "Gene407" "Gene432" "Gene436" "Gene441" "Gene472"
-      [43] "Gene475" "Gene486" "Gene23"  "Gene43"  "Gene103" "Gene122" "Gene147"
-      [50] "Gene151" "Gene179" "Gene201" "Gene224" "Gene233" "Gene245" "Gene256"
-      [57] "Gene259" "Gene261" "Gene267" "Gene268" "Gene307" "Gene311" "Gene347"
-      [64] "Gene373" "Gene383" "Gene405" "Gene419" "Gene425" "Gene446" "Gene474"
-      [71] "Gene477" "Gene492"
+       [1] "Gene104" "Gene120" "Gene148" "Gene154" "Gene172" "Gene243" "Gene314"
+       [8] "Gene349" "Gene358" "Gene440" "Gene18"  "Gene63"  "Gene75"  "Gene112"
+      [15] "Gene135" "Gene184" "Gene197" "Gene225" "Gene229" "Gene230" "Gene261"
+      [22] "Gene263" "Gene277" "Gene289" "Gene327" "Gene333" "Gene341" "Gene352"
+      [29] "Gene374" "Gene393" "Gene396" "Gene428" "Gene468" "Gene469" "Gene5"  
+      [36] "Gene7"   "Gene56"  "Gene147" "Gene187" "Gene194" "Gene210" "Gene220"
+      [43] "Gene258" "Gene265" "Gene281" "Gene287" "Gene304" "Gene309" "Gene316"
+      [50] "Gene319" "Gene328" "Gene373" "Gene390" "Gene420" "Gene436" "Gene475"
+      [57] "Gene496"
       
       $proportions
       NULL

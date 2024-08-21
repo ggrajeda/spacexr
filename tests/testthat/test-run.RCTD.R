@@ -2,7 +2,10 @@ test_that("run.RCTD simple test", {
     # Arrange
     # create reference
     set.seed(20240815)
-    mat <- se2mat(synthetic_se(n_celltypes = 3, cells_per_type = 60, nGenes = 500))
+    mat <- se2mat(synthetic_se(n_celltypes = 3,
+                               cells_per_type = 60,
+                               nGenes = 500,
+                               seed = 886))
     rctd <- create.RCTD(mat$puck, mat$reference, max_cores = 1)
 
     # Act/Assert

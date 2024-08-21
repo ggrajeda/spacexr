@@ -5,22 +5,22 @@
     Message
       fitBulk: decomposing bulk
       chooseSigma: using initial Q_mat with sigma =  1
-      Likelihood value: 8726.68119450503
+      Likelihood value: 10932.4533027045
       Sigma value:  0.84
-      Likelihood value: 8474.17405553845
+      Likelihood value: 10614.3463472575
       Sigma value:  0.69
-      Likelihood value: 8220.08227791607
+      Likelihood value: 10276.3844451196
       Sigma value:  0.61
-      Likelihood value: 8081.03235716982
+      Likelihood value: 10078.6081859522
       Sigma value:  0.53
-      Likelihood value: 7944.60280379883
+      Likelihood value: 9868.72929983567
       Sigma value:  0.45
-      Likelihood value: 7819.7797915384
+      Likelihood value: 9649.16221189911
       Sigma value:  0.37
-      Likelihood value: 7725.81500092127
-      Sigma value:  0.31
-      Likelihood value: 7700.44133223254
-      Sigma value:  0.31
+      Likelihood value: 9427.59224026116
+      Sigma value:  0.29
+      Likelihood value: 9225.11687425629
+      Sigma value:  0.21
     Code
       list(cell_type_info = result@cell_type_info$renorm, de_results = result@
         de_results, results = result@results)
@@ -28,64 +28,66 @@
       $cell_type_info
       $cell_type_info[[1]]
                        ct1          ct2          ct3
-      Gene14  1.839006e-03 1.237059e-03 9.162960e-04
-      Gene44  1.255865e-03 5.621781e-04 6.719467e-04
-      Gene99  1.868209e-03 7.681799e-04 8.831568e-04
-      Gene148 9.440747e-04 4.177578e-04 4.742280e-04
-      Gene152 5.363181e-04 2.495743e-04 2.304784e-04
-      Gene186 5.150902e-04 1.866681e-04 2.556807e-04
-      Gene208 1.295224e-04 6.440595e-05 4.045440e-05
-      Gene297 5.114629e-04 3.611815e-04 2.076326e-04
-      Gene300 2.220538e-02 1.633599e-02 9.353016e-03
-      Gene301 1.130115e-03 4.995954e-04 5.789560e-04
-      Gene326 1.290929e-04 6.793539e-05 8.455402e-05
-      Gene348 4.611963e-03 1.845340e-03 2.454168e-03
-      Gene375 6.058700e-03 2.248556e-03 3.622823e-03
-      Gene405 4.019782e-03 1.714452e-03 2.177562e-03
-      Gene432 1.540163e-03 4.714451e-04 4.041470e-04
-      Gene466 1.671495e-03 8.157752e-04 5.969662e-04
-      Gene471 3.793114e-02 1.857902e-02 2.076017e-02
-      Gene43  1.088866e-03 3.390717e-03 1.164270e-03
-      Gene47  7.650882e-05 1.860506e-04 1.031391e-04
-      Gene51  7.131762e-04 1.262903e-03 6.806241e-04
-      Gene108 5.234818e-04 1.032341e-03 5.344534e-04
-      Gene139 1.513398e-04 2.481035e-04 1.409267e-04
-      Gene204 8.988093e-05 4.036372e-04 2.627581e-04
-      Gene206 2.737567e-04 4.871651e-04 3.030314e-04
-      Gene342 3.089202e-04 6.146364e-04 2.270628e-04
-      Gene431 2.591977e-02 8.959639e-02 2.516461e-02
-      Gene464 4.845519e-04 7.921508e-04 4.472444e-04
-      Gene477 6.634110e-05 2.617179e-04 1.525504e-04
-      Gene1   3.994988e-04 3.524001e-04 6.431005e-04
-      Gene6   1.467708e-03 2.055444e-03 3.793487e-03
-      Gene27  1.115727e-03 9.466385e-04 2.239869e-03
-      Gene30  3.117170e-03 2.637725e-03 5.521682e-03
-      Gene49  2.799951e-04 2.276856e-04 6.045995e-04
-      Gene59  1.242404e-04 1.832909e-04 3.358837e-04
-      Gene65  1.769711e-04 1.361447e-04 3.741145e-04
-      Gene69  3.416866e-03 3.085879e-03 5.723903e-03
-      Gene72  8.300303e-04 9.104754e-04 1.590998e-03
-      Gene74  4.789222e-04 3.619816e-04 7.131885e-04
-      Gene96  2.800502e-02 2.413823e-02 4.514454e-02
-      Gene127 8.053242e-05 7.436853e-05 1.857674e-04
-      Gene135 1.780242e-04 3.271187e-04 5.440943e-04
-      Gene166 1.021900e-03 7.549948e-04 1.473349e-03
-      Gene178 1.298963e-04 2.539040e-04 3.412289e-04
-      Gene190 5.866283e-04 2.166094e-04 8.272704e-04
-      Gene210 4.559202e-04 4.117397e-04 7.410206e-04
-      Gene220 1.989878e-04 9.668050e-05 3.342777e-04
-      Gene234 7.946697e-05 9.150642e-05 1.447057e-04
-      Gene255 1.039289e-04 8.986550e-05 1.754327e-04
-      Gene256 4.087614e-04 3.919383e-04 8.434343e-04
-      Gene310 5.615663e-04 3.800039e-04 1.047077e-03
-      Gene312 6.844854e-05 1.024586e-04 1.413396e-04
-      Gene314 1.035654e-04 9.810236e-05 2.268061e-04
-      Gene316 7.870126e-05 6.128139e-05 1.825657e-04
-      Gene317 1.646343e-02 1.821184e-02 2.933244e-02
-      Gene349 9.449868e-04 1.072171e-03 1.786724e-03
-      Gene428 5.418071e-04 6.201947e-04 1.524336e-03
-      Gene435 4.793854e-04 3.526590e-04 7.717810e-04
-      Gene482 8.066952e-05 9.692865e-05 1.892182e-04
+      Gene27  4.212007e-03 2.704702e-03 1.222245e-03
+      Gene34  9.142293e-04 3.817984e-04 3.434742e-04
+      Gene129 4.791637e-03 2.162345e-03 1.319981e-03
+      Gene213 5.661344e-04 2.945168e-04 3.252868e-04
+      Gene298 2.439535e-03 8.029930e-04 1.800355e-03
+      Gene309 5.688440e-04 4.993064e-04 1.565832e-04
+      Gene339 6.147150e-03 2.281358e-03 2.718444e-03
+      Gene362 7.958073e-04 4.887846e-04 3.836615e-04
+      Gene380 1.974748e-04 1.362669e-04 9.759300e-05
+      Gene389 1.434780e-03 6.553714e-04 1.074896e-03
+      Gene396 4.170837e-03 2.078908e-03 1.790058e-03
+      Gene400 4.201116e-03 2.435807e-03 2.338459e-03
+      Gene406 2.921890e-03 1.492187e-03 1.324961e-03
+      Gene413 3.061518e-04 1.673056e-04 2.029383e-04
+      Gene431 2.646379e-03 1.302850e-03 1.069037e-03
+      Gene447 4.942479e-03 3.102862e-03 1.921913e-03
+      Gene454 2.422566e-04 6.557928e-05 1.093461e-04
+      Gene465 3.465127e-04 2.475450e-04 1.092333e-04
+      Gene7   1.019542e-03 1.496140e-03 7.107201e-04
+      Gene14  3.004346e-04 7.306460e-04 4.058668e-04
+      Gene20  4.991612e-05 1.225148e-04 8.358241e-05
+      Gene37  6.567060e-04 1.239937e-03 4.009300e-04
+      Gene61  2.937602e-04 5.614037e-04 1.729763e-04
+      Gene68  8.810957e-04 2.486910e-03 7.946202e-04
+      Gene72  3.074300e-04 5.212536e-04 1.409692e-04
+      Gene73  4.013365e-04 9.553599e-04 4.471589e-04
+      Gene91  8.561697e-04 1.640280e-03 8.496644e-04
+      Gene115 1.331927e-04 2.184140e-04 1.292631e-04
+      Gene172 1.405973e-03 4.953922e-03 1.328126e-03
+      Gene189 1.999911e-03 5.656126e-03 2.909664e-03
+      Gene217 8.284529e-05 1.638680e-04 8.156909e-05
+      Gene221 2.968718e-04 4.267625e-04 1.269371e-04
+      Gene232 1.577567e-03 4.163687e-03 1.424194e-03
+      Gene240 1.279402e-03 2.297452e-03 1.164186e-03
+      Gene245 1.848077e-03 4.250402e-03 1.517949e-03
+      Gene247 1.627425e-04 2.748486e-04 1.336893e-04
+      Gene248 2.781412e-04 4.862062e-04 2.616901e-04
+      Gene338 2.251180e-03 3.384201e-03 1.394080e-03
+      Gene381 7.493326e-05 2.108562e-04 8.490687e-05
+      Gene387 4.665913e-04 7.754062e-04 4.587748e-04
+      Gene420 3.305255e-04 1.401647e-03 1.112220e-03
+      Gene428 1.216615e-03 1.334786e-03 3.552678e-04
+      Gene468 2.182269e-03 3.896759e-03 2.099992e-03
+      Gene56  9.940486e-05 1.434616e-04 3.673514e-04
+      Gene57  6.097620e-04 4.790134e-04 1.049048e-03
+      Gene64  8.912699e-04 6.229318e-04 1.452313e-03
+      Gene137 1.018877e-03 1.065565e-03 3.415108e-03
+      Gene169 6.998978e-04 1.230858e-03 1.818913e-03
+      Gene170 1.336590e-03 1.303949e-03 2.955510e-03
+      Gene178 7.393267e-05 6.043927e-05 1.777362e-04
+      Gene239 2.929177e-02 1.662179e-02 4.705598e-02
+      Gene282 1.728237e-04 1.704342e-04 2.871575e-04
+      Gene295 3.506082e-04 3.921595e-04 1.346606e-03
+      Gene319 2.289687e-03 2.530329e-03 5.384317e-03
+      Gene320 8.795655e-04 7.516488e-04 1.419269e-03
+      Gene326 5.933356e-04 5.949897e-04 1.279614e-03
+      Gene328 1.342676e-04 1.521628e-04 2.574732e-04
+      Gene477 9.831397e-04 1.376411e-03 2.259035e-03
+      Gene484 3.817142e-04 3.977850e-04 7.286164e-04
+      Gene490 9.126788e-04 8.912097e-04 2.094336e-03
       
       $cell_type_info[[2]]
       [1] "ct1" "ct2" "ct3"
@@ -100,1402 +102,1387 @@
       $results
       $results$results_df
                                              spot_class first_type second_type
-      ct1_plat1_TCAACCACTTGAAGGGTTCCCCAA        singlet        ct1         ct2
-      ct1_plat1_TCAACGACTTGAAGGGTTCCCCAA        singlet        ct1         ct3
-      ct2_plat1_TCAACTACTTGAAGGGTTCCCCAA        singlet        ct2         ct1
-      ct3_plat1_TCAACAACTTGCAGGGTTCCCCAA        singlet        ct3         ct1
-      ct2_plat1_TCAACCACTTGCAGGGTTCCCCAA        singlet        ct2         ct3
-      ct3_plat1_TCAACGACTTGCAGGGTTCCCCAA        singlet        ct3         ct1
-      ct3_plat1_TCAACTACTTGCAGGGTTCCCCAA        singlet        ct3         ct1
-      ct2_plat1_TCAACAACTTGGAGGGTTCCCCAA        singlet        ct2         ct1
-      ct2_plat1_TCAACCACTTGGAGGGTTCCCCAA        singlet        ct2         ct1
-      ct3_plat1_TCAACAAACTTAAAAGGGTTTCCCCAAA    singlet        ct3         ct1
-      ct1_plat1_TCAACACACTTAAAAGGGTTTCCCCAAA    singlet        ct1         ct2
-      ct3_plat1_TCAACAGACTTAAAAGGGTTTCCCCAAA    singlet        ct3         ct1
-      ct3_plat1_TCAACATACTTAAAAGGGTTTCCCCAAA    singlet        ct3         ct1
-      ct2_plat1_TCAACAAACTTAACAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct1_plat1_TCAACACACTTAACAGGGTTTCCCCAAA    singlet        ct1         ct3
+      ct3_plat1_TCAACCACTTGAAGGGTTCCCCAA        singlet        ct3         ct2
+      ct2_plat1_TCAACGACTTGAAGGGTTCCCCAA        singlet        ct2         ct1
+      ct2_plat1_TCAACTACTTGAAGGGTTCCCCAA        singlet        ct2         ct3
+      ct1_plat1_TCAACAACTTGCAGGGTTCCCCAA        singlet        ct1         ct2
+      ct2_plat1_TCAACCACTTGCAGGGTTCCCCAA        singlet        ct2         ct1
+      ct2_plat1_TCAACGACTTGCAGGGTTCCCCAA        singlet        ct2         ct1
+      ct1_plat1_TCAACTACTTGCAGGGTTCCCCAA        singlet        ct1         ct2
+      ct3_plat1_TCAACAACTTGGAGGGTTCCCCAA        singlet        ct3         ct1
+      ct1_plat1_TCAACCACTTGGAGGGTTCCCCAA        singlet        ct1         ct2
+      ct1_plat1_TCAACAAACTTAAAAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct1_plat1_TCAACACACTTAAAAGGGTTTCCCCAAA    singlet        ct1         ct3
+      ct2_plat1_TCAACAGACTTAAAAGGGTTTCCCCAAA    singlet        ct2         ct1
+      ct1_plat1_TCAACATACTTAAAAGGGTTTCCCCAAA    singlet        ct1         ct3
+      ct1_plat1_TCAACAAACTTAACAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct3_plat1_TCAACACACTTAACAGGGTTTCCCCAAA    singlet        ct3         ct1
       ct2_plat1_TCAACAGACTTAACAGGGTTTCCCCAAA    singlet        ct2         ct1
       ct2_plat1_TCAACATACTTAACAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct1_plat1_TCAACAAACTTAAGAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct2_plat1_TCAACAAACTTAAGAGGGTTTCCCCAAA    singlet        ct2         ct3
       ct1_plat1_TCAACACACTTAAGAGGGTTTCCCCAAA    singlet        ct1         ct3
-      ct3_plat1_TCAACCAACTTAAAAGGGTTTCCCCAAA    singlet        ct3         ct1
-      ct3_plat1_TCAACCCACTTAAAAGGGTTTCCCCAAA    singlet        ct3         ct1
+      ct3_plat1_TCAACCAACTTAAAAGGGTTTCCCCAAA    singlet        ct3         ct2
+      ct2_plat1_TCAACCCACTTAAAAGGGTTTCCCCAAA    singlet        ct2         ct3
       ct1_plat1_TCAACCGACTTAAAAGGGTTTCCCCAAA    singlet        ct1         ct3
       ct2_plat1_TCAACCTACTTAAAAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct1_plat1_TCAACCAACTTAACAGGGTTTCCCCAAA    singlet        ct1         ct3
-      ct1_plat1_TCAACCCACTTAACAGGGTTTCCCCAAA    singlet        ct1         ct3
-      ct1_plat1_TCAACCGACTTAACAGGGTTTCCCCAAA    singlet        ct1         ct3
-      ct2_plat1_TCAACCTACTTAACAGGGTTTCCCCAAA    singlet        ct2         ct3
-      ct3_plat1_TCAACCAACTTAAGAGGGTTTCCCCAAA    singlet        ct3         ct1
-      ct1_plat1_TCAACCCACTTAAGAGGGTTTCCCCAAA    singlet        ct1         ct3
-      ct3_plat1_TCAACGAACTTAAAAGGGTTTCCCCAAA    singlet        ct3         ct2
-      ct2_plat1_TCAACGCACTTAAAAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct1_plat1_TCAACGGACTTAAAAGGGTTTCCCCAAA    singlet        ct1         ct3
-      ct2_plat1_TCAACGTACTTAAAAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct1_plat1_TCAACGAACTTAACAGGGTTTCCCCAAA    singlet        ct1         ct2
-      ct1_plat1_TCAACGCACTTAACAGGGTTTCCCCAAA    singlet        ct1         ct2
-      ct2_plat1_TCAACGGACTTAACAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct2_plat1_TCAACGTACTTAACAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct3_plat1_TCAACGAACTTAAGAGGGTTTCCCCAAA    singlet        ct3         ct1
-      ct2_plat1_TCAACGCACTTAAGAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct2_plat1_TCAACTAACTTAAAAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct3_plat1_TCAACTCACTTAAAAGGGTTTCCCCAAA    singlet        ct3         ct2
-      ct2_plat1_TCAACTGACTTAAAAGGGTTTCCCCAAA    singlet        ct2         ct3
-      ct2_plat1_TCAACTTACTTAAAAGGGTTTCCCCAAA    singlet        ct2         ct3
+      ct2_plat1_TCAACCAACTTAACAGGGTTTCCCCAAA    singlet        ct2         ct1
+      ct1_plat1_TCAACCCACTTAACAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct3_plat1_TCAACCGACTTAACAGGGTTTCCCCAAA    singlet        ct3         ct2
+      ct3_plat1_TCAACCTACTTAACAGGGTTTCCCCAAA    singlet        ct3         ct1
+      ct2_plat1_TCAACCAACTTAAGAGGGTTTCCCCAAA    singlet        ct2         ct3
+      ct2_plat1_TCAACCCACTTAAGAGGGTTTCCCCAAA    singlet        ct2         ct1
+      ct1_plat1_TCAACGAACTTAAAAGGGTTTCCCCAAA    singlet        ct1         ct3
+      ct1_plat1_TCAACGCACTTAAAAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct2_plat1_TCAACGGACTTAAAAGGGTTTCCCCAAA    singlet        ct2         ct3
+      ct2_plat1_TCAACGTACTTAAAAGGGTTTCCCCAAA    singlet        ct2         ct3
+      ct3_plat1_TCAACGAACTTAACAGGGTTTCCCCAAA    singlet        ct3         ct1
+      ct3_plat1_TCAACGCACTTAACAGGGTTTCCCCAAA    singlet        ct3         ct2
+      ct2_plat1_TCAACGGACTTAACAGGGTTTCCCCAAA    singlet        ct2         ct3
+      ct3_plat1_TCAACGTACTTAACAGGGTTTCCCCAAA    singlet        ct3         ct2
+      ct3_plat1_TCAACGAACTTAAGAGGGTTTCCCCAAA    singlet        ct3         ct2
+      ct1_plat1_TCAACGCACTTAAGAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct1_plat1_TCAACTAACTTAAAAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct1_plat1_TCAACTCACTTAAAAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct1_plat1_TCAACTGACTTAAAAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct3_plat1_TCAACTTACTTAAAAGGGTTTCCCCAAA    singlet        ct3         ct1
       ct3_plat1_TCAACTAACTTAACAGGGTTTCCCCAAA    singlet        ct3         ct1
-      ct3_plat1_TCAACTCACTTAACAGGGTTTCCCCAAA    singlet        ct3         ct1
+      ct1_plat1_TCAACTCACTTAACAGGGTTTCCCCAAA    singlet        ct1         ct2
       ct1_plat1_TCAACTGACTTAACAGGGTTTCCCCAAA    singlet        ct1         ct2
-      ct2_plat1_TCAACTTACTTAACAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct1_plat1_TCAACTAACTTAAGAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct1_plat1_TCAACTTACTTAACAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct2_plat1_TCAACTAACTTAAGAGGGTTTCCCCAAA    singlet        ct2         ct1
       ct2_plat1_TCAACTCACTTAAGAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct2_plat1_TCAACAAACTTACAAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct3_plat1_TCAACACACTTACAAGGGTTTCCCCAAA    singlet        ct3         ct1
-      ct2_plat1_TCAACAGACTTACAAGGGTTTCCCCAAA    singlet        ct2         ct3
-      ct2_plat1_TCAACATACTTACAAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct2_plat1_TCAACAAACTTACCAGGGTTTCCCCAAA    singlet        ct2         ct3
-      ct2_plat1_TCAACACACTTACCAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct2_plat1_TCAACAGACTTACCAGGGTTTCCCCAAA    singlet        ct2         ct1
+      ct1_plat1_TCAACAAACTTACAAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct3_plat1_TCAACACACTTACAAGGGTTTCCCCAAA    singlet        ct3         ct2
+      ct1_plat1_TCAACAGACTTACAAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct1_plat1_TCAACATACTTACAAGGGTTTCCCCAAA    singlet        ct1         ct3
+      ct3_plat1_TCAACAAACTTACCAGGGTTTCCCCAAA    singlet        ct3         ct1
+      ct2_plat1_TCAACACACTTACCAGGGTTTCCCCAAA    singlet        ct2         ct3
+      ct2_plat1_TCAACAGACTTACCAGGGTTTCCCCAAA    singlet        ct2         ct3
       ct2_plat1_TCAACATACTTACCAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct2_plat1_TCAACAAACTTACGAGGGTTTCCCCAAA    singlet        ct2         ct3
-      ct1_plat1_TCAACACACTTACGAGGGTTTCCCCAAA    singlet        ct1         ct3
-      ct1_plat1_TCAACCAACTTACAAGGGTTTCCCCAAA    singlet        ct1         ct3
-      ct2_plat1_TCAACCCACTTACAAGGGTTTCCCCAAA    singlet        ct2         ct3
-      ct3_plat1_TCAACCGACTTACAAGGGTTTCCCCAAA    singlet        ct3         ct1
-      ct2_plat1_TCAACCTACTTACAAGGGTTTCCCCAAA    singlet        ct2         ct3
-      ct1_plat1_TCAACCAACTTACCAGGGTTTCCCCAAA    singlet        ct1         ct2
-      ct3_plat1_TCAACCCACTTACCAGGGTTTCCCCAAA    singlet        ct3         ct2
-      ct1_plat1_TCAACCGACTTACCAGGGTTTCCCCAAA    singlet        ct1         ct2
-      ct1_plat1_TCAACCTACTTACCAGGGTTTCCCCAAA    singlet        ct1         ct3
-      ct3_plat1_TCAACCAACTTACGAGGGTTTCCCCAAA    singlet        ct3         ct1
-      ct2_plat1_TCAACCCACTTACGAGGGTTTCCCCAAA    singlet        ct2         ct3
-      ct2_plat1_TCAACGAACTTACAAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct1_plat1_TCAACGCACTTACAAGGGTTTCCCCAAA    singlet        ct1         ct3
-      ct2_plat1_TCAACGGACTTACAAGGGTTTCCCCAAA    singlet        ct2         ct3
-      ct2_plat1_TCAACGTACTTACAAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct2_plat1_TCAACGAACTTACCAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct1_plat1_TCAACGCACTTACCAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct3_plat1_TCAACAAACTTACGAGGGTTTCCCCAAA    singlet        ct3         ct1
+      ct2_plat1_TCAACACACTTACGAGGGTTTCCCCAAA    singlet        ct2         ct3
+      ct2_plat1_TCAACCAACTTACAAGGGTTTCCCCAAA    singlet        ct2         ct3
+      ct2_plat1_TCAACCCACTTACAAGGGTTTCCCCAAA    singlet        ct2         ct1
+      ct2_plat1_TCAACCGACTTACAAGGGTTTCCCCAAA    singlet        ct2         ct1
+      ct3_plat1_TCAACCTACTTACAAGGGTTTCCCCAAA    singlet        ct3         ct2
+      ct3_plat1_TCAACCAACTTACCAGGGTTTCCCCAAA    singlet        ct3         ct2
+      ct2_plat1_TCAACCCACTTACCAGGGTTTCCCCAAA    singlet        ct2         ct1
+      ct3_plat1_TCAACCGACTTACCAGGGTTTCCCCAAA    singlet        ct3         ct2
+      ct3_plat1_TCAACCTACTTACCAGGGTTTCCCCAAA    singlet        ct3         ct1
+      ct2_plat1_TCAACCAACTTACGAGGGTTTCCCCAAA    singlet        ct2         ct1
+      ct1_plat1_TCAACCCACTTACGAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct3_plat1_TCAACGAACTTACAAGGGTTTCCCCAAA    singlet        ct3         ct1
+      ct1_plat1_TCAACGCACTTACAAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct1_plat1_TCAACGGACTTACAAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct1_plat1_TCAACGTACTTACAAGGGTTTCCCCAAA    singlet        ct1         ct3
+      ct1_plat1_TCAACGAACTTACCAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct2_plat1_TCAACGCACTTACCAGGGTTTCCCCAAA    singlet        ct2         ct3
       ct2_plat1_TCAACGGACTTACCAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct3_plat1_TCAACGTACTTACCAGGGTTTCCCCAAA    singlet        ct3         ct1
-      ct2_plat1_TCAACGAACTTACGAGGGTTTCCCCAAA    singlet        ct2         ct3
-      ct1_plat1_TCAACGCACTTACGAGGGTTTCCCCAAA    singlet        ct1         ct2
-      ct3_plat1_TCAACTAACTTACAAGGGTTTCCCCAAA    singlet        ct3         ct1
+      ct2_plat1_TCAACGTACTTACCAGGGTTTCCCCAAA    singlet        ct2         ct1
+      ct3_plat1_TCAACGAACTTACGAGGGTTTCCCCAAA    singlet        ct3         ct1
+      ct2_plat1_TCAACGCACTTACGAGGGTTTCCCCAAA    singlet        ct2         ct1
+      ct1_plat1_TCAACTAACTTACAAGGGTTTCCCCAAA    singlet        ct1         ct2
       ct3_plat1_TCAACTCACTTACAAGGGTTTCCCCAAA    singlet        ct3         ct1
-      ct2_plat1_TCAACTGACTTACAAGGGTTTCCCCAAA    singlet        ct2         ct3
-      ct1_plat1_TCAACTTACTTACAAGGGTTTCCCCAAA    singlet        ct1         ct3
+      ct2_plat1_TCAACTGACTTACAAGGGTTTCCCCAAA    singlet        ct2         ct1
+      ct3_plat1_TCAACTTACTTACAAGGGTTTCCCCAAA    singlet        ct3         ct2
       ct3_plat1_TCAACTAACTTACCAGGGTTTCCCCAAA    singlet        ct3         ct1
       ct1_plat1_TCAACTCACTTACCAGGGTTTCCCCAAA    singlet        ct1         ct2
-      ct3_plat1_TCAACTGACTTACCAGGGTTTCCCCAAA    singlet        ct3         ct1
-      ct2_plat1_TCAACTTACTTACCAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct2_plat1_TCAACTAACTTACGAGGGTTTCCCCAAA    singlet        ct2         ct1
-      ct1_plat1_TCAACTCACTTACGAGGGTTTCCCCAAA    singlet        ct1         ct3
-      ct3_plat1_TCAACAAACTTAGAAGGGTTTCCCCAAA    singlet        ct3         ct1
+      ct2_plat1_TCAACTGACTTACCAGGGTTTCCCCAAA    singlet        ct2         ct1
+      ct1_plat1_TCAACTTACTTACCAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct1_plat1_TCAACTAACTTACGAGGGTTTCCCCAAA    singlet        ct1         ct2
+      ct2_plat1_TCAACTCACTTACGAGGGTTTCCCCAAA    singlet        ct2         ct1
+      ct2_plat1_TCAACAAACTTAGAAGGGTTTCCCCAAA    singlet        ct2         ct3
                                              first_class second_class min_score
-      ct1_plat1_TCAACCACTTGAAGGGTTCCCCAA           FALSE        FALSE  82.10106
-      ct1_plat1_TCAACGACTTGAAGGGTTCCCCAA           FALSE        FALSE  85.39892
-      ct2_plat1_TCAACTACTTGAAGGGTTCCCCAA           FALSE        FALSE  94.48602
-      ct3_plat1_TCAACAACTTGCAGGGTTCCCCAA           FALSE        FALSE  93.69724
-      ct2_plat1_TCAACCACTTGCAGGGTTCCCCAA           FALSE        FALSE  91.80180
-      ct3_plat1_TCAACGACTTGCAGGGTTCCCCAA           FALSE        FALSE  78.52044
-      ct3_plat1_TCAACTACTTGCAGGGTTCCCCAA           FALSE        FALSE  84.45213
-      ct2_plat1_TCAACAACTTGGAGGGTTCCCCAA           FALSE        FALSE  86.17209
-      ct2_plat1_TCAACCACTTGGAGGGTTCCCCAA           FALSE        FALSE  85.14083
-      ct3_plat1_TCAACAAACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  88.28728
-      ct1_plat1_TCAACACACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  83.05036
-      ct3_plat1_TCAACAGACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  90.17287
-      ct3_plat1_TCAACATACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  83.88201
-      ct2_plat1_TCAACAAACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  85.99425
-      ct1_plat1_TCAACACACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  92.57040
-      ct2_plat1_TCAACAGACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  79.41871
-      ct2_plat1_TCAACATACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  80.62201
-      ct1_plat1_TCAACAAACTTAAGAGGGTTTCCCCAAA       FALSE        FALSE  87.30538
-      ct1_plat1_TCAACACACTTAAGAGGGTTTCCCCAAA       FALSE        FALSE  78.62308
-      ct3_plat1_TCAACCAACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  90.19530
-      ct3_plat1_TCAACCCACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  75.74167
-      ct1_plat1_TCAACCGACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  82.47680
-      ct2_plat1_TCAACCTACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  91.92867
-      ct1_plat1_TCAACCAACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  82.10051
-      ct1_plat1_TCAACCCACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  80.84147
-      ct1_plat1_TCAACCGACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  90.86972
-      ct2_plat1_TCAACCTACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  86.13530
-      ct3_plat1_TCAACCAACTTAAGAGGGTTTCCCCAAA       FALSE        FALSE  83.16249
-      ct1_plat1_TCAACCCACTTAAGAGGGTTTCCCCAAA       FALSE        FALSE  85.61245
-      ct3_plat1_TCAACGAACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  90.05406
-      ct2_plat1_TCAACGCACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  96.78509
-      ct1_plat1_TCAACGGACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  83.12887
-      ct2_plat1_TCAACGTACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  88.56952
-      ct1_plat1_TCAACGAACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  78.35958
-      ct1_plat1_TCAACGCACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  87.86300
-      ct2_plat1_TCAACGGACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  93.10194
-      ct2_plat1_TCAACGTACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  85.37273
-      ct3_plat1_TCAACGAACTTAAGAGGGTTTCCCCAAA       FALSE        FALSE  87.67024
-      ct2_plat1_TCAACGCACTTAAGAGGGTTTCCCCAAA       FALSE        FALSE  88.50987
-      ct2_plat1_TCAACTAACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  78.15500
-      ct3_plat1_TCAACTCACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  86.22426
-      ct2_plat1_TCAACTGACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  88.43116
-      ct2_plat1_TCAACTTACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  79.28628
-      ct3_plat1_TCAACTAACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  98.58484
-      ct3_plat1_TCAACTCACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  90.64534
-      ct1_plat1_TCAACTGACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  92.16620
-      ct2_plat1_TCAACTTACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  88.33100
-      ct1_plat1_TCAACTAACTTAAGAGGGTTTCCCCAAA       FALSE        FALSE  78.74709
-      ct2_plat1_TCAACTCACTTAAGAGGGTTTCCCCAAA       FALSE        FALSE  90.45789
-      ct2_plat1_TCAACAAACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  80.51497
-      ct3_plat1_TCAACACACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  88.86225
-      ct2_plat1_TCAACAGACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  73.05441
-      ct2_plat1_TCAACATACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  95.49470
-      ct2_plat1_TCAACAAACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  79.54342
-      ct2_plat1_TCAACACACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  77.57171
-      ct2_plat1_TCAACAGACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  82.96550
-      ct2_plat1_TCAACATACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  90.18310
-      ct2_plat1_TCAACAAACTTACGAGGGTTTCCCCAAA       FALSE        FALSE  76.36833
-      ct1_plat1_TCAACACACTTACGAGGGTTTCCCCAAA       FALSE        FALSE  85.15567
-      ct1_plat1_TCAACCAACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  84.14216
-      ct2_plat1_TCAACCCACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  82.34758
-      ct3_plat1_TCAACCGACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  87.83425
-      ct2_plat1_TCAACCTACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  76.99584
-      ct1_plat1_TCAACCAACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  79.37208
-      ct3_plat1_TCAACCCACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  83.14799
-      ct1_plat1_TCAACCGACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  84.38084
-      ct1_plat1_TCAACCTACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  82.90150
-      ct3_plat1_TCAACCAACTTACGAGGGTTTCCCCAAA       FALSE        FALSE  78.07002
-      ct2_plat1_TCAACCCACTTACGAGGGTTTCCCCAAA       FALSE        FALSE  82.82103
-      ct2_plat1_TCAACGAACTTACAAGGGTTTCCCCAAA       FALSE        FALSE 100.11635
-      ct1_plat1_TCAACGCACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  82.27107
-      ct2_plat1_TCAACGGACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  86.79665
-      ct2_plat1_TCAACGTACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  84.15128
-      ct2_plat1_TCAACGAACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  88.53016
-      ct1_plat1_TCAACGCACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  81.18663
-      ct2_plat1_TCAACGGACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  83.51451
-      ct3_plat1_TCAACGTACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  95.80939
-      ct2_plat1_TCAACGAACTTACGAGGGTTTCCCCAAA       FALSE        FALSE  82.20834
-      ct1_plat1_TCAACGCACTTACGAGGGTTTCCCCAAA       FALSE        FALSE  80.69524
-      ct3_plat1_TCAACTAACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  88.54273
-      ct3_plat1_TCAACTCACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  80.02398
-      ct2_plat1_TCAACTGACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  91.62053
-      ct1_plat1_TCAACTTACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  91.15620
-      ct3_plat1_TCAACTAACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  87.40561
-      ct1_plat1_TCAACTCACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  80.65295
-      ct3_plat1_TCAACTGACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  80.20282
-      ct2_plat1_TCAACTTACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  80.37147
-      ct2_plat1_TCAACTAACTTACGAGGGTTTCCCCAAA       FALSE        FALSE  89.11900
-      ct1_plat1_TCAACTCACTTACGAGGGTTTCCCCAAA       FALSE        FALSE  85.34489
-      ct3_plat1_TCAACAAACTTAGAAGGGTTTCCCCAAA       FALSE        FALSE  83.56852
+      ct3_plat1_TCAACCACTTGAAGGGTTCCCCAA           FALSE        FALSE  94.14270
+      ct2_plat1_TCAACGACTTGAAGGGTTCCCCAA           FALSE        FALSE 108.33229
+      ct2_plat1_TCAACTACTTGAAGGGTTCCCCAA           FALSE        FALSE 104.44484
+      ct1_plat1_TCAACAACTTGCAGGGTTCCCCAA           FALSE        FALSE 103.77375
+      ct2_plat1_TCAACCACTTGCAGGGTTCCCCAA           FALSE        FALSE 103.34539
+      ct2_plat1_TCAACGACTTGCAGGGTTCCCCAA           FALSE        FALSE 104.98953
+      ct1_plat1_TCAACTACTTGCAGGGTTCCCCAA           FALSE        FALSE 104.83247
+      ct3_plat1_TCAACAACTTGGAGGGTTCCCCAA           FALSE        FALSE 100.02625
+      ct1_plat1_TCAACCACTTGGAGGGTTCCCCAA           FALSE        FALSE 107.05876
+      ct1_plat1_TCAACAAACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  97.34125
+      ct1_plat1_TCAACACACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE 100.77377
+      ct2_plat1_TCAACAGACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE 106.47192
+      ct1_plat1_TCAACATACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  98.82120
+      ct1_plat1_TCAACAAACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  93.78725
+      ct3_plat1_TCAACACACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  93.00009
+      ct2_plat1_TCAACAGACTTAACAGGGTTTCCCCAAA       FALSE        FALSE 105.61724
+      ct2_plat1_TCAACATACTTAACAGGGTTTCCCCAAA       FALSE        FALSE 101.67968
+      ct2_plat1_TCAACAAACTTAAGAGGGTTTCCCCAAA       FALSE        FALSE 102.53164
+      ct1_plat1_TCAACACACTTAAGAGGGTTTCCCCAAA       FALSE        FALSE 107.33869
+      ct3_plat1_TCAACCAACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  97.40789
+      ct2_plat1_TCAACCCACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE 114.62903
+      ct1_plat1_TCAACCGACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE 101.86432
+      ct2_plat1_TCAACCTACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE 108.31104
+      ct2_plat1_TCAACCAACTTAACAGGGTTTCCCCAAA       FALSE        FALSE 102.60316
+      ct1_plat1_TCAACCCACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  93.58829
+      ct3_plat1_TCAACCGACTTAACAGGGTTTCCCCAAA       FALSE        FALSE 103.26665
+      ct3_plat1_TCAACCTACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  93.93885
+      ct2_plat1_TCAACCAACTTAAGAGGGTTTCCCCAAA       FALSE        FALSE 101.99824
+      ct2_plat1_TCAACCCACTTAAGAGGGTTTCCCCAAA       FALSE        FALSE 107.14059
+      ct1_plat1_TCAACGAACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE 103.95430
+      ct1_plat1_TCAACGCACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  99.69680
+      ct2_plat1_TCAACGGACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE 101.73773
+      ct2_plat1_TCAACGTACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE 123.45384
+      ct3_plat1_TCAACGAACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  87.89434
+      ct3_plat1_TCAACGCACTTAACAGGGTTTCCCCAAA       FALSE        FALSE 101.32798
+      ct2_plat1_TCAACGGACTTAACAGGGTTTCCCCAAA       FALSE        FALSE 107.49139
+      ct3_plat1_TCAACGTACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  92.62579
+      ct3_plat1_TCAACGAACTTAAGAGGGTTTCCCCAAA       FALSE        FALSE 100.75058
+      ct1_plat1_TCAACGCACTTAAGAGGGTTTCCCCAAA       FALSE        FALSE  97.53771
+      ct1_plat1_TCAACTAACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE 102.18510
+      ct1_plat1_TCAACTCACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE 100.69750
+      ct1_plat1_TCAACTGACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE 118.60387
+      ct3_plat1_TCAACTTACTTAAAAGGGTTTCCCCAAA       FALSE        FALSE  98.92744
+      ct3_plat1_TCAACTAACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  98.22694
+      ct1_plat1_TCAACTCACTTAACAGGGTTTCCCCAAA       FALSE        FALSE  96.09425
+      ct1_plat1_TCAACTGACTTAACAGGGTTTCCCCAAA       FALSE        FALSE 101.13639
+      ct1_plat1_TCAACTTACTTAACAGGGTTTCCCCAAA       FALSE        FALSE 101.93501
+      ct2_plat1_TCAACTAACTTAAGAGGGTTTCCCCAAA       FALSE        FALSE 103.40414
+      ct2_plat1_TCAACTCACTTAAGAGGGTTTCCCCAAA       FALSE        FALSE  97.56612
+      ct1_plat1_TCAACAAACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  95.38117
+      ct3_plat1_TCAACACACTTACAAGGGTTTCCCCAAA       FALSE        FALSE 110.12489
+      ct1_plat1_TCAACAGACTTACAAGGGTTTCCCCAAA       FALSE        FALSE 109.61240
+      ct1_plat1_TCAACATACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  97.36584
+      ct3_plat1_TCAACAAACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  95.49315
+      ct2_plat1_TCAACACACTTACCAGGGTTTCCCCAAA       FALSE        FALSE 100.21566
+      ct2_plat1_TCAACAGACTTACCAGGGTTTCCCCAAA       FALSE        FALSE 102.76659
+      ct2_plat1_TCAACATACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  95.96663
+      ct3_plat1_TCAACAAACTTACGAGGGTTTCCCCAAA       FALSE        FALSE  95.26669
+      ct2_plat1_TCAACACACTTACGAGGGTTTCCCCAAA       FALSE        FALSE 100.59955
+      ct2_plat1_TCAACCAACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  97.86006
+      ct2_plat1_TCAACCCACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  99.47101
+      ct2_plat1_TCAACCGACTTACAAGGGTTTCCCCAAA       FALSE        FALSE 112.31981
+      ct3_plat1_TCAACCTACTTACAAGGGTTTCCCCAAA       FALSE        FALSE 101.68070
+      ct3_plat1_TCAACCAACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  94.66805
+      ct2_plat1_TCAACCCACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  89.61558
+      ct3_plat1_TCAACCGACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  98.64397
+      ct3_plat1_TCAACCTACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  92.59386
+      ct2_plat1_TCAACCAACTTACGAGGGTTTCCCCAAA       FALSE        FALSE  93.12983
+      ct1_plat1_TCAACCCACTTACGAGGGTTTCCCCAAA       FALSE        FALSE  98.30896
+      ct3_plat1_TCAACGAACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  95.60815
+      ct1_plat1_TCAACGCACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  98.37481
+      ct1_plat1_TCAACGGACTTACAAGGGTTTCCCCAAA       FALSE        FALSE 101.41927
+      ct1_plat1_TCAACGTACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  95.46425
+      ct1_plat1_TCAACGAACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  97.08951
+      ct2_plat1_TCAACGCACTTACCAGGGTTTCCCCAAA       FALSE        FALSE 105.41024
+      ct2_plat1_TCAACGGACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  98.52669
+      ct2_plat1_TCAACGTACTTACCAGGGTTTCCCCAAA       FALSE        FALSE 104.83388
+      ct3_plat1_TCAACGAACTTACGAGGGTTTCCCCAAA       FALSE        FALSE  99.58600
+      ct2_plat1_TCAACGCACTTACGAGGGTTTCCCCAAA       FALSE        FALSE 101.93476
+      ct1_plat1_TCAACTAACTTACAAGGGTTTCCCCAAA       FALSE        FALSE 108.15664
+      ct3_plat1_TCAACTCACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  99.23851
+      ct2_plat1_TCAACTGACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  99.14864
+      ct3_plat1_TCAACTTACTTACAAGGGTTTCCCCAAA       FALSE        FALSE  97.64878
+      ct3_plat1_TCAACTAACTTACCAGGGTTTCCCCAAA       FALSE        FALSE  95.19022
+      ct1_plat1_TCAACTCACTTACCAGGGTTTCCCCAAA       FALSE        FALSE 113.99469
+      ct2_plat1_TCAACTGACTTACCAGGGTTTCCCCAAA       FALSE        FALSE 108.35049
+      ct1_plat1_TCAACTTACTTACCAGGGTTTCCCCAAA       FALSE        FALSE 101.85295
+      ct1_plat1_TCAACTAACTTACGAGGGTTTCCCCAAA       FALSE        FALSE  98.81731
+      ct2_plat1_TCAACTCACTTACGAGGGTTTCCCCAAA       FALSE        FALSE 103.42851
+      ct2_plat1_TCAACAAACTTAGAAGGGTTTCCCCAAA       FALSE        FALSE 102.21435
                                              singlet_score conv_all conv_doublet
-      ct1_plat1_TCAACCACTTGAAGGGTTCCCCAA          82.08828     TRUE         TRUE
-      ct1_plat1_TCAACGACTTGAAGGGTTCCCCAA          87.47440     TRUE         TRUE
-      ct2_plat1_TCAACTACTTGAAGGGTTCCCCAA          94.43453     TRUE         TRUE
-      ct3_plat1_TCAACAACTTGCAGGGTTCCCCAA          94.73159     TRUE         TRUE
-      ct2_plat1_TCAACCACTTGCAGGGTTCCCCAA          92.86230     TRUE         TRUE
-      ct3_plat1_TCAACGACTTGCAGGGTTCCCCAA          79.10380     TRUE         TRUE
-      ct3_plat1_TCAACTACTTGCAGGGTTCCCCAA          84.45328     TRUE         TRUE
-      ct2_plat1_TCAACAACTTGGAGGGTTCCCCAA          85.26842     TRUE         TRUE
-      ct2_plat1_TCAACCACTTGGAGGGTTCCCCAA          84.53157     TRUE         TRUE
-      ct3_plat1_TCAACAAACTTAAAAGGGTTTCCCCAAA      88.28538     TRUE         TRUE
-      ct1_plat1_TCAACACACTTAAAAGGGTTTCCCCAAA      83.02528     TRUE         TRUE
-      ct3_plat1_TCAACAGACTTAAAAGGGTTTCCCCAAA      90.23559     TRUE         TRUE
-      ct3_plat1_TCAACATACTTAAAAGGGTTTCCCCAAA      83.87019     TRUE         TRUE
-      ct2_plat1_TCAACAAACTTAACAGGGTTTCCCCAAA      85.09558     TRUE         TRUE
-      ct1_plat1_TCAACACACTTAACAGGGTTTCCCCAAA      92.54072     TRUE         TRUE
-      ct2_plat1_TCAACAGACTTAACAGGGTTTCCCCAAA      78.65033     TRUE         TRUE
-      ct2_plat1_TCAACATACTTAACAGGGTTTCCCCAAA      80.28978     TRUE         TRUE
-      ct1_plat1_TCAACAAACTTAAGAGGGTTTCCCCAAA      88.65374     TRUE         TRUE
-      ct1_plat1_TCAACACACTTAAGAGGGTTTCCCCAAA      78.66003     TRUE         TRUE
-      ct3_plat1_TCAACCAACTTAAAAGGGTTTCCCCAAA      90.17639     TRUE         TRUE
-      ct3_plat1_TCAACCCACTTAAAAGGGTTTCCCCAAA      76.13531     TRUE         TRUE
-      ct1_plat1_TCAACCGACTTAAAAGGGTTTCCCCAAA      82.87586     TRUE         TRUE
-      ct2_plat1_TCAACCTACTTAAAAGGGTTTCCCCAAA      90.60927     TRUE         TRUE
-      ct1_plat1_TCAACCAACTTAACAGGGTTTCCCCAAA      83.83995     TRUE         TRUE
-      ct1_plat1_TCAACCCACTTAACAGGGTTTCCCCAAA      81.53956     TRUE         TRUE
-      ct1_plat1_TCAACCGACTTAACAGGGTTTCCCCAAA      90.82250     TRUE         TRUE
-      ct2_plat1_TCAACCTACTTAACAGGGTTTCCCCAAA      85.76547     TRUE         TRUE
-      ct3_plat1_TCAACCAACTTAAGAGGGTTTCCCCAAA      83.14757     TRUE         TRUE
-      ct1_plat1_TCAACCCACTTAAGAGGGTTTCCCCAAA      85.88342     TRUE         TRUE
-      ct3_plat1_TCAACGAACTTAAAAGGGTTTCCCCAAA      90.36133     TRUE         TRUE
-      ct2_plat1_TCAACGCACTTAAAAGGGTTTCCCCAAA      95.63559     TRUE         TRUE
-      ct1_plat1_TCAACGGACTTAAAAGGGTTTCCCCAAA      83.38531     TRUE         TRUE
-      ct2_plat1_TCAACGTACTTAAAAGGGTTTCCCCAAA      87.60179     TRUE         TRUE
-      ct1_plat1_TCAACGAACTTAACAGGGTTTCCCCAAA      80.16647     TRUE         TRUE
-      ct1_plat1_TCAACGCACTTAACAGGGTTTCCCCAAA      87.85164     TRUE         TRUE
-      ct2_plat1_TCAACGGACTTAACAGGGTTTCCCCAAA      93.87213     TRUE         TRUE
-      ct2_plat1_TCAACGTACTTAACAGGGTTTCCCCAAA      84.60269     TRUE         TRUE
-      ct3_plat1_TCAACGAACTTAAGAGGGTTTCCCCAAA      89.38639     TRUE         TRUE
-      ct2_plat1_TCAACGCACTTAAGAGGGTTTCCCCAAA      87.77829     TRUE         TRUE
-      ct2_plat1_TCAACTAACTTAAAAGGGTTTCCCCAAA      78.05308     TRUE         TRUE
-      ct3_plat1_TCAACTCACTTAAAAGGGTTTCCCCAAA      86.23863     TRUE         TRUE
-      ct2_plat1_TCAACTGACTTAAAAGGGTTTCCCCAAA      87.76028     TRUE         TRUE
-      ct2_plat1_TCAACTTACTTAAAAGGGTTTCCCCAAA      79.23955     TRUE         TRUE
-      ct3_plat1_TCAACTAACTTAACAGGGTTTCCCCAAA      98.86915     TRUE         TRUE
-      ct3_plat1_TCAACTCACTTAACAGGGTTTCCCCAAA      90.63924     TRUE         TRUE
-      ct1_plat1_TCAACTGACTTAACAGGGTTTCCCCAAA      93.24355     TRUE         TRUE
-      ct2_plat1_TCAACTTACTTAACAGGGTTTCCCCAAA      87.59029     TRUE         TRUE
-      ct1_plat1_TCAACTAACTTAAGAGGGTTTCCCCAAA      78.72301     TRUE         TRUE
-      ct2_plat1_TCAACTCACTTAAGAGGGTTTCCCCAAA      89.80187     TRUE         TRUE
-      ct2_plat1_TCAACAAACTTACAAGGGTTTCCCCAAA      80.88388     TRUE         TRUE
-      ct3_plat1_TCAACACACTTACAAGGGTTTCCCCAAA      88.84472     TRUE         TRUE
-      ct2_plat1_TCAACAGACTTACAAGGGTTTCCCCAAA      72.70385     TRUE         TRUE
-      ct2_plat1_TCAACATACTTACAAGGGTTTCCCCAAA      96.86120     TRUE         TRUE
-      ct2_plat1_TCAACAAACTTACCAGGGTTTCCCCAAA      79.15337     TRUE         TRUE
-      ct2_plat1_TCAACACACTTACCAGGGTTTCCCCAAA      77.24623     TRUE         TRUE
-      ct2_plat1_TCAACAGACTTACCAGGGTTTCCCCAAA      82.86075     TRUE         TRUE
-      ct2_plat1_TCAACATACTTACCAGGGTTTCCCCAAA      89.50938     TRUE         TRUE
-      ct2_plat1_TCAACAAACTTACGAGGGTTTCCCCAAA      77.52018     TRUE         TRUE
-      ct1_plat1_TCAACACACTTACGAGGGTTTCCCCAAA      85.79563     TRUE         TRUE
-      ct1_plat1_TCAACCAACTTACAAGGGTTTCCCCAAA      85.13501     TRUE         TRUE
-      ct2_plat1_TCAACCCACTTACAAGGGTTTCCCCAAA      82.55386     TRUE         TRUE
-      ct3_plat1_TCAACCGACTTACAAGGGTTTCCCCAAA      87.82992     TRUE         TRUE
-      ct2_plat1_TCAACCTACTTACAAGGGTTTCCCCAAA      76.34574     TRUE         TRUE
-      ct1_plat1_TCAACCAACTTACCAGGGTTTCCCCAAA      79.37232     TRUE         TRUE
-      ct3_plat1_TCAACCCACTTACCAGGGTTTCCCCAAA      83.19416     TRUE         TRUE
-      ct1_plat1_TCAACCGACTTACCAGGGTTTCCCCAAA      84.37146     TRUE         TRUE
-      ct1_plat1_TCAACCTACTTACCAGGGTTTCCCCAAA      82.92627     TRUE         TRUE
-      ct3_plat1_TCAACCAACTTACGAGGGTTTCCCCAAA      79.39073     TRUE         TRUE
-      ct2_plat1_TCAACCCACTTACGAGGGTTTCCCCAAA      82.09230     TRUE         TRUE
-      ct2_plat1_TCAACGAACTTACAAGGGTTTCCCCAAA      97.93225     TRUE         TRUE
-      ct1_plat1_TCAACGCACTTACAAGGGTTTCCCCAAA      85.07457     TRUE         TRUE
-      ct2_plat1_TCAACGGACTTACAAGGGTTTCCCCAAA      85.56018     TRUE         TRUE
-      ct2_plat1_TCAACGTACTTACAAGGGTTTCCCCAAA      84.79526     TRUE         TRUE
-      ct2_plat1_TCAACGAACTTACCAGGGTTTCCCCAAA      89.75373     TRUE         TRUE
-      ct1_plat1_TCAACGCACTTACCAGGGTTTCCCCAAA      81.18127     TRUE         TRUE
-      ct2_plat1_TCAACGGACTTACCAGGGTTTCCCCAAA      83.49669     TRUE         TRUE
-      ct3_plat1_TCAACGTACTTACCAGGGTTTCCCCAAA      95.79824     TRUE         TRUE
-      ct2_plat1_TCAACGAACTTACGAGGGTTTCCCCAAA      84.62313     TRUE         TRUE
-      ct1_plat1_TCAACGCACTTACGAGGGTTTCCCCAAA      83.02813     TRUE         TRUE
-      ct3_plat1_TCAACTAACTTACAAGGGTTTCCCCAAA      88.61961     TRUE         TRUE
-      ct3_plat1_TCAACTCACTTACAAGGGTTTCCCCAAA      80.00807     TRUE         TRUE
-      ct2_plat1_TCAACTGACTTACAAGGGTTTCCCCAAA      90.49587     TRUE         TRUE
-      ct1_plat1_TCAACTTACTTACAAGGGTTTCCCCAAA      94.76760     TRUE         TRUE
-      ct3_plat1_TCAACTAACTTACCAGGGTTTCCCCAAA      87.40384     TRUE         TRUE
-      ct1_plat1_TCAACTCACTTACCAGGGTTTCCCCAAA      80.63767     TRUE         TRUE
-      ct3_plat1_TCAACTGACTTACCAGGGTTTCCCCAAA      80.98885     TRUE         TRUE
-      ct2_plat1_TCAACTTACTTACCAGGGTTTCCCCAAA      79.93322     TRUE         TRUE
-      ct2_plat1_TCAACTAACTTACGAGGGTTTCCCCAAA      88.68966     TRUE         TRUE
-      ct1_plat1_TCAACTCACTTACGAGGGTTTCCCCAAA      85.43183     TRUE         TRUE
-      ct3_plat1_TCAACAAACTTAGAAGGGTTTCCCCAAA      83.56322     TRUE         TRUE
+      ct3_plat1_TCAACCACTTGAAGGGTTCCCCAA          94.41536     TRUE         TRUE
+      ct2_plat1_TCAACGACTTGAAGGGTTCCCCAA         108.32559     TRUE         TRUE
+      ct2_plat1_TCAACTACTTGAAGGGTTCCCCAA         106.31778     TRUE         TRUE
+      ct1_plat1_TCAACAACTTGCAGGGTTCCCCAA         104.08429     TRUE         TRUE
+      ct2_plat1_TCAACCACTTGCAGGGTTCCCCAA         103.57339     TRUE         TRUE
+      ct2_plat1_TCAACGACTTGCAGGGTTCCCCAA         104.99984     TRUE         TRUE
+      ct1_plat1_TCAACTACTTGCAGGGTTCCCCAA         105.16765     TRUE         TRUE
+      ct3_plat1_TCAACAACTTGGAGGGTTCCCCAA         100.00331     TRUE         TRUE
+      ct1_plat1_TCAACCACTTGGAGGGTTCCCCAA         107.05406     TRUE         TRUE
+      ct1_plat1_TCAACAAACTTAAAAGGGTTTCCCCAAA      97.34932     TRUE         TRUE
+      ct1_plat1_TCAACACACTTAAAAGGGTTTCCCCAAA     101.03165     TRUE         TRUE
+      ct2_plat1_TCAACAGACTTAAAAGGGTTTCCCCAAA     108.22115     TRUE         TRUE
+      ct1_plat1_TCAACATACTTAAAAGGGTTTCCCCAAA      99.81870     TRUE         TRUE
+      ct1_plat1_TCAACAAACTTAACAGGGTTTCCCCAAA      94.01733     TRUE         TRUE
+      ct3_plat1_TCAACACACTTAACAGGGTTTCCCCAAA      93.14185     TRUE         TRUE
+      ct2_plat1_TCAACAGACTTAACAGGGTTTCCCCAAA     105.61731     TRUE         TRUE
+      ct2_plat1_TCAACATACTTAACAGGGTTTCCCCAAA     101.86770     TRUE         TRUE
+      ct2_plat1_TCAACAAACTTAAGAGGGTTTCCCCAAA     102.80159     TRUE         TRUE
+      ct1_plat1_TCAACACACTTAAGAGGGTTTCCCCAAA     107.42822     TRUE         TRUE
+      ct3_plat1_TCAACCAACTTAAAAGGGTTTCCCCAAA      98.27990     TRUE         TRUE
+      ct2_plat1_TCAACCCACTTAAAAGGGTTTCCCCAAA     114.65629     TRUE         TRUE
+      ct1_plat1_TCAACCGACTTAAAAGGGTTTCCCCAAA     101.92434     TRUE         TRUE
+      ct2_plat1_TCAACCTACTTAAAAGGGTTTCCCCAAA     108.30428     TRUE         TRUE
+      ct2_plat1_TCAACCAACTTAACAGGGTTTCCCCAAA     102.59668     TRUE         TRUE
+      ct1_plat1_TCAACCCACTTAACAGGGTTTCCCCAAA      94.44101     TRUE         TRUE
+      ct3_plat1_TCAACCGACTTAACAGGGTTTCCCCAAA     103.37183     TRUE         TRUE
+      ct3_plat1_TCAACCTACTTAACAGGGTTTCCCCAAA      93.94201     TRUE         TRUE
+      ct2_plat1_TCAACCAACTTAAGAGGGTTTCCCCAAA     102.03657     TRUE         TRUE
+      ct2_plat1_TCAACCCACTTAAGAGGGTTTCCCCAAA     107.15420     TRUE         TRUE
+      ct1_plat1_TCAACGAACTTAAAAGGGTTTCCCCAAA     104.49948     TRUE         TRUE
+      ct1_plat1_TCAACGCACTTAAAAGGGTTTCCCCAAA      99.75022     TRUE         TRUE
+      ct2_plat1_TCAACGGACTTAAAAGGGTTTCCCCAAA     102.53050     TRUE         TRUE
+      ct2_plat1_TCAACGTACTTAAAAGGGTTTCCCCAAA     123.84853     TRUE         TRUE
+      ct3_plat1_TCAACGAACTTAACAGGGTTTCCCCAAA      87.88787     TRUE         TRUE
+      ct3_plat1_TCAACGCACTTAACAGGGTTTCCCCAAA     103.65800     TRUE         TRUE
+      ct2_plat1_TCAACGGACTTAACAGGGTTTCCCCAAA     107.85403     TRUE         TRUE
+      ct3_plat1_TCAACGTACTTAACAGGGTTTCCCCAAA      93.14293     TRUE         TRUE
+      ct3_plat1_TCAACGAACTTAAGAGGGTTTCCCCAAA     101.05978     TRUE         TRUE
+      ct1_plat1_TCAACGCACTTAAGAGGGTTTCCCCAAA      97.83303     TRUE         TRUE
+      ct1_plat1_TCAACTAACTTAAAAGGGTTTCCCCAAA     102.70546     TRUE         TRUE
+      ct1_plat1_TCAACTCACTTAAAAGGGTTTCCCCAAA     101.20018     TRUE         TRUE
+      ct1_plat1_TCAACTGACTTAAAAGGGTTTCCCCAAA     118.71643     TRUE         TRUE
+      ct3_plat1_TCAACTTACTTAAAAGGGTTTCCCCAAA      98.91921     TRUE         TRUE
+      ct3_plat1_TCAACTAACTTAACAGGGTTTCCCCAAA      98.20983     TRUE         TRUE
+      ct1_plat1_TCAACTCACTTAACAGGGTTTCCCCAAA      96.24511     TRUE         TRUE
+      ct1_plat1_TCAACTGACTTAACAGGGTTTCCCCAAA     101.35983     TRUE         TRUE
+      ct1_plat1_TCAACTTACTTAACAGGGTTTCCCCAAA     104.40042     TRUE         TRUE
+      ct2_plat1_TCAACTAACTTAAGAGGGTTTCCCCAAA     103.96430     TRUE         TRUE
+      ct2_plat1_TCAACTCACTTAAGAGGGTTTCCCCAAA      99.73916     TRUE         TRUE
+      ct1_plat1_TCAACAAACTTACAAGGGTTTCCCCAAA      95.45347     TRUE         TRUE
+      ct3_plat1_TCAACACACTTACAAGGGTTTCCCCAAA     111.92359     TRUE         TRUE
+      ct1_plat1_TCAACAGACTTACAAGGGTTTCCCCAAA     109.57201     TRUE         TRUE
+      ct1_plat1_TCAACATACTTACAAGGGTTTCCCCAAA      97.94221     TRUE         TRUE
+      ct3_plat1_TCAACAAACTTACCAGGGTTTCCCCAAA      96.78569     TRUE         TRUE
+      ct2_plat1_TCAACACACTTACCAGGGTTTCCCCAAA     100.28967     TRUE         TRUE
+      ct2_plat1_TCAACAGACTTACCAGGGTTTCCCCAAA     103.20029     TRUE         TRUE
+      ct2_plat1_TCAACATACTTACCAGGGTTTCCCCAAA      96.06280     TRUE         TRUE
+      ct3_plat1_TCAACAAACTTACGAGGGTTTCCCCAAA      95.24691     TRUE         TRUE
+      ct2_plat1_TCAACACACTTACGAGGGTTTCCCCAAA     101.55661     TRUE         TRUE
+      ct2_plat1_TCAACCAACTTACAAGGGTTTCCCCAAA      98.18057     TRUE         TRUE
+      ct2_plat1_TCAACCCACTTACAAGGGTTTCCCCAAA      99.47078     TRUE         TRUE
+      ct2_plat1_TCAACCGACTTACAAGGGTTTCCCCAAA     112.31348     TRUE         TRUE
+      ct3_plat1_TCAACCTACTTACAAGGGTTTCCCCAAA     101.72973     TRUE         TRUE
+      ct3_plat1_TCAACCAACTTACCAGGGTTTCCCCAAA      94.96480     TRUE         TRUE
+      ct2_plat1_TCAACCCACTTACCAGGGTTTCCCCAAA      91.26894     TRUE         TRUE
+      ct3_plat1_TCAACCGACTTACCAGGGTTTCCCCAAA      99.08034     TRUE         TRUE
+      ct3_plat1_TCAACCTACTTACCAGGGTTTCCCCAAA      92.59821     TRUE         TRUE
+      ct2_plat1_TCAACCAACTTACGAGGGTTTCCCCAAA      93.11066     TRUE         TRUE
+      ct1_plat1_TCAACCCACTTACGAGGGTTTCCCCAAA      98.41145     TRUE         TRUE
+      ct3_plat1_TCAACGAACTTACAAGGGTTTCCCCAAA      95.60925     TRUE         TRUE
+      ct1_plat1_TCAACGCACTTACAAGGGTTTCCCCAAA      98.56058     TRUE         TRUE
+      ct1_plat1_TCAACGGACTTACAAGGGTTTCCCCAAA     102.28535     TRUE         TRUE
+      ct1_plat1_TCAACGTACTTACAAGGGTTTCCCCAAA      95.71932     TRUE         TRUE
+      ct1_plat1_TCAACGAACTTACCAGGGTTTCCCCAAA      97.96431     TRUE         TRUE
+      ct2_plat1_TCAACGCACTTACCAGGGTTTCCCCAAA     105.78385     TRUE         TRUE
+      ct2_plat1_TCAACGGACTTACCAGGGTTTCCCCAAA      98.68173     TRUE         TRUE
+      ct2_plat1_TCAACGTACTTACCAGGGTTTCCCCAAA     108.05280     TRUE         TRUE
+      ct3_plat1_TCAACGAACTTACGAGGGTTTCCCCAAA      99.60287     TRUE         TRUE
+      ct2_plat1_TCAACGCACTTACGAGGGTTTCCCCAAA     101.97967     TRUE         TRUE
+      ct1_plat1_TCAACTAACTTACAAGGGTTTCCCCAAA     108.15762     TRUE         TRUE
+      ct3_plat1_TCAACTCACTTACAAGGGTTTCCCCAAA      99.23063     TRUE         TRUE
+      ct2_plat1_TCAACTGACTTACAAGGGTTTCCCCAAA     101.00368     TRUE         TRUE
+      ct3_plat1_TCAACTTACTTACAAGGGTTTCCCCAAA     102.01448     TRUE         TRUE
+      ct3_plat1_TCAACTAACTTACCAGGGTTTCCCCAAA      95.16950     TRUE         TRUE
+      ct1_plat1_TCAACTCACTTACCAGGGTTTCCCCAAA     113.97348     TRUE         TRUE
+      ct2_plat1_TCAACTGACTTACCAGGGTTTCCCCAAA     108.68193     TRUE         TRUE
+      ct1_plat1_TCAACTTACTTACCAGGGTTTCCCCAAA     102.19162     TRUE         TRUE
+      ct1_plat1_TCAACTAACTTACGAGGGTTTCCCCAAA      98.88640     TRUE         TRUE
+      ct2_plat1_TCAACTCACTTACGAGGGTTTCCCCAAA     103.41875     TRUE         TRUE
+      ct2_plat1_TCAACAAACTTAGAAGGGTTTCCCCAAA     102.24049     TRUE         TRUE
       
       $results$weights
       90 x 3 sparse Matrix of class "dgCMatrix"
                                                       ct1          ct2          ct3
-      ct1_plat1_TCAACCACTTGAAGGGTTCCCCAA     0.9796206721 0.0003799632 0.0003799632
-      ct1_plat1_TCAACGACTTGAAGGGTTCCCCAA     0.7778181323 0.0005428045 0.1931304223
-      ct2_plat1_TCAACTACTTGAAGGGTTCCCCAA     0.0003799632 0.8400750811 0.0012651381
-      ct3_plat1_TCAACAACTTGCAGGGTTCCCCAA     0.1252690555 0.0005428045 0.8376670290
-      ct2_plat1_TCAACCACTTGCAGGGTTCCCCAA     0.0361619555 0.4526362928 0.2886732120
-      ct3_plat1_TCAACGACTTGCAGGGTTCCCCAA     0.0799066149 0.0007754350 0.7091422771
-      ct3_plat1_TCAACTACTTGCAGGGTTCCCCAA     0.0025602657 0.0063045429 0.9544499135
-      ct2_plat1_TCAACAACTTGGAGGGTTCCCCAA     0.0774501178 0.7054178218 0.0452178559
-      ct2_plat1_TCAACCACTTGGAGGGTTCCCCAA     0.1659149755 0.5329708211 0.1628693880
-      ct3_plat1_TCAACAAACTTAAAAGGGTTTCCCCAAA 0.0003799632 0.0003799632 0.8921545520
-      ct1_plat1_TCAACACACTTAAAAGGGTTTCCCCAAA 0.8889880315 0.0003799632 0.0003799632
-      ct3_plat1_TCAACAGACTTAAAAGGGTTTCCCCAAA 0.0291492868 0.0003799632 1.0030666309
-      ct3_plat1_TCAACATACTTAAAAGGGTTTCCCCAAA 0.0003799632 0.0003799632 0.8250131706
-      ct2_plat1_TCAACAAACTTAACAGGGTTTCCCCAAA 0.0666115164 0.5802268296 0.1649840542
-      ct1_plat1_TCAACACACTTAACAGGGTTTCCCCAAA 0.9549791941 0.0003799632 0.0146358773
-      ct2_plat1_TCAACAGACTTAACAGGGTTTCCCCAAA 0.0800218157 0.5473581632 0.1092401955
-      ct2_plat1_TCAACATACTTAACAGGGTTTCCCCAAA 0.1200460971 0.6105630063 0.0309784660
-      ct1_plat1_TCAACAAACTTAAGAGGGTTTCCCCAAA 0.7559839279 0.0413030511 0.0456752197
-      ct1_plat1_TCAACACACTTAAGAGGGTTTCCCCAAA 0.9341525266 0.0003799632 0.0221573507
-      ct3_plat1_TCAACCAACTTAAAAGGGTTTCCCCAAA 0.0003799632 0.0003799632 0.9814927312
-      ct3_plat1_TCAACCCACTTAAAAGGGTTTCCCCAAA 0.0680606767 0.0005428045 0.8035490939
-      ct1_plat1_TCAACCGACTTAAAAGGGTTTCCCCAAA 0.9755906107 0.0002659742 0.0919670134
-      ct2_plat1_TCAACCTACTTAAAAGGGTTTCCCCAAA 0.1798818128 0.4647608501 0.1754909109
-      ct1_plat1_TCAACCAACTTAACAGGGTTTCCCCAAA 0.7380414147 0.0111852880 0.1482123873
-      ct1_plat1_TCAACCCACTTAACAGGGTTTCCCCAAA 0.8967528487 0.0003799632 0.1078314725
-      ct1_plat1_TCAACCGACTTAACAGGGTTTCCCCAAA 0.9510692039 0.0003799632 0.0265079417
-      ct2_plat1_TCAACCTACTTAACAGGGTTTCCCCAAA 0.0824371978 0.7646339119 0.0155730451
-      ct3_plat1_TCAACCAACTTAAGAGGGTTTCCCCAAA 0.0003799632 0.0003799632 0.8855502099
-      ct1_plat1_TCAACCCACTTAAGAGGGTTTCCCCAAA 0.9074197567 0.0003799632 0.0805223725
-      ct3_plat1_TCAACGAACTTAAAAGGGTTTCCCCAAA 0.0003799632 0.0404898984 0.9427482710
-      ct2_plat1_TCAACGCACTTAAAAGGGTTTCCCCAAA 0.1723818226 0.5692855656 0.0007754350
-      ct1_plat1_TCAACGGACTTAAAAGGGTTTCCCCAAA 0.9295013100 0.0003799632 0.0603792195
-      ct2_plat1_TCAACGTACTTAAAAGGGTTTCCCCAAA 0.1310845186 0.6570635046 0.0727436929
-      ct1_plat1_TCAACGAACTTAACAGGGTTTCCCCAAA 0.7035193016 0.1159252001 0.0743300479
-      ct1_plat1_TCAACGCACTTAACAGGGTTTCCCCAAA 0.9127861930 0.0003799632 0.0003799632
-      ct2_plat1_TCAACGGACTTAACAGGGTTTCCCCAAA 0.2551118514 0.5158002409 0.0095783891
-      ct2_plat1_TCAACGTACTTAACAGGGTTTCCCCAAA 0.0894698696 0.5824575621 0.0939790440
-      ct3_plat1_TCAACGAACTTAAGAGGGTTTCCCCAAA 0.1490004846 0.0005428045 0.7432279091
-      ct2_plat1_TCAACGCACTTAAGAGGGTTTCCCCAAA 0.0651049321 0.7115118736 0.1554358311
-      ct2_plat1_TCAACTAACTTAAAAGGGTTTCCCCAAA 0.1460785034 0.5323845048 0.1114775216
-      ct3_plat1_TCAACTCACTTAAAAGGGTTTCCCCAAA 0.0003799632 0.0148711062 0.9915683548
-      ct2_plat1_TCAACTGACTTAAAAGGGTTTCCCCAAA 0.1037116623 0.7069981580 0.0124564115
-      ct2_plat1_TCAACTTACTTAAAAGGGTTTCCCCAAA 0.0398008765 0.6266755016 0.1845158540
-      ct3_plat1_TCAACTAACTTAACAGGGTTTCCCCAAA 0.0511187955 0.0005428045 0.7679582810
-      ct3_plat1_TCAACTCACTTAACAGGGTTTCCCCAAA 0.0003799632 0.0003799632 0.9069238983
-      ct1_plat1_TCAACTGACTTAACAGGGTTTCCCCAAA 0.7640863484 0.0768907068 0.0005428045
-      ct2_plat1_TCAACTTACTTAACAGGGTTTCCCCAAA 0.0701321569 0.7900912188 0.0005428045
-      ct1_plat1_TCAACTAACTTAAGAGGGTTTCCCCAAA 0.9566942609 0.0003799632 0.0003799632
-      ct2_plat1_TCAACTCACTTAAGAGGGTTTCCCCAAA 0.0198801485 0.7100946962 0.1616028765
-      ct2_plat1_TCAACAAACTTACAAGGGTTTCCCCAAA 0.1653965493 0.5217143508 0.0011077644
-      ct3_plat1_TCAACACACTTACAAGGGTTTCCCCAAA 0.0003799632 0.0003799632 0.8541672074
-      ct2_plat1_TCAACAGACTTACAAGGGTTTCCCCAAA 0.0003799632 0.8518090346 0.0432493596
-      ct2_plat1_TCAACATACTTACAAGGGTTTCCCCAAA 0.2589669026 0.5290632581 0.0011077644
-      ct2_plat1_TCAACAAACTTACCAGGGTTTCCCCAAA 0.0430039855 0.5814270688 0.1830014834
-      ct2_plat1_TCAACACACTTACCAGGGTTTCCCCAAA 0.1155011522 0.6321330533 0.0102858989
-      ct2_plat1_TCAACAGACTTACCAGGGTTTCCCCAAA 0.1659860740 0.4557537234 0.1312910043
-      ct2_plat1_TCAACATACTTACCAGGGTTTCCCCAAA 0.1955174685 0.5362961069 0.1117326229
-      ct2_plat1_TCAACAAACTTACGAGGGTTTCCCCAAA 0.0464433127 0.5196996941 0.2678401313
-      ct1_plat1_TCAACACACTTACGAGGGTTTCCCCAAA 0.8591856352 0.0003799632 0.0978041797
-      ct1_plat1_TCAACCAACTTACAAGGGTTTCCCCAAA 0.7628317030 0.0005428045 0.1160337517
-      ct2_plat1_TCAACCCACTTACAAGGGTTTCCCCAAA 0.0928423425 0.5003850386 0.2614765591
-      ct3_plat1_TCAACCGACTTACAAGGGTTTCCCCAAA 0.0003799632 0.0003799632 0.8428770684
-      ct2_plat1_TCAACCTACTTACAAGGGTTTCCCCAAA 0.0005428045 0.6959783208 0.0749625859
-      ct1_plat1_TCAACCAACTTACCAGGGTTTCCCCAAA 0.9242103929 0.0008801749 0.0003980126
-      ct3_plat1_TCAACCCACTTACCAGGGTTTCCCCAAA 0.0003799632 0.0267344110 1.0086718294
-      ct1_plat1_TCAACCGACTTACCAGGGTTTCCCCAAA 0.8775076252 0.0003799632 0.0003799632
-      ct1_plat1_TCAACCTACTTACCAGGGTTTCCCCAAA 0.8556118641 0.0003799632 0.0169800473
-      ct3_plat1_TCAACCAACTTACGAGGGTTTCCCCAAA 0.1399385970 0.0005428045 0.7576196187
-      ct2_plat1_TCAACCCACTTACGAGGGTTTCCCCAAA 0.0944129154 0.5221030487 0.2010908009
-      ct2_plat1_TCAACGAACTTACAAGGGTTTCCCCAAA 0.1612776586 0.4818763239 0.1343369832
-      ct1_plat1_TCAACGCACTTACAAGGGTTTCCCCAAA 0.7736524485 0.0005428045 0.2092412922
-      ct2_plat1_TCAACGGACTTACAAGGGTTTCCCCAAA 0.0460156111 0.5003594562 0.2248753209
-      ct2_plat1_TCAACGTACTTACAAGGGTTTCCCCAAA 0.2172623318 0.5004987503 0.1320358577
-      ct2_plat1_TCAACGAACTTACCAGGGTTTCCCCAAA 0.2399812599 0.3941040767 0.1454297639
-      ct1_plat1_TCAACGCACTTACCAGGGTTTCCCCAAA 0.9144245578 0.0003799632 0.0003799632
-      ct2_plat1_TCAACGGACTTACCAGGGTTTCCCCAAA 0.2043884205 0.5599896221 0.1134648072
-      ct3_plat1_TCAACGTACTTACCAGGGTTTCCCCAAA 0.0003799632 0.0003799632 0.9723072007
-      ct2_plat1_TCAACGAACTTACGAGGGTTTCCCCAAA 0.0011077644 0.3936389078 0.3284521838
-      ct1_plat1_TCAACGCACTTACGAGGGTTTCCCCAAA 0.7875292566 0.1463943355 0.0005428045
-      ct3_plat1_TCAACTAACTTACAAGGGTTTCCCCAAA 0.0350044253 0.0003799632 0.9167148450
-      ct3_plat1_TCAACTCACTTACAAGGGTTTCCCCAAA 0.0003799632 0.0067038738 0.8387592673
-      ct2_plat1_TCAACTGACTTACAAGGGTTTCCCCAAA 0.1225034493 0.4808379322 0.2350925648
-      ct1_plat1_TCAACTTACTTACAAGGGTTTCCCCAAA 0.6421993997 0.0007754350 0.2043184594
-      ct3_plat1_TCAACTAACTTACCAGGGTTTCCCCAAA 0.0003799632 0.0003799632 0.8972121077
-      ct1_plat1_TCAACTCACTTACCAGGGTTTCCCCAAA 0.8929657381 0.0003799632 0.0003799632
-      ct3_plat1_TCAACTGACTTACCAGGGTTTCCCCAAA 0.0792024647 0.0007754350 0.6510174127
-      ct2_plat1_TCAACTTACTTACCAGGGTTTCCCCAAA 0.0737311818 0.6378462592 0.0565820820
-      ct2_plat1_TCAACTAACTTACGAGGGTTTCCCCAAA 0.0146377456 0.6010196199 0.1112267629
-      ct1_plat1_TCAACTCACTTACGAGGGTTTCCCCAAA 0.8750997699 0.0003799632 0.0585835142
-      ct3_plat1_TCAACAAACTTAGAAGGGTTTCCCCAAA 0.0003799632 0.0003799632 0.9632727986
+      ct3_plat1_TCAACCACTTGAAGGGTTCCCCAA     0.0003799632 3.552724e-02 0.9606228815
+      ct2_plat1_TCAACGACTTGAAGGGTTCCCCAA     0.0003799632 9.771177e-01 0.0003799632
+      ct2_plat1_TCAACTACTTGAAGGGTTCCCCAA     0.0839031099 8.634486e-01 0.0998501574
+      ct1_plat1_TCAACAACTTGCAGGGTTCCCCAA     0.9301949460 4.457330e-02 0.0003799632
+      ct2_plat1_TCAACCACTTGCAGGGTTCCCCAA     0.0450271742 9.107228e-01 0.0003799632
+      ct2_plat1_TCAACGACTTGCAGGGTTCCCCAA     0.0089576066 8.582548e-01 0.0003799632
+      ct1_plat1_TCAACTACTTGCAGGGTTCCCCAA     0.9210585113 4.489250e-02 0.0003799632
+      ct3_plat1_TCAACAACTTGGAGGGTTCCCCAA     0.0003799632 3.799632e-04 0.9194141012
+      ct1_plat1_TCAACCACTTGGAGGGTTCCCCAA     0.9786782769 3.799632e-04 0.0003799632
+      ct1_plat1_TCAACAAACTTAAAAGGGTTTCCCCAAA 1.0255416484 7.193025e-03 0.0003799632
+      ct1_plat1_TCAACACACTTAAAAGGGTTTCCCCAAA 0.8977432586 5.428045e-04 0.0353188410
+      ct2_plat1_TCAACAGACTTAAAAGGGTTTCCCCAAA 0.1151588352 8.072472e-01 0.0005428045
+      ct1_plat1_TCAACATACTTAAAAGGGTTTCCCCAAA 0.9195084523 1.066385e-02 0.0787307967
+      ct1_plat1_TCAACAAACTTAACAGGGTTTCCCCAAA 0.8363824533 3.100581e-02 0.0319149524
+      ct3_plat1_TCAACACACTTAACAGGGTTTCCCCAAA 0.0275044938 3.799632e-04 0.9583410529
+      ct2_plat1_TCAACAGACTTAACAGGGTTTCCCCAAA 0.0004356480 9.650566e-01 0.0003799632
+      ct2_plat1_TCAACATACTTAACAGGGTTTCCCCAAA 0.0407507784 9.539792e-01 0.0003799632
+      ct2_plat1_TCAACAAACTTAAGAGGGTTTCCCCAAA 0.0323020560 9.366744e-01 0.0343846503
+      ct1_plat1_TCAACACACTTAAGAGGGTTTCCCCAAA 0.9781029784 3.799632e-04 0.0227597789
+      ct3_plat1_TCAACCAACTTAAAAGGGTTTCCCCAAA 0.0003799632 6.148710e-02 0.9178755777
+      ct2_plat1_TCAACCCACTTAAAAGGGTTTCCCCAAA 0.0003799632 9.404140e-01 0.0123423301
+      ct1_plat1_TCAACCGACTTAAAAGGGTTTCCCCAAA 0.9117067976 3.799632e-04 0.0182143279
+      ct2_plat1_TCAACCTACTTAAAAGGGTTTCCCCAAA 0.0003799632 1.024617e+00 0.0003799632
+      ct2_plat1_TCAACCAACTTAACAGGGTTTCCCCAAA 0.0003799632 9.654213e-01 0.0003799632
+      ct1_plat1_TCAACCCACTTAACAGGGTTTCCCCAAA 0.8595667864 6.976511e-02 0.0003799632
+      ct3_plat1_TCAACCGACTTAACAGGGTTTCCCCAAA 0.0003799632 1.953753e-02 0.9138509137
+      ct3_plat1_TCAACCTACTTAACAGGGTTTCCCCAAA 0.0038059279 3.799632e-04 0.9753924796
+      ct2_plat1_TCAACCAACTTAAGAGGGTTTCCCCAAA 0.0004068036 1.005232e+00 0.0152511219
+      ct2_plat1_TCAACCCACTTAAGAGGGTTTCCCCAAA 0.0120255836 1.022135e+00 0.0003799632
+      ct1_plat1_TCAACGAACTTAAAAGGGTTTCCCCAAA 0.9144903993 3.799632e-04 0.0524050410
+      ct1_plat1_TCAACGCACTTAAAAGGGTTTCCCCAAA 1.0247512221 1.813746e-02 0.0003799632
+      ct2_plat1_TCAACGGACTTAAAAGGGTTTCCCCAAA 0.0389292691 8.932185e-01 0.0641998827
+      ct2_plat1_TCAACGTACTTAAAAGGGTTTCCCCAAA 0.0005428045 8.746727e-01 0.0491984079
+      ct3_plat1_TCAACGAACTTAACAGGGTTTCCCCAAA 0.0003799632 3.799632e-04 0.9574006444
+      ct3_plat1_TCAACGCACTTAACAGGGTTTCCCCAAA 0.0104821926 1.121653e-01 0.8212374081
+      ct2_plat1_TCAACGGACTTAACAGGGTTTCCCCAAA 0.0318947796 9.913377e-01 0.0429901310
+      ct3_plat1_TCAACGTACTTAACAGGGTTTCCCCAAA 0.0003799632 4.754285e-02 0.9087714373
+      ct3_plat1_TCAACGAACTTAAGAGGGTTTCCCCAAA 0.0211958383 3.103566e-02 0.9274479506
+      ct1_plat1_TCAACGCACTTAAGAGGGTTTCCCCAAA 0.8434729826 3.697468e-02 0.0003799632
+      ct1_plat1_TCAACTAACTTAAAAGGGTTTCCCCAAA 0.9058541098 5.257791e-02 0.0003799632
+      ct1_plat1_TCAACTCACTTAAAAGGGTTTCCCCAAA 0.9407750600 5.612259e-02 0.0003799632
+      ct1_plat1_TCAACTGACTTAAAAGGGTTTCCCCAAA 0.9596035399 2.318128e-02 0.0211363114
+      ct3_plat1_TCAACTTACTTAAAAGGGTTTCCCCAAA 0.0003799632 3.799632e-04 0.9740111449
+      ct3_plat1_TCAACTAACTTAACAGGGTTTCCCCAAA 0.0003799632 3.799632e-04 0.9055544644
+      ct1_plat1_TCAACTCACTTAACAGGGTTTCCCCAAA 0.9933338893 3.016738e-02 0.0003799632
+      ct1_plat1_TCAACTGACTTAACAGGGTTTCCCCAAA 0.9649331041 3.615009e-02 0.0342878867
+      ct1_plat1_TCAACTTACTTAACAGGGTTTCCCCAAA 0.8481580786 1.308329e-01 0.0587189067
+      ct2_plat1_TCAACTAACTTAAGAGGGTTTCCCCAAA 0.0632386605 8.523196e-01 0.0096667350
+      ct2_plat1_TCAACTCACTTAAGAGGGTTTCCCCAAA 0.1378090510 8.233982e-01 0.0005428045
+      ct1_plat1_TCAACAAACTTACAAGGGTTTCCCCAAA 0.9312415375 2.037466e-02 0.0003799632
+      ct3_plat1_TCAACACACTTACAAGGGTTTCCCCAAA 0.0536783807 6.745807e-02 0.8185967016
+      ct1_plat1_TCAACAGACTTACAAGGGTTTCCCCAAA 0.9670922738 3.799632e-04 0.0003799632
+      ct1_plat1_TCAACATACTTACAAGGGTTTCCCCAAA 1.0342514147 5.428045e-04 0.0633834257
+      ct3_plat1_TCAACAAACTTACCAGGGTTTCCCCAAA 0.0767137201 5.428045e-04 0.8335714082
+      ct2_plat1_TCAACACACTTACCAGGGTTTCCCCAAA 0.0005428045 8.896420e-01 0.0195602929
+      ct2_plat1_TCAACAGACTTACCAGGGTTTCCCCAAA 0.0433870719 8.141096e-01 0.0377197983
+      ct2_plat1_TCAACATACTTACCAGGGTTTCCCCAAA 0.0254055510 9.336220e-01 0.0169720883
+      ct3_plat1_TCAACAAACTTACGAGGGTTTCCCCAAA 0.0005428045 9.829773e-03 0.9850803638
+      ct2_plat1_TCAACACACTTACGAGGGTTTCCCCAAA 0.0005428045 8.766884e-01 0.0724844685
+      ct2_plat1_TCAACCAACTTACAAGGGTTTCCCCAAA 0.0322758144 8.591434e-01 0.0373594103
+      ct2_plat1_TCAACCCACTTACAAGGGTTTCCCCAAA 0.0004165036 9.651550e-01 0.0003799632
+      ct2_plat1_TCAACCGACTTACAAGGGTTTCCCCAAA 0.0003799632 9.432430e-01 0.0003799632
+      ct3_plat1_TCAACCTACTTACAAGGGTTTCCCCAAA 0.0002659742 1.462887e-02 0.9203782643
+      ct3_plat1_TCAACCAACTTACCAGGGTTTCCCCAAA 0.0175048139 2.904742e-02 0.8471981090
+      ct2_plat1_TCAACCCACTTACCAGGGTTTCCCCAAA 0.1108274855 7.549210e-01 0.0520233505
+      ct3_plat1_TCAACCGACTTACCAGGGTTTCCCCAAA 0.0004134578 4.222468e-02 0.9449564387
+      ct3_plat1_TCAACCTACTTACCAGGGTTTCCCCAAA 0.0039557461 8.839102e-07 0.9212195135
+      ct2_plat1_TCAACCAACTTACGAGGGTTTCCCCAAA 0.0003799632 1.057155e+00 0.0003799632
+      ct1_plat1_TCAACCCACTTACGAGGGTTTCCCCAAA 0.9283562362 2.337360e-02 0.0003799632
+      ct3_plat1_TCAACGAACTTACAAGGGTTTCCCCAAA 0.0018462408 5.933447e-04 1.0081754553
+      ct1_plat1_TCAACGCACTTACAAGGGTTTCCCCAAA 0.9499887030 3.204053e-02 0.0003799632
+      ct1_plat1_TCAACGGACTTACAAGGGTTTCCCCAAA 0.8443616096 6.770442e-02 0.0003799632
+      ct1_plat1_TCAACGTACTTACAAGGGTTTCCCCAAA 0.9405215343 3.799632e-04 0.0364855327
+      ct1_plat1_TCAACGAACTTACCAGGGTTTCCCCAAA 0.8341155847 6.867369e-02 0.0355402286
+      ct2_plat1_TCAACGCACTTACCAGGGTTTCCCCAAA 0.0003799632 1.006269e+00 0.0478760320
+      ct2_plat1_TCAACGGACTTACCAGGGTTTCCCCAAA 0.0333731212 8.446456e-01 0.0003799632
+      ct2_plat1_TCAACGTACTTACCAGGGTTTCCCCAAA 0.1785993191 8.812488e-01 0.0005428045
+      ct3_plat1_TCAACGAACTTACGAGGGTTTCCCCAAA 0.0092073008 2.173297e-03 0.9880108673
+      ct2_plat1_TCAACGCACTTACGAGGGTTTCCCCAAA 0.0194547887 9.633362e-01 0.0003799632
+      ct1_plat1_TCAACTAACTTACAAGGGTTTCCCCAAA 0.9884863037 1.923542e-03 0.0003799632
+      ct3_plat1_TCAACTCACTTACAAGGGTTTCCCCAAA 0.0003799632 3.799632e-04 0.9351863577
+      ct2_plat1_TCAACTGACTTACAAGGGTTTCCCCAAA 0.1170868344 8.070869e-01 0.0005428045
+      ct3_plat1_TCAACTTACTTACAAGGGTTTCCCCAAA 0.0003799632 1.459427e-01 0.8547371110
+      ct3_plat1_TCAACTAACTTACCAGGGTTTCCCCAAA 0.0002659742 8.219684e-03 1.0316584494
+      ct1_plat1_TCAACTCACTTACCAGGGTTTCCCCAAA 1.1005851392 3.799632e-04 0.0046067354
+      ct2_plat1_TCAACTGACTTACCAGGGTTTCCCCAAA 0.0508765350 9.197294e-01 0.0003799632
+      ct1_plat1_TCAACTTACTTACCAGGGTTTCCCCAAA 1.0086320181 5.038107e-02 0.0003799632
+      ct1_plat1_TCAACTAACTTACGAGGGTTTCCCCAAA 0.9161031649 2.084498e-02 0.0003799632
+      ct2_plat1_TCAACTCACTTACGAGGGTTTCCCCAAA 0.0003799632 9.491715e-01 0.0003799632
+      ct2_plat1_TCAACAAACTTAGAAGGGTTTCCCCAAA 0.0003799632 9.647634e-01 0.0122115866
       
       $results$weights_doublet
       90 x 2 sparse Matrix of class "dgCMatrix"
                                              first_type  second_type
-      ct1_plat1_TCAACCACTTGAAGGGTTCCCCAA      0.9991696 0.0008304486
-      ct1_plat1_TCAACGACTTGAAGGGTTCCCCAA      0.8007273 0.1992726773
-      ct2_plat1_TCAACTACTTGAAGGGTTCCCCAA      0.9990331 0.0009668889
-      ct3_plat1_TCAACAACTTGCAGGGTTCCCCAA      0.8694704 0.1305295838
-      ct2_plat1_TCAACCACTTGCAGGGTTCCCCAA      0.6145587 0.3854412558
-      ct3_plat1_TCAACGACTTGCAGGGTTCCCCAA      0.8980405 0.1019594832
-      ct3_plat1_TCAACTACTTGCAGGGTTCCCCAA      0.9959027 0.0040973165
-      ct2_plat1_TCAACAACTTGGAGGGTTCCCCAA      0.8915029 0.1084970543
-      ct2_plat1_TCAACCACTTGGAGGGTTCCCCAA      0.7505491 0.2494509310
-      ct3_plat1_TCAACAAACTTAAAAGGGTTTCCCCAAA  0.9990882 0.0009118211
-      ct1_plat1_TCAACACACTTAAAAGGGTTTCCCCAAA  0.9990850 0.0009149600
-      ct3_plat1_TCAACAGACTTAAAAGGGTTTCCCCAAA  0.9715769 0.0284230842
-      ct3_plat1_TCAACATACTTAAAAGGGTTTCCCCAAA  0.9990141 0.0009859044
-      ct2_plat1_TCAACAAACTTAACAGGGTTTCCCCAAA  0.8844163 0.1155837188
-      ct1_plat1_TCAACACACTTAACAGGGTTTCCCCAAA  0.9845202 0.0154797639
-      ct2_plat1_TCAACAGACTTAACAGGGTTTCCCCAAA  0.8581693 0.1418307206
-      ct2_plat1_TCAACATACTTAACAGGGTTTCCCCAAA  0.8329041 0.1670958906
-      ct1_plat1_TCAACAAACTTAAGAGGGTTTCCCCAAA  0.9266472 0.0733528413
-      ct1_plat1_TCAACACACTTAAGAGGGTTTCCCCAAA  0.9765583 0.0234416861
-      ct3_plat1_TCAACCAACTTAAAAGGGTTTCCCCAAA  0.9991711 0.0008289195
-      ct3_plat1_TCAACCCACTTAAAAGGGTTTCCCCAAA  0.9214077 0.0785923029
-      ct1_plat1_TCAACCGACTTAAAAGGGTTTCCCCAAA  0.9135667 0.0864332617
-      ct2_plat1_TCAACCTACTTAAAAGGGTTTCCCCAAA  0.7064028 0.2935971726
-      ct1_plat1_TCAACCAACTTAACAGGGTTTCCCCAAA  0.8293378 0.1706622028
-      ct1_plat1_TCAACCCACTTAACAGGGTTTCCCCAAA  0.8923361 0.1076638990
-      ct1_plat1_TCAACCGACTTAACAGGGTTTCCCCAAA  0.9725836 0.0274163803
-      ct2_plat1_TCAACCTACTTAACAGGGTTTCCCCAAA  0.9673256 0.0326744356
-      ct3_plat1_TCAACCAACTTAAGAGGGTTTCCCCAAA  0.9990814 0.0009185670
-      ct1_plat1_TCAACCCACTTAAGAGGGTTTCCCCAAA  0.9180448 0.0819552464
-      ct3_plat1_TCAACGAACTTAAAAGGGTTTCCCCAAA  0.9583730 0.0416269578
-      ct2_plat1_TCAACGCACTTAAAAGGGTTTCCCCAAA  0.7657645 0.2342354755
-      ct1_plat1_TCAACGGACTTAAAAGGGTTTCCCCAAA  0.9385671 0.0614328926
-      ct2_plat1_TCAACGTACTTAAAAGGGTTTCCCCAAA  0.8327146 0.1672854361
-      ct1_plat1_TCAACGAACTTAACAGGGTTTCCCCAAA  0.8418827 0.1581173090
-      ct1_plat1_TCAACGCACTTAACAGGGTTTCCCCAAA  0.9991089 0.0008911395
-      ct2_plat1_TCAACGGACTTAACAGGGTTTCCCCAAA  0.6682131 0.3317869230
-      ct2_plat1_TCAACGTACTTAACAGGGTTTCCCCAAA  0.8522343 0.1477657235
-      ct3_plat1_TCAACGAACTTAAGAGGGTTTCCCCAAA  0.8323401 0.1676599203
-      ct2_plat1_TCAACGCACTTAAGAGGGTTTCCCCAAA  0.9005203 0.0994796994
-      ct2_plat1_TCAACTAACTTAAAAGGGTTTCCCCAAA  0.7782013 0.2217986747
-      ct3_plat1_TCAACTCACTTAAAAGGGTTTCCCCAAA  0.9849931 0.0150068693
-      ct2_plat1_TCAACTGACTTAAAAGGGTTTCCCCAAA  0.9552131 0.0447868932
-      ct2_plat1_TCAACTTACTTAAAAGGGTTTCCCCAAA  0.7695882 0.2304118326
-      ct3_plat1_TCAACTAACTTAACAGGGTTTCCCCAAA  0.9369717 0.0630283376
-      ct3_plat1_TCAACTCACTTAACAGGGTTTCCCCAAA  0.9991030 0.0008970203
-      ct1_plat1_TCAACTGACTTAACAGGGTTTCCCCAAA  0.9076738 0.0923261696
-      ct2_plat1_TCAACTTACTTAACAGGGTTTCCCCAAA  0.9179215 0.0820784531
-      ct1_plat1_TCAACTAACTTAAGAGGGTTTCCCCAAA  0.9991497 0.0008503080
-      ct2_plat1_TCAACTCACTTAAGAGGGTTTCCCCAAA  0.9306816 0.0693184080
-      ct2_plat1_TCAACAAACTTACAAGGGTTTCCCCAAA  0.7579258 0.2420741974
-      ct3_plat1_TCAACACACTTACAAGGGTTTCCCCAAA  0.9990476 0.0009523903
-      ct2_plat1_TCAACAGACTTACAAGGGTTTCCCCAAA  0.9512957 0.0487043240
-      ct2_plat1_TCAACATACTTACAAGGGTTTCCCCAAA  0.6704140 0.3295859641
-      ct2_plat1_TCAACAAACTTACCAGGGTTTCCCCAAA  0.7596127 0.2403872934
-      ct2_plat1_TCAACACACTTACCAGGGTTTCCCCAAA  0.8436315 0.1563684725
-      ct2_plat1_TCAACAGACTTACCAGGGTTTCCCCAAA  0.7319524 0.2680476004
-      ct2_plat1_TCAACATACTTACCAGGGTTTCCCCAAA  0.7244480 0.2755520420
-      ct2_plat1_TCAACAAACTTACGAGGGTTTCCCCAAA  0.6622889 0.3377111487
-      ct1_plat1_TCAACACACTTACGAGGGTTTCCCCAAA  0.8974430 0.1025570275
-      ct1_plat1_TCAACCAACTTACAAGGGTTTCCCCAAA  0.8671437 0.1328562654
-      ct2_plat1_TCAACCCACTTACAAGGGTTTCCCCAAA  0.6598366 0.3401634024
-      ct3_plat1_TCAACCGACTTACAAGGGTTTCCCCAAA  0.9990349 0.0009650534
-      ct2_plat1_TCAACCTACTTACAAGGGTTTCCCCAAA  0.9019276 0.0980723572
-      ct1_plat1_TCAACCAACTTACCAGGGTTTCCCCAAA  0.9986291 0.0013708557
-      ct3_plat1_TCAACCCACTTACCAGGGTTTCCCCAAA  0.9739821 0.0260178906
-      ct1_plat1_TCAACCGACTTACCAGGGTTTCCCCAAA  0.9990731 0.0009269480
-      ct1_plat1_TCAACCTACTTACCAGGGTTTCCCCAAA  0.9798922 0.0201077906
-      ct3_plat1_TCAACCAACTTACGAGGGTTTCCCCAAA  0.8433770 0.1566230436
-      ct2_plat1_TCAACCCACTTACGAGGGTTTCCCCAAA  0.7245577 0.2754423040
-      ct2_plat1_TCAACGAACTTACAAGGGTTTCCCCAAA  0.7478959 0.2521040931
-      ct1_plat1_TCAACGCACTTACAAGGGTTTCCCCAAA  0.7867471 0.2132529252
-      ct2_plat1_TCAACGGACTTACAAGGGTTTCCCCAAA  0.6916708 0.3083291794
-      ct2_plat1_TCAACGTACTTACAAGGGTTTCCCCAAA  0.7021509 0.2978490808
-      ct2_plat1_TCAACGAACTTACCAGGGTTTCCCCAAA  0.6147564 0.3852436485
-      ct1_plat1_TCAACGCACTTACCAGGGTTTCCCCAAA  0.9991104 0.0008896004
-      ct2_plat1_TCAACGGACTTACCAGGGTTTCCCCAAA  0.7284161 0.2715838885
-      ct3_plat1_TCAACGTACTTACCAGGGTTTCCCCAAA  0.9991632 0.0008368222
-      ct2_plat1_TCAACGAACTTACGAGGGTTTCCCCAAA  0.5454221 0.4545778691
-      ct1_plat1_TCAACGCACTTACGAGGGTTTCCCCAAA  0.8425284 0.1574715608
-      ct3_plat1_TCAACTAACTTACAAGGGTTTCCCCAAA  0.9627368 0.0372631647
-      ct3_plat1_TCAACTCACTTACAAGGGTTTCCCCAAA  0.9990381 0.0009619258
-      ct2_plat1_TCAACTGACTTACAAGGGTTTCCCCAAA  0.6740875 0.3259125050
-      ct1_plat1_TCAACTTACTTACAAGGGTTTCCCCAAA  0.7575234 0.2424766415
-      ct3_plat1_TCAACTAACTTACCAGGGTTTCCCCAAA  0.9990933 0.0009066887
-      ct1_plat1_TCAACTCACTTACCAGGGTTTCCCCAAA  0.9990890 0.0009109838
-      ct3_plat1_TCAACTGACTTACCAGGGTTTCCCCAAA  0.8903818 0.1096181608
-      ct2_plat1_TCAACTTACTTACCAGGGTTTCCCCAAA  0.8809254 0.1190745725
-      ct2_plat1_TCAACTAACTTACGAGGGTTTCCCCAAA  0.9576042 0.0423957567
-      ct1_plat1_TCAACTCACTTACGAGGGTTTCCCCAAA  0.9367558 0.0632441890
-      ct3_plat1_TCAACAAACTTAGAAGGGTTTCCCCAAA  0.9991554 0.0008445693
+      ct3_plat1_TCAACCACTTGAAGGGTTCCCCAA      0.9641335 0.0358664791
+      ct2_plat1_TCAACGACTTGAAGGGTTCCCCAA      0.9991673 0.0008326774
+      ct2_plat1_TCAACTACTTGAAGGGTTCCCCAA      0.8904178 0.1095821883
+      ct1_plat1_TCAACAACTTGCAGGGTTCCCCAA      0.9538603 0.0461396523
+      ct2_plat1_TCAACCACTTGCAGGGTTCCCCAA      0.9524702 0.0475297901
+      ct2_plat1_TCAACGACTTGCAGGGTTCCCCAA      0.9891018 0.0108981749
+      ct1_plat1_TCAACTACTTGCAGGGTTCCCCAA      0.9530949 0.0469050973
+      ct3_plat1_TCAACAACTTGGAGGGTTCCCCAA      0.9991151 0.0008848787
+      ct1_plat1_TCAACCACTTGGAGGGTTCCCCAA      0.9991686 0.0008313644
+      ct1_plat1_TCAACAAACTTAAAAGGGTTTCCCCAAA  0.9928003 0.0071997436
+      ct1_plat1_TCAACACACTTAAAAGGGTTTCCCCAAA  0.9616852 0.0383147877
+      ct2_plat1_TCAACAGACTTAAAAGGGTTTCCCCAAA  0.8747404 0.1252596054
+      ct1_plat1_TCAACATACTTAAAAGGGTTTCCCCAAA  0.9201693 0.0798307063
+      ct1_plat1_TCAACAAACTTAACAGGGTTTCCCCAAA  0.9620513 0.0379486715
+      ct3_plat1_TCAACACACTTAACAGGGTTTCCCCAAA  0.9716080 0.0283920347
+      ct2_plat1_TCAACAGACTTAACAGGGTTTCCCCAAA  0.9991570 0.0008429836
+      ct2_plat1_TCAACATACTTAACAGGGTTTCCCCAAA  0.9586093 0.0413906540
+      ct2_plat1_TCAACAAACTTAAGAGGGTTTCCCCAAA  0.9610189 0.0389811385
+      ct1_plat1_TCAACACACTTAAGAGGGTTTCCCCAAA  0.9770233 0.0229766731
+      ct3_plat1_TCAACCAACTTAAAAGGGTTTCCCCAAA  0.9367922 0.0632077822
+      ct2_plat1_TCAACCCACTTAAAAGGGTTTCCCCAAA  0.9867657 0.0132342759
+      ct1_plat1_TCAACCGACTTAAAAGGGTTTCCCCAAA  0.9801507 0.0198493311
+      ct2_plat1_TCAACCTACTTAAAAGGGTTTCCCCAAA  0.9992058 0.0007942143
+      ct2_plat1_TCAACCAACTTAACAGGGTTTCCCCAAA  0.9991573 0.0008427222
+      ct1_plat1_TCAACCCACTTAACAGGGTTTCCCCAAA  0.9243424 0.0756576236
+      ct3_plat1_TCAACCGACTTAACAGGGTTTCCCCAAA  0.9788309 0.0211691248
+      ct3_plat1_TCAACCTACTTAACAGGGTTTCCCCAAA  0.9957769 0.0042231198
+      ct2_plat1_TCAACCAACTTAAGAGGGTTTCCCCAAA  0.9847615 0.0152385040
+      ct2_plat1_TCAACCCACTTAAGAGGGTTTCCCCAAA  0.9881121 0.0118879327
+      ct1_plat1_TCAACGAACTTAAAAGGGTTTCCCCAAA  0.9454315 0.0545685356
+      ct1_plat1_TCAACGCACTTAAAAGGGTTTCCCCAAA  0.9824101 0.0175899183
+      ct2_plat1_TCAACGGACTTAAAAGGGTTTCCCCAAA  0.9289089 0.0710911417
+      ct2_plat1_TCAACGTACTTAAAAGGGTTTCCCCAAA  0.9464533 0.0535467255
+      ct3_plat1_TCAACGAACTTAACAGGGTTTCCCCAAA  0.9991503 0.0008496793
+      ct3_plat1_TCAACGCACTTAACAGGGTTTCCCCAAA  0.8767323 0.1232676743
+      ct2_plat1_TCAACGGACTTAACAGGGTTTCCCCAAA  0.9554144 0.0445855968
+      ct3_plat1_TCAACGTACTTAACAGGGTTTCCCCAAA  0.9498737 0.0501262555
+      ct3_plat1_TCAACGAACTTAAGAGGGTTTCCCCAAA  0.9627560 0.0372440178
+      ct1_plat1_TCAACGCACTTAAGAGGGTTTCCCCAAA  0.9575918 0.0424081698
+      ct1_plat1_TCAACTAACTTAAAAGGGTTTCCCCAAA  0.9447487 0.0552513313
+      ct1_plat1_TCAACTCACTTAAAAGGGTTTCCCCAAA  0.9434388 0.0565611929
+      ct1_plat1_TCAACTGACTTAAAAGGGTTTCCCCAAA  0.9745490 0.0254510007
+      ct3_plat1_TCAACTTACTTAAAAGGGTTTCCCCAAA  0.9991647 0.0008352800
+      ct3_plat1_TCAACTAACTTAACAGGGTTTCCCCAAA  0.9991016 0.0008983616
+      ct1_plat1_TCAACTCACTTAACAGGGTTTCCCCAAA  0.9703479 0.0296521258
+      ct1_plat1_TCAACTGACTTAACAGGGTTTCCCCAAA  0.9631604 0.0368395690
+      ct1_plat1_TCAACTTACTTAACAGGGTTTCCCCAAA  0.8662080 0.1337920110
+      ct2_plat1_TCAACTAACTTAAGAGGGTTTCCCCAAA  0.9282392 0.0717608456
+      ct2_plat1_TCAACTCACTTAAGAGGGTTTCCCCAAA  0.8561835 0.1438164703
+      ct1_plat1_TCAACAAACTTACAAGGGTTTCCCCAAA  0.9783744 0.0216255731
+      ct3_plat1_TCAACACACTTACAAGGGTTTCCCCAAA  0.9083519 0.0916481226
+      ct1_plat1_TCAACAGACTTACAAGGGTTTCCCCAAA  0.9991586 0.0008414070
+      ct1_plat1_TCAACATACTTACAAGGGTTTCCCCAAA  0.9420100 0.0579899546
+      ct3_plat1_TCAACAAACTTACCAGGGTTTCCCCAAA  0.9150741 0.0849258669
+      ct2_plat1_TCAACACACTTACCAGGGTTTCCCCAAA  0.9780593 0.0219407492
+      ct2_plat1_TCAACAGACTTACCAGGGTTTCCCCAAA  0.9484479 0.0515520921
+      ct2_plat1_TCAACATACTTACCAGGGTTTCCCCAAA  0.9700316 0.0299683861
+      ct3_plat1_TCAACAAACTTACGAGGGTTTCCCCAAA  0.9991861 0.0008139447
+      ct2_plat1_TCAACACACTTACGAGGGTTTCCCCAAA  0.9233453 0.0766547344
+      ct2_plat1_TCAACCAACTTACAAGGGTTTCCCCAAA  0.9549822 0.0450177610
+      ct2_plat1_TCAACCCACTTACAAGGGTTTCCCCAAA  0.9991571 0.0008429204
+      ct2_plat1_TCAACCGACTTACAAGGGTTTCCCCAAA  0.9991375 0.0008625421
+      ct3_plat1_TCAACCTACTTACAAGGGTTTCCCCAAA  0.9839428 0.0160572269
+      ct3_plat1_TCAACCAACTTACCAGGGTTTCCCCAAA  0.9625973 0.0374026835
+      ct2_plat1_TCAACCCACTTACCAGGGTTTCCCCAAA  0.8637752 0.1362248057
+      ct3_plat1_TCAACCGACTTACCAGGGTTTCCCCAAA  0.9567980 0.0432019680
+      ct3_plat1_TCAACCTACTTACCAGGGTTTCCCCAAA  0.9949017 0.0050982990
+      ct2_plat1_TCAACCAACTTACGAGGGTTTCCCCAAA  0.9992301 0.0007699450
+      ct1_plat1_TCAACCCACTTACGAGGGTTTCCCCAAA  0.9749485 0.0250515155
+      ct3_plat1_TCAACGAACTTACAAGGGTTTCCCCAAA  0.9976436 0.0023563586
+      ct1_plat1_TCAACGCACTTACAAGGGTTTCCCCAAA  0.9669628 0.0330372262
+      ct1_plat1_TCAACGGACTTACAAGGGTTTCCCCAAA  0.9251661 0.0748339112
+      ct1_plat1_TCAACGTACTTACAAGGGTTTCCCCAAA  0.9621912 0.0378087703
+      ct1_plat1_TCAACGAACTTACCAGGGTTTCCCCAAA  0.9240622 0.0759377789
+      ct2_plat1_TCAACGCACTTACCAGGGTTTCCCCAAA  0.9543345 0.0456655117
+      ct2_plat1_TCAACGGACTTACCAGGGTTTCCCCAAA  0.9615691 0.0384309072
+      ct2_plat1_TCAACGTACTTACCAGGGTTTCCCCAAA  0.8311200 0.1688799804
+      ct3_plat1_TCAACGAACTTACGAGGGTTTCCCCAAA  0.9897386 0.0102613711
+      ct2_plat1_TCAACGCACTTACGAGGGTTTCCCCAAA  0.9800143 0.0199857006
+      ct1_plat1_TCAACTAACTTACAAGGGTTTCCCCAAA  0.9977700 0.0022299960
+      ct3_plat1_TCAACTCACTTACAAGGGTTTCCCCAAA  0.9991301 0.0008699021
+      ct2_plat1_TCAACTGACTTACAAGGGTTTCCCCAAA  0.8729456 0.1270544244
+      ct3_plat1_TCAACTTACTTACAAGGGTTTCCCCAAA  0.8535999 0.1464001130
+      ct3_plat1_TCAACTAACTTACCAGGGTTTCCCCAAA  0.9992203 0.0007796680
+      ct1_plat1_TCAACTCACTTACCAGGGTTTCCCCAAA  0.9992638 0.0007361789
+      ct2_plat1_TCAACTGACTTACCAGGGTTTCCCCAAA  0.9471749 0.0528251282
+      ct1_plat1_TCAACTTACTTACCAGGGTTTCCCCAAA  0.9522643 0.0477357485
+      ct1_plat1_TCAACTAACTTACGAGGGTTTCCCCAAA  0.9772578 0.0227421743
+      ct2_plat1_TCAACTCACTTACGAGGGTTTCCCCAAA  0.9991429 0.0008571037
+      ct2_plat1_TCAACAAACTTAGAAGGGTTTCCCCAAA  0.9871211 0.0128789181
       
       $results$score_mat
       $results$score_mat[[1]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct2
-      ct1  .       82.10106
-      ct2 82.10106  .      
+              ct2     ct3
+      ct2  .      94.1427
+      ct3 94.1427  .     
       
       $results$score_mat[[2]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       85.39892
-      ct3 85.39892  .      
+               ct2      ct1
+      ct2   .      108.3323
+      ct1 108.3323   .     
       
       $results$score_mat[[3]]
-      2 x 2 sparse Matrix of class "dgCMatrix"
-               ct2      ct1
-      ct2  .       94.48602
-      ct1 94.48602  .      
+      3 x 3 sparse Matrix of class "dgCMatrix"
+               ct1      ct2      ct3
+      ct1   .      105.1834 165.6109
+      ct2 105.1834   .      104.4448
+      ct3 165.6109 104.4448   .     
       
       $results$score_mat[[4]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       93.69724
-      ct3 93.69724  .      
+               ct1      ct2
+      ct1   .      103.7738
+      ct2 103.7738   .     
       
       $results$score_mat[[5]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-                ct1      ct2      ct3
-      ct1   .       93.90644 104.2262
-      ct2  93.90644  .        91.8018
-      ct3 104.22625 91.80180   .     
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct1      ct2
+      ct1   .      103.3454
+      ct2 103.3454   .     
       
       $results$score_mat[[6]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       78.52044
-      ct3 78.52044  .      
+               ct2      ct1
+      ct2   .      104.9895
+      ct1 104.9895   .     
       
       $results$score_mat[[7]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct3      ct1
-      ct3  .       84.45213
-      ct1 84.45213  .      
+               ct1      ct2
+      ct1   .      104.8325
+      ct2 104.8325   .     
       
       $results$score_mat[[8]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-                ct1      ct2       ct3
-      ct1   .       86.17209 112.16901
-      ct2  86.17209  .        86.22725
-      ct3 112.16901 86.22725   .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct3      ct1
+      ct3   .      100.0263
+      ct1 100.0263   .     
       
       $results$score_mat[[9]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-               ct1      ct2      ct3
-      ct1  .       85.14083 99.71540
-      ct2 85.14083  .       85.49561
-      ct3 99.71540 85.49561  .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct1      ct2
+      ct1   .      107.0588
+      ct2 107.0588   .     
       
       $results$score_mat[[10]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct3      ct1
-      ct3  .       88.28728
-      ct1 88.28728  .      
+               ct1      ct2
+      ct1  .       97.34125
+      ct2 97.34125  .      
       
       $results$score_mat[[11]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct2
-      ct1  .       83.05036
-      ct2 83.05036  .      
+               ct1      ct3
+      ct1   .      100.7738
+      ct3 100.7738   .     
       
       $results$score_mat[[12]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       90.17287
-      ct3 90.17287  .      
+               ct1      ct2
+      ct1   .      106.4719
+      ct2 106.4719   .     
       
       $results$score_mat[[13]]
-      2 x 2 sparse Matrix of class "dgCMatrix"
-               ct3      ct1
-      ct3  .       83.88201
-      ct1 83.88201  .      
+      3 x 3 sparse Matrix of class "dgCMatrix"
+               ct1       ct2      ct3
+      ct1  .        99.75794  98.8212
+      ct2 99.75794   .       150.3461
+      ct3 98.82120 150.34608   .     
       
       $results$score_mat[[14]]
       3 x 3 sparse Matrix of class "dgCMatrix"
-                ct1      ct2       ct3
-      ct1   .       85.99425 104.54365
-      ct2  85.99425  .        86.29083
-      ct3 104.54365 86.29083   .      
+               ct1       ct2       ct3
+      ct1  .        93.78725  93.79779
+      ct2 93.78725   .       142.34133
+      ct3 93.79779 142.34133   .      
       
       $results$score_mat[[15]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-              ct1     ct3
-      ct1  .      92.5704
-      ct3 92.5704  .     
+               ct1      ct3
+      ct1  .       93.00009
+      ct3 93.00009  .      
       
       $results$score_mat[[16]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-                ct1      ct2       ct3
-      ct1   .       79.41871 100.48748
-      ct2  79.41871  .        79.65999
-      ct3 100.48748 79.65999   .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct2      ct1
+      ct2   .      105.6172
+      ct1 105.6172   .     
       
       $results$score_mat[[17]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-                ct1      ct2       ct3
-      ct1   .       80.62201 102.51253
-      ct2  80.62201  .        80.96028
-      ct3 102.51253 80.96028   .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct1      ct2
+      ct1   .      101.6797
+      ct2 101.6797   .     
       
       $results$score_mat[[18]]
       3 x 3 sparse Matrix of class "dgCMatrix"
-               ct1       ct2       ct3
-      ct1  .        87.30538  88.38749
-      ct2 87.30538   .       117.99517
-      ct3 88.38749 117.99517   .      
+               ct1      ct2      ct3
+      ct1   .      102.6197 167.6448
+      ct2 102.6197   .      102.5316
+      ct3 167.6448 102.5316   .     
       
       $results$score_mat[[19]]
       2 x 2 sparse Matrix of class "dgCMatrix"
                ct1      ct3
-      ct1  .       78.62308
-      ct3 78.62308  .      
+      ct1   .      107.3387
+      ct3 107.3387   .     
       
       $results$score_mat[[20]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-              ct3     ct1
-      ct3  .      90.1953
-      ct1 90.1953  .     
+               ct2      ct3
+      ct2  .       97.40789
+      ct3 97.40789  .      
       
       $results$score_mat[[21]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       75.74167
-      ct3 75.74167  .      
+              ct2     ct3
+      ct2   .     114.629
+      ct3 114.629   .    
       
       $results$score_mat[[22]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-              ct1     ct3
-      ct1  .      82.4768
-      ct3 82.4768  .     
+               ct1      ct3
+      ct1   .      101.8643
+      ct3 101.8643   .     
       
       $results$score_mat[[23]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-                ct1      ct2       ct3
-      ct1   .       91.92867 110.17703
-      ct2  91.92867  .        92.93348
-      ct3 110.17703 92.93348   .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+              ct2     ct1
+      ct2   .     108.311
+      ct1 108.311   .    
       
       $results$score_mat[[24]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-               ct1       ct2       ct3
-      ct1  .        83.32154  82.10051
-      ct2 83.32154   .       108.26878
-      ct3 82.10051 108.26878   .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct2      ct1
+      ct2   .      102.6032
+      ct1 102.6032   .     
       
       $results$score_mat[[25]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       80.84147
-      ct3 80.84147  .      
+               ct1      ct2
+      ct1  .       93.58829
+      ct2 93.58829  .      
       
       $results$score_mat[[26]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       90.86972
-      ct3 90.86972  .      
+               ct2      ct3
+      ct2   .      103.2667
+      ct3 103.2667   .     
       
       $results$score_mat[[27]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-                ct1      ct2      ct3
-      ct1   .       86.29289 109.8556
-      ct2  86.29289  .        86.1353
-      ct3 109.85557 86.13530   .     
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct3      ct1
+      ct3  .       93.93885
+      ct1 93.93885  .      
       
       $results$score_mat[[28]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct3      ct1
-      ct3  .       83.16249
-      ct1 83.16249  .      
+               ct2      ct3
+      ct2   .      101.9982
+      ct3 101.9982   .     
       
       $results$score_mat[[29]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       85.61245
-      ct3 85.61245  .      
+               ct1      ct2
+      ct1   .      107.1406
+      ct2 107.1406   .     
       
       $results$score_mat[[30]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct2      ct3
-      ct2  .       90.05406
-      ct3 90.05406  .      
+               ct1      ct3
+      ct1   .      103.9543
+      ct3 103.9543   .     
       
       $results$score_mat[[31]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct2
-      ct1  .       96.78509
-      ct2 96.78509  .      
+              ct1     ct2
+      ct1  .      99.6968
+      ct2 99.6968  .     
       
       $results$score_mat[[32]]
-      2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       83.12887
-      ct3 83.12887  .      
+      3 x 3 sparse Matrix of class "dgCMatrix"
+               ct1      ct2      ct3
+      ct1   .      102.2247 159.9731
+      ct2 102.2247   .      101.7377
+      ct3 159.9731 101.7377   .     
       
       $results$score_mat[[33]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-                ct1      ct2       ct3
-      ct1   .       88.56952 108.49289
-      ct2  88.56952  .        88.88764
-      ct3 108.49289 88.88764   .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct2      ct3
+      ct2   .      123.4538
+      ct3 123.4538   .     
       
       $results$score_mat[[34]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-               ct1       ct2       ct3
-      ct1  .        78.35958  79.09479
-      ct2 78.35958   .       100.06970
-      ct3 79.09479 100.06970   .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct3      ct1
+      ct3  .       87.89434
+      ct1 87.89434  .      
       
       $results$score_mat[[35]]
-      2 x 2 sparse Matrix of class "dgCMatrix"
-             ct1    ct2
-      ct1  .     87.863
-      ct2 87.863  .    
+      3 x 3 sparse Matrix of class "dgCMatrix"
+               ct1      ct2      ct3
+      ct1   .      150.2532 103.2331
+      ct2 150.2532   .      101.3280
+      ct3 103.2331 101.3280   .     
       
       $results$score_mat[[36]]
-      2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct2
-      ct1  .       93.10194
-      ct2 93.10194  .      
+      3 x 3 sparse Matrix of class "dgCMatrix"
+               ct1      ct2      ct3
+      ct1   .      107.6831 182.6039
+      ct2 107.6831   .      107.4914
+      ct3 182.6039 107.4914   .     
       
       $results$score_mat[[37]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-                ct1      ct2       ct3
-      ct1   .       85.37273 105.72568
-      ct2  85.37273  .        85.65781
-      ct3 105.72568 85.65781   .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct2      ct3
+      ct2  .       92.62579
+      ct3 92.62579  .      
       
       $results$score_mat[[38]]
-      2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       87.67024
-      ct3 87.67024  .      
+      3 x 3 sparse Matrix of class "dgCMatrix"
+               ct1      ct2      ct3
+      ct1   .      163.3823 100.8822
+      ct2 163.3823   .      100.7506
+      ct3 100.8822 100.7506   .     
       
       $results$score_mat[[39]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-                ct1      ct2       ct3
-      ct1   .       88.50987 108.63140
-      ct2  88.50987  .        88.69105
-      ct3 108.63140 88.69105   .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct1      ct2
+      ct1  .       97.53771
+      ct2 97.53771  .      
       
       $results$score_mat[[40]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-              ct1      ct2      ct3
-      ct1  .      78.15500 95.21530
-      ct2 78.1550  .       78.80242
-      ct3 95.2153 78.80242  .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct1      ct2
+      ct1   .      102.1851
+      ct2 102.1851   .     
       
       $results$score_mat[[41]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct2      ct3
-      ct2  .       86.22426
-      ct3 86.22426  .      
+               ct1      ct2
+      ct1   .      100.6975
+      ct2 100.6975   .     
       
       $results$score_mat[[42]]
       3 x 3 sparse Matrix of class "dgCMatrix"
-               ct1      ct2       ct3
-      ct1   .      88.70510 115.71566
-      ct2  88.7051  .        88.43116
-      ct3 115.7157 88.43116   .      
+               ct1      ct2      ct3
+      ct1   .      118.6039 118.6067
+      ct2 118.6039   .      165.2592
+      ct3 118.6067 165.2592   .     
       
       $results$score_mat[[43]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-               ct1      ct2      ct3
-      ct1  .       79.83207 97.92918
-      ct2 79.83207  .       79.28628
-      ct3 97.92918 79.28628  .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct3      ct1
+      ct3  .       98.92744
+      ct1 98.92744  .      
       
       $results$score_mat[[44]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       98.58484
-      ct3 98.58484  .      
+               ct3      ct1
+      ct3  .       98.22694
+      ct1 98.22694  .      
       
       $results$score_mat[[45]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct3      ct1
-      ct3  .       90.64534
-      ct1 90.64534  .      
+               ct1      ct2
+      ct1  .       96.09425
+      ct2 96.09425  .      
       
       $results$score_mat[[46]]
-      2 x 2 sparse Matrix of class "dgCMatrix"
-              ct1     ct2
-      ct1  .      92.1662
-      ct2 92.1662  .     
+      3 x 3 sparse Matrix of class "dgCMatrix"
+               ct1      ct2      ct3
+      ct1   .      101.1364 101.1374
+      ct2 101.1364   .      155.5576
+      ct3 101.1374 155.5576   .     
       
       $results$score_mat[[47]]
-      2 x 2 sparse Matrix of class "dgCMatrix"
-             ct1    ct2
-      ct1  .     88.331
-      ct2 88.331  .    
+      3 x 3 sparse Matrix of class "dgCMatrix"
+               ct1      ct2      ct3
+      ct1   .      101.9350 103.6303
+      ct2 101.9350   .      144.5985
+      ct3 103.6303 144.5985   .     
       
       $results$score_mat[[48]]
       2 x 2 sparse Matrix of class "dgCMatrix"
                ct1      ct2
-      ct1  .       78.74709
-      ct2 78.74709  .      
+      ct1   .      103.4041
+      ct2 103.4041   .     
       
       $results$score_mat[[49]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-                ct1      ct2      ct3
-      ct1   .       90.45789 111.4340
-      ct2  90.45789  .        90.4774
-      ct3 111.43402 90.47740   .     
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct1      ct2
+      ct1  .       97.56612
+      ct2 97.56612  .      
       
       $results$score_mat[[50]]
       2 x 2 sparse Matrix of class "dgCMatrix"
                ct1      ct2
-      ct1  .       80.51497
-      ct2 80.51497  .      
+      ct1  .       95.38117
+      ct2 95.38117  .      
       
       $results$score_mat[[51]]
-      2 x 2 sparse Matrix of class "dgCMatrix"
-               ct3      ct1
-      ct3  .       88.86225
-      ct1 88.86225  .      
+      3 x 3 sparse Matrix of class "dgCMatrix"
+               ct1      ct2      ct3
+      ct1   .      162.1389 110.5825
+      ct2 162.1389   .      110.1249
+      ct3 110.5825 110.1249   .     
       
       $results$score_mat[[52]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct2      ct3
-      ct2  .       73.05441
-      ct3 73.05441  .      
+               ct1      ct2
+      ct1   .      109.6124
+      ct2 109.6124   .     
       
       $results$score_mat[[53]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-              ct1     ct2
-      ct1  .      95.4947
-      ct2 95.4947  .     
+               ct1      ct3
+      ct1  .       97.36584
+      ct3 97.36584  .      
       
       $results$score_mat[[54]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-               ct1      ct2      ct3
-      ct1  .       79.84128 92.89326
-      ct2 79.84128  .       79.54342
-      ct3 92.89326 79.54342  .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct1      ct3
+      ct1  .       95.49315
+      ct3 95.49315  .      
       
       $results$score_mat[[55]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-               ct1      ct2      ct3
-      ct1  .       77.57171 99.59822
-      ct2 77.57171  .       77.71231
-      ct3 99.59822 77.71231  .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct2      ct3
+      ct2   .      100.2157
+      ct3 100.2157   .     
       
       $results$score_mat[[56]]
       3 x 3 sparse Matrix of class "dgCMatrix"
-               ct1     ct2      ct3
-      ct1  .       82.9655 99.31659
-      ct2 82.96550  .      83.93390
-      ct3 99.31659 83.9339  .      
+               ct1      ct2      ct3
+      ct1   .      102.7783 160.0015
+      ct2 102.7783   .      102.7666
+      ct3 160.0015 102.7666   .     
       
       $results$score_mat[[57]]
       3 x 3 sparse Matrix of class "dgCMatrix"
-               ct1      ct2       ct3
-      ct1   .      90.18310 111.66983
-      ct2  90.1831  .        91.42031
-      ct3 111.6698 91.42031   .      
+                ct1      ct2       ct3
+      ct1   .       95.96663 168.82814
+      ct2  95.96663  .        95.99397
+      ct3 168.82814 95.99397   .      
       
       $results$score_mat[[58]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-               ct1      ct2      ct3
-      ct1  .       78.22920 90.96657
-      ct2 78.22920  .       76.36833
-      ct3 90.96657 76.36833  .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct3      ct1
+      ct3  .       95.26669
+      ct1 95.26669  .      
       
       $results$score_mat[[59]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       85.15567
-      ct3 85.15567  .      
+               ct2      ct3
+      ct2   .      100.5995
+      ct3 100.5995   .     
       
       $results$score_mat[[60]]
-      2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       84.14216
-      ct3 84.14216  .      
+      3 x 3 sparse Matrix of class "dgCMatrix"
+                ct1      ct2       ct3
+      ct1   .       97.99695 162.39350
+      ct2  97.99695  .        97.86006
+      ct3 162.39350 97.86006   .      
       
       $results$score_mat[[61]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-               ct1      ct2      ct3
-      ct1  .       83.14188 95.53637
-      ct2 83.14188  .       82.34758
-      ct3 95.53637 82.34758  .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct2      ct1
+      ct2  .       99.47101
+      ct1 99.47101  .      
       
       $results$score_mat[[62]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct3      ct1
-      ct3  .       87.83425
-      ct1 87.83425  .      
+               ct2      ct1
+      ct2   .      112.3198
+      ct1 112.3198   .     
       
       $results$score_mat[[63]]
       2 x 2 sparse Matrix of class "dgCMatrix"
                ct2      ct3
-      ct2  .       76.99584
-      ct3 76.99584  .      
+      ct2   .      101.6807
+      ct3 101.6807   .     
       
       $results$score_mat[[64]]
-      2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct2
-      ct1  .       79.37208
-      ct2 79.37208  .      
+      3 x 3 sparse Matrix of class "dgCMatrix"
+                ct1       ct2      ct3
+      ct1   .       152.59436 94.82778
+      ct2 152.59436   .       94.66805
+      ct3  94.82778  94.66805  .      
       
       $results$score_mat[[65]]
-      2 x 2 sparse Matrix of class "dgCMatrix"
-               ct2      ct3
-      ct2  .       83.14799
-      ct3 83.14799  .      
+      3 x 3 sparse Matrix of class "dgCMatrix"
+                ct1      ct2       ct3
+      ct1   .       89.61558 142.51439
+      ct2  89.61558  .        90.49815
+      ct3 142.51439 90.49815   .      
       
       $results$score_mat[[66]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct2
-      ct1  .       84.38084
-      ct2 84.38084  .      
+               ct2      ct3
+      ct2  .       98.64397
+      ct3 98.64397  .      
       
       $results$score_mat[[67]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-              ct1     ct3
-      ct1  .      82.9015
-      ct3 82.9015  .     
+               ct3      ct1
+      ct3  .       92.59386
+      ct1 92.59386  .      
       
       $results$score_mat[[68]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       78.07002
-      ct3 78.07002  .      
+               ct2      ct1
+      ct2  .       93.12983
+      ct1 93.12983  .      
       
       $results$score_mat[[69]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-                ct1      ct2       ct3
-      ct1   .       83.24428 100.51461
-      ct2  83.24428  .        82.82103
-      ct3 100.51461 82.82103   .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct1      ct2
+      ct1  .       98.30896
+      ct2 98.30896  .      
       
       $results$score_mat[[70]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-               ct1      ct2      ct3
-      ct1   .      100.1163 122.9896
-      ct2 100.1163   .      101.5591
-      ct3 122.9896 101.5591   .     
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct3      ct1
+      ct3  .       95.60815
+      ct1 95.60815  .      
       
       $results$score_mat[[71]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       82.27107
-      ct3 82.27107  .      
+               ct1      ct2
+      ct1  .       98.37481
+      ct2 98.37481  .      
       
       $results$score_mat[[72]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-                ct1      ct2       ct3
-      ct1   .       86.93176 108.83056
-      ct2  86.93176  .        86.79665
-      ct3 108.83056 86.79665   .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct1      ct2
+      ct1   .      101.4193
+      ct2 101.4193   .     
       
       $results$score_mat[[73]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-               ct1      ct2      ct3
-      ct1  .       84.15128 99.84628
-      ct2 84.15128  .       85.76207
-      ct3 99.84628 85.76207  .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct1      ct3
+      ct1  .       95.46425
+      ct3 95.46425  .      
       
       $results$score_mat[[74]]
       3 x 3 sparse Matrix of class "dgCMatrix"
-                ct1      ct2       ct3
-      ct1   .       88.53016 102.47656
-      ct2  88.53016  .        90.78673
-      ct3 102.47656 90.78673   .      
+               ct1       ct2       ct3
+      ct1  .        97.08951  97.68204
+      ct2 97.08951   .       154.61807
+      ct3 97.68204 154.61807   .      
       
       $results$score_mat[[75]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct2
-      ct1  .       81.18663
-      ct2 81.18663  .      
+               ct2      ct3
+      ct2   .      105.4102
+      ct3 105.4102   .     
       
       $results$score_mat[[76]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-               ct1      ct2      ct3
-      ct1  .       83.51451 98.34277
-      ct2 83.51451  .       84.74822
-      ct3 98.34277 84.74822  .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct1      ct2
+      ct1  .       98.52669
+      ct2 98.52669  .      
       
       $results$score_mat[[77]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct3      ct1
-      ct3  .       95.80939
-      ct1 95.80939  .      
+               ct1      ct2
+      ct1   .      104.8339
+      ct2 104.8339   .     
       
       $results$score_mat[[78]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct2      ct3
-      ct2  .       82.20834
-      ct3 82.20834  .      
+             ct3    ct1
+      ct3  .     99.586
+      ct1 99.586  .    
       
       $results$score_mat[[79]]
       2 x 2 sparse Matrix of class "dgCMatrix"
                ct1      ct2
-      ct1  .       80.69524
-      ct2 80.69524  .      
+      ct1   .      101.9348
+      ct2 101.9348   .     
       
       $results$score_mat[[80]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       88.54273
-      ct3 88.54273  .      
+               ct1      ct2
+      ct1   .      108.1566
+      ct2 108.1566   .     
       
       $results$score_mat[[81]]
       2 x 2 sparse Matrix of class "dgCMatrix"
                ct3      ct1
-      ct3  .       80.02398
-      ct1 80.02398  .      
+      ct3  .       99.23851
+      ct1 99.23851  .      
       
       $results$score_mat[[82]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-                ct1      ct2       ct3
-      ct1   .       92.15651 110.30670
-      ct2  92.15651  .        91.62053
-      ct3 110.30670 91.62053   .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct1      ct2
+      ct1  .       99.14864
+      ct2 99.14864  .      
       
       $results$score_mat[[83]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-              ct1     ct3
-      ct1  .      91.1562
-      ct3 91.1562  .     
+               ct2      ct3
+      ct2  .       97.64878
+      ct3 97.64878  .      
       
       $results$score_mat[[84]]
       2 x 2 sparse Matrix of class "dgCMatrix"
                ct3      ct1
-      ct3  .       87.40561
-      ct1 87.40561  .      
+      ct3  .       95.19022
+      ct1 95.19022  .      
       
       $results$score_mat[[85]]
       2 x 2 sparse Matrix of class "dgCMatrix"
                ct1      ct2
-      ct1  .       80.65295
-      ct2 80.65295  .      
+      ct1   .      113.9947
+      ct2 113.9947   .     
       
       $results$score_mat[[86]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       80.20282
-      ct3 80.20282  .      
+               ct1      ct2
+      ct1   .      108.3505
+      ct2 108.3505   .     
       
       $results$score_mat[[87]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-                ct1      ct2       ct3
-      ct1   .       80.37147 100.09797
-      ct2  80.37147  .        80.49925
-      ct3 100.09797 80.49925   .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct1      ct2
+      ct1   .      101.8529
+      ct2 101.8529   .     
       
       $results$score_mat[[88]]
-      3 x 3 sparse Matrix of class "dgCMatrix"
-               ct1      ct2       ct3
-      ct1   .      89.11900 109.69310
-      ct2  89.1190  .        89.50747
-      ct3 109.6931 89.50747   .      
+      2 x 2 sparse Matrix of class "dgCMatrix"
+               ct1      ct2
+      ct1  .       98.81731
+      ct2 98.81731  .      
       
       $results$score_mat[[89]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct1      ct3
-      ct1  .       85.34489
-      ct3 85.34489  .      
+               ct2      ct1
+      ct2   .      103.4285
+      ct1 103.4285   .     
       
       $results$score_mat[[90]]
       2 x 2 sparse Matrix of class "dgCMatrix"
-               ct3      ct1
-      ct3  .       83.56852
-      ct1 83.56852  .      
+               ct2      ct3
+      ct2   .      102.2144
+      ct3 102.2144   .     
       
       
       $results$singlet_scores
       $results$singlet_scores[[1]]
-            ct1       ct2 
-       82.08828 126.27817 
+            ct2       ct3 
+      172.31948  94.41536 
       
       $results$singlet_scores[[2]]
-           ct1      ct3 
-       87.4744 116.5413 
+           ct2      ct1 
+      108.3256 187.4473 
       
       $results$singlet_scores[[3]]
-            ct2       ct1 
-       94.43453 134.58538 
+           ct1      ct2      ct3 
+      172.1181 106.3178 329.0620 
       
       $results$singlet_scores[[4]]
-            ct1       ct3 
-      125.29215  94.73159 
+           ct1      ct2 
+      104.0843 166.4071 
       
       $results$singlet_scores[[5]]
-           ct1      ct2      ct3 
-      129.4433  92.8623 107.1822 
+           ct1      ct2 
+      171.4223 103.5734 
       
       $results$singlet_scores[[6]]
-           ct1      ct3 
-      111.7957  79.1038 
+           ct2      ct1 
+      104.9998 171.6517 
       
       $results$singlet_scores[[7]]
-            ct3       ct1 
-       84.45328 128.94708 
+           ct1      ct2 
+      105.1676 161.3566 
       
       $results$singlet_scores[[8]]
-            ct1       ct2       ct3 
-      121.96357  85.26842 119.44376 
+           ct3      ct1 
+      100.0033 191.0836 
       
       $results$singlet_scores[[9]]
-            ct1       ct2       ct3 
-      115.68695  84.53157 108.29797 
+           ct1      ct2 
+      107.0541 180.4813 
       
       $results$singlet_scores[[10]]
-            ct3       ct1 
-       88.28538 129.57397 
+            ct1       ct2 
+       97.34932 174.61147 
       
       $results$singlet_scores[[11]]
-            ct1       ct2 
-       83.02528 130.43458 
+           ct1      ct3 
+      101.0316 166.5178 
       
       $results$singlet_scores[[12]]
-            ct1       ct3 
-      133.16310  90.23559 
+           ct1      ct2 
+      167.0219 108.2211 
       
       $results$singlet_scores[[13]]
-            ct3       ct1 
-       83.87019 131.67336 
+           ct1      ct2      ct3 
+       99.8187 159.9533 168.9394 
       
       $results$singlet_scores[[14]]
             ct1       ct2       ct3 
-      123.86453  85.09558 108.94880 
+       94.01733 159.76976 167.38112 
       
       $results$singlet_scores[[15]]
             ct1       ct3 
-       92.54072 128.01673 
+      163.23481  93.14185 
       
       $results$singlet_scores[[16]]
-            ct1       ct2       ct3 
-      113.48763  78.65033 106.46778 
+           ct2      ct1 
+      105.6173 180.3058 
       
       $results$singlet_scores[[17]]
-            ct1       ct2       ct3 
-      110.13286  80.28978 111.01335 
+           ct1      ct2 
+      175.2876 101.8677 
       
       $results$singlet_scores[[18]]
-            ct1       ct2       ct3 
-       88.65374 118.86336 124.07835 
+           ct1      ct2      ct3 
+      173.7562 102.8016 187.9558 
       
       $results$singlet_scores[[19]]
-            ct1       ct3 
-       78.66003 123.12449 
+           ct1      ct3 
+      107.4282 176.7027 
       
       $results$singlet_scores[[20]]
-            ct3       ct1 
-       90.17639 131.92320 
+           ct2      ct3 
+      164.2597  98.2799 
       
       $results$singlet_scores[[21]]
-            ct1       ct3 
-      113.99331  76.13531 
+           ct2      ct3 
+      114.6563 205.1459 
       
       $results$singlet_scores[[22]]
-            ct1       ct3 
-       82.87586 120.27166 
+           ct1      ct3 
+      101.9243 175.2328 
       
       $results$singlet_scores[[23]]
-            ct1       ct2       ct3 
-      126.52667  90.60927 118.97900 
+           ct2      ct1 
+      108.3043 292.3285 
       
       $results$singlet_scores[[24]]
-            ct1       ct2       ct3 
-       83.83995 110.06038 114.47378 
+           ct2      ct1 
+      102.5967 174.4380 
       
       $results$singlet_scores[[25]]
-            ct1       ct3 
-       81.53956 117.05661 
+            ct1       ct2 
+       94.44101 156.30520 
       
       $results$singlet_scores[[26]]
-           ct1      ct3 
-       90.8225 133.2088 
+           ct2      ct3 
+      186.3175 103.3718 
       
       $results$singlet_scores[[27]]
-            ct1       ct2       ct3 
-      121.56409  85.76547 117.51642 
+            ct3       ct1 
+       93.94201 174.41452 
       
       $results$singlet_scores[[28]]
-            ct3       ct1 
-       83.14757 132.83754 
+           ct2      ct3 
+      102.0366 330.7854 
       
       $results$singlet_scores[[29]]
-            ct1       ct3 
-       85.88342 124.29832 
+           ct1      ct2 
+      170.8466 107.1542 
       
       $results$singlet_scores[[30]]
-            ct2       ct3 
-      112.61810  90.36133 
+           ct1      ct3 
+      104.4995 177.5420 
       
       $results$singlet_scores[[31]]
             ct1       ct2 
-      120.74989  95.63559 
+       99.75022 169.60129 
       
       $results$singlet_scores[[32]]
-            ct1       ct3 
-       83.38531 124.18661 
+           ct1      ct2      ct3 
+      172.9642 102.5305 178.1990 
       
       $results$singlet_scores[[33]]
-            ct1       ct2       ct3 
-      118.68305  87.60179 121.31680 
+           ct2      ct3 
+      123.8485 194.8023 
       
       $results$singlet_scores[[34]]
-            ct1       ct2       ct3 
-       80.16647  99.75627 110.51626 
+            ct3       ct1 
+       87.88787 168.79122 
       
       $results$singlet_scores[[35]]
-            ct1       ct2 
-       87.85164 131.61490 
+           ct1      ct2      ct3 
+      168.9949 161.1269 103.6580 
       
       $results$singlet_scores[[36]]
-            ct1       ct2 
-      116.69330  93.87213 
+           ct1      ct2      ct3 
+      179.9044 107.8540 192.3634 
       
       $results$singlet_scores[[37]]
-            ct1       ct2       ct3 
-      122.28709  84.60269 111.63964 
+            ct2       ct3 
+      168.23933  93.14293 
       
       $results$singlet_scores[[38]]
-            ct1       ct3 
-      117.37804  89.38639 
+           ct1      ct2      ct3 
+      182.2195 182.9201 101.0598 
       
       $results$singlet_scores[[39]]
-            ct1       ct2       ct3 
-      123.87218  87.77829 115.09712 
+            ct1       ct2 
+       97.83303 168.79669 
       
       $results$singlet_scores[[40]]
-            ct1       ct2       ct3 
-      107.31004  78.05308 103.13715 
+           ct1      ct2 
+      102.7055 163.7135 
       
       $results$singlet_scores[[41]]
-            ct2       ct3 
-      115.93326  86.23863 
+           ct1      ct2 
+      101.2002 170.1868 
       
       $results$singlet_scores[[42]]
-            ct1       ct2       ct3 
-      119.40219  87.76028 124.52094 
+           ct1      ct2      ct3 
+      118.7164 185.1191 194.8866 
       
       $results$singlet_scores[[43]]
-            ct1       ct2       ct3 
-      111.80619  79.23955 101.52357 
+            ct3       ct1 
+       98.91921 185.44909 
       
       $results$singlet_scores[[44]]
-            ct1       ct3 
-      141.83869  98.86915 
+            ct3       ct1 
+       98.20983 188.46505 
       
       $results$singlet_scores[[45]]
-            ct3       ct1 
-       90.63924 136.91641 
+            ct1       ct2 
+       96.24511 167.10350 
       
       $results$singlet_scores[[46]]
-            ct1       ct2 
-       93.24355 119.41940 
+           ct1      ct2      ct3 
+      101.3598 176.4972 178.6488 
       
       $results$singlet_scores[[47]]
-            ct1       ct2 
-      124.41904  87.59029 
+           ct1      ct2      ct3 
+      104.4004 156.1327 328.8040 
       
       $results$singlet_scores[[48]]
-            ct1       ct2 
-       78.72301 129.41027 
+           ct1      ct2 
+      173.3483 103.9643 
       
       $results$singlet_scores[[49]]
-            ct1       ct2       ct3 
-      127.93444  89.80187 114.66196 
+            ct1       ct2 
+      155.35701  99.73916 
       
       $results$singlet_scores[[50]]
             ct1       ct2 
-      103.87852  80.88388 
+       95.45347 166.69046 
       
       $results$singlet_scores[[51]]
-            ct3       ct1 
-       88.84472 141.75337 
+           ct1      ct2      ct3 
+      182.6762 179.1463 111.9236 
       
       $results$singlet_scores[[52]]
-            ct2       ct3 
-       72.70385 102.20796 
+          ct1     ct2 
+      109.572 190.198 
       
       $results$singlet_scores[[53]]
-           ct1      ct2 
-      115.6757  96.8612 
+            ct1       ct3 
+       97.94221 168.43333 
       
       $results$singlet_scores[[54]]
-            ct1       ct2       ct3 
-      113.89400  79.15337  96.36918 
+            ct1       ct3 
+      150.76710  96.78569 
       
       $results$singlet_scores[[55]]
-            ct1       ct2       ct3 
-      106.85718  77.24623 109.05319 
+           ct2      ct3 
+      100.2897 185.5630 
       
       $results$singlet_scores[[56]]
-            ct1       ct2       ct3 
-      112.88695  82.86075 107.80743 
+           ct1      ct2      ct3 
+      171.4274 103.2003 326.7088 
       
       $results$singlet_scores[[57]]
-            ct1       ct2       ct3 
-      119.47052  89.50938 124.72093 
+           ct1      ct2      ct3 
+      264.4456  96.0628 330.5773 
       
       $results$singlet_scores[[58]]
-            ct1       ct2       ct3 
-      106.33969  77.52018  94.21935 
+            ct3       ct1 
+       95.24691 172.78352 
       
       $results$singlet_scores[[59]]
-            ct1       ct3 
-       85.79563 122.00166 
+           ct2      ct3 
+      101.5566 322.9714 
       
       $results$singlet_scores[[60]]
-            ct1       ct3 
-       85.13501 117.70987 
+            ct1       ct2       ct3 
+      251.80196  98.18057 180.90787 
       
       $results$singlet_scores[[61]]
-            ct1       ct2       ct3 
-      117.83754  82.55386  99.34958 
+            ct2       ct1 
+       99.47078 177.07603 
       
       $results$singlet_scores[[62]]
-            ct3       ct1 
-       87.82992 133.18795 
+           ct2      ct1 
+      112.3135 217.3268 
       
       $results$singlet_scores[[63]]
-            ct2       ct3 
-       76.34574 102.00193 
+           ct2      ct3 
+      180.3061 101.7297 
       
       $results$singlet_scores[[64]]
-            ct1       ct2 
-       79.37232 113.53160 
+           ct1      ct2      ct3 
+      165.2106 172.2217  94.9648 
       
       $results$singlet_scores[[65]]
-            ct2       ct3 
-      113.91077  83.19416 
+            ct1       ct2       ct3 
+      147.50453  91.26894 157.84252 
       
       $results$singlet_scores[[66]]
-            ct1       ct2 
-       84.37146 129.99311 
+            ct2       ct3 
+      180.30546  99.08034 
       
       $results$singlet_scores[[67]]
-            ct1       ct3 
-       82.92627 119.56032 
+            ct3       ct1 
+       92.59821 165.37076 
       
       $results$singlet_scores[[68]]
-            ct1       ct3 
-      108.35314  79.39073 
+            ct2       ct1 
+       93.11066 177.14915 
       
       $results$singlet_scores[[69]]
-           ct1      ct2      ct3 
-      117.4405  82.0923 106.6191 
+            ct1       ct2 
+       98.41145 171.57397 
       
       $results$singlet_scores[[70]]
-            ct1       ct2       ct3 
-      138.66546  97.93225 132.85605 
+            ct3       ct1 
+       95.60925 180.31629 
       
       $results$singlet_scores[[71]]
-            ct1       ct3 
-       85.07457 110.54041 
+            ct1       ct2 
+       98.56058 167.92119 
       
       $results$singlet_scores[[72]]
-            ct1       ct2       ct3 
-      129.72657  85.56018 112.69815 
+           ct1      ct2 
+      102.2854 159.3156 
       
       $results$singlet_scores[[73]]
-            ct1       ct2       ct3 
-      111.09497  84.79526 109.77538 
+            ct1       ct3 
+       95.71932 180.28341 
       
       $results$singlet_scores[[74]]
             ct1       ct2       ct3 
-      109.92396  89.75373 114.14464 
+       97.96431 166.82415 173.22413 
       
       $results$singlet_scores[[75]]
-            ct1       ct2 
-       81.18127 119.29625 
+           ct2      ct3 
+      105.7838 197.0619 
       
       $results$singlet_scores[[76]]
-            ct1       ct2       ct3 
-      106.17358  83.49669 110.78559 
+            ct1       ct2 
+      174.45909  98.68173 
       
       $results$singlet_scores[[77]]
-            ct3       ct1 
-       95.79824 149.89394 
+           ct1      ct2 
+      161.5466 108.0528 
       
       $results$singlet_scores[[78]]
-           ct2      ct3 
-      84.62313 95.68639 
+            ct3       ct1 
+       99.60287 178.51166 
       
       $results$singlet_scores[[79]]
-            ct1       ct2 
-       83.02813 104.02652 
+           ct1      ct2 
+      182.3442 101.9797 
       
       $results$singlet_scores[[80]]
-            ct1       ct3 
-      127.77556  88.61961 
+           ct1      ct2 
+      108.1576 185.0929 
       
       $results$singlet_scores[[81]]
             ct3       ct1 
-       80.00807 126.20413 
+       99.23063 173.82988 
       
       $results$singlet_scores[[82]]
-            ct1       ct2       ct3 
-      125.86418  90.49587 117.72639 
+           ct1      ct2 
+      164.0614 101.0037 
       
       $results$singlet_scores[[83]]
-           ct1      ct3 
-       94.7676 114.6968 
+           ct2      ct3 
+      170.4085 102.0145 
       
       $results$singlet_scores[[84]]
-            ct3       ct1 
-       87.40384 131.26615 
+           ct3      ct1 
+       95.1695 182.7668 
       
       $results$singlet_scores[[85]]
-            ct1       ct2 
-       80.63767 123.38523 
+           ct1      ct2 
+      113.9735 192.1728 
       
       $results$singlet_scores[[86]]
-            ct1       ct3 
-      117.13909  80.98885 
+           ct1      ct2 
+      183.8745 108.6819 
       
       $results$singlet_scores[[87]]
-            ct1       ct2       ct3 
-      110.35308  79.93322 106.02536 
+           ct1      ct2 
+      102.1916 162.7343 
       
       $results$singlet_scores[[88]]
-            ct1       ct2       ct3 
-      126.15523  88.68966 112.79327 
+           ct1      ct2 
+       98.8864 160.5142 
       
       $results$singlet_scores[[89]]
-            ct1       ct3 
-       85.43183 124.95294 
+           ct2      ct1 
+      103.4188 182.9952 
       
       $results$singlet_scores[[90]]
-            ct3       ct1 
-       83.56322 132.66627 
+           ct2      ct3 
+      102.2405 193.9846 
       
       
       
@@ -1506,7 +1493,7 @@
     Output
            
             ct1 ct2 ct3
-        ct1  27   0   0
-        ct2   0  39   0
+        ct1  31   0   0
+        ct2   0  35   0
         ct3   0   0  24
 

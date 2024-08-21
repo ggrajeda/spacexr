@@ -1,7 +1,7 @@
 test_that("SpatialRNA simple test", {
   # Arrange
   set.seed(20240812)
-  se <- synthetic_se()
+  se <- synthetic_se(seed = 432)
 
   u <- list(counts = assay(se, "counts"),
           coords = as.data.frame(colData(se)[,c("x", "y")]))
