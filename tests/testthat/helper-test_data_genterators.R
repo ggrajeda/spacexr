@@ -14,12 +14,11 @@ char2atcg_1 <- \(s) {
 char2atcg <- Vectorize(char2atcg_1)
 
 # create a SingleCellExperiment object for testing spacexr functions
-# TODO helpers to create lists for constructing spacexr functions
 # TODO add Batch (for platforms)
 synthetic_se <- function(n_celltypes = 3,
                          cells_per_type = 30,
                          de.prob = seq(from=0.3,to=0.4,length.out=n_celltypes),
-                         nGenes = 500, seed = 1951) {
+                         nGenes = 500, disk_radius = 0.5, seed = 1951) {
   withr::with_seed(seed, {
     total_cells <- cells_per_type * n_celltypes
     # a scSummarizedExperiment
@@ -49,7 +48,7 @@ synthetic_se <- function(n_celltypes = 3,
 
     # the cells (columns) are distributed in a smaller disk centered at each group
     cd <- colData(se)
-    location <- polar2cartesian(data.frame(rho = sqrt(runif(total_cells, 0, 1)) / 2,
+    location <- polar2cartesian(data.frame(rho = sqrt(runif(total_cells, 0, 1)) * disk_radius,
                                            theta = runif(total_cells, 0, 2  * pi)))
     offset <- centroids[as.integer(colData(se)$Group),]
     location <- location + offset
