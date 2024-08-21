@@ -16,12 +16,12 @@ char2atcg <- Vectorize(char2atcg_1)
 # create a SingleCellExperiment object for testing spacexr functions
 # TODO helpers to create lists for constructing spacexr functions
 # TODO add Batch (for platforms)
+# This call works and protects repeatability: withr::with_seed(seed, synthetic_se())
+# TODO get the above line into the fixture
 synthetic_se <- function(n_celltypes = 3,
                          cells_per_type = 30,
                          de.prob = seq(from=0.3,to=0.4,length.out=n_celltypes),
                          nGenes = 500) {
-  # TODO are we repeatable?
-  with_seed(999)
   total_cells <- cells_per_type * n_celltypes
   # a scSummarizedExperiment
   se <- splatSimulateGroups(
