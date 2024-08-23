@@ -2,13 +2,16 @@ library(stringr, quietly = TRUE)
 library(splatter, quietly = TRUE)
 library(scater, quietly = TRUE)
 
-# Encode utf8 as ACGT
-char2atcg_1 <- \(s) {
+# convert a UTF-8 string to base 4 (bytewise bigendian),
+#   where the digits are A,C,G,T
+# Puropose: To create pseduo bar codes
+# example: char2atcg("A") => "CAAC"
+# "A" asici 65 (base 10) =>  01 10 00 10 => 2,0,2,1 => GAGC
+char2atcg <- Vectorize(\(s) {
   x <- utf8ToInt(s)
-  paste0(c("A", "C", "G", "T")[sapply(0:3,
-                 function(u) bitwAnd(bitwShiftR(x, u*2), 3))+1], collapse = "")
-  }
-char2atcg <- Vectorize(char2atcg_1)
+  paste0(c("A", "C", "G", "T")[t(sapply(0:3,
+        function(u) bitwAnd(bitwShiftR(x, u*2), 3))+1)], collapse = "")})
+
 # create a SingleCellExperiment object for testing spacexr functions
 synthetic_se <- function(n_celltypes = 3,
                          cells_per_type = 30,
