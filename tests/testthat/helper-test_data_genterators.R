@@ -1,9 +1,6 @@
-library(stringr)
-library(splatter)
-library(scater)
-
-# TODO `setup()` was deprecated in the 3rd edition.
-# Please use test fixtures instead see vignette('test-fixtures') for details
+library(stringr, quietly = TRUE)
+library(splatter, quietly = TRUE)
+library(scater, quietly = TRUE)
 
 # Encode utf8 as ACGT
 char2atcg_1 <- \(s) {
@@ -12,16 +9,14 @@ char2atcg_1 <- \(s) {
                  function(u) bitwAnd(bitwShiftR(x, u*2), 3))+1], collapse = "")
   }
 char2atcg <- Vectorize(char2atcg_1)
-
 # create a SingleCellExperiment object for testing spacexr functions
-# TODO add Batch (for platforms)
 synthetic_se <- function(n_celltypes = 3,
                          cells_per_type = 30,
                          de.prob = seq(from=0.3,to=0.4,length.out=n_celltypes),
                          nGenes = 500, disk_radius = 0.5, seed = 1951) {
   withr::with_seed(seed, {
     total_cells <- cells_per_type * n_celltypes
-    # a scSummarizedExperiment
+    # a SingleCellExperiement
     se <- splatSimulateGroups(
       newSplatParams(batchCells = total_cells, nGenes = nGenes),
       de.prob = de.prob,
@@ -29,12 +24,10 @@ synthetic_se <- function(n_celltypes = 3,
       verbose = FALSE
     )
 
-    # Create barcode as CellType_PlatfformID_UMI
-    # where CellType is from Group and Platform is from Batch
+    # Create barcode as CellType_UMI
+    # where CellType is from Group
     colData(se)[, "Group"] <- as.factor(str_replace(colData(se)$Group, "Group", "ct"))
-    colData(se)[, "Batch"] <- as.factor(str_replace(colData(se)$Batch, "Batch", "plat"))
-    colnames(se) <- paste(colData(se)$Group,
-      colData(se)$Batch, char2atcg(colData(se)$Cell), sep = "_")
+    colnames(se) <- paste(colData(se)$Group, char2atcg(colData(se)$Cell), sep = "_")
 
     # map the cells (columns) to slide xy-space
     cartesian2polar <- function(cart) with(cart,data.frame(rho = sqrt(x^2 + y^2),
