@@ -34,11 +34,7 @@ test_that("run.CSIDE.single simple test",{
                               explanatory.variable,
                               gene_threshold = .01,
                               cell_type_threshold = 3, fdr = 0.25)
-    list(config = r@config,
-         results = r@results$results_df,
-         weights = r@results$weights,
-         weights_doublet = r@results$weights_doublet,
-         singlet_scores = r@results$singlet_scores)
+    r@de_results
   })
 
   # TODO Extract additional information?
