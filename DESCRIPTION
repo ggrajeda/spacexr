@@ -37,5 +37,6 @@ Suggests:
   withr,
   splatter,
   scater,
-  stringr
+  stringr,
+  vdiffr
 Config/testthat/edition: 3

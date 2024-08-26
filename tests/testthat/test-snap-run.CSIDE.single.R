@@ -5,7 +5,7 @@ test_that("run.CSIDE.single simple test",{
   # Arrange
   # create reference
   set.seed(20240821)
-  mat <- se2mat(synthetic_se(n_celltypes = 3,
+  mat <- sce_to_rctd(synthetic_se(n_celltypes = 3,
                              cells_per_type = 60,
                              nGenes = 500,
                              seed = 886))

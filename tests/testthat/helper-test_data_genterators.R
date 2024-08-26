@@ -54,7 +54,7 @@ synthetic_se <- function(n_celltypes = 3,
   return(se)
 }
 
-se2mat <- function(se) {
+sce_to_rctd <- function(se) {
   # create Reference object
   split <- floor(ncol(se) / 2)
   refSE <- se[, 1:split]
