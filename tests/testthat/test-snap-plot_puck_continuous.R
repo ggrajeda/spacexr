@@ -14,6 +14,6 @@ test_that("plot_puck_continuous simple test", {
   # Act/Assert
   vdiffr::expect_doppelganger("plot_puck_continuous",
         plot_puck_continuous(mat$puck, barcodes, mat$puck@nUMI,
-                             ylimit = c(0,round(quantile(mat$puck@nUMI,0.9))),
-                             title ='plot of nUMI'))
+                             title ='plot of nUMI')
+        )
 })

@@ -1,4 +1,4 @@
-test_that("run.RCTD simple test", {
+test_that("run.RCTD doublet", {
     # Arrange
     # create reference
     set.seed(20240815)

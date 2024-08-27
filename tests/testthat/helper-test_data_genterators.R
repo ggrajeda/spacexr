@@ -12,7 +12,27 @@ char2atcg <- Vectorize(\(s) {
   paste0(c("A", "C", "G", "T")[t(sapply(0:3,
         function(u) bitwAnd(bitwShiftR(x, u*2), 3))+1)], collapse = "")})
 
-# create a SingleCellExperiment object for testing spacexr functions
+#
+
+#' Create a synthetic dataset of RNA-seq like counts
+#'
+#' Simulates asngle-cell RNA-seq experiment and attaches 2-d coordinates to each observation.
+#' The data is not expected to be biologically relevant, but it is expected to have statistical properties are compatible with RNA-seq datasets.
+#'
+#' In its current implementation, each cell type is associated with a 2-d locus that lies on the unit circle.
+#' The individual cells (observations) are randomly are uniformly distributed within a disk of a given radius which may or may not overlap the other disks.
+#'
+#' @param n_celltypes - The number of cell types. (Default 3)
+#' @param cells_per_type - The number of cells for each type. (Default 30)
+#' @param de.prob - The probability that a given gene will be differentially expressed.
+#' Either a single percentage, or a vector of percentages, one foe each of the cell types. (Default: linearly increasing probabilities from 0.3 to 0.4)
+#' @param nGenes - The number of genes.
+#' @param disk_radius - The radius of the disk that contains the individual observations for the cell type.
+#' @param seed - A random seed. This assures that the same simulated SCE results will be returned each time that this function is called.
+#' It does not use or alter the random seed value of the calling function.
+#'
+#' @return SingleCellExperiemnt with (n_celltypes x cells_per_type) columns and nGenes rows.
+#'
 synthetic_se <- function(n_celltypes = 3,
                          cells_per_type = 30,
                          de.prob = seq(from=0.3,to=0.4,length.out=n_celltypes),
@@ -54,11 +74,19 @@ synthetic_se <- function(n_celltypes = 3,
   return(se)
 }
 
-sce_to_rctd <- function(se) {
+#' Create a Reference and associated SpatialRNA object from a single cell experiment
+#'
+#' @param sce - A  SingleCellExperiment, specifically one created by the synthetic_se function.
+#' @param prop.ref A proportion of the samples be used to create a Reference object. (Default 0.5)
+#' The remaining columns will be used as the experimental observations.
+#'
+#' @return list(list(reference, puck)
+#'
+sce_to_rctd <- function(sce, prop.ref = 0.5) {
   # create Reference object
-  split <- floor(ncol(se) / 2)
-  refSE <- se[, 1:split]
-  se <- se[, (split + 1):ncol(se)]
+  split <- floor(ncol(sce) * prop.ref)
+  refSE <- sce[, 1:split]
+  sce <- sce[, (split + 1):ncol(sce)]
 
   cell_types <- colData(refSE)$Group
   names(cell_types) <- colnames(refSE)
@@ -66,8 +94,8 @@ sce_to_rctd <- function(se) {
                          cell_types = cell_types)
 
   # create puck
-  v <- list(counts = assay(se, "counts"),
-            coords = as.data.frame(colData(se)[,c("x", "y")]))
+  v <- list(counts = assay(sce, "counts"),
+            coords = as.data.frame(colData(sce)[,c("x", "y")]))
   v$nUMI <- colSums(v$counts)
   puck <- SpatialRNA(v$coords, v$counts)
   list(reference = reference, puck = puck)

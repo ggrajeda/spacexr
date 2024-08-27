@@ -1,4 +1,4 @@
-# run.RCTD simple test
+# run.RCTD doublet
 
     Code
       result <- run.RCTD(rctd, doublet_mode = "doublet")
@@ -13,13 +13,13 @@
       Sigma value:  0.61
       Likelihood value: 10078.6081859522
       Sigma value:  0.53
-      Likelihood value: 9868.72929983567
+      Likelihood value: 9868.72929983566
       Sigma value:  0.45
-      Likelihood value: 9649.16221189911
+      Likelihood value: 9649.16221189914
       Sigma value:  0.37
-      Likelihood value: 9427.59224026116
+      Likelihood value: 9427.59224026114
       Sigma value:  0.29
-      Likelihood value: 9225.11687425629
+      Likelihood value: 9225.1168742563
       Sigma value:  0.21
     Code
       list(cell_type_info = result@cell_type_info$renorm, de_results = result@

@@ -23,7 +23,7 @@ test_that("run.CSIDE.single simple test",{
   print(paste0("gene to upreguate:", change_gene))
   high_barc <- names(explanatory.variable[explanatory.variable > 0.5])
   low_barc <- names(explanatory.variable[explanatory.variable < 0.5])
-  rctd@originalSpatialRNA@counts[change_gene, high_barc] <- rctd@spatialRNA@counts[change_gene, high_barc] * 3
+  rctd@spatialRNA@counts[change_gene, high_barc] <- rctd@spatialRNA@counts[change_gene, high_barc] * 3
 
   # plot_puck_continuous(rctd@spatialRNA, names(explanatory.variable), explanatory.variable, ylimit = c(0,1), title ='plot of explanatory variable')
 
@@ -36,18 +36,4 @@ test_that("run.CSIDE.single simple test",{
                               cell_type_threshold = 3, fdr = 0.25)
     r@de_results
   })
-
-  # TODO Extract additional information?
-  # cell_type <- 'ct2'
-  # results_de <- rctd@de_results$sig_gene_list[[cell_type]]
-  # print(results_de)
-  # sig_gene <- change_gene
-  # print(paste("following results hold for", sig_gene))
-  # print("check for covergence of each cell type")
-  # print(rctd@de_results$gene_fits$con_mat[sig_gene, ])
-  # print('estimated DE')
-  # print(rctd@de_results$gene_fits$mean_val[sig_gene, ])
-  # print('standard errors for non-intercept terms')
-  # print(rctd@de_results$gene_fits$s_mat[sig_gene, ])
-  # plot_gene_two_regions(rctd, sig_gene, cell_type, min_UMI = 10)
 })
