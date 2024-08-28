@@ -79,24 +79,39 @@ synthetic_se <- function(n_celltypes = 3,
 #' @param sce - A  SingleCellExperiment, specifically one created by the synthetic_se function.
 #' @param prop.ref A proportion of the samples be used to create a Reference object. (Default 0.5)
 #' The remaining columns will be used as the experimental observations.
+#' @param replicates The number of experimental replicates
 #'
-#' @return list(list(reference, puck)
+#' @return (reference, list(pucks))
 #'
-sce_to_rctd <- function(sce, prop.ref = 0.5) {
+sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1) {
   # create Reference object
   split <- floor(ncol(sce) * prop.ref)
   refSE <- sce[, 1:split]
-  sce <- sce[, (split + 1):ncol(sce)]
-
   cell_types <- colData(refSE)$Group
   names(cell_types) <- colnames(refSE)
   reference <- Reference(counts =assay(refSE, "counts"),
                          cell_types = cell_types)
 
-  # create puck
-  v <- list(counts = assay(sce, "counts"),
-            coords = as.data.frame(colData(sce)[,c("x", "y")]))
-  v$nUMI <- colSums(v$counts)
-  puck <- SpatialRNA(v$coords, v$counts)
-  list(reference = reference, puck = puck)
+  # create pucks
+  # The boundries for for the column partition
+  u <- round(seq(from = split + 1, to = ncol(sce)+ 1, length.out = replicates + 1))
+  # each row of of u is a replicate and the two columns are the corrsponding
+  # limits of the columns to be returned from sce
+  u <- matrix(c(u[1:(replicates)], u[2:(replicates + 1)] - 1),
+              nrow = replicates, byrow = FALSE)
+  # check to be sure that there there is at least one column in each replicate
+  if ( min(u[,2] - u[,1]) <1) {
+    stop("function sce_to_rctd: Not enough sce columns for the number of replicates")
+  }
+
+  pucks <- apply(u, 1, \(x) {
+    s <- sce[,x[1]:x[2]]
+    v <- list(counts = assay(s, "counts"),
+              coords = as.data.frame(colData(s)[,c("x", "y")]))
+    v$nUMI <- colSums(v$counts)
+    puck <- SpatialRNA(v$coords, v$counts)
+  })
+  names(pucks) <- paste("rpl", seq_along(pucks), sep = "")
+
+  list(reference = reference, pucks = pucks)
 }
