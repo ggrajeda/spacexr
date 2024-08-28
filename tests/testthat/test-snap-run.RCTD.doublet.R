@@ -6,15 +6,30 @@ test_that("run.RCTD doublet", {
                                cells_per_type = 60,
                                nGenes = 500,
                                seed = 886))
-    rctd <- create.RCTD(mat$puck[[1]], mat$reference, max_cores = 1)
 
-    # Act/Assert
-   expect_snapshot({
-      result <- run.RCTD(rctd, doublet_mode = 'doublet')
-      list(cell_type_info = result@cell_type_info$renorm,
-           de_results = result@de_results,
-           results = result@results)
-      u <- result@results$results_df
-      print(cf <- table(substr(rownames(result@results$results_df),1,3), result@results$results_df$first_type))
-   })
+    # Act
+    rctd <- create.RCTD(mat$puck[[1]], mat$reference, max_cores = 1)
+    rctd_multi <- create.RCTD(mat$puck[[1]], mat$reference, max_cores = 2)
+
+    # list of externally relevant results
+    result_list <- \(u) {
+      list(cell_type_info = u@cell_type_info$renorm,
+           de_results = u@de_results,
+           results = u@results)
+    }
+    raw_result <- run.RCTD(rctd, doublet_mode = 'doublet')
+    result <- result_list(raw_result)
+
+    raw_result_multi <- run.RCTD(rctd_multi, doublet_mode = 'doublet')
+    result_multi <- result_list(raw_result)
+
+
+    # Assert
+    expect_snapshot({
+      result
+      u <- result$results$results_df
+      print(cf <- table(substr(rownames(u),1,3), u$first_type))
+    })
+
+    expect_equal(result_multi, result)
  })

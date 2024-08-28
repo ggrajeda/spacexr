@@ -1,29 +1,7 @@
 # run.RCTD doublet
 
     Code
-      result <- run.RCTD(rctd, doublet_mode = "doublet")
-    Message
-      fitBulk: decomposing bulk
-      chooseSigma: using initial Q_mat with sigma =  1
-      Likelihood value: 10932.4533027045
-      Sigma value:  0.84
-      Likelihood value: 10614.3463472575
-      Sigma value:  0.69
-      Likelihood value: 10276.3844451196
-      Sigma value:  0.61
-      Likelihood value: 10078.6081859522
-      Sigma value:  0.53
-      Likelihood value: 9868.72929983566
-      Sigma value:  0.45
-      Likelihood value: 9649.16221189914
-      Sigma value:  0.37
-      Likelihood value: 9427.59224026114
-      Sigma value:  0.29
-      Likelihood value: 9225.1168742563
-      Sigma value:  0.21
-    Code
-      list(cell_type_info = result@cell_type_info$renorm, de_results = result@
-        de_results, results = result@results)
+      result
     Output
       $cell_type_info
       $cell_type_info[[1]]
@@ -1487,9 +1465,8 @@
       
       
     Code
-      u <- result@results$results_df
-      print(cf <- table(substr(rownames(result@results$results_df), 1, 3), result@
-        results$results_df$first_type))
+      u <- result$results$results_df
+      print(cf <- table(substr(rownames(u), 1, 3), u$first_type))
     Output
            
             ct1 ct2 ct3
