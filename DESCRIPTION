@@ -29,6 +29,7 @@ Imports:
 	Rfast,
 	locfdr,
 	metafor,
+	caret,
 	data.table
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
