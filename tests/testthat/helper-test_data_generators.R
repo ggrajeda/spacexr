@@ -115,3 +115,34 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1) {
 
   list(reference = reference, pucks = pucks)
 }
+
+# TODO Roxygen needed
+# list of externally relevant results
+# TODO TO helpers
+rctd_result_list <- \(u) {
+  v <- u@results
+  for (i in seq_along(v)) {
+    v[[i]]$cell_id <- names(u@spatialRNA@nUMI)[i]
+  }
+  list(cell_type_info = u@cell_type_info$renorm,
+       rctd_results = do.call(rbind, lapply(v, tibble::as_tibble)))
+}
+
+rctd_near_equal <- \(a, b, epsilon = .Machine$double.eps ^ 0.5) {
+  mapply((\(a,b) abs(a - b) <= epsilon), a, b)
+}
+
+rctd_results_equal <- \(a, b)
+{
+  all(rctd_near_equal(a$rctd_results$all_weights, b$rctd_results$all_weights)) &&
+    all(rctd_near_equal(a$cell_type_info[[1]], b$cell_type_info[[1]]))
+}
+
+# Scientific notation, only, 8 sig figs
+# for appropriate checking of floating point results
+print_rctd_results <- \(u) {
+  print(u$cell_type_info[[1]], max=99999, digits=5, scipen=-999)
+  print(u$rctd_results, n=1E5, digits=5, scipen=-999)
+}
+
+

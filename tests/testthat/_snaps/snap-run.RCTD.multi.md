@@ -1,2337 +1,682 @@
 # run.RCTD.multi
 
     Code
-      result
+      print_rctd_results(result)
     Output
-      $cell_type_info
-      $cell_type_info[[1]]
-                       ct1          ct2          ct3
-      Gene27  4.212007e-03 2.704702e-03 1.222245e-03
-      Gene34  9.142293e-04 3.817984e-04 3.434742e-04
-      Gene129 4.791637e-03 2.162345e-03 1.319981e-03
-      Gene213 5.661344e-04 2.945168e-04 3.252868e-04
-      Gene298 2.439535e-03 8.029930e-04 1.800355e-03
-      Gene309 5.688440e-04 4.993064e-04 1.565832e-04
-      Gene339 6.147150e-03 2.281358e-03 2.718444e-03
-      Gene362 7.958073e-04 4.887846e-04 3.836615e-04
-      Gene380 1.974748e-04 1.362669e-04 9.759300e-05
-      Gene389 1.434780e-03 6.553714e-04 1.074896e-03
-      Gene396 4.170837e-03 2.078908e-03 1.790058e-03
-      Gene400 4.201116e-03 2.435807e-03 2.338459e-03
-      Gene406 2.921890e-03 1.492187e-03 1.324961e-03
-      Gene413 3.061518e-04 1.673056e-04 2.029383e-04
-      Gene431 2.646379e-03 1.302850e-03 1.069037e-03
-      Gene447 4.942479e-03 3.102862e-03 1.921913e-03
-      Gene454 2.422566e-04 6.557928e-05 1.093461e-04
-      Gene465 3.465127e-04 2.475450e-04 1.092333e-04
-      Gene7   1.019542e-03 1.496140e-03 7.107201e-04
-      Gene14  3.004346e-04 7.306460e-04 4.058668e-04
-      Gene20  4.991612e-05 1.225148e-04 8.358241e-05
-      Gene37  6.567060e-04 1.239937e-03 4.009300e-04
-      Gene61  2.937602e-04 5.614037e-04 1.729763e-04
-      Gene68  8.810957e-04 2.486910e-03 7.946202e-04
-      Gene72  3.074300e-04 5.212536e-04 1.409692e-04
-      Gene73  4.013365e-04 9.553599e-04 4.471589e-04
-      Gene91  8.561697e-04 1.640280e-03 8.496644e-04
-      Gene115 1.331927e-04 2.184140e-04 1.292631e-04
-      Gene172 1.405973e-03 4.953922e-03 1.328126e-03
-      Gene189 1.999911e-03 5.656126e-03 2.909664e-03
-      Gene217 8.284529e-05 1.638680e-04 8.156909e-05
-      Gene221 2.968718e-04 4.267625e-04 1.269371e-04
-      Gene232 1.577567e-03 4.163687e-03 1.424194e-03
-      Gene240 1.279402e-03 2.297452e-03 1.164186e-03
-      Gene245 1.848077e-03 4.250402e-03 1.517949e-03
-      Gene247 1.627425e-04 2.748486e-04 1.336893e-04
-      Gene248 2.781412e-04 4.862062e-04 2.616901e-04
-      Gene338 2.251180e-03 3.384201e-03 1.394080e-03
-      Gene381 7.493326e-05 2.108562e-04 8.490687e-05
-      Gene387 4.665913e-04 7.754062e-04 4.587748e-04
-      Gene420 3.305255e-04 1.401647e-03 1.112220e-03
-      Gene428 1.216615e-03 1.334786e-03 3.552678e-04
-      Gene468 2.182269e-03 3.896759e-03 2.099992e-03
-      Gene56  9.940486e-05 1.434616e-04 3.673514e-04
-      Gene57  6.097620e-04 4.790134e-04 1.049048e-03
-      Gene64  8.912699e-04 6.229318e-04 1.452313e-03
-      Gene137 1.018877e-03 1.065565e-03 3.415108e-03
-      Gene169 6.998978e-04 1.230858e-03 1.818913e-03
-      Gene170 1.336590e-03 1.303949e-03 2.955510e-03
-      Gene178 7.393267e-05 6.043927e-05 1.777362e-04
-      Gene239 2.929177e-02 1.662179e-02 4.705598e-02
-      Gene282 1.728237e-04 1.704342e-04 2.871575e-04
-      Gene295 3.506082e-04 3.921595e-04 1.346606e-03
-      Gene319 2.289687e-03 2.530329e-03 5.384317e-03
-      Gene320 8.795655e-04 7.516488e-04 1.419269e-03
-      Gene326 5.933356e-04 5.949897e-04 1.279614e-03
-      Gene328 1.342676e-04 1.521628e-04 2.574732e-04
-      Gene477 9.831397e-04 1.376411e-03 2.259035e-03
-      Gene484 3.817142e-04 3.977850e-04 7.286164e-04
-      Gene490 9.126788e-04 8.912097e-04 2.094336e-03
-      
-      $cell_type_info[[2]]
-      [1] "ct1" "ct2" "ct3"
-      
-      $cell_type_info[[3]]
-      [1] 3
-      
-      
-      $de_results
-      list()
-      
-      $results
-      $results[[1]]
-      $results[[1]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 0.0355272365 0.9606228815 
-      
-      $results[[1]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[1]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[1]]$sub_weights
-      [1] 1
-      
-      $results[[1]]$min_score
-      [1] 94.41536
-      
-      $results[[1]]$conv_all
-      [1] TRUE
-      
-      $results[[1]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[2]]
-      $results[[2]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 0.9771176687 0.0003799632 
-      
-      $results[[2]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[2]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[2]]$sub_weights
-      [1] 1
-      
-      $results[[2]]$min_score
-      [1] 108.3256
-      
-      $results[[2]]$conv_all
-      [1] TRUE
-      
-      $results[[2]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[3]]
-      $results[[3]]$all_weights
-             ct1        ct2        ct3 
-      0.08390311 0.86344861 0.09985016 
-      
-      $results[[3]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[3]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[3]]$sub_weights
-      [1] 1
-      
-      $results[[3]]$min_score
-      [1] 106.3178
-      
-      $results[[3]]$conv_all
-      [1] TRUE
-      
-      $results[[3]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[4]]
-      $results[[4]]$all_weights
-               ct1          ct2          ct3 
-      0.9301949460 0.0445732992 0.0003799632 
-      
-      $results[[4]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[4]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[4]]$sub_weights
-      [1] 1
-      
-      $results[[4]]$min_score
-      [1] 104.0843
-      
-      $results[[4]]$conv_all
-      [1] TRUE
-      
-      $results[[4]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[5]]
-      $results[[5]]$all_weights
-               ct1          ct2          ct3 
-      0.0450271742 0.9107228218 0.0003799632 
-      
-      $results[[5]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[5]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[5]]$sub_weights
-      [1] 1
-      
-      $results[[5]]$min_score
-      [1] 103.5734
-      
-      $results[[5]]$conv_all
-      [1] TRUE
-      
-      $results[[5]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[6]]
-      $results[[6]]$all_weights
-               ct1          ct2          ct3 
-      0.0089576066 0.8582547843 0.0003799632 
-      
-      $results[[6]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[6]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[6]]$sub_weights
-      [1] 1
-      
-      $results[[6]]$min_score
-      [1] 104.9998
-      
-      $results[[6]]$conv_all
-      [1] TRUE
-      
-      $results[[6]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[7]]
-      $results[[7]]$all_weights
-               ct1          ct2          ct3 
-      0.9210585113 0.0448925034 0.0003799632 
-      
-      $results[[7]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[7]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[7]]$sub_weights
-      [1] 1
-      
-      $results[[7]]$min_score
-      [1] 105.1676
-      
-      $results[[7]]$conv_all
-      [1] TRUE
-      
-      $results[[7]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[8]]
-      $results[[8]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 0.0003799632 0.9194141012 
-      
-      $results[[8]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[8]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[8]]$sub_weights
-      [1] 1
-      
-      $results[[8]]$min_score
-      [1] 100.0033
-      
-      $results[[8]]$conv_all
-      [1] TRUE
-      
-      $results[[8]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[9]]
-      $results[[9]]$all_weights
-               ct1          ct2          ct3 
-      0.9786782769 0.0003799632 0.0003799632 
-      
-      $results[[9]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[9]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[9]]$sub_weights
-      [1] 1
-      
-      $results[[9]]$min_score
-      [1] 107.0541
-      
-      $results[[9]]$conv_all
-      [1] TRUE
-      
-      $results[[9]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[10]]
-      $results[[10]]$all_weights
-               ct1          ct2          ct3 
-      1.0255416484 0.0071930253 0.0003799632 
-      
-      $results[[10]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[10]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[10]]$sub_weights
-      [1] 1
-      
-      $results[[10]]$min_score
-      [1] 97.34932
-      
-      $results[[10]]$conv_all
-      [1] TRUE
-      
-      $results[[10]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[11]]
-      $results[[11]]$all_weights
-               ct1          ct2          ct3 
-      0.8977432586 0.0005428045 0.0353188410 
-      
-      $results[[11]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[11]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[11]]$sub_weights
-      [1] 1
-      
-      $results[[11]]$min_score
-      [1] 101.0316
-      
-      $results[[11]]$conv_all
-      [1] TRUE
-      
-      $results[[11]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[12]]
-      $results[[12]]$all_weights
-               ct1          ct2          ct3 
-      0.1151588352 0.8072471911 0.0005428045 
-      
-      $results[[12]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[12]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[12]]$sub_weights
-      [1] 1
-      
-      $results[[12]]$min_score
-      [1] 108.2211
-      
-      $results[[12]]$conv_all
-      [1] TRUE
-      
-      $results[[12]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[13]]
-      $results[[13]]$all_weights
-             ct1        ct2        ct3 
-      0.91950845 0.01066385 0.07873080 
-      
-      $results[[13]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[13]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[13]]$sub_weights
-      [1] 1
-      
-      $results[[13]]$min_score
-      [1] 99.8187
-      
-      $results[[13]]$conv_all
-      [1] TRUE
-      
-      $results[[13]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[14]]
-      $results[[14]]$all_weights
-             ct1        ct2        ct3 
-      0.83638245 0.03100581 0.03191495 
-      
-      $results[[14]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[14]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[14]]$sub_weights
-      [1] 1
-      
-      $results[[14]]$min_score
-      [1] 94.01733
-      
-      $results[[14]]$conv_all
-      [1] TRUE
-      
-      $results[[14]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[15]]
-      $results[[15]]$all_weights
-               ct1          ct2          ct3 
-      0.0275044938 0.0003799632 0.9583410529 
-      
-      $results[[15]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[15]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[15]]$sub_weights
-      [1] 1
-      
-      $results[[15]]$min_score
-      [1] 93.14185
-      
-      $results[[15]]$conv_all
-      [1] TRUE
-      
-      $results[[15]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[16]]
-      $results[[16]]$all_weights
-               ct1          ct2          ct3 
-      0.0004356480 0.9650566165 0.0003799632 
-      
-      $results[[16]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[16]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[16]]$sub_weights
-      [1] 1
-      
-      $results[[16]]$min_score
-      [1] 105.6173
-      
-      $results[[16]]$conv_all
-      [1] TRUE
-      
-      $results[[16]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[17]]
-      $results[[17]]$all_weights
-               ct1          ct2          ct3 
-      0.0407507784 0.9539792332 0.0003799632 
-      
-      $results[[17]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[17]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[17]]$sub_weights
-      [1] 1
-      
-      $results[[17]]$min_score
-      [1] 101.8677
-      
-      $results[[17]]$conv_all
-      [1] TRUE
-      
-      $results[[17]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[18]]
-      $results[[18]]$all_weights
-             ct1        ct2        ct3 
-      0.03230206 0.93667436 0.03438465 
-      
-      $results[[18]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[18]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[18]]$sub_weights
-      [1] 1
-      
-      $results[[18]]$min_score
-      [1] 102.8016
-      
-      $results[[18]]$conv_all
-      [1] TRUE
-      
-      $results[[18]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[19]]
-      $results[[19]]$all_weights
-               ct1          ct2          ct3 
-      0.9781029784 0.0003799632 0.0227597789 
-      
-      $results[[19]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[19]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[19]]$sub_weights
-      [1] 1
-      
-      $results[[19]]$min_score
-      [1] 107.4282
-      
-      $results[[19]]$conv_all
-      [1] TRUE
-      
-      $results[[19]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[20]]
-      $results[[20]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 0.0614871026 0.9178755777 
-      
-      $results[[20]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[20]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[20]]$sub_weights
-      [1] 1
-      
-      $results[[20]]$min_score
-      [1] 98.2799
-      
-      $results[[20]]$conv_all
-      [1] TRUE
-      
-      $results[[20]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[21]]
-      $results[[21]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 0.9404140266 0.0123423301 
-      
-      $results[[21]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[21]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[21]]$sub_weights
-      [1] 1
-      
-      $results[[21]]$min_score
-      [1] 114.6563
-      
-      $results[[21]]$conv_all
-      [1] TRUE
-      
-      $results[[21]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[22]]
-      $results[[22]]$all_weights
-               ct1          ct2          ct3 
-      0.9117067976 0.0003799632 0.0182143279 
-      
-      $results[[22]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[22]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[22]]$sub_weights
-      [1] 1
-      
-      $results[[22]]$min_score
-      [1] 101.9243
-      
-      $results[[22]]$conv_all
-      [1] TRUE
-      
-      $results[[22]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[23]]
-      $results[[23]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 1.0246169190 0.0003799632 
-      
-      $results[[23]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[23]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[23]]$sub_weights
-      [1] 1
-      
-      $results[[23]]$min_score
-      [1] 108.3043
-      
-      $results[[23]]$conv_all
-      [1] TRUE
-      
-      $results[[23]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[24]]
-      $results[[24]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 0.9654212796 0.0003799632 
-      
-      $results[[24]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[24]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[24]]$sub_weights
-      [1] 1
-      
-      $results[[24]]$min_score
-      [1] 102.5967
-      
-      $results[[24]]$conv_all
-      [1] TRUE
-      
-      $results[[24]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[25]]
-      $results[[25]]$all_weights
-               ct1          ct2          ct3 
-      0.8595667864 0.0697651100 0.0003799632 
-      
-      $results[[25]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[25]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[25]]$sub_weights
-      [1] 1
-      
-      $results[[25]]$min_score
-      [1] 94.44101
-      
-      $results[[25]]$conv_all
-      [1] TRUE
-      
-      $results[[25]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[26]]
-      $results[[26]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 0.0195375343 0.9138509137 
-      
-      $results[[26]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[26]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[26]]$sub_weights
-      [1] 1
-      
-      $results[[26]]$min_score
-      [1] 103.3718
-      
-      $results[[26]]$conv_all
-      [1] TRUE
-      
-      $results[[26]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[27]]
-      $results[[27]]$all_weights
-               ct1          ct2          ct3 
-      0.0038059279 0.0003799632 0.9753924796 
-      
-      $results[[27]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[27]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[27]]$sub_weights
-      [1] 1
-      
-      $results[[27]]$min_score
-      [1] 93.94201
-      
-      $results[[27]]$conv_all
-      [1] TRUE
-      
-      $results[[27]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[28]]
-      $results[[28]]$all_weights
-               ct1          ct2          ct3 
-      0.0004068036 1.0052320611 0.0152511219 
-      
-      $results[[28]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[28]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[28]]$sub_weights
-      [1] 1
-      
-      $results[[28]]$min_score
-      [1] 102.0366
-      
-      $results[[28]]$conv_all
-      [1] TRUE
-      
-      $results[[28]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[29]]
-      $results[[29]]$all_weights
-               ct1          ct2          ct3 
-      0.0120255836 1.0221349430 0.0003799632 
-      
-      $results[[29]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[29]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[29]]$sub_weights
-      [1] 1
-      
-      $results[[29]]$min_score
-      [1] 107.1542
-      
-      $results[[29]]$conv_all
-      [1] TRUE
-      
-      $results[[29]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[30]]
-      $results[[30]]$all_weights
-               ct1          ct2          ct3 
-      0.9144903993 0.0003799632 0.0524050410 
-      
-      $results[[30]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[30]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[30]]$sub_weights
-      [1] 1
-      
-      $results[[30]]$min_score
-      [1] 104.4995
-      
-      $results[[30]]$conv_all
-      [1] TRUE
-      
-      $results[[30]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[31]]
-      $results[[31]]$all_weights
-               ct1          ct2          ct3 
-      1.0247512221 0.0181374594 0.0003799632 
-      
-      $results[[31]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[31]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[31]]$sub_weights
-      [1] 1
-      
-      $results[[31]]$min_score
-      [1] 99.75022
-      
-      $results[[31]]$conv_all
-      [1] TRUE
-      
-      $results[[31]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[32]]
-      $results[[32]]$all_weights
-             ct1        ct2        ct3 
-      0.03892927 0.89321847 0.06419988 
-      
-      $results[[32]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[32]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[32]]$sub_weights
-      [1] 1
-      
-      $results[[32]]$min_score
-      [1] 102.5305
-      
-      $results[[32]]$conv_all
-      [1] TRUE
-      
-      $results[[32]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[33]]
-      $results[[33]]$all_weights
-               ct1          ct2          ct3 
-      0.0005428045 0.8746726642 0.0491984079 
-      
-      $results[[33]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[33]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[33]]$sub_weights
-      [1] 1
-      
-      $results[[33]]$min_score
-      [1] 123.8485
-      
-      $results[[33]]$conv_all
-      [1] TRUE
-      
-      $results[[33]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[34]]
-      $results[[34]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 0.0003799632 0.9574006444 
-      
-      $results[[34]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[34]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[34]]$sub_weights
-      [1] 1
-      
-      $results[[34]]$min_score
-      [1] 87.88787
-      
-      $results[[34]]$conv_all
-      [1] TRUE
-      
-      $results[[34]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[35]]
-      $results[[35]]$all_weights
-             ct1        ct2        ct3 
-      0.01048219 0.11216534 0.82123741 
-      
-      $results[[35]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[35]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[35]]$sub_weights
-      [1] 1
-      
-      $results[[35]]$min_score
-      [1] 103.658
-      
-      $results[[35]]$conv_all
-      [1] TRUE
-      
-      $results[[35]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[36]]
-      $results[[36]]$all_weights
-             ct1        ct2        ct3 
-      0.03189478 0.99133773 0.04299013 
-      
-      $results[[36]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[36]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[36]]$sub_weights
-      [1] 1
-      
-      $results[[36]]$min_score
-      [1] 107.854
-      
-      $results[[36]]$conv_all
-      [1] TRUE
-      
-      $results[[36]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[37]]
-      $results[[37]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 0.0475428479 0.9087714373 
-      
-      $results[[37]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[37]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[37]]$sub_weights
-      [1] 1
-      
-      $results[[37]]$min_score
-      [1] 93.14293
-      
-      $results[[37]]$conv_all
-      [1] TRUE
-      
-      $results[[37]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[38]]
-      $results[[38]]$all_weights
-             ct1        ct2        ct3 
-      0.02119584 0.03103566 0.92744795 
-      
-      $results[[38]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[38]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[38]]$sub_weights
-      [1] 1
-      
-      $results[[38]]$min_score
-      [1] 101.0598
-      
-      $results[[38]]$conv_all
-      [1] TRUE
-      
-      $results[[38]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[39]]
-      $results[[39]]$all_weights
-               ct1          ct2          ct3 
-      0.8434729826 0.0369746759 0.0003799632 
-      
-      $results[[39]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[39]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[39]]$sub_weights
-      [1] 1
-      
-      $results[[39]]$min_score
-      [1] 97.83303
-      
-      $results[[39]]$conv_all
-      [1] TRUE
-      
-      $results[[39]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[40]]
-      $results[[40]]$all_weights
-               ct1          ct2          ct3 
-      0.9058541098 0.0525779088 0.0003799632 
-      
-      $results[[40]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[40]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[40]]$sub_weights
-      [1] 1
-      
-      $results[[40]]$min_score
-      [1] 102.7055
-      
-      $results[[40]]$conv_all
-      [1] TRUE
-      
-      $results[[40]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[41]]
-      $results[[41]]$all_weights
-               ct1          ct2          ct3 
-      0.9407750600 0.0561225854 0.0003799632 
-      
-      $results[[41]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[41]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[41]]$sub_weights
-      [1] 1
-      
-      $results[[41]]$min_score
-      [1] 101.2002
-      
-      $results[[41]]$conv_all
-      [1] TRUE
-      
-      $results[[41]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[42]]
-      $results[[42]]$all_weights
-             ct1        ct2        ct3 
-      0.95960354 0.02318128 0.02113631 
-      
-      $results[[42]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[42]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[42]]$sub_weights
-      [1] 1
-      
-      $results[[42]]$min_score
-      [1] 118.7164
-      
-      $results[[42]]$conv_all
-      [1] TRUE
-      
-      $results[[42]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[43]]
-      $results[[43]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 0.0003799632 0.9740111449 
-      
-      $results[[43]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[43]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[43]]$sub_weights
-      [1] 1
-      
-      $results[[43]]$min_score
-      [1] 98.91921
-      
-      $results[[43]]$conv_all
-      [1] TRUE
-      
-      $results[[43]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[44]]
-      $results[[44]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 0.0003799632 0.9055544644 
-      
-      $results[[44]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[44]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[44]]$sub_weights
-      [1] 1
-      
-      $results[[44]]$min_score
-      [1] 98.20983
-      
-      $results[[44]]$conv_all
-      [1] TRUE
-      
-      $results[[44]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[45]]
-      $results[[45]]$all_weights
-               ct1          ct2          ct3 
-      0.9933338893 0.0301673839 0.0003799632 
-      
-      $results[[45]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[45]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[45]]$sub_weights
-      [1] 1
-      
-      $results[[45]]$min_score
-      [1] 96.24511
-      
-      $results[[45]]$conv_all
-      [1] TRUE
-      
-      $results[[45]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[46]]
-      $results[[46]]$all_weights
-             ct1        ct2        ct3 
-      0.96493310 0.03615009 0.03428789 
-      
-      $results[[46]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[46]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[46]]$sub_weights
-      [1] 1
-      
-      $results[[46]]$min_score
-      [1] 101.3598
-      
-      $results[[46]]$conv_all
-      [1] TRUE
-      
-      $results[[46]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[47]]
-      $results[[47]]$all_weights
-             ct1        ct2        ct3 
-      0.84815808 0.13083294 0.05871891 
-      
-      $results[[47]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[47]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[47]]$sub_weights
-      [1] 1
-      
-      $results[[47]]$min_score
-      [1] 104.4004
-      
-      $results[[47]]$conv_all
-      [1] TRUE
-      
-      $results[[47]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[48]]
-      $results[[48]]$all_weights
-              ct1         ct2         ct3 
-      0.063238660 0.852319558 0.009666735 
-      
-      $results[[48]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[48]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[48]]$sub_weights
-      [1] 1
-      
-      $results[[48]]$min_score
-      [1] 103.9643
-      
-      $results[[48]]$conv_all
-      [1] TRUE
-      
-      $results[[48]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[49]]
-      $results[[49]]$all_weights
-               ct1          ct2          ct3 
-      0.1378090510 0.8233981583 0.0005428045 
-      
-      $results[[49]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[49]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[49]]$sub_weights
-      [1] 1
-      
-      $results[[49]]$min_score
-      [1] 99.73916
-      
-      $results[[49]]$conv_all
-      [1] TRUE
-      
-      $results[[49]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[50]]
-      $results[[50]]$all_weights
-               ct1          ct2          ct3 
-      0.9312415375 0.0203746587 0.0003799632 
-      
-      $results[[50]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[50]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[50]]$sub_weights
-      [1] 1
-      
-      $results[[50]]$min_score
-      [1] 95.45347
-      
-      $results[[50]]$conv_all
-      [1] TRUE
-      
-      $results[[50]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[51]]
-      $results[[51]]$all_weights
-             ct1        ct2        ct3 
-      0.05367838 0.06745807 0.81859670 
-      
-      $results[[51]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[51]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[51]]$sub_weights
-      [1] 1
-      
-      $results[[51]]$min_score
-      [1] 111.9236
-      
-      $results[[51]]$conv_all
-      [1] TRUE
-      
-      $results[[51]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[52]]
-      $results[[52]]$all_weights
-               ct1          ct2          ct3 
-      0.9670922738 0.0003799632 0.0003799632 
-      
-      $results[[52]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[52]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[52]]$sub_weights
-      [1] 1
-      
-      $results[[52]]$min_score
-      [1] 109.572
-      
-      $results[[52]]$conv_all
-      [1] TRUE
-      
-      $results[[52]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[53]]
-      $results[[53]]$all_weights
-               ct1          ct2          ct3 
-      1.0342514147 0.0005428045 0.0633834257 
-      
-      $results[[53]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[53]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[53]]$sub_weights
-      [1] 1
-      
-      $results[[53]]$min_score
-      [1] 97.94221
-      
-      $results[[53]]$conv_all
-      [1] TRUE
-      
-      $results[[53]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[54]]
-      $results[[54]]$all_weights
-               ct1          ct2          ct3 
-      0.0767137201 0.0005428045 0.8335714082 
-      
-      $results[[54]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[54]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[54]]$sub_weights
-      [1] 1
-      
-      $results[[54]]$min_score
-      [1] 96.78569
-      
-      $results[[54]]$conv_all
-      [1] TRUE
-      
-      $results[[54]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[55]]
-      $results[[55]]$all_weights
-               ct1          ct2          ct3 
-      0.0005428045 0.8896419664 0.0195602929 
-      
-      $results[[55]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[55]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[55]]$sub_weights
-      [1] 1
-      
-      $results[[55]]$min_score
-      [1] 100.2897
-      
-      $results[[55]]$conv_all
-      [1] TRUE
-      
-      $results[[55]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[56]]
-      $results[[56]]$all_weights
-             ct1        ct2        ct3 
-      0.04338707 0.81410958 0.03771980 
-      
-      $results[[56]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[56]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[56]]$sub_weights
-      [1] 1
-      
-      $results[[56]]$min_score
-      [1] 103.2003
-      
-      $results[[56]]$conv_all
-      [1] TRUE
-      
-      $results[[56]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[57]]
-      $results[[57]]$all_weights
-             ct1        ct2        ct3 
-      0.02540555 0.93362197 0.01697209 
-      
-      $results[[57]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[57]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[57]]$sub_weights
-      [1] 1
-      
-      $results[[57]]$min_score
-      [1] 96.0628
-      
-      $results[[57]]$conv_all
-      [1] TRUE
-      
-      $results[[57]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[58]]
-      $results[[58]]$all_weights
-               ct1          ct2          ct3 
-      0.0005428045 0.0098297735 0.9850803638 
-      
-      $results[[58]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[58]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[58]]$sub_weights
-      [1] 1
-      
-      $results[[58]]$min_score
-      [1] 95.24691
-      
-      $results[[58]]$conv_all
-      [1] TRUE
-      
-      $results[[58]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[59]]
-      $results[[59]]$all_weights
-               ct1          ct2          ct3 
-      0.0005428045 0.8766883861 0.0724844685 
-      
-      $results[[59]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[59]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[59]]$sub_weights
-      [1] 1
-      
-      $results[[59]]$min_score
-      [1] 101.5566
-      
-      $results[[59]]$conv_all
-      [1] TRUE
-      
-      $results[[59]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[60]]
-      $results[[60]]$all_weights
-             ct1        ct2        ct3 
-      0.03227581 0.85914345 0.03735941 
-      
-      $results[[60]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[60]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[60]]$sub_weights
-      [1] 1
-      
-      $results[[60]]$min_score
-      [1] 98.18057
-      
-      $results[[60]]$conv_all
-      [1] TRUE
-      
-      $results[[60]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[61]]
-      $results[[61]]$all_weights
-               ct1          ct2          ct3 
-      0.0004165036 0.9651549528 0.0003799632 
-      
-      $results[[61]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[61]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[61]]$sub_weights
-      [1] 1
-      
-      $results[[61]]$min_score
-      [1] 99.47078
-      
-      $results[[61]]$conv_all
-      [1] TRUE
-      
-      $results[[61]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[62]]
-      $results[[62]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 0.9432430449 0.0003799632 
-      
-      $results[[62]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[62]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[62]]$sub_weights
-      [1] 1
-      
-      $results[[62]]$min_score
-      [1] 112.3135
-      
-      $results[[62]]$conv_all
-      [1] TRUE
-      
-      $results[[62]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[63]]
-      $results[[63]]$all_weights
-               ct1          ct2          ct3 
-      0.0002659742 0.0146288668 0.9203782643 
-      
-      $results[[63]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[63]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[63]]$sub_weights
-      [1] 1
-      
-      $results[[63]]$min_score
-      [1] 101.7297
-      
-      $results[[63]]$conv_all
-      [1] TRUE
-      
-      $results[[63]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[64]]
-      $results[[64]]$all_weights
-             ct1        ct2        ct3 
-      0.01750481 0.02904742 0.84719811 
-      
-      $results[[64]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[64]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[64]]$sub_weights
-      [1] 1
-      
-      $results[[64]]$min_score
-      [1] 94.9648
-      
-      $results[[64]]$conv_all
-      [1] TRUE
-      
-      $results[[64]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[65]]
-      $results[[65]]$all_weights
-             ct1        ct2        ct3 
-      0.11082749 0.75492099 0.05202335 
-      
-      $results[[65]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[65]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[65]]$sub_weights
-      [1] 1
-      
-      $results[[65]]$min_score
-      [1] 91.26894
-      
-      $results[[65]]$conv_all
-      [1] TRUE
-      
-      $results[[65]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[66]]
-      $results[[66]]$all_weights
-               ct1          ct2          ct3 
-      0.0004134578 0.0422246757 0.9449564387 
-      
-      $results[[66]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[66]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[66]]$sub_weights
-      [1] 1
-      
-      $results[[66]]$min_score
-      [1] 99.08034
-      
-      $results[[66]]$conv_all
-      [1] TRUE
-      
-      $results[[66]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[67]]
-      $results[[67]]$all_weights
-               ct1          ct2          ct3 
-      3.955746e-03 8.839102e-07 9.212195e-01 
-      
-      $results[[67]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[67]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[67]]$sub_weights
-      [1] 1
-      
-      $results[[67]]$min_score
-      [1] 92.59821
-      
-      $results[[67]]$conv_all
-      [1] TRUE
-      
-      $results[[67]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[68]]
-      $results[[68]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 1.0571549043 0.0003799632 
-      
-      $results[[68]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[68]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[68]]$sub_weights
-      [1] 1
-      
-      $results[[68]]$min_score
-      [1] 93.11066
-      
-      $results[[68]]$conv_all
-      [1] TRUE
-      
-      $results[[68]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[69]]
-      $results[[69]]$all_weights
-               ct1          ct2          ct3 
-      0.9283562362 0.0233735986 0.0003799632 
-      
-      $results[[69]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[69]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[69]]$sub_weights
-      [1] 1
-      
-      $results[[69]]$min_score
-      [1] 98.41145
-      
-      $results[[69]]$conv_all
-      [1] TRUE
-      
-      $results[[69]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[70]]
-      $results[[70]]$all_weights
-               ct1          ct2          ct3 
-      0.0018462408 0.0005933447 1.0081754553 
-      
-      $results[[70]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[70]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[70]]$sub_weights
-      [1] 1
-      
-      $results[[70]]$min_score
-      [1] 95.60925
-      
-      $results[[70]]$conv_all
-      [1] TRUE
-      
-      $results[[70]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[71]]
-      $results[[71]]$all_weights
-               ct1          ct2          ct3 
-      0.9499887030 0.0320405289 0.0003799632 
-      
-      $results[[71]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[71]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[71]]$sub_weights
-      [1] 1
-      
-      $results[[71]]$min_score
-      [1] 98.56058
-      
-      $results[[71]]$conv_all
-      [1] TRUE
-      
-      $results[[71]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[72]]
-      $results[[72]]$all_weights
-               ct1          ct2          ct3 
-      0.8443616096 0.0677044192 0.0003799632 
-      
-      $results[[72]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[72]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[72]]$sub_weights
-      [1] 1
-      
-      $results[[72]]$min_score
-      [1] 102.2854
-      
-      $results[[72]]$conv_all
-      [1] TRUE
-      
-      $results[[72]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[73]]
-      $results[[73]]$all_weights
-               ct1          ct2          ct3 
-      0.9405215343 0.0003799632 0.0364855327 
-      
-      $results[[73]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[73]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[73]]$sub_weights
-      [1] 1
-      
-      $results[[73]]$min_score
-      [1] 95.71932
-      
-      $results[[73]]$conv_all
-      [1] TRUE
-      
-      $results[[73]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[74]]
-      $results[[74]]$all_weights
-             ct1        ct2        ct3 
-      0.83411558 0.06867369 0.03554023 
-      
-      $results[[74]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[74]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[74]]$sub_weights
-      [1] 1
-      
-      $results[[74]]$min_score
-      [1] 97.96431
-      
-      $results[[74]]$conv_all
-      [1] TRUE
-      
-      $results[[74]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[75]]
-      $results[[75]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 1.0062689134 0.0478760320 
-      
-      $results[[75]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[75]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[75]]$sub_weights
-      [1] 1
-      
-      $results[[75]]$min_score
-      [1] 105.7838
-      
-      $results[[75]]$conv_all
-      [1] TRUE
-      
-      $results[[75]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[76]]
-      $results[[76]]$all_weights
-               ct1          ct2          ct3 
-      0.0333731212 0.8446456236 0.0003799632 
-      
-      $results[[76]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[76]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[76]]$sub_weights
-      [1] 1
-      
-      $results[[76]]$min_score
-      [1] 98.68173
-      
-      $results[[76]]$conv_all
-      [1] TRUE
-      
-      $results[[76]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[77]]
-      $results[[77]]$all_weights
-               ct1          ct2          ct3 
-      0.1785993191 0.8812487735 0.0005428045 
-      
-      $results[[77]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[77]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[77]]$sub_weights
-      [1] 1
-      
-      $results[[77]]$min_score
-      [1] 108.0528
-      
-      $results[[77]]$conv_all
-      [1] TRUE
-      
-      $results[[77]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[78]]
-      $results[[78]]$all_weights
-              ct1         ct2         ct3 
-      0.009207301 0.002173297 0.988010867 
-      
-      $results[[78]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[78]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[78]]$sub_weights
-      [1] 1
-      
-      $results[[78]]$min_score
-      [1] 99.60287
-      
-      $results[[78]]$conv_all
-      [1] TRUE
-      
-      $results[[78]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[79]]
-      $results[[79]]$all_weights
-               ct1          ct2          ct3 
-      0.0194547887 0.9633361655 0.0003799632 
-      
-      $results[[79]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[79]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[79]]$sub_weights
-      [1] 1
-      
-      $results[[79]]$min_score
-      [1] 101.9797
-      
-      $results[[79]]$conv_all
-      [1] TRUE
-      
-      $results[[79]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[80]]
-      $results[[80]]$all_weights
-               ct1          ct2          ct3 
-      0.9884863037 0.0019235422 0.0003799632 
-      
-      $results[[80]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[80]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[80]]$sub_weights
-      [1] 1
-      
-      $results[[80]]$min_score
-      [1] 108.1576
-      
-      $results[[80]]$conv_all
-      [1] TRUE
-      
-      $results[[80]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[81]]
-      $results[[81]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 0.0003799632 0.9351863577 
-      
-      $results[[81]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[81]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[81]]$sub_weights
-      [1] 1
-      
-      $results[[81]]$min_score
-      [1] 99.23063
-      
-      $results[[81]]$conv_all
-      [1] TRUE
-      
-      $results[[81]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[82]]
-      $results[[82]]$all_weights
-               ct1          ct2          ct3 
-      0.1170868344 0.8070868718 0.0005428045 
-      
-      $results[[82]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[82]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[82]]$sub_weights
-      [1] 1
-      
-      $results[[82]]$min_score
-      [1] 101.0037
-      
-      $results[[82]]$conv_all
-      [1] TRUE
-      
-      $results[[82]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[83]]
-      $results[[83]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 0.1459427025 0.8547371110 
-      
-      $results[[83]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[83]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[83]]$sub_weights
-      [1] 1
-      
-      $results[[83]]$min_score
-      [1] 102.0145
-      
-      $results[[83]]$conv_all
-      [1] TRUE
-      
-      $results[[83]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[84]]
-      $results[[84]]$all_weights
-               ct1          ct2          ct3 
-      0.0002659742 0.0082196841 1.0316584494 
-      
-      $results[[84]]$cell_type_list
-      [1] "ct3"
-      
-      $results[[84]]$conf_list
-       ct3 
-      TRUE 
-      
-      $results[[84]]$sub_weights
-      [1] 1
-      
-      $results[[84]]$min_score
-      [1] 95.1695
-      
-      $results[[84]]$conv_all
-      [1] TRUE
-      
-      $results[[84]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[85]]
-      $results[[85]]$all_weights
-               ct1          ct2          ct3 
-      1.1005851392 0.0003799632 0.0046067354 
-      
-      $results[[85]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[85]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[85]]$sub_weights
-      [1] 1
-      
-      $results[[85]]$min_score
-      [1] 113.9735
-      
-      $results[[85]]$conv_all
-      [1] TRUE
-      
-      $results[[85]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[86]]
-      $results[[86]]$all_weights
-               ct1          ct2          ct3 
-      0.0508765350 0.9197293643 0.0003799632 
-      
-      $results[[86]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[86]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[86]]$sub_weights
-      [1] 1
-      
-      $results[[86]]$min_score
-      [1] 108.6819
-      
-      $results[[86]]$conv_all
-      [1] TRUE
-      
-      $results[[86]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[87]]
-      $results[[87]]$all_weights
-               ct1          ct2          ct3 
-      1.0086320181 0.0503810700 0.0003799632 
-      
-      $results[[87]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[87]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[87]]$sub_weights
-      [1] 1
-      
-      $results[[87]]$min_score
-      [1] 102.1916
-      
-      $results[[87]]$conv_all
-      [1] TRUE
-      
-      $results[[87]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[88]]
-      $results[[88]]$all_weights
-               ct1          ct2          ct3 
-      0.9161031649 0.0208449820 0.0003799632 
-      
-      $results[[88]]$cell_type_list
-      [1] "ct1"
-      
-      $results[[88]]$conf_list
-       ct1 
-      TRUE 
-      
-      $results[[88]]$sub_weights
-      [1] 1
-      
-      $results[[88]]$min_score
-      [1] 98.8864
-      
-      $results[[88]]$conv_all
-      [1] TRUE
-      
-      $results[[88]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[89]]
-      $results[[89]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 0.9491714560 0.0003799632 
-      
-      $results[[89]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[89]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[89]]$sub_weights
-      [1] 1
-      
-      $results[[89]]$min_score
-      [1] 103.4188
-      
-      $results[[89]]$conv_all
-      [1] TRUE
-      
-      $results[[89]]$conv_sub
-      [1] TRUE
-      
-      
-      $results[[90]]
-      $results[[90]]$all_weights
-               ct1          ct2          ct3 
-      0.0003799632 0.9647633903 0.0122115866 
-      
-      $results[[90]]$cell_type_list
-      [1] "ct2"
-      
-      $results[[90]]$conf_list
-       ct2 
-      TRUE 
-      
-      $results[[90]]$sub_weights
-      [1] 1
-      
-      $results[[90]]$min_score
-      [1] 102.2405
-      
-      $results[[90]]$conv_all
-      [1] TRUE
-      
-      $results[[90]]$conv_sub
-      [1] TRUE
-      
-      
-      
+                     ct1        ct2        ct3
+      Gene27  4.2120e-03 2.7047e-03 1.2222e-03
+      Gene34  9.1423e-04 3.8180e-04 3.4347e-04
+      Gene129 4.7916e-03 2.1623e-03 1.3200e-03
+      Gene213 5.6613e-04 2.9452e-04 3.2529e-04
+      Gene298 2.4395e-03 8.0299e-04 1.8004e-03
+      Gene309 5.6884e-04 4.9931e-04 1.5658e-04
+      Gene339 6.1471e-03 2.2814e-03 2.7184e-03
+      Gene362 7.9581e-04 4.8878e-04 3.8366e-04
+      Gene380 1.9747e-04 1.3627e-04 9.7593e-05
+      Gene389 1.4348e-03 6.5537e-04 1.0749e-03
+      Gene396 4.1708e-03 2.0789e-03 1.7901e-03
+      Gene400 4.2011e-03 2.4358e-03 2.3385e-03
+      Gene406 2.9219e-03 1.4922e-03 1.3250e-03
+      Gene413 3.0615e-04 1.6731e-04 2.0294e-04
+      Gene431 2.6464e-03 1.3028e-03 1.0690e-03
+      Gene447 4.9425e-03 3.1029e-03 1.9219e-03
+      Gene454 2.4226e-04 6.5579e-05 1.0935e-04
+      Gene465 3.4651e-04 2.4754e-04 1.0923e-04
+      Gene7   1.0195e-03 1.4961e-03 7.1072e-04
+      Gene14  3.0043e-04 7.3065e-04 4.0587e-04
+      Gene20  4.9916e-05 1.2251e-04 8.3582e-05
+      Gene37  6.5671e-04 1.2399e-03 4.0093e-04
+      Gene61  2.9376e-04 5.6140e-04 1.7298e-04
+      Gene68  8.8110e-04 2.4869e-03 7.9462e-04
+      Gene72  3.0743e-04 5.2125e-04 1.4097e-04
+      Gene73  4.0134e-04 9.5536e-04 4.4716e-04
+      Gene91  8.5617e-04 1.6403e-03 8.4966e-04
+      Gene115 1.3319e-04 2.1841e-04 1.2926e-04
+      Gene172 1.4060e-03 4.9539e-03 1.3281e-03
+      Gene189 1.9999e-03 5.6561e-03 2.9097e-03
+      Gene217 8.2845e-05 1.6387e-04 8.1569e-05
+      Gene221 2.9687e-04 4.2676e-04 1.2694e-04
+      Gene232 1.5776e-03 4.1637e-03 1.4242e-03
+      Gene240 1.2794e-03 2.2975e-03 1.1642e-03
+      Gene245 1.8481e-03 4.2504e-03 1.5179e-03
+      Gene247 1.6274e-04 2.7485e-04 1.3369e-04
+      Gene248 2.7814e-04 4.8621e-04 2.6169e-04
+      Gene338 2.2512e-03 3.3842e-03 1.3941e-03
+      Gene381 7.4933e-05 2.1086e-04 8.4907e-05
+      Gene387 4.6659e-04 7.7541e-04 4.5877e-04
+      Gene420 3.3053e-04 1.4016e-03 1.1122e-03
+      Gene428 1.2166e-03 1.3348e-03 3.5527e-04
+      Gene468 2.1823e-03 3.8968e-03 2.1000e-03
+      Gene56  9.9405e-05 1.4346e-04 3.6735e-04
+      Gene57  6.0976e-04 4.7901e-04 1.0490e-03
+      Gene64  8.9127e-04 6.2293e-04 1.4523e-03
+      Gene137 1.0189e-03 1.0656e-03 3.4151e-03
+      Gene169 6.9990e-04 1.2309e-03 1.8189e-03
+      Gene170 1.3366e-03 1.3039e-03 2.9555e-03
+      Gene178 7.3933e-05 6.0439e-05 1.7774e-04
+      Gene239 2.9292e-02 1.6622e-02 4.7056e-02
+      Gene282 1.7282e-04 1.7043e-04 2.8716e-04
+      Gene295 3.5061e-04 3.9216e-04 1.3466e-03
+      Gene319 2.2897e-03 2.5303e-03 5.3843e-03
+      Gene320 8.7957e-04 7.5165e-04 1.4193e-03
+      Gene326 5.9334e-04 5.9499e-04 1.2796e-03
+      Gene328 1.3427e-04 1.5216e-04 2.5747e-04
+      Gene477 9.8314e-04 1.3764e-03 2.2590e-03
+      Gene484 3.8171e-04 3.9778e-04 7.2862e-04
+      Gene490 9.1268e-04 8.9121e-04 2.0943e-03
+      # A tibble: 270 x 8
+          all_weights cell_type_list conf_list sub_weights min_score conv_all conv_sub
+                <dbl> <chr>          <lgl>           <dbl>     <dbl> <lgl>    <lgl>   
+        1 0.000380    ct3            TRUE                1      94.4 TRUE     TRUE    
+        2 0.0355      ct3            TRUE                1      94.4 TRUE     TRUE    
+        3 0.961       ct3            TRUE                1      94.4 TRUE     TRUE    
+        4 0.000380    ct2            TRUE                1     108.  TRUE     TRUE    
+        5 0.977       ct2            TRUE                1     108.  TRUE     TRUE    
+        6 0.000380    ct2            TRUE                1     108.  TRUE     TRUE    
+        7 0.0839      ct2            TRUE                1     106.  TRUE     TRUE    
+        8 0.863       ct2            TRUE                1     106.  TRUE     TRUE    
+        9 0.0999      ct2            TRUE                1     106.  TRUE     TRUE    
+       10 0.930       ct1            TRUE                1     104.  TRUE     TRUE    
+       11 0.0446      ct1            TRUE                1     104.  TRUE     TRUE    
+       12 0.000380    ct1            TRUE                1     104.  TRUE     TRUE    
+       13 0.0450      ct2            TRUE                1     104.  TRUE     TRUE    
+       14 0.911       ct2            TRUE                1     104.  TRUE     TRUE    
+       15 0.000380    ct2            TRUE                1     104.  TRUE     TRUE    
+       16 0.00896     ct2            TRUE                1     105.  TRUE     TRUE    
+       17 0.858       ct2            TRUE                1     105.  TRUE     TRUE    
+       18 0.000380    ct2            TRUE                1     105.  TRUE     TRUE    
+       19 0.921       ct1            TRUE                1     105.  TRUE     TRUE    
+       20 0.0449      ct1            TRUE                1     105.  TRUE     TRUE    
+       21 0.000380    ct1            TRUE                1     105.  TRUE     TRUE    
+       22 0.000380    ct3            TRUE                1     100.  TRUE     TRUE    
+       23 0.000380    ct3            TRUE                1     100.  TRUE     TRUE    
+       24 0.919       ct3            TRUE                1     100.  TRUE     TRUE    
+       25 0.979       ct1            TRUE                1     107.  TRUE     TRUE    
+       26 0.000380    ct1            TRUE                1     107.  TRUE     TRUE    
+       27 0.000380    ct1            TRUE                1     107.  TRUE     TRUE    
+       28 1.03        ct1            TRUE                1      97.3 TRUE     TRUE    
+       29 0.00719     ct1            TRUE                1      97.3 TRUE     TRUE    
+       30 0.000380    ct1            TRUE                1      97.3 TRUE     TRUE    
+       31 0.898       ct1            TRUE                1     101.  TRUE     TRUE    
+       32 0.000543    ct1            TRUE                1     101.  TRUE     TRUE    
+       33 0.0353      ct1            TRUE                1     101.  TRUE     TRUE    
+       34 0.115       ct2            TRUE                1     108.  TRUE     TRUE    
+       35 0.807       ct2            TRUE                1     108.  TRUE     TRUE    
+       36 0.000543    ct2            TRUE                1     108.  TRUE     TRUE    
+       37 0.920       ct1            TRUE                1      99.8 TRUE     TRUE    
+       38 0.0107      ct1            TRUE                1      99.8 TRUE     TRUE    
+       39 0.0787      ct1            TRUE                1      99.8 TRUE     TRUE    
+       40 0.836       ct1            TRUE                1      94.0 TRUE     TRUE    
+       41 0.0310      ct1            TRUE                1      94.0 TRUE     TRUE    
+       42 0.0319      ct1            TRUE                1      94.0 TRUE     TRUE    
+       43 0.0275      ct3            TRUE                1      93.1 TRUE     TRUE    
+       44 0.000380    ct3            TRUE                1      93.1 TRUE     TRUE    
+       45 0.958       ct3            TRUE                1      93.1 TRUE     TRUE    
+       46 0.000436    ct2            TRUE                1     106.  TRUE     TRUE    
+       47 0.965       ct2            TRUE                1     106.  TRUE     TRUE    
+       48 0.000380    ct2            TRUE                1     106.  TRUE     TRUE    
+       49 0.0408      ct2            TRUE                1     102.  TRUE     TRUE    
+       50 0.954       ct2            TRUE                1     102.  TRUE     TRUE    
+       51 0.000380    ct2            TRUE                1     102.  TRUE     TRUE    
+       52 0.0323      ct2            TRUE                1     103.  TRUE     TRUE    
+       53 0.937       ct2            TRUE                1     103.  TRUE     TRUE    
+       54 0.0344      ct2            TRUE                1     103.  TRUE     TRUE    
+       55 0.978       ct1            TRUE                1     107.  TRUE     TRUE    
+       56 0.000380    ct1            TRUE                1     107.  TRUE     TRUE    
+       57 0.0228      ct1            TRUE                1     107.  TRUE     TRUE    
+       58 0.000380    ct3            TRUE                1      98.3 TRUE     TRUE    
+       59 0.0615      ct3            TRUE                1      98.3 TRUE     TRUE    
+       60 0.918       ct3            TRUE                1      98.3 TRUE     TRUE    
+       61 0.000380    ct2            TRUE                1     115.  TRUE     TRUE    
+       62 0.940       ct2            TRUE                1     115.  TRUE     TRUE    
+       63 0.0123      ct2            TRUE                1     115.  TRUE     TRUE    
+       64 0.912       ct1            TRUE                1     102.  TRUE     TRUE    
+       65 0.000380    ct1            TRUE                1     102.  TRUE     TRUE    
+       66 0.0182      ct1            TRUE                1     102.  TRUE     TRUE    
+       67 0.000380    ct2            TRUE                1     108.  TRUE     TRUE    
+       68 1.02        ct2            TRUE                1     108.  TRUE     TRUE    
+       69 0.000380    ct2            TRUE                1     108.  TRUE     TRUE    
+       70 0.000380    ct2            TRUE                1     103.  TRUE     TRUE    
+       71 0.965       ct2            TRUE                1     103.  TRUE     TRUE    
+       72 0.000380    ct2            TRUE                1     103.  TRUE     TRUE    
+       73 0.860       ct1            TRUE                1      94.4 TRUE     TRUE    
+       74 0.0698      ct1            TRUE                1      94.4 TRUE     TRUE    
+       75 0.000380    ct1            TRUE                1      94.4 TRUE     TRUE    
+       76 0.000380    ct3            TRUE                1     103.  TRUE     TRUE    
+       77 0.0195      ct3            TRUE                1     103.  TRUE     TRUE    
+       78 0.914       ct3            TRUE                1     103.  TRUE     TRUE    
+       79 0.00381     ct3            TRUE                1      93.9 TRUE     TRUE    
+       80 0.000380    ct3            TRUE                1      93.9 TRUE     TRUE    
+       81 0.975       ct3            TRUE                1      93.9 TRUE     TRUE    
+       82 0.000407    ct2            TRUE                1     102.  TRUE     TRUE    
+       83 1.01        ct2            TRUE                1     102.  TRUE     TRUE    
+       84 0.0153      ct2            TRUE                1     102.  TRUE     TRUE    
+       85 0.0120      ct2            TRUE                1     107.  TRUE     TRUE    
+       86 1.02        ct2            TRUE                1     107.  TRUE     TRUE    
+       87 0.000380    ct2            TRUE                1     107.  TRUE     TRUE    
+       88 0.914       ct1            TRUE                1     104.  TRUE     TRUE    
+       89 0.000380    ct1            TRUE                1     104.  TRUE     TRUE    
+       90 0.0524      ct1            TRUE                1     104.  TRUE     TRUE    
+       91 1.02        ct1            TRUE                1      99.8 TRUE     TRUE    
+       92 0.0181      ct1            TRUE                1      99.8 TRUE     TRUE    
+       93 0.000380    ct1            TRUE                1      99.8 TRUE     TRUE    
+       94 0.0389      ct2            TRUE                1     103.  TRUE     TRUE    
+       95 0.893       ct2            TRUE                1     103.  TRUE     TRUE    
+       96 0.0642      ct2            TRUE                1     103.  TRUE     TRUE    
+       97 0.000543    ct2            TRUE                1     124.  TRUE     TRUE    
+       98 0.875       ct2            TRUE                1     124.  TRUE     TRUE    
+       99 0.0492      ct2            TRUE                1     124.  TRUE     TRUE    
+      100 0.000380    ct3            TRUE                1      87.9 TRUE     TRUE    
+      101 0.000380    ct3            TRUE                1      87.9 TRUE     TRUE    
+      102 0.957       ct3            TRUE                1      87.9 TRUE     TRUE    
+      103 0.0105      ct3            TRUE                1     104.  TRUE     TRUE    
+      104 0.112       ct3            TRUE                1     104.  TRUE     TRUE    
+      105 0.821       ct3            TRUE                1     104.  TRUE     TRUE    
+      106 0.0319      ct2            TRUE                1     108.  TRUE     TRUE    
+      107 0.991       ct2            TRUE                1     108.  TRUE     TRUE    
+      108 0.0430      ct2            TRUE                1     108.  TRUE     TRUE    
+      109 0.000380    ct3            TRUE                1      93.1 TRUE     TRUE    
+      110 0.0475      ct3            TRUE                1      93.1 TRUE     TRUE    
+      111 0.909       ct3            TRUE                1      93.1 TRUE     TRUE    
+      112 0.0212      ct3            TRUE                1     101.  TRUE     TRUE    
+      113 0.0310      ct3            TRUE                1     101.  TRUE     TRUE    
+      114 0.927       ct3            TRUE                1     101.  TRUE     TRUE    
+      115 0.843       ct1            TRUE                1      97.8 TRUE     TRUE    
+      116 0.0370      ct1            TRUE                1      97.8 TRUE     TRUE    
+      117 0.000380    ct1            TRUE                1      97.8 TRUE     TRUE    
+      118 0.906       ct1            TRUE                1     103.  TRUE     TRUE    
+      119 0.0526      ct1            TRUE                1     103.  TRUE     TRUE    
+      120 0.000380    ct1            TRUE                1     103.  TRUE     TRUE    
+      121 0.941       ct1            TRUE                1     101.  TRUE     TRUE    
+      122 0.0561      ct1            TRUE                1     101.  TRUE     TRUE    
+      123 0.000380    ct1            TRUE                1     101.  TRUE     TRUE    
+      124 0.960       ct1            TRUE                1     119.  TRUE     TRUE    
+      125 0.0232      ct1            TRUE                1     119.  TRUE     TRUE    
+      126 0.0211      ct1            TRUE                1     119.  TRUE     TRUE    
+      127 0.000380    ct3            TRUE                1      98.9 TRUE     TRUE    
+      128 0.000380    ct3            TRUE                1      98.9 TRUE     TRUE    
+      129 0.974       ct3            TRUE                1      98.9 TRUE     TRUE    
+      130 0.000380    ct3            TRUE                1      98.2 TRUE     TRUE    
+      131 0.000380    ct3            TRUE                1      98.2 TRUE     TRUE    
+      132 0.906       ct3            TRUE                1      98.2 TRUE     TRUE    
+      133 0.993       ct1            TRUE                1      96.2 TRUE     TRUE    
+      134 0.0302      ct1            TRUE                1      96.2 TRUE     TRUE    
+      135 0.000380    ct1            TRUE                1      96.2 TRUE     TRUE    
+      136 0.965       ct1            TRUE                1     101.  TRUE     TRUE    
+      137 0.0362      ct1            TRUE                1     101.  TRUE     TRUE    
+      138 0.0343      ct1            TRUE                1     101.  TRUE     TRUE    
+      139 0.848       ct1            TRUE                1     104.  TRUE     TRUE    
+      140 0.131       ct1            TRUE                1     104.  TRUE     TRUE    
+      141 0.0587      ct1            TRUE                1     104.  TRUE     TRUE    
+      142 0.0632      ct2            TRUE                1     104.  TRUE     TRUE    
+      143 0.852       ct2            TRUE                1     104.  TRUE     TRUE    
+      144 0.00967     ct2            TRUE                1     104.  TRUE     TRUE    
+      145 0.138       ct2            TRUE                1      99.7 TRUE     TRUE    
+      146 0.823       ct2            TRUE                1      99.7 TRUE     TRUE    
+      147 0.000543    ct2            TRUE                1      99.7 TRUE     TRUE    
+      148 0.931       ct1            TRUE                1      95.5 TRUE     TRUE    
+      149 0.0204      ct1            TRUE                1      95.5 TRUE     TRUE    
+      150 0.000380    ct1            TRUE                1      95.5 TRUE     TRUE    
+      151 0.0537      ct3            TRUE                1     112.  TRUE     TRUE    
+      152 0.0675      ct3            TRUE                1     112.  TRUE     TRUE    
+      153 0.819       ct3            TRUE                1     112.  TRUE     TRUE    
+      154 0.967       ct1            TRUE                1     110.  TRUE     TRUE    
+      155 0.000380    ct1            TRUE                1     110.  TRUE     TRUE    
+      156 0.000380    ct1            TRUE                1     110.  TRUE     TRUE    
+      157 1.03        ct1            TRUE                1      97.9 TRUE     TRUE    
+      158 0.000543    ct1            TRUE                1      97.9 TRUE     TRUE    
+      159 0.0634      ct1            TRUE                1      97.9 TRUE     TRUE    
+      160 0.0767      ct3            TRUE                1      96.8 TRUE     TRUE    
+      161 0.000543    ct3            TRUE                1      96.8 TRUE     TRUE    
+      162 0.834       ct3            TRUE                1      96.8 TRUE     TRUE    
+      163 0.000543    ct2            TRUE                1     100.  TRUE     TRUE    
+      164 0.890       ct2            TRUE                1     100.  TRUE     TRUE    
+      165 0.0196      ct2            TRUE                1     100.  TRUE     TRUE    
+      166 0.0434      ct2            TRUE                1     103.  TRUE     TRUE    
+      167 0.814       ct2            TRUE                1     103.  TRUE     TRUE    
+      168 0.0377      ct2            TRUE                1     103.  TRUE     TRUE    
+      169 0.0254      ct2            TRUE                1      96.1 TRUE     TRUE    
+      170 0.934       ct2            TRUE                1      96.1 TRUE     TRUE    
+      171 0.0170      ct2            TRUE                1      96.1 TRUE     TRUE    
+      172 0.000543    ct3            TRUE                1      95.2 TRUE     TRUE    
+      173 0.00983     ct3            TRUE                1      95.2 TRUE     TRUE    
+      174 0.985       ct3            TRUE                1      95.2 TRUE     TRUE    
+      175 0.000543    ct2            TRUE                1     102.  TRUE     TRUE    
+      176 0.877       ct2            TRUE                1     102.  TRUE     TRUE    
+      177 0.0725      ct2            TRUE                1     102.  TRUE     TRUE    
+      178 0.0323      ct2            TRUE                1      98.2 TRUE     TRUE    
+      179 0.859       ct2            TRUE                1      98.2 TRUE     TRUE    
+      180 0.0374      ct2            TRUE                1      98.2 TRUE     TRUE    
+      181 0.000417    ct2            TRUE                1      99.5 TRUE     TRUE    
+      182 0.965       ct2            TRUE                1      99.5 TRUE     TRUE    
+      183 0.000380    ct2            TRUE                1      99.5 TRUE     TRUE    
+      184 0.000380    ct2            TRUE                1     112.  TRUE     TRUE    
+      185 0.943       ct2            TRUE                1     112.  TRUE     TRUE    
+      186 0.000380    ct2            TRUE                1     112.  TRUE     TRUE    
+      187 0.000266    ct3            TRUE                1     102.  TRUE     TRUE    
+      188 0.0146      ct3            TRUE                1     102.  TRUE     TRUE    
+      189 0.920       ct3            TRUE                1     102.  TRUE     TRUE    
+      190 0.0175      ct3            TRUE                1      95.0 TRUE     TRUE    
+      191 0.0290      ct3            TRUE                1      95.0 TRUE     TRUE    
+      192 0.847       ct3            TRUE                1      95.0 TRUE     TRUE    
+      193 0.111       ct2            TRUE                1      91.3 TRUE     TRUE    
+      194 0.755       ct2            TRUE                1      91.3 TRUE     TRUE    
+      195 0.0520      ct2            TRUE                1      91.3 TRUE     TRUE    
+      196 0.000413    ct3            TRUE                1      99.1 TRUE     TRUE    
+      197 0.0422      ct3            TRUE                1      99.1 TRUE     TRUE    
+      198 0.945       ct3            TRUE                1      99.1 TRUE     TRUE    
+      199 0.00396     ct3            TRUE                1      92.6 TRUE     TRUE    
+      200 0.000000884 ct3            TRUE                1      92.6 TRUE     TRUE    
+      201 0.921       ct3            TRUE                1      92.6 TRUE     TRUE    
+      202 0.000380    ct2            TRUE                1      93.1 TRUE     TRUE    
+      203 1.06        ct2            TRUE                1      93.1 TRUE     TRUE    
+      204 0.000380    ct2            TRUE                1      93.1 TRUE     TRUE    
+      205 0.928       ct1            TRUE                1      98.4 TRUE     TRUE    
+      206 0.0234      ct1            TRUE                1      98.4 TRUE     TRUE    
+      207 0.000380    ct1            TRUE                1      98.4 TRUE     TRUE    
+      208 0.00185     ct3            TRUE                1      95.6 TRUE     TRUE    
+      209 0.000593    ct3            TRUE                1      95.6 TRUE     TRUE    
+      210 1.01        ct3            TRUE                1      95.6 TRUE     TRUE    
+      211 0.950       ct1            TRUE                1      98.6 TRUE     TRUE    
+      212 0.0320      ct1            TRUE                1      98.6 TRUE     TRUE    
+      213 0.000380    ct1            TRUE                1      98.6 TRUE     TRUE    
+      214 0.844       ct1            TRUE                1     102.  TRUE     TRUE    
+      215 0.0677      ct1            TRUE                1     102.  TRUE     TRUE    
+      216 0.000380    ct1            TRUE                1     102.  TRUE     TRUE    
+      217 0.941       ct1            TRUE                1      95.7 TRUE     TRUE    
+      218 0.000380    ct1            TRUE                1      95.7 TRUE     TRUE    
+      219 0.0365      ct1            TRUE                1      95.7 TRUE     TRUE    
+      220 0.834       ct1            TRUE                1      98.0 TRUE     TRUE    
+      221 0.0687      ct1            TRUE                1      98.0 TRUE     TRUE    
+      222 0.0355      ct1            TRUE                1      98.0 TRUE     TRUE    
+      223 0.000380    ct2            TRUE                1     106.  TRUE     TRUE    
+      224 1.01        ct2            TRUE                1     106.  TRUE     TRUE    
+      225 0.0479      ct2            TRUE                1     106.  TRUE     TRUE    
+      226 0.0334      ct2            TRUE                1      98.7 TRUE     TRUE    
+      227 0.845       ct2            TRUE                1      98.7 TRUE     TRUE    
+      228 0.000380    ct2            TRUE                1      98.7 TRUE     TRUE    
+      229 0.179       ct2            TRUE                1     108.  TRUE     TRUE    
+      230 0.881       ct2            TRUE                1     108.  TRUE     TRUE    
+      231 0.000543    ct2            TRUE                1     108.  TRUE     TRUE    
+      232 0.00921     ct3            TRUE                1      99.6 TRUE     TRUE    
+      233 0.00217     ct3            TRUE                1      99.6 TRUE     TRUE    
+      234 0.988       ct3            TRUE                1      99.6 TRUE     TRUE    
+      235 0.0195      ct2            TRUE                1     102.  TRUE     TRUE    
+      236 0.963       ct2            TRUE                1     102.  TRUE     TRUE    
+      237 0.000380    ct2            TRUE                1     102.  TRUE     TRUE    
+      238 0.988       ct1            TRUE                1     108.  TRUE     TRUE    
+      239 0.00192     ct1            TRUE                1     108.  TRUE     TRUE    
+      240 0.000380    ct1            TRUE                1     108.  TRUE     TRUE    
+      241 0.000380    ct3            TRUE                1      99.2 TRUE     TRUE    
+      242 0.000380    ct3            TRUE                1      99.2 TRUE     TRUE    
+      243 0.935       ct3            TRUE                1      99.2 TRUE     TRUE    
+      244 0.117       ct2            TRUE                1     101.  TRUE     TRUE    
+      245 0.807       ct2            TRUE                1     101.  TRUE     TRUE    
+      246 0.000543    ct2            TRUE                1     101.  TRUE     TRUE    
+      247 0.000380    ct3            TRUE                1     102.  TRUE     TRUE    
+      248 0.146       ct3            TRUE                1     102.  TRUE     TRUE    
+      249 0.855       ct3            TRUE                1     102.  TRUE     TRUE    
+      250 0.000266    ct3            TRUE                1      95.2 TRUE     TRUE    
+      251 0.00822     ct3            TRUE                1      95.2 TRUE     TRUE    
+      252 1.03        ct3            TRUE                1      95.2 TRUE     TRUE    
+      253 1.10        ct1            TRUE                1     114.  TRUE     TRUE    
+      254 0.000380    ct1            TRUE                1     114.  TRUE     TRUE    
+      255 0.00461     ct1            TRUE                1     114.  TRUE     TRUE    
+      256 0.0509      ct2            TRUE                1     109.  TRUE     TRUE    
+      257 0.920       ct2            TRUE                1     109.  TRUE     TRUE    
+      258 0.000380    ct2            TRUE                1     109.  TRUE     TRUE    
+      259 1.01        ct1            TRUE                1     102.  TRUE     TRUE    
+      260 0.0504      ct1            TRUE                1     102.  TRUE     TRUE    
+      261 0.000380    ct1            TRUE                1     102.  TRUE     TRUE    
+      262 0.916       ct1            TRUE                1      98.9 TRUE     TRUE    
+      263 0.0208      ct1            TRUE                1      98.9 TRUE     TRUE    
+      264 0.000380    ct1            TRUE                1      98.9 TRUE     TRUE    
+      265 0.000380    ct2            TRUE                1     103.  TRUE     TRUE    
+      266 0.949       ct2            TRUE                1     103.  TRUE     TRUE    
+      267 0.000380    ct2            TRUE                1     103.  TRUE     TRUE    
+      268 0.000380    ct2            TRUE                1     102.  TRUE     TRUE    
+      269 0.965       ct2            TRUE                1     102.  TRUE     TRUE    
+      270 0.0122      ct2            TRUE                1     102.  TRUE     TRUE    
+      # i 1 more variable: cell_id <chr>
+
+---
+
     Code
-      u <- result$results$results_df
-      print(cf <- table(substr(rownames(u), 1, 3), u$first_type))
+      print_rctd_results(result_multi)
     Output
-      < table of extent 0 x 0 >
+                     ct1        ct2        ct3
+      Gene27  4.2120e-03 2.7047e-03 1.2222e-03
+      Gene34  9.1423e-04 3.8180e-04 3.4347e-04
+      Gene129 4.7916e-03 2.1623e-03 1.3200e-03
+      Gene213 5.6613e-04 2.9452e-04 3.2529e-04
+      Gene298 2.4395e-03 8.0299e-04 1.8004e-03
+      Gene309 5.6884e-04 4.9931e-04 1.5658e-04
+      Gene339 6.1471e-03 2.2814e-03 2.7184e-03
+      Gene362 7.9581e-04 4.8878e-04 3.8366e-04
+      Gene380 1.9747e-04 1.3627e-04 9.7593e-05
+      Gene389 1.4348e-03 6.5537e-04 1.0749e-03
+      Gene396 4.1708e-03 2.0789e-03 1.7901e-03
+      Gene400 4.2011e-03 2.4358e-03 2.3385e-03
+      Gene406 2.9219e-03 1.4922e-03 1.3250e-03
+      Gene413 3.0615e-04 1.6731e-04 2.0294e-04
+      Gene431 2.6464e-03 1.3028e-03 1.0690e-03
+      Gene447 4.9425e-03 3.1029e-03 1.9219e-03
+      Gene454 2.4226e-04 6.5579e-05 1.0935e-04
+      Gene465 3.4651e-04 2.4754e-04 1.0923e-04
+      Gene7   1.0195e-03 1.4961e-03 7.1072e-04
+      Gene14  3.0043e-04 7.3065e-04 4.0587e-04
+      Gene20  4.9916e-05 1.2251e-04 8.3582e-05
+      Gene37  6.5671e-04 1.2399e-03 4.0093e-04
+      Gene61  2.9376e-04 5.6140e-04 1.7298e-04
+      Gene68  8.8110e-04 2.4869e-03 7.9462e-04
+      Gene72  3.0743e-04 5.2125e-04 1.4097e-04
+      Gene73  4.0134e-04 9.5536e-04 4.4716e-04
+      Gene91  8.5617e-04 1.6403e-03 8.4966e-04
+      Gene115 1.3319e-04 2.1841e-04 1.2926e-04
+      Gene172 1.4060e-03 4.9539e-03 1.3281e-03
+      Gene189 1.9999e-03 5.6561e-03 2.9097e-03
+      Gene217 8.2845e-05 1.6387e-04 8.1569e-05
+      Gene221 2.9687e-04 4.2676e-04 1.2694e-04
+      Gene232 1.5776e-03 4.1637e-03 1.4242e-03
+      Gene240 1.2794e-03 2.2975e-03 1.1642e-03
+      Gene245 1.8481e-03 4.2504e-03 1.5179e-03
+      Gene247 1.6274e-04 2.7485e-04 1.3369e-04
+      Gene248 2.7814e-04 4.8621e-04 2.6169e-04
+      Gene338 2.2512e-03 3.3842e-03 1.3941e-03
+      Gene381 7.4933e-05 2.1086e-04 8.4907e-05
+      Gene387 4.6659e-04 7.7541e-04 4.5877e-04
+      Gene420 3.3053e-04 1.4016e-03 1.1122e-03
+      Gene428 1.2166e-03 1.3348e-03 3.5527e-04
+      Gene468 2.1823e-03 3.8968e-03 2.1000e-03
+      Gene56  9.9405e-05 1.4346e-04 3.6735e-04
+      Gene57  6.0976e-04 4.7901e-04 1.0490e-03
+      Gene64  8.9127e-04 6.2293e-04 1.4523e-03
+      Gene137 1.0189e-03 1.0656e-03 3.4151e-03
+      Gene169 6.9990e-04 1.2309e-03 1.8189e-03
+      Gene170 1.3366e-03 1.3039e-03 2.9555e-03
+      Gene178 7.3933e-05 6.0439e-05 1.7774e-04
+      Gene239 2.9292e-02 1.6622e-02 4.7056e-02
+      Gene282 1.7282e-04 1.7043e-04 2.8716e-04
+      Gene295 3.5061e-04 3.9216e-04 1.3466e-03
+      Gene319 2.2897e-03 2.5303e-03 5.3843e-03
+      Gene320 8.7957e-04 7.5165e-04 1.4193e-03
+      Gene326 5.9334e-04 5.9499e-04 1.2796e-03
+      Gene328 1.3427e-04 1.5216e-04 2.5747e-04
+      Gene477 9.8314e-04 1.3764e-03 2.2590e-03
+      Gene484 3.8171e-04 3.9778e-04 7.2862e-04
+      Gene490 9.1268e-04 8.9121e-04 2.0943e-03
+      # A tibble: 270 x 8
+          all_weights cell_type_list conf_list sub_weights min_score conv_all conv_sub
+                <dbl> <chr>          <lgl>           <dbl>     <dbl> <lgl>    <lgl>   
+        1 0.000380    ct3            TRUE                1      94.4 TRUE     TRUE    
+        2 0.0355      ct3            TRUE                1      94.4 TRUE     TRUE    
+        3 0.961       ct3            TRUE                1      94.4 TRUE     TRUE    
+        4 0.000380    ct2            TRUE                1     108.  TRUE     TRUE    
+        5 0.977       ct2            TRUE                1     108.  TRUE     TRUE    
+        6 0.000380    ct2            TRUE                1     108.  TRUE     TRUE    
+        7 0.0839      ct2            TRUE                1     106.  TRUE     TRUE    
+        8 0.863       ct2            TRUE                1     106.  TRUE     TRUE    
+        9 0.0999      ct2            TRUE                1     106.  TRUE     TRUE    
+       10 0.930       ct1            TRUE                1     104.  TRUE     TRUE    
+       11 0.0446      ct1            TRUE                1     104.  TRUE     TRUE    
+       12 0.000380    ct1            TRUE                1     104.  TRUE     TRUE    
+       13 0.0450      ct2            TRUE                1     104.  TRUE     TRUE    
+       14 0.911       ct2            TRUE                1     104.  TRUE     TRUE    
+       15 0.000380    ct2            TRUE                1     104.  TRUE     TRUE    
+       16 0.00896     ct2            TRUE                1     105.  TRUE     TRUE    
+       17 0.858       ct2            TRUE                1     105.  TRUE     TRUE    
+       18 0.000380    ct2            TRUE                1     105.  TRUE     TRUE    
+       19 0.921       ct1            TRUE                1     105.  TRUE     TRUE    
+       20 0.0449      ct1            TRUE                1     105.  TRUE     TRUE    
+       21 0.000380    ct1            TRUE                1     105.  TRUE     TRUE    
+       22 0.000380    ct3            TRUE                1     100.  TRUE     TRUE    
+       23 0.000380    ct3            TRUE                1     100.  TRUE     TRUE    
+       24 0.919       ct3            TRUE                1     100.  TRUE     TRUE    
+       25 0.979       ct1            TRUE                1     107.  TRUE     TRUE    
+       26 0.000380    ct1            TRUE                1     107.  TRUE     TRUE    
+       27 0.000380    ct1            TRUE                1     107.  TRUE     TRUE    
+       28 1.03        ct1            TRUE                1      97.3 TRUE     TRUE    
+       29 0.00719     ct1            TRUE                1      97.3 TRUE     TRUE    
+       30 0.000380    ct1            TRUE                1      97.3 TRUE     TRUE    
+       31 0.898       ct1            TRUE                1     101.  TRUE     TRUE    
+       32 0.000543    ct1            TRUE                1     101.  TRUE     TRUE    
+       33 0.0353      ct1            TRUE                1     101.  TRUE     TRUE    
+       34 0.115       ct2            TRUE                1     108.  TRUE     TRUE    
+       35 0.807       ct2            TRUE                1     108.  TRUE     TRUE    
+       36 0.000543    ct2            TRUE                1     108.  TRUE     TRUE    
+       37 0.920       ct1            TRUE                1      99.8 TRUE     TRUE    
+       38 0.0107      ct1            TRUE                1      99.8 TRUE     TRUE    
+       39 0.0787      ct1            TRUE                1      99.8 TRUE     TRUE    
+       40 0.836       ct1            TRUE                1      94.0 TRUE     TRUE    
+       41 0.0310      ct1            TRUE                1      94.0 TRUE     TRUE    
+       42 0.0319      ct1            TRUE                1      94.0 TRUE     TRUE    
+       43 0.0275      ct3            TRUE                1      93.1 TRUE     TRUE    
+       44 0.000380    ct3            TRUE                1      93.1 TRUE     TRUE    
+       45 0.958       ct3            TRUE                1      93.1 TRUE     TRUE    
+       46 0.000436    ct2            TRUE                1     106.  TRUE     TRUE    
+       47 0.965       ct2            TRUE                1     106.  TRUE     TRUE    
+       48 0.000380    ct2            TRUE                1     106.  TRUE     TRUE    
+       49 0.0408      ct2            TRUE                1     102.  TRUE     TRUE    
+       50 0.954       ct2            TRUE                1     102.  TRUE     TRUE    
+       51 0.000380    ct2            TRUE                1     102.  TRUE     TRUE    
+       52 0.0323      ct2            TRUE                1     103.  TRUE     TRUE    
+       53 0.937       ct2            TRUE                1     103.  TRUE     TRUE    
+       54 0.0344      ct2            TRUE                1     103.  TRUE     TRUE    
+       55 0.978       ct1            TRUE                1     107.  TRUE     TRUE    
+       56 0.000380    ct1            TRUE                1     107.  TRUE     TRUE    
+       57 0.0228      ct1            TRUE                1     107.  TRUE     TRUE    
+       58 0.000380    ct3            TRUE                1      98.3 TRUE     TRUE    
+       59 0.0615      ct3            TRUE                1      98.3 TRUE     TRUE    
+       60 0.918       ct3            TRUE                1      98.3 TRUE     TRUE    
+       61 0.000380    ct2            TRUE                1     115.  TRUE     TRUE    
+       62 0.940       ct2            TRUE                1     115.  TRUE     TRUE    
+       63 0.0123      ct2            TRUE                1     115.  TRUE     TRUE    
+       64 0.912       ct1            TRUE                1     102.  TRUE     TRUE    
+       65 0.000380    ct1            TRUE                1     102.  TRUE     TRUE    
+       66 0.0182      ct1            TRUE                1     102.  TRUE     TRUE    
+       67 0.000380    ct2            TRUE                1     108.  TRUE     TRUE    
+       68 1.02        ct2            TRUE                1     108.  TRUE     TRUE    
+       69 0.000380    ct2            TRUE                1     108.  TRUE     TRUE    
+       70 0.000380    ct2            TRUE                1     103.  TRUE     TRUE    
+       71 0.965       ct2            TRUE                1     103.  TRUE     TRUE    
+       72 0.000380    ct2            TRUE                1     103.  TRUE     TRUE    
+       73 0.860       ct1            TRUE                1      94.4 TRUE     TRUE    
+       74 0.0698      ct1            TRUE                1      94.4 TRUE     TRUE    
+       75 0.000380    ct1            TRUE                1      94.4 TRUE     TRUE    
+       76 0.000380    ct3            TRUE                1     103.  TRUE     TRUE    
+       77 0.0195      ct3            TRUE                1     103.  TRUE     TRUE    
+       78 0.914       ct3            TRUE                1     103.  TRUE     TRUE    
+       79 0.00381     ct3            TRUE                1      93.9 TRUE     TRUE    
+       80 0.000380    ct3            TRUE                1      93.9 TRUE     TRUE    
+       81 0.975       ct3            TRUE                1      93.9 TRUE     TRUE    
+       82 0.000407    ct2            TRUE                1     102.  TRUE     TRUE    
+       83 1.01        ct2            TRUE                1     102.  TRUE     TRUE    
+       84 0.0153      ct2            TRUE                1     102.  TRUE     TRUE    
+       85 0.0120      ct2            TRUE                1     107.  TRUE     TRUE    
+       86 1.02        ct2            TRUE                1     107.  TRUE     TRUE    
+       87 0.000380    ct2            TRUE                1     107.  TRUE     TRUE    
+       88 0.914       ct1            TRUE                1     104.  TRUE     TRUE    
+       89 0.000380    ct1            TRUE                1     104.  TRUE     TRUE    
+       90 0.0524      ct1            TRUE                1     104.  TRUE     TRUE    
+       91 1.02        ct1            TRUE                1      99.8 TRUE     TRUE    
+       92 0.0181      ct1            TRUE                1      99.8 TRUE     TRUE    
+       93 0.000380    ct1            TRUE                1      99.8 TRUE     TRUE    
+       94 0.0389      ct2            TRUE                1     103.  TRUE     TRUE    
+       95 0.893       ct2            TRUE                1     103.  TRUE     TRUE    
+       96 0.0642      ct2            TRUE                1     103.  TRUE     TRUE    
+       97 0.000543    ct2            TRUE                1     124.  TRUE     TRUE    
+       98 0.875       ct2            TRUE                1     124.  TRUE     TRUE    
+       99 0.0492      ct2            TRUE                1     124.  TRUE     TRUE    
+      100 0.000380    ct3            TRUE                1      87.9 TRUE     TRUE    
+      101 0.000380    ct3            TRUE                1      87.9 TRUE     TRUE    
+      102 0.957       ct3            TRUE                1      87.9 TRUE     TRUE    
+      103 0.0105      ct3            TRUE                1     104.  TRUE     TRUE    
+      104 0.112       ct3            TRUE                1     104.  TRUE     TRUE    
+      105 0.821       ct3            TRUE                1     104.  TRUE     TRUE    
+      106 0.0319      ct2            TRUE                1     108.  TRUE     TRUE    
+      107 0.991       ct2            TRUE                1     108.  TRUE     TRUE    
+      108 0.0430      ct2            TRUE                1     108.  TRUE     TRUE    
+      109 0.000380    ct3            TRUE                1      93.1 TRUE     TRUE    
+      110 0.0475      ct3            TRUE                1      93.1 TRUE     TRUE    
+      111 0.909       ct3            TRUE                1      93.1 TRUE     TRUE    
+      112 0.0212      ct3            TRUE                1     101.  TRUE     TRUE    
+      113 0.0310      ct3            TRUE                1     101.  TRUE     TRUE    
+      114 0.927       ct3            TRUE                1     101.  TRUE     TRUE    
+      115 0.843       ct1            TRUE                1      97.8 TRUE     TRUE    
+      116 0.0370      ct1            TRUE                1      97.8 TRUE     TRUE    
+      117 0.000380    ct1            TRUE                1      97.8 TRUE     TRUE    
+      118 0.906       ct1            TRUE                1     103.  TRUE     TRUE    
+      119 0.0526      ct1            TRUE                1     103.  TRUE     TRUE    
+      120 0.000380    ct1            TRUE                1     103.  TRUE     TRUE    
+      121 0.941       ct1            TRUE                1     101.  TRUE     TRUE    
+      122 0.0561      ct1            TRUE                1     101.  TRUE     TRUE    
+      123 0.000380    ct1            TRUE                1     101.  TRUE     TRUE    
+      124 0.960       ct1            TRUE                1     119.  TRUE     TRUE    
+      125 0.0232      ct1            TRUE                1     119.  TRUE     TRUE    
+      126 0.0211      ct1            TRUE                1     119.  TRUE     TRUE    
+      127 0.000380    ct3            TRUE                1      98.9 TRUE     TRUE    
+      128 0.000380    ct3            TRUE                1      98.9 TRUE     TRUE    
+      129 0.974       ct3            TRUE                1      98.9 TRUE     TRUE    
+      130 0.000380    ct3            TRUE                1      98.2 TRUE     TRUE    
+      131 0.000380    ct3            TRUE                1      98.2 TRUE     TRUE    
+      132 0.906       ct3            TRUE                1      98.2 TRUE     TRUE    
+      133 0.993       ct1            TRUE                1      96.2 TRUE     TRUE    
+      134 0.0302      ct1            TRUE                1      96.2 TRUE     TRUE    
+      135 0.000380    ct1            TRUE                1      96.2 TRUE     TRUE    
+      136 0.965       ct1            TRUE                1     101.  TRUE     TRUE    
+      137 0.0362      ct1            TRUE                1     101.  TRUE     TRUE    
+      138 0.0343      ct1            TRUE                1     101.  TRUE     TRUE    
+      139 0.848       ct1            TRUE                1     104.  TRUE     TRUE    
+      140 0.131       ct1            TRUE                1     104.  TRUE     TRUE    
+      141 0.0587      ct1            TRUE                1     104.  TRUE     TRUE    
+      142 0.0632      ct2            TRUE                1     104.  TRUE     TRUE    
+      143 0.852       ct2            TRUE                1     104.  TRUE     TRUE    
+      144 0.00967     ct2            TRUE                1     104.  TRUE     TRUE    
+      145 0.138       ct2            TRUE                1      99.7 TRUE     TRUE    
+      146 0.823       ct2            TRUE                1      99.7 TRUE     TRUE    
+      147 0.000543    ct2            TRUE                1      99.7 TRUE     TRUE    
+      148 0.931       ct1            TRUE                1      95.5 TRUE     TRUE    
+      149 0.0204      ct1            TRUE                1      95.5 TRUE     TRUE    
+      150 0.000380    ct1            TRUE                1      95.5 TRUE     TRUE    
+      151 0.0537      ct3            TRUE                1     112.  TRUE     TRUE    
+      152 0.0675      ct3            TRUE                1     112.  TRUE     TRUE    
+      153 0.819       ct3            TRUE                1     112.  TRUE     TRUE    
+      154 0.967       ct1            TRUE                1     110.  TRUE     TRUE    
+      155 0.000380    ct1            TRUE                1     110.  TRUE     TRUE    
+      156 0.000380    ct1            TRUE                1     110.  TRUE     TRUE    
+      157 1.03        ct1            TRUE                1      97.9 TRUE     TRUE    
+      158 0.000543    ct1            TRUE                1      97.9 TRUE     TRUE    
+      159 0.0634      ct1            TRUE                1      97.9 TRUE     TRUE    
+      160 0.0767      ct3            TRUE                1      96.8 TRUE     TRUE    
+      161 0.000543    ct3            TRUE                1      96.8 TRUE     TRUE    
+      162 0.834       ct3            TRUE                1      96.8 TRUE     TRUE    
+      163 0.000543    ct2            TRUE                1     100.  TRUE     TRUE    
+      164 0.890       ct2            TRUE                1     100.  TRUE     TRUE    
+      165 0.0196      ct2            TRUE                1     100.  TRUE     TRUE    
+      166 0.0434      ct2            TRUE                1     103.  TRUE     TRUE    
+      167 0.814       ct2            TRUE                1     103.  TRUE     TRUE    
+      168 0.0377      ct2            TRUE                1     103.  TRUE     TRUE    
+      169 0.0254      ct2            TRUE                1      96.1 TRUE     TRUE    
+      170 0.934       ct2            TRUE                1      96.1 TRUE     TRUE    
+      171 0.0170      ct2            TRUE                1      96.1 TRUE     TRUE    
+      172 0.000543    ct3            TRUE                1      95.2 TRUE     TRUE    
+      173 0.00983     ct3            TRUE                1      95.2 TRUE     TRUE    
+      174 0.985       ct3            TRUE                1      95.2 TRUE     TRUE    
+      175 0.000543    ct2            TRUE                1     102.  TRUE     TRUE    
+      176 0.877       ct2            TRUE                1     102.  TRUE     TRUE    
+      177 0.0725      ct2            TRUE                1     102.  TRUE     TRUE    
+      178 0.0323      ct2            TRUE                1      98.2 TRUE     TRUE    
+      179 0.859       ct2            TRUE                1      98.2 TRUE     TRUE    
+      180 0.0374      ct2            TRUE                1      98.2 TRUE     TRUE    
+      181 0.000417    ct2            TRUE                1      99.5 TRUE     TRUE    
+      182 0.965       ct2            TRUE                1      99.5 TRUE     TRUE    
+      183 0.000380    ct2            TRUE                1      99.5 TRUE     TRUE    
+      184 0.000380    ct2            TRUE                1     112.  TRUE     TRUE    
+      185 0.943       ct2            TRUE                1     112.  TRUE     TRUE    
+      186 0.000380    ct2            TRUE                1     112.  TRUE     TRUE    
+      187 0.000266    ct3            TRUE                1     102.  TRUE     TRUE    
+      188 0.0146      ct3            TRUE                1     102.  TRUE     TRUE    
+      189 0.920       ct3            TRUE                1     102.  TRUE     TRUE    
+      190 0.0175      ct3            TRUE                1      95.0 TRUE     TRUE    
+      191 0.0290      ct3            TRUE                1      95.0 TRUE     TRUE    
+      192 0.847       ct3            TRUE                1      95.0 TRUE     TRUE    
+      193 0.111       ct2            TRUE                1      91.3 TRUE     TRUE    
+      194 0.755       ct2            TRUE                1      91.3 TRUE     TRUE    
+      195 0.0520      ct2            TRUE                1      91.3 TRUE     TRUE    
+      196 0.000413    ct3            TRUE                1      99.1 TRUE     TRUE    
+      197 0.0422      ct3            TRUE                1      99.1 TRUE     TRUE    
+      198 0.945       ct3            TRUE                1      99.1 TRUE     TRUE    
+      199 0.00396     ct3            TRUE                1      92.6 TRUE     TRUE    
+      200 0.000000884 ct3            TRUE                1      92.6 TRUE     TRUE    
+      201 0.921       ct3            TRUE                1      92.6 TRUE     TRUE    
+      202 0.000380    ct2            TRUE                1      93.1 TRUE     TRUE    
+      203 1.06        ct2            TRUE                1      93.1 TRUE     TRUE    
+      204 0.000380    ct2            TRUE                1      93.1 TRUE     TRUE    
+      205 0.928       ct1            TRUE                1      98.4 TRUE     TRUE    
+      206 0.0234      ct1            TRUE                1      98.4 TRUE     TRUE    
+      207 0.000380    ct1            TRUE                1      98.4 TRUE     TRUE    
+      208 0.00185     ct3            TRUE                1      95.6 TRUE     TRUE    
+      209 0.000593    ct3            TRUE                1      95.6 TRUE     TRUE    
+      210 1.01        ct3            TRUE                1      95.6 TRUE     TRUE    
+      211 0.950       ct1            TRUE                1      98.6 TRUE     TRUE    
+      212 0.0320      ct1            TRUE                1      98.6 TRUE     TRUE    
+      213 0.000380    ct1            TRUE                1      98.6 TRUE     TRUE    
+      214 0.844       ct1            TRUE                1     102.  TRUE     TRUE    
+      215 0.0677      ct1            TRUE                1     102.  TRUE     TRUE    
+      216 0.000380    ct1            TRUE                1     102.  TRUE     TRUE    
+      217 0.941       ct1            TRUE                1      95.7 TRUE     TRUE    
+      218 0.000380    ct1            TRUE                1      95.7 TRUE     TRUE    
+      219 0.0365      ct1            TRUE                1      95.7 TRUE     TRUE    
+      220 0.834       ct1            TRUE                1      98.0 TRUE     TRUE    
+      221 0.0687      ct1            TRUE                1      98.0 TRUE     TRUE    
+      222 0.0355      ct1            TRUE                1      98.0 TRUE     TRUE    
+      223 0.000380    ct2            TRUE                1     106.  TRUE     TRUE    
+      224 1.01        ct2            TRUE                1     106.  TRUE     TRUE    
+      225 0.0479      ct2            TRUE                1     106.  TRUE     TRUE    
+      226 0.0334      ct2            TRUE                1      98.7 TRUE     TRUE    
+      227 0.845       ct2            TRUE                1      98.7 TRUE     TRUE    
+      228 0.000380    ct2            TRUE                1      98.7 TRUE     TRUE    
+      229 0.179       ct2            TRUE                1     108.  TRUE     TRUE    
+      230 0.881       ct2            TRUE                1     108.  TRUE     TRUE    
+      231 0.000543    ct2            TRUE                1     108.  TRUE     TRUE    
+      232 0.00921     ct3            TRUE                1      99.6 TRUE     TRUE    
+      233 0.00217     ct3            TRUE                1      99.6 TRUE     TRUE    
+      234 0.988       ct3            TRUE                1      99.6 TRUE     TRUE    
+      235 0.0195      ct2            TRUE                1     102.  TRUE     TRUE    
+      236 0.963       ct2            TRUE                1     102.  TRUE     TRUE    
+      237 0.000380    ct2            TRUE                1     102.  TRUE     TRUE    
+      238 0.988       ct1            TRUE                1     108.  TRUE     TRUE    
+      239 0.00192     ct1            TRUE                1     108.  TRUE     TRUE    
+      240 0.000380    ct1            TRUE                1     108.  TRUE     TRUE    
+      241 0.000380    ct3            TRUE                1      99.2 TRUE     TRUE    
+      242 0.000380    ct3            TRUE                1      99.2 TRUE     TRUE    
+      243 0.935       ct3            TRUE                1      99.2 TRUE     TRUE    
+      244 0.117       ct2            TRUE                1     101.  TRUE     TRUE    
+      245 0.807       ct2            TRUE                1     101.  TRUE     TRUE    
+      246 0.000543    ct2            TRUE                1     101.  TRUE     TRUE    
+      247 0.000380    ct3            TRUE                1     102.  TRUE     TRUE    
+      248 0.146       ct3            TRUE                1     102.  TRUE     TRUE    
+      249 0.855       ct3            TRUE                1     102.  TRUE     TRUE    
+      250 0.000266    ct3            TRUE                1      95.2 TRUE     TRUE    
+      251 0.00822     ct3            TRUE                1      95.2 TRUE     TRUE    
+      252 1.03        ct3            TRUE                1      95.2 TRUE     TRUE    
+      253 1.10        ct1            TRUE                1     114.  TRUE     TRUE    
+      254 0.000380    ct1            TRUE                1     114.  TRUE     TRUE    
+      255 0.00461     ct1            TRUE                1     114.  TRUE     TRUE    
+      256 0.0509      ct2            TRUE                1     109.  TRUE     TRUE    
+      257 0.920       ct2            TRUE                1     109.  TRUE     TRUE    
+      258 0.000380    ct2            TRUE                1     109.  TRUE     TRUE    
+      259 1.01        ct1            TRUE                1     102.  TRUE     TRUE    
+      260 0.0504      ct1            TRUE                1     102.  TRUE     TRUE    
+      261 0.000380    ct1            TRUE                1     102.  TRUE     TRUE    
+      262 0.916       ct1            TRUE                1      98.9 TRUE     TRUE    
+      263 0.0208      ct1            TRUE                1      98.9 TRUE     TRUE    
+      264 0.000380    ct1            TRUE                1      98.9 TRUE     TRUE    
+      265 0.000380    ct2            TRUE                1     103.  TRUE     TRUE    
+      266 0.949       ct2            TRUE                1     103.  TRUE     TRUE    
+      267 0.000380    ct2            TRUE                1     103.  TRUE     TRUE    
+      268 0.000380    ct2            TRUE                1     102.  TRUE     TRUE    
+      269 0.965       ct2            TRUE                1     102.  TRUE     TRUE    
+      270 0.0122      ct2            TRUE                1     102.  TRUE     TRUE    
+      # i 1 more variable: cell_id <chr>
 
