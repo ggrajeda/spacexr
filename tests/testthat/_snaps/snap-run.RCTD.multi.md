@@ -64,280 +64,548 @@
       Gene477 9.8314e-04 1.3764e-03 2.2590e-03
       Gene484 3.8171e-04 3.9778e-04 7.2862e-04
       Gene490 9.1268e-04 8.9121e-04 2.0943e-03
-      # A tibble: 270 x 8
-          all_weights cell_type_list conf_list sub_weights min_score conv_all conv_sub
-                <dbl> <chr>          <lgl>           <dbl>     <dbl> <lgl>    <lgl>   
-        1 0.000380    ct3            TRUE                1      94.4 TRUE     TRUE    
-        2 0.0355      ct3            TRUE                1      94.4 TRUE     TRUE    
-        3 0.961       ct3            TRUE                1      94.4 TRUE     TRUE    
-        4 0.000380    ct2            TRUE                1     108.  TRUE     TRUE    
-        5 0.977       ct2            TRUE                1     108.  TRUE     TRUE    
-        6 0.000380    ct2            TRUE                1     108.  TRUE     TRUE    
-        7 0.0839      ct2            TRUE                1     106.  TRUE     TRUE    
-        8 0.863       ct2            TRUE                1     106.  TRUE     TRUE    
-        9 0.0999      ct2            TRUE                1     106.  TRUE     TRUE    
-       10 0.930       ct1            TRUE                1     104.  TRUE     TRUE    
-       11 0.0446      ct1            TRUE                1     104.  TRUE     TRUE    
-       12 0.000380    ct1            TRUE                1     104.  TRUE     TRUE    
-       13 0.0450      ct2            TRUE                1     104.  TRUE     TRUE    
-       14 0.911       ct2            TRUE                1     104.  TRUE     TRUE    
-       15 0.000380    ct2            TRUE                1     104.  TRUE     TRUE    
-       16 0.00896     ct2            TRUE                1     105.  TRUE     TRUE    
-       17 0.858       ct2            TRUE                1     105.  TRUE     TRUE    
-       18 0.000380    ct2            TRUE                1     105.  TRUE     TRUE    
-       19 0.921       ct1            TRUE                1     105.  TRUE     TRUE    
-       20 0.0449      ct1            TRUE                1     105.  TRUE     TRUE    
-       21 0.000380    ct1            TRUE                1     105.  TRUE     TRUE    
-       22 0.000380    ct3            TRUE                1     100.  TRUE     TRUE    
-       23 0.000380    ct3            TRUE                1     100.  TRUE     TRUE    
-       24 0.919       ct3            TRUE                1     100.  TRUE     TRUE    
-       25 0.979       ct1            TRUE                1     107.  TRUE     TRUE    
-       26 0.000380    ct1            TRUE                1     107.  TRUE     TRUE    
-       27 0.000380    ct1            TRUE                1     107.  TRUE     TRUE    
-       28 1.03        ct1            TRUE                1      97.3 TRUE     TRUE    
-       29 0.00719     ct1            TRUE                1      97.3 TRUE     TRUE    
-       30 0.000380    ct1            TRUE                1      97.3 TRUE     TRUE    
-       31 0.898       ct1            TRUE                1     101.  TRUE     TRUE    
-       32 0.000543    ct1            TRUE                1     101.  TRUE     TRUE    
-       33 0.0353      ct1            TRUE                1     101.  TRUE     TRUE    
-       34 0.115       ct2            TRUE                1     108.  TRUE     TRUE    
-       35 0.807       ct2            TRUE                1     108.  TRUE     TRUE    
-       36 0.000543    ct2            TRUE                1     108.  TRUE     TRUE    
-       37 0.920       ct1            TRUE                1      99.8 TRUE     TRUE    
-       38 0.0107      ct1            TRUE                1      99.8 TRUE     TRUE    
-       39 0.0787      ct1            TRUE                1      99.8 TRUE     TRUE    
-       40 0.836       ct1            TRUE                1      94.0 TRUE     TRUE    
-       41 0.0310      ct1            TRUE                1      94.0 TRUE     TRUE    
-       42 0.0319      ct1            TRUE                1      94.0 TRUE     TRUE    
-       43 0.0275      ct3            TRUE                1      93.1 TRUE     TRUE    
-       44 0.000380    ct3            TRUE                1      93.1 TRUE     TRUE    
-       45 0.958       ct3            TRUE                1      93.1 TRUE     TRUE    
-       46 0.000436    ct2            TRUE                1     106.  TRUE     TRUE    
-       47 0.965       ct2            TRUE                1     106.  TRUE     TRUE    
-       48 0.000380    ct2            TRUE                1     106.  TRUE     TRUE    
-       49 0.0408      ct2            TRUE                1     102.  TRUE     TRUE    
-       50 0.954       ct2            TRUE                1     102.  TRUE     TRUE    
-       51 0.000380    ct2            TRUE                1     102.  TRUE     TRUE    
-       52 0.0323      ct2            TRUE                1     103.  TRUE     TRUE    
-       53 0.937       ct2            TRUE                1     103.  TRUE     TRUE    
-       54 0.0344      ct2            TRUE                1     103.  TRUE     TRUE    
-       55 0.978       ct1            TRUE                1     107.  TRUE     TRUE    
-       56 0.000380    ct1            TRUE                1     107.  TRUE     TRUE    
-       57 0.0228      ct1            TRUE                1     107.  TRUE     TRUE    
-       58 0.000380    ct3            TRUE                1      98.3 TRUE     TRUE    
-       59 0.0615      ct3            TRUE                1      98.3 TRUE     TRUE    
-       60 0.918       ct3            TRUE                1      98.3 TRUE     TRUE    
-       61 0.000380    ct2            TRUE                1     115.  TRUE     TRUE    
-       62 0.940       ct2            TRUE                1     115.  TRUE     TRUE    
-       63 0.0123      ct2            TRUE                1     115.  TRUE     TRUE    
-       64 0.912       ct1            TRUE                1     102.  TRUE     TRUE    
-       65 0.000380    ct1            TRUE                1     102.  TRUE     TRUE    
-       66 0.0182      ct1            TRUE                1     102.  TRUE     TRUE    
-       67 0.000380    ct2            TRUE                1     108.  TRUE     TRUE    
-       68 1.02        ct2            TRUE                1     108.  TRUE     TRUE    
-       69 0.000380    ct2            TRUE                1     108.  TRUE     TRUE    
-       70 0.000380    ct2            TRUE                1     103.  TRUE     TRUE    
-       71 0.965       ct2            TRUE                1     103.  TRUE     TRUE    
-       72 0.000380    ct2            TRUE                1     103.  TRUE     TRUE    
-       73 0.860       ct1            TRUE                1      94.4 TRUE     TRUE    
-       74 0.0698      ct1            TRUE                1      94.4 TRUE     TRUE    
-       75 0.000380    ct1            TRUE                1      94.4 TRUE     TRUE    
-       76 0.000380    ct3            TRUE                1     103.  TRUE     TRUE    
-       77 0.0195      ct3            TRUE                1     103.  TRUE     TRUE    
-       78 0.914       ct3            TRUE                1     103.  TRUE     TRUE    
-       79 0.00381     ct3            TRUE                1      93.9 TRUE     TRUE    
-       80 0.000380    ct3            TRUE                1      93.9 TRUE     TRUE    
-       81 0.975       ct3            TRUE                1      93.9 TRUE     TRUE    
-       82 0.000407    ct2            TRUE                1     102.  TRUE     TRUE    
-       83 1.01        ct2            TRUE                1     102.  TRUE     TRUE    
-       84 0.0153      ct2            TRUE                1     102.  TRUE     TRUE    
-       85 0.0120      ct2            TRUE                1     107.  TRUE     TRUE    
-       86 1.02        ct2            TRUE                1     107.  TRUE     TRUE    
-       87 0.000380    ct2            TRUE                1     107.  TRUE     TRUE    
-       88 0.914       ct1            TRUE                1     104.  TRUE     TRUE    
-       89 0.000380    ct1            TRUE                1     104.  TRUE     TRUE    
-       90 0.0524      ct1            TRUE                1     104.  TRUE     TRUE    
-       91 1.02        ct1            TRUE                1      99.8 TRUE     TRUE    
-       92 0.0181      ct1            TRUE                1      99.8 TRUE     TRUE    
-       93 0.000380    ct1            TRUE                1      99.8 TRUE     TRUE    
-       94 0.0389      ct2            TRUE                1     103.  TRUE     TRUE    
-       95 0.893       ct2            TRUE                1     103.  TRUE     TRUE    
-       96 0.0642      ct2            TRUE                1     103.  TRUE     TRUE    
-       97 0.000543    ct2            TRUE                1     124.  TRUE     TRUE    
-       98 0.875       ct2            TRUE                1     124.  TRUE     TRUE    
-       99 0.0492      ct2            TRUE                1     124.  TRUE     TRUE    
-      100 0.000380    ct3            TRUE                1      87.9 TRUE     TRUE    
-      101 0.000380    ct3            TRUE                1      87.9 TRUE     TRUE    
-      102 0.957       ct3            TRUE                1      87.9 TRUE     TRUE    
-      103 0.0105      ct3            TRUE                1     104.  TRUE     TRUE    
-      104 0.112       ct3            TRUE                1     104.  TRUE     TRUE    
-      105 0.821       ct3            TRUE                1     104.  TRUE     TRUE    
-      106 0.0319      ct2            TRUE                1     108.  TRUE     TRUE    
-      107 0.991       ct2            TRUE                1     108.  TRUE     TRUE    
-      108 0.0430      ct2            TRUE                1     108.  TRUE     TRUE    
-      109 0.000380    ct3            TRUE                1      93.1 TRUE     TRUE    
-      110 0.0475      ct3            TRUE                1      93.1 TRUE     TRUE    
-      111 0.909       ct3            TRUE                1      93.1 TRUE     TRUE    
-      112 0.0212      ct3            TRUE                1     101.  TRUE     TRUE    
-      113 0.0310      ct3            TRUE                1     101.  TRUE     TRUE    
-      114 0.927       ct3            TRUE                1     101.  TRUE     TRUE    
-      115 0.843       ct1            TRUE                1      97.8 TRUE     TRUE    
-      116 0.0370      ct1            TRUE                1      97.8 TRUE     TRUE    
-      117 0.000380    ct1            TRUE                1      97.8 TRUE     TRUE    
-      118 0.906       ct1            TRUE                1     103.  TRUE     TRUE    
-      119 0.0526      ct1            TRUE                1     103.  TRUE     TRUE    
-      120 0.000380    ct1            TRUE                1     103.  TRUE     TRUE    
-      121 0.941       ct1            TRUE                1     101.  TRUE     TRUE    
-      122 0.0561      ct1            TRUE                1     101.  TRUE     TRUE    
-      123 0.000380    ct1            TRUE                1     101.  TRUE     TRUE    
-      124 0.960       ct1            TRUE                1     119.  TRUE     TRUE    
-      125 0.0232      ct1            TRUE                1     119.  TRUE     TRUE    
-      126 0.0211      ct1            TRUE                1     119.  TRUE     TRUE    
-      127 0.000380    ct3            TRUE                1      98.9 TRUE     TRUE    
-      128 0.000380    ct3            TRUE                1      98.9 TRUE     TRUE    
-      129 0.974       ct3            TRUE                1      98.9 TRUE     TRUE    
-      130 0.000380    ct3            TRUE                1      98.2 TRUE     TRUE    
-      131 0.000380    ct3            TRUE                1      98.2 TRUE     TRUE    
-      132 0.906       ct3            TRUE                1      98.2 TRUE     TRUE    
-      133 0.993       ct1            TRUE                1      96.2 TRUE     TRUE    
-      134 0.0302      ct1            TRUE                1      96.2 TRUE     TRUE    
-      135 0.000380    ct1            TRUE                1      96.2 TRUE     TRUE    
-      136 0.965       ct1            TRUE                1     101.  TRUE     TRUE    
-      137 0.0362      ct1            TRUE                1     101.  TRUE     TRUE    
-      138 0.0343      ct1            TRUE                1     101.  TRUE     TRUE    
-      139 0.848       ct1            TRUE                1     104.  TRUE     TRUE    
-      140 0.131       ct1            TRUE                1     104.  TRUE     TRUE    
-      141 0.0587      ct1            TRUE                1     104.  TRUE     TRUE    
-      142 0.0632      ct2            TRUE                1     104.  TRUE     TRUE    
-      143 0.852       ct2            TRUE                1     104.  TRUE     TRUE    
-      144 0.00967     ct2            TRUE                1     104.  TRUE     TRUE    
-      145 0.138       ct2            TRUE                1      99.7 TRUE     TRUE    
-      146 0.823       ct2            TRUE                1      99.7 TRUE     TRUE    
-      147 0.000543    ct2            TRUE                1      99.7 TRUE     TRUE    
-      148 0.931       ct1            TRUE                1      95.5 TRUE     TRUE    
-      149 0.0204      ct1            TRUE                1      95.5 TRUE     TRUE    
-      150 0.000380    ct1            TRUE                1      95.5 TRUE     TRUE    
-      151 0.0537      ct3            TRUE                1     112.  TRUE     TRUE    
-      152 0.0675      ct3            TRUE                1     112.  TRUE     TRUE    
-      153 0.819       ct3            TRUE                1     112.  TRUE     TRUE    
-      154 0.967       ct1            TRUE                1     110.  TRUE     TRUE    
-      155 0.000380    ct1            TRUE                1     110.  TRUE     TRUE    
-      156 0.000380    ct1            TRUE                1     110.  TRUE     TRUE    
-      157 1.03        ct1            TRUE                1      97.9 TRUE     TRUE    
-      158 0.000543    ct1            TRUE                1      97.9 TRUE     TRUE    
-      159 0.0634      ct1            TRUE                1      97.9 TRUE     TRUE    
-      160 0.0767      ct3            TRUE                1      96.8 TRUE     TRUE    
-      161 0.000543    ct3            TRUE                1      96.8 TRUE     TRUE    
-      162 0.834       ct3            TRUE                1      96.8 TRUE     TRUE    
-      163 0.000543    ct2            TRUE                1     100.  TRUE     TRUE    
-      164 0.890       ct2            TRUE                1     100.  TRUE     TRUE    
-      165 0.0196      ct2            TRUE                1     100.  TRUE     TRUE    
-      166 0.0434      ct2            TRUE                1     103.  TRUE     TRUE    
-      167 0.814       ct2            TRUE                1     103.  TRUE     TRUE    
-      168 0.0377      ct2            TRUE                1     103.  TRUE     TRUE    
-      169 0.0254      ct2            TRUE                1      96.1 TRUE     TRUE    
-      170 0.934       ct2            TRUE                1      96.1 TRUE     TRUE    
-      171 0.0170      ct2            TRUE                1      96.1 TRUE     TRUE    
-      172 0.000543    ct3            TRUE                1      95.2 TRUE     TRUE    
-      173 0.00983     ct3            TRUE                1      95.2 TRUE     TRUE    
-      174 0.985       ct3            TRUE                1      95.2 TRUE     TRUE    
-      175 0.000543    ct2            TRUE                1     102.  TRUE     TRUE    
-      176 0.877       ct2            TRUE                1     102.  TRUE     TRUE    
-      177 0.0725      ct2            TRUE                1     102.  TRUE     TRUE    
-      178 0.0323      ct2            TRUE                1      98.2 TRUE     TRUE    
-      179 0.859       ct2            TRUE                1      98.2 TRUE     TRUE    
-      180 0.0374      ct2            TRUE                1      98.2 TRUE     TRUE    
-      181 0.000417    ct2            TRUE                1      99.5 TRUE     TRUE    
-      182 0.965       ct2            TRUE                1      99.5 TRUE     TRUE    
-      183 0.000380    ct2            TRUE                1      99.5 TRUE     TRUE    
-      184 0.000380    ct2            TRUE                1     112.  TRUE     TRUE    
-      185 0.943       ct2            TRUE                1     112.  TRUE     TRUE    
-      186 0.000380    ct2            TRUE                1     112.  TRUE     TRUE    
-      187 0.000266    ct3            TRUE                1     102.  TRUE     TRUE    
-      188 0.0146      ct3            TRUE                1     102.  TRUE     TRUE    
-      189 0.920       ct3            TRUE                1     102.  TRUE     TRUE    
-      190 0.0175      ct3            TRUE                1      95.0 TRUE     TRUE    
-      191 0.0290      ct3            TRUE                1      95.0 TRUE     TRUE    
-      192 0.847       ct3            TRUE                1      95.0 TRUE     TRUE    
-      193 0.111       ct2            TRUE                1      91.3 TRUE     TRUE    
-      194 0.755       ct2            TRUE                1      91.3 TRUE     TRUE    
-      195 0.0520      ct2            TRUE                1      91.3 TRUE     TRUE    
-      196 0.000413    ct3            TRUE                1      99.1 TRUE     TRUE    
-      197 0.0422      ct3            TRUE                1      99.1 TRUE     TRUE    
-      198 0.945       ct3            TRUE                1      99.1 TRUE     TRUE    
-      199 0.00396     ct3            TRUE                1      92.6 TRUE     TRUE    
-      200 0.000000884 ct3            TRUE                1      92.6 TRUE     TRUE    
-      201 0.921       ct3            TRUE                1      92.6 TRUE     TRUE    
-      202 0.000380    ct2            TRUE                1      93.1 TRUE     TRUE    
-      203 1.06        ct2            TRUE                1      93.1 TRUE     TRUE    
-      204 0.000380    ct2            TRUE                1      93.1 TRUE     TRUE    
-      205 0.928       ct1            TRUE                1      98.4 TRUE     TRUE    
-      206 0.0234      ct1            TRUE                1      98.4 TRUE     TRUE    
-      207 0.000380    ct1            TRUE                1      98.4 TRUE     TRUE    
-      208 0.00185     ct3            TRUE                1      95.6 TRUE     TRUE    
-      209 0.000593    ct3            TRUE                1      95.6 TRUE     TRUE    
-      210 1.01        ct3            TRUE                1      95.6 TRUE     TRUE    
-      211 0.950       ct1            TRUE                1      98.6 TRUE     TRUE    
-      212 0.0320      ct1            TRUE                1      98.6 TRUE     TRUE    
-      213 0.000380    ct1            TRUE                1      98.6 TRUE     TRUE    
-      214 0.844       ct1            TRUE                1     102.  TRUE     TRUE    
-      215 0.0677      ct1            TRUE                1     102.  TRUE     TRUE    
-      216 0.000380    ct1            TRUE                1     102.  TRUE     TRUE    
-      217 0.941       ct1            TRUE                1      95.7 TRUE     TRUE    
-      218 0.000380    ct1            TRUE                1      95.7 TRUE     TRUE    
-      219 0.0365      ct1            TRUE                1      95.7 TRUE     TRUE    
-      220 0.834       ct1            TRUE                1      98.0 TRUE     TRUE    
-      221 0.0687      ct1            TRUE                1      98.0 TRUE     TRUE    
-      222 0.0355      ct1            TRUE                1      98.0 TRUE     TRUE    
-      223 0.000380    ct2            TRUE                1     106.  TRUE     TRUE    
-      224 1.01        ct2            TRUE                1     106.  TRUE     TRUE    
-      225 0.0479      ct2            TRUE                1     106.  TRUE     TRUE    
-      226 0.0334      ct2            TRUE                1      98.7 TRUE     TRUE    
-      227 0.845       ct2            TRUE                1      98.7 TRUE     TRUE    
-      228 0.000380    ct2            TRUE                1      98.7 TRUE     TRUE    
-      229 0.179       ct2            TRUE                1     108.  TRUE     TRUE    
-      230 0.881       ct2            TRUE                1     108.  TRUE     TRUE    
-      231 0.000543    ct2            TRUE                1     108.  TRUE     TRUE    
-      232 0.00921     ct3            TRUE                1      99.6 TRUE     TRUE    
-      233 0.00217     ct3            TRUE                1      99.6 TRUE     TRUE    
-      234 0.988       ct3            TRUE                1      99.6 TRUE     TRUE    
-      235 0.0195      ct2            TRUE                1     102.  TRUE     TRUE    
-      236 0.963       ct2            TRUE                1     102.  TRUE     TRUE    
-      237 0.000380    ct2            TRUE                1     102.  TRUE     TRUE    
-      238 0.988       ct1            TRUE                1     108.  TRUE     TRUE    
-      239 0.00192     ct1            TRUE                1     108.  TRUE     TRUE    
-      240 0.000380    ct1            TRUE                1     108.  TRUE     TRUE    
-      241 0.000380    ct3            TRUE                1      99.2 TRUE     TRUE    
-      242 0.000380    ct3            TRUE                1      99.2 TRUE     TRUE    
-      243 0.935       ct3            TRUE                1      99.2 TRUE     TRUE    
-      244 0.117       ct2            TRUE                1     101.  TRUE     TRUE    
-      245 0.807       ct2            TRUE                1     101.  TRUE     TRUE    
-      246 0.000543    ct2            TRUE                1     101.  TRUE     TRUE    
-      247 0.000380    ct3            TRUE                1     102.  TRUE     TRUE    
-      248 0.146       ct3            TRUE                1     102.  TRUE     TRUE    
-      249 0.855       ct3            TRUE                1     102.  TRUE     TRUE    
-      250 0.000266    ct3            TRUE                1      95.2 TRUE     TRUE    
-      251 0.00822     ct3            TRUE                1      95.2 TRUE     TRUE    
-      252 1.03        ct3            TRUE                1      95.2 TRUE     TRUE    
-      253 1.10        ct1            TRUE                1     114.  TRUE     TRUE    
-      254 0.000380    ct1            TRUE                1     114.  TRUE     TRUE    
-      255 0.00461     ct1            TRUE                1     114.  TRUE     TRUE    
-      256 0.0509      ct2            TRUE                1     109.  TRUE     TRUE    
-      257 0.920       ct2            TRUE                1     109.  TRUE     TRUE    
-      258 0.000380    ct2            TRUE                1     109.  TRUE     TRUE    
-      259 1.01        ct1            TRUE                1     102.  TRUE     TRUE    
-      260 0.0504      ct1            TRUE                1     102.  TRUE     TRUE    
-      261 0.000380    ct1            TRUE                1     102.  TRUE     TRUE    
-      262 0.916       ct1            TRUE                1      98.9 TRUE     TRUE    
-      263 0.0208      ct1            TRUE                1      98.9 TRUE     TRUE    
-      264 0.000380    ct1            TRUE                1      98.9 TRUE     TRUE    
-      265 0.000380    ct2            TRUE                1     103.  TRUE     TRUE    
-      266 0.949       ct2            TRUE                1     103.  TRUE     TRUE    
-      267 0.000380    ct2            TRUE                1     103.  TRUE     TRUE    
-      268 0.000380    ct2            TRUE                1     102.  TRUE     TRUE    
-      269 0.965       ct2            TRUE                1     102.  TRUE     TRUE    
-      270 0.0122      ct2            TRUE                1     102.  TRUE     TRUE    
-      # i 1 more variable: cell_id <chr>
+          all_weights cell_type_list conf_list sub_weights min_score conv_all
+      1    3.7996e-04            ct3      TRUE           1    94.415     TRUE
+      2    3.5527e-02            ct3      TRUE           1    94.415     TRUE
+      3    9.6062e-01            ct3      TRUE           1    94.415     TRUE
+      4    3.7996e-04            ct2      TRUE           1   108.326     TRUE
+      5    9.7712e-01            ct2      TRUE           1   108.326     TRUE
+      6    3.7996e-04            ct2      TRUE           1   108.326     TRUE
+      7    8.3903e-02            ct2      TRUE           1   106.318     TRUE
+      8    8.6345e-01            ct2      TRUE           1   106.318     TRUE
+      9    9.9850e-02            ct2      TRUE           1   106.318     TRUE
+      10   9.3019e-01            ct1      TRUE           1   104.084     TRUE
+      11   4.4573e-02            ct1      TRUE           1   104.084     TRUE
+      12   3.7996e-04            ct1      TRUE           1   104.084     TRUE
+      13   4.5027e-02            ct2      TRUE           1   103.573     TRUE
+      14   9.1072e-01            ct2      TRUE           1   103.573     TRUE
+      15   3.7996e-04            ct2      TRUE           1   103.573     TRUE
+      16   8.9576e-03            ct2      TRUE           1   105.000     TRUE
+      17   8.5825e-01            ct2      TRUE           1   105.000     TRUE
+      18   3.7996e-04            ct2      TRUE           1   105.000     TRUE
+      19   9.2106e-01            ct1      TRUE           1   105.168     TRUE
+      20   4.4893e-02            ct1      TRUE           1   105.168     TRUE
+      21   3.7996e-04            ct1      TRUE           1   105.168     TRUE
+      22   3.7996e-04            ct3      TRUE           1   100.003     TRUE
+      23   3.7996e-04            ct3      TRUE           1   100.003     TRUE
+      24   9.1941e-01            ct3      TRUE           1   100.003     TRUE
+      25   9.7868e-01            ct1      TRUE           1   107.054     TRUE
+      26   3.7996e-04            ct1      TRUE           1   107.054     TRUE
+      27   3.7996e-04            ct1      TRUE           1   107.054     TRUE
+      28   1.0255e+00            ct1      TRUE           1    97.349     TRUE
+      29   7.1930e-03            ct1      TRUE           1    97.349     TRUE
+      30   3.7996e-04            ct1      TRUE           1    97.349     TRUE
+      31   8.9774e-01            ct1      TRUE           1   101.032     TRUE
+      32   5.4280e-04            ct1      TRUE           1   101.032     TRUE
+      33   3.5319e-02            ct1      TRUE           1   101.032     TRUE
+      34   1.1516e-01            ct2      TRUE           1   108.221     TRUE
+      35   8.0725e-01            ct2      TRUE           1   108.221     TRUE
+      36   5.4280e-04            ct2      TRUE           1   108.221     TRUE
+      37   9.1951e-01            ct1      TRUE           1    99.819     TRUE
+      38   1.0664e-02            ct1      TRUE           1    99.819     TRUE
+      39   7.8731e-02            ct1      TRUE           1    99.819     TRUE
+      40   8.3638e-01            ct1      TRUE           1    94.017     TRUE
+      41   3.1006e-02            ct1      TRUE           1    94.017     TRUE
+      42   3.1915e-02            ct1      TRUE           1    94.017     TRUE
+      43   2.7504e-02            ct3      TRUE           1    93.142     TRUE
+      44   3.7996e-04            ct3      TRUE           1    93.142     TRUE
+      45   9.5834e-01            ct3      TRUE           1    93.142     TRUE
+      46   4.3565e-04            ct2      TRUE           1   105.617     TRUE
+      47   9.6506e-01            ct2      TRUE           1   105.617     TRUE
+      48   3.7996e-04            ct2      TRUE           1   105.617     TRUE
+      49   4.0751e-02            ct2      TRUE           1   101.868     TRUE
+      50   9.5398e-01            ct2      TRUE           1   101.868     TRUE
+      51   3.7996e-04            ct2      TRUE           1   101.868     TRUE
+      52   3.2302e-02            ct2      TRUE           1   102.802     TRUE
+      53   9.3667e-01            ct2      TRUE           1   102.802     TRUE
+      54   3.4385e-02            ct2      TRUE           1   102.802     TRUE
+      55   9.7810e-01            ct1      TRUE           1   107.428     TRUE
+      56   3.7996e-04            ct1      TRUE           1   107.428     TRUE
+      57   2.2760e-02            ct1      TRUE           1   107.428     TRUE
+      58   3.7996e-04            ct3      TRUE           1    98.280     TRUE
+      59   6.1487e-02            ct3      TRUE           1    98.280     TRUE
+      60   9.1788e-01            ct3      TRUE           1    98.280     TRUE
+      61   3.7996e-04            ct2      TRUE           1   114.656     TRUE
+      62   9.4041e-01            ct2      TRUE           1   114.656     TRUE
+      63   1.2342e-02            ct2      TRUE           1   114.656     TRUE
+      64   9.1171e-01            ct1      TRUE           1   101.924     TRUE
+      65   3.7996e-04            ct1      TRUE           1   101.924     TRUE
+      66   1.8214e-02            ct1      TRUE           1   101.924     TRUE
+      67   3.7996e-04            ct2      TRUE           1   108.304     TRUE
+      68   1.0246e+00            ct2      TRUE           1   108.304     TRUE
+      69   3.7996e-04            ct2      TRUE           1   108.304     TRUE
+      70   3.7996e-04            ct2      TRUE           1   102.597     TRUE
+      71   9.6542e-01            ct2      TRUE           1   102.597     TRUE
+      72   3.7996e-04            ct2      TRUE           1   102.597     TRUE
+      73   8.5957e-01            ct1      TRUE           1    94.441     TRUE
+      74   6.9765e-02            ct1      TRUE           1    94.441     TRUE
+      75   3.7996e-04            ct1      TRUE           1    94.441     TRUE
+      76   3.7996e-04            ct3      TRUE           1   103.372     TRUE
+      77   1.9538e-02            ct3      TRUE           1   103.372     TRUE
+      78   9.1385e-01            ct3      TRUE           1   103.372     TRUE
+      79   3.8059e-03            ct3      TRUE           1    93.942     TRUE
+      80   3.7996e-04            ct3      TRUE           1    93.942     TRUE
+      81   9.7539e-01            ct3      TRUE           1    93.942     TRUE
+      82   4.0680e-04            ct2      TRUE           1   102.037     TRUE
+      83   1.0052e+00            ct2      TRUE           1   102.037     TRUE
+      84   1.5251e-02            ct2      TRUE           1   102.037     TRUE
+      85   1.2026e-02            ct2      TRUE           1   107.154     TRUE
+      86   1.0221e+00            ct2      TRUE           1   107.154     TRUE
+      87   3.7996e-04            ct2      TRUE           1   107.154     TRUE
+      88   9.1449e-01            ct1      TRUE           1   104.499     TRUE
+      89   3.7996e-04            ct1      TRUE           1   104.499     TRUE
+      90   5.2405e-02            ct1      TRUE           1   104.499     TRUE
+      91   1.0248e+00            ct1      TRUE           1    99.750     TRUE
+      92   1.8137e-02            ct1      TRUE           1    99.750     TRUE
+      93   3.7996e-04            ct1      TRUE           1    99.750     TRUE
+      94   3.8929e-02            ct2      TRUE           1   102.530     TRUE
+      95   8.9322e-01            ct2      TRUE           1   102.530     TRUE
+      96   6.4200e-02            ct2      TRUE           1   102.530     TRUE
+      97   5.4280e-04            ct2      TRUE           1   123.849     TRUE
+      98   8.7467e-01            ct2      TRUE           1   123.849     TRUE
+      99   4.9198e-02            ct2      TRUE           1   123.849     TRUE
+      100  3.7996e-04            ct3      TRUE           1    87.888     TRUE
+      101  3.7996e-04            ct3      TRUE           1    87.888     TRUE
+      102  9.5740e-01            ct3      TRUE           1    87.888     TRUE
+      103  1.0482e-02            ct3      TRUE           1   103.658     TRUE
+      104  1.1217e-01            ct3      TRUE           1   103.658     TRUE
+      105  8.2124e-01            ct3      TRUE           1   103.658     TRUE
+      106  3.1895e-02            ct2      TRUE           1   107.854     TRUE
+      107  9.9134e-01            ct2      TRUE           1   107.854     TRUE
+      108  4.2990e-02            ct2      TRUE           1   107.854     TRUE
+      109  3.7996e-04            ct3      TRUE           1    93.143     TRUE
+      110  4.7543e-02            ct3      TRUE           1    93.143     TRUE
+      111  9.0877e-01            ct3      TRUE           1    93.143     TRUE
+      112  2.1196e-02            ct3      TRUE           1   101.060     TRUE
+      113  3.1036e-02            ct3      TRUE           1   101.060     TRUE
+      114  9.2745e-01            ct3      TRUE           1   101.060     TRUE
+      115  8.4347e-01            ct1      TRUE           1    97.833     TRUE
+      116  3.6975e-02            ct1      TRUE           1    97.833     TRUE
+      117  3.7996e-04            ct1      TRUE           1    97.833     TRUE
+      118  9.0585e-01            ct1      TRUE           1   102.705     TRUE
+      119  5.2578e-02            ct1      TRUE           1   102.705     TRUE
+      120  3.7996e-04            ct1      TRUE           1   102.705     TRUE
+      121  9.4078e-01            ct1      TRUE           1   101.200     TRUE
+      122  5.6123e-02            ct1      TRUE           1   101.200     TRUE
+      123  3.7996e-04            ct1      TRUE           1   101.200     TRUE
+      124  9.5960e-01            ct1      TRUE           1   118.716     TRUE
+      125  2.3181e-02            ct1      TRUE           1   118.716     TRUE
+      126  2.1136e-02            ct1      TRUE           1   118.716     TRUE
+      127  3.7996e-04            ct3      TRUE           1    98.919     TRUE
+      128  3.7996e-04            ct3      TRUE           1    98.919     TRUE
+      129  9.7401e-01            ct3      TRUE           1    98.919     TRUE
+      130  3.7996e-04            ct3      TRUE           1    98.210     TRUE
+      131  3.7996e-04            ct3      TRUE           1    98.210     TRUE
+      132  9.0555e-01            ct3      TRUE           1    98.210     TRUE
+      133  9.9333e-01            ct1      TRUE           1    96.245     TRUE
+      134  3.0167e-02            ct1      TRUE           1    96.245     TRUE
+      135  3.7996e-04            ct1      TRUE           1    96.245     TRUE
+      136  9.6493e-01            ct1      TRUE           1   101.360     TRUE
+      137  3.6150e-02            ct1      TRUE           1   101.360     TRUE
+      138  3.4288e-02            ct1      TRUE           1   101.360     TRUE
+      139  8.4816e-01            ct1      TRUE           1   104.400     TRUE
+      140  1.3083e-01            ct1      TRUE           1   104.400     TRUE
+      141  5.8719e-02            ct1      TRUE           1   104.400     TRUE
+      142  6.3239e-02            ct2      TRUE           1   103.964     TRUE
+      143  8.5232e-01            ct2      TRUE           1   103.964     TRUE
+      144  9.6667e-03            ct2      TRUE           1   103.964     TRUE
+      145  1.3781e-01            ct2      TRUE           1    99.739     TRUE
+      146  8.2340e-01            ct2      TRUE           1    99.739     TRUE
+      147  5.4280e-04            ct2      TRUE           1    99.739     TRUE
+      148  9.3124e-01            ct1      TRUE           1    95.453     TRUE
+      149  2.0375e-02            ct1      TRUE           1    95.453     TRUE
+      150  3.7996e-04            ct1      TRUE           1    95.453     TRUE
+      151  5.3678e-02            ct3      TRUE           1   111.924     TRUE
+      152  6.7458e-02            ct3      TRUE           1   111.924     TRUE
+      153  8.1860e-01            ct3      TRUE           1   111.924     TRUE
+      154  9.6709e-01            ct1      TRUE           1   109.572     TRUE
+      155  3.7996e-04            ct1      TRUE           1   109.572     TRUE
+      156  3.7996e-04            ct1      TRUE           1   109.572     TRUE
+      157  1.0343e+00            ct1      TRUE           1    97.942     TRUE
+      158  5.4280e-04            ct1      TRUE           1    97.942     TRUE
+      159  6.3383e-02            ct1      TRUE           1    97.942     TRUE
+      160  7.6714e-02            ct3      TRUE           1    96.786     TRUE
+      161  5.4280e-04            ct3      TRUE           1    96.786     TRUE
+      162  8.3357e-01            ct3      TRUE           1    96.786     TRUE
+      163  5.4280e-04            ct2      TRUE           1   100.290     TRUE
+      164  8.8964e-01            ct2      TRUE           1   100.290     TRUE
+      165  1.9560e-02            ct2      TRUE           1   100.290     TRUE
+      166  4.3387e-02            ct2      TRUE           1   103.200     TRUE
+      167  8.1411e-01            ct2      TRUE           1   103.200     TRUE
+      168  3.7720e-02            ct2      TRUE           1   103.200     TRUE
+      169  2.5406e-02            ct2      TRUE           1    96.063     TRUE
+      170  9.3362e-01            ct2      TRUE           1    96.063     TRUE
+      171  1.6972e-02            ct2      TRUE           1    96.063     TRUE
+      172  5.4280e-04            ct3      TRUE           1    95.247     TRUE
+      173  9.8298e-03            ct3      TRUE           1    95.247     TRUE
+      174  9.8508e-01            ct3      TRUE           1    95.247     TRUE
+      175  5.4280e-04            ct2      TRUE           1   101.557     TRUE
+      176  8.7669e-01            ct2      TRUE           1   101.557     TRUE
+      177  7.2484e-02            ct2      TRUE           1   101.557     TRUE
+      178  3.2276e-02            ct2      TRUE           1    98.181     TRUE
+      179  8.5914e-01            ct2      TRUE           1    98.181     TRUE
+      180  3.7359e-02            ct2      TRUE           1    98.181     TRUE
+      181  4.1650e-04            ct2      TRUE           1    99.471     TRUE
+      182  9.6515e-01            ct2      TRUE           1    99.471     TRUE
+      183  3.7996e-04            ct2      TRUE           1    99.471     TRUE
+      184  3.7996e-04            ct2      TRUE           1   112.313     TRUE
+      185  9.4324e-01            ct2      TRUE           1   112.313     TRUE
+      186  3.7996e-04            ct2      TRUE           1   112.313     TRUE
+      187  2.6597e-04            ct3      TRUE           1   101.730     TRUE
+      188  1.4629e-02            ct3      TRUE           1   101.730     TRUE
+      189  9.2038e-01            ct3      TRUE           1   101.730     TRUE
+      190  1.7505e-02            ct3      TRUE           1    94.965     TRUE
+      191  2.9047e-02            ct3      TRUE           1    94.965     TRUE
+      192  8.4720e-01            ct3      TRUE           1    94.965     TRUE
+      193  1.1083e-01            ct2      TRUE           1    91.269     TRUE
+      194  7.5492e-01            ct2      TRUE           1    91.269     TRUE
+      195  5.2023e-02            ct2      TRUE           1    91.269     TRUE
+      196  4.1346e-04            ct3      TRUE           1    99.080     TRUE
+      197  4.2225e-02            ct3      TRUE           1    99.080     TRUE
+      198  9.4496e-01            ct3      TRUE           1    99.080     TRUE
+      199  3.9557e-03            ct3      TRUE           1    92.598     TRUE
+      200  8.8391e-07            ct3      TRUE           1    92.598     TRUE
+      201  9.2122e-01            ct3      TRUE           1    92.598     TRUE
+      202  3.7996e-04            ct2      TRUE           1    93.111     TRUE
+      203  1.0572e+00            ct2      TRUE           1    93.111     TRUE
+      204  3.7996e-04            ct2      TRUE           1    93.111     TRUE
+      205  9.2836e-01            ct1      TRUE           1    98.411     TRUE
+      206  2.3374e-02            ct1      TRUE           1    98.411     TRUE
+      207  3.7996e-04            ct1      TRUE           1    98.411     TRUE
+      208  1.8462e-03            ct3      TRUE           1    95.609     TRUE
+      209  5.9334e-04            ct3      TRUE           1    95.609     TRUE
+      210  1.0082e+00            ct3      TRUE           1    95.609     TRUE
+      211  9.4999e-01            ct1      TRUE           1    98.561     TRUE
+      212  3.2041e-02            ct1      TRUE           1    98.561     TRUE
+      213  3.7996e-04            ct1      TRUE           1    98.561     TRUE
+      214  8.4436e-01            ct1      TRUE           1   102.285     TRUE
+      215  6.7704e-02            ct1      TRUE           1   102.285     TRUE
+      216  3.7996e-04            ct1      TRUE           1   102.285     TRUE
+      217  9.4052e-01            ct1      TRUE           1    95.719     TRUE
+      218  3.7996e-04            ct1      TRUE           1    95.719     TRUE
+      219  3.6486e-02            ct1      TRUE           1    95.719     TRUE
+      220  8.3412e-01            ct1      TRUE           1    97.964     TRUE
+      221  6.8674e-02            ct1      TRUE           1    97.964     TRUE
+      222  3.5540e-02            ct1      TRUE           1    97.964     TRUE
+      223  3.7996e-04            ct2      TRUE           1   105.784     TRUE
+      224  1.0063e+00            ct2      TRUE           1   105.784     TRUE
+      225  4.7876e-02            ct2      TRUE           1   105.784     TRUE
+      226  3.3373e-02            ct2      TRUE           1    98.682     TRUE
+      227  8.4465e-01            ct2      TRUE           1    98.682     TRUE
+      228  3.7996e-04            ct2      TRUE           1    98.682     TRUE
+      229  1.7860e-01            ct2      TRUE           1   108.053     TRUE
+      230  8.8125e-01            ct2      TRUE           1   108.053     TRUE
+      231  5.4280e-04            ct2      TRUE           1   108.053     TRUE
+      232  9.2073e-03            ct3      TRUE           1    99.603     TRUE
+      233  2.1733e-03            ct3      TRUE           1    99.603     TRUE
+      234  9.8801e-01            ct3      TRUE           1    99.603     TRUE
+      235  1.9455e-02            ct2      TRUE           1   101.980     TRUE
+      236  9.6334e-01            ct2      TRUE           1   101.980     TRUE
+      237  3.7996e-04            ct2      TRUE           1   101.980     TRUE
+      238  9.8849e-01            ct1      TRUE           1   108.158     TRUE
+      239  1.9235e-03            ct1      TRUE           1   108.158     TRUE
+      240  3.7996e-04            ct1      TRUE           1   108.158     TRUE
+      241  3.7996e-04            ct3      TRUE           1    99.231     TRUE
+      242  3.7996e-04            ct3      TRUE           1    99.231     TRUE
+      243  9.3519e-01            ct3      TRUE           1    99.231     TRUE
+      244  1.1709e-01            ct2      TRUE           1   101.004     TRUE
+      245  8.0709e-01            ct2      TRUE           1   101.004     TRUE
+      246  5.4280e-04            ct2      TRUE           1   101.004     TRUE
+      247  3.7996e-04            ct3      TRUE           1   102.014     TRUE
+      248  1.4594e-01            ct3      TRUE           1   102.014     TRUE
+      249  8.5474e-01            ct3      TRUE           1   102.014     TRUE
+      250  2.6597e-04            ct3      TRUE           1    95.169     TRUE
+      251  8.2197e-03            ct3      TRUE           1    95.169     TRUE
+      252  1.0317e+00            ct3      TRUE           1    95.169     TRUE
+      253  1.1006e+00            ct1      TRUE           1   113.973     TRUE
+      254  3.7996e-04            ct1      TRUE           1   113.973     TRUE
+      255  4.6067e-03            ct1      TRUE           1   113.973     TRUE
+      256  5.0877e-02            ct2      TRUE           1   108.682     TRUE
+      257  9.1973e-01            ct2      TRUE           1   108.682     TRUE
+      258  3.7996e-04            ct2      TRUE           1   108.682     TRUE
+      259  1.0086e+00            ct1      TRUE           1   102.192     TRUE
+      260  5.0381e-02            ct1      TRUE           1   102.192     TRUE
+      261  3.7996e-04            ct1      TRUE           1   102.192     TRUE
+      262  9.1610e-01            ct1      TRUE           1    98.886     TRUE
+      263  2.0845e-02            ct1      TRUE           1    98.886     TRUE
+      264  3.7996e-04            ct1      TRUE           1    98.886     TRUE
+      265  3.7996e-04            ct2      TRUE           1   103.419     TRUE
+      266  9.4917e-01            ct2      TRUE           1   103.419     TRUE
+      267  3.7996e-04            ct2      TRUE           1   103.419     TRUE
+      268  3.7996e-04            ct2      TRUE           1   102.240     TRUE
+      269  9.6476e-01            ct2      TRUE           1   102.240     TRUE
+      270  1.2212e-02            ct2      TRUE           1   102.240     TRUE
+          conv_sub                          cell_id
+      1       TRUE     ct3_TAACCCGCATGCATGCCGTACATA
+      2       TRUE     ct3_TAACCCGCATGCATGCCGTACATA
+      3       TRUE     ct3_TAACCCGCATGCATGCCGTACATA
+      4       TRUE     ct2_TAACCCGCATGCATGCCGTAGATA
+      5       TRUE     ct2_TAACCCGCATGCATGCCGTAGATA
+      6       TRUE     ct2_TAACCCGCATGCATGCCGTAGATA
+      7       TRUE     ct2_TAACCCGCATGCATGCCGTATATA
+      8       TRUE     ct2_TAACCCGCATGCATGCCGTATATA
+      9       TRUE     ct2_TAACCCGCATGCATGCCGTATATA
+      10      TRUE     ct1_TAACCCGCATGCATGCCGTAACTA
+      11      TRUE     ct1_TAACCCGCATGCATGCCGTAACTA
+      12      TRUE     ct1_TAACCCGCATGCATGCCGTAACTA
+      13      TRUE     ct2_TAACCCGCATGCATGCCGTACCTA
+      14      TRUE     ct2_TAACCCGCATGCATGCCGTACCTA
+      15      TRUE     ct2_TAACCCGCATGCATGCCGTACCTA
+      16      TRUE     ct2_TAACCCGCATGCATGCCGTAGCTA
+      17      TRUE     ct2_TAACCCGCATGCATGCCGTAGCTA
+      18      TRUE     ct2_TAACCCGCATGCATGCCGTAGCTA
+      19      TRUE     ct1_TAACCCGCATGCATGCCGTATCTA
+      20      TRUE     ct1_TAACCCGCATGCATGCCGTATCTA
+      21      TRUE     ct1_TAACCCGCATGCATGCCGTATCTA
+      22      TRUE     ct3_TAACCCGCATGCATGCCGTAAGTA
+      23      TRUE     ct3_TAACCCGCATGCATGCCGTAAGTA
+      24      TRUE     ct3_TAACCCGCATGCATGCCGTAAGTA
+      25      TRUE     ct1_TAACCCGCATGCATGCCGTACGTA
+      26      TRUE     ct1_TAACCCGCATGCATGCCGTACGTA
+      27      TRUE     ct1_TAACCCGCATGCATGCCGTACGTA
+      28      TRUE ct1_TAACCCGCATGCATGCCATAAATAAATA
+      29      TRUE ct1_TAACCCGCATGCATGCCATAAATAAATA
+      30      TRUE ct1_TAACCCGCATGCATGCCATAAATAAATA
+      31      TRUE ct1_TAACCCGCATGCATGCCATAAATACATA
+      32      TRUE ct1_TAACCCGCATGCATGCCATAAATACATA
+      33      TRUE ct1_TAACCCGCATGCATGCCATAAATACATA
+      34      TRUE ct2_TAACCCGCATGCATGCCATAAATAGATA
+      35      TRUE ct2_TAACCCGCATGCATGCCATAAATAGATA
+      36      TRUE ct2_TAACCCGCATGCATGCCATAAATAGATA
+      37      TRUE ct1_TAACCCGCATGCATGCCATAAATATATA
+      38      TRUE ct1_TAACCCGCATGCATGCCATAAATATATA
+      39      TRUE ct1_TAACCCGCATGCATGCCATAAATATATA
+      40      TRUE ct1_TAACCCGCATGCATGCCATAAATAACTA
+      41      TRUE ct1_TAACCCGCATGCATGCCATAAATAACTA
+      42      TRUE ct1_TAACCCGCATGCATGCCATAAATAACTA
+      43      TRUE ct3_TAACCCGCATGCATGCCATAAATACCTA
+      44      TRUE ct3_TAACCCGCATGCATGCCATAAATACCTA
+      45      TRUE ct3_TAACCCGCATGCATGCCATAAATACCTA
+      46      TRUE ct2_TAACCCGCATGCATGCCATAAATAGCTA
+      47      TRUE ct2_TAACCCGCATGCATGCCATAAATAGCTA
+      48      TRUE ct2_TAACCCGCATGCATGCCATAAATAGCTA
+      49      TRUE ct2_TAACCCGCATGCATGCCATAAATATCTA
+      50      TRUE ct2_TAACCCGCATGCATGCCATAAATATCTA
+      51      TRUE ct2_TAACCCGCATGCATGCCATAAATATCTA
+      52      TRUE ct2_TAACCCGCATGCATGCCATAAATAAGTA
+      53      TRUE ct2_TAACCCGCATGCATGCCATAAATAAGTA
+      54      TRUE ct2_TAACCCGCATGCATGCCATAAATAAGTA
+      55      TRUE ct1_TAACCCGCATGCATGCCATAAATACGTA
+      56      TRUE ct1_TAACCCGCATGCATGCCATAAATACGTA
+      57      TRUE ct1_TAACCCGCATGCATGCCATAAATACGTA
+      58      TRUE ct3_TAACCCGCATGCATGCCATACATAAATA
+      59      TRUE ct3_TAACCCGCATGCATGCCATACATAAATA
+      60      TRUE ct3_TAACCCGCATGCATGCCATACATAAATA
+      61      TRUE ct2_TAACCCGCATGCATGCCATACATACATA
+      62      TRUE ct2_TAACCCGCATGCATGCCATACATACATA
+      63      TRUE ct2_TAACCCGCATGCATGCCATACATACATA
+      64      TRUE ct1_TAACCCGCATGCATGCCATACATAGATA
+      65      TRUE ct1_TAACCCGCATGCATGCCATACATAGATA
+      66      TRUE ct1_TAACCCGCATGCATGCCATACATAGATA
+      67      TRUE ct2_TAACCCGCATGCATGCCATACATATATA
+      68      TRUE ct2_TAACCCGCATGCATGCCATACATATATA
+      69      TRUE ct2_TAACCCGCATGCATGCCATACATATATA
+      70      TRUE ct2_TAACCCGCATGCATGCCATACATAACTA
+      71      TRUE ct2_TAACCCGCATGCATGCCATACATAACTA
+      72      TRUE ct2_TAACCCGCATGCATGCCATACATAACTA
+      73      TRUE ct1_TAACCCGCATGCATGCCATACATACCTA
+      74      TRUE ct1_TAACCCGCATGCATGCCATACATACCTA
+      75      TRUE ct1_TAACCCGCATGCATGCCATACATACCTA
+      76      TRUE ct3_TAACCCGCATGCATGCCATACATAGCTA
+      77      TRUE ct3_TAACCCGCATGCATGCCATACATAGCTA
+      78      TRUE ct3_TAACCCGCATGCATGCCATACATAGCTA
+      79      TRUE ct3_TAACCCGCATGCATGCCATACATATCTA
+      80      TRUE ct3_TAACCCGCATGCATGCCATACATATCTA
+      81      TRUE ct3_TAACCCGCATGCATGCCATACATATCTA
+      82      TRUE ct2_TAACCCGCATGCATGCCATACATAAGTA
+      83      TRUE ct2_TAACCCGCATGCATGCCATACATAAGTA
+      84      TRUE ct2_TAACCCGCATGCATGCCATACATAAGTA
+      85      TRUE ct2_TAACCCGCATGCATGCCATACATACGTA
+      86      TRUE ct2_TAACCCGCATGCATGCCATACATACGTA
+      87      TRUE ct2_TAACCCGCATGCATGCCATACATACGTA
+      88      TRUE ct1_TAACCCGCATGCATGCCATAGATAAATA
+      89      TRUE ct1_TAACCCGCATGCATGCCATAGATAAATA
+      90      TRUE ct1_TAACCCGCATGCATGCCATAGATAAATA
+      91      TRUE ct1_TAACCCGCATGCATGCCATAGATACATA
+      92      TRUE ct1_TAACCCGCATGCATGCCATAGATACATA
+      93      TRUE ct1_TAACCCGCATGCATGCCATAGATACATA
+      94      TRUE ct2_TAACCCGCATGCATGCCATAGATAGATA
+      95      TRUE ct2_TAACCCGCATGCATGCCATAGATAGATA
+      96      TRUE ct2_TAACCCGCATGCATGCCATAGATAGATA
+      97      TRUE ct2_TAACCCGCATGCATGCCATAGATATATA
+      98      TRUE ct2_TAACCCGCATGCATGCCATAGATATATA
+      99      TRUE ct2_TAACCCGCATGCATGCCATAGATATATA
+      100     TRUE ct3_TAACCCGCATGCATGCCATAGATAACTA
+      101     TRUE ct3_TAACCCGCATGCATGCCATAGATAACTA
+      102     TRUE ct3_TAACCCGCATGCATGCCATAGATAACTA
+      103     TRUE ct3_TAACCCGCATGCATGCCATAGATACCTA
+      104     TRUE ct3_TAACCCGCATGCATGCCATAGATACCTA
+      105     TRUE ct3_TAACCCGCATGCATGCCATAGATACCTA
+      106     TRUE ct2_TAACCCGCATGCATGCCATAGATAGCTA
+      107     TRUE ct2_TAACCCGCATGCATGCCATAGATAGCTA
+      108     TRUE ct2_TAACCCGCATGCATGCCATAGATAGCTA
+      109     TRUE ct3_TAACCCGCATGCATGCCATAGATATCTA
+      110     TRUE ct3_TAACCCGCATGCATGCCATAGATATCTA
+      111     TRUE ct3_TAACCCGCATGCATGCCATAGATATCTA
+      112     TRUE ct3_TAACCCGCATGCATGCCATAGATAAGTA
+      113     TRUE ct3_TAACCCGCATGCATGCCATAGATAAGTA
+      114     TRUE ct3_TAACCCGCATGCATGCCATAGATAAGTA
+      115     TRUE ct1_TAACCCGCATGCATGCCATAGATACGTA
+      116     TRUE ct1_TAACCCGCATGCATGCCATAGATACGTA
+      117     TRUE ct1_TAACCCGCATGCATGCCATAGATACGTA
+      118     TRUE ct1_TAACCCGCATGCATGCCATATATAAATA
+      119     TRUE ct1_TAACCCGCATGCATGCCATATATAAATA
+      120     TRUE ct1_TAACCCGCATGCATGCCATATATAAATA
+      121     TRUE ct1_TAACCCGCATGCATGCCATATATACATA
+      122     TRUE ct1_TAACCCGCATGCATGCCATATATACATA
+      123     TRUE ct1_TAACCCGCATGCATGCCATATATACATA
+      124     TRUE ct1_TAACCCGCATGCATGCCATATATAGATA
+      125     TRUE ct1_TAACCCGCATGCATGCCATATATAGATA
+      126     TRUE ct1_TAACCCGCATGCATGCCATATATAGATA
+      127     TRUE ct3_TAACCCGCATGCATGCCATATATATATA
+      128     TRUE ct3_TAACCCGCATGCATGCCATATATATATA
+      129     TRUE ct3_TAACCCGCATGCATGCCATATATATATA
+      130     TRUE ct3_TAACCCGCATGCATGCCATATATAACTA
+      131     TRUE ct3_TAACCCGCATGCATGCCATATATAACTA
+      132     TRUE ct3_TAACCCGCATGCATGCCATATATAACTA
+      133     TRUE ct1_TAACCCGCATGCATGCCATATATACCTA
+      134     TRUE ct1_TAACCCGCATGCATGCCATATATACCTA
+      135     TRUE ct1_TAACCCGCATGCATGCCATATATACCTA
+      136     TRUE ct1_TAACCCGCATGCATGCCATATATAGCTA
+      137     TRUE ct1_TAACCCGCATGCATGCCATATATAGCTA
+      138     TRUE ct1_TAACCCGCATGCATGCCATATATAGCTA
+      139     TRUE ct1_TAACCCGCATGCATGCCATATATATCTA
+      140     TRUE ct1_TAACCCGCATGCATGCCATATATATCTA
+      141     TRUE ct1_TAACCCGCATGCATGCCATATATATCTA
+      142     TRUE ct2_TAACCCGCATGCATGCCATATATAAGTA
+      143     TRUE ct2_TAACCCGCATGCATGCCATATATAAGTA
+      144     TRUE ct2_TAACCCGCATGCATGCCATATATAAGTA
+      145     TRUE ct2_TAACCCGCATGCATGCCATATATACGTA
+      146     TRUE ct2_TAACCCGCATGCATGCCATATATACGTA
+      147     TRUE ct2_TAACCCGCATGCATGCCATATATACGTA
+      148     TRUE ct1_TAACCCGCATGCATGCCATAACTAAATA
+      149     TRUE ct1_TAACCCGCATGCATGCCATAACTAAATA
+      150     TRUE ct1_TAACCCGCATGCATGCCATAACTAAATA
+      151     TRUE ct3_TAACCCGCATGCATGCCATAACTACATA
+      152     TRUE ct3_TAACCCGCATGCATGCCATAACTACATA
+      153     TRUE ct3_TAACCCGCATGCATGCCATAACTACATA
+      154     TRUE ct1_TAACCCGCATGCATGCCATAACTAGATA
+      155     TRUE ct1_TAACCCGCATGCATGCCATAACTAGATA
+      156     TRUE ct1_TAACCCGCATGCATGCCATAACTAGATA
+      157     TRUE ct1_TAACCCGCATGCATGCCATAACTATATA
+      158     TRUE ct1_TAACCCGCATGCATGCCATAACTATATA
+      159     TRUE ct1_TAACCCGCATGCATGCCATAACTATATA
+      160     TRUE ct3_TAACCCGCATGCATGCCATAACTAACTA
+      161     TRUE ct3_TAACCCGCATGCATGCCATAACTAACTA
+      162     TRUE ct3_TAACCCGCATGCATGCCATAACTAACTA
+      163     TRUE ct2_TAACCCGCATGCATGCCATAACTACCTA
+      164     TRUE ct2_TAACCCGCATGCATGCCATAACTACCTA
+      165     TRUE ct2_TAACCCGCATGCATGCCATAACTACCTA
+      166     TRUE ct2_TAACCCGCATGCATGCCATAACTAGCTA
+      167     TRUE ct2_TAACCCGCATGCATGCCATAACTAGCTA
+      168     TRUE ct2_TAACCCGCATGCATGCCATAACTAGCTA
+      169     TRUE ct2_TAACCCGCATGCATGCCATAACTATCTA
+      170     TRUE ct2_TAACCCGCATGCATGCCATAACTATCTA
+      171     TRUE ct2_TAACCCGCATGCATGCCATAACTATCTA
+      172     TRUE ct3_TAACCCGCATGCATGCCATAACTAAGTA
+      173     TRUE ct3_TAACCCGCATGCATGCCATAACTAAGTA
+      174     TRUE ct3_TAACCCGCATGCATGCCATAACTAAGTA
+      175     TRUE ct2_TAACCCGCATGCATGCCATAACTACGTA
+      176     TRUE ct2_TAACCCGCATGCATGCCATAACTACGTA
+      177     TRUE ct2_TAACCCGCATGCATGCCATAACTACGTA
+      178     TRUE ct2_TAACCCGCATGCATGCCATACCTAAATA
+      179     TRUE ct2_TAACCCGCATGCATGCCATACCTAAATA
+      180     TRUE ct2_TAACCCGCATGCATGCCATACCTAAATA
+      181     TRUE ct2_TAACCCGCATGCATGCCATACCTACATA
+      182     TRUE ct2_TAACCCGCATGCATGCCATACCTACATA
+      183     TRUE ct2_TAACCCGCATGCATGCCATACCTACATA
+      184     TRUE ct2_TAACCCGCATGCATGCCATACCTAGATA
+      185     TRUE ct2_TAACCCGCATGCATGCCATACCTAGATA
+      186     TRUE ct2_TAACCCGCATGCATGCCATACCTAGATA
+      187     TRUE ct3_TAACCCGCATGCATGCCATACCTATATA
+      188     TRUE ct3_TAACCCGCATGCATGCCATACCTATATA
+      189     TRUE ct3_TAACCCGCATGCATGCCATACCTATATA
+      190     TRUE ct3_TAACCCGCATGCATGCCATACCTAACTA
+      191     TRUE ct3_TAACCCGCATGCATGCCATACCTAACTA
+      192     TRUE ct3_TAACCCGCATGCATGCCATACCTAACTA
+      193     TRUE ct2_TAACCCGCATGCATGCCATACCTACCTA
+      194     TRUE ct2_TAACCCGCATGCATGCCATACCTACCTA
+      195     TRUE ct2_TAACCCGCATGCATGCCATACCTACCTA
+      196     TRUE ct3_TAACCCGCATGCATGCCATACCTAGCTA
+      197     TRUE ct3_TAACCCGCATGCATGCCATACCTAGCTA
+      198     TRUE ct3_TAACCCGCATGCATGCCATACCTAGCTA
+      199     TRUE ct3_TAACCCGCATGCATGCCATACCTATCTA
+      200     TRUE ct3_TAACCCGCATGCATGCCATACCTATCTA
+      201     TRUE ct3_TAACCCGCATGCATGCCATACCTATCTA
+      202     TRUE ct2_TAACCCGCATGCATGCCATACCTAAGTA
+      203     TRUE ct2_TAACCCGCATGCATGCCATACCTAAGTA
+      204     TRUE ct2_TAACCCGCATGCATGCCATACCTAAGTA
+      205     TRUE ct1_TAACCCGCATGCATGCCATACCTACGTA
+      206     TRUE ct1_TAACCCGCATGCATGCCATACCTACGTA
+      207     TRUE ct1_TAACCCGCATGCATGCCATACCTACGTA
+      208     TRUE ct3_TAACCCGCATGCATGCCATAGCTAAATA
+      209     TRUE ct3_TAACCCGCATGCATGCCATAGCTAAATA
+      210     TRUE ct3_TAACCCGCATGCATGCCATAGCTAAATA
+      211     TRUE ct1_TAACCCGCATGCATGCCATAGCTACATA
+      212     TRUE ct1_TAACCCGCATGCATGCCATAGCTACATA
+      213     TRUE ct1_TAACCCGCATGCATGCCATAGCTACATA
+      214     TRUE ct1_TAACCCGCATGCATGCCATAGCTAGATA
+      215     TRUE ct1_TAACCCGCATGCATGCCATAGCTAGATA
+      216     TRUE ct1_TAACCCGCATGCATGCCATAGCTAGATA
+      217     TRUE ct1_TAACCCGCATGCATGCCATAGCTATATA
+      218     TRUE ct1_TAACCCGCATGCATGCCATAGCTATATA
+      219     TRUE ct1_TAACCCGCATGCATGCCATAGCTATATA
+      220     TRUE ct1_TAACCCGCATGCATGCCATAGCTAACTA
+      221     TRUE ct1_TAACCCGCATGCATGCCATAGCTAACTA
+      222     TRUE ct1_TAACCCGCATGCATGCCATAGCTAACTA
+      223     TRUE ct2_TAACCCGCATGCATGCCATAGCTACCTA
+      224     TRUE ct2_TAACCCGCATGCATGCCATAGCTACCTA
+      225     TRUE ct2_TAACCCGCATGCATGCCATAGCTACCTA
+      226     TRUE ct2_TAACCCGCATGCATGCCATAGCTAGCTA
+      227     TRUE ct2_TAACCCGCATGCATGCCATAGCTAGCTA
+      228     TRUE ct2_TAACCCGCATGCATGCCATAGCTAGCTA
+      229     TRUE ct2_TAACCCGCATGCATGCCATAGCTATCTA
+      230     TRUE ct2_TAACCCGCATGCATGCCATAGCTATCTA
+      231     TRUE ct2_TAACCCGCATGCATGCCATAGCTATCTA
+      232     TRUE ct3_TAACCCGCATGCATGCCATAGCTAAGTA
+      233     TRUE ct3_TAACCCGCATGCATGCCATAGCTAAGTA
+      234     TRUE ct3_TAACCCGCATGCATGCCATAGCTAAGTA
+      235     TRUE ct2_TAACCCGCATGCATGCCATAGCTACGTA
+      236     TRUE ct2_TAACCCGCATGCATGCCATAGCTACGTA
+      237     TRUE ct2_TAACCCGCATGCATGCCATAGCTACGTA
+      238     TRUE ct1_TAACCCGCATGCATGCCATATCTAAATA
+      239     TRUE ct1_TAACCCGCATGCATGCCATATCTAAATA
+      240     TRUE ct1_TAACCCGCATGCATGCCATATCTAAATA
+      241     TRUE ct3_TAACCCGCATGCATGCCATATCTACATA
+      242     TRUE ct3_TAACCCGCATGCATGCCATATCTACATA
+      243     TRUE ct3_TAACCCGCATGCATGCCATATCTACATA
+      244     TRUE ct2_TAACCCGCATGCATGCCATATCTAGATA
+      245     TRUE ct2_TAACCCGCATGCATGCCATATCTAGATA
+      246     TRUE ct2_TAACCCGCATGCATGCCATATCTAGATA
+      247     TRUE ct3_TAACCCGCATGCATGCCATATCTATATA
+      248     TRUE ct3_TAACCCGCATGCATGCCATATCTATATA
+      249     TRUE ct3_TAACCCGCATGCATGCCATATCTATATA
+      250     TRUE ct3_TAACCCGCATGCATGCCATATCTAACTA
+      251     TRUE ct3_TAACCCGCATGCATGCCATATCTAACTA
+      252     TRUE ct3_TAACCCGCATGCATGCCATATCTAACTA
+      253     TRUE ct1_TAACCCGCATGCATGCCATATCTACCTA
+      254     TRUE ct1_TAACCCGCATGCATGCCATATCTACCTA
+      255     TRUE ct1_TAACCCGCATGCATGCCATATCTACCTA
+      256     TRUE ct2_TAACCCGCATGCATGCCATATCTAGCTA
+      257     TRUE ct2_TAACCCGCATGCATGCCATATCTAGCTA
+      258     TRUE ct2_TAACCCGCATGCATGCCATATCTAGCTA
+      259     TRUE ct1_TAACCCGCATGCATGCCATATCTATCTA
+      260     TRUE ct1_TAACCCGCATGCATGCCATATCTATCTA
+      261     TRUE ct1_TAACCCGCATGCATGCCATATCTATCTA
+      262     TRUE ct1_TAACCCGCATGCATGCCATATCTAAGTA
+      263     TRUE ct1_TAACCCGCATGCATGCCATATCTAAGTA
+      264     TRUE ct1_TAACCCGCATGCATGCCATATCTAAGTA
+      265     TRUE ct2_TAACCCGCATGCATGCCATATCTACGTA
+      266     TRUE ct2_TAACCCGCATGCATGCCATATCTACGTA
+      267     TRUE ct2_TAACCCGCATGCATGCCATATCTACGTA
+      268     TRUE ct2_TAACCCGCATGCATGCCATAAGTAAATA
+      269     TRUE ct2_TAACCCGCATGCATGCCATAAGTAAATA
+      270     TRUE ct2_TAACCCGCATGCATGCCATAAGTAAATA
 
 ---
 
@@ -405,278 +673,546 @@
       Gene477 9.8314e-04 1.3764e-03 2.2590e-03
       Gene484 3.8171e-04 3.9778e-04 7.2862e-04
       Gene490 9.1268e-04 8.9121e-04 2.0943e-03
-      # A tibble: 270 x 8
-          all_weights cell_type_list conf_list sub_weights min_score conv_all conv_sub
-                <dbl> <chr>          <lgl>           <dbl>     <dbl> <lgl>    <lgl>   
-        1 0.000380    ct3            TRUE                1      94.4 TRUE     TRUE    
-        2 0.0355      ct3            TRUE                1      94.4 TRUE     TRUE    
-        3 0.961       ct3            TRUE                1      94.4 TRUE     TRUE    
-        4 0.000380    ct2            TRUE                1     108.  TRUE     TRUE    
-        5 0.977       ct2            TRUE                1     108.  TRUE     TRUE    
-        6 0.000380    ct2            TRUE                1     108.  TRUE     TRUE    
-        7 0.0839      ct2            TRUE                1     106.  TRUE     TRUE    
-        8 0.863       ct2            TRUE                1     106.  TRUE     TRUE    
-        9 0.0999      ct2            TRUE                1     106.  TRUE     TRUE    
-       10 0.930       ct1            TRUE                1     104.  TRUE     TRUE    
-       11 0.0446      ct1            TRUE                1     104.  TRUE     TRUE    
-       12 0.000380    ct1            TRUE                1     104.  TRUE     TRUE    
-       13 0.0450      ct2            TRUE                1     104.  TRUE     TRUE    
-       14 0.911       ct2            TRUE                1     104.  TRUE     TRUE    
-       15 0.000380    ct2            TRUE                1     104.  TRUE     TRUE    
-       16 0.00896     ct2            TRUE                1     105.  TRUE     TRUE    
-       17 0.858       ct2            TRUE                1     105.  TRUE     TRUE    
-       18 0.000380    ct2            TRUE                1     105.  TRUE     TRUE    
-       19 0.921       ct1            TRUE                1     105.  TRUE     TRUE    
-       20 0.0449      ct1            TRUE                1     105.  TRUE     TRUE    
-       21 0.000380    ct1            TRUE                1     105.  TRUE     TRUE    
-       22 0.000380    ct3            TRUE                1     100.  TRUE     TRUE    
-       23 0.000380    ct3            TRUE                1     100.  TRUE     TRUE    
-       24 0.919       ct3            TRUE                1     100.  TRUE     TRUE    
-       25 0.979       ct1            TRUE                1     107.  TRUE     TRUE    
-       26 0.000380    ct1            TRUE                1     107.  TRUE     TRUE    
-       27 0.000380    ct1            TRUE                1     107.  TRUE     TRUE    
-       28 1.03        ct1            TRUE                1      97.3 TRUE     TRUE    
-       29 0.00719     ct1            TRUE                1      97.3 TRUE     TRUE    
-       30 0.000380    ct1            TRUE                1      97.3 TRUE     TRUE    
-       31 0.898       ct1            TRUE                1     101.  TRUE     TRUE    
-       32 0.000543    ct1            TRUE                1     101.  TRUE     TRUE    
-       33 0.0353      ct1            TRUE                1     101.  TRUE     TRUE    
-       34 0.115       ct2            TRUE                1     108.  TRUE     TRUE    
-       35 0.807       ct2            TRUE                1     108.  TRUE     TRUE    
-       36 0.000543    ct2            TRUE                1     108.  TRUE     TRUE    
-       37 0.920       ct1            TRUE                1      99.8 TRUE     TRUE    
-       38 0.0107      ct1            TRUE                1      99.8 TRUE     TRUE    
-       39 0.0787      ct1            TRUE                1      99.8 TRUE     TRUE    
-       40 0.836       ct1            TRUE                1      94.0 TRUE     TRUE    
-       41 0.0310      ct1            TRUE                1      94.0 TRUE     TRUE    
-       42 0.0319      ct1            TRUE                1      94.0 TRUE     TRUE    
-       43 0.0275      ct3            TRUE                1      93.1 TRUE     TRUE    
-       44 0.000380    ct3            TRUE                1      93.1 TRUE     TRUE    
-       45 0.958       ct3            TRUE                1      93.1 TRUE     TRUE    
-       46 0.000436    ct2            TRUE                1     106.  TRUE     TRUE    
-       47 0.965       ct2            TRUE                1     106.  TRUE     TRUE    
-       48 0.000380    ct2            TRUE                1     106.  TRUE     TRUE    
-       49 0.0408      ct2            TRUE                1     102.  TRUE     TRUE    
-       50 0.954       ct2            TRUE                1     102.  TRUE     TRUE    
-       51 0.000380    ct2            TRUE                1     102.  TRUE     TRUE    
-       52 0.0323      ct2            TRUE                1     103.  TRUE     TRUE    
-       53 0.937       ct2            TRUE                1     103.  TRUE     TRUE    
-       54 0.0344      ct2            TRUE                1     103.  TRUE     TRUE    
-       55 0.978       ct1            TRUE                1     107.  TRUE     TRUE    
-       56 0.000380    ct1            TRUE                1     107.  TRUE     TRUE    
-       57 0.0228      ct1            TRUE                1     107.  TRUE     TRUE    
-       58 0.000380    ct3            TRUE                1      98.3 TRUE     TRUE    
-       59 0.0615      ct3            TRUE                1      98.3 TRUE     TRUE    
-       60 0.918       ct3            TRUE                1      98.3 TRUE     TRUE    
-       61 0.000380    ct2            TRUE                1     115.  TRUE     TRUE    
-       62 0.940       ct2            TRUE                1     115.  TRUE     TRUE    
-       63 0.0123      ct2            TRUE                1     115.  TRUE     TRUE    
-       64 0.912       ct1            TRUE                1     102.  TRUE     TRUE    
-       65 0.000380    ct1            TRUE                1     102.  TRUE     TRUE    
-       66 0.0182      ct1            TRUE                1     102.  TRUE     TRUE    
-       67 0.000380    ct2            TRUE                1     108.  TRUE     TRUE    
-       68 1.02        ct2            TRUE                1     108.  TRUE     TRUE    
-       69 0.000380    ct2            TRUE                1     108.  TRUE     TRUE    
-       70 0.000380    ct2            TRUE                1     103.  TRUE     TRUE    
-       71 0.965       ct2            TRUE                1     103.  TRUE     TRUE    
-       72 0.000380    ct2            TRUE                1     103.  TRUE     TRUE    
-       73 0.860       ct1            TRUE                1      94.4 TRUE     TRUE    
-       74 0.0698      ct1            TRUE                1      94.4 TRUE     TRUE    
-       75 0.000380    ct1            TRUE                1      94.4 TRUE     TRUE    
-       76 0.000380    ct3            TRUE                1     103.  TRUE     TRUE    
-       77 0.0195      ct3            TRUE                1     103.  TRUE     TRUE    
-       78 0.914       ct3            TRUE                1     103.  TRUE     TRUE    
-       79 0.00381     ct3            TRUE                1      93.9 TRUE     TRUE    
-       80 0.000380    ct3            TRUE                1      93.9 TRUE     TRUE    
-       81 0.975       ct3            TRUE                1      93.9 TRUE     TRUE    
-       82 0.000407    ct2            TRUE                1     102.  TRUE     TRUE    
-       83 1.01        ct2            TRUE                1     102.  TRUE     TRUE    
-       84 0.0153      ct2            TRUE                1     102.  TRUE     TRUE    
-       85 0.0120      ct2            TRUE                1     107.  TRUE     TRUE    
-       86 1.02        ct2            TRUE                1     107.  TRUE     TRUE    
-       87 0.000380    ct2            TRUE                1     107.  TRUE     TRUE    
-       88 0.914       ct1            TRUE                1     104.  TRUE     TRUE    
-       89 0.000380    ct1            TRUE                1     104.  TRUE     TRUE    
-       90 0.0524      ct1            TRUE                1     104.  TRUE     TRUE    
-       91 1.02        ct1            TRUE                1      99.8 TRUE     TRUE    
-       92 0.0181      ct1            TRUE                1      99.8 TRUE     TRUE    
-       93 0.000380    ct1            TRUE                1      99.8 TRUE     TRUE    
-       94 0.0389      ct2            TRUE                1     103.  TRUE     TRUE    
-       95 0.893       ct2            TRUE                1     103.  TRUE     TRUE    
-       96 0.0642      ct2            TRUE                1     103.  TRUE     TRUE    
-       97 0.000543    ct2            TRUE                1     124.  TRUE     TRUE    
-       98 0.875       ct2            TRUE                1     124.  TRUE     TRUE    
-       99 0.0492      ct2            TRUE                1     124.  TRUE     TRUE    
-      100 0.000380    ct3            TRUE                1      87.9 TRUE     TRUE    
-      101 0.000380    ct3            TRUE                1      87.9 TRUE     TRUE    
-      102 0.957       ct3            TRUE                1      87.9 TRUE     TRUE    
-      103 0.0105      ct3            TRUE                1     104.  TRUE     TRUE    
-      104 0.112       ct3            TRUE                1     104.  TRUE     TRUE    
-      105 0.821       ct3            TRUE                1     104.  TRUE     TRUE    
-      106 0.0319      ct2            TRUE                1     108.  TRUE     TRUE    
-      107 0.991       ct2            TRUE                1     108.  TRUE     TRUE    
-      108 0.0430      ct2            TRUE                1     108.  TRUE     TRUE    
-      109 0.000380    ct3            TRUE                1      93.1 TRUE     TRUE    
-      110 0.0475      ct3            TRUE                1      93.1 TRUE     TRUE    
-      111 0.909       ct3            TRUE                1      93.1 TRUE     TRUE    
-      112 0.0212      ct3            TRUE                1     101.  TRUE     TRUE    
-      113 0.0310      ct3            TRUE                1     101.  TRUE     TRUE    
-      114 0.927       ct3            TRUE                1     101.  TRUE     TRUE    
-      115 0.843       ct1            TRUE                1      97.8 TRUE     TRUE    
-      116 0.0370      ct1            TRUE                1      97.8 TRUE     TRUE    
-      117 0.000380    ct1            TRUE                1      97.8 TRUE     TRUE    
-      118 0.906       ct1            TRUE                1     103.  TRUE     TRUE    
-      119 0.0526      ct1            TRUE                1     103.  TRUE     TRUE    
-      120 0.000380    ct1            TRUE                1     103.  TRUE     TRUE    
-      121 0.941       ct1            TRUE                1     101.  TRUE     TRUE    
-      122 0.0561      ct1            TRUE                1     101.  TRUE     TRUE    
-      123 0.000380    ct1            TRUE                1     101.  TRUE     TRUE    
-      124 0.960       ct1            TRUE                1     119.  TRUE     TRUE    
-      125 0.0232      ct1            TRUE                1     119.  TRUE     TRUE    
-      126 0.0211      ct1            TRUE                1     119.  TRUE     TRUE    
-      127 0.000380    ct3            TRUE                1      98.9 TRUE     TRUE    
-      128 0.000380    ct3            TRUE                1      98.9 TRUE     TRUE    
-      129 0.974       ct3            TRUE                1      98.9 TRUE     TRUE    
-      130 0.000380    ct3            TRUE                1      98.2 TRUE     TRUE    
-      131 0.000380    ct3            TRUE                1      98.2 TRUE     TRUE    
-      132 0.906       ct3            TRUE                1      98.2 TRUE     TRUE    
-      133 0.993       ct1            TRUE                1      96.2 TRUE     TRUE    
-      134 0.0302      ct1            TRUE                1      96.2 TRUE     TRUE    
-      135 0.000380    ct1            TRUE                1      96.2 TRUE     TRUE    
-      136 0.965       ct1            TRUE                1     101.  TRUE     TRUE    
-      137 0.0362      ct1            TRUE                1     101.  TRUE     TRUE    
-      138 0.0343      ct1            TRUE                1     101.  TRUE     TRUE    
-      139 0.848       ct1            TRUE                1     104.  TRUE     TRUE    
-      140 0.131       ct1            TRUE                1     104.  TRUE     TRUE    
-      141 0.0587      ct1            TRUE                1     104.  TRUE     TRUE    
-      142 0.0632      ct2            TRUE                1     104.  TRUE     TRUE    
-      143 0.852       ct2            TRUE                1     104.  TRUE     TRUE    
-      144 0.00967     ct2            TRUE                1     104.  TRUE     TRUE    
-      145 0.138       ct2            TRUE                1      99.7 TRUE     TRUE    
-      146 0.823       ct2            TRUE                1      99.7 TRUE     TRUE    
-      147 0.000543    ct2            TRUE                1      99.7 TRUE     TRUE    
-      148 0.931       ct1            TRUE                1      95.5 TRUE     TRUE    
-      149 0.0204      ct1            TRUE                1      95.5 TRUE     TRUE    
-      150 0.000380    ct1            TRUE                1      95.5 TRUE     TRUE    
-      151 0.0537      ct3            TRUE                1     112.  TRUE     TRUE    
-      152 0.0675      ct3            TRUE                1     112.  TRUE     TRUE    
-      153 0.819       ct3            TRUE                1     112.  TRUE     TRUE    
-      154 0.967       ct1            TRUE                1     110.  TRUE     TRUE    
-      155 0.000380    ct1            TRUE                1     110.  TRUE     TRUE    
-      156 0.000380    ct1            TRUE                1     110.  TRUE     TRUE    
-      157 1.03        ct1            TRUE                1      97.9 TRUE     TRUE    
-      158 0.000543    ct1            TRUE                1      97.9 TRUE     TRUE    
-      159 0.0634      ct1            TRUE                1      97.9 TRUE     TRUE    
-      160 0.0767      ct3            TRUE                1      96.8 TRUE     TRUE    
-      161 0.000543    ct3            TRUE                1      96.8 TRUE     TRUE    
-      162 0.834       ct3            TRUE                1      96.8 TRUE     TRUE    
-      163 0.000543    ct2            TRUE                1     100.  TRUE     TRUE    
-      164 0.890       ct2            TRUE                1     100.  TRUE     TRUE    
-      165 0.0196      ct2            TRUE                1     100.  TRUE     TRUE    
-      166 0.0434      ct2            TRUE                1     103.  TRUE     TRUE    
-      167 0.814       ct2            TRUE                1     103.  TRUE     TRUE    
-      168 0.0377      ct2            TRUE                1     103.  TRUE     TRUE    
-      169 0.0254      ct2            TRUE                1      96.1 TRUE     TRUE    
-      170 0.934       ct2            TRUE                1      96.1 TRUE     TRUE    
-      171 0.0170      ct2            TRUE                1      96.1 TRUE     TRUE    
-      172 0.000543    ct3            TRUE                1      95.2 TRUE     TRUE    
-      173 0.00983     ct3            TRUE                1      95.2 TRUE     TRUE    
-      174 0.985       ct3            TRUE                1      95.2 TRUE     TRUE    
-      175 0.000543    ct2            TRUE                1     102.  TRUE     TRUE    
-      176 0.877       ct2            TRUE                1     102.  TRUE     TRUE    
-      177 0.0725      ct2            TRUE                1     102.  TRUE     TRUE    
-      178 0.0323      ct2            TRUE                1      98.2 TRUE     TRUE    
-      179 0.859       ct2            TRUE                1      98.2 TRUE     TRUE    
-      180 0.0374      ct2            TRUE                1      98.2 TRUE     TRUE    
-      181 0.000417    ct2            TRUE                1      99.5 TRUE     TRUE    
-      182 0.965       ct2            TRUE                1      99.5 TRUE     TRUE    
-      183 0.000380    ct2            TRUE                1      99.5 TRUE     TRUE    
-      184 0.000380    ct2            TRUE                1     112.  TRUE     TRUE    
-      185 0.943       ct2            TRUE                1     112.  TRUE     TRUE    
-      186 0.000380    ct2            TRUE                1     112.  TRUE     TRUE    
-      187 0.000266    ct3            TRUE                1     102.  TRUE     TRUE    
-      188 0.0146      ct3            TRUE                1     102.  TRUE     TRUE    
-      189 0.920       ct3            TRUE                1     102.  TRUE     TRUE    
-      190 0.0175      ct3            TRUE                1      95.0 TRUE     TRUE    
-      191 0.0290      ct3            TRUE                1      95.0 TRUE     TRUE    
-      192 0.847       ct3            TRUE                1      95.0 TRUE     TRUE    
-      193 0.111       ct2            TRUE                1      91.3 TRUE     TRUE    
-      194 0.755       ct2            TRUE                1      91.3 TRUE     TRUE    
-      195 0.0520      ct2            TRUE                1      91.3 TRUE     TRUE    
-      196 0.000413    ct3            TRUE                1      99.1 TRUE     TRUE    
-      197 0.0422      ct3            TRUE                1      99.1 TRUE     TRUE    
-      198 0.945       ct3            TRUE                1      99.1 TRUE     TRUE    
-      199 0.00396     ct3            TRUE                1      92.6 TRUE     TRUE    
-      200 0.000000884 ct3            TRUE                1      92.6 TRUE     TRUE    
-      201 0.921       ct3            TRUE                1      92.6 TRUE     TRUE    
-      202 0.000380    ct2            TRUE                1      93.1 TRUE     TRUE    
-      203 1.06        ct2            TRUE                1      93.1 TRUE     TRUE    
-      204 0.000380    ct2            TRUE                1      93.1 TRUE     TRUE    
-      205 0.928       ct1            TRUE                1      98.4 TRUE     TRUE    
-      206 0.0234      ct1            TRUE                1      98.4 TRUE     TRUE    
-      207 0.000380    ct1            TRUE                1      98.4 TRUE     TRUE    
-      208 0.00185     ct3            TRUE                1      95.6 TRUE     TRUE    
-      209 0.000593    ct3            TRUE                1      95.6 TRUE     TRUE    
-      210 1.01        ct3            TRUE                1      95.6 TRUE     TRUE    
-      211 0.950       ct1            TRUE                1      98.6 TRUE     TRUE    
-      212 0.0320      ct1            TRUE                1      98.6 TRUE     TRUE    
-      213 0.000380    ct1            TRUE                1      98.6 TRUE     TRUE    
-      214 0.844       ct1            TRUE                1     102.  TRUE     TRUE    
-      215 0.0677      ct1            TRUE                1     102.  TRUE     TRUE    
-      216 0.000380    ct1            TRUE                1     102.  TRUE     TRUE    
-      217 0.941       ct1            TRUE                1      95.7 TRUE     TRUE    
-      218 0.000380    ct1            TRUE                1      95.7 TRUE     TRUE    
-      219 0.0365      ct1            TRUE                1      95.7 TRUE     TRUE    
-      220 0.834       ct1            TRUE                1      98.0 TRUE     TRUE    
-      221 0.0687      ct1            TRUE                1      98.0 TRUE     TRUE    
-      222 0.0355      ct1            TRUE                1      98.0 TRUE     TRUE    
-      223 0.000380    ct2            TRUE                1     106.  TRUE     TRUE    
-      224 1.01        ct2            TRUE                1     106.  TRUE     TRUE    
-      225 0.0479      ct2            TRUE                1     106.  TRUE     TRUE    
-      226 0.0334      ct2            TRUE                1      98.7 TRUE     TRUE    
-      227 0.845       ct2            TRUE                1      98.7 TRUE     TRUE    
-      228 0.000380    ct2            TRUE                1      98.7 TRUE     TRUE    
-      229 0.179       ct2            TRUE                1     108.  TRUE     TRUE    
-      230 0.881       ct2            TRUE                1     108.  TRUE     TRUE    
-      231 0.000543    ct2            TRUE                1     108.  TRUE     TRUE    
-      232 0.00921     ct3            TRUE                1      99.6 TRUE     TRUE    
-      233 0.00217     ct3            TRUE                1      99.6 TRUE     TRUE    
-      234 0.988       ct3            TRUE                1      99.6 TRUE     TRUE    
-      235 0.0195      ct2            TRUE                1     102.  TRUE     TRUE    
-      236 0.963       ct2            TRUE                1     102.  TRUE     TRUE    
-      237 0.000380    ct2            TRUE                1     102.  TRUE     TRUE    
-      238 0.988       ct1            TRUE                1     108.  TRUE     TRUE    
-      239 0.00192     ct1            TRUE                1     108.  TRUE     TRUE    
-      240 0.000380    ct1            TRUE                1     108.  TRUE     TRUE    
-      241 0.000380    ct3            TRUE                1      99.2 TRUE     TRUE    
-      242 0.000380    ct3            TRUE                1      99.2 TRUE     TRUE    
-      243 0.935       ct3            TRUE                1      99.2 TRUE     TRUE    
-      244 0.117       ct2            TRUE                1     101.  TRUE     TRUE    
-      245 0.807       ct2            TRUE                1     101.  TRUE     TRUE    
-      246 0.000543    ct2            TRUE                1     101.  TRUE     TRUE    
-      247 0.000380    ct3            TRUE                1     102.  TRUE     TRUE    
-      248 0.146       ct3            TRUE                1     102.  TRUE     TRUE    
-      249 0.855       ct3            TRUE                1     102.  TRUE     TRUE    
-      250 0.000266    ct3            TRUE                1      95.2 TRUE     TRUE    
-      251 0.00822     ct3            TRUE                1      95.2 TRUE     TRUE    
-      252 1.03        ct3            TRUE                1      95.2 TRUE     TRUE    
-      253 1.10        ct1            TRUE                1     114.  TRUE     TRUE    
-      254 0.000380    ct1            TRUE                1     114.  TRUE     TRUE    
-      255 0.00461     ct1            TRUE                1     114.  TRUE     TRUE    
-      256 0.0509      ct2            TRUE                1     109.  TRUE     TRUE    
-      257 0.920       ct2            TRUE                1     109.  TRUE     TRUE    
-      258 0.000380    ct2            TRUE                1     109.  TRUE     TRUE    
-      259 1.01        ct1            TRUE                1     102.  TRUE     TRUE    
-      260 0.0504      ct1            TRUE                1     102.  TRUE     TRUE    
-      261 0.000380    ct1            TRUE                1     102.  TRUE     TRUE    
-      262 0.916       ct1            TRUE                1      98.9 TRUE     TRUE    
-      263 0.0208      ct1            TRUE                1      98.9 TRUE     TRUE    
-      264 0.000380    ct1            TRUE                1      98.9 TRUE     TRUE    
-      265 0.000380    ct2            TRUE                1     103.  TRUE     TRUE    
-      266 0.949       ct2            TRUE                1     103.  TRUE     TRUE    
-      267 0.000380    ct2            TRUE                1     103.  TRUE     TRUE    
-      268 0.000380    ct2            TRUE                1     102.  TRUE     TRUE    
-      269 0.965       ct2            TRUE                1     102.  TRUE     TRUE    
-      270 0.0122      ct2            TRUE                1     102.  TRUE     TRUE    
-      # i 1 more variable: cell_id <chr>
+          all_weights cell_type_list conf_list sub_weights min_score conv_all
+      1    3.7996e-04            ct3      TRUE           1    94.415     TRUE
+      2    3.5527e-02            ct3      TRUE           1    94.415     TRUE
+      3    9.6062e-01            ct3      TRUE           1    94.415     TRUE
+      4    3.7996e-04            ct2      TRUE           1   108.326     TRUE
+      5    9.7712e-01            ct2      TRUE           1   108.326     TRUE
+      6    3.7996e-04            ct2      TRUE           1   108.326     TRUE
+      7    8.3903e-02            ct2      TRUE           1   106.318     TRUE
+      8    8.6345e-01            ct2      TRUE           1   106.318     TRUE
+      9    9.9850e-02            ct2      TRUE           1   106.318     TRUE
+      10   9.3019e-01            ct1      TRUE           1   104.084     TRUE
+      11   4.4573e-02            ct1      TRUE           1   104.084     TRUE
+      12   3.7996e-04            ct1      TRUE           1   104.084     TRUE
+      13   4.5027e-02            ct2      TRUE           1   103.573     TRUE
+      14   9.1072e-01            ct2      TRUE           1   103.573     TRUE
+      15   3.7996e-04            ct2      TRUE           1   103.573     TRUE
+      16   8.9576e-03            ct2      TRUE           1   105.000     TRUE
+      17   8.5825e-01            ct2      TRUE           1   105.000     TRUE
+      18   3.7996e-04            ct2      TRUE           1   105.000     TRUE
+      19   9.2106e-01            ct1      TRUE           1   105.168     TRUE
+      20   4.4893e-02            ct1      TRUE           1   105.168     TRUE
+      21   3.7996e-04            ct1      TRUE           1   105.168     TRUE
+      22   3.7996e-04            ct3      TRUE           1   100.003     TRUE
+      23   3.7996e-04            ct3      TRUE           1   100.003     TRUE
+      24   9.1941e-01            ct3      TRUE           1   100.003     TRUE
+      25   9.7868e-01            ct1      TRUE           1   107.054     TRUE
+      26   3.7996e-04            ct1      TRUE           1   107.054     TRUE
+      27   3.7996e-04            ct1      TRUE           1   107.054     TRUE
+      28   1.0255e+00            ct1      TRUE           1    97.349     TRUE
+      29   7.1930e-03            ct1      TRUE           1    97.349     TRUE
+      30   3.7996e-04            ct1      TRUE           1    97.349     TRUE
+      31   8.9774e-01            ct1      TRUE           1   101.032     TRUE
+      32   5.4280e-04            ct1      TRUE           1   101.032     TRUE
+      33   3.5319e-02            ct1      TRUE           1   101.032     TRUE
+      34   1.1516e-01            ct2      TRUE           1   108.221     TRUE
+      35   8.0725e-01            ct2      TRUE           1   108.221     TRUE
+      36   5.4280e-04            ct2      TRUE           1   108.221     TRUE
+      37   9.1951e-01            ct1      TRUE           1    99.819     TRUE
+      38   1.0664e-02            ct1      TRUE           1    99.819     TRUE
+      39   7.8731e-02            ct1      TRUE           1    99.819     TRUE
+      40   8.3638e-01            ct1      TRUE           1    94.017     TRUE
+      41   3.1006e-02            ct1      TRUE           1    94.017     TRUE
+      42   3.1915e-02            ct1      TRUE           1    94.017     TRUE
+      43   2.7504e-02            ct3      TRUE           1    93.142     TRUE
+      44   3.7996e-04            ct3      TRUE           1    93.142     TRUE
+      45   9.5834e-01            ct3      TRUE           1    93.142     TRUE
+      46   4.3565e-04            ct2      TRUE           1   105.617     TRUE
+      47   9.6506e-01            ct2      TRUE           1   105.617     TRUE
+      48   3.7996e-04            ct2      TRUE           1   105.617     TRUE
+      49   4.0751e-02            ct2      TRUE           1   101.868     TRUE
+      50   9.5398e-01            ct2      TRUE           1   101.868     TRUE
+      51   3.7996e-04            ct2      TRUE           1   101.868     TRUE
+      52   3.2302e-02            ct2      TRUE           1   102.802     TRUE
+      53   9.3667e-01            ct2      TRUE           1   102.802     TRUE
+      54   3.4385e-02            ct2      TRUE           1   102.802     TRUE
+      55   9.7810e-01            ct1      TRUE           1   107.428     TRUE
+      56   3.7996e-04            ct1      TRUE           1   107.428     TRUE
+      57   2.2760e-02            ct1      TRUE           1   107.428     TRUE
+      58   3.7996e-04            ct3      TRUE           1    98.280     TRUE
+      59   6.1487e-02            ct3      TRUE           1    98.280     TRUE
+      60   9.1788e-01            ct3      TRUE           1    98.280     TRUE
+      61   3.7996e-04            ct2      TRUE           1   114.656     TRUE
+      62   9.4041e-01            ct2      TRUE           1   114.656     TRUE
+      63   1.2342e-02            ct2      TRUE           1   114.656     TRUE
+      64   9.1171e-01            ct1      TRUE           1   101.924     TRUE
+      65   3.7996e-04            ct1      TRUE           1   101.924     TRUE
+      66   1.8214e-02            ct1      TRUE           1   101.924     TRUE
+      67   3.7996e-04            ct2      TRUE           1   108.304     TRUE
+      68   1.0246e+00            ct2      TRUE           1   108.304     TRUE
+      69   3.7996e-04            ct2      TRUE           1   108.304     TRUE
+      70   3.7996e-04            ct2      TRUE           1   102.597     TRUE
+      71   9.6542e-01            ct2      TRUE           1   102.597     TRUE
+      72   3.7996e-04            ct2      TRUE           1   102.597     TRUE
+      73   8.5957e-01            ct1      TRUE           1    94.441     TRUE
+      74   6.9765e-02            ct1      TRUE           1    94.441     TRUE
+      75   3.7996e-04            ct1      TRUE           1    94.441     TRUE
+      76   3.7996e-04            ct3      TRUE           1   103.372     TRUE
+      77   1.9538e-02            ct3      TRUE           1   103.372     TRUE
+      78   9.1385e-01            ct3      TRUE           1   103.372     TRUE
+      79   3.8059e-03            ct3      TRUE           1    93.942     TRUE
+      80   3.7996e-04            ct3      TRUE           1    93.942     TRUE
+      81   9.7539e-01            ct3      TRUE           1    93.942     TRUE
+      82   4.0680e-04            ct2      TRUE           1   102.037     TRUE
+      83   1.0052e+00            ct2      TRUE           1   102.037     TRUE
+      84   1.5251e-02            ct2      TRUE           1   102.037     TRUE
+      85   1.2026e-02            ct2      TRUE           1   107.154     TRUE
+      86   1.0221e+00            ct2      TRUE           1   107.154     TRUE
+      87   3.7996e-04            ct2      TRUE           1   107.154     TRUE
+      88   9.1449e-01            ct1      TRUE           1   104.499     TRUE
+      89   3.7996e-04            ct1      TRUE           1   104.499     TRUE
+      90   5.2405e-02            ct1      TRUE           1   104.499     TRUE
+      91   1.0248e+00            ct1      TRUE           1    99.750     TRUE
+      92   1.8137e-02            ct1      TRUE           1    99.750     TRUE
+      93   3.7996e-04            ct1      TRUE           1    99.750     TRUE
+      94   3.8929e-02            ct2      TRUE           1   102.530     TRUE
+      95   8.9322e-01            ct2      TRUE           1   102.530     TRUE
+      96   6.4200e-02            ct2      TRUE           1   102.530     TRUE
+      97   5.4280e-04            ct2      TRUE           1   123.849     TRUE
+      98   8.7467e-01            ct2      TRUE           1   123.849     TRUE
+      99   4.9198e-02            ct2      TRUE           1   123.849     TRUE
+      100  3.7996e-04            ct3      TRUE           1    87.888     TRUE
+      101  3.7996e-04            ct3      TRUE           1    87.888     TRUE
+      102  9.5740e-01            ct3      TRUE           1    87.888     TRUE
+      103  1.0482e-02            ct3      TRUE           1   103.658     TRUE
+      104  1.1217e-01            ct3      TRUE           1   103.658     TRUE
+      105  8.2124e-01            ct3      TRUE           1   103.658     TRUE
+      106  3.1895e-02            ct2      TRUE           1   107.854     TRUE
+      107  9.9134e-01            ct2      TRUE           1   107.854     TRUE
+      108  4.2990e-02            ct2      TRUE           1   107.854     TRUE
+      109  3.7996e-04            ct3      TRUE           1    93.143     TRUE
+      110  4.7543e-02            ct3      TRUE           1    93.143     TRUE
+      111  9.0877e-01            ct3      TRUE           1    93.143     TRUE
+      112  2.1196e-02            ct3      TRUE           1   101.060     TRUE
+      113  3.1036e-02            ct3      TRUE           1   101.060     TRUE
+      114  9.2745e-01            ct3      TRUE           1   101.060     TRUE
+      115  8.4347e-01            ct1      TRUE           1    97.833     TRUE
+      116  3.6975e-02            ct1      TRUE           1    97.833     TRUE
+      117  3.7996e-04            ct1      TRUE           1    97.833     TRUE
+      118  9.0585e-01            ct1      TRUE           1   102.705     TRUE
+      119  5.2578e-02            ct1      TRUE           1   102.705     TRUE
+      120  3.7996e-04            ct1      TRUE           1   102.705     TRUE
+      121  9.4078e-01            ct1      TRUE           1   101.200     TRUE
+      122  5.6123e-02            ct1      TRUE           1   101.200     TRUE
+      123  3.7996e-04            ct1      TRUE           1   101.200     TRUE
+      124  9.5960e-01            ct1      TRUE           1   118.716     TRUE
+      125  2.3181e-02            ct1      TRUE           1   118.716     TRUE
+      126  2.1136e-02            ct1      TRUE           1   118.716     TRUE
+      127  3.7996e-04            ct3      TRUE           1    98.919     TRUE
+      128  3.7996e-04            ct3      TRUE           1    98.919     TRUE
+      129  9.7401e-01            ct3      TRUE           1    98.919     TRUE
+      130  3.7996e-04            ct3      TRUE           1    98.210     TRUE
+      131  3.7996e-04            ct3      TRUE           1    98.210     TRUE
+      132  9.0555e-01            ct3      TRUE           1    98.210     TRUE
+      133  9.9333e-01            ct1      TRUE           1    96.245     TRUE
+      134  3.0167e-02            ct1      TRUE           1    96.245     TRUE
+      135  3.7996e-04            ct1      TRUE           1    96.245     TRUE
+      136  9.6493e-01            ct1      TRUE           1   101.360     TRUE
+      137  3.6150e-02            ct1      TRUE           1   101.360     TRUE
+      138  3.4288e-02            ct1      TRUE           1   101.360     TRUE
+      139  8.4816e-01            ct1      TRUE           1   104.400     TRUE
+      140  1.3083e-01            ct1      TRUE           1   104.400     TRUE
+      141  5.8719e-02            ct1      TRUE           1   104.400     TRUE
+      142  6.3239e-02            ct2      TRUE           1   103.964     TRUE
+      143  8.5232e-01            ct2      TRUE           1   103.964     TRUE
+      144  9.6667e-03            ct2      TRUE           1   103.964     TRUE
+      145  1.3781e-01            ct2      TRUE           1    99.739     TRUE
+      146  8.2340e-01            ct2      TRUE           1    99.739     TRUE
+      147  5.4280e-04            ct2      TRUE           1    99.739     TRUE
+      148  9.3124e-01            ct1      TRUE           1    95.453     TRUE
+      149  2.0375e-02            ct1      TRUE           1    95.453     TRUE
+      150  3.7996e-04            ct1      TRUE           1    95.453     TRUE
+      151  5.3678e-02            ct3      TRUE           1   111.924     TRUE
+      152  6.7458e-02            ct3      TRUE           1   111.924     TRUE
+      153  8.1860e-01            ct3      TRUE           1   111.924     TRUE
+      154  9.6709e-01            ct1      TRUE           1   109.572     TRUE
+      155  3.7996e-04            ct1      TRUE           1   109.572     TRUE
+      156  3.7996e-04            ct1      TRUE           1   109.572     TRUE
+      157  1.0343e+00            ct1      TRUE           1    97.942     TRUE
+      158  5.4280e-04            ct1      TRUE           1    97.942     TRUE
+      159  6.3383e-02            ct1      TRUE           1    97.942     TRUE
+      160  7.6714e-02            ct3      TRUE           1    96.786     TRUE
+      161  5.4280e-04            ct3      TRUE           1    96.786     TRUE
+      162  8.3357e-01            ct3      TRUE           1    96.786     TRUE
+      163  5.4280e-04            ct2      TRUE           1   100.290     TRUE
+      164  8.8964e-01            ct2      TRUE           1   100.290     TRUE
+      165  1.9560e-02            ct2      TRUE           1   100.290     TRUE
+      166  4.3387e-02            ct2      TRUE           1   103.200     TRUE
+      167  8.1411e-01            ct2      TRUE           1   103.200     TRUE
+      168  3.7720e-02            ct2      TRUE           1   103.200     TRUE
+      169  2.5406e-02            ct2      TRUE           1    96.063     TRUE
+      170  9.3362e-01            ct2      TRUE           1    96.063     TRUE
+      171  1.6972e-02            ct2      TRUE           1    96.063     TRUE
+      172  5.4280e-04            ct3      TRUE           1    95.247     TRUE
+      173  9.8298e-03            ct3      TRUE           1    95.247     TRUE
+      174  9.8508e-01            ct3      TRUE           1    95.247     TRUE
+      175  5.4280e-04            ct2      TRUE           1   101.557     TRUE
+      176  8.7669e-01            ct2      TRUE           1   101.557     TRUE
+      177  7.2484e-02            ct2      TRUE           1   101.557     TRUE
+      178  3.2276e-02            ct2      TRUE           1    98.181     TRUE
+      179  8.5914e-01            ct2      TRUE           1    98.181     TRUE
+      180  3.7359e-02            ct2      TRUE           1    98.181     TRUE
+      181  4.1650e-04            ct2      TRUE           1    99.471     TRUE
+      182  9.6515e-01            ct2      TRUE           1    99.471     TRUE
+      183  3.7996e-04            ct2      TRUE           1    99.471     TRUE
+      184  3.7996e-04            ct2      TRUE           1   112.313     TRUE
+      185  9.4324e-01            ct2      TRUE           1   112.313     TRUE
+      186  3.7996e-04            ct2      TRUE           1   112.313     TRUE
+      187  2.6597e-04            ct3      TRUE           1   101.730     TRUE
+      188  1.4629e-02            ct3      TRUE           1   101.730     TRUE
+      189  9.2038e-01            ct3      TRUE           1   101.730     TRUE
+      190  1.7505e-02            ct3      TRUE           1    94.965     TRUE
+      191  2.9047e-02            ct3      TRUE           1    94.965     TRUE
+      192  8.4720e-01            ct3      TRUE           1    94.965     TRUE
+      193  1.1083e-01            ct2      TRUE           1    91.269     TRUE
+      194  7.5492e-01            ct2      TRUE           1    91.269     TRUE
+      195  5.2023e-02            ct2      TRUE           1    91.269     TRUE
+      196  4.1346e-04            ct3      TRUE           1    99.080     TRUE
+      197  4.2225e-02            ct3      TRUE           1    99.080     TRUE
+      198  9.4496e-01            ct3      TRUE           1    99.080     TRUE
+      199  3.9557e-03            ct3      TRUE           1    92.598     TRUE
+      200  8.8391e-07            ct3      TRUE           1    92.598     TRUE
+      201  9.2122e-01            ct3      TRUE           1    92.598     TRUE
+      202  3.7996e-04            ct2      TRUE           1    93.111     TRUE
+      203  1.0572e+00            ct2      TRUE           1    93.111     TRUE
+      204  3.7996e-04            ct2      TRUE           1    93.111     TRUE
+      205  9.2836e-01            ct1      TRUE           1    98.411     TRUE
+      206  2.3374e-02            ct1      TRUE           1    98.411     TRUE
+      207  3.7996e-04            ct1      TRUE           1    98.411     TRUE
+      208  1.8462e-03            ct3      TRUE           1    95.609     TRUE
+      209  5.9334e-04            ct3      TRUE           1    95.609     TRUE
+      210  1.0082e+00            ct3      TRUE           1    95.609     TRUE
+      211  9.4999e-01            ct1      TRUE           1    98.561     TRUE
+      212  3.2041e-02            ct1      TRUE           1    98.561     TRUE
+      213  3.7996e-04            ct1      TRUE           1    98.561     TRUE
+      214  8.4436e-01            ct1      TRUE           1   102.285     TRUE
+      215  6.7704e-02            ct1      TRUE           1   102.285     TRUE
+      216  3.7996e-04            ct1      TRUE           1   102.285     TRUE
+      217  9.4052e-01            ct1      TRUE           1    95.719     TRUE
+      218  3.7996e-04            ct1      TRUE           1    95.719     TRUE
+      219  3.6486e-02            ct1      TRUE           1    95.719     TRUE
+      220  8.3412e-01            ct1      TRUE           1    97.964     TRUE
+      221  6.8674e-02            ct1      TRUE           1    97.964     TRUE
+      222  3.5540e-02            ct1      TRUE           1    97.964     TRUE
+      223  3.7996e-04            ct2      TRUE           1   105.784     TRUE
+      224  1.0063e+00            ct2      TRUE           1   105.784     TRUE
+      225  4.7876e-02            ct2      TRUE           1   105.784     TRUE
+      226  3.3373e-02            ct2      TRUE           1    98.682     TRUE
+      227  8.4465e-01            ct2      TRUE           1    98.682     TRUE
+      228  3.7996e-04            ct2      TRUE           1    98.682     TRUE
+      229  1.7860e-01            ct2      TRUE           1   108.053     TRUE
+      230  8.8125e-01            ct2      TRUE           1   108.053     TRUE
+      231  5.4280e-04            ct2      TRUE           1   108.053     TRUE
+      232  9.2073e-03            ct3      TRUE           1    99.603     TRUE
+      233  2.1733e-03            ct3      TRUE           1    99.603     TRUE
+      234  9.8801e-01            ct3      TRUE           1    99.603     TRUE
+      235  1.9455e-02            ct2      TRUE           1   101.980     TRUE
+      236  9.6334e-01            ct2      TRUE           1   101.980     TRUE
+      237  3.7996e-04            ct2      TRUE           1   101.980     TRUE
+      238  9.8849e-01            ct1      TRUE           1   108.158     TRUE
+      239  1.9235e-03            ct1      TRUE           1   108.158     TRUE
+      240  3.7996e-04            ct1      TRUE           1   108.158     TRUE
+      241  3.7996e-04            ct3      TRUE           1    99.231     TRUE
+      242  3.7996e-04            ct3      TRUE           1    99.231     TRUE
+      243  9.3519e-01            ct3      TRUE           1    99.231     TRUE
+      244  1.1709e-01            ct2      TRUE           1   101.004     TRUE
+      245  8.0709e-01            ct2      TRUE           1   101.004     TRUE
+      246  5.4280e-04            ct2      TRUE           1   101.004     TRUE
+      247  3.7996e-04            ct3      TRUE           1   102.014     TRUE
+      248  1.4594e-01            ct3      TRUE           1   102.014     TRUE
+      249  8.5474e-01            ct3      TRUE           1   102.014     TRUE
+      250  2.6597e-04            ct3      TRUE           1    95.169     TRUE
+      251  8.2197e-03            ct3      TRUE           1    95.169     TRUE
+      252  1.0317e+00            ct3      TRUE           1    95.169     TRUE
+      253  1.1006e+00            ct1      TRUE           1   113.973     TRUE
+      254  3.7996e-04            ct1      TRUE           1   113.973     TRUE
+      255  4.6067e-03            ct1      TRUE           1   113.973     TRUE
+      256  5.0877e-02            ct2      TRUE           1   108.682     TRUE
+      257  9.1973e-01            ct2      TRUE           1   108.682     TRUE
+      258  3.7996e-04            ct2      TRUE           1   108.682     TRUE
+      259  1.0086e+00            ct1      TRUE           1   102.192     TRUE
+      260  5.0381e-02            ct1      TRUE           1   102.192     TRUE
+      261  3.7996e-04            ct1      TRUE           1   102.192     TRUE
+      262  9.1610e-01            ct1      TRUE           1    98.886     TRUE
+      263  2.0845e-02            ct1      TRUE           1    98.886     TRUE
+      264  3.7996e-04            ct1      TRUE           1    98.886     TRUE
+      265  3.7996e-04            ct2      TRUE           1   103.419     TRUE
+      266  9.4917e-01            ct2      TRUE           1   103.419     TRUE
+      267  3.7996e-04            ct2      TRUE           1   103.419     TRUE
+      268  3.7996e-04            ct2      TRUE           1   102.240     TRUE
+      269  9.6476e-01            ct2      TRUE           1   102.240     TRUE
+      270  1.2212e-02            ct2      TRUE           1   102.240     TRUE
+          conv_sub                          cell_id
+      1       TRUE     ct3_TAACCCGCATGCATGCCGTACATA
+      2       TRUE     ct3_TAACCCGCATGCATGCCGTACATA
+      3       TRUE     ct3_TAACCCGCATGCATGCCGTACATA
+      4       TRUE     ct2_TAACCCGCATGCATGCCGTAGATA
+      5       TRUE     ct2_TAACCCGCATGCATGCCGTAGATA
+      6       TRUE     ct2_TAACCCGCATGCATGCCGTAGATA
+      7       TRUE     ct2_TAACCCGCATGCATGCCGTATATA
+      8       TRUE     ct2_TAACCCGCATGCATGCCGTATATA
+      9       TRUE     ct2_TAACCCGCATGCATGCCGTATATA
+      10      TRUE     ct1_TAACCCGCATGCATGCCGTAACTA
+      11      TRUE     ct1_TAACCCGCATGCATGCCGTAACTA
+      12      TRUE     ct1_TAACCCGCATGCATGCCGTAACTA
+      13      TRUE     ct2_TAACCCGCATGCATGCCGTACCTA
+      14      TRUE     ct2_TAACCCGCATGCATGCCGTACCTA
+      15      TRUE     ct2_TAACCCGCATGCATGCCGTACCTA
+      16      TRUE     ct2_TAACCCGCATGCATGCCGTAGCTA
+      17      TRUE     ct2_TAACCCGCATGCATGCCGTAGCTA
+      18      TRUE     ct2_TAACCCGCATGCATGCCGTAGCTA
+      19      TRUE     ct1_TAACCCGCATGCATGCCGTATCTA
+      20      TRUE     ct1_TAACCCGCATGCATGCCGTATCTA
+      21      TRUE     ct1_TAACCCGCATGCATGCCGTATCTA
+      22      TRUE     ct3_TAACCCGCATGCATGCCGTAAGTA
+      23      TRUE     ct3_TAACCCGCATGCATGCCGTAAGTA
+      24      TRUE     ct3_TAACCCGCATGCATGCCGTAAGTA
+      25      TRUE     ct1_TAACCCGCATGCATGCCGTACGTA
+      26      TRUE     ct1_TAACCCGCATGCATGCCGTACGTA
+      27      TRUE     ct1_TAACCCGCATGCATGCCGTACGTA
+      28      TRUE ct1_TAACCCGCATGCATGCCATAAATAAATA
+      29      TRUE ct1_TAACCCGCATGCATGCCATAAATAAATA
+      30      TRUE ct1_TAACCCGCATGCATGCCATAAATAAATA
+      31      TRUE ct1_TAACCCGCATGCATGCCATAAATACATA
+      32      TRUE ct1_TAACCCGCATGCATGCCATAAATACATA
+      33      TRUE ct1_TAACCCGCATGCATGCCATAAATACATA
+      34      TRUE ct2_TAACCCGCATGCATGCCATAAATAGATA
+      35      TRUE ct2_TAACCCGCATGCATGCCATAAATAGATA
+      36      TRUE ct2_TAACCCGCATGCATGCCATAAATAGATA
+      37      TRUE ct1_TAACCCGCATGCATGCCATAAATATATA
+      38      TRUE ct1_TAACCCGCATGCATGCCATAAATATATA
+      39      TRUE ct1_TAACCCGCATGCATGCCATAAATATATA
+      40      TRUE ct1_TAACCCGCATGCATGCCATAAATAACTA
+      41      TRUE ct1_TAACCCGCATGCATGCCATAAATAACTA
+      42      TRUE ct1_TAACCCGCATGCATGCCATAAATAACTA
+      43      TRUE ct3_TAACCCGCATGCATGCCATAAATACCTA
+      44      TRUE ct3_TAACCCGCATGCATGCCATAAATACCTA
+      45      TRUE ct3_TAACCCGCATGCATGCCATAAATACCTA
+      46      TRUE ct2_TAACCCGCATGCATGCCATAAATAGCTA
+      47      TRUE ct2_TAACCCGCATGCATGCCATAAATAGCTA
+      48      TRUE ct2_TAACCCGCATGCATGCCATAAATAGCTA
+      49      TRUE ct2_TAACCCGCATGCATGCCATAAATATCTA
+      50      TRUE ct2_TAACCCGCATGCATGCCATAAATATCTA
+      51      TRUE ct2_TAACCCGCATGCATGCCATAAATATCTA
+      52      TRUE ct2_TAACCCGCATGCATGCCATAAATAAGTA
+      53      TRUE ct2_TAACCCGCATGCATGCCATAAATAAGTA
+      54      TRUE ct2_TAACCCGCATGCATGCCATAAATAAGTA
+      55      TRUE ct1_TAACCCGCATGCATGCCATAAATACGTA
+      56      TRUE ct1_TAACCCGCATGCATGCCATAAATACGTA
+      57      TRUE ct1_TAACCCGCATGCATGCCATAAATACGTA
+      58      TRUE ct3_TAACCCGCATGCATGCCATACATAAATA
+      59      TRUE ct3_TAACCCGCATGCATGCCATACATAAATA
+      60      TRUE ct3_TAACCCGCATGCATGCCATACATAAATA
+      61      TRUE ct2_TAACCCGCATGCATGCCATACATACATA
+      62      TRUE ct2_TAACCCGCATGCATGCCATACATACATA
+      63      TRUE ct2_TAACCCGCATGCATGCCATACATACATA
+      64      TRUE ct1_TAACCCGCATGCATGCCATACATAGATA
+      65      TRUE ct1_TAACCCGCATGCATGCCATACATAGATA
+      66      TRUE ct1_TAACCCGCATGCATGCCATACATAGATA
+      67      TRUE ct2_TAACCCGCATGCATGCCATACATATATA
+      68      TRUE ct2_TAACCCGCATGCATGCCATACATATATA
+      69      TRUE ct2_TAACCCGCATGCATGCCATACATATATA
+      70      TRUE ct2_TAACCCGCATGCATGCCATACATAACTA
+      71      TRUE ct2_TAACCCGCATGCATGCCATACATAACTA
+      72      TRUE ct2_TAACCCGCATGCATGCCATACATAACTA
+      73      TRUE ct1_TAACCCGCATGCATGCCATACATACCTA
+      74      TRUE ct1_TAACCCGCATGCATGCCATACATACCTA
+      75      TRUE ct1_TAACCCGCATGCATGCCATACATACCTA
+      76      TRUE ct3_TAACCCGCATGCATGCCATACATAGCTA
+      77      TRUE ct3_TAACCCGCATGCATGCCATACATAGCTA
+      78      TRUE ct3_TAACCCGCATGCATGCCATACATAGCTA
+      79      TRUE ct3_TAACCCGCATGCATGCCATACATATCTA
+      80      TRUE ct3_TAACCCGCATGCATGCCATACATATCTA
+      81      TRUE ct3_TAACCCGCATGCATGCCATACATATCTA
+      82      TRUE ct2_TAACCCGCATGCATGCCATACATAAGTA
+      83      TRUE ct2_TAACCCGCATGCATGCCATACATAAGTA
+      84      TRUE ct2_TAACCCGCATGCATGCCATACATAAGTA
+      85      TRUE ct2_TAACCCGCATGCATGCCATACATACGTA
+      86      TRUE ct2_TAACCCGCATGCATGCCATACATACGTA
+      87      TRUE ct2_TAACCCGCATGCATGCCATACATACGTA
+      88      TRUE ct1_TAACCCGCATGCATGCCATAGATAAATA
+      89      TRUE ct1_TAACCCGCATGCATGCCATAGATAAATA
+      90      TRUE ct1_TAACCCGCATGCATGCCATAGATAAATA
+      91      TRUE ct1_TAACCCGCATGCATGCCATAGATACATA
+      92      TRUE ct1_TAACCCGCATGCATGCCATAGATACATA
+      93      TRUE ct1_TAACCCGCATGCATGCCATAGATACATA
+      94      TRUE ct2_TAACCCGCATGCATGCCATAGATAGATA
+      95      TRUE ct2_TAACCCGCATGCATGCCATAGATAGATA
+      96      TRUE ct2_TAACCCGCATGCATGCCATAGATAGATA
+      97      TRUE ct2_TAACCCGCATGCATGCCATAGATATATA
+      98      TRUE ct2_TAACCCGCATGCATGCCATAGATATATA
+      99      TRUE ct2_TAACCCGCATGCATGCCATAGATATATA
+      100     TRUE ct3_TAACCCGCATGCATGCCATAGATAACTA
+      101     TRUE ct3_TAACCCGCATGCATGCCATAGATAACTA
+      102     TRUE ct3_TAACCCGCATGCATGCCATAGATAACTA
+      103     TRUE ct3_TAACCCGCATGCATGCCATAGATACCTA
+      104     TRUE ct3_TAACCCGCATGCATGCCATAGATACCTA
+      105     TRUE ct3_TAACCCGCATGCATGCCATAGATACCTA
+      106     TRUE ct2_TAACCCGCATGCATGCCATAGATAGCTA
+      107     TRUE ct2_TAACCCGCATGCATGCCATAGATAGCTA
+      108     TRUE ct2_TAACCCGCATGCATGCCATAGATAGCTA
+      109     TRUE ct3_TAACCCGCATGCATGCCATAGATATCTA
+      110     TRUE ct3_TAACCCGCATGCATGCCATAGATATCTA
+      111     TRUE ct3_TAACCCGCATGCATGCCATAGATATCTA
+      112     TRUE ct3_TAACCCGCATGCATGCCATAGATAAGTA
+      113     TRUE ct3_TAACCCGCATGCATGCCATAGATAAGTA
+      114     TRUE ct3_TAACCCGCATGCATGCCATAGATAAGTA
+      115     TRUE ct1_TAACCCGCATGCATGCCATAGATACGTA
+      116     TRUE ct1_TAACCCGCATGCATGCCATAGATACGTA
+      117     TRUE ct1_TAACCCGCATGCATGCCATAGATACGTA
+      118     TRUE ct1_TAACCCGCATGCATGCCATATATAAATA
+      119     TRUE ct1_TAACCCGCATGCATGCCATATATAAATA
+      120     TRUE ct1_TAACCCGCATGCATGCCATATATAAATA
+      121     TRUE ct1_TAACCCGCATGCATGCCATATATACATA
+      122     TRUE ct1_TAACCCGCATGCATGCCATATATACATA
+      123     TRUE ct1_TAACCCGCATGCATGCCATATATACATA
+      124     TRUE ct1_TAACCCGCATGCATGCCATATATAGATA
+      125     TRUE ct1_TAACCCGCATGCATGCCATATATAGATA
+      126     TRUE ct1_TAACCCGCATGCATGCCATATATAGATA
+      127     TRUE ct3_TAACCCGCATGCATGCCATATATATATA
+      128     TRUE ct3_TAACCCGCATGCATGCCATATATATATA
+      129     TRUE ct3_TAACCCGCATGCATGCCATATATATATA
+      130     TRUE ct3_TAACCCGCATGCATGCCATATATAACTA
+      131     TRUE ct3_TAACCCGCATGCATGCCATATATAACTA
+      132     TRUE ct3_TAACCCGCATGCATGCCATATATAACTA
+      133     TRUE ct1_TAACCCGCATGCATGCCATATATACCTA
+      134     TRUE ct1_TAACCCGCATGCATGCCATATATACCTA
+      135     TRUE ct1_TAACCCGCATGCATGCCATATATACCTA
+      136     TRUE ct1_TAACCCGCATGCATGCCATATATAGCTA
+      137     TRUE ct1_TAACCCGCATGCATGCCATATATAGCTA
+      138     TRUE ct1_TAACCCGCATGCATGCCATATATAGCTA
+      139     TRUE ct1_TAACCCGCATGCATGCCATATATATCTA
+      140     TRUE ct1_TAACCCGCATGCATGCCATATATATCTA
+      141     TRUE ct1_TAACCCGCATGCATGCCATATATATCTA
+      142     TRUE ct2_TAACCCGCATGCATGCCATATATAAGTA
+      143     TRUE ct2_TAACCCGCATGCATGCCATATATAAGTA
+      144     TRUE ct2_TAACCCGCATGCATGCCATATATAAGTA
+      145     TRUE ct2_TAACCCGCATGCATGCCATATATACGTA
+      146     TRUE ct2_TAACCCGCATGCATGCCATATATACGTA
+      147     TRUE ct2_TAACCCGCATGCATGCCATATATACGTA
+      148     TRUE ct1_TAACCCGCATGCATGCCATAACTAAATA
+      149     TRUE ct1_TAACCCGCATGCATGCCATAACTAAATA
+      150     TRUE ct1_TAACCCGCATGCATGCCATAACTAAATA
+      151     TRUE ct3_TAACCCGCATGCATGCCATAACTACATA
+      152     TRUE ct3_TAACCCGCATGCATGCCATAACTACATA
+      153     TRUE ct3_TAACCCGCATGCATGCCATAACTACATA
+      154     TRUE ct1_TAACCCGCATGCATGCCATAACTAGATA
+      155     TRUE ct1_TAACCCGCATGCATGCCATAACTAGATA
+      156     TRUE ct1_TAACCCGCATGCATGCCATAACTAGATA
+      157     TRUE ct1_TAACCCGCATGCATGCCATAACTATATA
+      158     TRUE ct1_TAACCCGCATGCATGCCATAACTATATA
+      159     TRUE ct1_TAACCCGCATGCATGCCATAACTATATA
+      160     TRUE ct3_TAACCCGCATGCATGCCATAACTAACTA
+      161     TRUE ct3_TAACCCGCATGCATGCCATAACTAACTA
+      162     TRUE ct3_TAACCCGCATGCATGCCATAACTAACTA
+      163     TRUE ct2_TAACCCGCATGCATGCCATAACTACCTA
+      164     TRUE ct2_TAACCCGCATGCATGCCATAACTACCTA
+      165     TRUE ct2_TAACCCGCATGCATGCCATAACTACCTA
+      166     TRUE ct2_TAACCCGCATGCATGCCATAACTAGCTA
+      167     TRUE ct2_TAACCCGCATGCATGCCATAACTAGCTA
+      168     TRUE ct2_TAACCCGCATGCATGCCATAACTAGCTA
+      169     TRUE ct2_TAACCCGCATGCATGCCATAACTATCTA
+      170     TRUE ct2_TAACCCGCATGCATGCCATAACTATCTA
+      171     TRUE ct2_TAACCCGCATGCATGCCATAACTATCTA
+      172     TRUE ct3_TAACCCGCATGCATGCCATAACTAAGTA
+      173     TRUE ct3_TAACCCGCATGCATGCCATAACTAAGTA
+      174     TRUE ct3_TAACCCGCATGCATGCCATAACTAAGTA
+      175     TRUE ct2_TAACCCGCATGCATGCCATAACTACGTA
+      176     TRUE ct2_TAACCCGCATGCATGCCATAACTACGTA
+      177     TRUE ct2_TAACCCGCATGCATGCCATAACTACGTA
+      178     TRUE ct2_TAACCCGCATGCATGCCATACCTAAATA
+      179     TRUE ct2_TAACCCGCATGCATGCCATACCTAAATA
+      180     TRUE ct2_TAACCCGCATGCATGCCATACCTAAATA
+      181     TRUE ct2_TAACCCGCATGCATGCCATACCTACATA
+      182     TRUE ct2_TAACCCGCATGCATGCCATACCTACATA
+      183     TRUE ct2_TAACCCGCATGCATGCCATACCTACATA
+      184     TRUE ct2_TAACCCGCATGCATGCCATACCTAGATA
+      185     TRUE ct2_TAACCCGCATGCATGCCATACCTAGATA
+      186     TRUE ct2_TAACCCGCATGCATGCCATACCTAGATA
+      187     TRUE ct3_TAACCCGCATGCATGCCATACCTATATA
+      188     TRUE ct3_TAACCCGCATGCATGCCATACCTATATA
+      189     TRUE ct3_TAACCCGCATGCATGCCATACCTATATA
+      190     TRUE ct3_TAACCCGCATGCATGCCATACCTAACTA
+      191     TRUE ct3_TAACCCGCATGCATGCCATACCTAACTA
+      192     TRUE ct3_TAACCCGCATGCATGCCATACCTAACTA
+      193     TRUE ct2_TAACCCGCATGCATGCCATACCTACCTA
+      194     TRUE ct2_TAACCCGCATGCATGCCATACCTACCTA
+      195     TRUE ct2_TAACCCGCATGCATGCCATACCTACCTA
+      196     TRUE ct3_TAACCCGCATGCATGCCATACCTAGCTA
+      197     TRUE ct3_TAACCCGCATGCATGCCATACCTAGCTA
+      198     TRUE ct3_TAACCCGCATGCATGCCATACCTAGCTA
+      199     TRUE ct3_TAACCCGCATGCATGCCATACCTATCTA
+      200     TRUE ct3_TAACCCGCATGCATGCCATACCTATCTA
+      201     TRUE ct3_TAACCCGCATGCATGCCATACCTATCTA
+      202     TRUE ct2_TAACCCGCATGCATGCCATACCTAAGTA
+      203     TRUE ct2_TAACCCGCATGCATGCCATACCTAAGTA
+      204     TRUE ct2_TAACCCGCATGCATGCCATACCTAAGTA
+      205     TRUE ct1_TAACCCGCATGCATGCCATACCTACGTA
+      206     TRUE ct1_TAACCCGCATGCATGCCATACCTACGTA
+      207     TRUE ct1_TAACCCGCATGCATGCCATACCTACGTA
+      208     TRUE ct3_TAACCCGCATGCATGCCATAGCTAAATA
+      209     TRUE ct3_TAACCCGCATGCATGCCATAGCTAAATA
+      210     TRUE ct3_TAACCCGCATGCATGCCATAGCTAAATA
+      211     TRUE ct1_TAACCCGCATGCATGCCATAGCTACATA
+      212     TRUE ct1_TAACCCGCATGCATGCCATAGCTACATA
+      213     TRUE ct1_TAACCCGCATGCATGCCATAGCTACATA
+      214     TRUE ct1_TAACCCGCATGCATGCCATAGCTAGATA
+      215     TRUE ct1_TAACCCGCATGCATGCCATAGCTAGATA
+      216     TRUE ct1_TAACCCGCATGCATGCCATAGCTAGATA
+      217     TRUE ct1_TAACCCGCATGCATGCCATAGCTATATA
+      218     TRUE ct1_TAACCCGCATGCATGCCATAGCTATATA
+      219     TRUE ct1_TAACCCGCATGCATGCCATAGCTATATA
+      220     TRUE ct1_TAACCCGCATGCATGCCATAGCTAACTA
+      221     TRUE ct1_TAACCCGCATGCATGCCATAGCTAACTA
+      222     TRUE ct1_TAACCCGCATGCATGCCATAGCTAACTA
+      223     TRUE ct2_TAACCCGCATGCATGCCATAGCTACCTA
+      224     TRUE ct2_TAACCCGCATGCATGCCATAGCTACCTA
+      225     TRUE ct2_TAACCCGCATGCATGCCATAGCTACCTA
+      226     TRUE ct2_TAACCCGCATGCATGCCATAGCTAGCTA
+      227     TRUE ct2_TAACCCGCATGCATGCCATAGCTAGCTA
+      228     TRUE ct2_TAACCCGCATGCATGCCATAGCTAGCTA
+      229     TRUE ct2_TAACCCGCATGCATGCCATAGCTATCTA
+      230     TRUE ct2_TAACCCGCATGCATGCCATAGCTATCTA
+      231     TRUE ct2_TAACCCGCATGCATGCCATAGCTATCTA
+      232     TRUE ct3_TAACCCGCATGCATGCCATAGCTAAGTA
+      233     TRUE ct3_TAACCCGCATGCATGCCATAGCTAAGTA
+      234     TRUE ct3_TAACCCGCATGCATGCCATAGCTAAGTA
+      235     TRUE ct2_TAACCCGCATGCATGCCATAGCTACGTA
+      236     TRUE ct2_TAACCCGCATGCATGCCATAGCTACGTA
+      237     TRUE ct2_TAACCCGCATGCATGCCATAGCTACGTA
+      238     TRUE ct1_TAACCCGCATGCATGCCATATCTAAATA
+      239     TRUE ct1_TAACCCGCATGCATGCCATATCTAAATA
+      240     TRUE ct1_TAACCCGCATGCATGCCATATCTAAATA
+      241     TRUE ct3_TAACCCGCATGCATGCCATATCTACATA
+      242     TRUE ct3_TAACCCGCATGCATGCCATATCTACATA
+      243     TRUE ct3_TAACCCGCATGCATGCCATATCTACATA
+      244     TRUE ct2_TAACCCGCATGCATGCCATATCTAGATA
+      245     TRUE ct2_TAACCCGCATGCATGCCATATCTAGATA
+      246     TRUE ct2_TAACCCGCATGCATGCCATATCTAGATA
+      247     TRUE ct3_TAACCCGCATGCATGCCATATCTATATA
+      248     TRUE ct3_TAACCCGCATGCATGCCATATCTATATA
+      249     TRUE ct3_TAACCCGCATGCATGCCATATCTATATA
+      250     TRUE ct3_TAACCCGCATGCATGCCATATCTAACTA
+      251     TRUE ct3_TAACCCGCATGCATGCCATATCTAACTA
+      252     TRUE ct3_TAACCCGCATGCATGCCATATCTAACTA
+      253     TRUE ct1_TAACCCGCATGCATGCCATATCTACCTA
+      254     TRUE ct1_TAACCCGCATGCATGCCATATCTACCTA
+      255     TRUE ct1_TAACCCGCATGCATGCCATATCTACCTA
+      256     TRUE ct2_TAACCCGCATGCATGCCATATCTAGCTA
+      257     TRUE ct2_TAACCCGCATGCATGCCATATCTAGCTA
+      258     TRUE ct2_TAACCCGCATGCATGCCATATCTAGCTA
+      259     TRUE ct1_TAACCCGCATGCATGCCATATCTATCTA
+      260     TRUE ct1_TAACCCGCATGCATGCCATATCTATCTA
+      261     TRUE ct1_TAACCCGCATGCATGCCATATCTATCTA
+      262     TRUE ct1_TAACCCGCATGCATGCCATATCTAAGTA
+      263     TRUE ct1_TAACCCGCATGCATGCCATATCTAAGTA
+      264     TRUE ct1_TAACCCGCATGCATGCCATATCTAAGTA
+      265     TRUE ct2_TAACCCGCATGCATGCCATATCTACGTA
+      266     TRUE ct2_TAACCCGCATGCATGCCATATCTACGTA
+      267     TRUE ct2_TAACCCGCATGCATGCCATATCTACGTA
+      268     TRUE ct2_TAACCCGCATGCATGCCATAAGTAAATA
+      269     TRUE ct2_TAACCCGCATGCATGCCATAAGTAAATA
+      270     TRUE ct2_TAACCCGCATGCATGCCATAAGTAAATA
 

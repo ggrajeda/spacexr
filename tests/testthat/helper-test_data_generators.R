@@ -121,20 +121,29 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1) {
 # TODO TO helpers
 rctd_result_list <- \(u) {
   v <- u@results
-  for (i in seq_along(v)) {
-    v[[i]]$cell_id <- names(u@spatialRNA@nUMI)[i]
-  }
+  if (u@config$RCTDmode == "multi") {
+    for (i in seq_along(v)) {
+      v[[i]]$cell_id <- names(u@spatialRNA@nUMI)[i]
+    }
+    rctd_results <- as.data.frame(do.call(rbind, lapply(v, tibble::as_tibble)))
+    } else if (u@config$RCTDmode == "full") {
+      rctd_results <- v$weights
+    } else if (u@config$RCTDmode == "doublet") {
+      rctd_results <- v$results_df
+    } else {
+      stop(paste("Unknown RCTD mode", u@config$RCTDmode))
+    }
   list(cell_type_info = u@cell_type_info$renorm,
-       rctd_results = do.call(rbind, lapply(v, tibble::as_tibble)))
+       rctd_results = rctd_results)
 }
 
 rctd_near_equal <- \(a, b, epsilon = .Machine$double.eps ^ 0.5) {
-  mapply((\(a,b) abs(a - b) <= epsilon), a, b)
+  mapply((\(a,b) abs(a - b) <= epsilon), as.vector(a), as.vector(b))
 }
 
 rctd_results_equal <- \(a, b)
 {
-  all(rctd_near_equal(a$rctd_results$all_weights, b$rctd_results$all_weights)) &&
+  all(rctd_near_equal(a$rctd_results, b$rctd_results)) &&
     all(rctd_near_equal(a$cell_type_info[[1]], b$cell_type_info[[1]]))
 }
 
@@ -142,7 +151,7 @@ rctd_results_equal <- \(a, b)
 # for appropriate checking of floating point results
 print_rctd_results <- \(u) {
   print(u$cell_type_info[[1]], max=99999, digits=5, scipen=-999)
-  print(u$rctd_results, n=1E5, digits=5, scipen=-999)
+  print(u$rctd_results, max=99999, digits=5, scipen=-999)
 }
 
 

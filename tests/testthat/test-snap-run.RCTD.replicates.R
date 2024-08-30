@@ -1,4 +1,4 @@
-test_that("run.RCTD doublet", {
+test_that("run.RCTD.replicates", {
     # Arrange
     # create reference
     set.seed(20240815)
@@ -10,13 +10,14 @@ test_that("run.RCTD doublet", {
     rctd <- create.RCTD.replicates(mat$pucks, mat$reference, replicate_names = names(mat$pucks),
                                    max_cores = 1)
 
-    # Act/Assert
-   expect_snapshot({
-      result <- run.RCTD.replicates(rctd, doublet_mode = 'doublet')
-      list(cell_type_info = result@RCTD.reps, result@group_ids)
-      for (i in seq_along(result@RCTD.reps)) {
-        u <- result@RCTD.reps[[i]]
-        print(table(substr(rownames(u@results$results_df),1,3), u@results$results_df$first_type))
+    # Act
+    raw_result <- run.RCTD.replicates(rctd, doublet_mode = 'doublet')
+
+    # Assert
+    expect_snapshot({
+      for (i in raw_result@RCTD.reps) {
+        result <- rctd_result_list(i)
+        print_rctd_results(result)
       }
    })
  })
