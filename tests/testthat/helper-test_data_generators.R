@@ -148,18 +148,22 @@ rctd_result_list <- \(u) {
 #'
 #' @examples
 near_equal_df <- \(a, b, epsilon = .Machine$double.eps ^ 0.5) {
+  almost_equal <- \(x, y) abs(x - y) <= epsilon
+
   if (!identical(dim(a), dim(b))) {
     # TODO Better error message
     stop("dataframe dimensions not identical")
   }
-
+  if (inherits(a, c("Matrix", "matrix"))) {
+    return(all(almost_equal(a, b)))
+  }
   all(mapply(\(u, v) {
     # TO DO need location for reporting
     if (typeof(u) != typeof(v)) {
       return("Incompatible types")
     }
     if (typeof(u) == "double") {
-      return(all(mapply((\(x, y) abs(x - y) <= epsilon), u, v)))
+      return(all(mapply(almost_equal, u, v)))
     } else {
       return(all(u == v))
     }
