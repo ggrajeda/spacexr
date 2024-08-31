@@ -126,25 +126,51 @@ rctd_result_list <- \(u) {
       v[[i]]$cell_id <- names(u@spatialRNA@nUMI)[i]
     }
     rctd_results <- as.data.frame(do.call(rbind, lapply(v, tibble::as_tibble)))
-    } else if (u@config$RCTDmode == "full") {
+  } else if (u@config$RCTDmode == "full") {
       rctd_results <- v$weights
-    } else if (u@config$RCTDmode == "doublet") {
+  } else if (u@config$RCTDmode == "doublet") {
       rctd_results <- v$results_df
-    } else {
+  } else {
       stop(paste("Unknown RCTD mode", u@config$RCTDmode))
-    }
-  list(cell_type_info = u@cell_type_info$renorm,
+  }
+  list(cell_type_info = u@cell_type_info$renorm[[1]],
        rctd_results = rctd_results)
 }
 
-rctd_near_equal <- \(a, b, epsilon = .Machine$double.eps ^ 0.5) {
-  mapply((\(a,b) abs(a - b) <= epsilon), as.vector(a), as.vector(b))
+#' Title
+#'
+#' @param a
+#' @param b
+#' @param epsilon
+#'
+#' @return logical. TRUE if the data.frames have near equal values
+#' @export
+#'
+#' @examples
+near_equal_df <- \(a, b, epsilon = .Machine$double.eps ^ 0.5) {
+  if (!identical(dim(a), dim(b))) {
+    # TODO Better error message
+    stop("dataframe dimensions not identical")
+  }
+
+  all(mapply(\(u, v) {
+    # TO DO need location for reporting
+    if (typeof(u) != typeof(v)) {
+      return("Incompatible types")
+    }
+    if (typeof(u) == "double") {
+      return(all(mapply((\(x, y) abs(x - y) <= epsilon), u, v)))
+    } else {
+      return(all(u == v))
+    }
+  }, a, b))
+
 }
 
 rctd_results_equal <- \(a, b)
 {
-  all(rctd_near_equal(a$rctd_results, b$rctd_results)) &&
-    all(rctd_near_equal(a$cell_type_info[[1]], b$cell_type_info[[1]]))
+  near_equal_df(a$rctd_results, b$rctd_results) &&
+    near_equal_df(a$cell_type_info, b$cell_type_info)
 }
 
 # Scientific notation, only, 8 sig figs
