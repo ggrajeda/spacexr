@@ -48,7 +48,7 @@ get_beta_multi <- function(barcodes, cell_type_names, results, coords) {
 #'
 #' RCTD must have been run in doublet mode
 #'
-#' @param RCTD an \code{\linkS4class{RCTD}} object with annotated cell types from the \code{\link{run.RCTD}} function.
+#' @param myRCTD an \code{\linkS4class{RCTD}} object with annotated cell types from the \code{\link{run.RCTD}} function.
 #' @return a weights matrix of cell type proportions for each pixel and each cell type.
 #' @export
 get_doublet_weights <- function(myRCTD) {
@@ -144,7 +144,7 @@ get_gene_list_type_wrapper <- function(myRCTD, cell_type, cell_types_present) {
 #' The difference with \code{\link{count_cell_types}} is that this function does not filter out pixels
 #' based on total cell type weight, as occurs in the CSIDE algorithm.
 #'
-#' @param RCTD an \code{\linkS4class{RCTD}} object with annotated cell types e.g. from the \code{\link{run.RCTD}} function.
+#' @param myRCTD an \code{\linkS4class{RCTD}} object with annotated cell types e.g. from the \code{\link{run.RCTD}} function.
 #' @param barcodes the barcodes, or pixel names, of the \code{\linkS4class{SpatialRNA}} object to be used when counting cell types.
 #' @param doublet_mode (default TRUE) if TRUE, uses RCTD doublet mode weights. Otherwise, uses RCTD full mode weights
 #' @return a named vector of number of pixel occurrences for each cell type
@@ -168,7 +168,7 @@ aggregate_cell_types <- function(myRCTD, barcodes, doublet_mode = T) {
 #' The difference with \code{\link{aggregate_cell_types}} is that this function does filter out pixels
 #' based on total cell type weight, as occurs in the CSIDE algorithm.
 #'
-#' @param RCTD an \code{\linkS4class{RCTD}} object with annotated cell types e.g. from the \code{\link{run.RCTD}} function.
+#' @param myRCTD an \code{\linkS4class{RCTD}} object with annotated cell types e.g. from the \code{\link{run.RCTD}} function.
 #' @param barcodes the barcodes, or pixel names, of the \code{\linkS4class{SpatialRNA}} object to be used when counting cell typel\.
 #' @param cell_types the cell types used for CSIDE. If null, cell types will be chosen with aggregate occurences of
 #' at least `cell_type_threshold`, as aggregated by \code{\link{aggregate_cell_types}}

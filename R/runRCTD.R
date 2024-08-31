@@ -16,20 +16,29 @@ test_single_beads <- function(puck, gene_list, cell_type_info, trust_model = FAL
 
 #' Runs RCTD in full mode on \code{puck}
 #'
-#' Renormalizes \code{cell_type_means} to have average the same as the puck
-#' if \code{proportions} is given. Then, computes cell type proportions for each pixel
-#' in \code{puck}.
+#' Renormalizes \code{cell_type_means} to have average the same as the puck if
+#' \code{proportions} is given. Then, computes cell type proportions for each
+#' pixel in \code{puck}.
 #'
-#' @param proportions (optional) If given, a named list (for each cell type) of proportion of the cell type on the bulk dataset
-#' (not constrained to sum to 1)
+#' @param proportions (optional) If given, a named list (for each cell type) of
+#'   proportion of the cell type on the bulk dataset (not constrained to sum to
+#'   1)
 #' @param gene_list a list of genes to be used for RCTD
 #' @param puck an object of type \linkS4class{SpatialRNA}, the target dataset
-#' @param cell_type_info cell type information and profiles of each cell, calculated from the scRNA-seq
-#' reference (see \code{\link{get_cell_type_info}})
-#' @param constrain logical whether to constrain the weights to sum to one on each pixel
-#' @return Returns \code{test_results}, a list of three items:
-#' (1) \code{conf_mat} a confusion matrix (not relevant) (2) \code{weights}
-#' a dataframe of predicted weights (3) a named list of predicted cell types
+#' @param cell_type_info cell type information and profiles of each cell,
+#'   calculated from the scRNA-seq reference (see
+#'   \code{\link{get_cell_type_info}})
+#' @param trust_model if FALSE, generates a confusion matrix against
+#'   \code{puck@cell_labels}. otherwise, generates a confusion matrix against
+#'   its own prediction.
+#' @param OLS logical whether to initialize the weights with OLS before
+#'   iterating WLS
+#' @param constrain logical whether to constrain the weights to sum to one on
+#'   each pixel
+#'
+#' @return Returns \code{test_results}, a list of three items: (1)
+#'   \code{conf_mat} a confusion matrix (not relevant) (2) \code{weights} a
+#'   dataframe of predicted weights (3) a named list of predicted cell types
 #' @export
 process_data <- function(puck, gene_list, cell_type_info, proportions = NULL, trust_model = FALSE, constrain = T, OLS = F) {
   cell_type_info_renorm = cell_type_info
@@ -54,8 +63,9 @@ process_data <- function(puck, gene_list, cell_type_info, proportions = NULL, tr
 #' @param cell_type_info cell type information and profiles of each cell, calculated from the scRNA-seq
 #' reference (see \code{\link{get_cell_type_info}})
 #' @param constrain logical whether to constrain the weights to sum to one on each pixel
-#' @param max_cores number of cores to use (will use parallel processing if more than one).
+#' @param MAX_CORES number of cores to use (will use parallel processing if more than one).
 #' @param CONFIDENCE_THRESHOLD (Default 10) the minimum change in likelihood (compared to other cell types) necessary to determine a cell type identity with confidence
+#' @param MIN.CHANGE (default 0.001) the minimum change in the norm of the WLS solution used to determine the cell type proportions
 #' @param DOUBLET_THRESHOLD (Default 25) the penalty weight of predicting a doublet instead of a singlet for a pixel
 #' @return Returns \code{results}, a list of RCTD results for each pixel, which can be organized by
 #' feeding into \code{\link{gather_results}}

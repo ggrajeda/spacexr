@@ -29,11 +29,13 @@ classes}
 
 \item{constrain}{logical whether to constrain the weights to sum to one on each pixel}
 
+\item{MAX_CORES}{number of cores to use (will use parallel processing if more than one).}
+
+\item{MIN.CHANGE}{(default 0.001) the minimum change in the norm of the WLS solution used to determine the cell type proportions}
+
 \item{CONFIDENCE_THRESHOLD}{(Default 10) the minimum change in likelihood (compared to other cell types) necessary to determine a cell type identity with confidence}
 
 \item{DOUBLET_THRESHOLD}{(Default 25) the penalty weight of predicting a doublet instead of a singlet for a pixel}
-
-\item{max_cores}{number of cores to use (will use parallel processing if more than one).}
 }
 \value{
 Returns \code{results}, a list of RCTD results for each pixel, which can be organized by

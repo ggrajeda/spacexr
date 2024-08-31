@@ -59,3 +59,19 @@ _bookdown_files/
 # Large data sets for reenactments
 reenact_data/
 spacexr.Rproj
+# System files
+.DS_Store
+Thumbs.db
+
+# RStudio project files
+.Rproj.user/
+*.Rproj
+.Rhistory
+.RData
+.Ruserdata
+
+# Package build files
+.Rbuildignore
+.Rinstignore
+.Renviron
+.Rprofile

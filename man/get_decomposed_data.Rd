@@ -13,7 +13,7 @@ get_decomposed_data(
 )
 }
 \arguments{
-\item{results_df}{a dataframe of RCTD results}
+\item{results_df}{a dataframe of RCTD results (see \code{\link{gather_results}})}
 
 \item{gene_list}{a list of genes to be used for the decomposition}
 

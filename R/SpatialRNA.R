@@ -43,7 +43,7 @@ read.VisiumSpatialRNA <- function (datadir)
 #'
 #' @param datadir (character) full path to input directory
 #' @param count_file (character) file name of the counts csv file (genes by pixels matrix)
-#' @param coord_file (character) file name of the coords csv file (pixels by (barcodes, x, y) matrix)
+#' @param coords_file (character) file name of the coords csv file (pixels by (barcodes, x, y) matrix)
 #' @return Returns a \code{\linkS4class{SpatialRNA}} object containing the coordinates and counts
 #' from the input files
 #' @export
