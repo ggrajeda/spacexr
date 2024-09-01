@@ -25,7 +25,7 @@ test_that("run.RCTD.multi", {
   })
 
   # Is the mutli-core answer identical with the single core answer
-  expect_true(rctd_results_equal(result, result_multi))
+  expect_rctd_results_equal(result, result_multi)
 })
 
 

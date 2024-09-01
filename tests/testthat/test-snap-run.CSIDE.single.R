@@ -1,6 +1,5 @@
 test_that("run.CSIDE.single simple test",{
-  # TODO Streamline and shrink!
-  # This is only a proof of concept that mirrors the differential-expression vignette
+  # This is roughly follows the differential-expression vignette
 
   # Arrange
   # create reference
@@ -16,7 +15,7 @@ test_that("run.CSIDE.single simple test",{
   names(explanatory.variable) <- names(rctd@spatialRNA@nUMI) # currently random explanatory variable
   print(head(explanatory.variable))
 
-  #Differentially upregulate one gene
+  # Differentially upregulate one gene
   # take one gene from the 80th centile.
   change_gene <-  names((\(u)
       u[head(which(u >quantile(u, 0.8)), 1)])(sort(rowSums(rctd@originalSpatialRNA@counts))))
