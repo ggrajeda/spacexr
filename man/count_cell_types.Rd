@@ -14,6 +14,8 @@ count_cell_types(
 )
 }
 \arguments{
+\item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types e.g. from the \code{\link{run.RCTD}} function.}
+
 \item{barcodes}{the barcodes, or pixel names, of the \code{\linkS4class{SpatialRNA}} object to be used when counting cell typel\.}
 
 \item{cell_types}{the cell types used for CSIDE. If null, cell types will be chosen with aggregate occurences of
@@ -25,8 +27,6 @@ at least `cell_type_threshold`, as aggregated by \code{\link{aggregate_cell_type
 
 \item{weight_threshold}{(default NULL) the threshold of total normalized weights across all cell types
 in \code{cell_types} per pixel to be included in the model. Default 0.99 for doublet_mode or 0.95 for full_mode.}
-
-\item{RCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types e.g. from the \code{\link{run.RCTD}} function.}
 }
 \value{
 a named vector of number of pixel occurrences for each cell type

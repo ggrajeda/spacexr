@@ -2,8 +2,12 @@
 % Please edit documentation in R/classes.R
 \docType{package}
 \name{spacexr}
+\alias{spacexr-package}
 \alias{spacexr}
 \title{spacexr: an R package for assigning cell types and cell type specific differential expression to spatial transcriptomics data.}
+\description{
+cell type identification and cell type-specific differential expression for spatial transcriptomics
+}
 \section{Running RCTD}{
 
 

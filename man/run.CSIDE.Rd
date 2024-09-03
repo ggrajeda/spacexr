@@ -64,6 +64,12 @@ to consider for gene expression contamination during the step filtering out mark
 
 \item{fdr}{(default 0.01) false discovery rate for hypothesis testing}
 
+\item{cell_type_specific}{(default TRUE for all covariates). A logical vector of length the number of covariates
+indicating whether each covariate's DE parameters should be cell type-specific or shared across all cell types.}
+
+\item{params_to_test}{(default 2 for test_mode = 'individual', all parameters for test_mode = 'categorical'). An integer vector of parameter
+indices to test. For example c(1,4,5) would test only parameters corresponding to columns 1, 4, and 5 of the design matrix.}
+
 \item{normalize_expr}{(default FALSE) if TRUE, constrains total gene expression to sum to 1 in each condition.
 Setting normalize_expr = TRUE is only valid for testing single parameters with test_mode = 'individual'.}
 
@@ -71,16 +77,12 @@ Setting normalize_expr = TRUE is only valid for testing single parameters with t
 
 \item{log_fc_thresh}{(default 0.4) the natural log fold change cutoff for differential expression}
 
+\item{cell_type_filter}{(default NULL) named logical vector specifying whether a cell type should be kept for analysis}
+
 \item{test_error}{(default FALSE) if TRUE, exits after testing for error messages without running CSIDE.
 If set to TRUE, this can be used to quickly evaluate if CSIDE will run without error.}
 
 \item{fdr_method}{(default BH) if BH, uses the Benjamini-Hochberg method. Otherwise, uses local fdr with an empirical null.}
-
-\item{cell_type_specific:}{(default TRUE for all covariates). A logical vector of length the number of covariates
-indicating whether each covariate's DE parameters should be cell type-specific or shared across all cell types.}
-
-\item{params_to_test:}{(default 2 for test_mode = 'individual', all parameters for test_mode = 'categorical'). An integer vector of parameter
-indices to test. For example c(1,4,5) would test only parameters corresponding to columns 1, 4, and 5 of the design matrix.}
 }
 \value{
 an \code{\linkS4class{RCTD}} object containing the results of the CSIDE algorithm. Contains objects \code{de_results},

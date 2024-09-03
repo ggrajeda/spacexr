@@ -37,7 +37,9 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #' If this option is used, reference will be ignored.
 #' @param keep_reference (Default FALSE) if true, keeps the \code{reference} object stored within the \code{\linkS4class{RCTD}} object
 #' @param CONFIDENCE_THRESHOLD (Default 5) the minimum change in likelihood (compared to other cell types) necessary to determine a cell type identity with confidence
+#' @param test_mode (Default FALSE) if true, runs with a preset test configuration
 #' @param DOUBLET_THRESHOLD (Default 20) the penalty weight of predicting a doublet instead of a singlet for a pixel
+#'
 #' @return an \code{\linkS4class{RCTD}} object, which is ready to run the \code{\link{run.RCTD}} function
 #' @export
 create.RCTD <- function(spatialRNA, reference, max_cores = 4, test_mode = FALSE, gene_cutoff = 0.000125, fc_cutoff = 0.5, gene_cutoff_reg = 0.0002, fc_cutoff_reg = 0.75, UMI_min = 100, UMI_max = 20000000, counts_MIN = 10, UMI_min_sigma = 300,
@@ -92,7 +94,9 @@ create.RCTD <- function(spatialRNA, reference, max_cores = 4, test_mode = FALSE,
 #' on the pixel. If in full mode, can fit any number of cell types on each pixel. In multi mode, cell types are added using a greedy algorithm,
 #' up to a fixed number.
 #'
+#' @param doublet_mode \code{character string}, either "doublet", "multi", or "full" on which mode to run RCTD. Please see above description.
 #' @param RCTD an \code{\linkS4class{RCTD}} object created using the \code{\link{create.RCTD}} function.
+#'
 #' @return an \code{\linkS4class{RCTD}} object containing the results of the RCTD algorithm. Please see \code{\linkS4class{RCTD}}
 #' documentation for more information on interpreting the content of the RCTD object.
 #' @export
@@ -141,7 +145,7 @@ check_vector <- function(variable, var_name, f_name, require_int = FALSE) {
 #' Updates an old \code{\linkS4class{RCTD}} object to be compatible with the current
 #' version of \code{spacexr}.
 #'
-#' @param RCTD an \code{\linkS4class{RCTD}} object (potentially from an older version.
+#' @param myRCTD an \code{\linkS4class{RCTD}} object (potentially from an older version.
 #' @return an \code{\linkS4class{RCTD}} object updated to be compatible with the current version
 #' of \code{spacexr}.
 #' @export

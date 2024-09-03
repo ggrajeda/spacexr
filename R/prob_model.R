@@ -3,7 +3,7 @@
 #' Given a matrix, \code{Q_mat}, or log P(y|x), under the Poisson-Lognormal model.
 #' Sets this as a global variable for fast computations in the future.
 #'
-#' @param Q_mat_loc Matrix of precomputed probabiliites, as previously computed by \code{\link{get_Q_mat}}
+#' @param Q_mat_loc Matrix of precomputed probabiliites, as previously computed by \code{{calc_Q_par}}
 #' @param X_vals the x-values used for computing the likelihood functions.
 #' @param sigma (default NULL). If NULL, computes SQ_mat according to Q_mat_loc.
 #' Else, uses precomputed values of SQ_mat stored in SQ_mat_all with index sigma

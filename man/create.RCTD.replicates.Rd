@@ -41,6 +41,8 @@ replicates across groups}
 \item{max_cores}{for parallel processing, the number of cores used. If set to 1, parallel processing is not used. The system will additionally be checked for
 number of available cores.}
 
+\item{test_mode}{(Default FALSE) if true, runs RCTD with a preset test configuration}
+
 \item{gene_cutoff}{minimum normalized gene expression for genes to be included in the platform effect normalization step.}
 
 \item{fc_cutoff}{minimum log-fold-change (across cell types) for genes to be included in the platform effect normalization step.}
@@ -68,8 +70,6 @@ number of available cores.}
 \item{CONFIDENCE_THRESHOLD}{(Default 5) the minimum change in likelihood (compared to other cell types) necessary to determine a cell type identity with confidence}
 
 \item{DOUBLET_THRESHOLD}{(Default 20) the penalty weight of predicting a doublet instead of a singlet for a pixel}
-
-\item{cell_type_info}{Default NULL, option to pass in \code{cell_type_info} directly}
 }
 \value{
 an \code{\linkS4class{RCTD.replicates}} object, which is ready to run the \code{\link{run.RCTD.replicates}} function

@@ -13,6 +13,8 @@ single cells as columns (barcodes for colnames)}
 \item{cell_types}{a named list of cell type assignment for each cell in \code{raw.data}}
 
 \item{nUMI}{a named list of total UMI count for each cell in \code{raw.data}}
+
+\item{cell_type_names}{a list of cell type names to compute profiles for. If NULL, uses the levels of \code{cell_types}}
 }
 \value{
 Returns \code{cell_type_info}, a list of three elements: (1) \code{cell_type_means} (a

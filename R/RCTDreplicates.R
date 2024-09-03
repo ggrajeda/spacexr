@@ -22,10 +22,11 @@
 #' @param CELL_MIN_INSTANCE minimum number of cells required per cell type. Default 25, can be lowered if desired.
 #' @param cell_type_names A list of cell types to be included from the reference. If NULL, uses all cell types
 #' @param MAX_MULTI_TYPES (multi-mode only) Default 4, max number of cell types per pixel
-#' @param cell_type_info Default NULL, option to pass in \code{cell_type_info} directly
 #' @param keep_reference (Default FALSE) if true, keeps the \code{reference} object stored within the \code{\linkS4class{RCTD}} object
 #' @param CONFIDENCE_THRESHOLD (Default 5) the minimum change in likelihood (compared to other cell types) necessary to determine a cell type identity with confidence
+#' @param test_mode (Default FALSE) if true, runs RCTD with a preset test configuration
 #' @param DOUBLET_THRESHOLD (Default 20) the penalty weight of predicting a doublet instead of a singlet for a pixel
+#'
 #' @return an \code{\linkS4class{RCTD.replicates}} object, which is ready to run the \code{\link{run.RCTD.replicates}} function
 #' @export
 create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_names, group_ids = NULL, max_cores = 4, test_mode = FALSE,
@@ -126,9 +127,12 @@ run.RCTD.replicates <- function(RCTD.replicates, doublet_mode = "doublet") {
 #' @param medv (default 0.5) for single model, the cutoff value of explanatory.variable (after 0-1 normalization) for determining if enough pixels for each cell type
 #' have explanatory-variable greater than or less than this value (minimum cell_type_threshold/2 required).
 #' @param test_genes_sig_individual (default FALSE) logical controlling whether on individual samples genes will be tested for significance.
-#' @param params_to_test: (default 2 for test_mode = 'individual', all parameters for test_mode = 'categorical'). An integer vector of parameter
+#' @param params_to_test (default 2 for test_mode = 'individual', all parameters for test_mode = 'categorical'). An integer vector of parameter
 #' indices to test. For example c(1,4,5) would test only parameters corresponding to columns 1, 4, and 5 of the design matrix.
+#' @param test_mode (default 'individual') if 'individual', tests for DE individually for each parameter. If 'categorical', then tests for differences
+#' across multiple categorical parameters
 #' @param barcodes for de_mode = nonparam, the barcodes, or pixel names, of the \code{\linkS4class{SpatialRNA}} object to be used when fitting the model.
+#'
 #' @return an \code{\linkS4class{RCTD.replicates}} object containing the results of the CSIDE algorithm. See \code{\linkS4class{RCTD.replicates}}
 #' for documentation on the \code{population_de_results}, \code{population_sig_gene_list}, and \code{population_sig_gene_df} objects.
 #' @export
@@ -233,7 +237,7 @@ merge_RCTD_objects <- function(RCTD.reps, replicate_names, group_ids = NULL) {
 #' @param CT.PROP (default 0.5) minimum ratio of gene expression within cell type compared to other cell types
 #' @param fdr (default 0.01) false discovery rate
 #' @param log_fc_thresh (default 0.4) minimum natural log estimated DE threshold
-#' @param params_to_test: (default 2 for test_mode = 'individual', all parameters for test_mode = 'categorical'). An integer vector of parameter
+#' @param params_to_test (default 2 for test_mode = 'individual', all parameters for test_mode = 'categorical'). An integer vector of parameter
 #' indices to test. Note, for population mode, only the first parameter is tested.
 #' @param normalize_expr (default FALSE) if TRUE, constrains total gene expression to sum to 1 in each condition
 #' @param meta (default FALSE) if TRUE, conducts population inference using general meta regression

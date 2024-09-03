@@ -3,20 +3,12 @@ title: "Applying RCTD to Spatial Transcriptomics Data"
 author: "Dylan Cable"
 date: "March 17th, 2021"
 output:  
-  html_document:
-    keep_md: yes
   rmarkdown::html_vignette:
-    keep_md: yes
 vignette: >
   %\VignetteIndexEntry{spatial-transcriptomics}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 ---
-
-```{r setup}
-library(spacexr)
-library(Matrix)
-```
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -29,8 +21,15 @@ knitr::opts_chunk$set(
 ## Introduction
 Robust Cell Type Decomposition, or RCTD, is an statistical method for learning cell types from spatial transcriptomics data. In this Vignette, we will assign cell types to a cerebellum Slide-seq dataset. We will define cell type profiles using an annotated single nucleus RNA-sequencing (snRNA-seq) cerebellum dataset. Please note that the reference could also be a single-cell dataset or a cell type-specific bulk RNA-seq dataset.
 
+## Load required librariess
+
+```{r setup}
+library(spacexr)
+library(Matrix)
+```
+
 ## Data Preprocessing
-Let's begin by loading in the data to be usable for RCTD. <br/>
+Let's begin by loading in the data to be usable for RCTD.
 
 ### Single-Cell Reference
 In order to run RCTD, the first step is to process the single cell reference. The reference is created using the RCTD `Reference` constructor function, which requires 3 parameters: <br/>
@@ -61,9 +60,6 @@ reference <- Reference(counts, cell_types, nUMI)
 ## Examine reference object (optional)
 print(dim(reference@counts)) #observe Digital Gene Expression matrix
 table(reference@cell_types) #number of occurences for each cell type
-
-## Save RDS object (optional)
-saveRDS(reference, file.path(refdir,'SCRef.rds'))
 ```
 
 ### Spatial Transcriptomics data
@@ -99,7 +95,7 @@ barcodes <- colnames(puck@counts) # pixels to be used (a list of barcode names).
 plot_puck_continuous(puck, barcodes, puck@nUMI, ylimit = c(0,round(quantile(puck@nUMI,0.9))), 
                      title ='plot of nUMI') 
 ```
-The RDS file 'puck.RDS' saves the 'SpatialRNA' file we have created, and from now on it can be loaded in by the init_RCTD function. 
+
 ## Running RCTD
 
 ### Creating RCTD Object
@@ -138,6 +134,7 @@ results <- myRCTD@results
 norm_weights = normalize_weights(results$weights) 
 cell_type_names <- myRCTD@cell_type_info$info[[2]] #list of cell type names
 spatialRNA <- myRCTD@spatialRNA
+# TODO Remove up to dir.create after generalizing the plot functions
 resultsdir <- 'RCTD_Plots' ## you may change this to a more accessible directory on your computer.
 dir.create(resultsdir)
 ```

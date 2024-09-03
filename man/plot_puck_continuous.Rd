@@ -29,13 +29,23 @@ plot_puck_continuous(
 
 \item{ylimit}{minimum and maximum values for the range of plot as a numeric list}
 
+\item{title}{the title of the plot}
+
+\item{counter_barcodes}{(optional) list of barcodes to highlight with low opacity}
+
+\item{label}{a logical value indicating whether to add text labels to the points}
+
+\item{my_pal}{(optional) a color palette for the gradient. Defaults to \code{pals::kovesi.rainbow(20)}.}
+
 \item{xlim}{(optional) minimum and maximum value for x coordinate as a numeric list}
 
 \item{ylim}{(optional) minimum and maximum value for y coordinate as a numeric list}
 
 \item{size}{numeric size of points}
 
-\item{cell_type_info}{cell type information and profiles (see \code{\link{get_cell_type_info}})}
+\item{alpha}{the transparency level of the points. Default is 1 (opaque).}
+
+\item{small_point}{a logical value indicating whether to use smaller points in the plot}
 }
 \value{
 Returns a \link{ggplot} object
