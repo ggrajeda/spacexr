@@ -4,8 +4,8 @@ test_that("run.CSIDE.single simple test",{
   # Arrange
   # create reference
   set.seed(20240821)
-  mat <- sce_to_rctd(synthetic_se(n_celltypes = 3,
-                             cells_per_type = 60,
+  mat <- sce_to_rctd(synthetic_se(n_celltypes = 20,
+                             cells_per_type = 5,
                              nGenes = 500,
                              seed = 886))
   rctd <- create.RCTD(mat$puck[[1]], mat$reference, max_cores = 1)
@@ -24,15 +24,27 @@ test_that("run.CSIDE.single simple test",{
   low_barc <- names(explanatory.variable[explanatory.variable < 0.5])
   rctd@spatialRNA@counts[change_gene, high_barc] <- rctd@spatialRNA@counts[change_gene, high_barc] * 3
 
+  rctd_mmulti <- rctd
+  rctd@config$max_cores <- 1
+  rctd_mmulti@config$max_cores <- 2
+
   # plot_puck_continuous(rctd@spatialRNA, names(explanatory.variable), explanatory.variable, ylimit = c(0,1), title ='plot of explanatory variable')
 
-  # Act/Assert
-  rctd@config$max_cores <- 1
-  expect_snapshot({
-    r <- run.CSIDE.single(rctd,
+  # Act
+  r <- run.CSIDE.single(rctd,
+                        explanatory.variable,
+                        gene_threshold = .01,
+                        cell_type_threshold = 3, fdr = 0.25)
+  r_multi <- run.CSIDE.single(rctd,
                               explanatory.variable,
                               gene_threshold = .01,
                               cell_type_threshold = 3, fdr = 0.25)
-    r@de_results
+
+  # Assert
+  expect_snapshot({
+    r@de_results$all_gene_list
+    r_mutli@de_results$all_gene_list
   })
+
+  expect_rctd_results_equal(r, r_multi)
 })

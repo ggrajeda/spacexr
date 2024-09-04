@@ -226,9 +226,16 @@ near_equal <- \(a, b, ref_name = "", epsilon = .Machine$double.eps ^ 0.5) {
 
 rctd_results_equal <- \(a, b)
 {
-  r1 <- near_equal(a$rctd_results, b$rctd_results, ref_name = "rctd_results")
-  r2 <- near_equal(a$cell_type_info, b$cell_type_info, ref_name = "cell_type_info")
-  rbind(r1, r2)
+  coalesce_gene_list_dfs <- \(u) do.call(rbind, u@de_results$all_gene_list)
+
+  result <- near_equal(a$rctd_results, b$rctd_results, ref_name = "rctd_results")
+  result <- applend(result,
+        near_equal(a$cell_type_info, b$cell_type_info,
+                   ref_name = "cell_type_info"))
+  result <- append(result,
+         near_equal(coalesce_gene_list_dfs(a), coalesce_gene_list_dfs(b),
+                    ref_name = "de_results$all_gene_list"))
+  result
 }
 
 # Scientific notation, only, 8 sig figs
@@ -238,6 +245,7 @@ print_rctd_results <- \(u) {
   print(u$rctd_results, max=99999, digits=5, scipen=-999)
 }
 
+# TODO Roxygen
 expect_rctd_results_equal <- function(a, b) {
   df <- rctd_results_equal(a, b)
   if (nrow(df) == 0) {
