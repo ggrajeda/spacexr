@@ -226,17 +226,21 @@ near_equal <- \(a, b, ref_name = "", epsilon = .Machine$double.eps ^ 0.5) {
 
 rctd_results_equal <- \(a, b)
 {
-  coalesce_gene_list_dfs <- \(u) do.call(rbind, u@de_results$all_gene_list)
-
   result <- near_equal(a$rctd_results, b$rctd_results, ref_name = "rctd_results")
-  result <- applend(result,
+  result <- append(result,
         near_equal(a$cell_type_info, b$cell_type_info,
                    ref_name = "cell_type_info"))
-  result <- append(result,
-         near_equal(coalesce_gene_list_dfs(a), coalesce_gene_list_dfs(b),
-                    ref_name = "de_results$all_gene_list"))
   result
 }
+
+cside_results_equal <- \(a, b)
+{
+  coalesce_gene_list_dfs <- \(u) do.call(rbind, u@de_results$all_gene_list)
+
+  near_equal(coalesce_gene_list_dfs(a), coalesce_gene_list_dfs(b),
+            ref_name = "de_results$all_gene_list")
+}
+
 
 # Scientific notation, only, 8 sig figs
 # for appropriate checking of floating point results
@@ -254,5 +258,17 @@ expect_rctd_results_equal <- function(a, b) {
   fail_msg <- paste("Differences found:\n",
     paste(capture.output(print(df, row.names = FALSE)), collapse = "\n"))
   fail(fail_msg)
+  }
+}
+
+# TODO Roxygen
+expect_cside_results_equal <- function(a, b) {
+  df <- cside_results_equal(a, b)
+  if (nrow(df) == 0) {
+    succeed("The objects are equal")
+  } else {
+    fail_msg <- paste("Differences found:\n",
+                      paste(capture.output(print(df, row.names = FALSE)), collapse = "\n"))
+    fail(fail_msg)
   }
 }
