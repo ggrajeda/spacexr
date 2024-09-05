@@ -46,34 +46,40 @@ synthetic_se <- function(n_celltypes = 3,
       group.prob = rep(1 / n_celltypes, n_celltypes),
       verbose = FALSE
     )
-
-    # Create barcode as CellType_UMI
-    # where CellType is from Group
     colData(se)[, "Group"] <- as.factor(str_replace(colData(se)$Group, "Group", "ct"))
-    colnames(se) <- paste(colData(se)$Group, char2atcg(colData(se)$Cell), sep = "_")
-
-    # map the cells (columns) to slide xy-space
-    cartesian2polar <- function(cart) with(cart,data.frame(rho = sqrt(x^2 + y^2),
-                                                           theta = atan2(y, x)))
-    polar2cartesian <- function(polar) with(polar, data.frame(x = rho * cos(theta),
-                                                              y = rho * sin(theta)))
-    # the groups are evenly spaced along the circumference of a circle
-    theta <- 2*pi * 0:(n_celltypes - 1) /n_celltypes
-    centroids <- polar2cartesian(data.frame(rho = 1, theta = theta))
-    runif(total_cells, 0, 2  * pi)
-
-    # the cells (columns) are distributed in a smaller disk centered at each group
-    cd <- colData(se)
-    location <- polar2cartesian(data.frame(rho = sqrt(runif(total_cells, 0, 1)) * disk_radius,
-                                           theta = runif(total_cells, 0, 2  * pi)))
-    offset <- centroids[as.integer(colData(se)$Group),]
-    location <- location + offset
-    # the (x,y) coordinates for eacch cell are now part of colData
-    colData(se) <- cbind(cd, location)
+    # TODO DELETE WHEN revision is working
+#
+#     # Create barcode as CellType_UMI
+#     # where CellType is from Group
+#     colnames(se) <- paste(colData(se)$Group, char2atcg(colData(se)$Cell), sep = "_")
+#
+#     # map the cells (columns) to slide xy-space
+#     cartesian2polar <- function(cart) with(cart,data.frame(rho = sqrt(x^2 + y^2),
+#                                                            theta = atan2(y, x)))
+#     polar2cartesian <- function(polar) with(polar, data.frame(x = rho * cos(theta),
+#                                                               y = rho * sin(theta)))
+#     # the groups are evenly spaced along the circumference of a circle
+#     theta <- 2*pi * 0:(n_celltypes - 1) /n_celltypes
+#     centroids <- polar2cartesian(data.frame(rho = 1, theta = theta))
+#     runif(total_cells, 0, 2  * pi)
+#
+#     # the cells (columns) are distributed in a smaller disk centered at each group
+#     cd <- colData(se)
+#     location <- polar2cartesian(data.frame(rho = sqrt(runif(total_cells, 0, 1)) * disk_radius,
+#                                            theta = runif(total_cells, 0, 2  * pi)))
+#     offset <- centroids[as.integer(colData(se)$Group),]
+#     location <- location + offset
+#     # the (x,y) coordinates for eacch cell are now part of colData
+#     colData(se) <- cbind(cd, location)
   })
   return(se)
 }
 
+default_region_spec <- list(
+    ct1 = list(location=c(x=1,y=1), size=c(x=10,y=8), mixture=c(ct1=1)),
+    ct2 = list(location=c(x=1,y=10), size=c(x=10,y=8), mixture=c(ct2=1)),
+    ct3 = list(location=c(x=1,y=20), size=c(x=10,y=8), mixture=c(ct3=1))
+  )
 #' Create a Reference and associated SpatialRNA object from a single cell experiment
 #'
 #' @param sce - A  SingleCellExperiment, specifically one created by the synthetic_se function.
@@ -83,7 +89,9 @@ synthetic_se <- function(n_celltypes = 3,
 #'
 #' @return (reference, list(s_regions))
 #'
-sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1) {
+# TODO sce should also be returned
+sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
+                        region_spec = defafult_region_spec) {
   # create Reference object
   split <- floor(ncol(sce) * prop.ref)
   refSE <- sce[, 1:split]
@@ -92,26 +100,28 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1) {
   reference <- Reference(counts =assay(refSE, "counts"),
                          cell_types = cell_types)
 
-  # create s_regions
-  # The boundaries for for the column partition
-  u <- round(seq(from = split + 1, to = ncol(sce)+ 1, length.out = replicates + 1))
-  # each row of of u is a replicate and the two columns are the corrsponding
-  # limits of the columns to be returned from sce
-  u <- matrix(c(u[1:(replicates)], u[2:(replicates + 1)] - 1),
-              nrow = replicates, byrow = FALSE)
-  # check to be sure that there there is at least one column in each replicate
-  if ( min(u[,2] - u[,1]) <1) {
-    stop("function sce_to_rctd: Not enough sce columns for the number of replicates")
+  # TODO need enough dots per region
+  # TODO replicates > 1
+  sce <- sce[, split:ncol(sce)]
+  r2d <-regions_to_dots(region_spec)
+  # assign bar codes (proxy for dot location) to colnames
+  browser()
+  v <- split(seq(ncol(sce)), colData(sce)$Group)
+  for (i in seq_along(v)) {
+    colnames(sce)[v[[i]]] <- sample(rownames(r2d[[i]]), length(v[[i]]))
   }
 
-  s_regions <- apply(u, 1, \(x) {
-    s <- sce[,x[1]:x[2]]
+  r2c_reduced <- Reduce(\(x,y) rbind(x, y), r2d)
+  colData(sce) <- cbind(colData(sce), r2c_reduced[colnames(sce),])
+  # now colData has the bar code and x,y coordinates
+
+  # TODO u once specified the replicate locations. Move to colData and split.
+    s <- sce
     v <- list(counts = assay(s, "counts"),
               coords = as.data.frame(colData(s)[,c("x", "y")]))
     v$nUMI <- colSums(v$counts)
     s_region <- SpatialRNA(v$coords, v$counts)
-  })
-  names(s_regions) <- paste("rpl", seq_along(s_regions), sep = "")
+    s_regions <- list(s_region) # TODO plug for missing replicate loop
 
   list(reference = reference, s_regions = s_regions)
 }

@@ -1,5 +1,6 @@
 # helper-test_data_generators.R
 
+# TODO WIP - make release ready
 # Create simulated spatial data
 
 # The configuration goes like this:
@@ -54,7 +55,6 @@ region_limits <- \(config) {
   list(x=range(m[,c(1,3)]), y=range(m[,c(2,4)]))
 }
 
-get_
 
 plot_regions <- \(config) {
   bounds <- region_limits(config)
@@ -70,8 +70,3 @@ plot_regions <- \(config) {
          col = colors[i])
   }
 }
-
-plot(NULL, xlim=c(0,pixel_limit["x"]), ylim=c(0, pixel_limit["y"]))
-rect(xleft = 0, ybottom = 0, xright = 14, ytop = 14, col= colors[1])
-
-rect(xleft = 22, ybottom = 22, xright = 16, ytop = 16, col= colors[3], lty=0)
