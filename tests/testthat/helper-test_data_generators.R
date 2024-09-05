@@ -57,7 +57,7 @@ synthetic_se <- function(n_celltypes = 3,
                                                            theta = atan2(y, x)))
     polar2cartesian <- function(polar) with(polar, data.frame(x = rho * cos(theta),
                                                               y = rho * sin(theta)))
-    # the groups are evenly spaced along the circumferience of a circle
+    # the groups are evenly spaced along the circumference of a circle
     theta <- 2*pi * 0:(n_celltypes - 1) /n_celltypes
     centroids <- polar2cartesian(data.frame(rho = 1, theta = theta))
     runif(total_cells, 0, 2  * pi)
@@ -81,7 +81,7 @@ synthetic_se <- function(n_celltypes = 3,
 #' The remaining columns will be used as the experimental observations.
 #' @param replicates The number of experimental replicates
 #'
-#' @return (reference, list(pucks))
+#' @return (reference, list(s_regions))
 #'
 sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1) {
   # create Reference object
@@ -92,7 +92,7 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1) {
   reference <- Reference(counts =assay(refSE, "counts"),
                          cell_types = cell_types)
 
-  # create pucks
+  # create s_regions
   # The boundaries for for the column partition
   u <- round(seq(from = split + 1, to = ncol(sce)+ 1, length.out = replicates + 1))
   # each row of of u is a replicate and the two columns are the corrsponding
@@ -104,16 +104,16 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1) {
     stop("function sce_to_rctd: Not enough sce columns for the number of replicates")
   }
 
-  pucks <- apply(u, 1, \(x) {
+  s_regions <- apply(u, 1, \(x) {
     s <- sce[,x[1]:x[2]]
     v <- list(counts = assay(s, "counts"),
               coords = as.data.frame(colData(s)[,c("x", "y")]))
     v$nUMI <- colSums(v$counts)
-    puck <- SpatialRNA(v$coords, v$counts)
+    s_region <- SpatialRNA(v$coords, v$counts)
   })
-  names(pucks) <- paste("rpl", seq_along(pucks), sep = "")
+  names(s_regions) <- paste("rpl", seq_along(s_regions), sep = "")
 
-  list(reference = reference, pucks = pucks)
+  list(reference = reference, s_regions = s_regions)
 }
 
 
