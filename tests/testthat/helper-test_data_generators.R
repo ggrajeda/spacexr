@@ -93,7 +93,7 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1) {
                          cell_types = cell_types)
 
   # create pucks
-  # The boundries for for the column partition
+  # The boundaries for for the column partition
   u <- round(seq(from = split + 1, to = ncol(sce)+ 1, length.out = replicates + 1))
   # each row of of u is a replicate and the two columns are the corrsponding
   # limits of the columns to be returned from sce
@@ -210,14 +210,20 @@ near_equal <- \(a, b, ref_name = "", epsilon = .Machine$double.eps ^ 0.5) {
   }
   r <- which(!r, arr.ind = TRUE)
   if (length(r) == 0) {
-    r <- data.frame()
+    r <- data.frame(ref_name = character(),
+                    row=character(), col=character(),
+                    a=character(), b=character(),
+                    diff=character())
   } else {
     r <- do.call(rbind,
           apply(r, 1, function(u) {
             a=a[u[1], u[2]]
             b=b[u[1], u[2]]
-            data.frame(ref_name, row=u[1], col=u[2], a=a, b=b,
-                       diff = ifelse(is.numeric(a), a-b, ""))
+            data.frame(ref_name, row=as.character(u[1]),
+                       col=as.character(u[2]),
+                       a=as.character(a),
+                       b=as.character(b),
+                       diff=as.character(ifelse(is.numeric(a), a-b, "")))
             }))
     rownames(r) <- NULL
   }
@@ -227,7 +233,7 @@ near_equal <- \(a, b, ref_name = "", epsilon = .Machine$double.eps ^ 0.5) {
 rctd_results_equal <- \(a, b)
 {
   result <- near_equal(a$rctd_results, b$rctd_results, ref_name = "rctd_results")
-  result <- append(result,
+  result <- rbind(result,
         near_equal(a$cell_type_info, b$cell_type_info,
                    ref_name = "cell_type_info"))
   result
