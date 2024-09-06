@@ -8,8 +8,8 @@ test_that("run.RCTD doublet", {
                                seed = 886))
 
     # Act
-    rctd <- create.RCTD(mat$puck[[1]], mat$reference, max_cores = 1)
-    rctd_multi <- create.RCTD(mat$puck[[1]], mat$reference, max_cores = 2)
+    rctd <- create.RCTD(mat$s_regions[[1]], mat$reference, max_cores = 1)
+    rctd_multi <- create.RCTD(mat$s_regions[[1]], mat$reference, max_cores = 2)
 
     raw_result <- run.RCTD(rctd, doublet_mode = 'doublet')
     result <- rctd_result_list(raw_result)

@@ -9,7 +9,7 @@ test_that("run.CSIDE.single simple test",{
                       nGenes = 500,
                       seed = 886)
   mat <- sce_to_rctd(sce)
-  rctd <- create.RCTD(mat$puck[[1]], mat$reference, max_cores = 1)
+  rctd <- create.RCTD(mat$s_regions[[1]], mat$reference, max_cores = 1)
   rctd <- run.RCTD(rctd, doublet_mode = 'doublet')
 
   explanatory.variable <- runif(length(rctd@spatialRNA@nUMI))
