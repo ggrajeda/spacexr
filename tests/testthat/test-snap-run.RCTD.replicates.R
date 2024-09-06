@@ -7,7 +7,8 @@ test_that("run.RCTD.replicates", {
                         nGenes = 500,
                         seed = 886)
     mat <- sce_to_rctd(sce, replicates = 3)
-    rctd <- create.RCTD.replicates(mat$pucks, mat$reference, replicate_names = names(mat$pucks),
+    rctd <- create.RCTD.replicates(mat$s_regions, mat$reference,
+                                   replicate_names = names(mat$s_regions),
                                    max_cores = 1)
 
     # Act
