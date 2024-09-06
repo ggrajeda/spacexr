@@ -82,9 +82,8 @@ synthetic_se <- function(n_celltypes = 3,
 #' The remaining columns will be used as the experimental observations.
 #' @param replicates The number of experimental replicates
 #'
-#' @return (reference, list(s_regions))
+#' @return list(reference, list(s_regions), sce)
 #'
-# TODO sce should also be returned
 sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
                         region_spec = list(
                           ct1 = list(location=c(x=1,y=1), size=c(x=10,y=8), mixture=c(ct1=1)),
@@ -105,7 +104,6 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
                            cell_types = cell_types)
   }
   # TODO need enough dots per region
-  # TODO replicates > 1
   sce <- sce[, split:ncol(sce)]
   r2d <-regions_to_dots(region_spec)
   # assign bar codes (proxy for dot location) to colnames
@@ -116,14 +114,35 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
 
   r2c_reduced <- Reduce(\(x,y) rbind(x, y), r2d)
   colData(sce) <- cbind(colData(sce), r2c_reduced[colnames(sce),])
+
   # now colData has the bar code and x,y coordinates
-  # TODO u once specified the replicate locations.
-  s <- sce
-  v <- list(counts = assay(s, "counts"),
-            coords = as.data.frame(colData(s)[,c("x", "y")]))
-  v$nUMI <- colSums(v$counts)
-  s_region <- SpatialRNA(v$coords, v$counts)
-  s_regions <- list(s_region) # TODO plug for missing replicate loop
+
+  # The boundaries for for the column partition
+  u <- round(seq(from = 1, to = ncol(sce)+ 1, length.out = replicates + 1))
+  # each row of of u is a replicate and the two columns are the corresponding
+  # limits of the columns to be returned from sce
+  u <- matrix(c(u[1:(replicates)], u[2:(replicates + 1)] - 1),
+              nrow = replicates, byrow = FALSE)
+  # check to be sure that there there is at least one column in each replicate
+  if ( min(u[,2] - u[,1]) <1) {
+    stop("function sce_to_rctd: Not enough sce columns for the number of replicates")
+  }
+
+  # create s_regions
+
+  s_regions <- apply(u, 1, \(x) {
+    s <- sce[,x[1]:x[2]]
+    v <- list(counts = assay(s, "counts"),
+              coords = as.data.frame(colData(s)[,c("x", "y")]))
+    v$nUMI <- colSums(v$counts)
+    s_region <- SpatialRNA(v$coords, v$counts)
+    s_regions <- list(s_region) # TODO plug for missing replicate loop
+    v <- list(counts = assay(s, "counts"),
+              coords = as.data.frame(colData(s)[,c("x", "y")]))
+    v$nUMI <- colSums(v$counts)
+    puck <- SpatialRNA(v$coords, v$counts)
+  })
+  names(s_regions) <- paste("rpl", seq_along(s_regions), sep = "")
 
   list(reference = reference, s_regions = s_regions, se = sce)
 }
@@ -136,6 +155,37 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
 # The configuration goes like this:
 # for each region,
 # name = list(location, size, mixture)
+
+config_bars_for_cell_types <- \(cell_type_table, region_width = 10, margin = 2) {
+cell_type_table<-foo
+region_width = 10
+margin = 2
+  df <- data.frame(name=cell_type_table, stringsAsFactors = FALSE)
+  colnames(df) <- c("cell_type", "pixel_count")
+  df$size.y <- ceiling(df$pixel_count / region_width)
+  df$loc.x <- 1
+  df$loc.y <- c(1, cumsum(df$size.y + margin)[-nrow(df)])
+  df$size.x <- region_width
+  df$mixture <- 1
+  names(df$mixture) <- df$cell_tye
+  df
+
+  apply(df[1,], 1, \(u) list(location=c(u[["loc.x"]]), u[["loc.y"]]))
+
+
+  loc <- c(x=1,y=1)
+  result <- mapply(\(ct, n) {
+    height <- ceiling(n / region_width)
+    m <- 1
+    names(m) <- ct
+    u <- list(location=loc, size=loc(region_width, height), mixture=m)
+    names(u) <- ct
+    loc <- loc + c(0, height + margin)
+    u
+  }, names(cell_type_table), cell_type_table)
+  # list(
+  #   ct1 = list(location=c(x=1,y=1), size=c(x=10,y=8), mixture=c(ct1=1)),
+}
 
 # convert a UTF-8 string to base 4 (bytewise bigendian),
 #   where the digits are A,C,G,T
