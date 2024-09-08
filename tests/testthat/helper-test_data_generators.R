@@ -1,6 +1,8 @@
-library(stringr, quietly = TRUE)
-library(splatter, quietly = TRUE)
-library(scater, quietly = TRUE)
+suppressMessages(suppressWarnings({
+  library(stringr, quietly = TRUE)
+  library(splatter, quietly = TRUE)
+  library(scater, quietly = TRUE)
+}))
 
 #' Create a synthetic dataset of RNA-seq like counts
 #'
