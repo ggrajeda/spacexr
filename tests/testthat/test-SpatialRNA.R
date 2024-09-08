@@ -8,7 +8,7 @@ test_that("SpatialRNA simple test", {
 
   # Assert
   result <- rctd$s_regions[[1]]
-  se <- rctd$se
+  se <- rctd$se[[1]]
   u <- list(counts = assay(se, "counts"),
             coords = as.data.frame(colData(se)[,c("x", "y")]))
   u$nUMI <- colSums(u$counts)

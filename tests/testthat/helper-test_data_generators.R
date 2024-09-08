@@ -15,8 +15,6 @@ library(scater, quietly = TRUE)
 #' @param de.prob - The probability that a given gene will be differentially expressed.
 #' Either a single percentage, or a vector of percentages, one foe each of the cell types. (Default: linearly increasing probabilities from 0.3 to 0.4)
 #' @param nGenes - The number of genes.
-#' TODO REMVOE DISK_RADIUS
-#' @param disk_radius - The radius of the disk that contains the individual observations for the cell type.
 #' @param seed - A random seed. This assures that the same simulated SCE results will be returned each time that this function is called.
 #' It does not use or alter the random seed value of the calling function.
 #'
@@ -25,7 +23,7 @@ library(scater, quietly = TRUE)
 synthetic_se <- function(n_celltypes = 3,
                          cells_per_type = 30,
                          de.prob = seq(from=0.3,to=0.4,length.out=n_celltypes),
-                         nGenes = 500, disk_radius = 0.5, seed = 1951) {
+                         nGenes = 500, seed = 1951) {
   withr::with_seed(seed, {
     total_cells <- cells_per_type * n_celltypes
     # a SingleCellExperiement
@@ -35,7 +33,8 @@ synthetic_se <- function(n_celltypes = 3,
       group.prob = rep(1 / n_celltypes, n_celltypes),
       verbose = FALSE
     )
-    colData(se)[, "Group"] <- as.factor(str_replace(colData(se)$Group, "Group", "ct"))
+    colnames(colData(se))[colnames(colData(se)) == "Group"] <- "cell_type"
+    colData(se)[, "cell_type"] <- as.factor(str_replace(colData(se)$cell_type, "cell_type", "ct"))
   })
   return(se)
 }
@@ -48,6 +47,7 @@ synthetic_se <- function(n_celltypes = 3,
 #' @param replicates The number of experimental replicates
 #'
 #' @return list(reference, list(s_regions), list(sce)) # TODO describe resutls
+#' @return list(reference, list(s_regions), list(sce), puck_pattern) # TODO describe resutls
 #'
 sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
                         puck_pattern = config_bars_for_cell_types) {
@@ -59,7 +59,7 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
   } else {
     split <- floor(ncol(sce) * prop.ref)
     refSE <- sce[, 1:split]
-    cell_types <- colData(refSE)$Group
+    cell_types <- colData(refSE)$cell_type
     names(cell_types) <- colnames(refSE)
     reference <- Reference(counts =assay(refSE, "counts"),
                            cell_types = cell_types)
@@ -70,7 +70,7 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
   # Assign replicate numbers (1..n) to each column, distirubiton the
   # cell types evenly between the groups
   # This is policy is for test data and not a simulation of real replicates
-  z <- split(seq(ncol(sce)), colData(sce)$Group)
+  z <- split(seq(ncol(sce)), colData(sce)$cell_type)
   replicate <- unlist(sapply(seq_along(z), \(i) rep(1:replicates, length.out = length(z[[i]]))))
   colData(sce) <- cbind(colData(sce)[unlist(z), ], data.frame(replicate))
 
@@ -79,7 +79,7 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
   s_regions <- lapply(split(1:ncol(sce), colData(sce)$replicate), \(sindex) {
     s <- sce[, sindex]
     # assign bar codes (proxy for dot location) to colnames
-    v <- split(seq(ncol(s)), colData(s)$Group)
+    v <- split(seq(ncol(s)), colData(s)$cell_type)
     cell_type_count <- sapply(v, length)
     region_spec <- puck_pattern(cell_type_count)
     r2d <-regions_to_dots(region_spec)
@@ -105,10 +105,6 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
   list(reference = reference, s_regions = lapply(s_regions, `[[`, 1),
        se = lapply(s_regions, `[[`, 2))
 }
-
-# spatial data
-
-# TODO WIP - make release ready
 # Create simulated spatial data
 
 # The configuration goes like this:
@@ -155,10 +151,10 @@ regions_to_dots <- \(config) {
   results <- lapply(config, \(u) {
     start <- u$location
     end <- u$location + u$size
-    v <- expand.grid(x = seq(from = start["x"], to = end["x"]),
-                     y = seq(from = start["y"], to = end["y"]))
+    v <- expand.grid(x = seq(from = start["x"], to = end["x"]) * step_size["x"],
+                     y = seq(from = start["y"], to = end["y"]) * step_size["y"])
     rownames(v) <- char2atcg(apply(v, 1, \(r) paste(r[1],r[2], sep = ",")))
-    p2m(v)
+    v
   })
   results
 }
@@ -171,10 +167,20 @@ regions_to_dots <- \(config) {
 field_limit <- c(x=6500, y=3200)
 step_size <- c(x=120, y=70)
 
-p2m <- \(u) u * step_size
-m2p <- \(u) u / step_size
-
-pixel_limit <- floor(m2p(field_limit))
+# TODO BUG HERE!
+p2m <- \(u) {
+  # TODO stops are for degbugging only. remove or refactor
+  if (!is.numeric(u)) {
+    stop("must be vector")
+  }
+  u * step_size
+}
+m2p <-  \(u) {
+  if (!is.numeric(u)) {
+    stop("must be vector")
+  }
+  u / step_size
+}
 
 region_limits <- \(config) {
   m <- do.call(rbind, lapply(config, \(u) c(p2m(u$location),
@@ -182,18 +188,15 @@ region_limits <- \(config) {
   list(x=range(m[,c(1,3)]), y=range(m[,c(2,4)]))
 }
 
-
-plot_regions <- \(config) {
-  bounds <- region_limits(config)
-  plot(NULL, xlim=bounds$x, ylim=bounds$y,
-       xlab = "x (microns)",  ylab = "y (microns)", , asp = 1)
-  colors <- adjustcolor(rainbow(length(config)), alpha.f = 0.4)
-  for (i in seq_along(config)) {
-    r <- config[[i]]
-    loc <- p2m(r$location)
-    upper <- p2m(r$size) + loc
-    rect(xleft = loc["x"], ybottom = loc["y"],
-         xright = upper["x"], ytop = upper["y"],
-         col = colors[i])
-  }
+plot_puck_config <- \(sce_list) {
+  lapply(sce_list, \(s) {
+    library_size <- colSums(assay(s, "TrueCounts"))
+    as_tibble(cbind(colData(s), library_size))
+  }) |>
+    bind_rows(.id = "replicate") |>
+    group_by(replicate) |>
+    ggplot(aes(x = x, y = y, size = log(library_size))) +
+    theme_light() +
+    facet_wrap(~ replicate) +
+    geom_point(aes(color = cell_type))
 }

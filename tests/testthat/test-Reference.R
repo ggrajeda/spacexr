@@ -5,7 +5,7 @@ test_that("Reference simple test", {
   u <- list()
   u$counts <- assay(se, "counts")
   u$nUMI <- colSums(u$counts)
-  u$cell_types <- colData(se)$Group
+  u$cell_types <- colData(se)$cell_type
   names(u$cell_types) <- colnames(se)
 
   # Act
