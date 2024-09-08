@@ -1,5 +1,6 @@
 suppressMessages(suppressWarnings({
   library(stringr, quietly = TRUE)
+  library(dplyr, quietly = TRUE)
   library(splatter, quietly = TRUE)
   library(scater, quietly = TRUE)
 }))
