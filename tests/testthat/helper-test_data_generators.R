@@ -50,7 +50,6 @@ synthetic_se <- function(n_celltypes = 3,
 #' @param replicates The number of experimental replicates
 #'
 #' @return list(reference, list(s_regions), list(sce)) # TODO describe resutls
-#' @return list(reference, list(s_regions), list(sce), puck_pattern) # TODO describe resutls
 #'
 sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
                         puck_pattern = config_bars_for_cell_types) {
@@ -98,7 +97,6 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
     v$nUMI <- colSums(v$counts)
     s_region <- SpatialRNA(v$coords, v$counts)
 
-    s_regions <- list(s_region) # TODO plug for missing replicate loop
     v <- list(counts = assay(s, "counts"),
               coords = as.data.frame(colData(s)[,c("x", "y")]))
     v$nUMI <- colSums(v$counts)
@@ -170,18 +168,10 @@ regions_to_dots <- \(config) {
 field_limit <- c(x=6500, y=3200)
 step_size <- c(x=120, y=70)
 
-# TODO BUG HERE!
 p2m <- \(u) {
-  # TODO stops are for degbugging only. remove or refactor
-  if (!is.numeric(u)) {
-    stop("must be vector")
-  }
   u * step_size
 }
 m2p <-  \(u) {
-  if (!is.numeric(u)) {
-    stop("must be vector")
-  }
   u / step_size
 }
 
