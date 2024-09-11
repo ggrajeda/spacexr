@@ -17,37 +17,37 @@
       [49] 1.3734e-03 8.3348e-05 3.0527e-02 1.6375e-04 3.5571e-04 2.3554e-03
       [55] 8.7264e-04 6.2036e-04 1.2844e-04 1.0574e-03 3.6563e-04 9.7136e-04
                                        spot_class first_type second_type first_class
-      CATAGATAAATAAATAATGAGATACATAAATA    singlet     Group3      Group2       FALSE
-      GCTAAATAAATAATGAGATACATAAATA        singlet     Group1      Group2       FALSE
-      CGTAGCTAAATAATGATCTAAATA            singlet     Group1      Group2       FALSE
-      CATAAATAAGTAAATAATGATCTAAATA        singlet     Group1      Group2       FALSE
-      GATAACTAAATAATGACATAACTAAATA        singlet     Group1      Group3       FALSE
-      ACTAAGTAAATAATGATCTAAATA            singlet     Group2      Group1       FALSE
-      AGTAACTAAATAATGACATAACTAAATA        singlet     Group1      Group2       FALSE
-      GCTAAATAAATAATGATCTAAATA            singlet     Group1      Group2       FALSE
-      CATAAATAAGTAAATAATGAGATACATAAATA    singlet     Group1      Group2       FALSE
-      AGTAACTAAATAATGATCTAAATA            singlet     Group2      Group1       FALSE
-      ACTAAGTAAATAATGAGATACATAAATA        singlet     Group1      Group2       FALSE
-      CGTAGCTAAATAATGAGATAAGTAAATA        singlet     Group2      Group3       FALSE
-      CATAAATAAGTAAATAATGAGATAAGTAAATA    singlet     Group3      Group2       FALSE
-      CATATATAGATAAATAATGAACTAGATAAATA    singlet     Group3      Group2       FALSE
-      CATAGATAAATAAATAATGAGATAAGTAAATA    singlet     Group1      Group2       FALSE
-      TCTAGATAAATAATGAACTAGATAAATA        singlet     Group3      Group1       FALSE
-      ACTAAGTAAATAATGAACTAGATAAATA        singlet     Group1      Group2       FALSE
-      TATAGCTAAATAATGAACTAGATAAATA        singlet     Group1      Group2       FALSE
-      CGTAGCTAAATAATGATATACCTAAATA        singlet     Group1      Group3       FALSE
-      GCTAAATAAATAATGAACTAGATAAATA        singlet     Group2      Group1       FALSE
-      TATAGCTAAATAATGAGATAAGTAAATA        singlet     Group2      Group3       FALSE
-      AGTAACTAAATAATGAGATAAGTAAATA        singlet     Group2      Group1       FALSE
-      ACTAAGTAAATAATGAGATAAGTAAATA        singlet     Group2      Group1       FALSE
-      GATAACTAAATAATGACCTAGCTAAATA        singlet     Group3      Group1       FALSE
-      GCTAAATAAATAATGAGCTATATAAATA        singlet     Group3      Group1       FALSE
-      TCTAGATAAATAATGAGCTATATAAATA        singlet     Group1      Group3       FALSE
-      CATATATAGATAAATAATGACCTAGCTAAATA    singlet     Group2      Group1       FALSE
-      ACTAAGTAAATAATGACCTAGCTAAATA        singlet     Group2      Group1       FALSE
-      CATAGATAAATAATGACCTAGCTAAATA        singlet     Group2      Group1       FALSE
-      TCTAGATAAATAATGACCTAGCTAAATA        singlet     Group1      Group2       FALSE
-      CATAGATAAATAAATAATGAGCTATATAAATA    singlet     Group1      Group2       FALSE
+      CATAGATAAATAAATAATGAGATACATAAATA    singlet        ct3         ct2       FALSE
+      GCTAAATAAATAATGAGATACATAAATA        singlet        ct1         ct2       FALSE
+      CGTAGCTAAATAATGATCTAAATA            singlet        ct1         ct2       FALSE
+      CATAAATAAGTAAATAATGATCTAAATA        singlet        ct1         ct2       FALSE
+      GATAACTAAATAATGACATAACTAAATA        singlet        ct1         ct3       FALSE
+      ACTAAGTAAATAATGATCTAAATA            singlet        ct2         ct1       FALSE
+      AGTAACTAAATAATGACATAACTAAATA        singlet        ct1         ct2       FALSE
+      GCTAAATAAATAATGATCTAAATA            singlet        ct1         ct2       FALSE
+      CATAAATAAGTAAATAATGAGATACATAAATA    singlet        ct1         ct2       FALSE
+      AGTAACTAAATAATGATCTAAATA            singlet        ct2         ct1       FALSE
+      ACTAAGTAAATAATGAGATACATAAATA        singlet        ct1         ct2       FALSE
+      CGTAGCTAAATAATGAGATAAGTAAATA        singlet        ct2         ct3       FALSE
+      CATAAATAAGTAAATAATGAGATAAGTAAATA    singlet        ct3         ct2       FALSE
+      CATATATAGATAAATAATGAACTAGATAAATA    singlet        ct3         ct2       FALSE
+      CATAGATAAATAAATAATGAGATAAGTAAATA    singlet        ct1         ct2       FALSE
+      TCTAGATAAATAATGAACTAGATAAATA        singlet        ct3         ct1       FALSE
+      ACTAAGTAAATAATGAACTAGATAAATA        singlet        ct1         ct2       FALSE
+      TATAGCTAAATAATGAACTAGATAAATA        singlet        ct1         ct2       FALSE
+      CGTAGCTAAATAATGATATACCTAAATA        singlet        ct1         ct3       FALSE
+      GCTAAATAAATAATGAACTAGATAAATA        singlet        ct2         ct1       FALSE
+      TATAGCTAAATAATGAGATAAGTAAATA        singlet        ct2         ct3       FALSE
+      AGTAACTAAATAATGAGATAAGTAAATA        singlet        ct2         ct1       FALSE
+      ACTAAGTAAATAATGAGATAAGTAAATA        singlet        ct2         ct1       FALSE
+      GATAACTAAATAATGACCTAGCTAAATA        singlet        ct3         ct1       FALSE
+      GCTAAATAAATAATGAGCTATATAAATA        singlet        ct3         ct1       FALSE
+      TCTAGATAAATAATGAGCTATATAAATA        singlet        ct1         ct3       FALSE
+      CATATATAGATAAATAATGACCTAGCTAAATA    singlet        ct2         ct1       FALSE
+      ACTAAGTAAATAATGACCTAGCTAAATA        singlet        ct2         ct1       FALSE
+      CATAGATAAATAATGACCTAGCTAAATA        singlet        ct2         ct1       FALSE
+      TCTAGATAAATAATGACCTAGCTAAATA        singlet        ct1         ct2       FALSE
+      CATAGATAAATAAATAATGAGCTATATAAATA    singlet        ct1         ct2       FALSE
                                        second_class min_score singlet_score conv_all
       CATAGATAAATAAATAATGAGATACATAAATA        FALSE    94.615        95.100     TRUE
       GCTAAATAAATAATGAGATACATAAATA            FALSE   105.467       105.784     TRUE
@@ -123,36 +123,36 @@
       [49] 1.3211e-03 6.8060e-05 2.9915e-02 1.9943e-04 3.4001e-04 2.2148e-03
       [55] 8.7115e-04 5.7672e-04 1.3331e-04 9.5520e-04 3.7874e-04 8.5503e-04
                                        spot_class first_type second_type first_class
-      CGTAGCTAAATAATGACATAACTAAATA        singlet     Group2      Group1       FALSE
-      CATATATAGATAAATAATGATCTAAATA        singlet     Group2      Group1       FALSE
-      GATAACTAAATAATGACATAACTAAATA        singlet     Group3      Group1       FALSE
-      TATAGCTAAATAATGATCTAAATA            singlet     Group1      Group3       FALSE
-      CATAGATAAATAAATAATGACATAACTAAATA    singlet     Group1      Group3       FALSE
-      AGTAACTAAATAATGACATAACTAAATA        singlet     Group2      Group1       FALSE
-      GCTAAATAAATAATGATCTAAATA            singlet     Group3      Group2       FALSE
-      TCTAGATAAATAATGATCTAAATA            singlet     Group2      Group1       FALSE
-      TATAGCTAAATAATGACATAACTAAATA        singlet     Group3      Group1       FALSE
-      CATAGATAAATAATGATCTAAATA            singlet     Group2      Group1       FALSE
-      CATAGATAAATAATGATATACCTAAATA        singlet     Group2      Group3       FALSE
-      CATATATAGATAAATAATGATATACCTAAATA    singlet     Group2      Group3       FALSE
-      CATAGATAAATAAATAATGAGATAAGTAAATA    singlet     Group1      Group2       FALSE
-      AGTAACTAAATAATGAGATAAGTAAATA        singlet     Group1      Group3       FALSE
-      TATAGCTAAATAATGAGATACATAAATA        singlet     Group1      Group2       FALSE
-      GCTAAATAAATAATGAGATACATAAATA        singlet     Group2      Group1       FALSE
-      TATAGCTAAATAATGATATACCTAAATA        singlet     Group3      Group2       FALSE
-      CATATATAGATAAATAATGAGATAAGTAAATA    singlet     Group3      Group1       FALSE
-      CATAAATAAGTAAATAATGAGATAAGTAAATA    singlet     Group2      Group3       FALSE
-      CATAGATAAATAAATAATGATATACCTAAATA    singlet     Group2      Group3       FALSE
-      CGTAGCTAAATAATGAGATAAGTAAATA        singlet     Group3      Group1       FALSE
-      GCTAAATAAATAATGAGATAAGTAAATA        singlet     Group3      Group2       FALSE
-      GCTAAATAAATAATGAACTACGTAAATA        singlet     Group2      Group3       FALSE
-      TATAGCTAAATAATGACCTAGCTAAATA        singlet     Group1      Group2       FALSE
-      CATAAATAAGTAAATAATGAACTACGTAAATA    singlet     Group1      Group2       FALSE
-      CATAGATAAATAATGAACTACGTAAATA        singlet     Group2      Group1       FALSE
-      GCTAAATAAATAATGACCTAGCTAAATA        singlet     Group1      Group2       FALSE
-      AGTAACTAAATAATGAACTACGTAAATA        singlet     Group3      Group2       FALSE
-      CATATATAGATAAATAATGACCTAGCTAAATA    singlet     Group2      Group1       FALSE
-      CGTAGCTAAATAATGAACTACGTAAATA        singlet     Group2      Group1       FALSE
+      CGTAGCTAAATAATGACATAACTAAATA        singlet        ct2         ct1       FALSE
+      CATATATAGATAAATAATGATCTAAATA        singlet        ct2         ct1       FALSE
+      GATAACTAAATAATGACATAACTAAATA        singlet        ct3         ct1       FALSE
+      TATAGCTAAATAATGATCTAAATA            singlet        ct1         ct3       FALSE
+      CATAGATAAATAAATAATGACATAACTAAATA    singlet        ct1         ct3       FALSE
+      AGTAACTAAATAATGACATAACTAAATA        singlet        ct2         ct1       FALSE
+      GCTAAATAAATAATGATCTAAATA            singlet        ct3         ct2       FALSE
+      TCTAGATAAATAATGATCTAAATA            singlet        ct2         ct1       FALSE
+      TATAGCTAAATAATGACATAACTAAATA        singlet        ct3         ct1       FALSE
+      CATAGATAAATAATGATCTAAATA            singlet        ct2         ct1       FALSE
+      CATAGATAAATAATGATATACCTAAATA        singlet        ct2         ct3       FALSE
+      CATATATAGATAAATAATGATATACCTAAATA    singlet        ct2         ct3       FALSE
+      CATAGATAAATAAATAATGAGATAAGTAAATA    singlet        ct1         ct2       FALSE
+      AGTAACTAAATAATGAGATAAGTAAATA        singlet        ct1         ct3       FALSE
+      TATAGCTAAATAATGAGATACATAAATA        singlet        ct1         ct2       FALSE
+      GCTAAATAAATAATGAGATACATAAATA        singlet        ct2         ct1       FALSE
+      TATAGCTAAATAATGATATACCTAAATA        singlet        ct3         ct2       FALSE
+      CATATATAGATAAATAATGAGATAAGTAAATA    singlet        ct3         ct1       FALSE
+      CATAAATAAGTAAATAATGAGATAAGTAAATA    singlet        ct2         ct3       FALSE
+      CATAGATAAATAAATAATGATATACCTAAATA    singlet        ct2         ct3       FALSE
+      CGTAGCTAAATAATGAGATAAGTAAATA        singlet        ct3         ct1       FALSE
+      GCTAAATAAATAATGAGATAAGTAAATA        singlet        ct3         ct2       FALSE
+      GCTAAATAAATAATGAACTACGTAAATA        singlet        ct2         ct3       FALSE
+      TATAGCTAAATAATGACCTAGCTAAATA        singlet        ct1         ct2       FALSE
+      CATAAATAAGTAAATAATGAACTACGTAAATA    singlet        ct1         ct2       FALSE
+      CATAGATAAATAATGAACTACGTAAATA        singlet        ct2         ct1       FALSE
+      GCTAAATAAATAATGACCTAGCTAAATA        singlet        ct1         ct2       FALSE
+      AGTAACTAAATAATGAACTACGTAAATA        singlet        ct3         ct2       FALSE
+      CATATATAGATAAATAATGACCTAGCTAAATA    singlet        ct2         ct1       FALSE
+      CGTAGCTAAATAATGAACTACGTAAATA        singlet        ct2         ct1       FALSE
                                        second_class min_score singlet_score conv_all
       CGTAGCTAAATAATGACATAACTAAATA            FALSE   107.863       107.858     TRUE
       CATATATAGATAAATAATGATCTAAATA            FALSE   102.367       102.684     TRUE
@@ -226,35 +226,35 @@
       [49] 1.3185e-03 7.1796e-05 2.7393e-02 1.5175e-04 3.5696e-04 2.3099e-03
       [55] 8.9459e-04 5.8629e-04 1.4056e-04 9.4684e-04 3.9940e-04 9.2173e-04
                                        spot_class first_type second_type first_class
-      CATAAATAAGTAAATAATGACATAACTAAATA    singlet     Group2      Group3       FALSE
-      CATATATAGATAAATAATGATCTAAATA        singlet     Group2      Group1       FALSE
-      GCTAAATAAATAATGATCTAAATA            singlet     Group1      Group2       FALSE
-      TATAGCTAAATAATGATCTAAATA            singlet     Group2      Group1       FALSE
-      TATAGCTAAATAATGACATAACTAAATA        singlet     Group3      Group1       FALSE
-      CATAGATAAATAATGATCTAAATA            singlet     Group2      Group3       FALSE
-      GATAACTAAATAATGATCTAAATA            singlet     Group2      Group1       FALSE
-      ACTAAGTAAATAATGATCTAAATA            singlet     Group2      Group1       FALSE
-      GCTAAATAAATAATGACATAACTAAATA        singlet     Group3      Group1       FALSE
-      TCTAGATAAATAATGACATAACTAAATA        singlet     Group1      Group3       FALSE
-      AGTAACTAAATAATGAGATAAGTAAATA        singlet     Group3      Group1       FALSE
-      TCTAGATAAATAATGAGATAAGTAAATA        singlet     Group3      Group2       FALSE
-      GATAACTAAATAATGATATACCTAAATA        singlet     Group1      Group2       FALSE
-      AGTAACTAAATAATGATATACCTAAATA        singlet     Group3      Group1       FALSE
-      ACTAAGTAAATAATGATATACCTAAATA        singlet     Group1      Group2       FALSE
-      CATATATAGATAAATAATGAGATACATAAATA    singlet     Group2      Group1       FALSE
-      CATAGATAAATAAATAATGAGATAAGTAAATA    singlet     Group1      Group2       FALSE
-      TATAGCTAAATAATGAGATAAGTAAATA        singlet     Group2      Group3       FALSE
-      GCTAAATAAATAATGATATACCTAAATA        singlet     Group3      Group2       FALSE
-      CATAAATAAGTAAATAATGAGATAAGTAAATA    singlet     Group2      Group1       FALSE
-      CATAGATAAATAATGAGATAAGTAAATA        singlet     Group3      Group2       FALSE
-      ACTAAGTAAATAATGACCTAGCTAAATA        singlet     Group1      Group2       FALSE
-      GCTAAATAAATAATGAACTACGTAAATA        singlet     Group1      Group2       FALSE
-      ACTAAGTAAATAATGAACTACGTAAATA        singlet     Group2      Group3       FALSE
-      GATAACTAAATAATGAACTACGTAAATA        singlet     Group3      Group1       FALSE
-      TATAGCTAAATAATGAACTACGTAAATA        singlet     Group3      Group1       FALSE
-      GATAACTAAATAATGACCTAGCTAAATA        singlet     Group3      Group2       FALSE
-      CATAGATAAATAATGAACTACGTAAATA        singlet     Group1      Group2       FALSE
-      TATAGCTAAATAATGACCTAGCTAAATA        singlet     Group2      Group1       FALSE
+      CATAAATAAGTAAATAATGACATAACTAAATA    singlet        ct2         ct3       FALSE
+      CATATATAGATAAATAATGATCTAAATA        singlet        ct2         ct1       FALSE
+      GCTAAATAAATAATGATCTAAATA            singlet        ct1         ct2       FALSE
+      TATAGCTAAATAATGATCTAAATA            singlet        ct2         ct1       FALSE
+      TATAGCTAAATAATGACATAACTAAATA        singlet        ct3         ct1       FALSE
+      CATAGATAAATAATGATCTAAATA            singlet        ct2         ct3       FALSE
+      GATAACTAAATAATGATCTAAATA            singlet        ct2         ct1       FALSE
+      ACTAAGTAAATAATGATCTAAATA            singlet        ct2         ct1       FALSE
+      GCTAAATAAATAATGACATAACTAAATA        singlet        ct3         ct1       FALSE
+      TCTAGATAAATAATGACATAACTAAATA        singlet        ct1         ct3       FALSE
+      AGTAACTAAATAATGAGATAAGTAAATA        singlet        ct3         ct1       FALSE
+      TCTAGATAAATAATGAGATAAGTAAATA        singlet        ct3         ct2       FALSE
+      GATAACTAAATAATGATATACCTAAATA        singlet        ct1         ct2       FALSE
+      AGTAACTAAATAATGATATACCTAAATA        singlet        ct3         ct1       FALSE
+      ACTAAGTAAATAATGATATACCTAAATA        singlet        ct1         ct2       FALSE
+      CATATATAGATAAATAATGAGATACATAAATA    singlet        ct2         ct1       FALSE
+      CATAGATAAATAAATAATGAGATAAGTAAATA    singlet        ct1         ct2       FALSE
+      TATAGCTAAATAATGAGATAAGTAAATA        singlet        ct2         ct3       FALSE
+      GCTAAATAAATAATGATATACCTAAATA        singlet        ct3         ct2       FALSE
+      CATAAATAAGTAAATAATGAGATAAGTAAATA    singlet        ct2         ct1       FALSE
+      CATAGATAAATAATGAGATAAGTAAATA        singlet        ct3         ct2       FALSE
+      ACTAAGTAAATAATGACCTAGCTAAATA        singlet        ct1         ct2       FALSE
+      GCTAAATAAATAATGAACTACGTAAATA        singlet        ct1         ct2       FALSE
+      ACTAAGTAAATAATGAACTACGTAAATA        singlet        ct2         ct3       FALSE
+      GATAACTAAATAATGAACTACGTAAATA        singlet        ct3         ct1       FALSE
+      TATAGCTAAATAATGAACTACGTAAATA        singlet        ct3         ct1       FALSE
+      GATAACTAAATAATGACCTAGCTAAATA        singlet        ct3         ct2       FALSE
+      CATAGATAAATAATGAACTACGTAAATA        singlet        ct1         ct2       FALSE
+      TATAGCTAAATAATGACCTAGCTAAATA        singlet        ct2         ct1       FALSE
                                        second_class min_score singlet_score conv_all
       CATAAATAAGTAAATAATGACATAACTAAATA        FALSE   103.175       104.909     TRUE
       CATATATAGATAAATAATGATCTAAATA            FALSE   105.944       105.943     TRUE

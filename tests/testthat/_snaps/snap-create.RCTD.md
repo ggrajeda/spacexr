@@ -8,19 +8,19 @@
       process_cell_type_info: number of genes in reference: 500
     Output
       
-      Group1 Group2 Group3 
-          34     30     26 
+      ct1 ct2 ct3 
+       34  30  26 
     Message
       End: process_cell_type_info
       create.RCTD: getting regression differentially expressed genes: 
-      get_de_genes: Group1 found DE genes: 13
-      get_de_genes: Group2 found DE genes: 1
-      get_de_genes: Group3 found DE genes: 3
+      get_de_genes: ct1 found DE genes: 13
+      get_de_genes: ct2 found DE genes: 1
+      get_de_genes: ct3 found DE genes: 3
       get_de_genes: total DE genes: 17
       create.RCTD: getting platform effect normalization differentially expressed genes: 
-      get_de_genes: Group1 found DE genes: 30
-      get_de_genes: Group2 found DE genes: 14
-      get_de_genes: Group3 found DE genes: 15
+      get_de_genes: ct1 found DE genes: 30
+      get_de_genes: ct2 found DE genes: 14
+      get_de_genes: ct3 found DE genes: 15
       get_de_genes: total DE genes: 59
     Output
       An object of class "RCTD"
@@ -4343,10 +4343,10 @@
       An object of class "Reference"
       Slot "cell_types":
       Cell79 Cell57 Cell32 Cell24 Cell45 Cell56 Cell35 Cell60 Cell73 Cell27 Cell66 
-      Group1 Group1 Group1 Group1 Group1 Group2 Group2 Group2 Group2 Group2 Group3 
+         ct1    ct1    ct1    ct1    ct1    ct2    ct2    ct2    ct2    ct2    ct3 
       Cell84  Cell1 Cell71 Cell68 
-      Group3 Group3 Group3 Group3 
-      Levels: Group1 Group2 Group3
+         ct3    ct3    ct3    ct3 
+      Levels: ct1 ct2 ct3
       
       Slot "counts":
       500 x 15 sparse Matrix of class "dgCMatrix"
@@ -5428,7 +5428,7 @@
       Slot "cell_type_info":
       $info
       $info[[1]]
-                    Group1       Group2       Group3
+                       ct1          ct2          ct3
       Gene1   6.991544e-04 6.337630e-04 5.816151e-04
       Gene2   9.318731e-04 1.418263e-03 7.671896e-04
       Gene3   3.649041e-04 4.453520e-04 4.284612e-04
@@ -5931,7 +5931,7 @@
       Gene500 1.843534e-03 2.194218e-03 1.468188e-03
       
       $info[[2]]
-      [1] "Group1" "Group2" "Group3"
+      [1] "ct1" "ct2" "ct3"
       
       $info[[3]]
       [1] 3
@@ -5962,10 +5962,10 @@
       NULL
       
       $class_df
-              class
-      Group1 Group1
-      Group2 Group2
-      Group3 Group3
+          class
+      ct1   ct1
+      ct2   ct2
+      ct3   ct3
       
       $cell_types_assigned
       [1] FALSE

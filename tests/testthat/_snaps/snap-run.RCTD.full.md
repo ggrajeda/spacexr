@@ -14,7 +14,7 @@
       [49] 1.3366e-03 7.3933e-05 2.9292e-02 1.7282e-04 3.5061e-04 2.2897e-03
       [55] 8.7957e-04 5.9334e-04 1.3427e-04 9.8314e-04 3.8171e-04 9.1268e-04
       90 x 3 sparse Matrix of class "dgCMatrix"
-                                               Group1     Group2     Group3
+                                                  ct1        ct2        ct3
       CATAGATAAATAAATAATGAGATACATAAATA     0.00037996 3.5527e-02 0.96062288
       CGTAGCTAAATAATGATCTAAATA             0.00037996 9.7712e-01 0.00037996
       CATAAATAAGTAAATAATGATCTAAATA         0.08390311 8.6345e-01 0.09985016
@@ -122,7 +122,7 @@
       [49] 1.3366e-03 7.3933e-05 2.9292e-02 1.7282e-04 3.5061e-04 2.2897e-03
       [55] 8.7957e-04 5.9334e-04 1.3427e-04 9.8314e-04 3.8171e-04 9.1268e-04
       90 x 3 sparse Matrix of class "dgCMatrix"
-                                               Group1     Group2     Group3
+                                                  ct1        ct2        ct3
       CATAGATAAATAAATAATGAGATACATAAATA     0.00037996 3.5527e-02 0.96062288
       CGTAGCTAAATAATGATCTAAATA             0.00037996 9.7712e-01 0.00037996
       CATAAATAAGTAAATAATGATCTAAATA         0.08390311 8.6345e-01 0.09985016
