@@ -7,7 +7,7 @@ suppressMessages(suppressWarnings({
 
 #' Create a synthetic dataset of RNA-seq like counts
 #'
-#' Simulates asngle-cell RNA-seq experiment and attaches 2-d coordinates to each observation.
+#' Simulates a single-cell RNA-seq experiment and attaches 2-d coordinates to each observation.
 #' The data is not expected to be biologically relevant, but it is expected to have statistical properties are compatible with RNA-seq datasets.
 #'
 #' In its current implementation, each cell type is associated with a 2-d locus that lies on the unit circle.
@@ -17,7 +17,7 @@ suppressMessages(suppressWarnings({
 #' @param cells_per_type - The number of cells for each type. (Default 30)
 #' @param de.prob - The probability that a given gene will be differentially expressed.
 #' Either a single percentage, or a vector of percentages, one foe each of the cell types. (Default: linearly increasing probabilities from 0.3 to 0.4)
-#' @param nGenes - The number of genes.
+#' @param nGenes - The number of genes. (Default 500)
 #' @param seed - A random seed. This assures that the same simulated SCE results will be returned each time that this function is called.
 #' It does not use or alter the random seed value of the calling function.
 #'
@@ -37,19 +37,25 @@ synthetic_se <- function(n_celltypes = 3,
       verbose = FALSE
     )
     colnames(colData(se))[colnames(colData(se)) == "Group"] <- "cell_type"
-    colData(se)[, "cell_type"] <- as.factor(str_replace(colData(se)$cell_type, "cell_type", "ct"))
+    levels(colData(se)$cell_type) <- str_replace(levels(colData(se)$cell_type), "Group", "ct")
   })
   return(se)
 }
 
-#' Create a Reference and associated SpatialRNA object from a single cell experiment
+#' Create a Reference and a list of associated SpatialRNA objects from a SummarizedExperiment object produced by synthetic_se
 #'
 #' @param sce - A  SingleCellExperiment, specifically one created by the synthetic_se function.
 #' @param prop.ref A proportion of the samples be used to create a Reference object. (Default 0.5)
 #' The remaining columns will be used as the experimental observations.
-#' @param replicates The number of experimental replicates
+#' @param replicates The number of experimental replicates (Default 1)
+#' @puck_pattern A function that assigned individual observations to geographic locations according to a policy defined in that function.
+#'    The default function is config_bars_for_cell_types, which creates horizontal bands of observations grouped by cell type and
+#'    arranged in as grids.
 #'
-#' @return list(reference, list(s_regions), list(sce)) # TODO describe resutls
+#' @return list(reference, s_regions=list(s_regions), se=list(sce)),
+#' where reference is an spacexr Reference object,
+#'       s_regions is a list of SpatialRNA objects, one for each replicate,
+#'       se is a list of SummarizedExperiment objects, each element corresponding to the parallel SpatialRNA object
 #'
 sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
                         puck_pattern = config_bars_for_cell_types) {
@@ -69,7 +75,7 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
   }
 
 
-  # Assign replicate numbers (1..n) to each column, distirubiton the
+  # Assign replicate numbers (1..n) to each column, distribute the
   # cell types evenly between the groups
   # This is policy is for test data and not a simulation of real replicates
   z <- split(seq(ncol(sce)), colData(sce)$cell_type)
@@ -106,12 +112,28 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
   list(reference = reference, s_regions = lapply(s_regions, `[[`, 1),
        se = lapply(s_regions, `[[`, 2))
 }
+
+
 # Create simulated spatial data
 
 # The configuration goes like this:
 # for each region,
 # name = list(location, size, mixture)
 
+#' config_bars_for_cell_types - Create rectangular spatial configuration
+#'
+#' @param cell_type_table - A named vector giving the number of observations for each cell type
+#' @param region_width - The width of each region
+#' @param margin - The (approximate) number of empty rows between regions
+#'
+#' @return A named list of rectangles, each named with a cell type.
+#'          Each list item consists of three named vectors:
+#'          location$x, location$y, the (x,y) coordinates (in pixels) of the lower left hand vertex of the rectangle
+#'          size$x, size$y, the width and height of the rectangle.
+#'          mixture, a vector of proportions, each vector element named by a cell type, and each elemnt value indicating the proportion of the
+#'          observation that was generated from the named cell type. The total of the porporations should sum to 1.
+#'
+#' @examples
 config_bars_for_cell_types <- \(cell_type_table, region_width = 10, margin = 2) {
   df <- data.frame(cell_type=names(cell_type_table),
                    pixel_count=as.integer(cell_type_table),
@@ -147,7 +169,21 @@ char2atcg <- Vectorize(\(s) {
   paste0(c("A", "C", "G", "T")[t(sapply(0:3,
              function(u) bitwAnd(bitwShiftR(x, u*2), 3))+1)], collapse = "")})
 
-# enumerate the x,y positions (dots or "pixels") that are contained in each region.
+
+#' regions_to_dots - Create a table of pixels from a named list of regions
+#'
+#' Take a list of rectangles with dimensions in "pixels" and return a list of
+#' data.frames, one for each rectangle, with the (x,y) location of each pixel
+#' with measured in microns, and with a pseudo-barcode that is actually en encoding
+#' of the pixel's position "x,y", rpresented as an ASCII string. and then translated
+#' to ACGT "digits".
+#'
+#'
+#' @param config - A list of rectangles in the form produced by config_bars_for_cell_types
+#'
+#' @return list of data.frames
+#'
+#' @examples
 regions_to_dots <- \(config) {
   results <- lapply(config, \(u) {
     start <- u$location
