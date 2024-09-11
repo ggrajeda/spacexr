@@ -14,6 +14,7 @@ suppressMessages(suppressWarnings({
 #'
 #' @param n_celltypes - The number of cell types. (Default 3)
 #' @param cells_per_type - The number of cells for each type. (Default 30)
+#' @param n_batches - The number of batches to assign to the
 #' @param de.prob - The probability that a given gene will be differentially expressed.
 #' Either a single percentage, or a vector of percentages, one foe each of the cell types. (Default: linearly increasing probabilities from 0.3 to 0.4)
 #' @param nGenes - The number of genes. (Default 500)
@@ -24,16 +25,18 @@ suppressMessages(suppressWarnings({
 #'
 synthetic_se <- function(n_celltypes = 3,
                          cells_per_type = 30,
+                         n_batches = 1,
                          de.prob = seq(from=0.3,to=0.4,length.out=n_celltypes),
                          nGenes = 500, seed = 1951) {
   withr::with_seed(seed, {
     total_cells <- cells_per_type * n_celltypes
-    # a SingleCellExperiement
+    # a SingleCellExperiment
     se <- splatSimulateGroups(
-      newSplatParams(batchCells = total_cells, nGenes = nGenes),
-      de.prob = de.prob,
-      group.prob = rep(1 / n_celltypes, n_celltypes),
-      verbose = FALSE
+      newSplatParams(batchCells = diff(round(seq(from=1, to=total_cells + 1, length.out = n_batches + 1))),
+                      nGenes = nGenes),
+                      de.prob = de.prob,
+                      group.prob = rep(1 / n_celltypes, n_celltypes),
+                      verbose = FALSE
     )
     colnames(colData(se))[colnames(colData(se)) == "Group"] <- "cell_type"
     levels(colData(se)$cell_type) <- str_replace(levels(colData(se)$cell_type), "Group", "ct")
