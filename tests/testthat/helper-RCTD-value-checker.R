@@ -129,7 +129,7 @@ cside_results_equal <- \(a, b)
 }
 
 
-# Scientific notation, only, 8 sig figs
+# Scientific notation
 # for appropriate checking of floating point results
 print_rctd_results <- \(u) {
   print(u$cell_type_info[[1]], max=99999, digits=5, scipen=-999)

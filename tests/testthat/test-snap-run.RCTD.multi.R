@@ -1,10 +1,10 @@
 test_that("run.RCTD.multi", {
   # Arrange
   set.seed(20240815)
-  mat <- sce_to_rctd(synthetic_se(n_celltypes = 3,
-                                  cells_per_type = 60,
+  mat <- simulateSpatialRNASeq(n_celltypes = 3,
+                                  samples_per_type = 60,
                                   nGenes = 500,
-                                  seed = 886))
+                                  seed = 886)
 
   # Act
   rctd <- create.RCTD(mat$s_regions[[1]], mat$reference, max_cores = 1)

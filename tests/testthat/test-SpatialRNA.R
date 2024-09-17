@@ -1,14 +1,12 @@
 test_that("SpatialRNA simple test", {
   # Arrange
   set.seed(20240812)
-  scd <- synthetic_se(seed = 432)
+  rctd <- simulateSpatialRNASeq(seed = 432)
 
   # Act
-  rctd <- sce_to_rctd(scd, 0)
-
   # Assert
   result <- rctd$s_regions[[1]]
-  se <- rctd$se[[1]]
+  se <- rctd$sce[[1]]
   u <- list(counts = assay(se, "counts"),
             coords = as.data.frame(colData(se)[,c("x", "y")]))
   u$nUMI <- colSums(u$counts)

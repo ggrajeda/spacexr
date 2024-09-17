@@ -2,11 +2,11 @@ test_that("run.RCTD.replicates", {
     # Arrange
     # create reference
     set.seed(20240815)
-    sce <- synthetic_se(n_celltypes = 3,
-                        cells_per_type = 60,
+    mat <- simulateSpatialRNASeq(n_celltypes = 3,
+                        samples_per_type = 60,
                         nGenes = 500,
-                        seed = 886)
-    mat <- sce_to_rctd(sce, replicates = 3)
+                        seed = 886,
+                        replicates = 3)
     rctd <- create.RCTD.replicates(mat$s_regions, mat$reference,
                                    replicate_names = names(mat$s_regions),
                                    max_cores = 1)

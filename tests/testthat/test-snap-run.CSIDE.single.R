@@ -4,11 +4,10 @@ test_that("run.CSIDE.single simple test",{
   # Arrange
   # create reference
   set.seed(20240821)
-  sce <- synthetic_se(n_celltypes = 20,
-                      cells_per_type = 70,
+  mat <- simulateSpatialRNASeq(n_celltypes = 20,
+                      samples_per_type = 70,
                       nGenes = 500,
                       seed = 886)
-  mat <- sce_to_rctd(sce)
   rctd <- create.RCTD(mat$s_regions[[1]], mat$reference, max_cores = 1)
   rctd <- run.RCTD(rctd, doublet_mode = 'doublet')
 

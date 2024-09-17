@@ -4,63 +4,64 @@ suppressMessages(suppressWarnings({
   library(splatter, quietly = TRUE)
 }))
 
-#' Create a synthetic dataset of RNA-seq like counts
+#' simulateSpatialRNASeq -Create a synthetic dataset of RNA-seq like counts
 #'
 #' Simulates a single-cell RNA-seq experiment and attaches 2-d coordinates to each observation.
 #' The data is not expected to be biologically relevant, but it is expected to have statistical properties are compatible with RNA-seq datasets.
 #'
+#'
 #' In its current implementation, each cell type is associated with a 2-d locus that lies on the unit circle.
-#' The individual cells (observations) are randomly are uniformly distributed within a disk of a given radius which may or may not overlap the other disks.
+#' The individual samples (observations) are randomly are uniformly distributed within a disk of a given radius which may or may not overlap the other disks.
 #'
 #' @param n_celltypes - The number of cell types. (Default 3)
-#' @param cells_per_type - The number of cells for each type. (Default 30)
-#' @param n_batches - The number of batches to assign to the
+#' @param samples_per_type - The number of samples for each type. (Default 30)
+#' @param n_batches - The number of batches to create (does not change the total number of samples)
 #' @param de.prob - The probability that a given gene will be differentially expressed.
 #' Either a single percentage, or a vector of percentages, one foe each of the cell types. (Default: linearly increasing probabilities from 0.3 to 0.4)
 #' @param nGenes - The number of genes. (Default 500)
-#' @param seed - A random seed. This assures that the same simulated SCE results will be returned each time that this function is called.
-#' It does not use or alter the random seed value of the calling function.
-#'
-#' @return SingleCellExperiemnt with (n_celltypes x cells_per_type) columns and nGenes rows.
-#'
-synthetic_se <- function(n_celltypes = 3,
-                         cells_per_type = 30,
-                         n_batches = 1,
-                         de.prob = seq(from=0.3,to=0.4,length.out=n_celltypes),
-                         nGenes = 500, seed = 1951) {
-  withr::with_seed(seed, {
-    total_cells <- cells_per_type * n_celltypes
-    # a SingleCellExperiment
-    se <- splatSimulateGroups(
-      newSplatParams(batchCells = diff(round(seq(from=1, to=total_cells + 1, length.out = n_batches + 1))),
-                      nGenes = nGenes),
-                      de.prob = de.prob,
-                      group.prob = rep(1 / n_celltypes, n_celltypes),
-                      verbose = FALSE
-    )
-    colnames(colData(se))[colnames(colData(se)) == "Group"] <- "cell_type"
-    levels(colData(se)$cell_type) <- str_replace(levels(colData(se)$cell_type), "Group", "ct")
-  })
-  return(se)
-}
-
-#' Create a Reference and a list of associated SpatialRNA objects from a SummarizedExperiment object produced by synthetic_se
-#'
-#' @param sce - A  SingleCellExperiment, specifically one created by the synthetic_se function.
 #' @param prop.ref A proportion of the samples be used to create a Reference object. (Default 0.5)
 #' The remaining columns will be used as the experimental observations.
 #' @param replicates The number of experimental replicates (Default 1)
 #' @puck_pattern A function that assigned individual observations to geographic locations according to a policy defined in that function.
 #'    The default function is config_bars_for_cell_types, which creates horizontal bands of observations grouped by cell type and
 #'    arranged in as grids.
+#' @param seed - A random seed. This assures that the same simulated SCE results will be returned each time that this function is called.
+#' It does not use or alter the random seed value of the calling function.
 #'
-#' @return list(reference, s_regions=list(s_regions), se=list(sce)),
+#' @return list(reference, s_regions=list(s_regions), sce=list(sce)),
 #' where reference is an spacexr Reference object,
 #'       s_regions is a list of SpatialRNA objects, one for each replicate,
-#'       se is a list of SummarizedExperiment objects, each element corresponding to the parallel SpatialRNA object
+#'       sce is a list of SummarizedExperiment objects, each element corresponding to the parallel SpatialRNA object
 #'
-sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
-                        puck_pattern = config_bars_for_cell_types) {
+simulateSpatialRNASeq <- function(n_celltypes = 3,
+                         samples_per_type = 30,
+                         n_batches = 1,
+                         de.prob = seq(from=0.3,to=0.4,length.out=n_celltypes),
+                         nGenes = 500,
+                         prop.ref = 0.5,
+                         replicates = 1,
+                         puck_pattern = config_bars_for_cell_types,
+                         seed = 1951) {
+  withr::with_seed(seed, {
+    total_samples <- samples_per_type * n_celltypes
+    # a SingleCellExperiment
+    sce <- splatSimulateGroups(
+      newSplatParams(batchCells = diff(round(seq(from=1, to=total_samples + 1, length.out = n_batches + 1))),
+                      nGenes = nGenes),
+                      de.prob = de.prob,
+                      group.prob = rep(1 / n_celltypes, n_celltypes),
+                      verbose = FALSE
+    )
+    colnames(colData(sce))[colnames(colData(sce)) == "Group"] <- "cell_type"
+    levels(colData(sce)$cell_type) <- str_replace(levels(colData(sce)$cell_type), "Group", "ct")
+  })
+
+# TODO the size of the reference should be a number, not a proportion of the entire sample
+# TODO extra observations will be needed in order to create proportional samples
+# TODO reconsider default "ramp" for default de.prob
+# TODO need to redistribute batches to groups
+# TODO Understand the randomization parameters for distribution of cell types (groups).
+
   # create Reference object
   if (prop.ref == 0) {
     # If no Reference object is to be built
@@ -84,8 +85,9 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
   replicate <- unlist(sapply(seq_along(z), \(i) rep(1:replicates, length.out = length(z[[i]]))))
   colData(sce) <- cbind(colData(sce)[unlist(z), ], data.frame(replicate))
 
-  # create s_regions
-
+  # create s_regions - each s_region is a replicate and is returned as
+  # both a Summarized Experiment and a SpatialRNA object that is derived
+  # from the summarized experiment.
   s_regions <- lapply(split(1:ncol(sce), colData(sce)$replicate), \(sindex) {
     s <- sce[, sindex]
     # assign bar codes (proxy for dot location) to colnames
@@ -112,7 +114,7 @@ sce_to_rctd <- function(sce, prop.ref = 0.5, replicates = 1,
     list(puck, s)
   })
   list(reference = reference, s_regions = lapply(s_regions, `[[`, 1),
-       se = lapply(s_regions, `[[`, 2))
+       sce = lapply(s_regions, `[[`, 2))
 }
 
 
