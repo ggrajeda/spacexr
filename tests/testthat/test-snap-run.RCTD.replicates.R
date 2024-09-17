@@ -4,6 +4,7 @@ test_that("run.RCTD.replicates", {
     set.seed(20240815)
     mat <- simulateSpatialRNASeq(n_celltypes = 3,
                         samples_per_type = 60,
+                        reference_samples = 30,
                         nGenes = 500,
                         seed = 886,
                         replicates = 3)

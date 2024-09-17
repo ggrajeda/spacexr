@@ -5,6 +5,7 @@ test_that("plot_puck_continuous simple test", {
   set.seed(20240815)
   mat <- simulateSpatialRNASeq(n_celltypes = 3,
                              samples_per_type = 60,
+                             reference_samples = 30,
                              nGenes = 500,
                              seed = 987)
   barcodes <- colnames(mat$s_regions[[1]]@counts) # pixels to be used (a list of barcode names)

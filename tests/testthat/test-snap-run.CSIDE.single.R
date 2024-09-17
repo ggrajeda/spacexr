@@ -6,6 +6,7 @@ test_that("run.CSIDE.single simple test",{
   set.seed(20240821)
   mat <- simulateSpatialRNASeq(n_celltypes = 20,
                       samples_per_type = 70,
+                      reference_samples = 35,
                       nGenes = 500,
                       seed = 886)
   rctd <- create.RCTD(mat$s_regions[[1]], mat$reference, max_cores = 1)

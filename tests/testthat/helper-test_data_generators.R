@@ -19,7 +19,7 @@ suppressMessages(suppressWarnings({
 #' @param de.prob - The probability that a given gene will be differentially expressed.
 #' Either a single percentage, or a vector of percentages, one foe each of the cell types. (Default: linearly increasing probabilities from 0.3 to 0.4)
 #' @param nGenes - The number of genes. (Default 500)
-#' @param prop.ref A proportion of the samples be used to create a Reference object. (Default 0.5)
+#' @param reference_samples A number of the samples be used to create a Reference object. If zero, no Reference object will be created. (Default 20)
 #' The remaining columns will be used as the experimental observations.
 #' @param replicates The number of experimental replicates (Default 1)
 #' @puck_pattern A function that assigned individual observations to geographic locations according to a policy defined in that function.
@@ -38,15 +38,22 @@ simulateSpatialRNASeq <- function(n_celltypes = 3,
                          n_batches = 1,
                          de.prob = seq(from=0.3,to=0.4,length.out=n_celltypes),
                          nGenes = 500,
-                         prop.ref = 0.5,
+                         reference_samples = 15,
                          replicates = 1,
                          puck_pattern = config_bars_for_cell_types,
                          seed = 1951) {
   withr::with_seed(seed, {
-    total_samples <- samples_per_type * n_celltypes
-    # a SingleCellExperiment
+    # Create a SingleCellExperiment
+    total_samples <- (samples_per_type + reference_samples) * n_celltypes
+    # A vector for the number of samples in each batch
+    batchCells <- diff(round(seq(from=1, to=total_samples + 1, length.out = n_batches + 1)))
+    # To create a Reference object, add an additional batch of the appropriate size
+    if (reference_samples > 0) {
+      batchCells <- c(reference_samples * n_celltypes, batchCells)
+
+    }
     sce <- splatSimulateGroups(
-      newSplatParams(batchCells = diff(round(seq(from=1, to=total_samples + 1, length.out = n_batches + 1))),
+      newSplatParams(batchCells = batchCells,
                       nGenes = nGenes),
                       de.prob = de.prob,
                       group.prob = rep(1 / n_celltypes, n_celltypes),
@@ -56,25 +63,23 @@ simulateSpatialRNASeq <- function(n_celltypes = 3,
     levels(colData(sce)$cell_type) <- str_replace(levels(colData(sce)$cell_type), "Group", "ct")
   })
 
-# TODO the size of the reference should be a number, not a proportion of the entire sample
 # TODO extra observations will be needed in order to create proportional samples
 # TODO reconsider default "ramp" for default de.prob
 # TODO need to redistribute batches to groups
-# TODO Understand the randomization parameters for distribution of cell types (groups).
 
   # create Reference object
-  if (prop.ref == 0) {
+  if (reference_samples == 0) {
     # If no Reference object is to be built
     reference <- NULL
-    split <- 0
   } else {
-    split <- floor(ncol(sce) * prop.ref)
-    refSE <- sce[, 1:split]
+    # We will construct the Reference object from Batch1
+    b <- colData(sce)$Batch == "Batch1"
+    refSE <- sce[, b]
     cell_types <- colData(refSE)$cell_type
     names(cell_types) <- colnames(refSE)
     reference <- Reference(counts =assay(refSE, "counts"),
                            cell_types = cell_types)
-    sce <- sce[, (split+1):ncol(sce)]
+    sce <- sce[, !b]
   }
 
 
@@ -82,7 +87,7 @@ simulateSpatialRNASeq <- function(n_celltypes = 3,
   # cell types evenly between the groups
   # This is policy is for test data and not a simulation of real replicates
   z <- split(seq(ncol(sce)), colData(sce)$cell_type)
-  replicate <- unlist(sapply(seq_along(z), \(i) rep(1:replicates, length.out = length(z[[i]]))))
+  replicate <- unlist(lapply(seq_along(z), \(i) rep(1:replicates, length.out = length(z[[i]]))))
   colData(sce) <- cbind(colData(sce)[unlist(z), ], data.frame(replicate))
 
   # create s_regions - each s_region is a replicate and is returned as
