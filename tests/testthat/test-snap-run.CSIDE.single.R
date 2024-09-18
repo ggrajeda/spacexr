@@ -43,8 +43,8 @@ test_that("run.CSIDE.single simple test",{
 
   # Assert
   expect_snapshot({
-    r@de_results$all_gene_list
-    r_multi@de_results$all_gene_list
+    print(r@de_results$all_gene_list, digits=5)
+    print(r_multi@de_results$all_gene_list, digits=5)
   })
 
   expect_cside_results_equal(r, r_multi)
