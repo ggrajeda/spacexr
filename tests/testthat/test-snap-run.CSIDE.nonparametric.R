@@ -4,13 +4,15 @@ test_that("run.CSIDE.nonparametric simple test",{
   # Arrange
   # create reference
   set.seed(20240918)
-  mat <- simulateSpatialRNASeq(n_celltypes = 10,
+  mat <- simulateSpatialRNASeq(n_celltypes = 6,
                                samples_per_type = 70,
                                reference_samples = 25,
-                               nGenes = 500,
+                               nGenes = 300,
                                seed = 2109)
+  reference_counts <- table(mat$reference@cell_types)
+  print(reference_counts)
   rctd <- create.RCTD(mat$s_regions[[1]], mat$reference, max_cores = 1,
-                      CELL_MIN_INSTANCE = 19)
+                      CELL_MIN_INSTANCE = min(reference_counts))
   rctd <- run.RCTD(rctd, doublet_mode = 'doublet')
   rctd_multi <- rctd
   rctd@config$max_cores <- 1
