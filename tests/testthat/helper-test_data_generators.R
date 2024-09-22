@@ -4,6 +4,49 @@ suppressMessages(suppressWarnings({
   library(splatter, quietly = TRUE)
 }))
 
+
+#' create_sample_mixtures - Combine single-cell samples to simulate a sample of mixed cell types
+#'
+#' @param se- summarized experiment
+#' @param mixtures A named list of named numeric vectors. Each vector is indicates to proportion of cell types that comprise that mixture.
+#'    Example:list(mx1=c(ct1=0.8, ct2=0.2)) Indicates a mixture comprised of 80% ct1 and 20% ct2
+#'    Mixtures are created by randomly selecting samples with the specified cell types, mixing them gene-wise in the proportion given
+#'    and then replacing one of the selected samples with the mixture, chaanging the cell_type to the mixture name and removing the
+#'    samples used in the creation of the mixture.
+#' @param n_samples - vector of number of each mixture type to make
+#'
+#' @return The summarized experiment with mixtures replacing certain samples.
+#'
+create_sample_mixtures <- \(se, mixtures, n_samples) {
+  for (mixture_idx in seq_along(mixtures)) {
+    mixture <- mixtures[[mixture_idx]]
+    n <- n_samples[mixture_idx]
+    mixture_name <-  names(mixtures)[mixture_idx]
+    # select the samples for combination
+    sample_idx <- mapply(\(prop, pcell_type) {
+      sample(which(colData(se)$cell_type == pcell_type), n)
+    }, mixture, names(mixture), SIMPLIFY = FALSE) # Simplify false to force 1-row results
+    # Convert to matrix
+    # sample_idx is now a matrix of column ID's for each of the mixtures for this mixture type
+    # columns=se column ID
+    # row=computational replicate
+    sample_idx <- matrix(unlist(sample_idx), byrow = FALSE, ncol = length(sample_idx))
+    for (i in seq(nrow(sample_idx))) {
+      u <- sample_idx[i, ]
+      mx <- apply(assay(se, "counts")[, u], 1, \(u) as.integer(round(sum(u * mixture), 0)))
+      newloc <- u[1]
+      assay(se, "counts")[,newloc] <- mx
+      levels(colData(se)$cell_type) <- c(levels(colData(se)$cell_type), mixture_name)
+      colData(se)$cell_type[newloc] <- mixture_name
+    }
+    # the mixture has been stored at se columne given in the first column sample_idx
+    # remove the other columns used to build the mixtures to avoid de-randomization by reuse
+    idx <- as.vector(sample_idx[, -1])
+    se <- se[, -idx]
+  }
+  return(se)
+}
+
 #' simulateSpatialRNASeq -Create a synthetic dataset of RNA-seq like counts
 #'
 #' Simulates a single-cell RNA-seq experiment and attaches 2-d coordinates to each observation.
@@ -22,6 +65,7 @@ suppressMessages(suppressWarnings({
 #' @param reference_samples A number of the samples be used to create a Reference object. If zero, no Reference object will be created. (Default 20)
 #' The remaining columns will be used as the experimental observations.
 #' @param replicates The number of experimental replicates (Default 1)
+#' @mixtures - a list of mixture types to create See function create_sample_mixtures for structure
 #' @puck_pattern A function that assigned individual observations to geographic locations according to a policy defined in that function.
 #'    The default function is config_bars_for_cell_types, which creates horizontal bands of observations grouped by cell type and
 #'    arranged in as grids.
@@ -66,6 +110,7 @@ simulateSpatialRNASeq <- function(n_celltypes = 3,
 # TODO extra observations will be needed in order to create proportional samples
 # TODO reconsider default "ramp" for default de.prob
 # TODO need to redistribute batches to groups
+# TODO puck pattern parameters pass via simulateSpatialRNASeq
 
   # create Reference object
   if (reference_samples == 0) {
@@ -121,7 +166,6 @@ simulateSpatialRNASeq <- function(n_celltypes = 3,
   list(reference = reference, s_regions = lapply(s_regions, `[[`, 1),
        sce = lapply(s_regions, `[[`, 2))
 }
-
 
 # Create simulated spatial data
 
