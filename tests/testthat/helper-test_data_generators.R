@@ -106,10 +106,6 @@ simulateSpatialRNASeq <- function(n_celltypes = 3,
     colnames(colData(sce))[colnames(colData(sce)) == "Group"] <- "cell_type"
     levels(colData(sce)$cell_type) <- str_replace(levels(colData(sce)$cell_type), "Group", "ct")
   })
-
-# TODO extra observations will be needed in order to create proportional samples
-# TODO reconsider default "ramp" for default de.prob
-# TODO need to redistribute batches to groups
 # TODO puck pattern parameters pass via simulateSpatialRNASeq
 
   # create Reference object
@@ -184,7 +180,7 @@ simulateSpatialRNASeq <- function(n_celltypes = 3,
 #'          location$x, location$y, the (x,y) coordinates (in pixels) of the lower left hand vertex of the rectangle
 #'          size$x, size$y, the width and height of the rectangle.
 #'          mixture, a vector of proportions, each vector element named by a cell type, and each elemnt value indicating the proportion of the
-#'          observation that was generated from the named cell type. The total of the porporations should sum to 1.
+#'          observation that was generated from the named cell type. The total of the proportions should sum to 1.
 #'
 #' @examples
 config_bars_for_cell_types <- \(cell_type_table, region_width = 10, margin = 2) {
