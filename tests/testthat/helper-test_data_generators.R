@@ -8,19 +8,25 @@ suppressMessages(suppressWarnings({
 #' create_sample_mixtures - Combine single-cell samples to simulate a sample of mixed cell types
 #'
 #' @param se- summarized experiment
-#' @param mixtures A named list of named numeric vectors. Each vector is indicates to proportion of cell types that comprise that mixture.
-#'    Example:list(mx1=c(ct1=0.8, ct2=0.2)) Indicates a mixture comprised of 80% ct1 and 20% ct2
-#'    Mixtures are created by randomly selecting samples with the specified cell types, mixing them gene-wise in the proportion given
-#'    and then replacing one of the selected samples with the mixture, chaanging the cell_type to the mixture name and removing the
+#' @param mixtures A named list of named numeric vectors.
+#'    Each vector has at least 2 elements. The first indicates the
+#'    number of samples to create for this mixture type.
+#'    The rest of the vector indicates to proportion of cell types that comprise that mixture.
+#'    Example:list(mx1=c(n=10, ct1=0.8, ct2=0.2)) Indicates 10 samples to be
+#'    known as cell_type mx1, which is a mixture comprised of 80% ct1 and 20% ct2.
+#'    Mixtures are created by randomly selecting samples with the specified
+#'    cell types, mixing them gene-wise in the proportion given
+#'    and then replacing one of the selected samples with the mixture,
+#'    changing the cell_type to the mixture name and removing the
 #'    samples used in the creation of the mixture.
-#' @param n_samples - vector of number of each mixture type to make
 #'
 #' @return The summarized experiment with mixtures replacing certain samples.
 #'
-create_sample_mixtures <- \(se, mixtures, n_samples) {
+create_sample_mixtures <- \(se, mixtures) {
   for (mixture_idx in seq_along(mixtures)) {
     mixture <- mixtures[[mixture_idx]]
-    n <- n_samples[mixture_idx]
+    n <- mixture[1]
+    mixture <- mixture[-1]
     mixture_name <-  names(mixtures)[mixture_idx]
     # select the samples for combination
     sample_idx <- mapply(\(prop, pcell_type) {
@@ -65,7 +71,7 @@ create_sample_mixtures <- \(se, mixtures, n_samples) {
 #' @param reference_samples A number of the samples be used to create a Reference object. If zero, no Reference object will be created. (Default 20)
 #' The remaining columns will be used as the experimental observations.
 #' @param replicates The number of experimental replicates (Default 1)
-#' @mixtures - a list of mixture types to create See function create_sample_mixtures for structure
+#' @mixtures - a list of mixture types to create See function create_sample_mixtures for structure Default: list()
 #' @puck_pattern A function that assigned individual observations to geographic locations according to a policy defined in that function.
 #'    The default function is config_bars_for_cell_types, which creates horizontal bands of observations grouped by cell type and
 #'    arranged in as grids.
@@ -84,6 +90,7 @@ simulateSpatialRNASeq <- function(n_celltypes = 3,
                          nGenes = 500,
                          reference_samples = 15,
                          replicates = 1,
+                         mixtures = list(),
                          puck_pattern = config_bars_for_cell_types,
                          seed = 1951) {
   withr::with_seed(seed, {
@@ -123,6 +130,10 @@ simulateSpatialRNASeq <- function(n_celltypes = 3,
     sce <- sce[, !b]
   }
 
+  # TODO inflate the number of samples to assure that we can fill the needs
+  if (length(mixtures) > 0) {
+    sce <- create_sample_mixtures(sce, mixtures)
+  }
 
   # Assign replicate numbers (1..n) to each column, distribute the
   # cell types evenly between the groups
