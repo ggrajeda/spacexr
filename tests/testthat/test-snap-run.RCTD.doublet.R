@@ -2,14 +2,15 @@ test_that("run.RCTD doublet", {
     # Arrange
     # create reference
     set.seed(20240815)
-    mat <- sce_to_rctd(synthetic_se(n_celltypes = 3,
-                               cells_per_type = 60,
+    mat <- simulateSpatialRNASeq(n_celltypes = 3,
+                               samples_per_type = 60,
+                               reference_samples = 30,
                                nGenes = 500,
-                               seed = 886))
+                               seed = 886)
 
     # Act
-    rctd <- create.RCTD(mat$puck[[1]], mat$reference, max_cores = 1)
-    rctd_multi <- create.RCTD(mat$puck[[1]], mat$reference, max_cores = 2)
+    rctd <- create.RCTD(mat$s_regions[[1]], mat$reference, max_cores = 1)
+    rctd_multi <- create.RCTD(mat$s_regions[[1]], mat$reference, max_cores = 2)
 
     raw_result <- run.RCTD(rctd, doublet_mode = 'doublet')
     result <- rctd_result_list(raw_result)

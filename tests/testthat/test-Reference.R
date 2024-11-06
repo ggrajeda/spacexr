@@ -1,11 +1,12 @@
 test_that("Reference simple test", {
   # Arrange
   set.seed(20240813)
-  se <- synthetic_se(seed = 234)
+  sp_rna_sim <- simulateSpatialRNASeq(seed = 234)
+  se <- sp_rna_sim$sce[[1]]
   u <- list()
   u$counts <- assay(se, "counts")
   u$nUMI <- colSums(u$counts)
-  u$cell_types <- colData(se)$Group
+  u$cell_types <- colData(se)$cell_type
   names(u$cell_types) <- colnames(se)
 
   # Act
