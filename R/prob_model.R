@@ -10,7 +10,6 @@
 #' @export
 set_likelihood_vars <- function(Q_mat_loc, X_vals, sigma = NULL) {
   Q_mat <<- Q_mat_loc
-  N_X <<- dim(Q_mat)[2]
   X_vals <<- X_vals
   K_val <<- dim(Q_mat)[1] - 3;
   if(is.null(sigma))
@@ -93,7 +92,8 @@ get_Q <- function(X_vals, k, sigma, big_params = T) {
 }
 
 calc_Q_mat_one <- function(sigma, X_vals, k, batch = 100, big_params = T) {
-  N_X = length(X_vals); results = numeric(N_X)
+  N_X = length(X_vals)
+  results = numeric(N_X)
   for(b in 1:ceiling(N_X/batch)) {
     X_ind = (batch*(b-1) + 1):min((batch*b),N_X)
     curr_X = X_vals[X_ind]
