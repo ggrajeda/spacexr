@@ -173,7 +173,7 @@ get_d1_d2 <- function(Y, lambda) {
   return(list(d1_vec = d_all$d1_vec, d2_vec = d_all$d2_vec))
 }
 
-get_der_fast <- function(S, B, gene_list, prediction, bulk_mode = F) {
+get_der_fast <- function(S, S_mat, B, gene_list, prediction, bulk_mode = F) {
   if(bulk_mode) {
     #d1_vec <- -t(log(prediction) - log(B))
     #d2_vec <- -t(1/prediction)

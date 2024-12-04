@@ -34,11 +34,11 @@ solveIRWLS.weights <-function(S,B,nUMI, OLS=FALSE, constrain = TRUE, verbose = F
   #solution <- runif(length(solution))*2 / length(solution) # random initialization
   names(solution) <- colnames(S)
 
-  S_mat <<- matrix(0,nrow = dim(S)[1],ncol = dim(S)[2]*(dim(S)[2] + 1)/2)
+  S_mat <- matrix(0,nrow = dim(S)[1],ncol = dim(S)[2]*(dim(S)[2] + 1)/2)
   counter = 1
   for(i in 1:dim(S)[2])
     for(j in i:dim(S)[2]) {
-      S_mat[,counter] <<- S[,i] * S[,j] # depends on n^2
+      S_mat[,counter] <- S[,i] * S[,j] # depends on n^2
       counter <- counter + 1
     }
 
@@ -46,7 +46,7 @@ solveIRWLS.weights <-function(S,B,nUMI, OLS=FALSE, constrain = TRUE, verbose = F
   changes<-c()
   change<-1;
   while(change > MIN_CHANGE && iterations<n.iter){
-    new_solution<-solveWLS(S,B,solution, nUMI,constrain=constrain, bulk_mode = bulk_mode)
+    new_solution<-solveWLS(S,S_mat,B,solution, nUMI,constrain=constrain, bulk_mode = bulk_mode)
     change<-norm(as.matrix(new_solution-solution))
     if(verbose) {
       print(paste("Change:",change))
@@ -77,13 +77,13 @@ solveIRWLS.weights <-function(S,B,nUMI, OLS=FALSE, constrain = TRUE, verbose = F
 #B[inv]
 #plot(X_vals, Q_mat[2,])
 
-solveWLS<-function(S,B,initialSol, nUMI, bulk_mode = F, constrain = F){
+solveWLS<-function(S,S_mat,B,initialSol, nUMI, bulk_mode = F, constrain = F){
   solution<-pmax(initialSol,0)
   prediction = abs(S%*%solution)
   threshold = max(1e-4, nUMI * 1e-7)
   prediction[prediction < threshold] <- threshold
   gene_list = rownames(S)
-  derivatives <- get_der_fast(S, B, gene_list, prediction, bulk_mode = bulk_mode)
+  derivatives <- get_der_fast(S, S_mat, B, gene_list, prediction, bulk_mode = bulk_mode)
   d_vec <- -derivatives$grad
   D_mat <- psd(derivatives$hess)
   norm_factor <- norm(D_mat,"2")
