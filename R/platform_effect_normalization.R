@@ -68,13 +68,7 @@ chooseSigma <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
 #' @export
 choose_sigma_c <- function(RCTD) {
   puck = RCTD@spatialRNA; MIN_UMI = RCTD@config$UMI_min_sigma; sigma = 100
-  #Q_mat_all <- readRDS('/Users/dcable/Documents/MIT/Research/Rafalab/Projects/slideseq/Cell Demixing/ContentStructure/RCTD/Qmat/Q_mat_c.rds')
-  Q1 <- readRDS(system.file("extdata", "Qmat/Q_mat_1.rds", package = "spacexr"))
-  Q2 <- readRDS(system.file("extdata", "Qmat/Q_mat_2.rds", package = "spacexr"))
-  Q3 <- readRDS(system.file("extdata", "Qmat/Q_mat_3.rds", package = "spacexr"))
-  Q4 <- readRDS(system.file("extdata", "Qmat/Q_mat_4.rds", package = "spacexr"))
-  Q5 <- readRDS(system.file("extdata", "Qmat/Q_mat_5.rds", package = "spacexr"))
-  Q_mat_all <- c(Q1, Q2, Q3, Q4, Q5)
+  Q_mat_all <- get_Q_all()
   sigma_vals <- names(Q_mat_all)
   #X_vals <- readRDS('/Users/dcable/Documents/MIT/Research/Rafalab/Projects/slideseq/Cell Demixing/ContentStructure/RCTD/Qmat/X_vals.rds')
   X_vals <- readRDS(system.file("extdata", "Qmat/X_vals.rds", package = "spacexr"))
