@@ -10,7 +10,7 @@
 #' @export
 set_likelihood_vars <- function(Q_mat_loc, X_vals, sigma = NULL) {
   Q_mat <<- Q_mat_loc
-  X_vals <<- X_vals
+  X_vals <- get_X_vals()
   K_val <<- dim(Q_mat)[1] - 3;
   if(is.null(sigma))
     SQ_mat <<- solve_sq(Q_mat_loc, X_vals)
@@ -37,16 +37,22 @@ solve_sq <- function(Q_mat, X_vals) {
 set_global_Q_all <- function() {
   message('set_global_Q_all: begin')
   Q_mat_all <<- get_Q_all()
-  X_vals <<- readRDS(system.file("extdata", "Qmat/X_vals.rds", package = "spacexr"))
+  X_vals <- get_X_vals()
   SQ_mat_all <<- lapply(Q_mat_all, function(x) solve_sq(x, X_vals))
   message('set_global_Q_all: finished')
 }
 
 set_likelihood_vars_sigma <- function(sigma) {
   Q_mat_all <- get_Q_all()
-  X_vals <- readRDS(system.file("extdata", "Qmat/X_vals.rds", package = "spacexr"))
+  X_vals <- get_X_vals()
   set_likelihood_vars(Q_mat_all[[sigma]], X_vals)
 }
+
+load_X_vals <- function() {
+  readRDS(system.file("extdata", "Qmat/X_vals.rds", package = "spacexr"))
+}
+
+get_X_vals <- memoise::memoise(load_X_vals)
 
 #' Retrieves Q matrices from cache, populating the cache if necessary.
 #' @return list of matrices
@@ -162,6 +168,7 @@ calc_Q_par <- function(K, X_vals, sigma, big_params = T) {
 
 #all values of K
 calc_Q_all <- function(Y, lambda) {
+  X_vals <- get_X_vals()
   Y[Y > K_val] <- K_val
   epsilon <- 1e-4; X_max <- max(X_vals); delta <- 1e-6
   lambda <- pmin(pmax(epsilon, lambda),X_max - epsilon)
@@ -193,6 +200,7 @@ calc_log_l_vec <- function(lambda, Y, return_vec = FALSE) {
 
 # linear interpolation
 calc_log_l_vec_fast <- function(lambda, Y) {
+  X_vals <- get_X_vals()
   Y[Y > K_val] <- K_val
   epsilon <- 1e-4; X_max <- max(X_vals); delta <- 1e-6
   lambda <- pmin(pmax(epsilon, lambda),X_max - epsilon)

@@ -1,5 +1,6 @@
 
 choose_sigma_gene <- function(sigma_init, Y, X1, X2, my_beta, nUMI,test_mode, verbose = F, n.iter = 100, MIN_CHANGE = 0.001, MAX_ITER_SIGMA = 10, PRECISION.THRESHOLD = .01) {
+  X_vals <- get_X_vals()
   sigma_s_best <- sigma_init
   sigma_vals <- names(Q_mat_all)
   alpha1 <- NULL; alpha2 <- NULL;

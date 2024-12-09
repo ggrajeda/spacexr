@@ -402,6 +402,7 @@ run.CSIDE.general <- function(myRCTD, X1, X2, barcodes, cell_types = NULL, gene_
   sigma_init <- as.character(100*myRCTD@internal_vars$sigma)
   if(sigma_gene) {
     set_global_Q_all()
+    X_vals <- get_X_vals()
     sigma_set <- sigma_init
     set_likelihood_vars(Q_mat_all[[sigma_init]], X_vals, sigma = sigma_set)
   } else {
@@ -715,7 +716,7 @@ fit_de_genes <- function(X1,X2,my_beta, nUMI, gene_list, puck, barcodes, sigma_i
   } else {
     cl <- parallel::makeCluster(numCores,setup_strategy = "sequential",outfile="") #makeForkCluster
     doParallel::registerDoParallel(cl)
-    environ = c('estimate_effects_trust', 'solveIRWLS.effects_trust', 'K_val','X_vals',
+    environ = c('estimate_effects_trust', 'solveIRWLS.effects_trust', 'K_val','get_X_vals',
                 'calc_log_l_vec', 'get_d1_d2', 'calc_Q_all','psd','construct_hess_fast',
                 'choose_sigma_gene', 'estimate_gene_wrapper', 'check_converged_vec', 'calc_log_l_vec_fast')
     if(sigma_gene)
@@ -735,7 +736,7 @@ fit_de_genes <- function(X1,X2,my_beta, nUMI, gene_list, puck, barcodes, sigma_i
           cat(paste0("Testing sample: ",i," gene ", gene_list[i],"\n"), file=out_file, append=TRUE)
         }
       }
-      assign("X_vals",X_vals, envir = globalenv()); assign("K_val",K_val, envir = globalenv());
+      assign("K_val",K_val, envir = globalenv());
       if(sigma_gene) {
         assign("Q_mat_all",Q_mat_all, envir = globalenv());
         assign("SQ_mat_all",SQ_mat_all, envir = globalenv());
