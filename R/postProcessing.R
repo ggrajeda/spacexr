@@ -125,7 +125,7 @@ import_weights <- function(myRCTD, weights) {
   myRCTD@internal_vars$proportions <- colMeans(weights)/sum(colMeans(weights))
   myRCTD@internal_vars$cell_types_assigned <- TRUE
   myRCTD@internal_vars$sigma <- 1
-  set_global_Q_all()
+  Q_mat_all <- get_Q_all()
   myRCTD@internal_vars$Q_mat <- Q_mat_all[['100']]
   X_vals <- get_X_vals()
   myRCTD@internal_vars$X_vals <- X_vals

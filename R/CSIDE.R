@@ -401,7 +401,7 @@ run.CSIDE.general <- function(myRCTD, X1, X2, barcodes, cell_types = NULL, gene_
   barcodes <- res$barcodes; my_beta <- res$my_beta
   sigma_init <- as.character(100*myRCTD@internal_vars$sigma)
   if(sigma_gene) {
-    set_global_Q_all()
+    Q_mat_all <- get_Q_all()
     X_vals <- get_X_vals()
     sigma_set <- sigma_init
     set_likelihood_vars(Q_mat_all[[sigma_init]], X_vals, sigma = sigma_set)
@@ -720,7 +720,7 @@ fit_de_genes <- function(X1,X2,my_beta, nUMI, gene_list, puck, barcodes, sigma_i
                 'calc_log_l_vec', 'get_d1_d2', 'calc_Q_all','psd','construct_hess_fast',
                 'choose_sigma_gene', 'estimate_gene_wrapper', 'check_converged_vec', 'calc_log_l_vec_fast')
     if(sigma_gene)
-      environ <- c(environ, 'Q_mat_all', 'SQ_mat_all')
+      environ <- c(environ, 'get_Q_all', 'get_SQ_all')
     else
       environ <- c(environ, 'Q_mat', 'SQ_mat')
     if (logs) {
@@ -737,10 +737,7 @@ fit_de_genes <- function(X1,X2,my_beta, nUMI, gene_list, puck, barcodes, sigma_i
         }
       }
       assign("K_val",K_val, envir = globalenv());
-      if(sigma_gene) {
-        assign("Q_mat_all",Q_mat_all, envir = globalenv());
-        assign("SQ_mat_all",SQ_mat_all, envir = globalenv());
-      } else {
+      if(!sigma_gene) {
         assign("Q_mat",Q_mat, envir = globalenv()); assign("SQ_mat",SQ_mat, envir = globalenv())
       }
       gene <- gene_list[i]
