@@ -118,6 +118,7 @@ solveIRWLS.effects_trust <-function(Y, X1, X2, my_beta, test_mode, verbose = FAL
     alpha2 <- alpha2_init
   }
   pred_decrease_vals <- numeric(n.iter)
+  K_val <- get_K_val()
   Y[Y > K_val] <- K_val
   K <- dim(my_beta)[2]
   lambda_k <- exp(sweep(X2 %*% (alpha2), 1, X1 %*% (alpha1),'+'))*my_beta #J by K

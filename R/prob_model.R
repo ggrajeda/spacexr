@@ -9,9 +9,7 @@
 #' Else, uses precomputed values of SQ_mat stored in SQ_mat_all with index sigma
 #' @export
 set_likelihood_vars <- function(Q_mat_loc, X_vals, sigma = NULL) {
-  Q_mat <- Q_mat_loc
-  set_Q_mat(Q_mat)
-  K_val <<- dim(Q_mat)[1] - 3;
+  set_Q_mat(Q_mat_loc)
   SQ_mat <- compute_SQ_mat(Q_mat_loc, X_vals, sigma)
   set_SQ_mat(SQ_mat)
 }
@@ -104,6 +102,7 @@ calc_Q_par <- function(K, X_vals, sigma, big_params = T) {
 
 #all values of K
 calc_Q_all <- function(Y, lambda) {
+  K_val <- get_K_val()
   Y[Y > K_val] <- K_val
   X_vals <- get_X_vals()
   epsilon <- 1e-4; X_max <- max(X_vals); delta <- 1e-6
@@ -138,8 +137,9 @@ calc_log_l_vec <- function(lambda, Y, return_vec = FALSE) {
 
 # linear interpolation
 calc_log_l_vec_fast <- function(lambda, Y) {
-  X_vals <- get_X_vals()
+  K_val <- get_K_val()
   Y[Y > K_val] <- K_val
+  X_vals <- get_X_vals()
   epsilon <- 1e-4; X_max <- max(X_vals); delta <- 1e-6
   lambda <- pmin(pmax(epsilon, lambda),X_max - epsilon)
   l <- floor((lambda/delta)^(1/2))

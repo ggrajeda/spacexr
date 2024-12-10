@@ -82,7 +82,7 @@ process_beads_batch <- function(cell_type_info, gene_list, puck, class_df = NULL
       numCores <- MAX_CORES
     cl <- parallel::makeCluster(numCores,setup_strategy = "sequential",outfile="")
     doParallel::registerDoParallel(cl)
-    environ = c('decompose_full','decompose_sparse','solveIRWLS.weights','solveOLS','solveWLS','get_X_vals','K_val')
+    environ = c('decompose_full','decompose_sparse','solveIRWLS.weights','solveOLS','solveWLS')
     # Load the cached matrix values.
     Q_mat <- get_Q_mat()
     SQ_mat <- get_SQ_mat()
@@ -92,7 +92,6 @@ process_beads_batch <- function(cell_type_info, gene_list, puck, class_df = NULL
       set_SQ_mat(SQ_mat)
       #if(i %% 100 == 0)
       #  cat(paste0("Finished sample: ",i,"\n"), file=out_file, append=TRUE)
-      assign("K_val",K_val, envir = globalenv())
       result = process_bead_doublet(cell_type_info, gene_list, puck@nUMI[i], beads[i,],
                                     class_df = class_df, constrain = constrain, MIN.CHANGE = MIN.CHANGE,
                                     CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD)
@@ -120,7 +119,7 @@ process_beads_multi <- function(cell_type_info, gene_list, puck, class_df = NULL
       numCores <- MAX_CORES
     cl <- parallel::makeCluster(numCores,setup_strategy = "sequential",outfile="")
     doParallel::registerDoParallel(cl)
-    environ = c('decompose_full','decompose_sparse','solveIRWLS.weights','solveOLS','solveWLS','get_X_vals','K_val')
+    environ = c('decompose_full','decompose_sparse','solveIRWLS.weights','solveOLS','solveWLS')
     # Load the cached matrix values.
     Q_mat <- get_Q_mat()
     SQ_mat <- get_SQ_mat()
@@ -130,7 +129,6 @@ process_beads_multi <- function(cell_type_info, gene_list, puck, class_df = NULL
       set_SQ_mat(SQ_mat)
       #if(i %% 100 == 0)
       #  cat(paste0("Finished sample: ",i,"\n"), file=out_file, append=TRUE)
-      assign("K_val",K_val, envir = globalenv())
       result = process_bead_multi(cell_type_info, gene_list, puck@nUMI[i], beads[i,],
                                   class_df = class_df, constrain = constrain, MIN.CHANGE = MIN.CHANGE, MAX.TYPES = MAX.TYPES,
                                   CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD)
@@ -201,8 +199,7 @@ decompose_batch <- function(nUMI, cell_type_means, beads, gene_list, constrain =
       numCores <- max_cores
     cl <- parallel::makeCluster(numCores,setup_strategy = "sequential",outfile="")
     doParallel::registerDoParallel(cl)
-    environ = c('decompose_full','solveIRWLS.weights',
-                'solveOLS','solveWLS', 'K_val','get_X_vals')
+    environ = c('decompose_full','solveIRWLS.weights','solveOLS','solveWLS')
     #for(i in 1:100) {
     # Load the cached matrix values.
     Q_mat <- get_Q_mat()
@@ -213,7 +210,6 @@ decompose_batch <- function(nUMI, cell_type_means, beads, gene_list, constrain =
     set_SQ_mat(SQ_mat)
       #if(i %% 100 == 0)
       #  cat(paste0("Finished sample: ",i,"\n"), file=out_file, append=TRUE)
-      assign("K_val",K_val, envir = globalenv())
       decompose_full(data.matrix(cell_type_means[gene_list,]*nUMI[i]), nUMI[i], beads[i,], constrain = constrain, OLS = OLS, MIN_CHANGE = MIN.CHANGE)
     }
     parallel::stopCluster(cl)

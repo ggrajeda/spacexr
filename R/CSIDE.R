@@ -716,7 +716,7 @@ fit_de_genes <- function(X1,X2,my_beta, nUMI, gene_list, puck, barcodes, sigma_i
   } else {
     cl <- parallel::makeCluster(numCores,setup_strategy = "sequential",outfile="") #makeForkCluster
     doParallel::registerDoParallel(cl)
-    environ = c('estimate_effects_trust', 'solveIRWLS.effects_trust', 'K_val','get_X_vals',
+    environ = c('estimate_effects_trust', 'solveIRWLS.effects_trust',
                 'calc_log_l_vec', 'get_d1_d2', 'calc_Q_all','psd','construct_hess_fast',
                 'choose_sigma_gene', 'estimate_gene_wrapper', 'check_converged_vec', 'calc_log_l_vec_fast')
     if(sigma_gene)
@@ -742,7 +742,6 @@ fit_de_genes <- function(X1,X2,my_beta, nUMI, gene_list, puck, barcodes, sigma_i
           cat(paste0("Testing sample: ",i," gene ", gene_list[i],"\n"), file=out_file, append=TRUE)
         }
       }
-      assign("K_val",K_val, envir = globalenv())
       gene <- gene_list[i]
       Y <- puck@counts[gene, barcodes]
       res <- estimate_gene_wrapper(Y,X1,X2,my_beta, nUMI, sigma_init, test_mode, verbose = F, n.iter = 200, MIN_CHANGE = 1e-3, sigma_gene = sigma_gene)

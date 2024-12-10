@@ -27,23 +27,27 @@ compute_SQ_mat <- function(Q_mat, X_vals, sigma) {
 SQ_mat_cache <- make_cache()
 
 set_SQ_mat <- function(SQ_mat) {
-    SQ_mat_cache(SQ_mat)
+  SQ_mat_cache(SQ_mat)
 }
 
 get_SQ_mat <- function() {
-    # Retrieves the memoized return value.
-    SQ_mat_cache()
+  # Retrieves the memoized return value.
+  SQ_mat_cache()
 }
 
 Q_mat_cache <- make_cache()
 
 set_Q_mat <- function(Q_mat) {
-    Q_mat_cache(Q_mat)
+  Q_mat_cache(Q_mat)
 }
 
 get_Q_mat <- function() {
-    # Retrieves the memoized return value.
-    Q_mat_cache()
+  # Retrieves the memoized return value.
+  Q_mat_cache()
+}
+
+get_K_val <- function() {
+  dim(get_Q_mat())[1] - 3;
 }
 
 #' Checks that a URL returns a 200 status code for a HEAD request

@@ -23,8 +23,10 @@ solveOLS<-function(S,B, solution, constrain = T){
 #if constrain, constrain the weights to sum up to 1
 solveIRWLS.weights <-function(S,B,nUMI, OLS=FALSE, constrain = TRUE, verbose = FALSE,
                               n.iter = 50, MIN_CHANGE = .001, bulk_mode = F, solution = NULL){
-  if(!bulk_mode)
+  if(!bulk_mode) {
+    K_val <- get_K_val()
     B[B > K_val] <- K_val
+  }
   solution <- numeric(dim(S)[2])
   solution[] <- 1/length(solution)
   if(OLS) {
