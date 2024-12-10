@@ -9,15 +9,11 @@
 #' Else, uses precomputed values of SQ_mat stored in SQ_mat_all with index sigma
 #' @export
 set_likelihood_vars <- function(Q_mat_loc, X_vals, sigma = NULL) {
-  Q_mat <<- Q_mat_loc
-  X_vals <- get_X_vals()
+  Q_mat <- Q_mat_loc
+  set_Q_mat(Q_mat)
   K_val <<- dim(Q_mat)[1] - 3;
-  if(is.null(sigma)) {
-    SQ_mat <<- solve_sq(Q_mat_loc, X_vals)
-  } else {
-    SQ_mat_all <- get_SQ_all()
-    SQ_mat <<- SQ_mat_all[[sigma]]
-  }
+  SQ_mat <- compute_SQ_mat(Q_mat_loc, X_vals, sigma)
+  set_SQ_mat(SQ_mat)
 }
 
 solve_sq <- function(Q_mat, X_vals) {
@@ -108,17 +104,19 @@ calc_Q_par <- function(K, X_vals, sigma, big_params = T) {
 
 #all values of K
 calc_Q_all <- function(Y, lambda) {
-  X_vals <- get_X_vals()
   Y[Y > K_val] <- K_val
+  X_vals <- get_X_vals()
   epsilon <- 1e-4; X_max <- max(X_vals); delta <- 1e-6
-  lambda <- pmin(pmax(epsilon, lambda),X_max - epsilon)
+  lambda <- pmin(pmax(epsilon, lambda), X_max - epsilon)
 
   l <- floor((lambda/delta)^(1/2))
   m <- pmin(l - 9,40) + pmax(ceiling(sqrt(pmax(l-48.7499,0)*4))-2,0)
   ti1 <- X_vals[m]; ti <- X_vals[m+1]; hi <- ti - ti1
   #Q0 <- cbind(Y+1, m); Q1 <- cbind(Y+1, m+1)
   Q0 <- cbind(Y+1, m); Q1 <- Q0; Q1[,2] <- Q1[,2] + 1
+  Q_mat <- get_Q_mat()
   fti1 <- Q_mat[Q0]; fti <- Q_mat[Q1]
+  SQ_mat <- get_SQ_mat()
   zi1 <- SQ_mat[Q0]; zi <- SQ_mat[Q1]
   diff1 <- lambda - ti1; diff2 <- ti - lambda
   diff3 <- fti/hi-zi*hi/6; diff4 <- fti1/hi-zi1*hi/6
@@ -147,6 +145,7 @@ calc_log_l_vec_fast <- function(lambda, Y) {
   l <- floor((lambda/delta)^(1/2))
   m <- pmin(l - 9,40) + pmax(ceiling(sqrt(pmax(l-48.7499,0)*4))-2,0)
   Q0 <- cbind(Y+1, m); Q1 <- Q0; Q1[,2] <- Q1[,2] + 1
+  Q_mat <- get_Q_mat()
   fti1 <- Q_mat[Q0]; fti <- Q_mat[Q1]
   prop = (X_vals[m+1] - lambda)/(X_vals[m+1] - X_vals[m])
   r1 <- prop * fti1 + (1 - prop) * fti

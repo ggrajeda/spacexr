@@ -4,25 +4,47 @@ load_X_vals <- function() {
 
 get_X_vals <- memoise::memoise(load_X_vals)
 
-#' Retrieves Q matrices from cache, populating the cache if necessary.
-#' @return list of matrices
-load_Q_all <- function() {
-  if (!verify_Q_cache()) {
-    cache_Q_all()
+#' Returns a stateful function that stores the most recent non-null argument and
+#' returns it for NULL values.
+#' 
+#' This is effectively used to manage global variables.
+make_cache <- function() {
+  cache <- NULL
+  function(arg = NULL) {
+    if (!is.null(arg)) cache <<- arg
+    cache
   }
-  paths = vapply(1:5, cached_Q_mat_filepath, character(1))
-  unlist(lapply(paths, readRDS), recursive=FALSE)
 }
 
-get_Q_all <- memoise::memoise(load_Q_all)
-
-load_SQ_all <- function() {
-  X_vals <- get_X_vals()
-  Q_mat_all <- get_Q_all()
-  lapply(Q_mat_all, function(x) solve_sq(x, X_vals))
+compute_SQ_mat <- function(Q_mat, X_vals, sigma) {
+  if (is.null(sigma)) {
+    return(solve_sq(Q_mat, X_vals))
+  }
+  SQ_mat_all <- get_SQ_all()
+  return(SQ_mat_all[[sigma]])
 }
 
-get_SQ_all <- memoise::memoise(load_SQ_all)
+SQ_mat_cache <- make_cache()
+
+set_SQ_mat <- function(SQ_mat) {
+    SQ_mat_cache(SQ_mat)
+}
+
+get_SQ_mat <- function() {
+    # Retrieves the memoized return value.
+    SQ_mat_cache()
+}
+
+Q_mat_cache <- make_cache()
+
+set_Q_mat <- function(Q_mat) {
+    Q_mat_cache(Q_mat)
+}
+
+get_Q_mat <- function() {
+    # Retrieves the memoized return value.
+    Q_mat_cache()
+}
 
 #' Checks that a URL returns a 200 status code for a HEAD request
 #' @param url character(1)
@@ -61,3 +83,24 @@ cache_Q_all <- function() {
   lapply(1:5, function(i) {
     BiocFileCache::bfcadd(cache, rname = remote_Q_mat_url(i), rtype = "web")})
 }
+
+#' Retrieves Q matrices from cache, populating the cache if necessary.
+#' @return list of matrices
+load_Q_all <- function() {
+  if (!verify_Q_cache()) {
+    cache_Q_all()
+  }
+  paths = vapply(1:5, cached_Q_mat_filepath, character(1))
+  unlist(lapply(paths, readRDS), recursive=FALSE)
+}
+
+get_Q_all <- memoise::memoise(load_Q_all)
+
+load_SQ_all <- function() {
+  X_vals <- get_X_vals()
+  Q_mat_all <- get_Q_all()
+  lapply(Q_mat_all, function(x) solve_sq(x, X_vals))
+}
+
+get_SQ_all <- memoise::memoise(load_SQ_all)
+

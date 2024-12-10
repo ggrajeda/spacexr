@@ -721,8 +721,6 @@ fit_de_genes <- function(X1,X2,my_beta, nUMI, gene_list, puck, barcodes, sigma_i
                 'choose_sigma_gene', 'estimate_gene_wrapper', 'check_converged_vec', 'calc_log_l_vec_fast')
     if(sigma_gene)
       environ <- c(environ, 'get_Q_all', 'get_SQ_all')
-    else
-      environ <- c(environ, 'Q_mat', 'SQ_mat')
     if (logs) {
       out_file = "logs/de_log.txt"
       if(!dir.exists('logs'))
@@ -730,16 +728,21 @@ fit_de_genes <- function(X1,X2,my_beta, nUMI, gene_list, puck, barcodes, sigma_i
       if(file.exists(out_file))
         file.remove(out_file)
     }
+    # Load the cached matrix values.
+    Q_mat <- get_Q_mat()
+    SQ_mat <- get_SQ_mat()
     results_list <- foreach::foreach(i = 1:length(gene_list), .packages = c("quadprog", "spacexr", "Rfast"), .export = environ) %dopar% {
+      if (!sigma_gene) {
+        # Update the worker's cache, since it has been reset.
+        set_Q_mat(Q_mat)
+        set_SQ_mat(SQ_mat)
+      }
       if (logs) {
         if(i %% 1 == 0) { ##10
           cat(paste0("Testing sample: ",i," gene ", gene_list[i],"\n"), file=out_file, append=TRUE)
         }
       }
-      assign("K_val",K_val, envir = globalenv());
-      if(!sigma_gene) {
-        assign("Q_mat",Q_mat, envir = globalenv()); assign("SQ_mat",SQ_mat, envir = globalenv())
-      }
+      assign("K_val",K_val, envir = globalenv())
       gene <- gene_list[i]
       Y <- puck@counts[gene, barcodes]
       res <- estimate_gene_wrapper(Y,X1,X2,my_beta, nUMI, sigma_init, test_mode, verbose = F, n.iter = 200, MIN_CHANGE = 1e-3, sigma_gene = sigma_gene)

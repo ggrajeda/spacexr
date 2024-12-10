@@ -82,12 +82,17 @@ process_beads_batch <- function(cell_type_info, gene_list, puck, class_df = NULL
       numCores <- MAX_CORES
     cl <- parallel::makeCluster(numCores,setup_strategy = "sequential",outfile="")
     doParallel::registerDoParallel(cl)
-    environ = c('decompose_full','decompose_sparse','solveIRWLS.weights','solveOLS','solveWLS','Q_mat','get_X_vals','K_val', 'SQ_mat')
+    environ = c('decompose_full','decompose_sparse','solveIRWLS.weights','solveOLS','solveWLS','get_X_vals','K_val')
+    # Load the cached matrix values.
+    Q_mat <- get_Q_mat()
+    SQ_mat <- get_SQ_mat()
     results <- foreach::foreach(i = 1:(dim(beads)[1]), .export = environ) %dopar% { #.packages = c("quadprog"),
+      # Update the worker's cache, since it has been reset.
+      set_Q_mat(Q_mat)
+      set_SQ_mat(SQ_mat)
       #if(i %% 100 == 0)
       #  cat(paste0("Finished sample: ",i,"\n"), file=out_file, append=TRUE)
-      assign("Q_mat",Q_mat, envir = globalenv());
-      assign("K_val",K_val, envir = globalenv()); assign("SQ_mat",SQ_mat, envir = globalenv());
+      assign("K_val",K_val, envir = globalenv())
       result = process_bead_doublet(cell_type_info, gene_list, puck@nUMI[i], beads[i,],
                                     class_df = class_df, constrain = constrain, MIN.CHANGE = MIN.CHANGE,
                                     CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD)
@@ -115,12 +120,17 @@ process_beads_multi <- function(cell_type_info, gene_list, puck, class_df = NULL
       numCores <- MAX_CORES
     cl <- parallel::makeCluster(numCores,setup_strategy = "sequential",outfile="")
     doParallel::registerDoParallel(cl)
-    environ = c('decompose_full','decompose_sparse','solveIRWLS.weights','solveOLS','solveWLS','Q_mat','get_X_vals','K_val', 'SQ_mat')
+    environ = c('decompose_full','decompose_sparse','solveIRWLS.weights','solveOLS','solveWLS','get_X_vals','K_val')
+    # Load the cached matrix values.
+    Q_mat <- get_Q_mat()
+    SQ_mat <- get_SQ_mat()
     results <- foreach::foreach(i = 1:(dim(beads)[1]), .export = environ) %dopar% { #.packages = c("quadprog"),
+      # Update the worker's cache, since it has been reset.
+      set_Q_mat(Q_mat)
+      set_SQ_mat(SQ_mat)
       #if(i %% 100 == 0)
       #  cat(paste0("Finished sample: ",i,"\n"), file=out_file, append=TRUE)
-      assign("Q_mat",Q_mat, envir = globalenv());
-      assign("K_val",K_val, envir = globalenv()); assign("SQ_mat",SQ_mat, envir = globalenv());
+      assign("K_val",K_val, envir = globalenv())
       result = process_bead_multi(cell_type_info, gene_list, puck@nUMI[i], beads[i,],
                                   class_df = class_df, constrain = constrain, MIN.CHANGE = MIN.CHANGE, MAX.TYPES = MAX.TYPES,
                                   CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD)
@@ -192,13 +202,18 @@ decompose_batch <- function(nUMI, cell_type_means, beads, gene_list, constrain =
     cl <- parallel::makeCluster(numCores,setup_strategy = "sequential",outfile="")
     doParallel::registerDoParallel(cl)
     environ = c('decompose_full','solveIRWLS.weights',
-                'solveOLS','solveWLS', 'Q_mat', 'K_val','get_X_vals', 'SQ_mat')
+                'solveOLS','solveWLS', 'K_val','get_X_vals')
     #for(i in 1:100) {
+    # Load the cached matrix values.
+    Q_mat <- get_Q_mat()
+    SQ_mat <- get_SQ_mat()
     weights <- foreach::foreach(i = 1:(dim(beads)[1]), .packages = c("quadprog"), .export = environ) %dopar% {
+    # Update the worker's cache, since it has been reset.
+    set_Q_mat(Q_mat)
+    set_SQ_mat(SQ_mat)
       #if(i %% 100 == 0)
       #  cat(paste0("Finished sample: ",i,"\n"), file=out_file, append=TRUE)
-      assign("Q_mat",Q_mat, envir = globalenv());
-      assign("K_val",K_val, envir = globalenv()); assign("SQ_mat",SQ_mat, envir = globalenv());
+      assign("K_val",K_val, envir = globalenv())
       decompose_full(data.matrix(cell_type_means[gene_list,]*nUMI[i]), nUMI[i], beads[i,], constrain = constrain, OLS = OLS, MIN_CHANGE = MIN.CHANGE)
     }
     parallel::stopCluster(cl)
