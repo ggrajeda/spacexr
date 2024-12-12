@@ -15,8 +15,6 @@ Imports:
     pals,
     Matrix,
     parallel,
-    doParallel,
-    foreach,
     quadprog,
     tibble,
     dplyr,
@@ -31,7 +29,8 @@ Imports:
     metafor,
     caret,
     data.table,
-    memoise
+    memoise,
+    BiocParallel
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 Suggests: 

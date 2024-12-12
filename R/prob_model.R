@@ -88,15 +88,12 @@ calc_Q_par <- function(K, X_vals, sigma, big_params = T) {
   numCores = parallel::detectCores(); MAX_CORES = 8
   if(parallel::detectCores() > MAX_CORES)
     numCores <- MAX_CORES
-  cl <- parallel::makeCluster(numCores,outfile="") #makeForkCluster
-  doParallel::registerDoParallel(cl)
-  environ = c('calc_Q_mat_one','get_Q','ht_pdf','ht_pdf_norm')
-  results <- foreach::foreach(i = 1:(K+3), .export = environ) %dopar% {
+  BiocParallel::register(BiocParallel::MulticoreParam(numCores))
+  results <- BiocParallel::bplapply(1:(K+3), function(i) {
     cat(paste0("calc_Q: Finished i: ",i,"\n"), file=out_file, append=TRUE)
     k = i-1;
     result = calc_Q_mat_one(sigma, X_vals, k, batch = 100, big_params = big_params)
-  }
-  parallel::stopCluster(cl)
+  })
   return(results)
 }
 

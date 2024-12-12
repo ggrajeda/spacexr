@@ -32,8 +32,6 @@ NULL
 #' @slot cell_labels a factor of cell type labels for each pixel
 #' @export
 #' @import Matrix
-#' @import doParallel
-#' @import foreach
 #' @importClassesFrom Matrix Matrix dgCMatrix
 setClass("SpatialRNA",
          slots = c(
@@ -99,8 +97,6 @@ setClass("Reference",
 #' @slot internal_vars_de a list of variables that are used internally by CSIDE
 #' @export
 #' @import Matrix
-#' @import doParallel
-#' @import foreach
 #' @importClassesFrom Matrix Matrix dgCMatrix
 setClass("RCTD",
   slots = c(
@@ -151,8 +147,6 @@ setClass("RCTD",
 #' Names represent the replicate names, and replicates of the same group will be expected to be more similar than
 #' replicates across groups
 #' @import Matrix
-#' @import doParallel
-#' @import foreach
 #' @importClassesFrom Matrix Matrix dgCMatrix
 setClass("RCTD.replicates",
    slots = c(
