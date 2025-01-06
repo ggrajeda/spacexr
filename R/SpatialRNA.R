@@ -49,7 +49,7 @@ read.VisiumSpatialRNA <- function (datadir)
 #' @export
 read.SpatialRNA <- function(datadir, count_file = "counts.csv", coords_file = 'coords.csv') {
   coords <- readr::read_csv(file = paste(datadir,coords_file,sep="/"))
-  counts <- data.table::fread(file = paste(datadir,count_file,sep="/"), check.names = T)
+  counts <- data.table::fread(file = paste(datadir,count_file,sep="/"), check.names = TRUE)
   counts <- tibble::as_tibble(counts)
   colnames(coords)[2] = 'x' #renaming xcoord -> x
   colnames(coords)[3] = 'y' #renaming ycoord -> y
@@ -107,7 +107,7 @@ SpatialRNA <- function(coords, counts, nUMI = NULL, use_fake_coords = FALSE, req
   new("SpatialRNA", coords = coords[barcodes,], counts = counts[,barcodes], nUMI = nUMI[barcodes])
 }
 
-check_UMI <- function(nUMI, f_name, require_2d = F, require_int = T, min_UMI = 0) {
+check_UMI <- function(nUMI, f_name, require_2d = FALSE, require_int = TRUE, min_UMI = 0) {
   if(!is.atomic(nUMI))
     stop(paste0(f_name,': nUMI is not an atomic vector. Please format nUMI as an atomic vector.'))
   if(!is.numeric(nUMI))
@@ -133,7 +133,7 @@ check_UMI <- function(nUMI, f_name, require_2d = F, require_int = T, min_UMI = 0
                    ', and these cells will be removed. Optionally, you may lower the min_UMI parameter.'))
 }
 
-check_counts <- function(counts, f_name, require_2d = F, require_int = T) {
+check_counts <- function(counts, f_name, require_2d = FALSE, require_int = TRUE) {
   if(!is(counts, 'dgCMatrix')) {
     if(!is(counts, 'matrix'))
       tryCatch({

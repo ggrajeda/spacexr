@@ -1,5 +1,5 @@
 
-solveOLS<-function(S,B, solution, constrain = T){
+solveOLS<-function(S,B, solution, constrain = TRUE){
   D<-t(S)%*%S
   d<-t(S)%*%B
   norm_factor <- norm(D,"2")
@@ -22,7 +22,7 @@ solveOLS<-function(S,B, solution, constrain = T){
 #solve using WLS with weights dampened by a certain dampening constant
 #if constrain, constrain the weights to sum up to 1
 solveIRWLS.weights <-function(S,B,nUMI, OLS=FALSE, constrain = TRUE, verbose = FALSE,
-                              n.iter = 50, MIN_CHANGE = .001, bulk_mode = F, solution = NULL){
+                              n.iter = 50, MIN_CHANGE = .001, bulk_mode = FALSE, solution = NULL){
   if(!bulk_mode) {
     K_val <- get_K_val()
     B[B > K_val] <- K_val
@@ -31,7 +31,7 @@ solveIRWLS.weights <-function(S,B,nUMI, OLS=FALSE, constrain = TRUE, verbose = F
   solution[] <- 1/length(solution)
   if(OLS) {
     solution<-solveOLS(S,B, solution, constrain = constrain) #first solve OLS, use this solution to find a starting point for the weights
-    return(list(weights = solution, converged = T))
+    return(list(weights = solution, converged = TRUE))
   }
   #solution <- runif(length(solution))*2 / length(solution) # random initialization
   names(solution) <- colnames(S)
@@ -79,7 +79,7 @@ solveIRWLS.weights <-function(S,B,nUMI, OLS=FALSE, constrain = TRUE, verbose = F
 #B[inv]
 #plot(X_vals, Q_mat[2,])
 
-solveWLS<-function(S,S_mat,B,initialSol, nUMI, bulk_mode = F, constrain = F){
+solveWLS<-function(S,S_mat,B,initialSol, nUMI, bulk_mode = FALSE, constrain = FALSE){
   solution<-pmax(initialSol,0)
   prediction = abs(S%*%solution)
   threshold = max(1e-4, nUMI * 1e-7)

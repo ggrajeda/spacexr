@@ -35,9 +35,9 @@
 #' Additionally, the object contains `internal_vars_de` a list of variables that are used internally by CSIDE
 #' @export
 run.CSIDE.single <- function(myRCTD, explanatory.variable,  cell_types = NULL, cell_type_threshold = 125,
-                          gene_threshold = 5e-5, doublet_mode = T, weight_threshold = NULL,
-                          sigma_gene = T, PRECISION.THRESHOLD = 0.05, cell_types_present = NULL, fdr = .01,
-                          test_genes_sig = T, normalize_expr = F, logs=F, log_fc_thresh = 0.4, test_error = F, fdr_method = 'BH', medv = 0.5) {
+                          gene_threshold = 5e-5, doublet_mode = TRUE, weight_threshold = NULL,
+                          sigma_gene = TRUE, PRECISION.THRESHOLD = 0.05, cell_types_present = NULL, fdr = .01,
+                          test_genes_sig = TRUE, normalize_expr = FALSE, logs=FALSE, log_fc_thresh = 0.4, test_error = FALSE, fdr_method = 'BH', medv = 0.5) {
   X2 <- build.designmatrix.single(myRCTD, explanatory.variable)
   barcodes <- rownames(X2)
   explanatory.variable <- explanatory.variable[barcodes]
@@ -96,9 +96,9 @@ run.CSIDE.single <- function(myRCTD, explanatory.variable,  cell_types = NULL, c
 #' Additionally, the object contains `internal_vars_de` a list of variables that are used internally by CSIDE
 #' @export
 run.CSIDE.intercept <- function(myRCTD, barcodes = NULL, cell_types = NULL, cell_type_threshold = 125,
-                             gene_threshold = 5e-5, doublet_mode = T, weight_threshold = NULL,
-                             sigma_gene = T, PRECISION.THRESHOLD = 0.05, cell_types_present = NULL,
-                             normalize_expr = F, logs=F, test_error = F) {
+                             gene_threshold = 5e-5, doublet_mode = TRUE, weight_threshold = NULL,
+                             sigma_gene = TRUE, PRECISION.THRESHOLD = 0.05, cell_types_present = NULL,
+                             normalize_expr = FALSE, logs=FALSE, test_error = FALSE) {
   X2 <- build.designmatrix.intercept(myRCTD, barcodes = barcodes)
   barcodes <- rownames(X2)
   return(run.CSIDE(myRCTD, X2, barcodes, cell_types, gene_threshold = gene_threshold, cell_type_threshold = cell_type_threshold,
@@ -140,10 +140,10 @@ run.CSIDE.intercept <- function(myRCTD, barcodes = NULL, cell_types = NULL, cell
 #' @param logs (default FALSE) if TRUE, writes progress to logs/de_logs.txt
 #' @export
 run.CSIDE.nonparam <- function(myRCTD, df = 15, barcodes = NULL, cell_types = NULL,
-                            cell_type_threshold = 125, gene_threshold = 5e-5, doublet_mode = T,
-                            weight_threshold = NULL, sigma_gene = T,
-                            PRECISION.THRESHOLD = 0.05, cell_types_present = NULL, fdr = .01, test_genes_sig = T,
-                            logs=F, test_error = F) {
+                            cell_type_threshold = 125, gene_threshold = 5e-5, doublet_mode = TRUE,
+                            weight_threshold = NULL, sigma_gene = TRUE,
+                            PRECISION.THRESHOLD = 0.05, cell_types_present = NULL, fdr = .01, test_genes_sig = TRUE,
+                            logs=FALSE, test_error = FALSE) {
   X2 <- build.designmatrix.nonparam(myRCTD, barcodes = barcodes, df = df)
   region_thresh <- cell_type_threshold / 4
   barcodes <- rownames(X2)
@@ -162,7 +162,7 @@ run.CSIDE.nonparam <- function(myRCTD, df = 15, barcodes = NULL, cell_types = NU
                        doublet_mode = doublet_mode, test_mode = 'individual', cell_type_threshold = cell_type_threshold,
                        weight_threshold = weight_threshold, sigma_gene = sigma_gene,test_genes_sig = test_genes_sig,
                        PRECISION.THRESHOLD = PRECISION.THRESHOLD, test_error = test_error,
-                       cell_types_present = cell_types_present, params_to_test = 2:df, fdr = fdr, normalize_expr = F,
+                       cell_types_present = cell_types_present, params_to_test = 2:df, fdr = fdr, normalize_expr = FALSE,
                    logs=logs, cell_type_filter = cell_type_filter))
 }
 
@@ -199,17 +199,17 @@ run.CSIDE.nonparam <- function(myRCTD, df = 15, barcodes = NULL, cell_types = NU
 #' Additionally, the object contains `internal_vars_de` a list of variables that are used internally by CSIDE
 #' @export
 run.CSIDE.regions <- function(myRCTD, region_list, cell_types = NULL,
-                           cell_type_threshold = 125, gene_threshold = 5e-5, doublet_mode = T,
-                          weight_threshold = NULL, sigma_gene = T,
-                           PRECISION.THRESHOLD = 0.05, cell_types_present = NULL, fdr = 0.01, test_genes_sig = T,
-                          logs=F, log_fc_thresh = 0.4, test_error = F) {
+                           cell_type_threshold = 125, gene_threshold = 5e-5, doublet_mode = TRUE,
+                          weight_threshold = NULL, sigma_gene = TRUE,
+                           PRECISION.THRESHOLD = 0.05, cell_types_present = NULL, fdr = 0.01, test_genes_sig = TRUE,
+                          logs=FALSE, log_fc_thresh = 0.4, test_error = FALSE) {
   X2 <- build.designmatrix.regions(myRCTD, region_list)
   barcodes <- rownames(X2)
   return(run.CSIDE(myRCTD, X2, barcodes, cell_types, cell_type_threshold = cell_type_threshold, gene_threshold = gene_threshold,
                        doublet_mode = doublet_mode, test_mode = 'categorical',
                        weight_threshold = weight_threshold, sigma_gene = sigma_gene, params_to_test = 1:dim(X2)[2],
                        PRECISION.THRESHOLD = PRECISION.THRESHOLD,test_genes_sig = test_genes_sig,
-                       cell_types_present = cell_types_present, fdr = fdr, normalize_expr = F,
+                       cell_types_present = cell_types_present, fdr = fdr, normalize_expr = FALSE,
                    logs=logs, log_fc_thresh = log_fc_thresh, test_error = test_error))
 }
 
@@ -259,11 +259,11 @@ run.CSIDE.regions <- function(myRCTD, region_list, cell_types = NULL,
 #' Additionally, the object contains `internal_vars_de` a list of variables that are used internally by CSIDE
 #' @export
 run.CSIDE <- function(myRCTD, X, barcodes, cell_types = NULL, gene_threshold = 5e-5, cell_type_threshold = 125,
-                          doublet_mode = T, test_mode = 'individual', weight_threshold = NULL,
-                          sigma_gene = T, PRECISION.THRESHOLD = 0.05, cell_types_present = NULL,
-                          test_genes_sig = T, fdr = .01, cell_type_specific = NULL,
-                      params_to_test = NULL, normalize_expr = F, logs=F, log_fc_thresh = 0.4,
-                      cell_type_filter = NULL, test_error = F, fdr_method = 'BH') {
+                          doublet_mode = TRUE, test_mode = 'individual', weight_threshold = NULL,
+                          sigma_gene = TRUE, PRECISION.THRESHOLD = 0.05, cell_types_present = NULL,
+                          test_genes_sig = TRUE, fdr = .01, cell_type_specific = NULL,
+                      params_to_test = NULL, normalize_expr = FALSE, logs=FALSE, log_fc_thresh = 0.4,
+                      cell_type_filter = NULL, test_error = FALSE, fdr_method = 'BH') {
   X <- check_designmatrix(X, 'run.CSIDE', require_2d = TRUE)
   if(is.null(cell_type_specific))
     cell_type_specific <- !logical(dim(X)[2])
@@ -331,17 +331,17 @@ run.CSIDE <- function(myRCTD, X, barcodes, cell_types = NULL, gene_threshold = 5
 #' Additionally, the object contains `internal_vars_de` a list of variables that are used internally by CSIDE
 #' @export
 run.CSIDE.general <- function(myRCTD, X1, X2, barcodes, cell_types = NULL, gene_threshold = 5e-5, cell_type_threshold = 125,
-                          doublet_mode = T, test_mode = 'individual', weight_threshold = NULL,
-                          sigma_gene = T, PRECISION.THRESHOLD = 0.05, cell_types_present = NULL,
-                          test_genes_sig = T, fdr = .01, params_to_test = NULL, normalize_expr = F,
-                          logs=F, cell_type_filter = NULL, log_fc_thresh = 0.4, test_error = FALSE, fdr_method = 'BH') {
+                          doublet_mode = TRUE, test_mode = 'individual', weight_threshold = NULL,
+                          sigma_gene = TRUE, PRECISION.THRESHOLD = 0.05, cell_types_present = NULL,
+                          test_genes_sig = TRUE, fdr = .01, params_to_test = NULL, normalize_expr = FALSE,
+                          logs=FALSE, cell_type_filter = NULL, log_fc_thresh = 0.4, test_error = FALSE, fdr_method = 'BH') {
   if(gene_threshold == .01 || fdr == 0.25 || cell_type_threshold <= 10 ||
      (!is.null(weight_threshold) && weight_threshold == 0.1))
     warning('run.CSIDE.general: some parameters are set to the CSIDE vignette values, which are intended for testing but not proper execution. For more accurate results, consider using the default parameters to this function.')
   else if(weight_threshold < 0.75)
     warning('run.CSIDE.general: we recommend setting weight_threshold to at least 0.75 since otherwise cell types not included in the model will have large proportions.')
   if(doublet_mode && myRCTD@config$RCTDmode != 'doublet')
-    stop('run.CSIDE.general: attempted to run CSIDE in doublet mode, but RCTD was not run in doublet mode. Please run CSIDE in full mode (doublet_mode = F) or run RCTD in doublet mode.')
+    stop('run.CSIDE.general: attempted to run CSIDE in doublet mode, but RCTD was not run in doublet mode. Please run CSIDE in full mode (doublet_mode = FALSE) or run RCTD in doublet mode.')
   if(!any("cell_types_assigned" %in% names(myRCTD@internal_vars)) || !myRCTD@internal_vars$cell_types_assigned)
     stop('run.CSIDE.general: cannot run CSIDE unless cell types have been assigned. If cell types have been assigned, you may run "myRCTD <- set_cell_types_assigned(myRCTD)".')
   if((myRCTD@config$RCTDmode != 'multi') && (length(setdiff(barcodes,rownames(myRCTD@results$weights))) > 0)) {
@@ -436,7 +436,7 @@ run.CSIDE.general <- function(myRCTD, X1, X2, barcodes, cell_types = NULL, gene_
 
 get_sig_genes <- function(puck, myRCTD, gene_list_tot, cell_types, my_beta, barcodes, nUMI,
                           gene_fits, cell_types_present, X2, test_mode, params_to_test = 2,
-                          fdr = .01, p_thresh = 1, log_fc_thresh = 0.4, normalize_expr = F, fdr_method = 'BH') {
+                          fdr = .01, p_thresh = 1, log_fc_thresh = 0.4, normalize_expr = FALSE, fdr_method = 'BH') {
   cti_renorm <- get_norm_ref(puck, myRCTD@cell_type_info$info[[1]], intersect(gene_list_tot,rownames(myRCTD@cell_type_info$info[[1]])), myRCTD@internal_vars$proportions)
   sig_gene_list <- list(); all_gene_list <- list()
   for(cell_type in cell_types) {
@@ -460,7 +460,7 @@ get_sig_genes <- function(puck, myRCTD, gene_list_tot, cell_types, my_beta, barc
 }
 
 test_genes_sig_post <- function(myRCTD, params_to_test = NULL, fdr = .01, p_thresh = 1,
-                                log_fc_thresh = 0.4, normalize_expr = F, fdr_method = 'BH') {
+                                log_fc_thresh = 0.4, normalize_expr = FALSE, fdr_method = 'BH') {
   puck <- myRCTD@originalSpatialRNA
   gene_list_tot <- rownames(myRCTD@de_results$gene_fits$s_mat)
   cell_types <- myRCTD@internal_vars_de$cell_types
@@ -562,7 +562,7 @@ find_sig_genes_categorical <- function(cell_type, cell_types, gene_fits, gene_li
 }
 
 find_sig_genes_individual <- function(cell_type, cell_types, gene_fits, gene_list_type, X2, params_to_test = 2, fdr = 0.01, p_thresh = 1,
-                                      log_fc_thresh = 0.4, normalize_expr = F, fdr_method = 'BH') {
+                                      log_fc_thresh = 0.4, normalize_expr = FALSE, fdr_method = 'BH') {
   if(length(gene_list_type) == 0)
     stop(paste0('find_sig_genes_individual: cell type ', cell_type,
                 ' has not converged on any genes. Consider removing this cell type from the model using the cell_types option.'))
@@ -645,7 +645,7 @@ find_sig_genes_individual <- function(cell_type, cell_types, gene_fits, gene_lis
 }
 
 get_de_gene_fits <- function(X1,X2,my_beta, nUMI, gene_list, cell_types, puck, barcodes, sigma_init, test_mode,
-                             numCores = 4, sigma_gene = T, PRECISION.THRESHOLD = 0.05, params_to_test = 2, logs=F) {
+                             numCores = 4, sigma_gene = TRUE, PRECISION.THRESHOLD = 0.05, params_to_test = 2, logs=FALSE) {
   results_list <- fit_de_genes(X1,X2,my_beta, nUMI, gene_list, puck, barcodes,
                                sigma_init, test_mode, numCores = numCores,
                                sigma_gene = sigma_gene,
@@ -703,15 +703,15 @@ get_de_gene_fits <- function(X1,X2,my_beta, nUMI, gene_list, cell_types, puck, b
               precision_mat = precision_mat, sigma_g = sigma_g, con_mat = con_mat, con_all = con_all, error_mat = error_mat))
 }
 
-fit_de_genes <- function(X1,X2,my_beta, nUMI, gene_list, puck, barcodes, sigma_init, test_mode, numCores = 4, sigma_gene = T, PRECISION.THRESHOLD = 0.05,
-                         logs=F) {
+fit_de_genes <- function(X1,X2,my_beta, nUMI, gene_list, puck, barcodes, sigma_init, test_mode, numCores = 4, sigma_gene = TRUE, PRECISION.THRESHOLD = 0.05,
+                         logs=FALSE) {
   results_list <- list()
   if(numCores == 1) {
     for(i in 1:length(gene_list)) {
       message(i)
       gene <- gene_list[i]
       Y <- puck@counts[gene, barcodes]
-      results_list[[i]] <- estimate_gene_wrapper(Y,X1,X2,my_beta, nUMI, sigma_init, test_mode, verbose = F, n.iter = 200, MIN_CHANGE = 1e-3, sigma_gene = sigma_gene, PRECISION.THRESHOLD = PRECISION.THRESHOLD)
+      results_list[[i]] <- estimate_gene_wrapper(Y,X1,X2,my_beta, nUMI, sigma_init, test_mode, verbose = FALSE, n.iter = 200, MIN_CHANGE = 1e-3, sigma_gene = sigma_gene, PRECISION.THRESHOLD = PRECISION.THRESHOLD)
     }
   } else {
     BiocParallel::register(BiocParallel::MulticoreParam(numCores))
@@ -730,7 +730,7 @@ fit_de_genes <- function(X1,X2,my_beta, nUMI, gene_list, puck, barcodes, sigma_i
       }
       gene <- gene_list[i]
       Y <- puck@counts[gene, barcodes]
-      res <- estimate_gene_wrapper(Y,X1,X2,my_beta, nUMI, sigma_init, test_mode, verbose = F, n.iter = 200, MIN_CHANGE = 1e-3, sigma_gene = sigma_gene)
+      res <- estimate_gene_wrapper(Y,X1,X2,my_beta, nUMI, sigma_init, test_mode, verbose = FALSE, n.iter = 200, MIN_CHANGE = 1e-3, sigma_gene = sigma_gene)
     })
   }
   return(results_list)

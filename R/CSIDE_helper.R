@@ -1,5 +1,5 @@
 
-choose_sigma_gene <- function(sigma_init, Y, X1, X2, my_beta, nUMI,test_mode, verbose = F, n.iter = 100, MIN_CHANGE = 0.001, MAX_ITER_SIGMA = 10, PRECISION.THRESHOLD = .01) {
+choose_sigma_gene <- function(sigma_init, Y, X1, X2, my_beta, nUMI,test_mode, verbose = FALSE, n.iter = 100, MIN_CHANGE = 0.001, MAX_ITER_SIGMA = 10, PRECISION.THRESHOLD = .01) {
   X_vals <- get_X_vals()
   Q_mat_all <- get_Q_all()
   sigma_s_best <- sigma_init
@@ -170,19 +170,9 @@ solveIRWLS.effects_trust <-function(Y, X1, X2, my_beta, test_mode, verbose = FAL
     } else {
       delta = min(1,beta_fail*delta)
     }
-    if(F && itera >= MIN_ITERATIONS) {
-      print(itera)
-      print(delta)
-      print(max(pred_decrease_vals[(itera - MIN_ITERATIONS+1):itera]))
-    }
     if(delta < MIN_CHANGE || (itera >= MIN_ITERATIONS &&
        max(pred_decrease_vals[(itera - MIN_ITERATIONS+1):itera]) < min(epsilon_2))) {
       break
-    }
-    if(F) { # SCRATCH TEMP
-      precision <- abs(solve(D_mat) %*% d_vec)
-      if(itera >= MIN_ITERATIONS)
-        print(paste(precision[28],max(pred_decrease_vals[(itera - MIN_ITERATIONS+1):itera])))
     }
   }
   #plot(log(pred_decrease_vals, 10))
@@ -205,7 +195,7 @@ solveIRWLS.effects_trust <-function(Y, X1, X2, my_beta, test_mode, verbose = FAL
               converged_vec = converged_vec, error_vec = error_vec))
 }
 
-estimate_gene_wrapper <- function(Y,X1,X2,my_beta, nUMI, sigma_init, test_mode, verbose = F, n.iter = 200, MIN_CHANGE = 1e-3, sigma_gene = T, PRECISION.THRESHOLD = 0.05) {
+estimate_gene_wrapper <- function(Y,X1,X2,my_beta, nUMI, sigma_init, test_mode, verbose = FALSE, n.iter = 200, MIN_CHANGE = 1e-3, sigma_gene = TRUE, PRECISION.THRESHOLD = 0.05) {
   if(sigma_gene)
     return(choose_sigma_gene(sigma_init, Y, X1, X2, my_beta, nUMI,test_mode, verbose = verbose, n.iter = n.iter, MIN_CHANGE = MIN_CHANGE, PRECISION.THRESHOLD = PRECISION.THRESHOLD))
   else {
@@ -214,7 +204,7 @@ estimate_gene_wrapper <- function(Y,X1,X2,my_beta, nUMI, sigma_init, test_mode, 
   }
 }
 
-estimate_effects_trust <- function(Y, X1, X2, my_beta, nUMI, test_mode, verbose = F,
+estimate_effects_trust <- function(Y, X1, X2, my_beta, nUMI, test_mode, verbose = FALSE,
                                    n.iter = 200, MIN_CHANGE = 1e-3, PRECISION.THRESHOLD = 0.05,
                                    alpha1_init = NULL, alpha2_init = NULL, MIN_ITERATIONS = 15) {
   my_beta<- sweep(my_beta,1, nUMI, '*')

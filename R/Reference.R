@@ -16,12 +16,12 @@
 #' from the input files
 #' @export
 Reference <- function(counts, cell_types, nUMI = NULL, require_int = TRUE, n_max_cells = 10000, min_UMI = 100) {
-  counts <- check_counts(counts, 'Reference', require_2d = T, require_int = require_int)
+  counts <- check_counts(counts, 'Reference', require_2d = TRUE, require_int = require_int)
   if(is.null(nUMI)) {
     nUMI = colSums(counts)
     names(nUMI) <- colnames(counts)
   } else {
-    check_UMI(nUMI, 'Reference', require_2d = T, require_int = require_int, min_UMI = min_UMI)
+    check_UMI(nUMI, 'Reference', require_2d = TRUE, require_int = require_int, min_UMI = min_UMI)
   }
   check_cell_types(cell_types)
   barcodes <- intersect(intersect(names(nUMI), names(cell_types)), colnames(counts))

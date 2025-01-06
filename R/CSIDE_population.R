@@ -13,7 +13,7 @@ get_means_sds <- function(cell_type, gene, de_results_list, params_to_test) {
   return(list(means = means, sds = sds))
 }
 
-get_de_pop <- function(cell_type, de_results_list, cell_prop, params_to_test, use.groups = F, group_ids = NULL,
+get_de_pop <- function(cell_type, de_results_list, cell_prop, params_to_test, use.groups = FALSE, group_ids = NULL,
                        MIN.CONV.REPLICATES = 2, MIN.CONV.GROUPS = 2, CT.PROP = 0.5, S.MAX = 4, meta = FALSE,
                        meta.design.matrix = NULL, meta.test_var = 'intrcpt') {
   if(!use.groups)
@@ -89,7 +89,7 @@ get_de_pop <- function(cell_type, de_results_list, cell_prop, params_to_test, us
         sd_est <- sqrt(var_est)
         Z_est <- mean_est / sd_est
       } else {
-        metareg_data <- data.frame(cbind(meta.design.matrix[con, ,drop = F], 'mean' = means, 'sd' = sds))
+        metareg_data <- data.frame(cbind(meta.design.matrix[con, ,drop = FALSE], 'mean' = means, 'sd' = sds))
         m.qual <- tryCatch(metafor::rma(yi = mean,
                                         sei = sd,
                                         data = metareg_data,
@@ -120,9 +120,9 @@ get_de_pop <- function(cell_type, de_results_list, cell_prop, params_to_test, us
 }
 
 one_ct_genes <- function(cell_type, myRCTD_list, de_results_list, resultsdir, cell_types_present, params_to_test,
-                         q_thresh = .01, p_thresh = 1, filter = T, order_gene = F, plot_results = T,
-                         use.groups = F, group_ids = NULL, MIN.CONV.REPLICATES = 2,
-                         MIN.CONV.GROUPS = 2, CT.PROP = 0.5, log_fc_thresh = 0.4, normalize_expr = F,
+                         q_thresh = .01, p_thresh = 1, filter = TRUE, order_gene = FALSE, plot_results = TRUE,
+                         use.groups = FALSE, group_ids = NULL, MIN.CONV.REPLICATES = 2,
+                         MIN.CONV.GROUPS = 2, CT.PROP = 0.5, log_fc_thresh = 0.4, normalize_expr = FALSE,
                          meta = FALSE, meta.design.matrix = NULL, meta.test_var = 'intrcpt') {
   print(paste0('one_ct_genes: population inference on cell type, ', cell_type))
   myRCTD <- myRCTD_list[[1]]

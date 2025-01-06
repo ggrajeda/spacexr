@@ -73,7 +73,7 @@ We are now ready to run CSIDE using the `run.CSIDE.single` function. We will use
 #de
 myRCTD@config$max_cores <- 1
 cell_types <- c('Macrophages','T_CD4')
-myRCTD <- run.CSIDE.single(myRCTD, B_weight, cell_types = cell_types, gene_threshold = .01, cell_type_threshold = 10, fdr = 0.25, doublet_mode = F, weight_threshold = 0.1)
+myRCTD <- run.CSIDE.single(myRCTD, B_weight, cell_types = cell_types, gene_threshold = .01, cell_type_threshold = 10, fdr = 0.25, doublet_mode = FALSE, weight_threshold = 0.1)
 ```
 
 

@@ -402,7 +402,7 @@ predict_CSIDE_all <- function(RCTDde, gene) {
   return(pred_tot)
 }
 
-get_quant_df <- function(RCTDde, gene_fits, cell_types, cur_cell_types, gene, multi_region = F, prop_thresh = 0.999, param_position = 2) {
+get_quant_df <- function(RCTDde, gene_fits, cell_types, cur_cell_types, gene, multi_region = FALSE, prop_thresh = 0.999, param_position = 2) {
   my_beta <- RCTDde@internal_vars_de$my_beta
   X2 <- RCTDde@internal_vars_de$X2[rownames(my_beta),param_position]
   if(multi_region)
@@ -448,7 +448,7 @@ bin_quant_df <- function(quant_df, NR = 5) {
 }
 
 plot_quant_df <- function(myRCTD, gene_fits, cell_types, cell_type, gene, NR = 5, param_position = 2) {
-  quant_df <- get_quant_df(myRCTD, gene_fits, cell_types, cell_type, gene, multi_region = F,
+  quant_df <- get_quant_df(myRCTD, gene_fits, cell_types, cell_type, gene, multi_region = FALSE,
                            prop_thresh = 0.999, param_position = param_position)
   final_df <- bin_quant_df(quant_df, NR = NR)
   final_df[,c('Y','se','pred')] <- final_df[,c('Y','se','pred')] * 500 #scale to counts per 500

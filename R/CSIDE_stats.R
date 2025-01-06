@@ -1,4 +1,4 @@
-normalize_de_estimates <- function(myRCTD, normalize_expr, remove_junk = T, param_position = 2) {
+normalize_de_estimates <- function(myRCTD, normalize_expr, remove_junk = TRUE, param_position = 2) {
   if(remove_junk) {
     all_genes <- rownames(myRCTD@de_results$gene_fits$con_mat)
     junk_genes <- all_genes[c(grep("MT-",all_genes),grep("RPS",all_genes),

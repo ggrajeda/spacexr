@@ -32,7 +32,7 @@ replintegrate_shrink_estimates <- function(estimates, sds) {
   return(results_df_adj)
 }
 
-replintegrate_two_groups <- function(mean_list, sd_list, shrink_eb = T) {
+replintegrate_two_groups <- function(mean_list, sd_list, shrink_eb = TRUE) {
   pop_est_1 <- replintegrate_batch(mean_list[[1]], sd_list[[1]])
   pop_est_2 <- replintegrate_batch(mean_list[[2]], sd_list[[2]])
   #plot(pop_est_1$mean, pop_est_2$mean)

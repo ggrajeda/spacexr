@@ -149,10 +149,10 @@ get_gene_list_type_wrapper <- function(myRCTD, cell_type, cell_types_present) {
 #' @param doublet_mode (default TRUE) if TRUE, uses RCTD doublet mode weights. Otherwise, uses RCTD full mode weights
 #' @return a named vector of number of pixel occurrences for each cell type
 #' @export
-aggregate_cell_types <- function(myRCTD, barcodes, doublet_mode = T) {
+aggregate_cell_types <- function(myRCTD, barcodes, doublet_mode = TRUE) {
   if(doublet_mode) {
     if(doublet_mode && myRCTD@config$RCTDmode != 'doublet')
-      stop('aggregate_cell_types: attempted to run in doublet mode, but RCTD was not run in doublet mode. Please run in full mode (doublet_mode = F) or first run RCTD in doublet mode.')
+      stop('aggregate_cell_types: attempted to run in doublet mode, but RCTD was not run in doublet mode. Please run in full mode (doublet_mode = FALSE) or first run RCTD in doublet mode.')
     return(table(myRCTD@results$results_df[barcodes,]$first_type[myRCTD@results$results_df[barcodes,]$spot_class %in% c('singlet','doublet_certain')]) +
              +     table(myRCTD@results$results_df[barcodes,]$second_type[myRCTD@results$results_df[barcodes,]$spot_class %in% c('doublet_certain')]))
   } else if(myRCTD@config$RCTDmode == 'multi') {
@@ -179,10 +179,10 @@ aggregate_cell_types <- function(myRCTD, barcodes, doublet_mode = T) {
 #' @return a named vector of number of pixel occurrences for each cell type
 #' @export
 count_cell_types <- function(myRCTD, barcodes, cell_types, cell_type_threshold = 125,
-                             doublet_mode = T, weight_threshold = NULL) {
+                             doublet_mode = TRUE, weight_threshold = NULL) {
   cell_types <- choose_cell_types(myRCTD, barcodes, doublet_mode, cell_type_threshold, cell_types)
   if(doublet_mode && myRCTD@config$RCTDmode != 'doublet')
-    stop('run.CSIDE.general: attempted to run CSIDE in doublet mode, but RCTD was not run in doublet mode. Please run CSIDE in full mode (doublet_mode = F) or run RCTD in doublet mode.')
+    stop('run.CSIDE.general: attempted to run CSIDE in doublet mode, but RCTD was not run in doublet mode. Please run CSIDE in full mode (doublet_mode = FALSE) or run RCTD in doublet mode.')
   cell_type_info <- myRCTD@cell_type_info$info
   if(doublet_mode) {
     my_beta <- get_beta_doublet(barcodes, cell_type_info[[2]], myRCTD@results$results_df, myRCTD@results$weights_doublet)
@@ -299,7 +299,7 @@ get_spline_matrix <- function(puck, df = 15) {
   center_coords <- puck@coords
   center_coords <- sweep(center_coords, 2, apply(center_coords,2, mean), '-')
   center_coords <- center_coords / sd(as.matrix(center_coords))
-  sm <- mgcv::smoothCon(mgcv::s(x,y,k=df,fx=T,bs='tp'),data=center_coords)[[1]]
+  sm <- mgcv::smoothCon(mgcv::s(x,y,k=df,fx=TRUE,bs='tp'),data=center_coords)[[1]]
   mm <- as.matrix(data.frame(sm$X))
   X2 <- cbind(mm[,(df - 2):df], mm[,1:(df-3)]) #swap intercept, x, and y
   X2[,2:df] <- sweep(X2[,2:df], 2, apply(X2[,2:df],2, mean), '-')

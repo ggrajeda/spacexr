@@ -115,7 +115,7 @@ After creating the list of regions, we are now ready to run CSIDE using the `run
 ```{r DEgenes}
 #de
 myRCTD@config$max_cores <- 2
-myRCTD <- run.CSIDE.regions(myRCTD, region_list,cell_types = cell_types, gene_threshold = .01, cell_type_threshold = 10, fdr = 0.25, doublet_mode = F, weight_threshold = 0.1) 
+myRCTD <- run.CSIDE.regions(myRCTD, region_list,cell_types = cell_types, gene_threshold = .01, cell_type_threshold = 10, fdr = 0.25, doublet_mode = FALSE, weight_threshold = 0.1) 
 saveRDS(myRCTD,file.path(savedir,'myRCTDde_visium_regions.rds'))
 ```
 
@@ -125,7 +125,7 @@ Equivalently to using the `run.CSIDE.regions` function, those who want to have m
 X <- build.designmatrix.regions(myRCTD,region_list)
 print(head(X))
 barcodes <- rownames(X)
-myRCTD_identical <- run.CSIDE(myRCTD, X, barcodes, cell_types, test_mode = 'categorical', gene_threshold = .01, doublet_mode = F, cell_type_threshold = 10, fdr = 0.25, weight_threshold = 0.1)
+myRCTD_identical <- run.CSIDE(myRCTD, X, barcodes, cell_types, test_mode = 'categorical', gene_threshold = .01, doublet_mode = FALSE, cell_type_threshold = 10, fdr = 0.25, weight_threshold = 0.1)
 ```
 
 ## CSIDE results

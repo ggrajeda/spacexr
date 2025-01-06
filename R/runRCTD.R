@@ -1,4 +1,4 @@
-test_single_beads <- function(puck, gene_list, cell_type_info, trust_model = FALSE, constrain = T, OLS = F) {
+test_single_beads <- function(puck, gene_list, cell_type_info, trust_model = FALSE, constrain = TRUE, OLS = FALSE) {
   cell_type_names = cell_type_info[[2]]; n_cell_types = cell_type_info[[3]]
   beads = t(as.matrix(puck@counts[gene_list,]))
   weights = decompose_batch(puck@nUMI, cell_type_info[[1]], beads, gene_list, constrain = constrain, OLS = OLS)
@@ -40,7 +40,7 @@ test_single_beads <- function(puck, gene_list, cell_type_info, trust_model = FAL
 #'   \code{conf_mat} a confusion matrix (not relevant) (2) \code{weights} a
 #'   dataframe of predicted weights (3) a named list of predicted cell types
 #' @export
-process_data <- function(puck, gene_list, cell_type_info, proportions = NULL, trust_model = FALSE, constrain = T, OLS = F) {
+process_data <- function(puck, gene_list, cell_type_info, proportions = NULL, trust_model = FALSE, constrain = TRUE, OLS = FALSE) {
   cell_type_info_renorm = cell_type_info
   if(!is.null(proportions)) {
     cell_type_info_renorm[[1]] = get_norm_ref(puck, cell_type_info[[1]], gene_list, proportions)
@@ -70,7 +70,7 @@ process_data <- function(puck, gene_list, cell_type_info, proportions = NULL, tr
 #' @return Returns \code{results}, a list of RCTD results for each pixel, which can be organized by
 #' feeding into \code{\link{gather_results}}
 #' @export
-process_beads_batch <- function(cell_type_info, gene_list, puck, class_df = NULL, constrain = T,
+process_beads_batch <- function(cell_type_info, gene_list, puck, class_df = NULL, constrain = TRUE,
                                 MAX_CORES = 8, MIN.CHANGE = 0.001, CONFIDENCE_THRESHOLD = 10, DOUBLET_THRESHOLD = 25) {
   beads = t(as.matrix(puck@counts[gene_list,]))
   #out_file = "logs/process_beads_log.txt"
@@ -98,7 +98,7 @@ process_beads_batch <- function(cell_type_info, gene_list, puck, class_df = NULL
   return(results)
 }
 
-process_beads_multi <- function(cell_type_info, gene_list, puck, class_df = NULL, constrain = T,
+process_beads_multi <- function(cell_type_info, gene_list, puck, class_df = NULL, constrain = TRUE,
                                 MAX_CORES = 8, MIN.CHANGE = 0.001, MAX.TYPES = 4, CONFIDENCE_THRESHOLD = 10, DOUBLET_THRESHOLD = 25) {
   beads = t(as.matrix(puck@counts[gene_list,]))
   if(MAX_CORES > 1) {
@@ -141,12 +141,12 @@ fitPixels <- function(RCTD, doublet_mode = "doublet") {
   cell_type_info <- RCTD@cell_type_info$renorm
   if(doublet_mode == "doublet") {
     results = process_beads_batch(cell_type_info, RCTD@internal_vars$gene_list_reg, RCTD@spatialRNA, class_df = RCTD@internal_vars$class_df,
-                                  constrain = F, MAX_CORES = RCTD@config$max_cores, MIN.CHANGE = RCTD@config$MIN_CHANGE_REG,
+                                  constrain = FALSE, MAX_CORES = RCTD@config$max_cores, MIN.CHANGE = RCTD@config$MIN_CHANGE_REG,
                                   CONFIDENCE_THRESHOLD = RCTD@config$CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = RCTD@config$DOUBLET_THRESHOLD)
     return(gather_results(RCTD, results))
   } else if(doublet_mode == "full") {
     beads = t(as.matrix(RCTD@spatialRNA@counts[RCTD@internal_vars$gene_list_reg,]))
-    results = decompose_batch(RCTD@spatialRNA@nUMI, cell_type_info[[1]], beads, RCTD@internal_vars$gene_list_reg, constrain = F,
+    results = decompose_batch(RCTD@spatialRNA@nUMI, cell_type_info[[1]], beads, RCTD@internal_vars$gene_list_reg, constrain = FALSE,
                               max_cores = RCTD@config$max_cores, MIN.CHANGE = RCTD@config$MIN_CHANGE_REG)
     weights = Matrix(0, nrow = length(results), ncol = RCTD@cell_type_info$renorm[[3]])
     rownames(weights) = colnames(RCTD@spatialRNA@counts); colnames(weights) = RCTD@cell_type_info$renorm[[2]];
@@ -156,7 +156,7 @@ fitPixels <- function(RCTD, doublet_mode = "doublet") {
     return(RCTD)
   } else if(doublet_mode == "multi") {
     RCTD@results = process_beads_multi(cell_type_info, RCTD@internal_vars$gene_list_reg, RCTD@spatialRNA, class_df = RCTD@internal_vars$class_df,
-                                  constrain = F, MAX_CORES = RCTD@config$max_cores,
+                                  constrain = FALSE, MAX_CORES = RCTD@config$max_cores,
                                   MIN.CHANGE = RCTD@config$MIN_CHANGE_REG, MAX.TYPES = RCTD@config$MAX_MULTI_TYPES,
                                   CONFIDENCE_THRESHOLD = RCTD@config$CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = RCTD@config$DOUBLET_THRESHOLD)
     return(RCTD)
@@ -165,7 +165,7 @@ fitPixels <- function(RCTD, doublet_mode = "doublet") {
   }
 }
 
-decompose_batch <- function(nUMI, cell_type_means, beads, gene_list, constrain = T, OLS = F, max_cores = 8, MIN.CHANGE = 0.001) {
+decompose_batch <- function(nUMI, cell_type_means, beads, gene_list, constrain = TRUE, OLS = FALSE, max_cores = 8, MIN.CHANGE = 0.001) {
   #out_file = "logs/decompose_batch_log.txt"
   #if (file.exists(out_file))
   #  file.remove(out_file)

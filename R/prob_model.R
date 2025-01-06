@@ -52,7 +52,7 @@ ht_pdf_norm <- function(x) {
   return(p)
 }
 
-get_Q <- function(X_vals, k, sigma, big_params = T) {
+get_Q <- function(X_vals, k, sigma, big_params = TRUE) {
   if(big_params) {
     #N_Y = 20000;  gamma = 1e-3
     N_Y = 5000;  gamma = 4e-3
@@ -70,7 +70,7 @@ get_Q <- function(X_vals, k, sigma, big_params = T) {
   return(colSums(S)*gamma)
 }
 
-calc_Q_mat_one <- function(sigma, X_vals, k, batch = 100, big_params = T) {
+calc_Q_mat_one <- function(sigma, X_vals, k, batch = 100, big_params = TRUE) {
   N_X = length(X_vals)
   results = numeric(N_X)
   for(b in 1:ceiling(N_X/batch)) {
@@ -81,7 +81,7 @@ calc_Q_mat_one <- function(sigma, X_vals, k, batch = 100, big_params = T) {
   return(results)
 }
 
-calc_Q_par <- function(K, X_vals, sigma, big_params = T) {
+calc_Q_par <- function(K, X_vals, sigma, big_params = TRUE) {
   out_file = "logs/calc_Q_log.txt"
   if (file.exists(out_file))
     file.remove(out_file)
@@ -156,7 +156,7 @@ get_d1_d2 <- function(Y, lambda) {
   return(list(d1_vec = d_all$d1_vec, d2_vec = d_all$d2_vec))
 }
 
-get_der_fast <- function(S, S_mat, B, gene_list, prediction, bulk_mode = F) {
+get_der_fast <- function(S, S_mat, B, gene_list, prediction, bulk_mode = FALSE) {
   if(bulk_mode) {
     #d1_vec <- -t(log(prediction) - log(B))
     #d2_vec <- -t(1/prediction)

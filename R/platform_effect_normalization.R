@@ -10,8 +10,8 @@ fitBulk <- function(RCTD) {
   bulkData <- prepareBulkData(RCTD@cell_type_info$info[[1]], RCTD@spatialRNA, RCTD@internal_vars$gene_list_bulk)
   message('fitBulk: decomposing bulk')
   decompose_results <- decompose_full(bulkData$X, sum(RCTD@spatialRNA@nUMI),
-                                      bulkData$b, verbose = F, constrain = F, MIN_CHANGE = RCTD@config$MIN_CHANGE_BULK,
-                                      n.iter = 100, bulk_mode = T)
+                                      bulkData$b, verbose = FALSE, constrain = FALSE, MIN_CHANGE = RCTD@config$MIN_CHANGE_BULK,
+                                      n.iter = 100, bulk_mode = TRUE)
   RCTD@internal_vars$proportions <- decompose_results$weights
   RCTD@cell_type_info$renorm = RCTD@cell_type_info$info
   RCTD@cell_type_info$renorm[[1]] = get_norm_ref(RCTD@spatialRNA, RCTD@cell_type_info$info[[1]], RCTD@internal_vars$gene_list_bulk, decompose_results$weights)
@@ -82,7 +82,7 @@ choose_sigma_c <- function(RCTD) {
   for(iter in 1:RCTD@config$N_epoch) {
     set_likelihood_vars(Q_mat_all[[as.character(sigma)]], X_vals)
     #message(paste('chooseSigma: getting initial weights for #samples: ',N_fit))
-    results = decompose_batch(puck@nUMI[fit_ind], RCTD@cell_type_info$renorm[[1]], beads, RCTD@internal_vars$gene_list_reg, constrain = F, max_cores = RCTD@config$max_cores)
+    results = decompose_batch(puck@nUMI[fit_ind], RCTD@cell_type_info$renorm[[1]], beads, RCTD@internal_vars$gene_list_reg, constrain = FALSE, max_cores = RCTD@config$max_cores)
     weights = Matrix(0, nrow = N_fit, ncol = RCTD@cell_type_info$renorm[[3]])
     rownames(weights) = fit_ind; colnames(weights) = RCTD@cell_type_info$renorm[[2]];
     for(i in 1:N_fit)

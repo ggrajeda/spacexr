@@ -126,7 +126,7 @@ plot_doublets_type <- function(puck, doublets_base, resultsdir, cell_type_names)
 #'
 #' @return Returns a \link{ggplot} object
 #' @export
-plot_puck_continuous <- function(puck, barcodes, plot_val, ylimit = c(0,1),title = NULL, counter_barcodes = NULL, label = F, my_pal = NULL, xlim = NULL, ylim = NULL, size=0.15, alpha = 1, small_point = F) {
+plot_puck_continuous <- function(puck, barcodes, plot_val, ylimit = c(0,1),title = NULL, counter_barcodes = NULL, label = FALSE, my_pal = NULL, xlim = NULL, ylim = NULL, size=0.15, alpha = 1, small_point = FALSE) {
   if(is.null(my_pal))
     my_pal = pals::kovesi.rainbow(20)
   my_table = puck@coords[barcodes,]
@@ -359,7 +359,7 @@ plot_class <- function(puck, barcodes_cur, my_class, counter_barcodes = NULL, ti
   my_table$class = my_class[barcodes_cur]
   n_levels <- length(unique(my_class))
   if(n_levels > 36)
-    cols = rainbow(n_levels)[sample(1:n_levels, n_levels, replace = F)]
+    cols = rainbow(n_levels)[sample(1:n_levels, n_levels, replace = FALSE)]
   else {
     if(n_levels > 21)
       cols = unname(pals::polychrome(n_levels+2))[3:(n_levels+2)]

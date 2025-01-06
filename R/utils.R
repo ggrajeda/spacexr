@@ -81,7 +81,7 @@ prepareBulkData <- function(cell_type_means, puck, gene_list, MIN_OBS = 10) {
 #'   pre-defined map.
 #'
 #' @keywords internal
-get_class_df <- function(cell_type_names, use_classes = F) {
+get_class_df <- function(cell_type_names, use_classes = FALSE) {
   class_df = data.frame(cell_type_names, row.names = cell_type_names)
   colnames(class_df)[1] = "class"
   if(use_classes) {

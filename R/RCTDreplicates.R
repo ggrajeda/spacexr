@@ -33,7 +33,7 @@ create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_n
                                    gene_cutoff = 0.000125, fc_cutoff = 0.5, gene_cutoff_reg = 0.0002,
                                    fc_cutoff_reg = 0.75, UMI_min = 100, UMI_max = 20000000, UMI_min_sigma = 300,
                         class_df = NULL, CELL_MIN_INSTANCE = 25, cell_type_names = NULL, MAX_MULTI_TYPES = 4,
-                        keep_reference = F, CONFIDENCE_THRESHOLD = 5, DOUBLET_THRESHOLD = 20) {
+                        keep_reference = FALSE, CONFIDENCE_THRESHOLD = 5, DOUBLET_THRESHOLD = 20) {
   if(is.null(cell_type_names))
     cell_type_names <- levels(reference@cell_types)
   cell_type_info <- process_cell_type_info(reference, cell_type_names = cell_type_names,
@@ -50,7 +50,7 @@ create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_n
   if(length(group_ids) != length(spatialRNA.replicates))
     stop('create.RCTD.replicates: group_ids must be the same length as the total number of replicates.')
   names(group_ids) <- replicate_names
-  check_vector(group_ids, 'group_ids','create.RCTD.replicates', require_int = T)
+  check_vector(group_ids, 'group_ids','create.RCTD.replicates', require_int = TRUE)
   if(min(table(group_ids)) < 2)
     stop('create.RCTD.replicates: each group in group_ids must contain at least two replicates.')
   RCTD.reps <- list()
@@ -60,7 +60,7 @@ create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_n
                                         gene_cutoff = gene_cutoff, fc_cutoff = fc_cutoff, gene_cutoff_reg = gene_cutoff_reg,
                                         fc_cutoff_reg = fc_cutoff_reg, UMI_min = UMI_min, UMI_max = UMI_max, UMI_min_sigma = UMI_min_sigma,
                                         class_df = class_df, CELL_MIN_INSTANCE = CELL_MIN_INSTANCE, cell_type_names = cell_type_names, MAX_MULTI_TYPES = MAX_MULTI_TYPES,
-                                        cell_type_profiles = cell_type_info[[1]], keep_reference = F,
+                                        cell_type_profiles = cell_type_info[[1]], keep_reference = FALSE,
                                   CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD)
   }
   new("RCTD.replicates", RCTD.reps = RCTD.reps, group_ids = group_ids)
@@ -137,10 +137,10 @@ run.RCTD.replicates <- function(RCTD.replicates, doublet_mode = "doublet") {
 #' for documentation on the \code{population_de_results}, \code{population_sig_gene_list}, and \code{population_sig_gene_df} objects.
 #' @export
 run.CSIDE.replicates <- function(RCTD.replicates, cell_types, explanatory.variable.replicates = NULL, X.replicates = NULL, cell_type_threshold = 125,
-                                 gene_threshold = 5e-5, doublet_mode = T, weight_threshold = NULL,
-                                 sigma_gene = T, PRECISION.THRESHOLD = 0.05, cell_types_present = NULL,
-                                 fdr = .01, population_de = F, replicate_index = NULL, normalize_expr = F, test_genes_sig_individual = F,
-                                 de_mode = 'single', df = 15, barcodes = NULL, log_fc_thresh = 0.4, test_error = F, medv = 0.5,
+                                 gene_threshold = 5e-5, doublet_mode = TRUE, weight_threshold = NULL,
+                                 sigma_gene = TRUE, PRECISION.THRESHOLD = 0.05, cell_types_present = NULL,
+                                 fdr = .01, population_de = FALSE, replicate_index = NULL, normalize_expr = FALSE, test_genes_sig_individual = FALSE,
+                                 de_mode = 'single', df = 15, barcodes = NULL, log_fc_thresh = 0.4, test_error = FALSE, medv = 0.5,
                                  params_to_test = NULL, test_mode = 'individual') {
   if(!(de_mode %in% c('single','nonparam', 'general')))
     stop('run.CISDE.replicates: de_mode must be set to "single", "general", or "nonparam".')
@@ -219,7 +219,7 @@ merge_RCTD_objects <- function(RCTD.reps, replicate_names, group_ids = NULL) {
   if(length(group_ids) != length(RCTD.reps))
     stop('merge_RCTD_objects: group_ids must be the same length as the total number of replicates.')
   names(group_ids) <- replicate_names
-  check_vector(group_ids, 'group_ids','create.RCTD.replicates', require_int = T)
+  check_vector(group_ids, 'group_ids','create.RCTD.replicates', require_int = TRUE)
   if(min(table(group_ids)) < 2)
     stop('create.RCTD.replicates: each group in group_ids must contain at least two replicates.')
   new("RCTD.replicates", RCTD.reps = RCTD.reps, group_ids = group_ids)
@@ -250,7 +250,7 @@ merge_RCTD_objects <- function(RCTD.reps, replicate_names, group_ids = NULL) {
 CSIDE.population.inference <- function(RCTD.replicates, params_to_test = NULL, use.groups = FALSE, MIN.CONV.REPLICATES = 2,
                                         MIN.CONV.GROUPS = 2, CT.PROP = 0.5,
                                        fdr = 0.01, log_fc_thresh = 0.4,
-                                       normalize_expr = F, meta = FALSE, meta.design.matrix = NULL, meta.test_var = 'intrcpt') {
+                                       normalize_expr = FALSE, meta = FALSE, meta.design.matrix = NULL, meta.test_var = 'intrcpt') {
   message(paste0('CSIDE.population.inference: running population DE inference with use.groups=', use.groups, ', and meta = ', meta))
   MIN.REPS <- 3
   if(length(RCTD.replicates@RCTD.reps) < MIN.REPS)
@@ -272,7 +272,7 @@ CSIDE.population.inference <- function(RCTD.replicates, params_to_test = NULL, u
     ct_pres <- sapply(RCTDde_list, function(x) cell_type %in% x@internal_vars_de$cell_types)
     if(sum(ct_pres) >= MIN.REPS) {
       res <- one_ct_genes(cell_type, RCTDde_list[ct_pres], de_results_list[ct_pres], NULL, cell_types_present, params_to_test,
-                          plot_results = F, use.groups = use.groups,
+                          plot_results = FALSE, use.groups = use.groups,
                           group_ids = RCTD.replicates@group_ids, MIN.CONV.REPLICATES = MIN.CONV.REPLICATES,
                           MIN.CONV.GROUPS = MIN.CONV.GROUPS, CT.PROP = CT.PROP,
                           q_thresh = fdr, log_fc_thresh = log_fc_thresh,

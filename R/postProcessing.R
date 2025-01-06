@@ -63,7 +63,7 @@ get_decomposed_data_full_doublet <- function(gene_list, puck, weights, ct_info) 
   cell_type_labels <- unlist(list(rep(colnames(weights)[1], dim(weights)[1]), rep(colnames(weights)[2], dim(weights)[1])))
   nUMI <- c(weights[rownames(weights),1] *puck@nUMI[rownames(first_DGE)], weights[rownames(weights),2]*puck@nUMI[rownames(second_DGE)])
   rownames(all_DGE) = 1:dim(all_DGE)[1]; names(cell_type_labels) <- 1:dim(all_DGE)[1]; names(nUMI) <- 1:dim(all_DGE)[1]
-  ref_d <- Reference(t(all_DGE), factor(cell_type_labels), nUMI, require_int = F)
+  ref_d <- Reference(t(all_DGE), factor(cell_type_labels), nUMI, require_int = FALSE)
   return(ref_d)
 }
 
@@ -103,7 +103,7 @@ get_decomposed_data <- function(results_df, gene_list, puck, weights_doublet, ce
   nUMI <- c(weights_doublet[rownames(doublets),"first_type"] *puck@nUMI[rownames(first_DGE)], weights_doublet[rownames(doublets),"second_type"]*puck@nUMI[rownames(second_DGE)], puck@nUMI[singlet_id])
   rownames(coords) = 1:dim(coords)[1]; names(nUMI) = 1:dim(coords)[1]
   rownames(all_DGE) = 1:dim(coords)[1]
-  puck_d <- SpatialRNA(coords, t(all_DGE), nUMI, require_int = F)
+  puck_d <- SpatialRNA(coords, t(all_DGE), nUMI, require_int = FALSE)
   return(puck_d)
 }
 
