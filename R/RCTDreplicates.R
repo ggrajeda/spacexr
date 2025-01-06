@@ -38,8 +38,8 @@ create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_n
     cell_type_names <- levels(reference@cell_types)
   cell_type_info <- process_cell_type_info(reference, cell_type_names = cell_type_names,
                                                          CELL_MIN = CELL_MIN_INSTANCE)
-  if(class(spatialRNA.replicates) != 'list' ||
-     any(!unlist(lapply(spatialRNA.replicates, function(x) class(x) == 'SpatialRNA'))))
+  if(!is(spatialRNA.replicates, 'list') ||
+     any(!unlist(lapply(spatialRNA.replicates, function(x) is(x, 'SpatialRNA')))))
     stop('create.RCTD.replicates: spatialRNA.replicates must be a list of SpatialRNA objects.')
   if(length(spatialRNA.replicates) <= 1)
     stop('create.RCTD.replicates: length(spatialRNA.replicates) <= 1. This object must be a list of at least two SpatialRNA objects.')
@@ -161,7 +161,7 @@ run.CSIDE.replicates <- function(RCTD.replicates, cell_types, explanatory.variab
     if(de_mode == 'single') {
       if(is.null(explanatory.variable.replicates))
         stop('run.CSIDE.replicates: if de_mode = single, explanatory.variable.replicates cannot be null.')
-      if(class(explanatory.variable.replicates) != 'list')
+      if(!is(explanatory.variable.replicates, 'list'))
         stop('run.CSIDE.replicates: explanatory.variable.replicates must be a list of explanatory variable vectors for each replicate.')
       if(length(RCTD.replicates@RCTD.reps) != length(explanatory.variable.replicates))
         stop('create.RCTD.replicates: length(explanatory.variable.replicates) is not equal to the number of RCTD replicates, as required.')
@@ -178,7 +178,7 @@ run.CSIDE.replicates <- function(RCTD.replicates, cell_types, explanatory.variab
     } else {
       if(is.null(X.replicates))
         stop('run.CSIDE.replicates: if de_mode = single, X.replicates cannot be null.')
-      if(class(X.replicates) != 'list')
+      if(!is(X.replicates, 'list'))
           stop('run.CSIDE.replicates: X.replicates must be a list of design matrices for each replicate.')
       if(length(RCTD.replicates@RCTD.reps) != length(X.replicates))
         stop('run.CSIDE.replicates: length(X.replicates) is not equal to the number of RCTD replicates, as required.')
@@ -208,7 +208,7 @@ run.CSIDE.replicates <- function(RCTD.replicates, cell_types, explanatory.variab
 #' @return an \code{\linkS4class{RCTD.replicates}} object, containing each \code{\linkS4class{RCTD}} object in \code{RCTD.reps}
 #' @export
 merge_RCTD_objects <- function(RCTD.reps, replicate_names, group_ids = NULL) {
-  if(class(RCTD.reps) != 'list' || any(!unlist(lapply(RCTD.reps, function(x) class(x) == 'RCTD'))))
+  if(!is(RCTD.reps, 'list') || any(!unlist(lapply(RCTD.reps, function(x) is(x, 'RCTD')))))
     stop('merge_RCTD_objects: RCTD.reps must be a list of RCTD objects.')
   if(length(RCTD.reps) <= 1)
     stop('merge_RCTD_objects: length(RCTD.replicates) <= 1. This object must be a list of at least two RCTD objects.')

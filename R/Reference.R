@@ -48,7 +48,7 @@ Reference <- function(counts, cell_types, nUMI = NULL, require_int = TRUE, n_max
 }
 
 check_cell_types <- function(cell_types) {
-  if(class(cell_types) != 'factor')
+  if(!is(cell_types, 'factor'))
     stop('Reference: cell_types is not a factor. Please format cell_types as a factor.')
   if(length(cell_types) < 2)
     stop('Reference: length(cell_types) < 2. cell_types needs to be a factor with length equal to the number of cells.')

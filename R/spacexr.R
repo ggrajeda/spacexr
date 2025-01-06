@@ -150,18 +150,25 @@ check_vector <- function(variable, var_name, f_name, require_int = FALSE) {
 #' of \code{spacexr}.
 #' @export
 convert.old.RCTD <- function(myRCTD) {
-   if(class(myRCTD@reference )[1] == 'Seurat') {
+   if(is(myRCTD@reference, 'Seurat')) {
       ref <- convert_old_reference(myRCTD@reference)
    } else {
       ref <- myRCTD@reference
    }
-   if(attr(class(myRCTD@spatialRNA),'package') != 'spacexr')
+   
+   spatial_rna_package <- attr(class(myRCTD@spatialRNA),'package')
+   if(spatial_rna_package != 'spacexr')
       myRCTD@spatialRNA <- coerce_old(myRCTD@spatialRNA)
+
    if(is.null(attr(myRCTD, 'originalSpatialRNA')))
       myRCTD@originalSpatialRNA <- myRCTD@spatialRNA
-   if(attr(class(myRCTD@originalSpatialRNA),'package') != 'spacexr')
+
+   orig_spatial_rna_package <- attr(class(myRCTD@originalSpatialRNA),'package')
+   if(orig_spatial_rna_package != 'spacexr')
       myRCTD@originalSpatialRNA <- coerce_old(myRCTD@originalSpatialRNA)
-   if(attr(class(ref),'package') != 'spacexr')
+
+   ref_package <- attr(class(ref),'package')
+   if(ref_package != 'spacexr')
       ref <- coerce_deglam_reference(ref)
    new("RCTD", spatialRNA = myRCTD@spatialRNA, originalSpatialRNA = myRCTD@spatialRNA, reference = ref,
        config = myRCTD@config, cell_type_info = myRCTD@cell_type_info, internal_vars = myRCTD@internal_vars,
