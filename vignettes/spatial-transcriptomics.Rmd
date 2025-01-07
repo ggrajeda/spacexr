@@ -34,10 +34,8 @@ Let's begin by loading in the data to be usable for RCTD.
 ### Single-Cell Reference
 In order to run RCTD, the first step is to process the single cell reference. The reference is created using the RCTD `Reference` constructor function, which requires 3 parameters: <br/>
 1. counts: A matrix (or dgCmatrix) representing Digital Gene Expression (DGE). Rownames should be genes and colnames represent barcodes/cell names. Counts should be untransformed count-level data. <br/>
-2. cell_types: 	
-A named (by cell barcode) factor of cell type for each cell. The 'levels' of the factor would be the possible cell type identities. <br/>
-3. nUMI: 	
-Optional, a named (by cell barcode) list of total counts or UMI's appearing at each pixel. If not provided, nUMI will be assumed to be the total counts appearing on each pixel. <br/>
+2. cell_types: A named (by cell barcode) factor of cell type for each cell. The 'levels' of the factor would be the possible cell type identities. <br/>
+3. nUMI: Optional, a named (by cell barcode) list of total counts or UMI's appearing at each pixel. If not provided, nUMI will be assumed to be the total counts appearing on each pixel. <br/>
 
 The reference may come from various data types, but it needs to be loaded into the R envirnoment. Here, we emphasize that our protocol for loading in the counts, cell_types, and nUMI obejects does not need to be the way that you load your objects into R. In this case our reference is stored in the 'Reference/Vignette' folder as two csv files:<br/>
 1. meta_data.csv: a CSV file (with 3 columns, with headers "barcode", "cluster", and "nUMI") containing the nUMI and cell type assignment for each cell.<br/>
@@ -69,8 +67,7 @@ table(reference@cell_types) # number of occurences for each cell type
 Next, we will load the Spatial Transcriptomics data into a `SpatialRNA` object. Similarly to the reference, we will first load the data into R, and then pass the data into the RCTD `SpatialRNA` constructor function, which requires 3 parameters: <br/>
 1. coords: A numeric data.frame (or matrix) representing the spatial pixel locations. rownames are barcodes/pixel names, and there should be two columns for 'x' and for 'y'.<br/>
 2. counts: A matrix (or dgCmatrix) representing Digital Gene Expression (DGE). Rownames should be genes and colnames represent barcodes/pixel names. Counts should be untransformed count-level data. <br/>
-3. nUMI: 	
-Optional, a named (by pixel barcode) list of total counts or UMI's appearing at each pixel. If not provided, nUMI will be assumed to be the total counts appearing on each pixel. <br/>
+3. nUMI: Optional, a named (by pixel barcode) list of total counts or UMI's appearing at each pixel. If not provided, nUMI will be assumed to be the total counts appearing on each pixel. <br/>
 
 These elements can be constructed differently, depending on how you store your spatial transcriptomic data. In our case (one of many ways to do it), our (Slide-seq) data is stored in the 'SpatialRNA/Vignette' file as two csv files: <br/>
 1. BeadLocationsForR.csv: a CSV file (with 3 columns, with headers "barcodes", "xcoord", and "ycoord") containing the spatial locations of the pixels. <br/>

@@ -59,10 +59,8 @@ reference <- Reference(counts, cell_types, nUMI)
 
 The function `Reference` requires 3 parameters: <br/>
 1. `counts`: A matrix (or dgCmatrix) representing Digital Gene Expression (DGE). Rownames should be genes and colnames represent barcodes/cell names. Counts should be untransformed count-level data. <br/>
-2. `cell_types`: 	
-A named (by cell barcode) factor of cell type for each cell. The 'levels' of the factor would be the possible cell type identities. <br/>
-3. `nUMI`: 	
-Optional, a named (by cell barcode) list of total counts or UMI's appearing at each pixel. If not provided, nUMI will be assumed to be the total counts appearing on each pixel. <br/>
+2. `cell_types`: A named (by cell barcode) factor of cell type for each cell. The 'levels' of the factor would be the possible cell type identities. <br/>
+3. `nUMI`: Optional, a named (by cell barcode) list of total counts or UMI's appearing at each pixel. If not provided, nUMI will be assumed to be the total counts appearing on each pixel. <br/>
 
 An option for the `Reference` function is `n_max_cells` (default 10000), which determines the maximum number of cells used from each cell type.
 
@@ -75,8 +73,7 @@ spaceRNA <- SpatialRNA(coords, counts, nUMI)
 This function requires 3 parameters: <br/>
 1. coords: A numeric data.frame (or matrix) representing the spatial pixel locations. rownames are barcodes/pixel names, and there should be two columns for 'x' and for 'y'.<br/>
 2. counts: A matrix (or dgCmatrix) representing Digital Gene Expression (DGE). Rownames should be genes and colnames represent barcodes/pixel names. Counts should be untransformed count-level data. <br/>
-3. nUMI: 	
-Optional, a named (by pixel barcode) list of total counts or UMI's appearing at each pixel. If not provided, nUMI will be assumed to be the total counts appearing on each pixel. <br/>
+3. nUMI: Optional, a named (by pixel barcode) list of total counts or UMI's appearing at each pixel. If not provided, nUMI will be assumed to be the total counts appearing on each pixel. <br/>
 
 ## RCTD
 
