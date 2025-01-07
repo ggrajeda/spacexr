@@ -6,7 +6,7 @@
 \alias{spacexr}
 \title{spacexr: an R package for assigning cell types and cell type specific differential expression to spatial transcriptomics data.}
 \description{
-cell type identification and cell type-specific differential expression for spatial transcriptomics
+Implementation of two computational methods in spatial transcriptomics: 1. Robust Cell Type Decomposition (RCTD). Decomposes cell type mixtures using cell type profiles, correcting for differences across sequencing technologies. 2. Cell Type-Specific Inference of Differential Expression (CSIDE). Identifies cell type-specific differential expression, accounting for localization of other cell types.
 }
 \section{Running RCTD}{
 
@@ -29,3 +29,20 @@ Then, to detect cell type-specific differential expression, simply run CSIDE as:
 \code{myRCTD <- run.CSIDE.single(puck, explanatory.variable)}
 }
 
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/ggrajeda/spacexr}
+  \item Report bugs at \url{https://github.com/ggrajeda/spacexr/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Gabriel Grajeda \email{gabriel@ds.dfci.harvard.edu}
+
+Authors:
+\itemize{
+  \item Dylan Cable \email{dmcable@umich.edu}
+}
+
+}

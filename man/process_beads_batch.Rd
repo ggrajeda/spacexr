@@ -9,7 +9,7 @@ process_beads_batch(
   gene_list,
   puck,
   class_df = NULL,
-  constrain = T,
+  constrain = TRUE,
   MAX_CORES = 8,
   MIN.CHANGE = 0.001,
   CONFIDENCE_THRESHOLD = 10,

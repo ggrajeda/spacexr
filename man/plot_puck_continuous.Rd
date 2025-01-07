@@ -11,13 +11,13 @@ plot_puck_continuous(
   ylimit = c(0, 1),
   title = NULL,
   counter_barcodes = NULL,
-  label = F,
+  label = FALSE,
   my_pal = NULL,
   xlim = NULL,
   ylim = NULL,
   size = 0.15,
   alpha = 1,
-  small_point = F
+  small_point = FALSE
 )
 }
 \arguments{

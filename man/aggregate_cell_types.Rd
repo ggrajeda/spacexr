@@ -4,7 +4,7 @@
 \alias{aggregate_cell_types}
 \title{Aggregates the pixel occurrences for each cell type in the \code{\linkS4class{RCTD}} object}
 \usage{
-aggregate_cell_types(myRCTD, barcodes, doublet_mode = T)
+aggregate_cell_types(myRCTD, barcodes, doublet_mode = TRUE)
 }
 \arguments{
 \item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types e.g. from the \code{\link{run.RCTD}} function.}

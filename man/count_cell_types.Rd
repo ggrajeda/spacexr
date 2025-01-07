@@ -9,7 +9,7 @@ count_cell_types(
   barcodes,
   cell_types,
   cell_type_threshold = 125,
-  doublet_mode = T,
+  doublet_mode = TRUE,
   weight_threshold = NULL
 )
 }

@@ -22,7 +22,7 @@ create.RCTD.replicates(
   CELL_MIN_INSTANCE = 25,
   cell_type_names = NULL,
   MAX_MULTI_TYPES = 4,
-  keep_reference = F,
+  keep_reference = FALSE,
   CONFIDENCE_THRESHOLD = 5,
   DOUBLET_THRESHOLD = 20
 )

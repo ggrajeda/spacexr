@@ -4,7 +4,7 @@
 \alias{get_class_df}
 \title{Returns a dataframe mapping cell types to classes}
 \usage{
-get_class_df(cell_type_names, use_classes = F)
+get_class_df(cell_type_names, use_classes = FALSE)
 }
 \arguments{
 \item{cell_type_names}{List of cell type names}

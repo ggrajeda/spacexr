@@ -11,15 +11,15 @@ run.CSIDE.nonparam(
   cell_types = NULL,
   cell_type_threshold = 125,
   gene_threshold = 5e-05,
-  doublet_mode = T,
+  doublet_mode = TRUE,
   weight_threshold = NULL,
-  sigma_gene = T,
+  sigma_gene = TRUE,
   PRECISION.THRESHOLD = 0.05,
   cell_types_present = NULL,
   fdr = 0.01,
-  test_genes_sig = T,
-  logs = F,
-  test_error = F
+  test_genes_sig = TRUE,
+  logs = FALSE,
+  test_error = FALSE
 )
 }
 \arguments{

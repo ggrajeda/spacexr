@@ -10,14 +10,14 @@ run.CSIDE.intercept(
   cell_types = NULL,
   cell_type_threshold = 125,
   gene_threshold = 5e-05,
-  doublet_mode = T,
+  doublet_mode = TRUE,
   weight_threshold = NULL,
-  sigma_gene = T,
+  sigma_gene = TRUE,
   PRECISION.THRESHOLD = 0.05,
   cell_types_present = NULL,
-  normalize_expr = F,
-  logs = F,
-  test_error = F
+  normalize_expr = FALSE,
+  logs = FALSE,
+  test_error = FALSE
 )
 }
 \arguments{

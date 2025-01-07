@@ -9,13 +9,13 @@ subset_rctd(rctd_obj, st_spot_id)
 \arguments{
 \item{rctd_obj}{An RCTD/spacexr object}
 
-\item{st_spot_id}{A vector of scalar character strings that are spatial barcode to keep after subsetting. 
+\item{st_spot_id}{A vector of scalar character strings that are spatial barcode to keep after subsetting.
 These barcodes should match the spot names in the original spatial object slot of the RCTD/spacexr object used to generate the rctd_obj.}
 }
 \value{
 An updated rctd object with rows corresponding only to the barcodes in st_spot_id
 }
 \description{
-Subsets an rctd object based on the input spatial barcode. 
+Subsets an rctd object based on the input spatial barcode.
 The function subset_rctd subsets the @spatialRNA, @originalSpatialRNA, and @results$weights slots of an RCTD/spacexr object.
 }

@@ -13,7 +13,7 @@ CSIDE.population.inference(
   CT.PROP = 0.5,
   fdr = 0.01,
   log_fc_thresh = 0.4,
-  normalize_expr = F,
+  normalize_expr = FALSE,
   meta = FALSE,
   meta.design.matrix = NULL,
   meta.test_var = "intrcpt"

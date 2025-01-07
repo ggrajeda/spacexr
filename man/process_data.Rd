@@ -10,8 +10,8 @@ process_data(
   cell_type_info,
   proportions = NULL,
   trust_model = FALSE,
-  constrain = T,
-  OLS = F
+  constrain = TRUE,
+  OLS = FALSE
 )
 }
 \arguments{
