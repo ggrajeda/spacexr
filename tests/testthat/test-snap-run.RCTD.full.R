@@ -2,19 +2,21 @@ test_that("full", {
   # Arrange
   # create reference
   set.seed(20240815)
-  mat <- simulateSpatialRNASeq(n_celltypes = 3,
-                                samples_per_type = 60,
-                                reference_samples = 30,
-                                nGenes = 500,
-                                seed = 886)
+  mat <- simulateSpatialRNASeq(
+    n_celltypes = 3,
+    samples_per_type = 60,
+    reference_samples = 30,
+    nGenes = 500,
+    seed = 886
+  )
 
   # Act
   rctd <- create.RCTD(mat$s_regions[[1]], mat$reference, max_cores = 1)
   rctd_multi <- create.RCTD(mat$s_regions[[1]], mat$reference, max_cores = 2)
 
-  raw_result <- run.RCTD(rctd, doublet_mode = 'full')
+  raw_result <- run.RCTD(rctd, doublet_mode = "full")
   result <- rctd_result_list(raw_result)
-  raw_result_multi <- run.RCTD(rctd_multi, doublet_mode = 'full')
+  raw_result_multi <- run.RCTD(rctd_multi, doublet_mode = "full")
   result_multi <- rctd_result_list(raw_result_multi)
 
   # Assert

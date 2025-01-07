@@ -34,16 +34,16 @@ NULL
 #' @import Matrix
 #' @importClassesFrom Matrix Matrix dgCMatrix
 setClass("SpatialRNA",
-         slots = c(
-           coords = "data.frame",
-           counts = "dgCMatrix",
-           nUMI = "numeric"
-         ),
-         prototype = list(
-           coords = data.frame(NULL),
-           counts = NULL,
-           nUMI = NA_integer_
-         )
+  slots = c(
+    coords = "data.frame",
+    counts = "dgCMatrix",
+    nUMI = "numeric"
+  ),
+  prototype = list(
+    coords = data.frame(NULL),
+    counts = NULL,
+    nUMI = NA_integer_
+  )
 )
 
 #' An S4 class to represent Single-Cell RNA-seq reference
@@ -56,14 +56,14 @@ setClass("SpatialRNA",
 #' @export
 setClass("Reference",
   slots = c(
-   cell_types = "factor",
-   counts = "dgCMatrix",
-   nUMI = "numeric"
+    cell_types = "factor",
+    counts = "dgCMatrix",
+    nUMI = "numeric"
   ),
   prototype = list(
-   cell_types = NULL,
-   counts = NULL,
-   nUMI = NA_integer_
+    cell_types = NULL,
+    counts = NULL,
+    nUMI = NA_integer_
   )
 )
 
@@ -100,26 +100,26 @@ setClass("Reference",
 #' @importClassesFrom Matrix Matrix dgCMatrix
 setClass("RCTD",
   slots = c(
-   spatialRNA = "SpatialRNA",
-   originalSpatialRNA = "SpatialRNA",
-   reference = "Reference",
-   config = "list",
-   cell_type_info = 'list',
-   internal_vars = 'list',
-   results = 'list',
-   de_results = 'list',
-   internal_vars_de = 'list'
+    spatialRNA = "SpatialRNA",
+    originalSpatialRNA = "SpatialRNA",
+    reference = "Reference",
+    config = "list",
+    cell_type_info = "list",
+    internal_vars = "list",
+    results = "list",
+    de_results = "list",
+    internal_vars_de = "list"
   ),
   prototype = list(
-   spatialRNA = NULL,
-   originalSpatialRNA = NULL,
-   reference = NULL,
-   config = list(),
-   cell_type_info = list(info = NULL, renorm = NULL),
-   internal_vars = list(),
-   results = list(),
-   de_results = list(),
-   internal_vars_de = list()
+    spatialRNA = NULL,
+    originalSpatialRNA = NULL,
+    reference = NULL,
+    config = list(),
+    cell_type_info = list(info = NULL, renorm = NULL),
+    internal_vars = list(),
+    results = list(),
+    de_results = list(),
+    internal_vars_de = list()
   )
 )
 
@@ -149,18 +149,18 @@ setClass("RCTD",
 #' @import Matrix
 #' @importClassesFrom Matrix Matrix dgCMatrix
 setClass("RCTD.replicates",
-   slots = c(
-      RCTD.reps = 'list',
-      population_de_results = 'list',
-      population_sig_gene_list = 'list',
-      population_sig_gene_df = 'list',
-      group_ids = 'numeric'
-   ),
-   prototype = list(
-      RCTD.reps = list(),
-      population_de_results = list(),
-      population_sig_gene_list = list(),
-      population_sig_gene_df = list(),
-      group_ids = NA_integer_
-   )
+  slots = c(
+    RCTD.reps = "list",
+    population_de_results = "list",
+    population_sig_gene_list = "list",
+    population_sig_gene_df = "list",
+    group_ids = "numeric"
+  ),
+  prototype = list(
+    RCTD.reps = list(),
+    population_de_results = list(),
+    population_sig_gene_list = list(),
+    population_sig_gene_df = list(),
+    group_ids = NA_integer_
+  )
 )

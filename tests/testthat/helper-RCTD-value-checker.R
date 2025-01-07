@@ -16,21 +16,23 @@
 #'
 #' @examples
 rctd_result_list <- \(u) {
-   v <- u@results
+  v <- u@results
   if (u@config$RCTDmode == "multi") {
     for (i in seq_along(v)) {
       v[[i]]$cell_id <- names(u@spatialRNA@nUMI)[i]
     }
     rctd_results <- as.data.frame(do.call(rbind, lapply(v, tibble::as_tibble)))
   } else if (u@config$RCTDmode == "full") {
-      rctd_results <- v$weights
+    rctd_results <- v$weights
   } else if (u@config$RCTDmode == "doublet") {
-      rctd_results <- v$results_df
+    rctd_results <- v$results_df
   } else {
-      stop(paste("Unknown RCTD mode", u@config$RCTDmode))
+    stop(paste("Unknown RCTD mode", u@config$RCTDmode))
   }
-  list(cell_type_info = u@cell_type_info$renorm[[1]],
-       rctd_results = rctd_results)
+  list(
+    cell_type_info = u@cell_type_info$renorm[[1]],
+    rctd_results = rctd_results
+  )
 }
 
 #' near_equal - Nearly equal
@@ -52,17 +54,17 @@ rctd_result_list <- \(u) {
 #'             If 0 rows x 0 columns, the two objects are equal.
 #'
 #' @examples
-#'    near_equal(result, result_multi, ref_name = "rctd_results")
-#'     ref_name row col        a            b              diff
-#'     rctd_results   5   6 617.0000 1.033454e+02  513.654611292082
-#'     rctd_results   8   9   0.0000 1.000000e+00
-
-near_equal <- \(a, b, ref_name = "", epsilon = .Machine$double.eps ^ 0.5) {
+#' near_equal(result, result_multi, ref_name = "rctd_results")
+#' # ref_name row col        a            b              diff
+#' # rctd_results   5   6 617.0000 1.033454e+02  513.654611292082
+#' # rctd_results   8   9   0.0000 1.000000e+00
+near_equal <- \(a, b, ref_name = "", epsilon = .Machine$double.eps^0.5) {
   almost_equal <- \(x, y) {
-    if (typeof(x[1]) == "double")
+    if (typeof(x[1]) == "double") {
       abs(x - y) <= epsilon
-    else
+    } else {
       x == y
+    }
   }
   # TODO stop -> error return
   # TODO attributes (row names, column names)
@@ -76,10 +78,11 @@ near_equal <- \(a, b, ref_name = "", epsilon = .Machine$double.eps ^ 0.5) {
     if (!inherits(b, c("Matrix", "matrix"))) {
       stop("a is matrix-like and b is not")
     }
-    if (typeof(a[1]) == "double")
+    if (typeof(a[1]) == "double") {
       r <- almost_equal(a, b)
-    else
+    } else {
       r <- a == b
+    }
   } else {
     # Compare data.frame-like objects
     r <- mapply(\(u, v) {
@@ -91,49 +94,57 @@ near_equal <- \(a, b, ref_name = "", epsilon = .Machine$double.eps ^ 0.5) {
   }
   r <- which(!r, arr.ind = TRUE)
   if (length(r) == 0) {
-    r <- data.frame(ref_name = character(),
-                    row=character(), col=character(),
-                    a=character(), b=character(),
-                    diff=character())
+    r <- data.frame(
+      ref_name = character(),
+      row = character(), col = character(),
+      a = character(), b = character(),
+      diff = character()
+    )
   } else {
-    r <- do.call(rbind,
-          apply(r, 1, function(u) {
-            a=a[u[1], u[2]]
-            b=b[u[1], u[2]]
-            data.frame(ref_name, row=as.character(u[1]),
-                       col=as.character(u[2]),
-                       a=as.character(a),
-                       b=as.character(b),
-                       diff=as.character(ifelse(is.numeric(a), a-b, "")))
-            }))
+    r <- do.call(
+      rbind,
+      apply(r, 1, function(u) {
+        a <- a[u[1], u[2]]
+        b <- b[u[1], u[2]]
+        data.frame(ref_name,
+          row = as.character(u[1]),
+          col = as.character(u[2]),
+          a = as.character(a),
+          b = as.character(b),
+          diff = as.character(ifelse(is.numeric(a), a - b, ""))
+        )
+      })
+    )
     rownames(r) <- NULL
   }
   r
 }
 
-rctd_results_equal <- \(a, b)
-{
+rctd_results_equal <- \(a, b){
   result <- near_equal(a$rctd_results, b$rctd_results, ref_name = "rctd_results")
-  result <- rbind(result,
-        near_equal(a$cell_type_info, b$cell_type_info,
-                   ref_name = "cell_type_info"))
+  result <- rbind(
+    result,
+    near_equal(a$cell_type_info, b$cell_type_info,
+      ref_name = "cell_type_info"
+    )
+  )
   result
 }
 
-cside_results_equal <- \(a, b)
-{
+cside_results_equal <- \(a, b){
   coalesce_gene_list_dfs <- \(u) do.call(rbind, u@de_results$all_gene_list)
 
   near_equal(coalesce_gene_list_dfs(a), coalesce_gene_list_dfs(b),
-            ref_name = "de_results$all_gene_list")
+    ref_name = "de_results$all_gene_list"
+  )
 }
 
 
 # Scientific notation
 # for appropriate checking of floating point results
 print_rctd_results <- \(u) {
-  print(u$cell_type_info[[1]], max=99999, digits=5, scipen=-999)
-  print(u$rctd_results, max=99999, digits=5, scipen=-999)
+  print(u$cell_type_info[[1]], max = 99999, digits = 5, scipen = -999)
+  print(u$rctd_results, max = 99999, digits = 5, scipen = -999)
 }
 
 # TODO Roxygen
@@ -142,9 +153,11 @@ expect_rctd_results_equal <- function(a, b) {
   if (nrow(df) == 0) {
     succeed("The objects are equal")
   } else {
-  fail_msg <- paste("Differences found:\n",
-    paste(capture.output(print(df, row.names = FALSE)), collapse = "\n"))
-  fail(fail_msg)
+    fail_msg <- paste(
+      "Differences found:\n",
+      paste(capture.output(print(df, row.names = FALSE)), collapse = "\n")
+    )
+    fail(fail_msg)
   }
 }
 
@@ -154,8 +167,10 @@ expect_cside_results_equal <- function(a, b) {
   if (nrow(df) == 0) {
     succeed("The objects are equal")
   } else {
-    fail_msg <- paste("Differences found:\n",
-                      paste(capture.output(print(df, row.names = FALSE)), collapse = "\n"))
+    fail_msg <- paste(
+      "Differences found:\n",
+      paste(capture.output(print(df, row.names = FALSE)), collapse = "\n")
+    )
     fail(fail_msg)
   }
 }

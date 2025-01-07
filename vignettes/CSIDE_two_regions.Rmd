@@ -19,12 +19,14 @@ library(spacexr)
 library(Matrix)
 library(doParallel)
 library(ggplot2)
-datadir <- system.file("extdata",'SpatialRNA/Vignette',package = 'spacexr') # directory for sample Slide-seq dataset
-if(!dir.exists(datadir))
+datadir <- system.file("extdata", "SpatialRNA/Vignette", package = "spacexr") # directory for sample Slide-seq dataset
+if (!dir.exists(datadir)) {
   dir.create(datadir)
-savedir <- 'RCTD_results'
-if(!dir.exists(savedir))
+}
+savedir <- "RCTD_results"
+if (!dir.exists(savedir)) {
   dir.create(savedir)
+}
 ```
 
 ```{r, include = FALSE}
@@ -46,28 +48,35 @@ First, we run RCTD on the data to annotated cell types. Please note that this fo
 
 ```{r RCTD}
 ### Load in/preprocess your data, this might vary based on your file type
-print(file.path(savedir,'myRCTD.rds'))
-if(!file.exists(file.path(savedir,'myRCTD.rds'))) {
-  counts <- read.csv(file.path(datadir,"MappedDGEForR.csv")) # load in counts matrix
-  coords <- read.csv(file.path(datadir,"BeadLocationsForR.csv"))
-  rownames(counts) <- counts[,1]; counts[,1] <- NULL # Move first column to rownames
-  rownames(coords) <- coords$barcodes; coords$barcodes <- NULL # Move barcodes to rownames
+print(file.path(savedir, "myRCTD.rds"))
+if (!file.exists(file.path(savedir, "myRCTD.rds"))) {
+  counts <- read.csv(file.path(datadir, "MappedDGEForR.csv")) # load in counts matrix
+  coords <- read.csv(file.path(datadir, "BeadLocationsForR.csv"))
+  rownames(counts) <- counts[, 1]
+  counts[, 1] <- NULL # Move first column to rownames
+  rownames(coords) <- coords$barcodes
+  coords$barcodes <- NULL # Move barcodes to rownames
   nUMI <- colSums(counts) # In this case, total counts per pixel is nUMI
   puck <- SpatialRNA(coords, counts, nUMI)
-  barcodes <- colnames(puck@counts) # pixels to be used (a list of barcode names). 
-  plot_puck_continuous(puck, barcodes, puck@nUMI, ylimit = c(0,round(quantile(puck@nUMI,0.9))), 
-                       title ='plot of nUMI') 
-  refdir <- system.file("extdata",'Reference/Vignette',package = 'spacexr') # directory for the reference
-  counts <- read.csv(file.path(refdir,"dge.csv")) # load in counts matrix
-  rownames(counts) <- counts[,1]; counts[,1] <- NULL # Move first column to rownames
-  meta_data <- read.csv(file.path(refdir,"meta_data.csv")) # load in meta_data (barcodes, clusters, and nUMI)
-  cell_types <- meta_data$cluster; names(cell_types) <- meta_data$barcode # create cell_types named list
+  barcodes <- colnames(puck@counts) # pixels to be used (a list of barcode names).
+  plot_puck_continuous(puck, barcodes, puck@nUMI,
+    ylimit = c(0, round(quantile(puck@nUMI, 0.9))),
+    title = "plot of nUMI"
+  )
+  refdir <- system.file("extdata", "Reference/Vignette", package = "spacexr") # directory for the reference
+  counts <- read.csv(file.path(refdir, "dge.csv")) # load in counts matrix
+  rownames(counts) <- counts[, 1]
+  counts[, 1] <- NULL # Move first column to rownames
+  meta_data <- read.csv(file.path(refdir, "meta_data.csv")) # load in meta_data (barcodes, clusters, and nUMI)
+  cell_types <- meta_data$cluster
+  names(cell_types) <- meta_data$barcode # create cell_types named list
   cell_types <- as.factor(cell_types) # convert to factor data type
-  nUMI <- meta_data$nUMI; names(nUMI) <- meta_data$barcode # create nUMI named list
+  nUMI <- meta_data$nUMI
+  names(nUMI) <- meta_data$barcode # create nUMI named list
   reference <- Reference(counts, cell_types, nUMI)
   myRCTD <- create.RCTD(puck, reference, max_cores = 2)
-  myRCTD <- run.RCTD(myRCTD, doublet_mode = 'doublet')
-  saveRDS(myRCTD,file.path(savedir,'myRCTD.rds'))
+  myRCTD <- run.RCTD(myRCTD, doublet_mode = "doublet")
+  saveRDS(myRCTD, file.path(savedir, "myRCTD.rds"))
 }
 ```
 
@@ -82,19 +91,19 @@ Here, we also artifically upregulate the expression of the Kcnip4 gene (in regio
 
 ```{r SpatialRNA, results = 'hide', fig.height = 6, fig.width = 6}
 ### Create SpatialRNA object
-myRCTD <- readRDS(file.path(savedir,'myRCTD.rds'))
+myRCTD <- readRDS(file.path(savedir, "myRCTD.rds"))
 explanatory.variable <- as.integer(myRCTD@spatialRNA@coords$x > 3000)
 names(explanatory.variable) <- rownames(myRCTD@spatialRNA@coords)
 print(head(explanatory.variable))
 print(table(explanatory.variable))
 
 # Differentially upregulate one gene
-change_gene <- 'Kcnip4'
+change_gene <- "Kcnip4"
 high_barc <- names(explanatory.variable[explanatory.variable > 0.5])
 low_barc <- names(explanatory.variable[explanatory.variable < 0.5])
-myRCTD@originalSpatialRNA@counts[change_gene, high_barc] <- myRCTD@spatialRNA@counts[change_gene, high_barc] * 2 
+myRCTD@originalSpatialRNA@counts[change_gene, high_barc] <- myRCTD@spatialRNA@counts[change_gene, high_barc] * 2
 
-plot_puck_continuous(myRCTD@spatialRNA, names(explanatory.variable), explanatory.variable, ylimit = c(0,1), title ='plot of explanatory variable') 
+plot_puck_continuous(myRCTD@spatialRNA, names(explanatory.variable), explanatory.variable, ylimit = c(0, 1), title = "plot of explanatory variable")
 ```
 
 ## Running CSIDE
@@ -104,13 +113,15 @@ After creating the explanatory variable, we are now ready to run CSIDE using the
 **Warning**: On this toy dataset, we have made several choices of parameters that are not recommended for regular use. On real datasets, we recommend first consulting the CSIDE default parameters. This includes `gene_threshold` (default 5e-5), `cell_type_threshold` (default 125), and `fdr` (default 0.01). Please see `?run.CSIDE.single` for more information on these parameters. 
 
 ```{r DEgenes}
-#de
+# de
 myRCTD@config$max_cores <- 2
-cell_types <- c('10', '18', '6')
-myRCTD <- run.CSIDE.single(myRCTD, explanatory.variable, gene_threshold = .01, 
-                         cell_type_threshold = 3, fdr = 0.25, cell_types = cell_types) 
+cell_types <- c("10", "18", "6")
+myRCTD <- run.CSIDE.single(myRCTD, explanatory.variable,
+  gene_threshold = .01,
+  cell_type_threshold = 3, fdr = 0.25, cell_types = cell_types
+)
 
-saveRDS(myRCTD,file.path(savedir,'myRCTDde_two_regions.rds'))
+saveRDS(myRCTD, file.path(savedir, "myRCTDde_two_regions.rds"))
 ```
 
 Equivalently to using the `run.CSIDE.single` function, those who want to have more precise control can build the design matrix directly. In this case, we use the `build.designmatrix.single` function, which
@@ -120,8 +131,10 @@ constructs the design matrix for a single explanatory variable. After constructi
 X <- build.designmatrix.single(myRCTD, explanatory.variable)
 print(head(X))
 barcodes <- names(explanatory.variable)
-myRCTD_identical <- run.CSIDE(myRCTD, X, barcodes, cell_types, gene_threshold = .01, 
-                        cell_type_threshold = 3, fdr = 0.25)
+myRCTD_identical <- run.CSIDE(myRCTD, X, barcodes, cell_types,
+  gene_threshold = .01,
+  cell_type_threshold = 3, fdr = 0.25
+)
 ```
 
 ## CSIDE results
@@ -129,18 +142,18 @@ myRCTD_identical <- run.CSIDE(myRCTD, X, barcodes, cell_types, gene_threshold = 
 After running CSIDE, it is time to examine CSIDE results. For each cell type, a results dataframe for significant genes is stored in `myRCTD@de_results$sig_gene_list`. In particular, notice the columns `Z_score` (Z-score), `log_fc` (estimated DE loge-fold-change), and `p_val` (p-value). We will focus on cell type 10. Furthermore, we will examine the original Kcnip4 gene, which was detected to be significantly differentially expressed in cell type 10. CSIDE model fits for all genes are stored in `myRCTD@de_results$gene_fits`, and we demonstrate below how to access the point estimates, standard errors, and convergence.
 
 ```{r CSIDE_results,  fig.width = 8, fig.height=8}
-#print results for cell type '18'
-cell_type <- '10'
+# print results for cell type '18'
+cell_type <- "10"
 results_de <- myRCTD@de_results$sig_gene_list[[cell_type]]
 print(results_de)
 sig_gene <- change_gene
 print(paste("following results hold for", sig_gene))
 print("check for covergence of each cell type")
-print(myRCTD@de_results$gene_fits$con_mat[sig_gene, ]) 
-print('estimated DE')
-print(myRCTD@de_results$gene_fits$mean_val[sig_gene, ]) 
-print('standard errors for non-intercept terms')
-print(myRCTD@de_results$gene_fits$s_mat[sig_gene, ]) 
+print(myRCTD@de_results$gene_fits$con_mat[sig_gene, ])
+print("estimated DE")
+print(myRCTD@de_results$gene_fits$mean_val[sig_gene, ])
+print("standard errors for non-intercept terms")
+print(myRCTD@de_results$gene_fits$s_mat[sig_gene, ])
 ```
 
 Finally, we will plot CSIDE results in the `savedir` directory!
@@ -150,7 +163,7 @@ The following plot shows a spatial visualization of the Kcnip4 gene, which was d
 The function `make_all_de_plots` will automatically generate several types of plots displaying the CSIDE results across all genes and cell types.
 
 ```{r results,  fig.width = 8, fig.height=8}
-myRCTD <- readRDS(file.path(savedir,'myRCTDde_two_regions.rds'))
+myRCTD <- readRDS(file.path(savedir, "myRCTDde_two_regions.rds"))
 plot_gene_two_regions(myRCTD, sig_gene, cell_type, min_UMI = 10)
 make_all_de_plots(myRCTD, savedir)
 ```

@@ -14,7 +14,6 @@ test_that("Reference simple test", {
 
   # Assert
   expect_s4_class(result, "Reference")
-  expect_equal(Matrix(result@counts) , Matrix(u$counts))
+  expect_equal(Matrix(result@counts), Matrix(u$counts))
   expect_equal(result@nUMI, u$nUMI)
-
 })

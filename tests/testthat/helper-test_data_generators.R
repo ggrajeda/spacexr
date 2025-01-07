@@ -27,7 +27,7 @@ create_sample_mixtures <- \(se, mixtures) {
     mixture <- mixtures[[mixture_idx]]
     n <- mixture[1]
     mixture <- mixture[-1]
-    mixture_name <-  names(mixtures)[mixture_idx]
+    mixture_name <- names(mixtures)[mixture_idx]
     # select the samples for combination
     sample_idx <- mapply(\(prop, pcell_type) {
       sample(which(colData(se)$cell_type == pcell_type), n)
@@ -41,7 +41,7 @@ create_sample_mixtures <- \(se, mixtures) {
       u <- sample_idx[i, ]
       mx <- apply(assay(se, "counts")[, u], 1, \(u) as.integer(round(sum(u * mixture), 0)))
       newloc <- u[1]
-      assay(se, "counts")[,newloc] <- mx
+      assay(se, "counts")[, newloc] <- mx
       levels(colData(se)$cell_type) <- c(levels(colData(se)$cell_type), mixture_name)
       colData(se)$cell_type[newloc] <- mixture_name
     }
@@ -84,36 +84,37 @@ create_sample_mixtures <- \(se, mixtures) {
 #'       sce is a list of SummarizedExperiment objects, each element corresponding to the parallel SpatialRNA object
 #'
 simulateSpatialRNASeq <- function(n_celltypes = 3,
-                         samples_per_type = 30,
-                         n_batches = 1,
-                         de.prob = seq(from=0.3,to=0.4,length.out=n_celltypes),
-                         nGenes = 500,
-                         reference_samples = 15,
-                         replicates = 1,
-                         mixtures = list(),
-                         puck_pattern = config_bars_for_cell_types,
-                         seed = 1951) {
+                                  samples_per_type = 30,
+                                  n_batches = 1,
+                                  de.prob = seq(from = 0.3, to = 0.4, length.out = n_celltypes),
+                                  nGenes = 500,
+                                  reference_samples = 15,
+                                  replicates = 1,
+                                  mixtures = list(),
+                                  puck_pattern = config_bars_for_cell_types,
+                                  seed = 1951) {
   withr::with_seed(seed, {
     # Create a SingleCellExperiment
     total_samples <- (samples_per_type + reference_samples) * n_celltypes
     # A vector for the number of samples in each batch
-    batchCells <- diff(round(seq(from=1, to=total_samples + 1, length.out = n_batches + 1)))
+    batchCells <- diff(round(seq(from = 1, to = total_samples + 1, length.out = n_batches + 1)))
     # To create a Reference object, add an additional batch of the appropriate size
     if (reference_samples > 0) {
       batchCells <- c(reference_samples * n_celltypes, batchCells)
-
     }
     sce <- splatSimulateGroups(
-      newSplatParams(batchCells = batchCells,
-                      nGenes = nGenes),
-                      de.prob = de.prob,
-                      group.prob = rep(1 / n_celltypes, n_celltypes),
-                      verbose = FALSE
+      newSplatParams(
+        batchCells = batchCells,
+        nGenes = nGenes
+      ),
+      de.prob = de.prob,
+      group.prob = rep(1 / n_celltypes, n_celltypes),
+      verbose = FALSE
     )
     colnames(colData(sce))[colnames(colData(sce)) == "Group"] <- "cell_type"
     levels(colData(sce)$cell_type) <- str_replace(levels(colData(sce)$cell_type), "Group", "ct")
   })
-# TODO puck pattern parameters pass via simulateSpatialRNASeq
+  # TODO puck pattern parameters pass via simulateSpatialRNASeq
 
   # create Reference object
   if (reference_samples == 0) {
@@ -125,8 +126,10 @@ simulateSpatialRNASeq <- function(n_celltypes = 3,
     refSE <- sce[, b]
     cell_types <- colData(refSE)$cell_type
     names(cell_types) <- colnames(refSE)
-    reference <- Reference(counts =assay(refSE, "counts"),
-                           cell_types = cell_types)
+    reference <- Reference(
+      counts = assay(refSE, "counts"),
+      cell_types = cell_types
+    )
     sce <- sce[, !b]
   }
 
@@ -151,27 +154,33 @@ simulateSpatialRNASeq <- function(n_celltypes = 3,
     v <- split(seq(ncol(s)), colData(s)$cell_type)
     cell_type_count <- sapply(v, length)
     region_spec <- puck_pattern(cell_type_count)
-    r2d <-regions_to_dots(region_spec)
+    r2d <- regions_to_dots(region_spec)
     for (i in seq_along(v)) {
       colnames(s)[v[[i]]] <- sample(rownames(r2d[[i]]), length(v[[i]]))
     }
 
-    r2c_reduced <- Reduce(\(x,y) rbind(x, y), r2d)
-    colData(s) <- cbind(colData(s), r2c_reduced[colnames(s),])
+    r2c_reduced <- Reduce(\(x, y) rbind(x, y), r2d)
+    colData(s) <- cbind(colData(s), r2c_reduced[colnames(s), ])
 
-    v <- list(counts = assay(s, "counts"),
-              coords = as.data.frame(colData(s)[,c("x", "y")]))
+    v <- list(
+      counts = assay(s, "counts"),
+      coords = as.data.frame(colData(s)[, c("x", "y")])
+    )
     v$nUMI <- colSums(v$counts)
     s_region <- SpatialRNA(v$coords, v$counts)
 
-    v <- list(counts = assay(s, "counts"),
-              coords = as.data.frame(colData(s)[,c("x", "y")]))
+    v <- list(
+      counts = assay(s, "counts"),
+      coords = as.data.frame(colData(s)[, c("x", "y")])
+    )
     v$nUMI <- colSums(v$counts)
     puck <- SpatialRNA(v$coords, v$counts)
     list(puck, s)
   })
-  list(reference = reference, s_regions = lapply(s_regions, `[[`, 1),
-       sce = lapply(s_regions, `[[`, 2))
+  list(
+    reference = reference, s_regions = lapply(s_regions, `[[`, 1),
+    sce = lapply(s_regions, `[[`, 2)
+  )
 }
 
 # Create simulated spatial data
@@ -195,9 +204,11 @@ simulateSpatialRNASeq <- function(n_celltypes = 3,
 #'
 #' @examples
 config_bars_for_cell_types <- \(cell_type_table, region_width = 10, margin = 2) {
-  df <- data.frame(cell_type=names(cell_type_table),
-                   pixel_count=as.integer(cell_type_table),
-                   stringsAsFactors = FALSE)
+  df <- data.frame(
+    cell_type = names(cell_type_table),
+    pixel_count = as.integer(cell_type_table),
+    stringsAsFactors = FALSE
+  )
   df$size.y <- ceiling(df$pixel_count / region_width)
   df$loc.x <- 1
   df$loc.y <- c(1, cumsum(df$size.y + margin)[-nrow(df)])
@@ -226,8 +237,11 @@ config_bars_for_cell_types <- \(cell_type_table, region_width = 10, margin = 2) 
 # "A" asici 65 (base 10) =>  01 10 00 10 => 2,0,2,1 => GAGC
 char2atcg <- Vectorize(\(s) {
   x <- utf8ToInt(s)
-  paste0(c("A", "C", "G", "T")[t(sapply(0:3,
-             function(u) bitwAnd(bitwShiftR(x, u*2), 3))+1)], collapse = "")})
+  paste0(c("A", "C", "G", "T")[t(sapply(
+    0:3,
+    function(u) bitwAnd(bitwShiftR(x, u * 2), 3)
+  ) + 1)], collapse = "")
+})
 
 
 #' regions_to_dots - Create a table of pixels from a named list of regions
@@ -248,9 +262,11 @@ regions_to_dots <- \(config) {
   results <- lapply(config, \(u) {
     start <- u$location
     end <- u$location + u$size
-    v <- expand.grid(x = seq(from = start["x"], to = end["x"]) * step_size["x"],
-                     y = seq(from = start["y"], to = end["y"]) * step_size["y"])
-    rownames(v) <- char2atcg(apply(v, 1, \(r) paste(r[1],r[2], sep = ",")))
+    v <- expand.grid(
+      x = seq(from = start["x"], to = end["x"]) * step_size["x"],
+      y = seq(from = start["y"], to = end["y"]) * step_size["y"]
+    )
+    rownames(v) <- char2atcg(apply(v, 1, \(r) paste(r[1], r[2], sep = ",")))
     v
   })
   results
@@ -261,20 +277,22 @@ regions_to_dots <- \(config) {
 # To define a map, each map element is: (name, x, y, w, h, list(ct1=p1, ct2=p2....))
 # the x,y, w, h are in pixel space. and get converted to micros on the way out
 
-field_limit <- c(x=6500, y=3200)
-step_size <- c(x=120, y=70)
+field_limit <- c(x = 6500, y = 3200)
+step_size <- c(x = 120, y = 70)
 
 p2m <- \(u) {
   u * step_size
 }
-m2p <-  \(u) {
+m2p <- \(u) {
   u / step_size
 }
 
 region_limits <- \(config) {
-  m <- do.call(rbind, lapply(config, \(u) c(p2m(u$location),
-                                            p2m(u$size + u$location))))
-  list(x=range(m[,c(1,3)]), y=range(m[,c(2,4)]))
+  m <- do.call(rbind, lapply(config, \(u) c(
+    p2m(u$location),
+    p2m(u$size + u$location)
+  )))
+  list(x = range(m[, c(1, 3)]), y = range(m[, c(2, 4)]))
 }
 
 plot_puck_config <- \(sce_list) {
@@ -286,6 +304,6 @@ plot_puck_config <- \(sce_list) {
     group_by(replicate) |>
     ggplot(aes(x = x, y = y, size = log(library_size))) +
     theme_light() +
-    facet_wrap(~ replicate) +
+    facet_wrap(~replicate) +
     geom_point(aes(color = cell_type))
 }

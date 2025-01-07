@@ -19,9 +19,10 @@ library(spacexr)
 library(Matrix)
 library(doParallel)
 library(ggplot2)
-datadir <- system.file("extdata",'SpatialRNA/VisiumLymphVignette',package = 'spacexr') # directory for downsampled Visium dataset
-if(!dir.exists(datadir))
+datadir <- system.file("extdata", "SpatialRNA/VisiumLymphVignette", package = "spacexr") # directory for downsampled Visium dataset
+if (!dir.exists(datadir)) {
   dir.create(datadir)
+}
 ```
 
 ```{r, include = TRUE}
@@ -44,13 +45,13 @@ Cell type-specific inference of differential expression, or CSIDE, is part of th
 First, we create the RCTD object and run RCTD on the data to annotate cell types in full mode.
 
 ```{r}
-refdir <- system.file("extdata",'Reference/Visium_Lymph_Ref',package = 'spacexr') 
-ref <- readRDS(file.path(refdir, 'ref_downsampled.rds'))
-coords <- readRDS(file.path(datadir, 'coords.rds'))
-expr <- readRDS(file.path(datadir, 'expr.rds'))
+refdir <- system.file("extdata", "Reference/Visium_Lymph_Ref", package = "spacexr")
+ref <- readRDS(file.path(refdir, "ref_downsampled.rds"))
+coords <- readRDS(file.path(datadir, "coords.rds"))
+expr <- readRDS(file.path(datadir, "expr.rds"))
 srna <- SpatialRNA(coords, expr)
-myRCTD <- create.RCTD(srna, ref, max_cores=1)
-myRCTD <- run.RCTD(myRCTD, doublet_mode='full')
+myRCTD <- create.RCTD(srna, ref, max_cores = 1)
+myRCTD <- run.RCTD(myRCTD, doublet_mode = "full")
 ```
 
 ## Running CSIDE
@@ -58,10 +59,10 @@ myRCTD <- run.RCTD(myRCTD, doublet_mode='full')
 The first step is to create our explanatory variable of interest. For example, we might be interested in finding genes that have differential expression in one cell type in the presence of another cell type, e.g. B cells. We can address this by creating our explanatory variable from the B cell weights from the RCTD object created above. In this case, we create a binary variable indicating B cell enrichment, using the median weight as the cutoff. We use the `plot_puck_continuous` function to visualize our variable on the spatial data.
 
 ```{r explanatory-var-creation}
-B_weight <- myRCTD@results$weights[,'B']
+B_weight <- myRCTD@results$weights[, "B"]
 B_med <- median(B_weight)
-B_weight[B_weight>=B_med] <- 1
-B_weight[B_weight<B_med] <- 0
+B_weight[B_weight >= B_med] <- 1
+B_weight[B_weight < B_med] <- 0
 plot_puck_continuous(myRCTD@spatialRNA, rownames(myRCTD@spatialRNA@coords), B_weight)
 ```
 
@@ -70,9 +71,9 @@ We are now ready to run CSIDE using the `run.CSIDE.single` function. We will use
 **Warning**: On this toy dataset, we have made several choices of parameters that are not recommended for regular use. On real datasets, we recommend first consulting the CSIDE default parameters. This includes `gene_threshold` (default 5e-5), `cell_type_threshold` (default 125), `fdr` (default 0.01), and `weight_threshold` (default NULL). 
 
 ```{r DEgenes}
-#de
+# de
 myRCTD@config$max_cores <- 1
-cell_types <- c('Macrophages','T_CD4')
+cell_types <- c("Macrophages", "T_CD4")
 myRCTD <- run.CSIDE.single(myRCTD, B_weight, cell_types = cell_types, gene_threshold = .01, cell_type_threshold = 10, fdr = 0.25, doublet_mode = FALSE, weight_threshold = 0.1)
 ```
 

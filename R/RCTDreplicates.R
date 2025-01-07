@@ -32,36 +32,47 @@
 create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_names, group_ids = NULL, max_cores = 4, test_mode = FALSE,
                                    gene_cutoff = 0.000125, fc_cutoff = 0.5, gene_cutoff_reg = 0.0002,
                                    fc_cutoff_reg = 0.75, UMI_min = 100, UMI_max = 20000000, UMI_min_sigma = 300,
-                        class_df = NULL, CELL_MIN_INSTANCE = 25, cell_type_names = NULL, MAX_MULTI_TYPES = 4,
-                        keep_reference = FALSE, CONFIDENCE_THRESHOLD = 5, DOUBLET_THRESHOLD = 20) {
-  if(is.null(cell_type_names))
+                                   class_df = NULL, CELL_MIN_INSTANCE = 25, cell_type_names = NULL, MAX_MULTI_TYPES = 4,
+                                   keep_reference = FALSE, CONFIDENCE_THRESHOLD = 5, DOUBLET_THRESHOLD = 20) {
+  if (is.null(cell_type_names)) {
     cell_type_names <- levels(reference@cell_types)
-  cell_type_info <- process_cell_type_info(reference, cell_type_names = cell_type_names,
-                                                         CELL_MIN = CELL_MIN_INSTANCE)
-  if(!is(spatialRNA.replicates, 'list') ||
-     any(!unlist(lapply(spatialRNA.replicates, function(x) is(x, 'SpatialRNA')))))
-    stop('create.RCTD.replicates: spatialRNA.replicates must be a list of SpatialRNA objects.')
-  if(length(spatialRNA.replicates) <= 1)
-    stop('create.RCTD.replicates: length(spatialRNA.replicates) <= 1. This object must be a list of at least two SpatialRNA objects.')
-  if(is.null(group_ids))
+  }
+  cell_type_info <- process_cell_type_info(reference,
+    cell_type_names = cell_type_names,
+    CELL_MIN = CELL_MIN_INSTANCE
+  )
+  if (!is(spatialRNA.replicates, "list") ||
+    any(!unlist(lapply(spatialRNA.replicates, function(x) is(x, "SpatialRNA"))))) {
+    stop("create.RCTD.replicates: spatialRNA.replicates must be a list of SpatialRNA objects.")
+  }
+  if (length(spatialRNA.replicates) <= 1) {
+    stop("create.RCTD.replicates: length(spatialRNA.replicates) <= 1. This object must be a list of at least two SpatialRNA objects.")
+  }
+  if (is.null(group_ids)) {
     group_ids <- rep(1, length(spatialRNA.replicates))
-  if(length(group_ids) != length(replicate_names))
-    stop('create.RCTD.replicates: group_ids and replicate_names must both be the same length as the total number of replicates.')
-  if(length(group_ids) != length(spatialRNA.replicates))
-    stop('create.RCTD.replicates: group_ids must be the same length as the total number of replicates.')
+  }
+  if (length(group_ids) != length(replicate_names)) {
+    stop("create.RCTD.replicates: group_ids and replicate_names must both be the same length as the total number of replicates.")
+  }
+  if (length(group_ids) != length(spatialRNA.replicates)) {
+    stop("create.RCTD.replicates: group_ids must be the same length as the total number of replicates.")
+  }
   names(group_ids) <- replicate_names
-  check_vector(group_ids, 'group_ids','create.RCTD.replicates', require_int = TRUE)
-  if(min(table(group_ids)) < 2)
-    stop('create.RCTD.replicates: each group in group_ids must contain at least two replicates.')
+  check_vector(group_ids, "group_ids", "create.RCTD.replicates", require_int = TRUE)
+  if (min(table(group_ids)) < 2) {
+    stop("create.RCTD.replicates: each group in group_ids must contain at least two replicates.")
+  }
   RCTD.reps <- list()
-  for(i in 1:length(spatialRNA.replicates)) {
-    message(paste('create.RCTD.replicates: creating RCTD for replicate',i))
-    RCTD.reps[[i]] <- create.RCTD(spatialRNA.replicates[[i]], reference, max_cores = max_cores, test_mode = test_mode,
-                                        gene_cutoff = gene_cutoff, fc_cutoff = fc_cutoff, gene_cutoff_reg = gene_cutoff_reg,
-                                        fc_cutoff_reg = fc_cutoff_reg, UMI_min = UMI_min, UMI_max = UMI_max, UMI_min_sigma = UMI_min_sigma,
-                                        class_df = class_df, CELL_MIN_INSTANCE = CELL_MIN_INSTANCE, cell_type_names = cell_type_names, MAX_MULTI_TYPES = MAX_MULTI_TYPES,
-                                        cell_type_profiles = cell_type_info[[1]], keep_reference = FALSE,
-                                  CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD)
+  for (i in 1:length(spatialRNA.replicates)) {
+    message(paste("create.RCTD.replicates: creating RCTD for replicate", i))
+    RCTD.reps[[i]] <- create.RCTD(spatialRNA.replicates[[i]], reference,
+      max_cores = max_cores, test_mode = test_mode,
+      gene_cutoff = gene_cutoff, fc_cutoff = fc_cutoff, gene_cutoff_reg = gene_cutoff_reg,
+      fc_cutoff_reg = fc_cutoff_reg, UMI_min = UMI_min, UMI_max = UMI_max, UMI_min_sigma = UMI_min_sigma,
+      class_df = class_df, CELL_MIN_INSTANCE = CELL_MIN_INSTANCE, cell_type_names = cell_type_names, MAX_MULTI_TYPES = MAX_MULTI_TYPES,
+      cell_type_profiles = cell_type_info[[1]], keep_reference = FALSE,
+      CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
+    )
   }
   new("RCTD.replicates", RCTD.reps = RCTD.reps, group_ids = group_ids)
 }
@@ -81,10 +92,11 @@ create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_n
 #' and \code{\linkS4class{RCTD}} documentation for more information on interpreting the content of this object.
 #' @export
 run.RCTD.replicates <- function(RCTD.replicates, doublet_mode = "doublet") {
-  if(!(doublet_mode %in% c('doublet','multi','full')))
-    stop(paste0("run.RCTD.replicates: doublet_mode=",doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full."))
-  for(i in 1:length(RCTD.replicates@RCTD.reps)) {
-    message(paste('run.RCTD.replicates: running RCTD for replicate',i))
+  if (!(doublet_mode %in% c("doublet", "multi", "full"))) {
+    stop(paste0("run.RCTD.replicates: doublet_mode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full."))
+  }
+  for (i in 1:length(RCTD.replicates@RCTD.reps)) {
+    message(paste("run.RCTD.replicates: running RCTD for replicate", i))
     RCTD.replicates@RCTD.reps[[i]] <- run.RCTD(RCTD.replicates@RCTD.reps[[i]], doublet_mode = doublet_mode)
   }
   return(RCTD.replicates)
@@ -140,61 +152,81 @@ run.CSIDE.replicates <- function(RCTD.replicates, cell_types, explanatory.variab
                                  gene_threshold = 5e-5, doublet_mode = TRUE, weight_threshold = NULL,
                                  sigma_gene = TRUE, PRECISION.THRESHOLD = 0.05, cell_types_present = NULL,
                                  fdr = .01, population_de = FALSE, replicate_index = NULL, normalize_expr = FALSE, test_genes_sig_individual = FALSE,
-                                 de_mode = 'single', df = 15, barcodes = NULL, log_fc_thresh = 0.4, test_error = FALSE, medv = 0.5,
-                                 params_to_test = NULL, test_mode = 'individual') {
-  if(!(de_mode %in% c('single','nonparam', 'general')))
+                                 de_mode = "single", df = 15, barcodes = NULL, log_fc_thresh = 0.4, test_error = FALSE, medv = 0.5,
+                                 params_to_test = NULL, test_mode = "individual") {
+  if (!(de_mode %in% c("single", "nonparam", "general"))) {
     stop('run.CISDE.replicates: de_mode must be set to "single", "general", or "nonparam".')
-  if(is.null(cell_types))
-    stop('run.CSIDE.replicates: cell_types must not be null.')
-  if(is.null(replicate_index))
+  }
+  if (is.null(cell_types)) {
+    stop("run.CSIDE.replicates: cell_types must not be null.")
+  }
+  if (is.null(replicate_index)) {
     replicate_index <- 1:length(RCTD.replicates@RCTD.reps)
-  if(any(!(replicate_index %in% 1:length(RCTD.replicates@RCTD.reps))))
-    stop('run.CSIDE.replicates: replicate_index must be a subest of 1:N_replicates')
-  if(test_error)
-    warning('run.CSIDE.replicates: test_error is TRUE, so this run will just test C-SIDE for errors without running C-SIDE.')
+  }
+  if (any(!(replicate_index %in% 1:length(RCTD.replicates@RCTD.reps)))) {
+    stop("run.CSIDE.replicates: replicate_index must be a subest of 1:N_replicates")
+  }
+  if (test_error) {
+    warning("run.CSIDE.replicates: test_error is TRUE, so this run will just test C-SIDE for errors without running C-SIDE.")
+  }
 
-  for(i in replicate_index) {
-    if(test_error)
-      message(paste('run.CSIDE.replicates: testing CSIDE for errors for replicate',i))
-    else
-      message(paste('run.CSIDE.replicates: running CSIDE for replicate',i))
-    if(de_mode == 'single') {
-      if(is.null(explanatory.variable.replicates))
-        stop('run.CSIDE.replicates: if de_mode = single, explanatory.variable.replicates cannot be null.')
-      if(!is(explanatory.variable.replicates, 'list'))
-        stop('run.CSIDE.replicates: explanatory.variable.replicates must be a list of explanatory variable vectors for each replicate.')
-      if(length(RCTD.replicates@RCTD.reps) != length(explanatory.variable.replicates))
-        stop('create.RCTD.replicates: length(explanatory.variable.replicates) is not equal to the number of RCTD replicates, as required.')
+  for (i in replicate_index) {
+    if (test_error) {
+      message(paste("run.CSIDE.replicates: testing CSIDE for errors for replicate", i))
+    } else {
+      message(paste("run.CSIDE.replicates: running CSIDE for replicate", i))
+    }
+    if (de_mode == "single") {
+      if (is.null(explanatory.variable.replicates)) {
+        stop("run.CSIDE.replicates: if de_mode = single, explanatory.variable.replicates cannot be null.")
+      }
+      if (!is(explanatory.variable.replicates, "list")) {
+        stop("run.CSIDE.replicates: explanatory.variable.replicates must be a list of explanatory variable vectors for each replicate.")
+      }
+      if (length(RCTD.replicates@RCTD.reps) != length(explanatory.variable.replicates)) {
+        stop("create.RCTD.replicates: length(explanatory.variable.replicates) is not equal to the number of RCTD replicates, as required.")
+      }
       RCTD.replicates@RCTD.reps[[i]] <- run.CSIDE.single(
-        RCTD.replicates@RCTD.reps[[i]], explanatory.variable.replicates[[i]], cell_types = cell_types, cell_type_threshold = cell_type_threshold,
+        RCTD.replicates@RCTD.reps[[i]], explanatory.variable.replicates[[i]],
+        cell_types = cell_types, cell_type_threshold = cell_type_threshold,
         gene_threshold = gene_threshold, doublet_mode = doublet_mode, weight_threshold = weight_threshold,
         sigma_gene = sigma_gene, PRECISION.THRESHOLD = PRECISION.THRESHOLD, test_genes_sig = test_genes_sig_individual,
-        cell_types_present = cell_types_present, fdr = fdr, log_fc_thresh = log_fc_thresh, test_error = test_error, medv = medv)
-    } else if(de_mode == 'nonparam') {
+        cell_types_present = cell_types_present, fdr = fdr, log_fc_thresh = log_fc_thresh, test_error = test_error, medv = medv
+      )
+    } else if (de_mode == "nonparam") {
       RCTD.replicates@RCTD.reps[[i]] <- run.CSIDE.nonparam(
-        RCTD.replicates@RCTD.reps[[i]], df = df, barcodes = barcodes, cell_types = cell_types, cell_type_threshold = cell_type_threshold,
+        RCTD.replicates@RCTD.reps[[i]],
+        df = df, barcodes = barcodes, cell_types = cell_types, cell_type_threshold = cell_type_threshold,
         gene_threshold = gene_threshold, doublet_mode = doublet_mode, weight_threshold = weight_threshold, test_genes_sig = test_genes_sig_individual,
-        sigma_gene = sigma_gene, PRECISION.THRESHOLD = PRECISION.THRESHOLD, cell_types_present = cell_types_present, fdr = fdr, test_error = test_error)
+        sigma_gene = sigma_gene, PRECISION.THRESHOLD = PRECISION.THRESHOLD, cell_types_present = cell_types_present, fdr = fdr, test_error = test_error
+      )
     } else {
-      if(is.null(X.replicates))
-        stop('run.CSIDE.replicates: if de_mode = single, X.replicates cannot be null.')
-      if(!is(X.replicates, 'list'))
-          stop('run.CSIDE.replicates: X.replicates must be a list of design matrices for each replicate.')
-      if(length(RCTD.replicates@RCTD.reps) != length(X.replicates))
-        stop('run.CSIDE.replicates: length(X.replicates) is not equal to the number of RCTD replicates, as required.')
+      if (is.null(X.replicates)) {
+        stop("run.CSIDE.replicates: if de_mode = single, X.replicates cannot be null.")
+      }
+      if (!is(X.replicates, "list")) {
+        stop("run.CSIDE.replicates: X.replicates must be a list of design matrices for each replicate.")
+      }
+      if (length(RCTD.replicates@RCTD.reps) != length(X.replicates)) {
+        stop("run.CSIDE.replicates: length(X.replicates) is not equal to the number of RCTD replicates, as required.")
+      }
       X <- X.replicates[[i]]
-      if(length(setdiff(rownames(X),rownames(RCTD_controls@RCTD.reps[[i]]@results$weights))) > 0)
-        warning('run.CSIDE.replicates: some elements of rownames(X.replicates) do not appear in myRCTD object (myRCTD@results$weights) for this replicate, but they are required to be a subset.')
+      if (length(setdiff(rownames(X), rownames(RCTD_controls@RCTD.reps[[i]]@results$weights))) > 0) {
+        warning("run.CSIDE.replicates: some elements of rownames(X.replicates) do not appear in myRCTD object (myRCTD@results$weights) for this replicate, but they are required to be a subset.")
+      }
       RCTD.replicates@RCTD.reps[[i]] <- run.CSIDE(
-        RCTD.replicates@RCTD.reps[[i]], X, rownames(X), cell_types = cell_types,
+        RCTD.replicates@RCTD.reps[[i]], X, rownames(X),
+        cell_types = cell_types,
         cell_type_threshold = cell_type_threshold, gene_threshold = gene_threshold, doublet_mode = doublet_mode, test_genes_sig = test_genes_sig_individual,
         weight_threshold = weight_threshold, sigma_gene = sigma_gene, PRECISION.THRESHOLD = PRECISION.THRESHOLD,
         cell_types_present = cell_types_present, fdr = fdr, log_fc_thresh = log_fc_thresh, test_error = test_error,
-        params_to_test = params_to_test)
+        params_to_test = params_to_test
+      )
     }
   }
-  if(population_de)
+  if (population_de) {
     RCTD.replicates <- CSIDE.population.inference(RCTD.replicates, log_fc_thresh = log_fc_thresh, fdr = fdr)
+  }
   return(RCTD.replicates)
 }
 
@@ -208,20 +240,26 @@ run.CSIDE.replicates <- function(RCTD.replicates, cell_types, explanatory.variab
 #' @return an \code{\linkS4class{RCTD.replicates}} object, containing each \code{\linkS4class{RCTD}} object in \code{RCTD.reps}
 #' @export
 merge_RCTD_objects <- function(RCTD.reps, replicate_names, group_ids = NULL) {
-  if(!is(RCTD.reps, 'list') || any(!unlist(lapply(RCTD.reps, function(x) is(x, 'RCTD')))))
-    stop('merge_RCTD_objects: RCTD.reps must be a list of RCTD objects.')
-  if(length(RCTD.reps) <= 1)
-    stop('merge_RCTD_objects: length(RCTD.replicates) <= 1. This object must be a list of at least two RCTD objects.')
-  if(is.null(group_ids))
+  if (!is(RCTD.reps, "list") || any(!unlist(lapply(RCTD.reps, function(x) is(x, "RCTD"))))) {
+    stop("merge_RCTD_objects: RCTD.reps must be a list of RCTD objects.")
+  }
+  if (length(RCTD.reps) <= 1) {
+    stop("merge_RCTD_objects: length(RCTD.replicates) <= 1. This object must be a list of at least two RCTD objects.")
+  }
+  if (is.null(group_ids)) {
     group_ids <- rep(1, length(RCTD.reps))
-  if(length(group_ids) != length(replicate_names))
-    stop('merge_RCTD_objects: group_ids and replicate_names must both be the same length as the total number of replicates.')
-  if(length(group_ids) != length(RCTD.reps))
-    stop('merge_RCTD_objects: group_ids must be the same length as the total number of replicates.')
+  }
+  if (length(group_ids) != length(replicate_names)) {
+    stop("merge_RCTD_objects: group_ids and replicate_names must both be the same length as the total number of replicates.")
+  }
+  if (length(group_ids) != length(RCTD.reps)) {
+    stop("merge_RCTD_objects: group_ids must be the same length as the total number of replicates.")
+  }
   names(group_ids) <- replicate_names
-  check_vector(group_ids, 'group_ids','create.RCTD.replicates', require_int = TRUE)
-  if(min(table(group_ids)) < 2)
-    stop('create.RCTD.replicates: each group in group_ids must contain at least two replicates.')
+  check_vector(group_ids, "group_ids", "create.RCTD.replicates", require_int = TRUE)
+  if (min(table(group_ids)) < 2) {
+    stop("create.RCTD.replicates: each group in group_ids must contain at least two replicates.")
+  }
   new("RCTD.replicates", RCTD.reps = RCTD.reps, group_ids = group_ids)
 }
 
@@ -248,41 +286,46 @@ merge_RCTD_objects <- function(RCTD.reps, replicate_names, group_ids = NULL) {
 #' for documentation on the \code{population_de_results}, \code{population_sig_gene_list}, and \code{population_sig_gene_df} objects.
 #' @export
 CSIDE.population.inference <- function(RCTD.replicates, params_to_test = NULL, use.groups = FALSE, MIN.CONV.REPLICATES = 2,
-                                        MIN.CONV.GROUPS = 2, CT.PROP = 0.5,
+                                       MIN.CONV.GROUPS = 2, CT.PROP = 0.5,
                                        fdr = 0.01, log_fc_thresh = 0.4,
-                                       normalize_expr = FALSE, meta = FALSE, meta.design.matrix = NULL, meta.test_var = 'intrcpt') {
-  message(paste0('CSIDE.population.inference: running population DE inference with use.groups=', use.groups, ', and meta = ', meta))
+                                       normalize_expr = FALSE, meta = FALSE, meta.design.matrix = NULL, meta.test_var = "intrcpt") {
+  message(paste0("CSIDE.population.inference: running population DE inference with use.groups=", use.groups, ", and meta = ", meta))
   MIN.REPS <- 3
-  if(length(RCTD.replicates@RCTD.reps) < MIN.REPS)
-    stop('CSIDE.population.inference: minimum of three replicates required for population mode.')
+  if (length(RCTD.replicates@RCTD.reps) < MIN.REPS) {
+    stop("CSIDE.population.inference: minimum of three replicates required for population mode.")
+  }
   RCTDde_list <- RCTD.replicates@RCTD.reps
   myRCTD <- RCTDde_list[[1]]
-  if(is.null(params_to_test))
+  if (is.null(params_to_test)) {
     params_to_test <- myRCTD@internal_vars_de$params_to_test[1]
+  }
   cell_types <- myRCTD@internal_vars_de$cell_types
   cell_types_present <- myRCTD@internal_vars_de$cell_types_present
   de_pop_all <- list()
   gene_final_all <- list()
   final_df <- list()
-  for(i in 1:length(RCTDde_list)) {
+  for (i in 1:length(RCTDde_list)) {
     RCTDde_list[[i]] <- normalize_de_estimates(RCTDde_list[[i]], normalize_expr)
   }
   de_results_list <- lapply(RCTDde_list, function(x) x@de_results)
-  for(cell_type in cell_types) {
+  for (cell_type in cell_types) {
     ct_pres <- sapply(RCTDde_list, function(x) cell_type %in% x@internal_vars_de$cell_types)
-    if(sum(ct_pres) >= MIN.REPS) {
+    if (sum(ct_pres) >= MIN.REPS) {
       res <- one_ct_genes(cell_type, RCTDde_list[ct_pres], de_results_list[ct_pres], NULL, cell_types_present, params_to_test,
-                          plot_results = FALSE, use.groups = use.groups,
-                          group_ids = RCTD.replicates@group_ids, MIN.CONV.REPLICATES = MIN.CONV.REPLICATES,
-                          MIN.CONV.GROUPS = MIN.CONV.GROUPS, CT.PROP = CT.PROP,
-                          q_thresh = fdr, log_fc_thresh = log_fc_thresh,
-                          normalize_expr = normalize_expr, meta = meta, meta.design.matrix = meta.design.matrix, meta.test_var = meta.test_var)
+        plot_results = FALSE, use.groups = use.groups,
+        group_ids = RCTD.replicates@group_ids, MIN.CONV.REPLICATES = MIN.CONV.REPLICATES,
+        MIN.CONV.GROUPS = MIN.CONV.GROUPS, CT.PROP = CT.PROP,
+        q_thresh = fdr, log_fc_thresh = log_fc_thresh,
+        normalize_expr = normalize_expr, meta = meta, meta.design.matrix = meta.design.matrix, meta.test_var = meta.test_var
+      )
       de_pop_all[[cell_type]] <- res$de_pop
       gene_final_all[[cell_type]] <- res$gene_final
       final_df[[cell_type]] <- res$final_df
     } else {
-      warning(paste('CSIDE.population.inference: cell type', cell_type,
-                     'was removed from population-level analysis because it was run on fewer than the minimum required three replicates.'))
+      warning(paste(
+        "CSIDE.population.inference: cell type", cell_type,
+        "was removed from population-level analysis because it was run on fewer than the minimum required three replicates."
+      ))
     }
   }
   RCTD.replicates@population_de_results <- de_pop_all
@@ -299,14 +342,19 @@ CSIDE.population.inference <- function(RCTD.replicates, params_to_test = NULL, u
 #' @param resultsdir a directory where to save the significant gene matrices for each cell type.
 #' @export
 save.CSIDE.replicates <- function(RCTD.replicates, resultsdir) {
-  if(!dir.exists(resultsdir))
+  if (!dir.exists(resultsdir)) {
     dir.create(resultsdir)
+  }
   myRCTD <- RCTD.replicates@RCTD.reps[[1]]
   cell_types <- myRCTD@internal_vars_de$cell_types
-  for(cell_type in cell_types) {
-    write.csv(RCTD.replicates@population_de_results[[cell_type]],
-              file.path(resultsdir,paste0(cell_type,'_cell_type_genes_all.csv')))
-    write.csv(RCTD.replicates@population_sig_gene_df[[cell_type]],
-              file.path(resultsdir,paste0(cell_type,'_cell_type_genes_sig.csv')))
+  for (cell_type in cell_types) {
+    write.csv(
+      RCTD.replicates@population_de_results[[cell_type]],
+      file.path(resultsdir, paste0(cell_type, "_cell_type_genes_all.csv"))
+    )
+    write.csv(
+      RCTD.replicates@population_sig_gene_df[[cell_type]],
+      file.path(resultsdir, paste0(cell_type, "_cell_type_genes_sig.csv"))
+    )
   }
 }

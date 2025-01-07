@@ -15,17 +15,18 @@ vignette: |
 ---
 
 ```{r setup}
-
 library(spacexr)
 library(Matrix)
 library(doParallel)
 library(ggplot2)
-datadir <- system.file("extdata",'SpatialRNA/VisiumVignette',package = 'spacexr') # directory for sample Visium dataset
-if(!dir.exists(datadir))
+datadir <- system.file("extdata", "SpatialRNA/VisiumVignette", package = "spacexr") # directory for sample Visium dataset
+if (!dir.exists(datadir)) {
   dir.create(datadir)
-savedir <- 'RCTD_results'
-if(!dir.exists(savedir))
+}
+savedir <- "RCTD_results"
+if (!dir.exists(savedir)) {
   dir.create(savedir)
+}
 ```
 
 ```{r, include = TRUE}
@@ -47,28 +48,33 @@ First, we run RCTD on the data to annotate cell types. Please note that this fol
 
 ```{r RCTD}
 ### Load in/preprocess your data, this might vary based on your file type
-if(!file.exists(file.path(savedir,'myRCTD_visium_multi.rds'))) {
-  counts <- as.data.frame(readr::read_csv(file.path(datadir,"counts.csv"))) # load in counts matrix
-  coords <- read.csv(file.path(datadir,"coords.csv"))
-  rownames(counts) <- counts[,1]; counts[,1] <- NULL # Move first column to rownames
-  rownames(coords) <- coords[,1]; coords[,1] <- NULL # Move first column to rownames
+if (!file.exists(file.path(savedir, "myRCTD_visium_multi.rds"))) {
+  counts <- as.data.frame(readr::read_csv(file.path(datadir, "counts.csv"))) # load in counts matrix
+  coords <- read.csv(file.path(datadir, "coords.csv"))
+  rownames(counts) <- counts[, 1]
+  counts[, 1] <- NULL # Move first column to rownames
+  rownames(coords) <- coords[, 1]
+  coords[, 1] <- NULL # Move first column to rownames
   nUMI <- colSums(counts) # In this case, total counts per pixel is nUMI
   puck <- SpatialRNA(coords, counts, nUMI)
-  barcodes <- colnames(puck@counts) # pixels to be used (a list of barcode names). 
-  plot_puck_continuous(puck, barcodes, puck@nUMI, ylimit = c(0,round(quantile(puck@nUMI,0.9))), 
-                       title ='plot of nUMI') 
-  refdir <- system.file("extdata",'Reference/Visium_Ref',package = 'spacexr') # directory for the reference
-  counts <- read.csv(file.path(refdir,"counts.csv")) # load in cell types
-  rownames(counts) <- counts[,1]; counts[,1] <- NULL # Move first column to rownames
-  cell_types <- read.csv(file.path(refdir,"cell_types.csv")) # load in cell types
+  barcodes <- colnames(puck@counts) # pixels to be used (a list of barcode names).
+  plot_puck_continuous(puck, barcodes, puck@nUMI,
+    ylimit = c(0, round(quantile(puck@nUMI, 0.9))),
+    title = "plot of nUMI"
+  )
+  refdir <- system.file("extdata", "Reference/Visium_Ref", package = "spacexr") # directory for the reference
+  counts <- read.csv(file.path(refdir, "counts.csv")) # load in cell types
+  rownames(counts) <- counts[, 1]
+  counts[, 1] <- NULL # Move first column to rownames
+  cell_types <- read.csv(file.path(refdir, "cell_types.csv")) # load in cell types
   cell_types <- setNames(cell_types[[2]], cell_types[[1]])
   cell_types <- as.factor(cell_types) # convert to factor data type
-  nUMI <- read.csv(file.path(refdir,"nUMI.csv")) # load in cell types
+  nUMI <- read.csv(file.path(refdir, "nUMI.csv")) # load in cell types
   nUMI <- setNames(nUMI[[2]], nUMI[[1]])
   reference <- Reference(counts, cell_types, nUMI)
   myRCTD <- create.RCTD(puck, reference, max_cores = 2)
-  myRCTD <- run.RCTD(myRCTD, doublet_mode = 'multi')
-  saveRDS(myRCTD,file.path(savedir,'myRCTD_visium_multi.rds'))
+  myRCTD <- run.RCTD(myRCTD, doublet_mode = "multi")
+  saveRDS(myRCTD, file.path(savedir, "myRCTD_visium_multi.rds"))
 }
 ```
 
@@ -77,15 +83,15 @@ if(!file.exists(file.path(savedir,'myRCTD_visium_multi.rds'))) {
 The results of RCTD multi mode are stored in `@results`, and are accessed as shown below. Each pixel has its own result object, which shows whether that pixel has converged, which cell types appear on the pixel, which cell types are determined as confident by RCTD, and the estimated weight of each cell type. For example, we examine the RCTD multi mode fit on the first pixel as below:
 
 ```{r RCTD_results}
-print('Examining results on first pixel / spot')
-myRCTD <- readRDS(file.path(savedir,'myRCTD_visium_multi.rds'))
+print("Examining results on first pixel / spot")
+myRCTD <- readRDS(file.path(savedir, "myRCTD_visium_multi.rds"))
 first_pixel <- myRCTD@results[[1]] # examine one pixel
-print('check convergence:')
+print("check convergence:")
 print(first_pixel$conv_sub)
-print('check cell types:')
+print("check cell types:")
 print(first_pixel$cell_type_list)
-print('check confidence:')
+print("check confidence:")
 print(first_pixel$conf_list)
-print('check weights')
+print("check weights")
 print(first_pixel$sub_weights)
 ```

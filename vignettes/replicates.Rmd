@@ -19,15 +19,17 @@ library(spacexr)
 library(Matrix)
 library(doParallel)
 library(ggplot2)
-datadir <- system.file("extdata",'SpatialRNA/Vignette',package = 'spacexr')# directory for sample Slide-seq dataset
-datadir2 <- system.file("extdata",'SpatialRNA/Vignette_rep2',package = 'spacexr')
-datadir3 <- system.file("extdata",'SpatialRNA/Vignette_rep3',package = 'spacexr')
-datadir4 <- system.file("extdata",'SpatialRNA/Vignette_rep4',package = 'spacexr')
-if(!dir.exists(datadir))
+datadir <- system.file("extdata", "SpatialRNA/Vignette", package = "spacexr") # directory for sample Slide-seq dataset
+datadir2 <- system.file("extdata", "SpatialRNA/Vignette_rep2", package = "spacexr")
+datadir3 <- system.file("extdata", "SpatialRNA/Vignette_rep3", package = "spacexr")
+datadir4 <- system.file("extdata", "SpatialRNA/Vignette_rep4", package = "spacexr")
+if (!dir.exists(datadir)) {
   dir.create(datadir)
-savedir <- 'RCTD_results'
-if(!dir.exists(savedir))
+}
+savedir <- "RCTD_results"
+if (!dir.exists(savedir)) {
   dir.create(savedir)
+}
 ```
 
 ```{r, include = FALSE}
@@ -51,10 +53,10 @@ First, we run RCTD on the data to annotated cell types (doublet mode). Please re
 
 ```{r load_spatial, message = FALSE}
 ### Load in/preprocess your data, this might vary based on your file type
-puck1 <- read.SpatialRNA(datadir, count_file = "MappedDGEForR.csv", coords_file = 'BeadLocationsForR.csv')
-puck2 <- read.SpatialRNA(datadir2, count_file = "MappedDGEForR.csv", coords_file = 'BeadLocationsForR.csv')
-puck3 <- read.SpatialRNA(datadir3, count_file = "MappedDGEForR.csv", coords_file = 'BeadLocationsForR.csv')
-puck4 <- read.SpatialRNA(datadir4, count_file = "MappedDGEForR.csv", coords_file = 'BeadLocationsForR.csv')
+puck1 <- read.SpatialRNA(datadir, count_file = "MappedDGEForR.csv", coords_file = "BeadLocationsForR.csv")
+puck2 <- read.SpatialRNA(datadir2, count_file = "MappedDGEForR.csv", coords_file = "BeadLocationsForR.csv")
+puck3 <- read.SpatialRNA(datadir3, count_file = "MappedDGEForR.csv", coords_file = "BeadLocationsForR.csv")
+puck4 <- read.SpatialRNA(datadir4, count_file = "MappedDGEForR.csv", coords_file = "BeadLocationsForR.csv")
 ```
 
 ## Create explanatory variable / covariate
@@ -75,35 +77,38 @@ names(explanatory.variable4) <- rownames(puck4@coords)
 exvar_list <- list(explanatory.variable1, explanatory.variable2, explanatory.variable3, explanatory.variable4)
 
 # Differentially upregulate one gene
-change_gene <- 'Kcnip4'
+change_gene <- "Kcnip4"
 high_barc1 <- names(explanatory.variable1[explanatory.variable1 > 0.5])
-puck1@counts[change_gene, high_barc1] <- puck1@counts[change_gene, high_barc1] * 2 
+puck1@counts[change_gene, high_barc1] <- puck1@counts[change_gene, high_barc1] * 2
 high_barc2 <- names(explanatory.variable2[explanatory.variable2 > 0.5])
-puck2@counts[change_gene, high_barc2] <- puck1@counts[change_gene, high_barc2] * 2 
+puck2@counts[change_gene, high_barc2] <- puck1@counts[change_gene, high_barc2] * 2
 high_barc3 <- names(explanatory.variable3[explanatory.variable3 > 0.5])
-puck3@counts[change_gene, high_barc3] <- puck3@counts[change_gene, high_barc3] * 2 
+puck3@counts[change_gene, high_barc3] <- puck3@counts[change_gene, high_barc3] * 2
 high_barc4 <- names(explanatory.variable4[explanatory.variable4 > 0.5])
-puck4@counts[change_gene, high_barc4] <- puck4@counts[change_gene, high_barc4] * 2 
+puck4@counts[change_gene, high_barc4] <- puck4@counts[change_gene, high_barc4] * 2
 ```
 
 We also load in the `Reference` object, as follows.
 
 ```{r load_ref, warning = FALSE}
-refdir <- system.file("extdata",'Reference/Vignette',package = 'spacexr') # directory for the reference
-counts <- read.csv(file.path(refdir,"dge.csv")) # load in counts matrix
-rownames(counts) <- counts[,1]; counts[,1] <- NULL # Move first column to rownames
-meta_data <- read.csv(file.path(refdir,"meta_data.csv")) # load in meta_data (barcodes, clusters, and nUMI)
-cell_types <- meta_data$cluster; names(cell_types) <- meta_data$barcode # create cell_types named list
+refdir <- system.file("extdata", "Reference/Vignette", package = "spacexr") # directory for the reference
+counts <- read.csv(file.path(refdir, "dge.csv")) # load in counts matrix
+rownames(counts) <- counts[, 1]
+counts[, 1] <- NULL # Move first column to rownames
+meta_data <- read.csv(file.path(refdir, "meta_data.csv")) # load in meta_data (barcodes, clusters, and nUMI)
+cell_types <- meta_data$cluster
+names(cell_types) <- meta_data$barcode # create cell_types named list
 cell_types <- as.factor(cell_types) # convert to factor data type
-nUMI <- meta_data$nUMI; names(nUMI) <- meta_data$barcode # create nUMI named list
+nUMI <- meta_data$nUMI
+names(nUMI) <- meta_data$barcode # create nUMI named list
 reference <- Reference(counts, cell_types, nUMI)
 ```
 Now, we are in a position to create a `RCTD.replicates` object, an object that can store multiple `SpatialRNA` objects allowing for joint processing with RCTD and CSIDE. We pass in `spatial.replicates`, a list of the four `SpatialRNA` objects, `replicate_names`, a list of names for each replicate, and `group_ids`, a list of the group number for each replicate. In this case, all replicates will come from the same group. However, we have the option to assign different replicates to different groups, which will allow for extra variation to be modeled across groups.
 
 ```{r create, message = FALSE,warning = FALSE}
 spatial.replicates <- list(puck1, puck2, puck3, puck4)
-replicate_names <- c('1','2','3','4')
-group_ids <- c(1,1,1,1)
+replicate_names <- c("1", "2", "3", "4")
+group_ids <- c(1, 1, 1, 1)
 myRCTD.reps <- create.RCTD.replicates(spatial.replicates, reference, replicate_names, group_ids = group_ids, max_cores = 2)
 ```
 
@@ -121,11 +126,11 @@ After creating the explanatory variables and running RCTD, we are now ready to r
 **Warning**: On this toy dataset, we have made several choices of parameters that are not recommended for regular use. On real datasets, we recommend first consulting the CSIDE default parameters. This includes `gene_threshold` (default 5e-5), `cell_type_threshold` (default 125), and `fdr` (default 0.01). Please see `?run.CSIDE.replicates` for more information on these parameters. 
 
 ```{r DEgenes}
-#de
-cell_types <- c('10','18', '6')
-myRCTD.reps <- run.CSIDE.replicates(myRCTD.reps, cell_types, exvar_list, gene_threshold = .01, cell_type_threshold = 3, fdr = 0.25, weight_threshold = 0.8) 
+# de
+cell_types <- c("10", "18", "6")
+myRCTD.reps <- run.CSIDE.replicates(myRCTD.reps, cell_types, exvar_list, gene_threshold = .01, cell_type_threshold = 3, fdr = 0.25, weight_threshold = 0.8)
 
-saveRDS(myRCTD.reps,file.path(savedir,'myRCTDde_reps.rds'))
+saveRDS(myRCTD.reps, file.path(savedir, "myRCTDde_reps.rds"))
 ```
 
 Note that the RCTD and CSIDE results on individual replicates are stored in `myRCTD.reps@RCTD.reps`, which is a list of `RCTD` objects containing individual CSIDE results as discussed in other vignettes. 
@@ -147,19 +152,20 @@ myRCTD.reps <- CSIDE.population.inference(myRCTD.reps, fdr = 0.25)
 We will focus on cell type 10. Furthermore, we will examine the original Kcnip4 gene, which was detected to be significantly differentially expressed in cell type 10. Other genes, including nonsignificant genes, can be observed in `myRCTD.reps@population_de_results`. As shown below, DE results on significant genes are stored in `population_sig_gene_df`. In particular, notice the columns `Z_est` (Z-score), `log_fc_est` (estimated DE coefficient), `sd_est` (standard error of DE coefficient), `p` (p-value), and `q_val` (q-value). Other columns of interest include `tau`, the estimated variance across samples, and `mean i` and `sd i`, which represent the DE point estimate and standard error on each of the four replicates.
 
 ```{r CSIDE_results,  fig.width = 8, fig.height=8}
-#print results for cell type '18'
-cell_type <- '10'
+# print results for cell type '18'
+cell_type <- "10"
 sig_gene <- change_gene
 print(paste("following results hold for", sig_gene))
-print(myRCTD.reps@population_sig_gene_df[[cell_type]]) 
+print(myRCTD.reps@population_sig_gene_df[[cell_type]])
 ```
 
 Finally, we will save population CSIDE results in the `savedir` directory:
 
 ```{r results_save}
-if(!dir.exists(file.path(savedir,'population')))
-  dir.create(file.path(savedir,'population'))
-save.CSIDE.replicates(myRCTD.reps, file.path(savedir,'population'))
+if (!dir.exists(file.path(savedir, "population"))) {
+  dir.create(file.path(savedir, "population"))
+}
+save.CSIDE.replicates(myRCTD.reps, file.path(savedir, "population"))
 ```
 
 ## Population inference: meta regression
@@ -167,12 +173,14 @@ save.CSIDE.replicates(myRCTD.reps, file.path(savedir,'population'))
 The second way to run CSIDE population inference is meta regression, which is more flexible than aggregating across samples. For example, one may control for covariates such as age and gender, as well as test across covariates such as timepoints or case vs. control. In this example, we will assume that the four samples came from two cases and two controls. Meta regression works by including a design matrix, `meta.design.matrix`, of named covariates across samples. In `CSIDE.population.inference`, we set the option `meta = TRUE`, and `meta.test_var = 'treat'`, the variable we would like to test.
 
 ```{r CSIDE_population_meta}
-meta.design.matrix <- data.frame('treat' = c(0,1,0,1))
+meta.design.matrix <- data.frame("treat" = c(0, 1, 0, 1))
 print(meta.design.matrix)
-myRCTD.reps_meta <- CSIDE.population.inference(myRCTD.reps, fdr = 0.25,
-                                          meta = TRUE,
-                                       meta.design.matrix = meta.design.matrix,
-                                       meta.test_var = 'treat')
+myRCTD.reps_meta <- CSIDE.population.inference(myRCTD.reps,
+  fdr = 0.25,
+  meta = TRUE,
+  meta.design.matrix = meta.design.matrix,
+  meta.test_var = "treat"
+)
 head(myRCTD.reps_meta@population_de_results$`10`)
 ```
 
@@ -181,8 +189,9 @@ Compared to the default analysis, this population-level analysis is measuring so
 Finally, we will save population CSIDE results in the `savedir` directory:
 
 ```{r results_save_meta}
-if(!dir.exists(file.path(savedir,'population_meta')))
-  dir.create(file.path(savedir,'population_meta'))
-save.CSIDE.replicates(myRCTD.reps_meta, file.path(savedir,'population_meta'))
+if (!dir.exists(file.path(savedir, "population_meta"))) {
+  dir.create(file.path(savedir, "population_meta"))
+}
+save.CSIDE.replicates(myRCTD.reps_meta, file.path(savedir, "population_meta"))
 ```
 

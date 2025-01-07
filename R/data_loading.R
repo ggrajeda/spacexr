@@ -6,7 +6,7 @@ get_X_vals <- memoise::memoise(load_X_vals)
 
 #' Returns a stateful function that stores the most recent non-null argument and
 #' returns it for NULL values.
-#' 
+#'
 #' This is effectively used to manage global variables.
 make_cache <- function() {
   cache <- NULL
@@ -47,7 +47,7 @@ get_Q_mat <- function() {
 }
 
 get_K_val <- function() {
-  dim(get_Q_mat())[1] - 3;
+  dim(get_Q_mat())[1] - 3
 }
 
 #' Checks that a URL returns a 200 status code for a HEAD request
@@ -71,8 +71,8 @@ cached_Q_mat_filepath <- function(n) {
   query_result$rpath[1]
 }
 
-verify_Q_cache = function() {
-  Q_files = vapply(1:5, cached_Q_mat_filepath, character(1))
+verify_Q_cache <- function() {
+  Q_files <- vapply(1:5, cached_Q_mat_filepath, character(1))
   all(vapply(Q_files, file.exists, logical(1)))
 }
 
@@ -80,12 +80,15 @@ verify_Q_cache = function() {
 #' @return list of bfcadd results
 cache_Q_all <- function() {
   if (!url_ok(remote_Q_mat_url(1L))) {
-    stop("Could not load cached Q matrix. Did not receive header status 200 for ",
-         remote_Q_mat_url(1L))
+    stop(
+      "Could not load cached Q matrix. Did not receive header status 200 for ",
+      remote_Q_mat_url(1L)
+    )
   }
   cache <- BiocFileCache::BiocFileCache()
   lapply(1:5, function(i) {
-    BiocFileCache::bfcadd(cache, rname = remote_Q_mat_url(i), rtype = "web")})
+    BiocFileCache::bfcadd(cache, rname = remote_Q_mat_url(i), rtype = "web")
+  })
 }
 
 #' Retrieves Q matrices from cache, populating the cache if necessary.
@@ -94,8 +97,8 @@ load_Q_all <- function() {
   if (!verify_Q_cache()) {
     cache_Q_all()
   }
-  paths = vapply(1:5, cached_Q_mat_filepath, character(1))
-  unlist(lapply(paths, readRDS), recursive=FALSE)
+  paths <- vapply(1:5, cached_Q_mat_filepath, character(1))
+  unlist(lapply(paths, readRDS), recursive = FALSE)
 }
 
 get_Q_all <- memoise::memoise(load_Q_all)
@@ -107,4 +110,3 @@ load_SQ_all <- function() {
 }
 
 get_SQ_all <- memoise::memoise(load_SQ_all)
-

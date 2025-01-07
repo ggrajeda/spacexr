@@ -1,17 +1,20 @@
 test_single_beads <- function(puck, gene_list, cell_type_info, trust_model = FALSE, constrain = TRUE, OLS = FALSE) {
-  cell_type_names = cell_type_info[[2]]; n_cell_types = cell_type_info[[3]]
-  beads = t(as.matrix(puck@counts[gene_list,]))
-  weights = decompose_batch(puck@nUMI, cell_type_info[[1]], beads, gene_list, constrain = constrain, OLS = OLS)
-  pred_labels = unlist(lapply(weights,function(x) which.max(x$weights)))
-  cell_type_lev = factor(1:n_cell_types)
-  cell_type_map = data.frame(cindex = 1:n_cell_types, row.names = cell_type_names)
-  if(trust_model)
-    true_labels = pred_labels
-  else
-    true_labels = lapply(puck@cell_labels, function(x) cell_type_map[as.character(x),"cindex"])
-  conf_mat = caret::confusionMatrix(factor(pred_labels,cell_type_lev),factor(true_labels,cell_type_lev))
-  rownames(conf_mat$table) = cell_type_names; colnames(conf_mat$table) = cell_type_names
-  return(list(conf_mat,weights,pred_labels))
+  cell_type_names <- cell_type_info[[2]]
+  n_cell_types <- cell_type_info[[3]]
+  beads <- t(as.matrix(puck@counts[gene_list, ]))
+  weights <- decompose_batch(puck@nUMI, cell_type_info[[1]], beads, gene_list, constrain = constrain, OLS = OLS)
+  pred_labels <- unlist(lapply(weights, function(x) which.max(x$weights)))
+  cell_type_lev <- factor(1:n_cell_types)
+  cell_type_map <- data.frame(cindex = 1:n_cell_types, row.names = cell_type_names)
+  if (trust_model) {
+    true_labels <- pred_labels
+  } else {
+    true_labels <- lapply(puck@cell_labels, function(x) cell_type_map[as.character(x), "cindex"])
+  }
+  conf_mat <- caret::confusionMatrix(factor(pred_labels, cell_type_lev), factor(true_labels, cell_type_lev))
+  rownames(conf_mat$table) <- cell_type_names
+  colnames(conf_mat$table) <- cell_type_names
+  return(list(conf_mat, weights, pred_labels))
 }
 
 #' Runs RCTD in full mode on \code{puck}
@@ -41,9 +44,9 @@ test_single_beads <- function(puck, gene_list, cell_type_info, trust_model = FAL
 #'   dataframe of predicted weights (3) a named list of predicted cell types
 #' @export
 process_data <- function(puck, gene_list, cell_type_info, proportions = NULL, trust_model = FALSE, constrain = TRUE, OLS = FALSE) {
-  cell_type_info_renorm = cell_type_info
-  if(!is.null(proportions)) {
-    cell_type_info_renorm[[1]] = get_norm_ref(puck, cell_type_info[[1]], gene_list, proportions)
+  cell_type_info_renorm <- cell_type_info
+  if (!is.null(proportions)) {
+    cell_type_info_renorm[[1]] <- get_norm_ref(puck, cell_type_info[[1]], gene_list, proportions)
   }
   test_results <- test_single_beads(puck, gene_list, cell_type_info_renorm, trust_model = trust_model, constrain = constrain, OLS = OLS)
   return(test_results)
@@ -72,27 +75,30 @@ process_data <- function(puck, gene_list, cell_type_info, proportions = NULL, tr
 #' @export
 process_beads_batch <- function(cell_type_info, gene_list, puck, class_df = NULL, constrain = TRUE,
                                 MAX_CORES = 8, MIN.CHANGE = 0.001, CONFIDENCE_THRESHOLD = 10, DOUBLET_THRESHOLD = 25) {
-  beads = t(as.matrix(puck@counts[gene_list,]))
-  #out_file = "logs/process_beads_log.txt"
-  #if (file.exists(out_file))
+  beads <- t(as.matrix(puck@counts[gene_list, ]))
+  # out_file = "logs/process_beads_log.txt"
+  # if (file.exists(out_file))
   #  file.remove(out_file)
-  if(MAX_CORES > 1) {
-    numCores = parallel::detectCores();
-    if(parallel::detectCores() > MAX_CORES)
+  if (MAX_CORES > 1) {
+    numCores <- parallel::detectCores()
+    if (parallel::detectCores() > MAX_CORES) {
       numCores <- MAX_CORES
+    }
     BiocParallel::register(BiocParallel::MulticoreParam(numCores))
     results <- BiocParallel::bplapply(1:(dim(beads)[1]), function(i) {
-      process_bead_doublet(cell_type_info, gene_list, puck@nUMI[i], beads[i,],
-                           class_df = class_df, constrain = constrain, MIN.CHANGE = MIN.CHANGE,
-                           CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD)
+      process_bead_doublet(cell_type_info, gene_list, puck@nUMI[i], beads[i, ],
+        class_df = class_df, constrain = constrain, MIN.CHANGE = MIN.CHANGE,
+        CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
+      )
     })
   } else {
-    #not parallel
+    # not parallel
     results <- list()
-    for(i in 1:(dim(beads)[1])) {
-      results[[i]] <- process_bead_doublet(cell_type_info, gene_list, puck@nUMI[i], beads[i,],
-                                           class_df = class_df, constrain = constrain, MIN.CHANGE = MIN.CHANGE,
-                                           CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD)
+    for (i in 1:(dim(beads)[1])) {
+      results[[i]] <- process_bead_doublet(cell_type_info, gene_list, puck@nUMI[i], beads[i, ],
+        class_df = class_df, constrain = constrain, MIN.CHANGE = MIN.CHANGE,
+        CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
+      )
     }
   }
   return(results)
@@ -100,25 +106,29 @@ process_beads_batch <- function(cell_type_info, gene_list, puck, class_df = NULL
 
 process_beads_multi <- function(cell_type_info, gene_list, puck, class_df = NULL, constrain = TRUE,
                                 MAX_CORES = 8, MIN.CHANGE = 0.001, MAX.TYPES = 4, CONFIDENCE_THRESHOLD = 10, DOUBLET_THRESHOLD = 25) {
-  beads = t(as.matrix(puck@counts[gene_list,]))
-  if(MAX_CORES > 1) {
-    numCores = parallel::detectCores();
-    if(parallel::detectCores() > MAX_CORES)
+  beads <- t(as.matrix(puck@counts[gene_list, ]))
+  if (MAX_CORES > 1) {
+    numCores <- parallel::detectCores()
+    if (parallel::detectCores() > MAX_CORES) {
       numCores <- MAX_CORES
+    }
     BiocParallel::register(BiocParallel::MulticoreParam(numCores))
     results <- BiocParallel::bplapply(1:(dim(beads)[1]), function(i) {
-      process_bead_multi(cell_type_info, gene_list, puck@nUMI[i], beads[i,],
-                         class_df = class_df, constrain = constrain, MIN.CHANGE = MIN.CHANGE, MAX.TYPES = MAX.TYPES,
-                         CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD)
+      process_bead_multi(cell_type_info, gene_list, puck@nUMI[i], beads[i, ],
+        class_df = class_df, constrain = constrain, MIN.CHANGE = MIN.CHANGE, MAX.TYPES = MAX.TYPES,
+        CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
+      )
     })
   } else {
-    #not parallel
+    # not parallel
     results <- list()
-    for(i in 1:(dim(beads)[1])) {
+    for (i in 1:(dim(beads)[1])) {
       results[[i]] <- process_bead_multi(cell_type_info, gene_list, puck@nUMI[i],
-                                         beads[i,], class_df = class_df,
-                                         constrain = constrain, MIN.CHANGE = MIN.CHANGE, MAX.TYPES = MAX.TYPES,
-                                         CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD)
+        beads[i, ],
+        class_df = class_df,
+        constrain = constrain, MIN.CHANGE = MIN.CHANGE, MAX.TYPES = MAX.TYPES,
+        CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
+      )
     }
   }
   return(results)
@@ -139,51 +149,58 @@ fitPixels <- function(RCTD, doublet_mode = "doublet") {
   RCTD@config$RCTDmode <- doublet_mode
   set_likelihood_vars(RCTD@internal_vars$Q_mat, RCTD@internal_vars$X_vals)
   cell_type_info <- RCTD@cell_type_info$renorm
-  if(doublet_mode == "doublet") {
-    results = process_beads_batch(cell_type_info, RCTD@internal_vars$gene_list_reg, RCTD@spatialRNA, class_df = RCTD@internal_vars$class_df,
-                                  constrain = FALSE, MAX_CORES = RCTD@config$max_cores, MIN.CHANGE = RCTD@config$MIN_CHANGE_REG,
-                                  CONFIDENCE_THRESHOLD = RCTD@config$CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = RCTD@config$DOUBLET_THRESHOLD)
+  if (doublet_mode == "doublet") {
+    results <- process_beads_batch(cell_type_info, RCTD@internal_vars$gene_list_reg, RCTD@spatialRNA,
+      class_df = RCTD@internal_vars$class_df,
+      constrain = FALSE, MAX_CORES = RCTD@config$max_cores, MIN.CHANGE = RCTD@config$MIN_CHANGE_REG,
+      CONFIDENCE_THRESHOLD = RCTD@config$CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = RCTD@config$DOUBLET_THRESHOLD
+    )
     return(gather_results(RCTD, results))
-  } else if(doublet_mode == "full") {
-    beads = t(as.matrix(RCTD@spatialRNA@counts[RCTD@internal_vars$gene_list_reg,]))
-    results = decompose_batch(RCTD@spatialRNA@nUMI, cell_type_info[[1]], beads, RCTD@internal_vars$gene_list_reg, constrain = FALSE,
-                              max_cores = RCTD@config$max_cores, MIN.CHANGE = RCTD@config$MIN_CHANGE_REG)
-    weights = Matrix(0, nrow = length(results), ncol = RCTD@cell_type_info$renorm[[3]])
-    rownames(weights) = colnames(RCTD@spatialRNA@counts); colnames(weights) = RCTD@cell_type_info$renorm[[2]];
-    for(i in 1:dim(weights)[1])
-      weights[i,] = results[[i]]$weights
+  } else if (doublet_mode == "full") {
+    beads <- t(as.matrix(RCTD@spatialRNA@counts[RCTD@internal_vars$gene_list_reg, ]))
+    results <- decompose_batch(RCTD@spatialRNA@nUMI, cell_type_info[[1]], beads, RCTD@internal_vars$gene_list_reg,
+      constrain = FALSE,
+      max_cores = RCTD@config$max_cores, MIN.CHANGE = RCTD@config$MIN_CHANGE_REG
+    )
+    weights <- Matrix(0, nrow = length(results), ncol = RCTD@cell_type_info$renorm[[3]])
+    rownames(weights) <- colnames(RCTD@spatialRNA@counts)
+    colnames(weights) <- RCTD@cell_type_info$renorm[[2]]
+    for (i in 1:dim(weights)[1]) {
+      weights[i, ] <- results[[i]]$weights
+    }
     RCTD@results <- list(weights = weights)
     return(RCTD)
-  } else if(doublet_mode == "multi") {
-    RCTD@results = process_beads_multi(cell_type_info, RCTD@internal_vars$gene_list_reg, RCTD@spatialRNA, class_df = RCTD@internal_vars$class_df,
-                                  constrain = FALSE, MAX_CORES = RCTD@config$max_cores,
-                                  MIN.CHANGE = RCTD@config$MIN_CHANGE_REG, MAX.TYPES = RCTD@config$MAX_MULTI_TYPES,
-                                  CONFIDENCE_THRESHOLD = RCTD@config$CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = RCTD@config$DOUBLET_THRESHOLD)
+  } else if (doublet_mode == "multi") {
+    RCTD@results <- process_beads_multi(cell_type_info, RCTD@internal_vars$gene_list_reg, RCTD@spatialRNA,
+      class_df = RCTD@internal_vars$class_df,
+      constrain = FALSE, MAX_CORES = RCTD@config$max_cores,
+      MIN.CHANGE = RCTD@config$MIN_CHANGE_REG, MAX.TYPES = RCTD@config$MAX_MULTI_TYPES,
+      CONFIDENCE_THRESHOLD = RCTD@config$CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = RCTD@config$DOUBLET_THRESHOLD
+    )
     return(RCTD)
   } else {
-    stop(paste0("fitPixels: doublet_mode=",doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full."))
+    stop(paste0("fitPixels: doublet_mode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full."))
   }
 }
 
 decompose_batch <- function(nUMI, cell_type_means, beads, gene_list, constrain = TRUE, OLS = FALSE, max_cores = 8, MIN.CHANGE = 0.001) {
-  #out_file = "logs/decompose_batch_log.txt"
-  #if (file.exists(out_file))
+  # out_file = "logs/decompose_batch_log.txt"
+  # if (file.exists(out_file))
   #  file.remove(out_file)
-  if(max_cores > 1) {
-    numCores = parallel::detectCores()
-    if(parallel::detectCores() > max_cores)
+  if (max_cores > 1) {
+    numCores <- parallel::detectCores()
+    if (parallel::detectCores() > max_cores) {
       numCores <- max_cores
+    }
     BiocParallel::register(BiocParallel::MulticoreParam(numCores))
     weights <- BiocParallel::bplapply(1:(dim(beads)[1]), function(i) {
-      decompose_full(data.matrix(cell_type_means[gene_list,]*nUMI[i]), nUMI[i], beads[i,], constrain = constrain, OLS = OLS, MIN_CHANGE = MIN.CHANGE)
+      decompose_full(data.matrix(cell_type_means[gene_list, ] * nUMI[i]), nUMI[i], beads[i, ], constrain = constrain, OLS = OLS, MIN_CHANGE = MIN.CHANGE)
     })
   } else {
     weights <- list()
-    for(i in 1:(dim(beads)[1])) {
-      weights[[i]] <- decompose_full(data.matrix(cell_type_means[gene_list,]*nUMI[i]), nUMI[i], beads[i,], constrain = constrain, OLS = OLS, MIN_CHANGE = MIN.CHANGE)
+    for (i in 1:(dim(beads)[1])) {
+      weights[[i]] <- decompose_full(data.matrix(cell_type_means[gene_list, ] * nUMI[i]), nUMI[i], beads[i, ], constrain = constrain, OLS = OLS, MIN_CHANGE = MIN.CHANGE)
     }
   }
   return(weights)
 }
-
-

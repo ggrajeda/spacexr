@@ -11,7 +11,7 @@ z <- devtools::test_active_file(file = "~/Projects/spacexr/tests/testthat/test-s
 bind_cols(tibble(test_name, start_time), z)
 
 #> names(z[[1]])
-#[1] "file"    "context" "test"    "user"    "system"  "real"    "results"
+# [1] "file"    "context" "test"    "user"    "system"  "real"    "results"
 # run tests and capture results
 results <- test_local(reporter = ListReporter)
 fileename <- stringr::str_glue("{perf_dir}/{as_integer(start_time}")
