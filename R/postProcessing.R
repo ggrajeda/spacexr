@@ -7,6 +7,7 @@
 #'   \code{\link{process_beads_batch}}
 #'
 #' @return RCTD results organized into a dataframe
+#' @keywords internal
 gather_results <- function(RCTD, results) {
   cell_type_names <- RCTD@cell_type_info$renorm[[2]]
   barcodes <- colnames(RCTD@spatialRNA@counts)
@@ -95,6 +96,7 @@ get_decomposed_data_full_doublet <- function(gene_list, puck, weights, ct_info) 
 #' @param cell_type_info cell type information and profiles of each cell, calculated from the scRNA-seq
 #' reference (see \code{\link{get_cell_type_info}})
 #' @return An object of type \linkS4class{SpatialRNA} representing the decomposed cells
+#' @keywords internal
 get_decomposed_data <- function(results_df, gene_list, puck, weights_doublet, cell_type_info) {
   warning("In the current RCTD version, get_decomposed_data is deprecated, and is no longer supported. For differential expression tasks, we instead recommend the RCTDE method.")
   doublets <- results_df[results_df$spot_class == "doublet_certain", ]

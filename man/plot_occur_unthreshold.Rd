@@ -16,3 +16,4 @@ plot_occur_unthreshold(cell_type_info, resultsdir, weights)
 \description{
 Plots the number of (including unconfident) labels in 'full_mode'. Saves as 'cell_type_occur_unthreshold.pdf'
 }
+\keyword{internal}

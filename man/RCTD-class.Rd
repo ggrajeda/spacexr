@@ -43,3 +43,4 @@ whereas `res_gene_list` is a list, for each cell type, of significant genes dete
 \item{\code{internal_vars_de}}{a list of variables that are used internally by CSIDE}
 }}
 
+\keyword{internal}

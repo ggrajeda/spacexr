@@ -16,9 +16,6 @@ an \code{\linkS4class{RCTD}} object containing the results of the RCTD algorithm
 documentation for more information on interpreting the content of the RCTD object.
 }
 \description{
-Equivalent to sequentially running the functions \code{\link{fitBulk}}, \code{\link{choose_sigma_c}}, and \code{\link{fitPixels}}
-}
-\details{
 If in doublet mode, fits at most two cell types per pixel. It classifies each pixel as 'singlet' or 'doublet' and searches for the cell types
 on the pixel. If in full mode, can fit any number of cell types on each pixel. In multi mode, cell types are added using a greedy algorithm,
 up to a fixed number.

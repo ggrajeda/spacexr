@@ -12,3 +12,4 @@ list of bfcadd results
 \description{
 Place Q matrices in cache after retrieving them from the Bioconductor Open Storage Network
 }
+\keyword{internal}

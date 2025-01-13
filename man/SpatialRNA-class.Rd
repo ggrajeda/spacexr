@@ -24,3 +24,4 @@ and each pixel (colnames or barcodes)}
 \item{\code{cell_labels}}{a factor of cell type labels for each pixel}
 }}
 
+\keyword{internal}

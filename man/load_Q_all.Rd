@@ -12,3 +12,4 @@ list of matrices
 \description{
 Retrieves Q matrices from cache, populating the cache if necessary.
 }
+\keyword{internal}

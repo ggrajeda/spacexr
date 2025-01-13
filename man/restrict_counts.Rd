@@ -29,3 +29,4 @@ Returns a \code{\linkS4class{SpatialRNA}} with counts filtered based on UMI thre
 \description{
 Restricts a SpatialRNA object to a subset of genes (and applies a UMI threshold)
 }
+\keyword{internal}

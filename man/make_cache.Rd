@@ -10,3 +10,4 @@ make_cache()
 \description{
 This is effectively used to manage global variables.
 }
+\keyword{internal}

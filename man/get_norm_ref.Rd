@@ -25,3 +25,4 @@ renormalizes \code{cell_type_means} to have average the same as the puck.
 The average for each gene is weighted by cell type proportions given by
 \code{proportions}.
 }
+\keyword{internal}

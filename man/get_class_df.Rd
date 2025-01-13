@@ -20,4 +20,3 @@ Dataframe mapping cell types to classes. If \code{use_classes} is
 \description{
 Returns a dataframe mapping cell types to classes
 }
-\keyword{internal}

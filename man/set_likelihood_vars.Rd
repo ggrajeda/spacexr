@@ -18,3 +18,4 @@ Else, uses precomputed values of SQ_mat stored in SQ_mat_all with index sigma}
 Given a matrix, \code{Q_mat}, or log P(y|x), under the Poisson-Lognormal model.
 Sets this as a global variable for fast computations in the future.
 }
+\keyword{internal}

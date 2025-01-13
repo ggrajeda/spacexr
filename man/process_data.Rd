@@ -47,3 +47,4 @@ Renormalizes \code{cell_type_means} to have average the same as the puck if
 \code{proportions} is given. Then, computes cell type proportions for each
 pixel in \code{puck}.
 }
+\keyword{internal}

@@ -18,3 +18,4 @@ plot_weights_unthreshold(cell_type_names, puck, resultsdir, weights)
 \description{
 Plots all weights for each cell type as in full_mode. Saves as 'cell_type_weights_unthreshold.pdf'
 }
+\keyword{internal}

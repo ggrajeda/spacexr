@@ -16,3 +16,4 @@ Returns an \code{\linkS4class{RCTD}} object normalized for platform effects.
 Estimates bulk cell type composition and uses this
 to estimate platform effects and normalize cell type proportions
 }
+\keyword{internal}

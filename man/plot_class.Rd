@@ -24,3 +24,4 @@ Returns a \link{ggplot} object
 \description{
 Colors points based on class
 }
+\keyword{internal}

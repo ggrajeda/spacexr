@@ -21,3 +21,4 @@ returns \code{\link{ggplot2}} object
 \description{
 Plots the first cell type in doublet mode. Saves as 'all_cell_types.pdf'
 }
+\keyword{internal}

@@ -33,6 +33,7 @@ NULL
 #' @export
 #' @import Matrix
 #' @importClassesFrom Matrix Matrix dgCMatrix
+#' @keywords internal
 setClass("SpatialRNA",
   slots = c(
     coords = "data.frame",
@@ -54,6 +55,7 @@ setClass("SpatialRNA",
 #' @slot nUMI an atomic vector of numeric UMI counts per cell
 #' @importClassesFrom Matrix Matrix dgCMatrix
 #' @export
+#' @keywords internal
 setClass("Reference",
   slots = c(
     cell_types = "factor",
@@ -98,6 +100,7 @@ setClass("Reference",
 #' @export
 #' @import Matrix
 #' @importClassesFrom Matrix Matrix dgCMatrix
+#' @keywords internal
 setClass("RCTD",
   slots = c(
     spatialRNA = "SpatialRNA",
@@ -148,6 +151,7 @@ setClass("RCTD",
 #' replicates across groups
 #' @import Matrix
 #' @importClassesFrom Matrix Matrix dgCMatrix
+#' @keywords internal
 setClass("RCTD.replicates",
   slots = c(
     RCTD.reps = "list",

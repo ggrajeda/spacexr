@@ -8,6 +8,7 @@ get_X_vals <- memoise::memoise(load_X_vals)
 #' returns it for NULL values.
 #'
 #' This is effectively used to manage global variables.
+#' @keywords internal
 make_cache <- function() {
   cache <- NULL
   function(arg = NULL) {
@@ -53,6 +54,7 @@ get_K_val <- function() {
 #' Checks that a URL returns a 200 status code for a HEAD request
 #' @param url character(1)
 #' @return logical(1)
+#' @keywords internal
 url_ok <- function(url) {
   httr::status_code(httr::HEAD(url)) == 200
 }
@@ -78,6 +80,7 @@ verify_Q_cache <- function() {
 
 #' Place Q matrices in cache after retrieving them from the Bioconductor Open Storage Network
 #' @return list of bfcadd results
+#' @keywords internal
 cache_Q_all <- function() {
   if (!url_ok(remote_Q_mat_url(1L))) {
     stop(
@@ -93,6 +96,7 @@ cache_Q_all <- function() {
 
 #' Retrieves Q matrices from cache, populating the cache if necessary.
 #' @return list of matrices
+#' @keywords internal
 load_Q_all <- function() {
   if (!verify_Q_cache()) {
     cache_Q_all()

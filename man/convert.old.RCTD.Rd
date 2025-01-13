@@ -18,3 +18,4 @@ of \code{spacexr}.
 Updates an old \code{\linkS4class{RCTD}} object to be compatible with the current
 version of \code{spacexr}.
 }
+\keyword{internal}

@@ -8,6 +8,7 @@
 #' @param cell_type_names list of cell type names
 #' @return returns \code{\link{ggplot2}} object
 #' @export
+#' @keywords internal
 plot_doublets <- function(puck, doublets, resultsdir, cell_type_names) {
   barcodes <- rownames(doublets)
   my_table <- puck@coords[barcodes, ]
@@ -50,6 +51,7 @@ plot_doublets <- function(puck, doublets, resultsdir, cell_type_names) {
 #' @param cell_type_names list of cell type names
 #' @return returns \code{\link{ggplot2}} object
 #' @export
+#' @keywords internal
 plot_all_cell_types <- function(results_df, coords, cell_type_names, resultsdir) {
   barcodes <- rownames(results_df[results_df$spot_class != "reject" & results_df$first_type %in% cell_type_names, ])
   my_table <- coords[barcodes, ]
@@ -86,6 +88,7 @@ plot_all_cell_types <- function(results_df, coords, cell_type_names, resultsdir)
 #' @param resultsdir output directory
 #' @param cell_type_names list of cell type names
 #' @export
+#' @keywords internal
 plot_doublets_type <- function(puck, doublets_base, resultsdir, cell_type_names) {
   plots <- vector(mode = "list", length = length(cell_type_names))
   i <- 1
@@ -146,6 +149,7 @@ plot_doublets_type <- function(puck, doublets_base, resultsdir, cell_type_names)
 #'
 #' @return Returns a \link{ggplot} object
 #' @export
+#' @keywords internal
 plot_puck_continuous <- function(puck, barcodes, plot_val, ylimit = c(0, 1), title = NULL, counter_barcodes = NULL, label = FALSE, my_pal = NULL, xlim = NULL, ylim = NULL, size = 0.15, alpha = 1, small_point = FALSE) {
   if (is.null(my_pal)) {
     my_pal <- pals::kovesi.rainbow(20)
@@ -201,6 +205,7 @@ plot_puck_continuous <- function(puck, barcodes, plot_val, ylimit = c(0, 1), tit
 #'
 #' @return Returns a \link{ggplot} object
 #' @export
+#' @keywords internal
 plot_puck_wrapper <- function(puck, plot_val, cell_type = NULL, minUMI = 0, maxUMI = 200000, min_val = NULL, max_val = NULL, title = NULL, my_cond = NULL) {
   UMI_filter <- (puck@nUMI > minUMI) & (puck@nUMI < maxUMI)
   ylimit <- NULL
@@ -235,6 +240,7 @@ plot_puck_wrapper <- function(puck, plot_val, cell_type = NULL, minUMI = 0, maxU
 #' @param resultsdir output directory
 #' @param cell_type_names list of cell type names
 #' @export
+#' @keywords internal
 plot_weights <- function(cell_type_names, puck, resultsdir, weights) {
   plots <- vector(mode = "list", length = length(cell_type_names))
   for (i in 1:length(cell_type_names)) {
@@ -260,6 +266,7 @@ plot_weights <- function(cell_type_names, puck, resultsdir, weights) {
 #' @param resultsdir output directory
 #' @param cell_type_names list of cell type names
 #' @export
+#' @keywords internal
 plot_weights_unthreshold <- function(cell_type_names, puck, resultsdir, weights) {
   plots <- vector(mode = "list", length = length(cell_type_names))
   for (i in 1:length(cell_type_names)) {
@@ -286,6 +293,7 @@ plot_weights_unthreshold <- function(cell_type_names, puck, resultsdir, weights)
 #' @param cell_type_names list of cell type names
 #' @return returns \code{\link{ggplot2}} object
 #' @export
+#' @keywords internal
 plot_cond_occur <- function(cell_type_names, resultsdir, weights, puck) {
   occur <- numeric(length(cell_type_names))
   names(occur) <- cell_type_names
@@ -313,6 +321,7 @@ plot_cond_occur <- function(cell_type_names, resultsdir, weights, puck) {
 #' @param resultsdir output directory
 #' @param cell_type_info cell type information and profiles (see \code{\link{get_cell_type_info}})
 #' @export
+#' @keywords internal
 plot_occur_unthreshold <- function(cell_type_info, resultsdir, weights) {
   occur <- table(apply(weights, 1, which.max))[as.character(1:cell_type_info[[3]])]
   names(occur) <- cell_type_info[[2]]
@@ -336,6 +345,7 @@ plot_occur_unthreshold <- function(cell_type_info, resultsdir, weights) {
 #' @param cell_type_names list of cell type names
 #' @param results_df dataframe of RCTD results (stored in the RCTD object)
 #' @export
+#' @keywords internal
 plot_weights_doublet <- function(cell_type_names, puck, resultsdir, weights_doublet, results_df) {
   plots <- vector(mode = "list", length = length(cell_type_names))
   for (i in 1:length(cell_type_names)) {
@@ -365,6 +375,7 @@ plot_weights_doublet <- function(cell_type_names, puck, resultsdir, weights_doub
 #' @param cell_type_names list of cell type names
 #' @return returns \code{\link{ggplot2}} object
 #' @export
+#' @keywords internal
 plot_doub_occur_stack <- function(doub_occur, resultsdir, cell_type_names) {
   cell_type_names <- unlist(lapply(cell_type_names, function(x) paste0("celltype_", x)))
   rownames(doub_occur) <- cell_type_names
@@ -399,6 +410,7 @@ plot_doub_occur_stack <- function(doub_occur, resultsdir, cell_type_names) {
 #'
 #' @return Returns a \link{ggplot} object
 #' @export
+#' @keywords internal
 plot_class <- function(puck, barcodes_cur, my_class, counter_barcodes = NULL, title = NULL) {
   my_table <- puck@coords[barcodes_cur, ]
   my_table$class <- my_class[barcodes_cur]
@@ -433,6 +445,7 @@ plot_class <- function(puck, barcodes_cur, my_class, counter_barcodes = NULL, ti
 #' @param myRCTD a \code{\linkS4class{RCTD}} object with annotated cell types e.g. from the \code{\link{run.RCTD}} function.
 #' @param datadir directory where plots should be saved
 #' @export
+#' @keywords internal
 create_RCTD_plots <- function(myRCTD, datadir) {
   results <- myRCTD@results
   norm_weights <- sweep(results$weights, 1, rowSums(results$weights), "/")

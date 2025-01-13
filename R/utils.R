@@ -24,6 +24,7 @@ remap_celltypes <- function(cell_dict_file, cell_ident) {
 #' @param expr_thresh minimum expression threshold, as normalized expression (proportion out of 1, or counts per 1).
 #' @return a list of differntially expressed gene names
 #' @export
+#' @keywords internal
 get_de_genes <- function(cell_type_info, puck, fc_thresh = 1.25, expr_thresh = .00015, MIN_OBS = 3) {
   total_gene_list <- c()
   epsilon <- 1e-9
@@ -82,8 +83,6 @@ prepareBulkData <- function(cell_type_means, puck, gene_list, MIN_OBS = 10) {
 #'   \code{FALSE}, then each cell type will correspond to its own class.
 #'   Otherwise, similar cell types will be grouped together according to a
 #'   pre-defined map.
-#'
-#' @keywords internal
 get_class_df <- function(cell_type_names, use_classes = FALSE) {
   class_df <- data.frame(cell_type_names, row.names = cell_type_names)
   colnames(class_df)[1] <- "class"

@@ -18,3 +18,4 @@ plot_weights(cell_type_names, puck, resultsdir, weights)
 \description{
 Plots the confident weights for each cell type as in full_mode. Saves as 'cell_type_weights.pdf'
 }
+\keyword{internal}

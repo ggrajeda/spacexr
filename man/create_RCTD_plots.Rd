@@ -14,3 +14,4 @@ create_RCTD_plots(myRCTD, datadir)
 \description{
 Create all plots for an RCTD object after cell types have been assigned
 }
+\keyword{internal}

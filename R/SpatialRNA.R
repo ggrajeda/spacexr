@@ -240,7 +240,7 @@ check_coords <- function(coords) {
 #' @param UMI_max maximum UMI per pixel
 #' @param counts_thresh minimum counts per pixel (for genes in gene_list)
 #' @return Returns a \code{\linkS4class{SpatialRNA}} with counts filtered based on UMI threshold and gene list
-#' @export
+#' @keywords internal
 restrict_counts <- function(puck, gene_list, UMI_thresh = 1, UMI_max = 20000, counts_thresh = 1) {
   counts_tot <- colSums(puck@counts[gene_list, ])
   keep_loc <- (puck@nUMI >= UMI_thresh) & (puck@nUMI <= UMI_max) & (counts_tot >= counts_thresh)
@@ -257,7 +257,7 @@ restrict_counts <- function(puck, gene_list, UMI_thresh = 1, UMI_max = 20000, co
 #' @param puck a \code{\linkS4class{SpatialRNA}} object
 #' @param barcodes a list of barcode names, a subset of \code{rownames(puck@coords)}
 #' @return Returns a \code{\linkS4class{SpatialRNA}} object subsampled to the barcodes
-#' @export
+#' @keywords internal
 restrict_puck <- function(puck, barcodes) {
   barcodes <- intersect(colnames(puck@counts), barcodes)
   puck@counts <- puck@counts[, barcodes]

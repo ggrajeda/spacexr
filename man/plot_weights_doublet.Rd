@@ -26,3 +26,4 @@ plot_weights_doublet(
 \description{
 Plots the weights for each cell type as in doublet_mode. Saves as 'cell_type_weights_doublet.pdf'
 }
+\keyword{internal}

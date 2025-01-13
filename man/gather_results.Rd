@@ -18,3 +18,4 @@ RCTD results organized into a dataframe
 \description{
 Collects RCTD results into a dataframe
 }
+\keyword{internal}

@@ -103,8 +103,6 @@ create.RCTD <- function(spatialRNA, reference, max_cores = 4, test_mode = FALSE,
 
 #' Runs the RCTD pipeline on a \code{\linkS4class{RCTD}} object
 #'
-#' Equivalent to sequentially running the functions \code{\link{fitBulk}}, \code{\link{choose_sigma_c}}, and \code{\link{fitPixels}}
-#'
 #' If in doublet mode, fits at most two cell types per pixel. It classifies each pixel as 'singlet' or 'doublet' and searches for the cell types
 #' on the pixel. If in full mode, can fit any number of cell types on each pixel. In multi mode, cell types are added using a greedy algorithm,
 #' up to a fixed number.
@@ -173,6 +171,7 @@ check_vector <- function(variable, var_name, f_name, require_int = FALSE) {
 #' @return an \code{\linkS4class{RCTD}} object updated to be compatible with the current version
 #' of \code{spacexr}.
 #' @export
+#' @keywords internal
 convert.old.RCTD <- function(myRCTD) {
   if (is(myRCTD@reference, "Seurat")) {
     ref <- convert_old_reference(myRCTD@reference)

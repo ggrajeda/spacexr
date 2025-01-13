@@ -21,3 +21,4 @@ returns \code{\link{ggplot2}} object
 \description{
 Plots the number of confident labels in 'full_mode'. Saves as 'cell_type_occur.pdf'
 }
+\keyword{internal}

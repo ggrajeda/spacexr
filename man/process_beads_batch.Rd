@@ -46,3 +46,4 @@ Then, computes cell type proportions for each pixel in \code{puck}.
 Classifies each pixel as 'singlet' or 'doublet' and searches for the cell types
 on the pixel
 }
+\keyword{internal}

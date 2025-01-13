@@ -19,3 +19,4 @@ If in doublet mode, fits at most two cell types per pixel. It classifies each pi
 on the pixel. If in full mode, can fit any number of cell types on each pixel. In multi mode, cell types are added using a greedy algorithm,
 up to a fixed number.
 }
+\keyword{internal}

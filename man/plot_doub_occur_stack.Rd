@@ -19,3 +19,4 @@ returns \code{\link{ggplot2}} object
 \description{
 Plots the doublet co-occurances. Saves as 'doublet_stacked_bar.pdf'
 }
+\keyword{internal}

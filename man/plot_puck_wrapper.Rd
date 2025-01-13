@@ -41,3 +41,4 @@ Returns a \link{ggplot} object
 \description{
 Colors points based on value of the function, filtered for e.g. UMI and cell type
 }
+\keyword{internal}

@@ -18,3 +18,4 @@ plot_doublets_type(puck, doublets_base, resultsdir, cell_type_names)
 \description{
 Plots the first cell type in doublet mode. Saves as 'all_doublets_type.pdf'
 }
+\keyword{internal}

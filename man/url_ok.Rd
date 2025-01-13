@@ -15,3 +15,4 @@ logical(1)
 \description{
 Checks that a URL returns a 200 status code for a HEAD request
 }
+\keyword{internal}

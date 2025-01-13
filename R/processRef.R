@@ -12,7 +12,7 @@
 #' @return Returns \code{cell_type_info}, a list of three elements: (1) \code{cell_type_means} (a
 #' data_frame (genes by cell types) for mean normalized expression) (2) \code{cell_type_names}
 #' (a list of cell type names) and (3) the number of cell types
-#' @export
+#' @keywords internal
 get_cell_type_info <- function(raw.data, cell_types, nUMI, cell_type_names = NULL) {
   if (is.null(cell_type_names)) {
     cell_type_names <- levels(cell_types)
@@ -52,6 +52,7 @@ get_cell_type_info <- function(raw.data, cell_types, nUMI, cell_type_names = NUL
 #' @return Returns \code{cell_type_means}, a data_frame (genes by cell types) for mean normalized cell type expression profiles in which
 #' platform effects have been removed to match the \linkS4class{SpatialRNA} data.
 #' @export
+#' @keywords internal
 get_norm_ref <- function(puck, cell_type_means, gene_list, proportions) {
   bulk_vec <- rowSums(puck@counts)
   weight_avg <- rowSums(sweep(cell_type_means[gene_list, ], 2, proportions / sum(proportions), "*"))

@@ -6,6 +6,7 @@
 #' @param RCTD an \code{\linkS4class{RCTD}} object after running the \code{\link{create.RCTD}} function.
 #' @return Returns an \code{\linkS4class{RCTD}} object normalized for platform effects.
 #' @export
+#' @keywords internal
 fitBulk <- function(RCTD) {
   bulkData <- prepareBulkData(RCTD@cell_type_info$info[[1]], RCTD@spatialRNA, RCTD@internal_vars$gene_list_bulk)
   message("fitBulk: decomposing bulk")
@@ -78,6 +79,7 @@ chooseSigma <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
 #' @param RCTD an \code{\linkS4class{RCTD}} object after running the \code{\link{fitBulk}} function.
 #' @return Returns an \code{\linkS4class{RCTD}} with the estimated \code{sigma_c}.
 #' @export
+#' @keywords internal
 choose_sigma_c <- function(RCTD) {
   puck <- RCTD@spatialRNA
   MIN_UMI <- RCTD@config$UMI_min_sigma

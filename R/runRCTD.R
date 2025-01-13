@@ -42,7 +42,7 @@ test_single_beads <- function(puck, gene_list, cell_type_info, trust_model = FAL
 #' @return Returns \code{test_results}, a list of three items: (1)
 #'   \code{conf_mat} a confusion matrix (not relevant) (2) \code{weights} a
 #'   dataframe of predicted weights (3) a named list of predicted cell types
-#' @export
+#' @keywords internal
 process_data <- function(puck, gene_list, cell_type_info, proportions = NULL, trust_model = FALSE, constrain = TRUE, OLS = FALSE) {
   cell_type_info_renorm <- cell_type_info
   if (!is.null(proportions)) {
@@ -72,7 +72,7 @@ process_data <- function(puck, gene_list, cell_type_info, proportions = NULL, tr
 #' @param DOUBLET_THRESHOLD (Default 25) the penalty weight of predicting a doublet instead of a singlet for a pixel
 #' @return Returns \code{results}, a list of RCTD results for each pixel, which can be organized by
 #' feeding into \code{\link{gather_results}}
-#' @export
+#' @keywords internal
 process_beads_batch <- function(cell_type_info, gene_list, puck, class_df = NULL, constrain = TRUE,
                                 MAX_CORES = 8, MIN.CHANGE = 0.001, CONFIDENCE_THRESHOLD = 10, DOUBLET_THRESHOLD = 25) {
   beads <- t(as.matrix(puck@counts[gene_list, ]))
@@ -144,6 +144,7 @@ process_beads_multi <- function(cell_type_info, gene_list, puck, class_df = NULL
 #' @param doublet_mode \code{character string}, either "doublet", "multi", or "full" on which mode to run RCTD. Please see above description.
 #' @return an \code{\linkS4class{RCTD}} object containing the results of the RCTD algorithm.
 #' @export
+#' @keywords internal
 fitPixels <- function(RCTD, doublet_mode = "doublet") {
   RCTD@internal_vars$cell_types_assigned <- TRUE
   RCTD@config$RCTDmode <- doublet_mode

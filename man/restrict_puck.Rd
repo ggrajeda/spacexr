@@ -18,3 +18,4 @@ Returns a \code{\linkS4class{SpatialRNA}} object subsampled to the barcodes
 Given a \code{\linkS4class{SpatialRNA}} object and a list of barcodes (pixels), will return a
 \code{\linkS4class{SpatialRNA}} object restricted to the barcodes.
 }
+\keyword{internal}

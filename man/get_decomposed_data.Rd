@@ -36,3 +36,4 @@ Applied to the output of \code{\link{gather_results}}.
 Singlet pixels are left unchanged, and doublet_certain conditions are
 decomposed into single cells.
 }
+\keyword{internal}

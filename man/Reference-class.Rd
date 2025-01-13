@@ -18,3 +18,4 @@ and each cell (colnames or barcodes)}
 \item{\code{nUMI}}{an atomic vector of numeric UMI counts per cell}
 }}
 
+\keyword{internal}

@@ -15,3 +15,4 @@ Returns an \code{\linkS4class{RCTD}} with the estimated \code{sigma_c}.
 \description{
 Estimates sigma_c by maximum likelihood
 }
+\keyword{internal}

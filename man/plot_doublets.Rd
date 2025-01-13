@@ -21,3 +21,4 @@ returns \code{\link{ggplot2}} object
 \description{
 saves as 'all_doublets.pdf'
 }
+\keyword{internal}

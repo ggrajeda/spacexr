@@ -53,3 +53,4 @@ Returns a \link{ggplot} object
 \description{
 Colors points based on value of the function
 }
+\keyword{internal}

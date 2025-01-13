@@ -32,3 +32,4 @@ For each cell type, chooses genes that have a minimum average normalized express
 type, and whose expression is larger in that cell type than the average of all cell types.
 Filters out mitochondrial genes.
 }
+\keyword{internal}

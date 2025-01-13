@@ -25,3 +25,4 @@ data_frame (genes by cell types) for mean normalized expression) (2) \code{cell_
 Computes averaged normalized expression (summing to 1) for
 all cells within a cell type
 }
+\keyword{internal}
