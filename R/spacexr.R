@@ -42,6 +42,17 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #'
 #' @return an \code{\linkS4class{RCTD}} object, which is ready to run the \code{\link{run.RCTD}} function
 #' @export
+#' @examples
+#' data(rctd_simulation)
+#' reference <- Reference(
+#'   rctd_simulation$reference_counts,
+#'   rctd_simulation$reference_cell_types
+#' )
+#' spatial_rna <- SpatialRNA(
+#'   rctd_simulation$spatial_rna_coords,
+#'   rctd_simulation$spatial_rna_counts
+#' )
+#' rctd <- create.RCTD(spatial_rna, reference)
 create.RCTD <- function(spatialRNA, reference, max_cores = 4, test_mode = FALSE, gene_cutoff = 0.000125, fc_cutoff = 0.5, gene_cutoff_reg = 0.0002, fc_cutoff_reg = 0.75, UMI_min = 100, UMI_max = 20000000, counts_MIN = 10, UMI_min_sigma = 300,
                         class_df = NULL, CELL_MIN_INSTANCE = 25, cell_type_names = NULL, MAX_MULTI_TYPES = 4, keep_reference = FALSE, cell_type_profiles = NULL, CONFIDENCE_THRESHOLD = 5, DOUBLET_THRESHOLD = 20) {
   config <- list(
@@ -113,6 +124,18 @@ create.RCTD <- function(spatialRNA, reference, max_cores = 4, test_mode = FALSE,
 #' @return an \code{\linkS4class{RCTD}} object containing the results of the RCTD algorithm. Please see \code{\linkS4class{RCTD}}
 #' documentation for more information on interpreting the content of the RCTD object.
 #' @export
+#' @examples
+#' data(rctd_simulation)
+#' reference <- Reference(
+#'   rctd_simulation$reference_counts,
+#'   rctd_simulation$reference_cell_types
+#' )
+#' spatial_rna <- SpatialRNA(
+#'   rctd_simulation$spatial_rna_coords,
+#'   rctd_simulation$spatial_rna_counts
+#' )
+#' rctd <- create.RCTD(spatial_rna, reference)
+#' rctd_results <- run.RCTD(rctd, doublet_mode = "doublet")
 run.RCTD <- function(RCTD, doublet_mode = "doublet") {
   if (!(doublet_mode %in% c("doublet", "multi", "full"))) {
     stop(paste0("run.RCTD: doublet_mode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full."))

@@ -20,3 +20,16 @@ If in doublet mode, fits at most two cell types per pixel. It classifies each pi
 on the pixel. If in full mode, can fit any number of cell types on each pixel. In multi mode, cell types are added using a greedy algorithm,
 up to a fixed number.
 }
+\examples{
+data(rctd_simulation)
+reference <- Reference(
+  rctd_simulation$reference_counts,
+  rctd_simulation$reference_cell_types
+)
+spatial_rna <- SpatialRNA(
+  rctd_simulation$spatial_rna_coords,
+  rctd_simulation$spatial_rna_counts
+)
+rctd <- create.RCTD(spatial_rna, reference)
+rctd_results <- run.RCTD(rctd, doublet_mode = "doublet")
+}

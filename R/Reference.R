@@ -14,6 +14,12 @@
 #' @return Returns a \code{\linkS4class{Reference}} object containing the counts matrix, cell type labels, and UMI vector
 #' from the input files
 #' @export
+#' @examples
+#' data(rctd_simulation)
+#' reference <- Reference(
+#'   rctd_simulation$reference_counts,
+#'   rctd_simulation$reference_cell_types
+#' )
 Reference <- function(counts, cell_types, nUMI = NULL, require_int = TRUE, n_max_cells = 10000, min_UMI = 100) {
   counts <- check_counts(counts, "Reference", require_2d = TRUE, require_int = require_int)
   if (is.null(nUMI)) {

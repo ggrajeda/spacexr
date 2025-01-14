@@ -85,6 +85,12 @@ save.SpatialRNA <- function(puck, save.folder) {
 #' @return Returns a \code{\linkS4class{SpatialRNA}} object containing the coordinates and counts
 #' from the input files
 #' @export
+#' @examples
+#' data(rctd_simulation)
+#' spatial_rna <- SpatialRNA(
+#'   rctd_simulation$spatial_rna_coords,
+#'   rctd_simulation$spatial_rna_counts
+#' )
 SpatialRNA <- function(coords, counts, nUMI = NULL, use_fake_coords = FALSE, require_int = TRUE) {
   counts <- check_counts(counts, "SpatialRNA", require_int = require_int)
   if (use_fake_coords) {
