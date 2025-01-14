@@ -45,3 +45,4 @@ Suggests:
   vdiffr
 Config/testthat/edition: 3
 biocViews: GeneExpression, DifferentialExpression, SingleCell, RNASeq, Software, Spatial, Transcriptomics
+LazyData: true
