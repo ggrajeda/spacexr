@@ -34,15 +34,12 @@ Imports:
     caret,
     data.table,
     memoise,
-    BiocParallel
+    BiocParallel,
+    stringr
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 Suggests: 
-  testthat (>= 3.0.0),
-  withr,
-  splatter,
-  stringr,
-  vdiffr
+    testthat (>= 3.0.0)
 Config/testthat/edition: 3
 biocViews: GeneExpression, DifferentialExpression, SingleCell, RNASeq, Software, Spatial, Transcriptomics
 LazyData: true
