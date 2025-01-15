@@ -78,6 +78,7 @@ Creates an \code{\linkS4class{RCTD}} object from a scRNA-seq reference \code{Ref
 }
 \examples{
 data(rctd_simulation)
+
 reference <- Reference(
   rctd_simulation$reference_counts,
   rctd_simulation$reference_cell_types
@@ -86,5 +87,7 @@ spatial_rna <- SpatialRNA(
   rctd_simulation$spatial_rna_coords,
   rctd_simulation$spatial_rna_counts
 )
+
 rctd <- create.RCTD(spatial_rna, reference)
+
 }

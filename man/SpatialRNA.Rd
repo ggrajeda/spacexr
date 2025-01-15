@@ -38,8 +38,10 @@ constructor of SpatialRNA object
 }
 \examples{
 data(rctd_simulation)
+
 spatial_rna <- SpatialRNA(
   rctd_simulation$spatial_rna_coords,
   rctd_simulation$spatial_rna_counts
 )
+
 }

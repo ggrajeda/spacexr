@@ -78,3 +78,35 @@ an \code{\linkS4class{RCTD.replicates}} object, which is ready to run the \code{
 Applies the \code{\link{create.RCTD}} function for each \code{\linkS4class{SpatialRNA}} replicate inputted using a
 scRNA-seq reference \code{Reference} object.
 }
+\examples{
+set.seed(123456789)
+data(rctd_simulation)
+
+reference <- Reference(
+  rctd_simulation$reference_counts,
+  rctd_simulation$reference_cell_types
+)
+
+num_genes <- nrow(rctd_simulation$spatial_rna_counts)
+num_pixels <- ncol(rctd_simulation$spatial_rna_counts)
+
+noise1 <- replicate(num_pixels, rpois(num_genes, lambda = 0.1))
+spatial_rna1 <- SpatialRNA(
+  rctd_simulation$spatial_rna_coords,
+  rctd_simulation$spatial_rna_counts + noise1
+)
+
+noise2 <- replicate(num_pixels, rpois(num_genes, lambda = 0.1))
+spatial_rna2 <- SpatialRNA(
+  rctd_simulation$spatial_rna_coords,
+  rctd_simulation$spatial_rna_counts + noise2
+)
+
+spatial_rna_replicates <- list(sr1 = spatial_rna1, sr2 = spatial_rna2)
+rctd_replicates <- create.RCTD.replicates(
+  spatial_rna_replicates,
+  reference,
+  names(spatial_rna_replicates)
+)
+
+}

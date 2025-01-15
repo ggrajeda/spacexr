@@ -29,6 +29,37 @@
 #'
 #' @return an \code{\linkS4class{RCTD.replicates}} object, which is ready to run the \code{\link{run.RCTD.replicates}} function
 #' @export
+#' @examples
+#' set.seed(123456789)
+#' data(rctd_simulation)
+#'
+#' reference <- Reference(
+#'   rctd_simulation$reference_counts,
+#'   rctd_simulation$reference_cell_types
+#' )
+#'
+#' num_genes <- nrow(rctd_simulation$spatial_rna_counts)
+#' num_pixels <- ncol(rctd_simulation$spatial_rna_counts)
+#'
+#' noise1 <- replicate(num_pixels, rpois(num_genes, lambda = 0.1))
+#' spatial_rna1 <- SpatialRNA(
+#'   rctd_simulation$spatial_rna_coords,
+#'   rctd_simulation$spatial_rna_counts + noise1
+#' )
+#'
+#' noise2 <- replicate(num_pixels, rpois(num_genes, lambda = 0.1))
+#' spatial_rna2 <- SpatialRNA(
+#'   rctd_simulation$spatial_rna_coords,
+#'   rctd_simulation$spatial_rna_counts + noise2
+#' )
+#'
+#' spatial_rna_replicates <- list(sr1 = spatial_rna1, sr2 = spatial_rna2)
+#' rctd_replicates <- create.RCTD.replicates(
+#'   spatial_rna_replicates,
+#'   reference,
+#'   names(spatial_rna_replicates)
+#' )
+#'
 create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_names, group_ids = NULL, max_cores = 4, test_mode = FALSE,
                                    gene_cutoff = 0.000125, fc_cutoff = 0.5, gene_cutoff_reg = 0.0002,
                                    fc_cutoff_reg = 0.75, UMI_min = 100, UMI_max = 20000000, UMI_min_sigma = 300,
@@ -91,6 +122,43 @@ create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_n
 #' @return an \code{\linkS4class{RCTD.replicates}} object containing the results of the RCTD algorithm. Please see \code{\linkS4class{RCTD.replicates}}
 #' and \code{\linkS4class{RCTD}} documentation for more information on interpreting the content of this object.
 #' @export
+#' @examples
+#' set.seed(123456789)
+#' data(rctd_simulation)
+#'
+#' reference <- Reference(
+#'   rctd_simulation$reference_counts,
+#'   rctd_simulation$reference_cell_types
+#' )
+#'
+#' num_genes <- nrow(rctd_simulation$spatial_rna_counts)
+#' num_pixels <- ncol(rctd_simulation$spatial_rna_counts)
+#'
+#' noise1 <- replicate(num_pixels, rpois(num_genes, lambda = 0.1))
+#' spatial_rna1 <- SpatialRNA(
+#'   rctd_simulation$spatial_rna_coords,
+#'   rctd_simulation$spatial_rna_counts + noise1
+#' )
+#'
+#' noise2 <- replicate(num_pixels, rpois(num_genes, lambda = 0.1))
+#' spatial_rna2 <- SpatialRNA(
+#'   rctd_simulation$spatial_rna_coords,
+#'   rctd_simulation$spatial_rna_counts + noise2
+#' )
+#'
+#' spatial_rna_replicates <- list(sr1 = spatial_rna1, sr2 = spatial_rna2)
+#' rctd_replicates <- create.RCTD.replicates(
+#'   spatial_rna_replicates,
+#'   reference,
+#'   names(spatial_rna_replicates)
+#' )
+#'
+#' rctd_replicate_results <- run.RCTD.replicates(
+#'   rctd_replicates,
+#'   doublet_mode = "doublet"
+#' )
+#' head(rctd_replicate_results@RCTD.reps[[1]]@results$results_df)
+#'
 run.RCTD.replicates <- function(RCTD.replicates, doublet_mode = "doublet") {
   if (!(doublet_mode %in% c("doublet", "multi", "full"))) {
     stop(paste0("run.RCTD.replicates: doublet_mode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full."))
@@ -111,6 +179,35 @@ run.RCTD.replicates <- function(RCTD.replicates, doublet_mode = "doublet") {
 #' replicates across groups.
 #' @return an \code{\linkS4class{RCTD.replicates}} object, containing each \code{\linkS4class{RCTD}} object in \code{RCTD.reps}
 #' @export
+#' @examples
+#' set.seed(123456789)
+#' data(rctd_simulation)
+#'
+#' reference <- Reference(
+#'   rctd_simulation$reference_counts,
+#'   rctd_simulation$reference_cell_types
+#' )
+#'
+#' num_genes <- nrow(rctd_simulation$spatial_rna_counts)
+#' num_pixels <- ncol(rctd_simulation$spatial_rna_counts)
+#'
+#' noise1 <- replicate(num_pixels, rpois(num_genes, lambda = 0.1))
+#' spatial_rna1 <- SpatialRNA(
+#'   rctd_simulation$spatial_rna_coords,
+#'   rctd_simulation$spatial_rna_counts + noise1
+#' )
+#' rctd1 <- create.RCTD(spatial_rna1, reference)
+#'
+#' noise2 <- replicate(num_pixels, rpois(num_genes, lambda = 0.1))
+#' spatial_rna2 <- SpatialRNA(
+#'   rctd_simulation$spatial_rna_coords,
+#'   rctd_simulation$spatial_rna_counts + noise2
+#' )
+#' rctd2 <- create.RCTD(spatial_rna2, reference)
+#'
+#' rctds <- list(r1 = rctd1, r2 = rctd2)
+#' rctd_replicates <- merge_RCTD_objects(rctds, names(rctds))
+#'
 merge_RCTD_objects <- function(RCTD.reps, replicate_names, group_ids = NULL) {
   if (!is(RCTD.reps, "list") || any(!unlist(lapply(RCTD.reps, function(x) is(x, "RCTD"))))) {
     stop("merge_RCTD_objects: RCTD.reps must be a list of RCTD objects.")

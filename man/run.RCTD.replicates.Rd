@@ -24,3 +24,41 @@ If in doublet mode, fits at most two cell types per pixel. It classifies each pi
 on the pixel. If in full mode, can fit any number of cell types on each pixel. In multi mode, cell types are added using a greedy algorithm,
 up to a fixed number.
 }
+\examples{
+set.seed(123456789)
+data(rctd_simulation)
+
+reference <- Reference(
+  rctd_simulation$reference_counts,
+  rctd_simulation$reference_cell_types
+)
+
+num_genes <- nrow(rctd_simulation$spatial_rna_counts)
+num_pixels <- ncol(rctd_simulation$spatial_rna_counts)
+
+noise1 <- replicate(num_pixels, rpois(num_genes, lambda = 0.1))
+spatial_rna1 <- SpatialRNA(
+  rctd_simulation$spatial_rna_coords,
+  rctd_simulation$spatial_rna_counts + noise1
+)
+
+noise2 <- replicate(num_pixels, rpois(num_genes, lambda = 0.1))
+spatial_rna2 <- SpatialRNA(
+  rctd_simulation$spatial_rna_coords,
+  rctd_simulation$spatial_rna_counts + noise2
+)
+
+spatial_rna_replicates <- list(sr1 = spatial_rna1, sr2 = spatial_rna2)
+rctd_replicates <- create.RCTD.replicates(
+  spatial_rna_replicates,
+  reference,
+  names(spatial_rna_replicates)
+)
+
+rctd_replicate_results <- run.RCTD.replicates(
+  rctd_replicates,
+  doublet_mode = "doublet"
+)
+head(rctd_replicate_results@RCTD.reps[[1]]@results$results_df)
+
+}
