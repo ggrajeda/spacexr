@@ -18,8 +18,9 @@
 #' \code{myRCTD <- run.CSIDE.single(puck, explanatory.variable)}
 #'
 #' @docType package
-#' @name spacexr
-NULL
+#' @name spacexr-package
+#' @aliases spacexr spacexr-package
+"_PACKAGE"
 
 #' An S4 class to represent Spatial Transcriptomic data
 #'
