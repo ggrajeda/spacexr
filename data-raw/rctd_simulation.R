@@ -1,9 +1,16 @@
+library(SummarizedExperiment)
+
+devtools::load_all()
+
+gene_name <- function(g) paste0("g", g)
+cell_type_name <- function(ct) paste0("ct", ct)
+
 # Generates a matrix (num_genes x num_cell_types) where each column represents
 # the mean expression profile for a cell type. Genes are selected to be
 # differentially expressed with probability prob_de.
 create_expression_profile <- function(num_genes, num_cell_types, prob_de) {
   # Generate a base expression profile for all cell types.
-  base_expr_vec <- round(runif(num_genes, min = 0, max = 5), digits = 1)
+  base_expr_vec <- round(runif(num_genes, min = 0, max = 10), digits = 1)
   expr_profile <- replicate(num_cell_types, base_expr_vec)
 
   # Introduce differential expression for a random set of genes.
@@ -21,7 +28,7 @@ pure_mixtures <- function(num_cell_types, num_samples) {
   mixtures <- lapply(seq_len(num_cell_types), function(i) {
     list(prop = as.numeric(seq_len(num_cell_types) == i), n = num_samples)
   })
-  names(mixtures) <- paste0("ct", seq_len(num_cell_types))
+  names(mixtures) <- cell_type_name(seq_len(num_cell_types))
   mixtures
 }
 
@@ -29,7 +36,7 @@ pure_mixtures <- function(num_cell_types, num_samples) {
 # See simulate_spatial_transcriptomics for details on specifying the mixture.
 create_mixed_counts <- function(expression_profile, mixture) {
   prop <- mixture$prop
-  if (sum(prop) != 1) {
+  if (abs(sum(prop) - 1) > 1e-6) {
     stop("Could not create mixture. Proportions do not sum to 1.")
   } else if (length(prop) != ncol(expression_profile)) {
     stop(
@@ -56,7 +63,7 @@ simulate_counts <- function(expression_profile, mixtures) {
     create_mixed_counts(expression_profile, m)
   }))
   num_genes <- nrow(expression_profile)
-  rownames(simulated_counts) <- paste0("g", seq_len(num_genes))
+  rownames(simulated_counts) <- gene_name(seq_len(num_genes))
 
   # Create column IDs.
   num_samples <- vapply(mixtures, function(m) m$n, numeric(1))
@@ -89,8 +96,8 @@ simulate_spatial_rna_object <- function(expression_profile, test_mixtures) {
   sample_num <- colData(test_data)$sample_num - 1
   print(sample_num)
   coords <- data.frame(
-    x = as.integer(colData(test_data)$mixture_type) + (sample_num %% 5) / 6,
-    y = (sample_num %/% 5) / 5
+    x = as.integer(colData(test_data)$mixture_type) + (sample_num %% 2) / 3,
+    y = (sample_num %/% 2) / 2
   )
   rownames(coords) <- colnames(test_data)
 
@@ -129,9 +136,9 @@ simulate_spatial_transcriptomics <- function(num_genes = 750,
                                              num_reference_samples = 25,
                                              test_mixtures = pure_mixtures(
                                                num_cell_types,
-                                               15
+                                               25
                                              ),
-                                             prob_de = 0.95) {
+                                             prob_de = 0.5) {
   expression_profile <- create_expression_profile(
     num_genes, num_cell_types, prob_de
   )
@@ -143,6 +150,8 @@ simulate_spatial_transcriptomics <- function(num_genes = 750,
   true_proportions <- do.call(rbind, lapply(test_mixtures, function(m) {
     t(replicate(m$n, m$prop))
   }))
+  colnames(true_proportions) <- cell_type_name(seq_len(num_cell_types))
+  rownames(true_proportions) <- rownames(spatial_rna@coords)
 
   list(
     reference_counts = reference@counts,
@@ -155,8 +164,7 @@ simulate_spatial_transcriptomics <- function(num_genes = 750,
 
 set.seed(123456789)
 rctd_simulation <- simulate_spatial_transcriptomics(test_mixtures=list(
-  mx1 = list(prop = c(0.5, 0.5, 0.0), n = 25),
-  mx2 = list(prop = c(0.5, 0.0, 0.5), n = 25),
-  mx3 = list(prop = c(0.2, 0.4, 0.4), n = 25)
+  mx1 = list(prop = c(0.9, 0.1, 0.0), n = 6),
+  mx2 = list(prop = c(0.2, 0.4, 0.4), n = 6)
 ))
 usethis::use_data(rctd_simulation, overwrite = TRUE)

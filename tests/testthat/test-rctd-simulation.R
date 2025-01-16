@@ -14,19 +14,21 @@ test_that("Matches exactly on rctd_simulation", {
 
   # Run RCTD sequentially.
   doublet_results <- run.RCTD(rctd, doublet_mode = "doublet")
-  multi_results <- run.RCTD(rctd, doublet_mode = "multi")
-  full_results <- run.RCTD(rctd, doublet_mode = "full")
-
   expect_snapshot(doublet_results@results)
+
+  multi_results <- run.RCTD(rctd, doublet_mode = "multi")
   expect_snapshot(multi_results@results)
+
+  full_results <- run.RCTD(rctd, doublet_mode = "full")
   expect_snapshot(full_results@results)
 
   # Run RCTD in parallel.
   parallel_doublet_results <- run.RCTD(parallel_rctd, doublet_mode = "doublet")
-  parallel_multi_results <- run.RCTD(parallel_rctd, doublet_mode = "multi")
-  parallel_full_results <- run.RCTD(parallel_rctd, doublet_mode = "full")
-
   expect_equal(doublet_results@results, parallel_doublet_results@results)
+
+  parallel_multi_results <- run.RCTD(parallel_rctd, doublet_mode = "multi")
   expect_equal(multi_results@results, parallel_multi_results@results)
+
+  parallel_full_results <- run.RCTD(parallel_rctd, doublet_mode = "full")
   expect_equal(full_results@results, parallel_full_results@results)
 })
