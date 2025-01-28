@@ -95,7 +95,7 @@ calc_Q_par <- function(K, X_vals, sigma, big_params = TRUE) {
   }
   BiocParallel::register(BiocParallel::MulticoreParam(numCores))
   results <- BiocParallel::bplapply(seq_len(K + 3), function(i) {
-    cat(paste0("calc_Q: Finished i: ", i, "\n"), file = out_file, append = TRUE)
+    write(paste0("calc_Q: Finished i: ", i), file = out_file, append = TRUE)
     k <- i - 1
     result <- calc_Q_mat_one(sigma, X_vals, k, batch = 100, big_params = big_params)
   })

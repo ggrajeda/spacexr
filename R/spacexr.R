@@ -1,12 +1,12 @@
 process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
   message("Begin: process_cell_type_info")
-  message(paste("process_cell_type_info: number of cells in reference:", dim(reference@counts)[2]))
-  message(paste("process_cell_type_info: number of genes in reference:", dim(reference@counts)[1]))
+  message("process_cell_type_info: number of cells in reference: ", dim(reference@counts)[2])
+  message("process_cell_type_info: number of genes in reference: ", dim(reference@counts)[1])
   cell_counts <- table(reference@cell_types)
-  print(cell_counts)
+  message(cell_counts)
 
   if (min(cell_counts) < CELL_MIN) {
-    stop(paste0("process_cell_type_info error: need a minimum of ", CELL_MIN, " cells for each cell type in the reference"))
+    stop("process_cell_type_info error: need a minimum of ", CELL_MIN, " cells for each cell type in the reference")
   }
   cell_type_info <- get_cell_type_info(reference@counts, reference@cell_types, reference@nUMI,
     cell_type_names = cell_type_names
@@ -145,7 +145,7 @@ create.RCTD <- function(spatialRNA, reference, max_cores = 4, test_mode = FALSE,
 #'
 run.RCTD <- function(RCTD, doublet_mode = "doublet") {
   if (!(doublet_mode %in% c("doublet", "multi", "full"))) {
-    stop(paste0("run.RCTD: doublet_mode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full."))
+    stop("run.RCTD: doublet_mode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full.")
   }
   RCTD@config$RCTDmode <- doublet_mode
   RCTD <- fitBulk(RCTD)
@@ -160,7 +160,7 @@ export.RCTD <- function(RCTD, datadir) {
     stop("RCTD@config$RCTDmode is NULL. Please set to one of 'doublet', 'multi', 'full'.")
   }
   if (!(doublet_mode %in% c("doublet", "multi", "full"))) {
-    stop(paste0("export.RCTD: RCTD@config$RCTDmode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full."))
+    stop("export.RCTD: RCTD@config$RCTDmode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full.")
   }
   if (doublet_mode == "multi") {
     stop("export.RCTD not implemented for RCTD@config$RCTDmode = 'multi'. Please contact the developers for assistance.")
@@ -174,21 +174,21 @@ export.RCTD <- function(RCTD, datadir) {
 
 check_vector <- function(variable, var_name, f_name, require_int = FALSE) {
   if (!is.atomic(variable)) {
-    stop(paste0(f_name, ": ", var_name, " is not an atomic vector. Please format ", var_name, " as an atomic vector."))
+    stop(f_name, ": ", var_name, " is not an atomic vector. Please format ", var_name, " as an atomic vector.")
   }
   if (!is.numeric(variable)) {
-    stop(paste0(f_name, ": ", var_name, " is not numeric"))
+    stop(f_name, ": ", var_name, " is not numeric")
   }
   if (is.null(names(variable))) {
-    stop(paste0(f_name, ": names(", var_name, ") is null. Please enter names"))
+    stop(f_name, ": names(", var_name, ") is null. Please enter names")
   }
   if (length(variable) == 1) {
-    stop(paste0(f_name, ": the length of ", var_name, " is 1, indicating only one element present. Please format ", var_name, " so that
-         the length is greater than 1."))
+    stop(f_name, ": the length of ", var_name, " is 1, indicating only one element present. Please format ", var_name, " so that
+         the length is greater than 1.")
   }
   if (require_int) {
     if (max(abs(variable %% 1)) > 1e-6) {
-      stop(paste0(f_name, ": variable does not contain integers"))
+      stop(f_name, ": variable does not contain integers")
     }
   }
 }

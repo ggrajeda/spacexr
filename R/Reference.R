@@ -47,15 +47,15 @@ Reference <- function(counts, cell_types, nUMI = NULL, require_int = TRUE, n_max
   }
   missing_cell_types <- names(which(table(cell_types[barcodes]) == 0))
   if (length(missing_cell_types) > 0) {
-    warning(paste("Reference: missing cell types with no occurences: ", paste(missing_cell_types, collapse = ", ")))
+    warning("Reference: missing cell types with no occurences: ", paste(missing_cell_types, collapse = ", "))
   }
   reference <- new("Reference", cell_types = cell_types[barcodes], counts = counts[, barcodes], nUMI = nUMI[barcodes])
   cur_count <- max(table(reference@cell_types))
   if (cur_count > n_max_cells) {
-    warning(paste0(
+    warning(
       "Reference: number of cells per cell type is ", cur_count, ", larger than maximum allowable of ", n_max_cells,
       ". Downsampling number of cells to: ", n_max_cells
-    ))
+    )
     reference <- create_downsampled_data(reference, n_samples = n_max_cells)
   }
   return(reference)
@@ -80,7 +80,7 @@ check_cell_types <- function(cell_types) {
   cell_type_names <- levels(cell_types)
   prohibited_character <- "/"
   if (any(grepl(prohibited_character, cell_type_names))) {
-    stop(paste0("Reference: levels(cell_types) contains a cell type with name containing prohibited character ", prohibited_character, ". Please rename this cell type."))
+    stop("Reference: levels(cell_types) contains a cell type with name containing prohibited character ", prohibited_character, ". Please rename this cell type.")
   }
 }
 

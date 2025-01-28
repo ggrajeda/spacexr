@@ -52,8 +52,8 @@ solveIRWLS.weights <- function(S, B, nUMI, OLS = FALSE, constrain = TRUE, verbos
     new_solution <- solveWLS(S, S_mat, B, solution, nUMI, constrain = constrain, bulk_mode = bulk_mode)
     change <- norm(as.matrix(new_solution - solution))
     if (verbose) {
-      print(paste("Change:", change))
-      print(solution)
+      message("Change: ", change)
+      message(solution)
     }
     solution <- new_solution
     iterations <- iterations + 1

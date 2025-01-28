@@ -180,7 +180,7 @@ fitPixels <- function(RCTD, doublet_mode = "doublet") {
     )
     return(RCTD)
   } else {
-    stop(paste0("fitPixels: doublet_mode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full."))
+    stop("fitPixels: doublet_mode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full.")
   }
 }
 

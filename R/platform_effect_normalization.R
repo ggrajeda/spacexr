@@ -90,14 +90,13 @@ choose_sigma_c <- function(RCTD) {
   # get initial classification
   N_fit <- min(RCTD@config$N_fit, sum(puck@nUMI > MIN_UMI))
   if (N_fit == 0) {
-    stop(paste("choose_sigma_c determined a N_fit of 0! This is probably due to unusually low UMI counts per bead in your dataset. Try decreasing the parameter UMI_min_sigma. It currently is", MIN_UMI, "but none of the beads had counts larger than that."))
+    stop("choose_sigma_c determined a N_fit of 0! This is probably due to unusually low UMI counts per bead in your dataset. Try decreasing the parameter UMI_min_sigma. It currently is ", MIN_UMI, " but none of the beads had counts larger than that.")
   }
   fit_ind <- sample(names(puck@nUMI[puck@nUMI > MIN_UMI]), N_fit)
   beads <- t(as.matrix(puck@counts[RCTD@internal_vars$gene_list_reg, fit_ind]))
-  message(paste("chooseSigma: using initial Q_mat with sigma = ", sigma / 100))
+  message("chooseSigma: using initial Q_mat with sigma = ", sigma / 100)
   for (iter in seq_len(RCTD@config$N_epoch)) {
     set_likelihood_vars(Q_mat_all[[as.character(sigma)]], X_vals)
-    # message(paste('chooseSigma: getting initial weights for #samples: ',N_fit))
     results <- decompose_batch(puck@nUMI[fit_ind], RCTD@cell_type_info$renorm[[1]], beads, RCTD@internal_vars$gene_list_reg, constrain = FALSE, max_cores = RCTD@config$max_cores)
     weights <- Matrix(0, nrow = N_fit, ncol = RCTD@cell_type_info$renorm[[3]])
     rownames(weights) <- fit_ind
@@ -106,10 +105,10 @@ choose_sigma_c <- function(RCTD) {
       weights[i, ] <- results[[i]]$weights
     }
     prediction <- sweep(as.matrix(RCTD@cell_type_info$renorm[[1]][RCTD@internal_vars$gene_list_reg, ]) %*% t(as.matrix(weights)), 2, puck@nUMI[fit_ind], "*")
-    message(paste("Likelihood value:", calc_log_l_vec(as.vector(prediction), as.vector(t(beads)))))
+    message("Likelihood value: ", calc_log_l_vec(as.vector(prediction), as.vector(t(beads))))
     sigma_prev <- sigma
     sigma <- chooseSigma(prediction, t(beads), Q_mat_all, X_vals, sigma)
-    message(paste("Sigma value: ", sigma / 100))
+    message("Sigma value: ", sigma / 100)
     if (sigma == sigma_prev) {
       break
     }

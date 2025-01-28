@@ -94,7 +94,7 @@ simulate_reference_object <- function(expression_profile, num_samples) {
 simulate_spatial_rna_object <- function(expression_profile, test_mixtures) {
   test_data <- simulate_counts(expression_profile, test_mixtures)
   sample_num <- colData(test_data)$sample_num - 1
-  print(sample_num)
+  message(sample_num)
   coords <- data.frame(
     x = as.integer(colData(test_data)$mixture_type) + (sample_num %% 2) / 3,
     y = (sample_num %/% 2) / 2

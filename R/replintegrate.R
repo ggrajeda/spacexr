@@ -22,7 +22,7 @@ replintegrate_batch <- function(mean_mat, sd_mat) {
 replintegrate_shrink_estimates <- function(estimates, sds) {
   # qqnorm(estimates) # if looks pretty gaussian -> use a gaussian prior
   var_prior <- var(estimates) # max(var(estimates) - mean(sds^2), 0)
-  print(paste0("Var_prior: ", var_prior))
+  message("Var_prior: ", var_prior)
   shrink_ratio <- var_prior / (var_prior + sds^2)
   mean_adjusted <- estimates * shrink_ratio
   var_adjusted <- shrink_ratio * (sds^2)

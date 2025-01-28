@@ -95,7 +95,7 @@ create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_n
   }
   RCTD.reps <- list()
   for (i in seq_along(spatialRNA.replicates)) {
-    message(paste("create.RCTD.replicates: creating RCTD for replicate", i))
+    message("create.RCTD.replicates: creating RCTD for replicate ", i)
     RCTD.reps[[i]] <- create.RCTD(spatialRNA.replicates[[i]], reference,
       max_cores = max_cores, test_mode = test_mode,
       gene_cutoff = gene_cutoff, fc_cutoff = fc_cutoff, gene_cutoff_reg = gene_cutoff_reg,
@@ -163,10 +163,10 @@ create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_n
 #'
 run.RCTD.replicates <- function(RCTD.replicates, doublet_mode = "doublet") {
   if (!(doublet_mode %in% c("doublet", "multi", "full"))) {
-    stop(paste0("run.RCTD.replicates: doublet_mode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full."))
+    stop("run.RCTD.replicates: doublet_mode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full.")
   }
   for (i in seq_along(RCTD.replicates@RCTD.reps)) {
-    message(paste("run.RCTD.replicates: running RCTD for replicate", i))
+    message("run.RCTD.replicates: running RCTD for replicate ", i)
     RCTD.replicates@RCTD.reps[[i]] <- run.RCTD(RCTD.replicates@RCTD.reps[[i]], doublet_mode = doublet_mode)
   }
   return(RCTD.replicates)

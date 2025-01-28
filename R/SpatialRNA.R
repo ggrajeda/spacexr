@@ -121,40 +121,40 @@ SpatialRNA <- function(coords, counts, nUMI = NULL, use_fake_coords = FALSE, req
 
 check_UMI <- function(nUMI, f_name, require_2d = FALSE, require_int = TRUE, min_UMI = 0) {
   if (!is.atomic(nUMI)) {
-    stop(paste0(f_name, ": nUMI is not an atomic vector. Please format nUMI as an atomic vector."))
+    stop(f_name, ": nUMI is not an atomic vector. Please format nUMI as an atomic vector.")
   }
   if (!is.numeric(nUMI)) {
-    stop(paste0(f_name, ": nUMI is not numeric"))
+    stop(f_name, ": nUMI is not numeric")
   }
   if (require_int) {
     if (max(abs(nUMI %% 1)) > 1e-6) {
-      stop(paste0(f_name, ": nUMI does not contain integers"))
+      stop(f_name, ": nUMI does not contain integers")
     }
   }
   if (is.null(names(nUMI))) {
-    stop(paste0(f_name, ": names(nUMI) is null. Please enter barcodes as names"))
+    stop(f_name, ": names(nUMI) is null. Please enter barcodes as names")
   }
   if (any(duplicated(names(nUMI)))) {
-    stop(paste0(f_name, ": names(nUMI) contain duplicated elements. Please ensure barcode names are unique"))
+    stop(f_name, ": names(nUMI) contain duplicated elements. Please ensure barcode names are unique")
   }
   if (length(nUMI) == 1) {
     if (require_2d) {
-      stop(paste0(f_name, ": the length of nUMI is 1, indicating only one cell present. Please format nUMI so that the length is greater than 1."))
+      stop(f_name, ": the length of nUMI is 1, indicating only one cell present. Please format nUMI so that the length is greater than 1.")
     } else {
-      warning(paste0(f_name, ": the length of nUMI is 1, indicating only one cell present. If this is unintended, please format nUMI so that the length is greater than 1."))
+      warning(f_name, ": the length of nUMI is 1, indicating only one cell present. If this is unintended, please format nUMI so that the length is greater than 1.")
     }
   }
   if (max(nUMI) < min_UMI) {
-    stop(paste0(
+    stop(
       f_name, ": nUMI values are all less than min_UMI = ", min_UMI,
       ". Please reduce the min_UMI parameter or ensure that cells have sufficient UMI counts."
-    ))
+    )
   }
   if (min(nUMI) < min_UMI) {
-    warning(paste0(
+    warning(
       f_name, ": some nUMI values are less than min_UMI = ", min_UMI,
       ", and these cells will be removed. Optionally, you may lower the min_UMI parameter."
-    ))
+    )
   }
 }
 
@@ -166,47 +166,47 @@ check_counts <- function(counts, f_name, require_2d = FALSE, require_int = TRUE)
           counts <- as(counts, "matrix")
         },
         error = function(e) {
-          stop(paste0(f_name, ": could not convert counts to matrix using as(counts,'matrix'). Please check that counts is coercible to matrix, such as a matrix, dgCmatrix, or data.frame."))
+          stop(f_name, ": could not convert counts to matrix using as(counts,'matrix'). Please check that counts is coercible to matrix, such as a matrix, dgCmatrix, or data.frame.")
         }
       )
     }
     counts <- as(counts, "dgCMatrix")
   }
   if (dim(counts)[1] == 1) { # check more than one gene
-    stop(paste0(f_name, ": the first dimension of counts is 1, indicating only one gene present. Please format counts so that the first dimension is greater than 1."))
+    stop(f_name, ": the first dimension of counts is 1, indicating only one gene present. Please format counts so that the first dimension is greater than 1.")
   }
   if (dim(counts)[2] == 1) {
     if (require_2d) {
-      stop(paste0(f_name, ": the second dimension of counts is 1, indicating only one cell present. Please format counts so that the second dimension is greater than 1."))
+      stop(f_name, ": the second dimension of counts is 1, indicating only one cell present. Please format counts so that the second dimension is greater than 1.")
     } else {
-      warning(paste0(f_name, ": the second dimension of counts is 1, indicating only one cell/pixel present. If this is unintended, please format counts so that the second dimension is greater than 1."))
+      warning(f_name, ": the second dimension of counts is 1, indicating only one cell/pixel present. If this is unintended, please format counts so that the second dimension is greater than 1.")
     }
   }
   if (!is.numeric(counts[1, 1])) {
-    stop(paste0(f_name, ": elements of counts are not numeric"))
+    stop(f_name, ": elements of counts are not numeric")
   }
   if (require_int) {
     if (max(abs(counts %% 1)) > 1e-6) {
-      stop(paste0(f_name, ": counts does not contain integers"))
+      stop(f_name, ": counts does not contain integers")
     }
   }
   if (is.null(rownames(counts))) {
-    stop(paste0(f_name, ": rownames(counts) is null. Please enter gene names as rownames"))
+    stop(f_name, ": rownames(counts) is null. Please enter gene names as rownames")
   }
   if (is.null(colnames(counts))) {
-    stop(paste0(f_name, ": colnames(counts) is null. Please enter barcodes as colnames"))
+    stop(f_name, ": colnames(counts) is null. Please enter barcodes as colnames")
   }
   if (any(duplicated(rownames(counts)))) {
-    stop(paste0(f_name, ": rownames(counts) contain duplicated elements. Please ensure gene names are unique"))
+    stop(f_name, ": rownames(counts) contain duplicated elements. Please ensure gene names are unique")
   }
   if (any(duplicated(colnames(counts)))) {
-    stop(paste0(f_name, ": colnames(counts) contain duplicated elements. Please ensure barcode names are unique"))
+    stop(f_name, ": colnames(counts) contain duplicated elements. Please ensure barcode names are unique")
   }
   if (any(is.na(rownames(counts)))) {
-    stop(paste0(f_name, ": rownames(counts) contain NA elements. Please ensure gene names are valid"))
+    stop(f_name, ": rownames(counts) contain NA elements. Please ensure gene names are valid")
   }
   if (any(is.na(colnames(counts)))) {
-    stop(paste0(f_name, ": colnames(counts) contain NA elements. Please ensure barcode names are valid"))
+    stop(f_name, ": colnames(counts) contain NA elements. Please ensure barcode names are valid")
   }
   return(counts)
 }

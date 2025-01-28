@@ -51,11 +51,11 @@ get_de_genes <- function(cell_type_info, puck, fc_thresh = 1.25, expr_thresh = .
     }
     logFC <- log(cell_type_info[[1]][gene_list, cell_type] + epsilon) - log(other_mean + epsilon)
     type_gene_list <- which((logFC > fc_thresh) & (cell_type_info[[1]][gene_list, cell_type] > expr_thresh)) #| puck_means[gene_list] > expr_thresh)
-    message(paste0("get_de_genes: ", cell_type, " found DE genes: ", length(type_gene_list)))
+    message("get_de_genes: ", cell_type, " found DE genes: ", length(type_gene_list))
     total_gene_list <- union(total_gene_list, type_gene_list)
   }
   total_gene_list <- gene_list[total_gene_list]
-  message(paste0("get_de_genes: total DE genes: ", length(total_gene_list)))
+  message("get_de_genes: total DE genes: ", length(total_gene_list))
   return(total_gene_list)
 }
 
@@ -112,7 +112,7 @@ get_class_df <- function(cell_type_names, use_classes = FALSE) {
 subset_rctd <- function(rctd_obj, st_spot_id) {
   # 1. Report current number of spots.
   spot_ids_rctd <- rownames(rctd_obj@results$weights)
-  message(paste0("Current spatial spot count before subset: ", length(spot_ids_rctd)))
+  message("Current spatial spot count before subset: ", length(spot_ids_rctd))
 
   # 2. Subset input st_spot_id to only those that are in rctd_obj
   st_spot_id <- intersect(st_spot_id, spot_ids_rctd)
@@ -137,7 +137,7 @@ subset_rctd <- function(rctd_obj, st_spot_id) {
 
   # 3. Report new number of spots after the subset has been done.
   spot_ids_rctd_new <- rownames(rctd_obj@results$weights)
-  message(paste0("New spatial spot count size after subset: ", length(spot_ids_rctd_new)))
+  message("New spatial spot count size after subset: ", length(spot_ids_rctd_new))
 
   # Return the resulting subset of the object.
   return(rctd_obj)

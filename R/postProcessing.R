@@ -31,7 +31,7 @@ gather_results <- function(RCTD, results) {
   singlet_scores <- list()
   for (i in seq_len(N)) {
     if (i %% 1000 == 0) {
-      print(paste("gather_results: finished", i))
+      message("gather_results: finished ", i)
     }
     weights_doublet[i, ] <- results[[i]]$doublet_weights
     weights[i, ] <- results[[i]]$all_weights
@@ -107,7 +107,7 @@ get_decomposed_data <- function(results_df, gene_list, puck, weights_doublet, ce
   colnames(first_DGE) <- gene_list
   colnames(second_DGE) <- gene_list
   for (ind in seq_len(dim(doublets)[1])) {
-    print(ind)
+    message(ind)
     barcode <- rownames(doublets)[ind]
     doub_res <- decompose_doublet_fast(puck@counts[gene_list, barcode], weights_doublet[barcode, ], gene_list, cell_type_info, results_df[barcode, "first_type"], results_df[barcode, "second_type"])
     first_DGE[barcode, ] <- doub_res$expect_1
