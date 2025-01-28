@@ -48,6 +48,18 @@ setClass("SpatialRNA",
   )
 )
 
+setGeneric("coords", function(x) standardGeneric("coords"))
+#' @export
+setMethod("coords", "SpatialRNA", function(x) x@coords)
+
+setGeneric("counts", function(x) standardGeneric("counts"))
+#' @export
+setMethod("counts", "SpatialRNA", function(x) x@counts)
+
+setGeneric("nUMI", function(x) standardGeneric("nUMI"))
+#' @export
+setMethod("nUMI", "SpatialRNA", function(x) x@nUMI)
+
 #' An S4 class to represent Single-Cell RNA-seq reference
 #'
 #' @slot cell_types a factor of cell type identities for each cell
@@ -69,6 +81,16 @@ setClass("Reference",
     nUMI = NA_integer_
   )
 )
+
+setGeneric("cell_types", function(x) standardGeneric("cell_types"))
+#' @export
+setMethod("cell_types", "Reference", function(x) x@cell_types)
+
+#' @export
+setMethod("counts", "Reference", function(x) x@counts)
+
+#' @export
+setMethod("nUMI", "Reference", function(x) x@nUMI)
 
 #' An S4 class used to run the RCTD and CSIDE algorithms
 #'
@@ -127,6 +149,9 @@ setClass("RCTD",
   )
 )
 
+setGeneric("results", function(x) standardGeneric("results"))
+#' @export
+setMethod("results", "RCTD", function(x) x@results)
 
 #' An S4 class used to store multiple replicates as \code{\linkS4class{SpatialRNA}} objects.
 #'
@@ -169,3 +194,7 @@ setClass("RCTD.replicates",
     group_ids = NA_integer_
   )
 )
+
+setGeneric("RCTD.reps", function(x) standardGeneric("RCTD.reps"))
+#' @export
+setMethod("RCTD.reps", "RCTD.replicates", function(x) x@RCTD.reps)

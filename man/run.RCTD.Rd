@@ -33,7 +33,7 @@ spatial_rna <- SpatialRNA(
 )
 
 rctd <- create.RCTD(spatial_rna, reference)
-rctd_results <- run.RCTD(rctd, doublet_mode = "doublet")
-head(rctd_results@results$results_df)
+rctd <- run.RCTD(rctd, doublet_mode = "doublet")
+head(results(rctd)$results_df)
 
 }

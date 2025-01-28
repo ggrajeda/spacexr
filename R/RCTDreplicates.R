@@ -153,11 +153,13 @@ create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_n
 #'   names(spatial_rna_replicates)
 #' )
 #'
-#' rctd_replicate_results <- run.RCTD.replicates(
+#' rctd_replicates <- run.RCTD.replicates(
 #'   rctd_replicates,
 #'   doublet_mode = "doublet"
 #' )
-#' head(rctd_replicate_results@RCTD.reps[[1]]@results$results_df)
+#' 
+#' first_result <- results(RCTD.reps(rctd_replicates)[[1]])
+#' head(first_result$results_df)
 #'
 run.RCTD.replicates <- function(RCTD.replicates, doublet_mode = "doublet") {
   if (!(doublet_mode %in% c("doublet", "multi", "full"))) {

@@ -61,3 +61,8 @@ C-SIDE can detect differential expression (DE) along one or multiple user-define
 ## Batch processing of multiple experimental replicates + population-level DE inference
 
 Finally, when multiple experimental replicates are available, RCTD and C-SIDE can be run in batch across replicates as shown in [Population-level RCTD and C-SIDE](https://raw.githack.com/dmcable/spacexr/master/vignettes/replicates.html). This approach also allows for population-level differential expression statistical inference.
+
+```{r sessionInfo}
+sessionInfo()
+```
+
