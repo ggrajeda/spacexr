@@ -39,7 +39,7 @@ check_pairs_type <- function(cell_type_profiles, bead, UMI_tot, score_mat, min_s
   all_pairs <- TRUE
   all_pairs_class <- !is.null(class_df)
   other_class <- my_type # other types present from this class
-  for (i in 1:(length(candidates) - 1)) {
+  for (i in seq_len(length(candidates) - 1)) {
     type1 <- candidates[i]
     for (j in (i + 1):length(candidates)) {
       type2 <- candidates[j]
@@ -89,7 +89,7 @@ process_bead_doublet <- function(cell_type_info, gene_list, UMI_tot, bead, class
   cell_type_names <- cell_type_info[[2]]
   candidates <- names(which(all_weights > initial_weight_thresh))
   if (length(candidates) == 0) {
-    candidates <- cell_type_info[[2]][1:min(3, cell_type_info[[3]])]
+    candidates <- cell_type_info[[2]][seq_len(min(3, cell_type_info[[3]]))]
   }
   if (length(candidates) == 1) {
     if (candidates[1] == cell_type_info[[2]][1]) {
@@ -114,7 +114,7 @@ process_bead_doublet <- function(cell_type_info, gene_list, UMI_tot, bead, class
   second_type <- NULL
   first_class <- FALSE
   second_class <- FALSE # indicates whether the first (resp second) refers to a class rather than a type
-  for (i in 1:(length(candidates) - 1)) {
+  for (i in seq_len(length(candidates) - 1)) {
     type1 <- candidates[i]
     for (j in (i + 1):length(candidates)) {
       type2 <- candidates[j]
@@ -191,7 +191,7 @@ process_bead_multi <- function(cell_type_info, gene_list, UMI_tot, bead, class_d
   }
   cell_type_list <- c()
   curr_score <- 10000000000
-  for (n in 1:MAX.TYPES) {
+  for (n in seq_len(MAX.TYPES)) {
     min_score <- curr_score
     best_type <- NULL
     for (type in candidates) {

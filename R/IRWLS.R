@@ -38,7 +38,7 @@ solveIRWLS.weights <- function(S, B, nUMI, OLS = FALSE, constrain = TRUE, verbos
 
   S_mat <- matrix(0, nrow = dim(S)[1], ncol = dim(S)[2] * (dim(S)[2] + 1) / 2)
   counter <- 1
-  for (i in 1:dim(S)[2]) {
+  for (i in seq_len(dim(S)[2])) {
     for (j in i:dim(S)[2]) {
       S_mat[, counter] <- S[, i] * S[, j] # depends on n^2
       counter <- counter + 1

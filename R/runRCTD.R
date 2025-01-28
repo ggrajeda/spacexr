@@ -4,8 +4,8 @@ test_single_beads <- function(puck, gene_list, cell_type_info, trust_model = FAL
   beads <- t(as.matrix(puck@counts[gene_list, ]))
   weights <- decompose_batch(puck@nUMI, cell_type_info[[1]], beads, gene_list, constrain = constrain, OLS = OLS)
   pred_labels <- unlist(lapply(weights, function(x) which.max(x$weights)))
-  cell_type_lev <- factor(1:n_cell_types)
-  cell_type_map <- data.frame(cindex = 1:n_cell_types, row.names = cell_type_names)
+  cell_type_lev <- factor(seq_len(n_cell_types))
+  cell_type_map <- data.frame(cindex = seq_len(n_cell_types), row.names = cell_type_names)
   if (trust_model) {
     true_labels <- pred_labels
   } else {
@@ -85,7 +85,7 @@ process_beads_batch <- function(cell_type_info, gene_list, puck, class_df = NULL
       numCores <- MAX_CORES
     }
     BiocParallel::register(BiocParallel::MulticoreParam(numCores))
-    results <- BiocParallel::bplapply(1:(dim(beads)[1]), function(i) {
+    results <- BiocParallel::bplapply(seq_len(dim(beads)[1]), function(i) {
       process_bead_doublet(cell_type_info, gene_list, puck@nUMI[i], beads[i, ],
         class_df = class_df, constrain = constrain, MIN.CHANGE = MIN.CHANGE,
         CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
@@ -94,7 +94,7 @@ process_beads_batch <- function(cell_type_info, gene_list, puck, class_df = NULL
   } else {
     # not parallel
     results <- list()
-    for (i in 1:(dim(beads)[1])) {
+    for (i in seq_len(dim(beads)[1])) {
       results[[i]] <- process_bead_doublet(cell_type_info, gene_list, puck@nUMI[i], beads[i, ],
         class_df = class_df, constrain = constrain, MIN.CHANGE = MIN.CHANGE,
         CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
@@ -113,7 +113,7 @@ process_beads_multi <- function(cell_type_info, gene_list, puck, class_df = NULL
       numCores <- MAX_CORES
     }
     BiocParallel::register(BiocParallel::MulticoreParam(numCores))
-    results <- BiocParallel::bplapply(1:(dim(beads)[1]), function(i) {
+    results <- BiocParallel::bplapply(seq_len(dim(beads)[1]), function(i) {
       process_bead_multi(cell_type_info, gene_list, puck@nUMI[i], beads[i, ],
         class_df = class_df, constrain = constrain, MIN.CHANGE = MIN.CHANGE, MAX.TYPES = MAX.TYPES,
         CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
@@ -122,7 +122,7 @@ process_beads_multi <- function(cell_type_info, gene_list, puck, class_df = NULL
   } else {
     # not parallel
     results <- list()
-    for (i in 1:(dim(beads)[1])) {
+    for (i in seq_len(dim(beads)[1])) {
       results[[i]] <- process_bead_multi(cell_type_info, gene_list, puck@nUMI[i],
         beads[i, ],
         class_df = class_df,
@@ -166,7 +166,7 @@ fitPixels <- function(RCTD, doublet_mode = "doublet") {
     weights <- Matrix(0, nrow = length(results), ncol = RCTD@cell_type_info$renorm[[3]])
     rownames(weights) <- colnames(RCTD@spatialRNA@counts)
     colnames(weights) <- RCTD@cell_type_info$renorm[[2]]
-    for (i in 1:dim(weights)[1]) {
+    for (i in seq_len(dim(weights)[1])) {
       weights[i, ] <- results[[i]]$weights
     }
     RCTD@results <- list(weights = weights)
@@ -194,12 +194,12 @@ decompose_batch <- function(nUMI, cell_type_means, beads, gene_list, constrain =
       numCores <- max_cores
     }
     BiocParallel::register(BiocParallel::MulticoreParam(numCores))
-    weights <- BiocParallel::bplapply(1:(dim(beads)[1]), function(i) {
+    weights <- BiocParallel::bplapply(seq_len(dim(beads)[1]), function(i) {
       decompose_full(data.matrix(cell_type_means[gene_list, ] * nUMI[i]), nUMI[i], beads[i, ], constrain = constrain, OLS = OLS, MIN_CHANGE = MIN.CHANGE)
     })
   } else {
     weights <- list()
-    for (i in 1:(dim(beads)[1])) {
+    for (i in seq_len(dim(beads)[1])) {
       weights[[i]] <- decompose_full(data.matrix(cell_type_means[gene_list, ] * nUMI[i]), nUMI[i], beads[i, ], constrain = constrain, OLS = OLS, MIN_CHANGE = MIN.CHANGE)
     }
   }

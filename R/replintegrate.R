@@ -11,8 +11,8 @@ replintegrate_batch <- function(mean_mat, sd_mat) {
   D <- nrow(mean_mat)
   results <- matrix(0, D, 3)
   colnames(results) <- c("mean", "sd", "sig_p")
-  for (i in 1:D) {
-    results[i, 1:3] <- unlist(replintegrate(mean_mat[i, ], sd_mat[i, ]))
+  for (i in seq_len(D)) {
+    results[i, seq_len(3)] <- unlist(replintegrate(mean_mat[i, ], sd_mat[i, ]))
     results
   }
   return(data.frame(results))

@@ -19,9 +19,9 @@ solve_sq <- function(Q_mat, X_vals) {
   n <- dim(Q_mat)[2] - 1
   M <- matrix(0, n - 1, n - 1)
   del <- diff(X_vals)
-  diag(M) <- 2 * (del[1:(n - 1)] + del[2:n])
-  M[cbind(2:(n - 1), 1:(n - 2))] <- del[2:(n - 1)]
-  M[cbind(1:(n - 2), 2:(n - 1))] <- del[2:(n - 1)]
+  diag(M) <- 2 * (del[seq_len(n - 1)] + del[2:n])
+  M[cbind(2:(n - 1), seq_len(n - 2))] <- del[2:(n - 1)]
+  M[cbind(seq_len(n - 2), 2:(n - 1))] <- del[2:(n - 1)]
   MI <- solve(M)
   fB <- sweep(diff(t(Q_mat)), 1, del, "/")
   fBD <- 6 * diff(fB)
@@ -75,7 +75,7 @@ get_Q <- function(X_vals, k, sigma, big_params = TRUE) {
 calc_Q_mat_one <- function(sigma, X_vals, k, batch = 100, big_params = TRUE) {
   N_X <- length(X_vals)
   results <- numeric(N_X)
-  for (b in 1:ceiling(N_X / batch)) {
+  for (b in seq_len(ceiling(N_X / batch))) {
     X_ind <- (batch * (b - 1) + 1):min((batch * b), N_X)
     curr_X <- X_vals[X_ind]
     results[X_ind] <- get_Q(curr_X, k, sigma, big_params = big_params)
@@ -94,7 +94,7 @@ calc_Q_par <- function(K, X_vals, sigma, big_params = TRUE) {
     numCores <- MAX_CORES
   }
   BiocParallel::register(BiocParallel::MulticoreParam(numCores))
-  results <- BiocParallel::bplapply(1:(K + 3), function(i) {
+  results <- BiocParallel::bplapply(seq_len(K + 3), function(i) {
     cat(paste0("calc_Q: Finished i: ", i, "\n"), file = out_file, append = TRUE)
     k <- i - 1
     result <- calc_Q_mat_one(sigma, X_vals, k, batch = 100, big_params = big_params)
@@ -193,7 +193,7 @@ get_der_fast <- function(S, S_mat, B, gene_list, prediction, bulk_mode = FALSE) 
   hess_c <- -d2_vec %*% S_mat
   hess <- matrix(0, nrow = dim(S)[2], ncol = dim(S)[2])
   counter <- 1
-  for (i in 1:dim(S)[2]) {
+  for (i in seq_len(dim(S)[2])) {
     l <- dim(S)[2] - i
     hess[i, i:dim(S)[2]] <- hess_c[counter:(counter + l)]
     hess[i, i] <- hess[i, i] / 2

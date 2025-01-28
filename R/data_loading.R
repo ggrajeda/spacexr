@@ -74,7 +74,7 @@ cached_Q_mat_filepath <- function(n) {
 }
 
 verify_Q_cache <- function() {
-  Q_files <- vapply(1:5, cached_Q_mat_filepath, character(1))
+  Q_files <- vapply(seq_len(5), cached_Q_mat_filepath, character(1))
   all(vapply(Q_files, file.exists, logical(1)))
 }
 
@@ -89,7 +89,7 @@ cache_Q_all <- function() {
     )
   }
   cache <- BiocFileCache::BiocFileCache()
-  lapply(1:5, function(i) {
+  lapply(seq_len(5), function(i) {
     BiocFileCache::bfcadd(cache, rname = remote_Q_mat_url(i), rtype = "web")
   })
 }
@@ -101,7 +101,7 @@ load_Q_all <- function() {
   if (!verify_Q_cache()) {
     cache_Q_all()
   }
-  paths <- vapply(1:5, cached_Q_mat_filepath, character(1))
+  paths <- vapply(seq_len(5), cached_Q_mat_filepath, character(1))
   unlist(lapply(paths, readRDS), recursive = FALSE)
 }
 

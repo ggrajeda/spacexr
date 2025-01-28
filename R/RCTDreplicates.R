@@ -94,7 +94,7 @@ create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_n
     stop("create.RCTD.replicates: each group in group_ids must contain at least two replicates.")
   }
   RCTD.reps <- list()
-  for (i in 1:length(spatialRNA.replicates)) {
+  for (i in seq_along(spatialRNA.replicates)) {
     message(paste("create.RCTD.replicates: creating RCTD for replicate", i))
     RCTD.reps[[i]] <- create.RCTD(spatialRNA.replicates[[i]], reference,
       max_cores = max_cores, test_mode = test_mode,
@@ -157,7 +157,7 @@ create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_n
 #'   rctd_replicates,
 #'   doublet_mode = "doublet"
 #' )
-#' 
+#'
 #' first_result <- results(RCTD.reps(rctd_replicates)[[1]])
 #' head(first_result$results_df)
 #'
@@ -165,7 +165,7 @@ run.RCTD.replicates <- function(RCTD.replicates, doublet_mode = "doublet") {
   if (!(doublet_mode %in% c("doublet", "multi", "full"))) {
     stop(paste0("run.RCTD.replicates: doublet_mode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full."))
   }
-  for (i in 1:length(RCTD.replicates@RCTD.reps)) {
+  for (i in seq_along(RCTD.replicates@RCTD.reps)) {
     message(paste("run.RCTD.replicates: running RCTD for replicate", i))
     RCTD.replicates@RCTD.reps[[i]] <- run.RCTD(RCTD.replicates@RCTD.reps[[i]], doublet_mode = doublet_mode)
   }

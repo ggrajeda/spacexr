@@ -1,7 +1,7 @@
 repliterate <- function(init_mean, likelihood_fn, epsilon = 1e-8, MAX.ITER = 20) {
   mean_est_prev <- -100
   posterior_mean <- init_mean
-  for (i in 1:MAX.ITER) {
+  for (i in seq_len(MAX.ITER)) {
     ld <- likelihood_fn(posterior_mean)
     samp_dist <- likelihood_to_dist(posterior_mean, ld$d1, ld$d2)
     posterior_mean <- get_posterior_mean(samp_dist$mu, samp_dist$sigma)

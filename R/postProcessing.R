@@ -29,7 +29,7 @@ gather_results <- function(RCTD, results) {
   )
   score_mat <- list()
   singlet_scores <- list()
-  for (i in 1:N) {
+  for (i in seq_len(N)) {
     if (i %% 1000 == 0) {
       print(paste("gather_results: finished", i))
     }
@@ -62,7 +62,7 @@ get_decomposed_data_full_doublet <- function(gene_list, puck, weights, ct_info) 
   rownames(second_DGE) <- rownames(weights)
   colnames(first_DGE) <- gene_list
   colnames(second_DGE) <- gene_list
-  for (ind in 1:dim(weights)[1]) {
+  for (ind in seq_len(dim(weights)[1])) {
     barcode <- rownames(weights)[ind]
     doub_res <- decompose_doublet_fast(puck@counts[gene_list, barcode], weights[barcode, ], gene_list, ct_info, colnames(weights)[1], colnames(weights)[2])
     first_DGE[barcode, ] <- doub_res$expect_1
@@ -73,9 +73,9 @@ get_decomposed_data_full_doublet <- function(gene_list, puck, weights, ct_info) 
   all_DGE <- rbind(norm1, norm2)
   cell_type_labels <- unlist(list(rep(colnames(weights)[1], dim(weights)[1]), rep(colnames(weights)[2], dim(weights)[1])))
   nUMI <- c(weights[rownames(weights), 1] * puck@nUMI[rownames(first_DGE)], weights[rownames(weights), 2] * puck@nUMI[rownames(second_DGE)])
-  rownames(all_DGE) <- 1:dim(all_DGE)[1]
-  names(cell_type_labels) <- 1:dim(all_DGE)[1]
-  names(nUMI) <- 1:dim(all_DGE)[1]
+  rownames(all_DGE) <- seq_len(dim(all_DGE)[1])
+  names(cell_type_labels) <- seq_len(dim(all_DGE)[1])
+  names(nUMI) <- seq_len(dim(all_DGE)[1])
   ref_d <- Reference(t(all_DGE), factor(cell_type_labels), nUMI, require_int = FALSE)
   return(ref_d)
 }
@@ -106,7 +106,7 @@ get_decomposed_data <- function(results_df, gene_list, puck, weights_doublet, ce
   rownames(second_DGE) <- rownames(doublets)
   colnames(first_DGE) <- gene_list
   colnames(second_DGE) <- gene_list
-  for (ind in 1:dim(doublets)[1]) {
+  for (ind in seq_len(dim(doublets)[1])) {
     print(ind)
     barcode <- rownames(doublets)[ind]
     doub_res <- decompose_doublet_fast(puck@counts[gene_list, barcode], weights_doublet[barcode, ], gene_list, cell_type_info, results_df[barcode, "first_type"], results_df[barcode, "second_type"])
@@ -118,9 +118,9 @@ get_decomposed_data <- function(results_df, gene_list, puck, weights_doublet, ce
   cell_type_labels <- unlist(list(doublets$first_type, doublets$second_type, results_df[singlet_id, "first_type"]))
   coords <- rbind(puck@coords[rownames(doublets), c("x", "y")], puck@coords[rownames(doublets), c("x", "y")], puck@coords[singlet_id, c("x", "y")])
   nUMI <- c(weights_doublet[rownames(doublets), "first_type"] * puck@nUMI[rownames(first_DGE)], weights_doublet[rownames(doublets), "second_type"] * puck@nUMI[rownames(second_DGE)], puck@nUMI[singlet_id])
-  rownames(coords) <- 1:dim(coords)[1]
-  names(nUMI) <- 1:dim(coords)[1]
-  rownames(all_DGE) <- 1:dim(coords)[1]
+  rownames(coords) <- seq_len(dim(coords)[1])
+  names(nUMI) <- seq_len(dim(coords)[1])
+  rownames(all_DGE) <- seq_len(dim(coords)[1])
   puck_d <- SpatialRNA(coords, t(all_DGE), nUMI, require_int = FALSE)
   return(puck_d)
 }
