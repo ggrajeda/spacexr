@@ -8,6 +8,8 @@ get_X_vals <- memoise::memoise(load_X_vals)
 #' returns it for NULL values.
 #'
 #' This is effectively used to manage global variables.
+#'
+#' @return cache function
 #' @keywords internal
 make_cache <- function() {
   cache <- NULL

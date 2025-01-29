@@ -7,6 +7,9 @@ returns it for NULL values.}
 \usage{
 make_cache()
 }
+\value{
+cache function
+}
 \description{
 This is effectively used to manage global variables.
 }

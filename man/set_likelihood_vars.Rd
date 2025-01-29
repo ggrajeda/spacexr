@@ -14,6 +14,9 @@ set_likelihood_vars(Q_mat_loc, X_vals, sigma = NULL)
 \item{sigma}{(default NULL). If NULL, computes SQ_mat according to Q_mat_loc.
 Else, uses precomputed values of SQ_mat stored in SQ_mat_all with index sigma}
 }
+\value{
+Return value should be ignored.
+}
 \description{
 Given a matrix, \code{Q_mat}, or log P(y|x), under the Poisson-Lognormal model.
 Sets this as a global variable for fast computations in the future.

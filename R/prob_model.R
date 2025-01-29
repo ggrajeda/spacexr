@@ -7,6 +7,7 @@
 #' @param X_vals the x-values used for computing the likelihood functions.
 #' @param sigma (default NULL). If NULL, computes SQ_mat according to Q_mat_loc.
 #' Else, uses precomputed values of SQ_mat stored in SQ_mat_all with index sigma
+#' @return Return value should be ignored.
 #' @keywords internal
 set_likelihood_vars <- function(Q_mat_loc, X_vals, sigma = NULL) {
   set_Q_mat(Q_mat_loc)
