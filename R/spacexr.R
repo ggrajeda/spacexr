@@ -6,7 +6,7 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
   message(cell_counts)
 
   if (min(cell_counts) < CELL_MIN) {
-    stop("process_cell_type_info error: need a minimum of ", CELL_MIN, " cells for each cell type in the reference")
+    stop("process_cell_type_info: need a minimum of ", CELL_MIN, " cells for each cell type in the reference")
   }
   cell_type_info <- get_cell_type_info(reference@counts, reference@cell_types, reference@nUMI,
     cell_type_names = cell_type_names
@@ -95,12 +95,12 @@ create.RCTD <- function(spatialRNA, reference, max_cores = 4, test_mode = FALSE,
   # puckMeans <- rowMeans(sweep(puck@counts, 2 , puck@nUMI, '/'))
   gene_list_reg <- get_de_genes(cell_type_info$info, puck.original, fc_thresh = config$fc_cutoff_reg, expr_thresh = config$gene_cutoff_reg, MIN_OBS = config$MIN_OBS)
   if (length(gene_list_reg) < 10) {
-    stop("create.RCTD: Error: fewer than 10 regression differentially expressed genes found")
+    stop("create.RCTD: fewer than 10 regression differentially expressed genes found")
   }
   message("create.RCTD: getting platform effect normalization differentially expressed genes: ")
   gene_list_bulk <- get_de_genes(cell_type_info$info, puck.original, fc_thresh = config$fc_cutoff, expr_thresh = config$gene_cutoff, MIN_OBS = config$MIN_OBS)
   if (length(gene_list_bulk) < 10) {
-    stop("create.RCTD: Error: fewer than 10 bulk differentially expressed genes found")
+    stop("create.RCTD: fewer than 10 bulk differentially expressed genes found")
   }
   puck <- restrict_counts(puck.original, gene_list_bulk,
     UMI_thresh = config$UMI_min,
