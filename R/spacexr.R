@@ -1,18 +1,18 @@
 process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
-  message("Begin: process_cell_type_info")
-  message("process_cell_type_info: number of cells in reference: ", dim(reference@counts)[2])
-  message("process_cell_type_info: number of genes in reference: ", dim(reference@counts)[1])
-  cell_counts <- table(reference@cell_types)
-  message(cell_counts)
+    message("Begin: process_cell_type_info")
+    message("process_cell_type_info: number of cells in reference: ", dim(reference@counts)[2])
+    message("process_cell_type_info: number of genes in reference: ", dim(reference@counts)[1])
+    cell_counts <- table(reference@cell_types)
+    message(cell_counts)
 
-  if (min(cell_counts) < CELL_MIN) {
-    stop("process_cell_type_info: need a minimum of ", CELL_MIN, " cells for each cell type in the reference")
-  }
-  cell_type_info <- get_cell_type_info(reference@counts, reference@cell_types, reference@nUMI,
-    cell_type_names = cell_type_names
-  )
-  message("End: process_cell_type_info")
-  return(cell_type_info)
+    if (min(cell_counts) < CELL_MIN) {
+        stop("process_cell_type_info: need a minimum of ", CELL_MIN, " cells for each cell type in the reference")
+    }
+    cell_type_info <- get_cell_type_info(reference@counts, reference@cell_types, reference@nUMI,
+        cell_type_names = cell_type_names
+    )
+    message("End: process_cell_type_info")
+    return(cell_type_info)
 }
 
 #' Creates an \code{\linkS4class{RCTD}} object from a scRNA-seq reference \code{Reference} object and a \code{\linkS4class{SpatialRNA}} object
@@ -46,73 +46,73 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #' data(rctd_simulation)
 #'
 #' reference <- Reference(
-#'   rctd_simulation$reference_counts,
-#'   rctd_simulation$reference_cell_types
+#'     rctd_simulation$reference_counts,
+#'     rctd_simulation$reference_cell_types
 #' )
 #' spatial_rna <- SpatialRNA(
-#'   rctd_simulation$spatial_rna_coords,
-#'   rctd_simulation$spatial_rna_counts
+#'     rctd_simulation$spatial_rna_coords,
+#'     rctd_simulation$spatial_rna_counts
 #' )
 #'
 #' rctd <- create.RCTD(spatial_rna, reference)
 #'
 create.RCTD <- function(spatialRNA, reference, max_cores = 4, test_mode = FALSE, gene_cutoff = 0.000125, fc_cutoff = 0.5, gene_cutoff_reg = 0.0002, fc_cutoff_reg = 0.75, UMI_min = 100, UMI_max = 20000000, counts_MIN = 10, UMI_min_sigma = 300,
                         class_df = NULL, CELL_MIN_INSTANCE = 25, cell_type_names = NULL, MAX_MULTI_TYPES = 4, keep_reference = FALSE, cell_type_profiles = NULL, CONFIDENCE_THRESHOLD = 5, DOUBLET_THRESHOLD = 20) {
-  config <- list(
-    gene_cutoff = gene_cutoff, fc_cutoff = fc_cutoff, gene_cutoff_reg = gene_cutoff_reg, fc_cutoff_reg = fc_cutoff_reg, UMI_min = UMI_min, UMI_min_sigma = UMI_min_sigma, max_cores = max_cores,
-    N_epoch = 8, N_X = 50000, K_val = 100, N_fit = 1000, N_epoch_bulk = 30,
-    MIN_CHANGE_BULK = 0.0001, MIN_CHANGE_REG = 0.001, UMI_max = UMI_max, counts_MIN = counts_MIN,
-    MIN_OBS = 3, MAX_MULTI_TYPES = MAX_MULTI_TYPES, CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
-  )
-  if (test_mode) {
     config <- list(
-      gene_cutoff = .00125, fc_cutoff = 0.5, gene_cutoff_reg = 0.002, fc_cutoff_reg = 0.75, UMI_min = 1000,
-      N_epoch = 1, N_X = 50000, K_val = 100, N_fit = 50, N_epoch_bulk = 4, MIN_CHANGE_BULK = 1,
-      MIN_CHANGE_REG = 0.001, UMI_max = 200000, MIN_OBS = 3, max_cores = 1, counts_MIN = 5,
-      UMI_min_sigma = 300, MAX_MULTI_TYPES = MAX_MULTI_TYPES, CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
+        gene_cutoff = gene_cutoff, fc_cutoff = fc_cutoff, gene_cutoff_reg = gene_cutoff_reg, fc_cutoff_reg = fc_cutoff_reg, UMI_min = UMI_min, UMI_min_sigma = UMI_min_sigma, max_cores = max_cores,
+        N_epoch = 8, N_X = 50000, K_val = 100, N_fit = 1000, N_epoch_bulk = 30,
+        MIN_CHANGE_BULK = 0.0001, MIN_CHANGE_REG = 0.001, UMI_max = UMI_max, counts_MIN = counts_MIN,
+        MIN_OBS = 3, MAX_MULTI_TYPES = MAX_MULTI_TYPES, CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
     )
-  }
-  if (is.null(cell_type_profiles)) {
-    if (is.null(cell_type_names)) {
-      cell_type_names <- levels(reference@cell_types)
+    if (test_mode) {
+        config <- list(
+            gene_cutoff = .00125, fc_cutoff = 0.5, gene_cutoff_reg = 0.002, fc_cutoff_reg = 0.75, UMI_min = 1000,
+            N_epoch = 1, N_X = 50000, K_val = 100, N_fit = 50, N_epoch_bulk = 4, MIN_CHANGE_BULK = 1,
+            MIN_CHANGE_REG = 0.001, UMI_max = 200000, MIN_OBS = 3, max_cores = 1, counts_MIN = 5,
+            UMI_min_sigma = 300, MAX_MULTI_TYPES = MAX_MULTI_TYPES, CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
+        )
     }
-    cell_type_info <- list(info = process_cell_type_info(reference, cell_type_names = cell_type_names, CELL_MIN = CELL_MIN_INSTANCE), renorm = NULL)
-  } else {
-    cell_type_names <- colnames(cell_type_profiles)
-    cell_type_info <- list(
-      info = list(cell_type_profiles, cell_type_names, length(cell_type_names)),
-      renorm = NULL
+    if (is.null(cell_type_profiles)) {
+        if (is.null(cell_type_names)) {
+            cell_type_names <- levels(reference@cell_types)
+        }
+        cell_type_info <- list(info = process_cell_type_info(reference, cell_type_names = cell_type_names, CELL_MIN = CELL_MIN_INSTANCE), renorm = NULL)
+    } else {
+        cell_type_names <- colnames(cell_type_profiles)
+        cell_type_info <- list(
+            info = list(cell_type_profiles, cell_type_names, length(cell_type_names)),
+            renorm = NULL
+        )
+    }
+    if (!keep_reference) {
+        reference <- create_downsampled_data(reference, n_samples = 5)
+    }
+    puck.original <- restrict_counts(spatialRNA, rownames(spatialRNA@counts),
+        UMI_thresh = config$UMI_min, UMI_max = config$UMI_max,
+        counts_thresh = config$counts_MIN
     )
-  }
-  if (!keep_reference) {
-    reference <- create_downsampled_data(reference, n_samples = 5)
-  }
-  puck.original <- restrict_counts(spatialRNA, rownames(spatialRNA@counts),
-    UMI_thresh = config$UMI_min, UMI_max = config$UMI_max,
-    counts_thresh = config$counts_MIN
-  )
-  message("create.RCTD: getting regression differentially expressed genes: ")
-  # puckMeans <- rowMeans(sweep(puck@counts, 2 , puck@nUMI, '/'))
-  gene_list_reg <- get_de_genes(cell_type_info$info, puck.original, fc_thresh = config$fc_cutoff_reg, expr_thresh = config$gene_cutoff_reg, MIN_OBS = config$MIN_OBS)
-  if (length(gene_list_reg) < 10) {
-    stop("create.RCTD: fewer than 10 regression differentially expressed genes found")
-  }
-  message("create.RCTD: getting platform effect normalization differentially expressed genes: ")
-  gene_list_bulk <- get_de_genes(cell_type_info$info, puck.original, fc_thresh = config$fc_cutoff, expr_thresh = config$gene_cutoff, MIN_OBS = config$MIN_OBS)
-  if (length(gene_list_bulk) < 10) {
-    stop("create.RCTD: fewer than 10 bulk differentially expressed genes found")
-  }
-  puck <- restrict_counts(puck.original, gene_list_bulk,
-    UMI_thresh = config$UMI_min,
-    UMI_max = config$UMI_max, counts_thresh = config$counts_MIN
-  )
-  puck <- restrict_puck(puck, colnames(puck@counts))
-  if (is.null(class_df)) {
-    class_df <- data.frame(cell_type_info$info[[2]], row.names = cell_type_info$info[[2]])
-  }
-  colnames(class_df)[1] <- "class"
-  internal_vars <- list(gene_list_reg = gene_list_reg, gene_list_bulk = gene_list_bulk, proportions = NULL, class_df = class_df, cell_types_assigned = FALSE)
-  new("RCTD", spatialRNA = puck, originalSpatialRNA = puck.original, reference = reference, config = config, cell_type_info = cell_type_info, internal_vars = internal_vars)
+    message("create.RCTD: getting regression differentially expressed genes: ")
+    # puckMeans <- rowMeans(sweep(puck@counts, 2 , puck@nUMI, '/'))
+    gene_list_reg <- get_de_genes(cell_type_info$info, puck.original, fc_thresh = config$fc_cutoff_reg, expr_thresh = config$gene_cutoff_reg, MIN_OBS = config$MIN_OBS)
+    if (length(gene_list_reg) < 10) {
+        stop("create.RCTD: fewer than 10 regression differentially expressed genes found")
+    }
+    message("create.RCTD: getting platform effect normalization differentially expressed genes: ")
+    gene_list_bulk <- get_de_genes(cell_type_info$info, puck.original, fc_thresh = config$fc_cutoff, expr_thresh = config$gene_cutoff, MIN_OBS = config$MIN_OBS)
+    if (length(gene_list_bulk) < 10) {
+        stop("create.RCTD: fewer than 10 bulk differentially expressed genes found")
+    }
+    puck <- restrict_counts(puck.original, gene_list_bulk,
+        UMI_thresh = config$UMI_min,
+        UMI_max = config$UMI_max, counts_thresh = config$counts_MIN
+    )
+    puck <- restrict_puck(puck, colnames(puck@counts))
+    if (is.null(class_df)) {
+        class_df <- data.frame(cell_type_info$info[[2]], row.names = cell_type_info$info[[2]])
+    }
+    colnames(class_df)[1] <- "class"
+    internal_vars <- list(gene_list_reg = gene_list_reg, gene_list_bulk = gene_list_bulk, proportions = NULL, class_df = class_df, cell_types_assigned = FALSE)
+    new("RCTD", spatialRNA = puck, originalSpatialRNA = puck.original, reference = reference, config = config, cell_type_info = cell_type_info, internal_vars = internal_vars)
 }
 
 #' Runs the RCTD pipeline on a \code{\linkS4class{RCTD}} object
@@ -131,12 +131,12 @@ create.RCTD <- function(spatialRNA, reference, max_cores = 4, test_mode = FALSE,
 #' data(rctd_simulation)
 #'
 #' reference <- Reference(
-#'   rctd_simulation$reference_counts,
-#'   rctd_simulation$reference_cell_types
+#'     rctd_simulation$reference_counts,
+#'     rctd_simulation$reference_cell_types
 #' )
 #' spatial_rna <- SpatialRNA(
-#'   rctd_simulation$spatial_rna_coords,
-#'   rctd_simulation$spatial_rna_counts
+#'     rctd_simulation$spatial_rna_coords,
+#'     rctd_simulation$spatial_rna_counts
 #' )
 #'
 #' rctd <- create.RCTD(spatial_rna, reference)
@@ -144,53 +144,52 @@ create.RCTD <- function(spatialRNA, reference, max_cores = 4, test_mode = FALSE,
 #' head(results(rctd)$results_df)
 #'
 run.RCTD <- function(RCTD, doublet_mode = "doublet") {
-  if (!(doublet_mode %in% c("doublet", "multi", "full"))) {
-    stop("run.RCTD: doublet_mode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full.")
-  }
-  RCTD@config$RCTDmode <- doublet_mode
-  RCTD <- fitBulk(RCTD)
-  RCTD <- choose_sigma_c(RCTD)
-  RCTD <- fitPixels(RCTD, doublet_mode = doublet_mode)
+    if (!(doublet_mode %in% c("doublet", "multi", "full"))) {
+        stop("run.RCTD: doublet_mode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full.")
+    }
+    RCTD@config$RCTDmode <- doublet_mode
+    RCTD <- fitBulk(RCTD)
+    RCTD <- choose_sigma_c(RCTD)
+    RCTD <- fitPixels(RCTD, doublet_mode = doublet_mode)
 }
 
 # exports RCTD results as csv files
 export.RCTD <- function(RCTD, datadir) {
-  doublet_mode <- myRCTD@config$RCTDmode
-  if (is.null(doublet_mode)) {
-    stop("RCTD@config$RCTDmode is NULL. Please set to one of 'doublet', 'multi', 'full'.")
-  }
-  if (!(doublet_mode %in% c("doublet", "multi", "full"))) {
-    stop("export.RCTD: RCTD@config$RCTDmode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full.")
-  }
-  if (doublet_mode == "multi") {
-    stop("export.RCTD not implemented for RCTD@config$RCTDmode = 'multi'. Please contact the developers for assistance.")
-  }
-  write.csv(RCTD@results$weights, file.path(datadir, "weights.csv"))
-  if (doublet_mode == "doublet") {
-    write.csv(RCTD@results$weights_doublet, file.path(datadir, "weights_doublet.csv"))
-    write.csv(RCTD@results$results_df, file.path(datadir, "results_df.csv"))
-  }
+    doublet_mode <- myRCTD@config$RCTDmode
+    if (is.null(doublet_mode)) {
+        stop("RCTD@config$RCTDmode is NULL. Please set to one of 'doublet', 'multi', 'full'.")
+    }
+    if (!(doublet_mode %in% c("doublet", "multi", "full"))) {
+        stop("export.RCTD: RCTD@config$RCTDmode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full.")
+    }
+    if (doublet_mode == "multi") {
+        stop("export.RCTD not implemented for RCTD@config$RCTDmode = 'multi'. Please contact the developers for assistance.")
+    }
+    write.csv(RCTD@results$weights, file.path(datadir, "weights.csv"))
+    if (doublet_mode == "doublet") {
+        write.csv(RCTD@results$weights_doublet, file.path(datadir, "weights_doublet.csv"))
+        write.csv(RCTD@results$results_df, file.path(datadir, "results_df.csv"))
+    }
 }
 
 check_vector <- function(variable, var_name, f_name, require_int = FALSE) {
-  if (!is.atomic(variable)) {
-    stop(f_name, ": ", var_name, " is not an atomic vector. Please format ", var_name, " as an atomic vector.")
-  }
-  if (!is.numeric(variable)) {
-    stop(f_name, ": ", var_name, " is not numeric")
-  }
-  if (is.null(names(variable))) {
-    stop(f_name, ": names(", var_name, ") is null. Please enter names")
-  }
-  if (length(variable) == 1) {
-    stop(f_name, ": the length of ", var_name, " is 1, indicating only one element present. Please format ", var_name, " so that
-         the length is greater than 1.")
-  }
-  if (require_int) {
-    if (max(abs(variable %% 1)) > 1e-6) {
-      stop(f_name, ": variable does not contain integers")
+    if (!is.atomic(variable)) {
+        stop(f_name, ": ", var_name, " is not an atomic vector. Please format ", var_name, " as an atomic vector.")
     }
-  }
+    if (!is.numeric(variable)) {
+        stop(f_name, ": ", var_name, " is not numeric")
+    }
+    if (is.null(names(variable))) {
+        stop(f_name, ": names(", var_name, ") is null. Please enter names")
+    }
+    if (length(variable) == 1) {
+        stop(f_name, ": the length of ", var_name, " is 1, indicating only one element present. Please format ", var_name, " so that the length is greater than 1.")
+    }
+    if (require_int) {
+        if (max(abs(variable %% 1)) > 1e-6) {
+            stop(f_name, ": variable does not contain integers")
+        }
+    }
 }
 
 
@@ -203,33 +202,33 @@ check_vector <- function(variable, var_name, f_name, require_int = FALSE) {
 #' @export
 #' @keywords internal
 convert.old.RCTD <- function(myRCTD) {
-  if (is(myRCTD@reference, "Seurat")) {
-    ref <- convert_old_reference(myRCTD@reference)
-  } else {
-    ref <- myRCTD@reference
-  }
+    if (is(myRCTD@reference, "Seurat")) {
+        ref <- convert_old_reference(myRCTD@reference)
+    } else {
+        ref <- myRCTD@reference
+    }
 
-  spatial_rna_package <- attr(class(myRCTD@spatialRNA), "package")
-  if (spatial_rna_package != "spacexr") {
-    myRCTD@spatialRNA <- coerce_old(myRCTD@spatialRNA)
-  }
+    spatial_rna_package <- attr(class(myRCTD@spatialRNA), "package")
+    if (spatial_rna_package != "spacexr") {
+        myRCTD@spatialRNA <- coerce_old(myRCTD@spatialRNA)
+    }
 
-  if (is.null(attr(myRCTD, "originalSpatialRNA"))) {
-    myRCTD@originalSpatialRNA <- myRCTD@spatialRNA
-  }
+    if (is.null(attr(myRCTD, "originalSpatialRNA"))) {
+        myRCTD@originalSpatialRNA <- myRCTD@spatialRNA
+    }
 
-  orig_spatial_rna_package <- attr(class(myRCTD@originalSpatialRNA), "package")
-  if (orig_spatial_rna_package != "spacexr") {
-    myRCTD@originalSpatialRNA <- coerce_old(myRCTD@originalSpatialRNA)
-  }
+    orig_spatial_rna_package <- attr(class(myRCTD@originalSpatialRNA), "package")
+    if (orig_spatial_rna_package != "spacexr") {
+        myRCTD@originalSpatialRNA <- coerce_old(myRCTD@originalSpatialRNA)
+    }
 
-  ref_package <- attr(class(ref), "package")
-  if (ref_package != "spacexr") {
-    ref <- coerce_deglam_reference(ref)
-  }
-  new("RCTD",
-    spatialRNA = myRCTD@spatialRNA, originalSpatialRNA = myRCTD@spatialRNA, reference = ref,
-    config = myRCTD@config, cell_type_info = myRCTD@cell_type_info, internal_vars = myRCTD@internal_vars,
-    internal_vars_de = myRCTD@internal_vars_de, de_results = myRCTD@de_results, results = myRCTD@results
-  )
+    ref_package <- attr(class(ref), "package")
+    if (ref_package != "spacexr") {
+        ref <- coerce_deglam_reference(ref)
+    }
+    new("RCTD",
+        spatialRNA = myRCTD@spatialRNA, originalSpatialRNA = myRCTD@spatialRNA, reference = ref,
+        config = myRCTD@config, cell_type_info = myRCTD@cell_type_info, internal_vars = myRCTD@internal_vars,
+        internal_vars_de = myRCTD@internal_vars_de, de_results = myRCTD@de_results, results = myRCTD@results
+    )
 }

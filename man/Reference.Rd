@@ -42,8 +42,8 @@ constructor of \code{\linkS4class{Reference}} object
 data(rctd_simulation)
 
 reference <- Reference(
-  rctd_simulation$reference_counts,
-  rctd_simulation$reference_cell_types
+    rctd_simulation$reference_counts,
+    rctd_simulation$reference_cell_types
 )
 
 }

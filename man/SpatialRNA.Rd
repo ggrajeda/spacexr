@@ -40,8 +40,8 @@ constructor of SpatialRNA object
 data(rctd_simulation)
 
 spatial_rna <- SpatialRNA(
-  rctd_simulation$spatial_rna_coords,
-  rctd_simulation$spatial_rna_counts
+    rctd_simulation$spatial_rna_coords,
+    rctd_simulation$spatial_rna_counts
 )
 
 }

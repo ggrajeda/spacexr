@@ -12,10 +12,10 @@ vignette: >
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  cache = TRUE,
-  out.width = "100%"
+    collapse = TRUE,
+    comment = "#>",
+    cache = TRUE,
+    out.width = "100%"
 )
 ```
 
@@ -54,13 +54,13 @@ data("rctd_simulation")
 
 # Create Reference object.
 reference <- Reference(
-  rctd_simulation$reference_counts,
-  rctd_simulation$reference_cell_types
+    rctd_simulation$reference_counts,
+    rctd_simulation$reference_cell_types
 )
 
 # Examine reference. (optional)
-print(dim(counts(reference)))  # Digital Gene Expression matrix dimensions
-table(cell_types(reference))   # Number of occurrences for each cell type
+print(dim(counts(reference))) # Digital Gene Expression matrix dimensions
+table(cell_types(reference)) # Number of occurrences for each cell type
 ```
 For this vignette, we have a reference dataset of 750 genes for 75 cells. We find that there are three cell types (`ct1`, `ct2`, and `ct3`), each appearing 25 times in the reference.
 
@@ -78,16 +78,16 @@ Here, we load coordinates and counts from the `rctd_simulation` object. Again, i
 ```{r SpatialRNA, fig.align='center', fig.width=5, fig.height=5, out.width='75%'}
 # Create SpatialRNA object.
 puck <- SpatialRNA(
-  rctd_simulation$spatial_rna_coords,
-  rctd_simulation$spatial_rna_counts
+    rctd_simulation$spatial_rna_coords,
+    rctd_simulation$spatial_rna_counts
 )
 
 # Examine puck. (optional)
-print(dim(counts(puck)))      # Digital Gene Expression matrix dimensions
+print(dim(counts(puck))) # Digital Gene Expression matrix dimensions
 ggplot(coords(puck), aes(x, y)) +
-  geom_point(color = "cornsilk4", size = 4) +
-  ggtitle("SpatialRNA Pixels") +
-  theme(plot.title = element_text(size=16, hjust = 0.5))
+    geom_point(color = "cornsilk4", size = 4) +
+    ggtitle("SpatialRNA Pixels") +
+    theme(plot.title = element_text(size = 16, hjust = 0.5))
 ```
 <br/>
 We find that we have a spatial transciptomics dataset of 750 genes for 12 pixels, plotted above.
@@ -104,47 +104,47 @@ Inspecting the ground-truth proportions, we find that there are two distinct mix
 ```{r plotterHelper}
 # Helper function to plot the cell type proportions in a SpatialRNA object.
 plot_cell_mixture <- function(puck, proportions, title = NULL) {
-  num_cell_types <- ncol(proportions)
+    num_cell_types <- ncol(proportions)
 
-  colors <- grDevices::rainbow(num_cell_types, rev = TRUE)
-  names(colors) <- as.character(seq_len(num_cell_types))
+    colors <- grDevices::rainbow(num_cell_types, rev = TRUE)
+    names(colors) <- as.character(seq_len(num_cell_types))
 
-  # Plot the proportions of each cell type.
-  mixture_plot <- ggplot()
-  for (i in seq_len(num_cell_types)) {
-    # Plot the pixels where this cell type constitutes > 1% of the mixture.
-    jitter <- 0.02 * i  # Add jitter to distinguish different cell types.
-    is_non_zero <- proportions[, i] > 0.01
-    cell_type_data <- data.frame(
-      x = coords(puck)$x[is_non_zero] + jitter,
-      y = coords(puck)$y[is_non_zero] + jitter,
-      size = proportions[is_non_zero, i],
-      color = as.character(i)
-    )
-    # Append the plot for this cell type.
-    mixture_plot <- mixture_plot +
-      geom_point(
-        data = cell_type_data,
-        aes(x = x, y = y, size = size, color = color),
-        alpha = 0.75,
-      )
-  }
+    # Plot the proportions of each cell type.
+    mixture_plot <- ggplot()
+    for (i in seq_len(num_cell_types)) {
+        # Plot the pixels where this cell type constitutes > 1% of the mixture.
+        jitter <- 0.02 * i # Add jitter to distinguish different cell types.
+        is_non_zero <- proportions[, i] > 0.01
+        cell_type_data <- data.frame(
+            x = coords(puck)$x[is_non_zero] + jitter,
+            y = coords(puck)$y[is_non_zero] + jitter,
+            size = proportions[is_non_zero, i],
+            color = as.character(i)
+        )
+        # Append the plot for this cell type.
+        mixture_plot <- mixture_plot +
+            geom_point(
+                data = cell_type_data,
+                aes(x = x, y = y, size = size, color = color),
+                alpha = 0.75,
+            )
+    }
 
-  mixture_plot +
-    scale_color_manual(name = "Cell Types", values = colors) +
-    scale_size(name = "Proportion", limits = seq(0, 1)) +
-    ggtitle(title) +
-    theme_light() +
-    theme(plot.title = element_text(size=24, hjust = 0.5))
+    mixture_plot +
+        scale_color_manual(name = "Cell Types", values = colors) +
+        scale_size(name = "Proportion", limits = seq(0, 1)) +
+        ggtitle(title) +
+        theme_light() +
+        theme(plot.title = element_text(size = 24, hjust = 0.5))
 }
 ```
 </details>
 
 ```{r trueProportionsPlot, cache = FALSE, fig.height = 5, fig.width = 7}
 plot_cell_mixture(
-  puck,
-  rctd_simulation$true_proportions,
-  title = "Ground-Truth Cell Type Mixtures"
+    puck,
+    rctd_simulation$true_proportions,
+    title = "Ground-Truth Cell Type Mixtures"
 )
 ```
 
@@ -193,9 +193,9 @@ Let's visualize the full-mode weights:
 # Normalize the cell type proportions to sum to 1.
 norm_weights <- normalize_weights(rctd_results$weights)
 plot_cell_mixture(
-  puck,
-  norm_weights,
-  title = "Estimated Cell Type Mixtures"
+    puck,
+    norm_weights,
+    title = "Estimated Cell Type Mixtures"
 )
 ```
 

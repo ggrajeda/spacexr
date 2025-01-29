@@ -34,8 +34,8 @@
 #' data(rctd_simulation)
 #'
 #' reference <- Reference(
-#'   rctd_simulation$reference_counts,
-#'   rctd_simulation$reference_cell_types
+#'     rctd_simulation$reference_counts,
+#'     rctd_simulation$reference_cell_types
 #' )
 #'
 #' num_genes <- nrow(rctd_simulation$spatial_rna_counts)
@@ -43,69 +43,65 @@
 #'
 #' noise1 <- replicate(num_pixels, rpois(num_genes, lambda = 0.1))
 #' spatial_rna1 <- SpatialRNA(
-#'   rctd_simulation$spatial_rna_coords,
-#'   rctd_simulation$spatial_rna_counts + noise1
+#'     rctd_simulation$spatial_rna_coords,
+#'     rctd_simulation$spatial_rna_counts + noise1
 #' )
 #'
 #' noise2 <- replicate(num_pixels, rpois(num_genes, lambda = 0.1))
 #' spatial_rna2 <- SpatialRNA(
-#'   rctd_simulation$spatial_rna_coords,
-#'   rctd_simulation$spatial_rna_counts + noise2
+#'     rctd_simulation$spatial_rna_coords,
+#'     rctd_simulation$spatial_rna_counts + noise2
 #' )
 #'
 #' spatial_rna_replicates <- list(sr1 = spatial_rna1, sr2 = spatial_rna2)
 #' rctd_replicates <- create.RCTD.replicates(
-#'   spatial_rna_replicates,
-#'   reference,
-#'   names(spatial_rna_replicates)
+#'     spatial_rna_replicates,
+#'     reference,
+#'     names(spatial_rna_replicates)
 #' )
 #'
-create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_names, group_ids = NULL, max_cores = 4, test_mode = FALSE,
-                                   gene_cutoff = 0.000125, fc_cutoff = 0.5, gene_cutoff_reg = 0.0002,
-                                   fc_cutoff_reg = 0.75, UMI_min = 100, UMI_max = 20000000, UMI_min_sigma = 300,
-                                   class_df = NULL, CELL_MIN_INSTANCE = 25, cell_type_names = NULL, MAX_MULTI_TYPES = 4,
-                                   keep_reference = FALSE, CONFIDENCE_THRESHOLD = 5, DOUBLET_THRESHOLD = 20) {
-  if (is.null(cell_type_names)) {
-    cell_type_names <- levels(reference@cell_types)
-  }
-  cell_type_info <- process_cell_type_info(reference,
-    cell_type_names = cell_type_names,
-    CELL_MIN = CELL_MIN_INSTANCE
-  )
-  if (!is(spatialRNA.replicates, "list") ||
-    any(!unlist(lapply(spatialRNA.replicates, function(x) is(x, "SpatialRNA"))))) {
-    stop("create.RCTD.replicates: spatialRNA.replicates must be a list of SpatialRNA objects.")
-  }
-  if (length(spatialRNA.replicates) <= 1) {
-    stop("create.RCTD.replicates: length(spatialRNA.replicates) <= 1. This object must be a list of at least two SpatialRNA objects.")
-  }
-  if (is.null(group_ids)) {
-    group_ids <- rep(1, length(spatialRNA.replicates))
-  }
-  if (length(group_ids) != length(replicate_names)) {
-    stop("create.RCTD.replicates: group_ids and replicate_names must both be the same length as the total number of replicates.")
-  }
-  if (length(group_ids) != length(spatialRNA.replicates)) {
-    stop("create.RCTD.replicates: group_ids must be the same length as the total number of replicates.")
-  }
-  names(group_ids) <- replicate_names
-  check_vector(group_ids, "group_ids", "create.RCTD.replicates", require_int = TRUE)
-  if (min(table(group_ids)) < 2) {
-    stop("create.RCTD.replicates: each group in group_ids must contain at least two replicates.")
-  }
-  RCTD.reps <- list()
-  for (i in seq_along(spatialRNA.replicates)) {
-    message("create.RCTD.replicates: creating RCTD for replicate ", i)
-    RCTD.reps[[i]] <- create.RCTD(spatialRNA.replicates[[i]], reference,
-      max_cores = max_cores, test_mode = test_mode,
-      gene_cutoff = gene_cutoff, fc_cutoff = fc_cutoff, gene_cutoff_reg = gene_cutoff_reg,
-      fc_cutoff_reg = fc_cutoff_reg, UMI_min = UMI_min, UMI_max = UMI_max, UMI_min_sigma = UMI_min_sigma,
-      class_df = class_df, CELL_MIN_INSTANCE = CELL_MIN_INSTANCE, cell_type_names = cell_type_names, MAX_MULTI_TYPES = MAX_MULTI_TYPES,
-      cell_type_profiles = cell_type_info[[1]], keep_reference = FALSE,
-      CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
+create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_names, group_ids = NULL, max_cores = 4, test_mode = FALSE, gene_cutoff = 0.000125, fc_cutoff = 0.5, gene_cutoff_reg = 0.0002, fc_cutoff_reg = 0.75, UMI_min = 100, UMI_max = 20000000, UMI_min_sigma = 300, class_df = NULL, CELL_MIN_INSTANCE = 25, cell_type_names = NULL, MAX_MULTI_TYPES = 4, keep_reference = FALSE, CONFIDENCE_THRESHOLD = 5, DOUBLET_THRESHOLD = 20) {
+    if (is.null(cell_type_names)) {
+        cell_type_names <- levels(reference@cell_types)
+    }
+    cell_type_info <- process_cell_type_info(reference,
+        cell_type_names = cell_type_names,
+        CELL_MIN = CELL_MIN_INSTANCE
     )
-  }
-  new("RCTD.replicates", RCTD.reps = RCTD.reps, group_ids = group_ids)
+    if (!is(spatialRNA.replicates, "list") ||
+        any(!unlist(lapply(spatialRNA.replicates, function(x) is(x, "SpatialRNA"))))) {
+        stop("create.RCTD.replicates: spatialRNA.replicates must be a list of SpatialRNA objects.")
+    }
+    if (length(spatialRNA.replicates) <= 1) {
+        stop("create.RCTD.replicates: length(spatialRNA.replicates) <= 1. This object must be a list of at least two SpatialRNA objects.")
+    }
+    if (is.null(group_ids)) {
+        group_ids <- rep(1, length(spatialRNA.replicates))
+    }
+    if (length(group_ids) != length(replicate_names)) {
+        stop("create.RCTD.replicates: group_ids and replicate_names must both be the same length as the total number of replicates.")
+    }
+    if (length(group_ids) != length(spatialRNA.replicates)) {
+        stop("create.RCTD.replicates: group_ids must be the same length as the total number of replicates.")
+    }
+    names(group_ids) <- replicate_names
+    check_vector(group_ids, "group_ids", "create.RCTD.replicates", require_int = TRUE)
+    if (min(table(group_ids)) < 2) {
+        stop("create.RCTD.replicates: each group in group_ids must contain at least two replicates.")
+    }
+    RCTD.reps <- list()
+    for (i in seq_along(spatialRNA.replicates)) {
+        message("create.RCTD.replicates: creating RCTD for replicate ", i)
+        RCTD.reps[[i]] <- create.RCTD(spatialRNA.replicates[[i]], reference,
+            max_cores = max_cores, test_mode = test_mode,
+            gene_cutoff = gene_cutoff, fc_cutoff = fc_cutoff, gene_cutoff_reg = gene_cutoff_reg,
+            fc_cutoff_reg = fc_cutoff_reg, UMI_min = UMI_min, UMI_max = UMI_max, UMI_min_sigma = UMI_min_sigma,
+            class_df = class_df, CELL_MIN_INSTANCE = CELL_MIN_INSTANCE, cell_type_names = cell_type_names, MAX_MULTI_TYPES = MAX_MULTI_TYPES,
+            cell_type_profiles = cell_type_info[[1]], keep_reference = FALSE,
+            CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
+        )
+    }
+    new("RCTD.replicates", RCTD.reps = RCTD.reps, group_ids = group_ids)
 }
 
 #' Runs the RCTD pipeline on a \code{\linkS4class{RCTD.replicates}} object
@@ -127,8 +123,8 @@ create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_n
 #' data(rctd_simulation)
 #'
 #' reference <- Reference(
-#'   rctd_simulation$reference_counts,
-#'   rctd_simulation$reference_cell_types
+#'     rctd_simulation$reference_counts,
+#'     rctd_simulation$reference_cell_types
 #' )
 #'
 #' num_genes <- nrow(rctd_simulation$spatial_rna_counts)
@@ -136,40 +132,40 @@ create.RCTD.replicates <- function(spatialRNA.replicates, reference, replicate_n
 #'
 #' noise1 <- replicate(num_pixels, rpois(num_genes, lambda = 0.1))
 #' spatial_rna1 <- SpatialRNA(
-#'   rctd_simulation$spatial_rna_coords,
-#'   rctd_simulation$spatial_rna_counts + noise1
+#'     rctd_simulation$spatial_rna_coords,
+#'     rctd_simulation$spatial_rna_counts + noise1
 #' )
 #'
 #' noise2 <- replicate(num_pixels, rpois(num_genes, lambda = 0.1))
 #' spatial_rna2 <- SpatialRNA(
-#'   rctd_simulation$spatial_rna_coords,
-#'   rctd_simulation$spatial_rna_counts + noise2
+#'     rctd_simulation$spatial_rna_coords,
+#'     rctd_simulation$spatial_rna_counts + noise2
 #' )
 #'
 #' spatial_rna_replicates <- list(sr1 = spatial_rna1, sr2 = spatial_rna2)
 #' rctd_replicates <- create.RCTD.replicates(
-#'   spatial_rna_replicates,
-#'   reference,
-#'   names(spatial_rna_replicates)
+#'     spatial_rna_replicates,
+#'     reference,
+#'     names(spatial_rna_replicates)
 #' )
 #'
 #' rctd_replicates <- run.RCTD.replicates(
-#'   rctd_replicates,
-#'   doublet_mode = "doublet"
+#'     rctd_replicates,
+#'     doublet_mode = "doublet"
 #' )
 #'
 #' first_result <- results(RCTD.reps(rctd_replicates)[[1]])
 #' head(first_result$results_df)
 #'
 run.RCTD.replicates <- function(RCTD.replicates, doublet_mode = "doublet") {
-  if (!(doublet_mode %in% c("doublet", "multi", "full"))) {
-    stop("run.RCTD.replicates: doublet_mode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full.")
-  }
-  for (i in seq_along(RCTD.replicates@RCTD.reps)) {
-    message("run.RCTD.replicates: running RCTD for replicate ", i)
-    RCTD.replicates@RCTD.reps[[i]] <- run.RCTD(RCTD.replicates@RCTD.reps[[i]], doublet_mode = doublet_mode)
-  }
-  return(RCTD.replicates)
+    if (!(doublet_mode %in% c("doublet", "multi", "full"))) {
+        stop("run.RCTD.replicates: doublet_mode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full.")
+    }
+    for (i in seq_along(RCTD.replicates@RCTD.reps)) {
+        message("run.RCTD.replicates: running RCTD for replicate ", i)
+        RCTD.replicates@RCTD.reps[[i]] <- run.RCTD(RCTD.replicates@RCTD.reps[[i]], doublet_mode = doublet_mode)
+    }
+    return(RCTD.replicates)
 }
 
 #' Creates an \code{\linkS4class{RCTD.replicates}} object across multiple \code{\linkS4class{RCTD}} objects
@@ -186,8 +182,8 @@ run.RCTD.replicates <- function(RCTD.replicates, doublet_mode = "doublet") {
 #' data(rctd_simulation)
 #'
 #' reference <- Reference(
-#'   rctd_simulation$reference_counts,
-#'   rctd_simulation$reference_cell_types
+#'     rctd_simulation$reference_counts,
+#'     rctd_simulation$reference_cell_types
 #' )
 #'
 #' num_genes <- nrow(rctd_simulation$spatial_rna_counts)
@@ -195,15 +191,15 @@ run.RCTD.replicates <- function(RCTD.replicates, doublet_mode = "doublet") {
 #'
 #' noise1 <- replicate(num_pixels, rpois(num_genes, lambda = 0.1))
 #' spatial_rna1 <- SpatialRNA(
-#'   rctd_simulation$spatial_rna_coords,
-#'   rctd_simulation$spatial_rna_counts + noise1
+#'     rctd_simulation$spatial_rna_coords,
+#'     rctd_simulation$spatial_rna_counts + noise1
 #' )
 #' rctd1 <- create.RCTD(spatial_rna1, reference)
 #'
 #' noise2 <- replicate(num_pixels, rpois(num_genes, lambda = 0.1))
 #' spatial_rna2 <- SpatialRNA(
-#'   rctd_simulation$spatial_rna_coords,
-#'   rctd_simulation$spatial_rna_counts + noise2
+#'     rctd_simulation$spatial_rna_coords,
+#'     rctd_simulation$spatial_rna_counts + noise2
 #' )
 #' rctd2 <- create.RCTD(spatial_rna2, reference)
 #'
@@ -211,25 +207,25 @@ run.RCTD.replicates <- function(RCTD.replicates, doublet_mode = "doublet") {
 #' rctd_replicates <- merge_RCTD_objects(rctds, names(rctds))
 #'
 merge_RCTD_objects <- function(RCTD.reps, replicate_names, group_ids = NULL) {
-  if (!is(RCTD.reps, "list") || any(!unlist(lapply(RCTD.reps, function(x) is(x, "RCTD"))))) {
-    stop("merge_RCTD_objects: RCTD.reps must be a list of RCTD objects.")
-  }
-  if (length(RCTD.reps) <= 1) {
-    stop("merge_RCTD_objects: length(RCTD.replicates) <= 1. This object must be a list of at least two RCTD objects.")
-  }
-  if (is.null(group_ids)) {
-    group_ids <- rep(1, length(RCTD.reps))
-  }
-  if (length(group_ids) != length(replicate_names)) {
-    stop("merge_RCTD_objects: group_ids and replicate_names must both be the same length as the total number of replicates.")
-  }
-  if (length(group_ids) != length(RCTD.reps)) {
-    stop("merge_RCTD_objects: group_ids must be the same length as the total number of replicates.")
-  }
-  names(group_ids) <- replicate_names
-  check_vector(group_ids, "group_ids", "create.RCTD.replicates", require_int = TRUE)
-  if (min(table(group_ids)) < 2) {
-    stop("create.RCTD.replicates: each group in group_ids must contain at least two replicates.")
-  }
-  new("RCTD.replicates", RCTD.reps = RCTD.reps, group_ids = group_ids)
+    if (!is(RCTD.reps, "list") || any(!unlist(lapply(RCTD.reps, function(x) is(x, "RCTD"))))) {
+        stop("merge_RCTD_objects: RCTD.reps must be a list of RCTD objects.")
+    }
+    if (length(RCTD.reps) <= 1) {
+        stop("merge_RCTD_objects: length(RCTD.replicates) <= 1. This object must be a list of at least two RCTD objects.")
+    }
+    if (is.null(group_ids)) {
+        group_ids <- rep(1, length(RCTD.reps))
+    }
+    if (length(group_ids) != length(replicate_names)) {
+        stop("merge_RCTD_objects: group_ids and replicate_names must both be the same length as the total number of replicates.")
+    }
+    if (length(group_ids) != length(RCTD.reps)) {
+        stop("merge_RCTD_objects: group_ids must be the same length as the total number of replicates.")
+    }
+    names(group_ids) <- replicate_names
+    check_vector(group_ids, "group_ids", "create.RCTD.replicates", require_int = TRUE)
+    if (min(table(group_ids)) < 2) {
+        stop("create.RCTD.replicates: each group in group_ids must contain at least two replicates.")
+    }
+    new("RCTD.replicates", RCTD.reps = RCTD.reps, group_ids = group_ids)
 }

@@ -36,16 +36,16 @@
 #' @importClassesFrom Matrix Matrix dgCMatrix
 #' @keywords internal
 setClass("SpatialRNA",
-  slots = c(
-    coords = "data.frame",
-    counts = "dgCMatrix",
-    nUMI = "numeric"
-  ),
-  prototype = list(
-    coords = data.frame(NULL),
-    counts = NULL,
-    nUMI = NA_integer_
-  )
+    slots = c(
+        coords = "data.frame",
+        counts = "dgCMatrix",
+        nUMI = "numeric"
+    ),
+    prototype = list(
+        coords = data.frame(NULL),
+        counts = NULL,
+        nUMI = NA_integer_
+    )
 )
 
 setGeneric("coords", function(x) standardGeneric("coords"))
@@ -70,16 +70,16 @@ setMethod("nUMI", "SpatialRNA", function(x) x@nUMI)
 #' @export
 #' @keywords internal
 setClass("Reference",
-  slots = c(
-    cell_types = "factor",
-    counts = "dgCMatrix",
-    nUMI = "numeric"
-  ),
-  prototype = list(
-    cell_types = NULL,
-    counts = NULL,
-    nUMI = NA_integer_
-  )
+    slots = c(
+        cell_types = "factor",
+        counts = "dgCMatrix",
+        nUMI = "numeric"
+    ),
+    prototype = list(
+        cell_types = NULL,
+        counts = NULL,
+        nUMI = NA_integer_
+    )
 )
 
 setGeneric("cell_types", function(x) standardGeneric("cell_types"))
@@ -125,28 +125,28 @@ setMethod("nUMI", "Reference", function(x) x@nUMI)
 #' @importClassesFrom Matrix Matrix dgCMatrix
 #' @keywords internal
 setClass("RCTD",
-  slots = c(
-    spatialRNA = "SpatialRNA",
-    originalSpatialRNA = "SpatialRNA",
-    reference = "Reference",
-    config = "list",
-    cell_type_info = "list",
-    internal_vars = "list",
-    results = "list",
-    de_results = "list",
-    internal_vars_de = "list"
-  ),
-  prototype = list(
-    spatialRNA = NULL,
-    originalSpatialRNA = NULL,
-    reference = NULL,
-    config = list(),
-    cell_type_info = list(info = NULL, renorm = NULL),
-    internal_vars = list(),
-    results = list(),
-    de_results = list(),
-    internal_vars_de = list()
-  )
+    slots = c(
+        spatialRNA = "SpatialRNA",
+        originalSpatialRNA = "SpatialRNA",
+        reference = "Reference",
+        config = "list",
+        cell_type_info = "list",
+        internal_vars = "list",
+        results = "list",
+        de_results = "list",
+        internal_vars_de = "list"
+    ),
+    prototype = list(
+        spatialRNA = NULL,
+        originalSpatialRNA = NULL,
+        reference = NULL,
+        config = list(),
+        cell_type_info = list(info = NULL, renorm = NULL),
+        internal_vars = list(),
+        results = list(),
+        de_results = list(),
+        internal_vars_de = list()
+    )
 )
 
 setGeneric("results", function(x) standardGeneric("results"))
@@ -179,20 +179,20 @@ setMethod("results", "RCTD", function(x) x@results)
 #' @importClassesFrom Matrix Matrix dgCMatrix
 #' @keywords internal
 setClass("RCTD.replicates",
-  slots = c(
-    RCTD.reps = "list",
-    population_de_results = "list",
-    population_sig_gene_list = "list",
-    population_sig_gene_df = "list",
-    group_ids = "numeric"
-  ),
-  prototype = list(
-    RCTD.reps = list(),
-    population_de_results = list(),
-    population_sig_gene_list = list(),
-    population_sig_gene_df = list(),
-    group_ids = NA_integer_
-  )
+    slots = c(
+        RCTD.reps = "list",
+        population_de_results = "list",
+        population_sig_gene_list = "list",
+        population_sig_gene_df = "list",
+        group_ids = "numeric"
+    ),
+    prototype = list(
+        RCTD.reps = list(),
+        population_de_results = list(),
+        population_sig_gene_list = list(),
+        population_sig_gene_df = list(),
+        group_ids = NA_integer_
+    )
 )
 
 setGeneric("RCTD.reps", function(x) standardGeneric("RCTD.reps"))
