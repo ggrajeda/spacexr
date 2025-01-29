@@ -4,7 +4,7 @@ Title: SpatialeXpressionR: Cell type identification and cell type-specific diffe
 Version: 2.2.1
 Authors@R: c(
     person("Dylan", "Cable", email = "dmcable@umich.edu", role = "aut"),
-    person("Gabriel", "Grajeda", email = "gabriel@ds.dfci.harvard.edu", role = "cre"))
+    person("Gabriel", "Grajeda", email = "gabriel.grajeda@gmail.com", role = "cre", comment=c(ORCID="0009-0003-7242-7476")))
 Description: Implementation of two computational methods in spatial transcriptomics: 
     1. Robust Cell Type Decomposition (RCTD). Decomposes cell type mixtures using cell type profiles, correcting for differences across sequencing technologies.
     2. Cell Type-Specific Inference of Differential Expression (CSIDE). Identifies cell type-specific differential expression, accounting for localization of other cell types.

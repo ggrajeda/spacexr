@@ -38,7 +38,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Gabriel Grajeda \email{gabriel@ds.dfci.harvard.edu}
+\strong{Maintainer}: Gabriel Grajeda \email{gabriel.grajeda@gmail.com} (\href{https://orcid.org/0009-0003-7242-7476}{ORCID})
 
 Authors:
 \itemize{
