@@ -1,5 +1,5 @@
 load_X_vals <- function() {
-    readRDS(system.file("extdata", "Qmat/X_vals.rds", package = "spacexr"))
+    readRDS(system.file("extdata", "X_vals.rds", package = "spacexr"))
 }
 
 get_X_vals <- memoise::memoise(load_X_vals)
