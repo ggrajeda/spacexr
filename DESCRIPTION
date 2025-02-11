@@ -27,7 +27,8 @@ Imports:
     memoise,
     BiocParallel,
     BiocFileCache,
-    SummarizedExperiment
+    SummarizedExperiment,
+    scatterpie
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 Suggests: 
