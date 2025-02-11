@@ -7,6 +7,23 @@
 #' @return Returns an \code{\linkS4class{RCTD}} object normalized for platform effects.
 #' @export
 #' @keywords internal
+#' @examples
+#' data(rctd_simulation)
+#'
+#' # Create SpatialRNA and Reference objects
+#' spatial_rna <- SpatialRNA(
+#'     rctd_simulation$spatial_rna_coords,
+#'     rctd_simulation$spatial_rna_counts
+#' )
+#' reference <- Reference(
+#'     rctd_simulation$reference_counts,
+#'     rctd_simulation$reference_cell_types
+#' )
+#'
+#' # Create RCTD object
+#' rctd <- create.RCTD(spatial_rna, reference)
+#' rctd <- fitBulk(rctd)
+#' 
 fitBulk <- function(RCTD) {
     bulkData <- prepareBulkData(RCTD@cell_type_info$info[[1]], RCTD@spatialRNA, RCTD@internal_vars$gene_list_bulk)
     message("fitBulk: decomposing bulk")
@@ -54,6 +71,25 @@ chooseSigma <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
 #' @return Returns an \code{\linkS4class{RCTD}} with the estimated \code{sigma_c}.
 #' @export
 #' @keywords internal
+#' @examples
+#' data(rctd_simulation)
+#'
+#' # Create SpatialRNA and Reference objects
+#' spatial_rna <- SpatialRNA(
+#'     rctd_simulation$spatial_rna_coords,
+#'     rctd_simulation$spatial_rna_counts
+#' )
+#' reference <- Reference(
+#'     rctd_simulation$reference_counts,
+#'     rctd_simulation$reference_cell_types
+#' )
+#'
+#' # Create RCTD object
+#' rctd <- create.RCTD(spatial_rna, reference)
+#' 
+#' rctd <- fitBulk(rctd)
+#' rctd <- choose_sigma_c(rctd)
+#' 
 choose_sigma_c <- function(RCTD) {
     puck <- RCTD@spatialRNA
     MIN_UMI <- RCTD@config$UMI_min_sigma

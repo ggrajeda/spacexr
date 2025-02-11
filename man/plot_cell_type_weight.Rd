@@ -7,36 +7,36 @@
 plot_cell_type_weight(
   rctd_se,
   cell_type,
-  weights_assay = "weights",
+  use_full_weights = FALSE,
   size = 10,
   stroke = 1,
   alpha = 1,
   low = "white",
   high = "red",
-  plot_title = NA
+  title = NA
 )
 }
 \arguments{
 \item{rctd_se}{SummarizedExperiment containing RCTD results}
 
-\item{cell_type}{character(1) name of cell type to plot}
+\item{cell_type}{character, name of cell type to plot}
 
-\item{weights_assay}{character(1) name of the weights assay (default:
-"weights")}
+\item{use_full_weights}{logical, whether to use the full weights (in the
+"weights_full" assay) instead of the default weights (default: FALSE)}
 
-\item{size}{numeric(1) size of the points (default: 10)}
+\item{size}{numeric, size of the points (default: 10)}
 
-\item{stroke}{numeric(1) border width of the points (default: 1)}
+\item{stroke}{numeric, border width of the points (default: 1)}
 
-\item{alpha}{numeric(1) point transparency between 0 and 1 (default: 1)}
+\item{alpha}{numeric, point transparency between 0 and 1 (default: 1)}
 
-\item{low}{character(1) color for the low end of the proportion color scale
-(default: "white")}
+\item{low}{color for the low end of the proportion color scale (default:
+"white")}
 
-\item{high}{character(1) color for the high end of the proportion color scale
-(default: "red")}
+\item{high}{color for the high end of the proportion color scale (default:
+"red")}
 
-\item{plot_title}{character(1) plot title. (default: NA)}
+\item{title}{character, plot title (default: NA)}
 }
 \value{
 ggplot object showing the proportion of a specified cell type at each
@@ -44,5 +44,17 @@ ggplot object showing the proportion of a specified cell type at each
 }
 \description{
 Creates a visualization showing how the proportion of a specific cell type
-varies across space, represented by point color intensity.
+varies across space, represented by point color intensity. Users should run
+this function on the result of \code{\link{run.RCTD}}.
+}
+\examples{
+data(rctd_simulation)
+
+# In practice, results_se should contain the results of an RCTD run.
+results_se <- rctd_simulation$proportions_se
+plot_cell_type_weights(
+    results_se, "ct1",
+    r = 0.05, lwd = 0.5, title = "Cell Type Density (ct1)"
+)
+
 }

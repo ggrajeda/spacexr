@@ -3,19 +3,38 @@
 \docType{class}
 \name{Reference-class}
 \alias{Reference-class}
-\title{An S4 class to represent Single-Cell RNA-seq reference}
+\title{RNA-seq reference data}
 \description{
-An S4 class to represent Single-Cell RNA-seq reference
+A class representing annotated RNA sequencing data used as a reference to
+learn cell type profiles. The reference can come from single-nucleus RNA
+sequencing (snRNA-seq), single-cell RNA sequencing (scRNA-seq), or cell
+type-specific bulk RNA sequencing. RCTD uses these profiles to estimate cell
+type proportions in spatial transcriptomics data.
 }
 \section{Slots}{
 
 \describe{
-\item{\code{cell_types}}{a factor of cell type identities for each cell}
+\item{\code{cell_types}}{factor vector containing cell type annotations for each cell
+in the reference (identified by barcode)}
 
-\item{\code{counts}}{a sparse matrix of raw counts for each gene (rowname)
-and each cell (colnames or barcodes)}
+\item{\code{counts}}{sparse matrix of gene expression counts from RNA-seq data, with
+genes as rows and cells as columns (named by cell barcode)}
 
-\item{\code{nUMI}}{an atomic vector of numeric UMI counts per cell}
+\item{\code{nUMI}}{numeric vector of total UMI counts per cell (identified by barcode)}
 }}
 
-\keyword{internal}
+\examples{
+data(rctd_simulation)
+
+# Create Reference object
+reference <- Reference(
+    rctd_simulation$reference_counts,
+    rctd_simulation$reference_cell_types
+)
+
+# Access object slots using generics
+table(cell_types(reference))  # Count occurrences of each cell type
+dim(counts(reference))        # Get gene expression matrix dimensions
+head(nUMI(reference))         # Get total UMI counts per cell
+
+}

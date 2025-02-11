@@ -2,7 +2,7 @@
 % Please edit documentation in R/Reference.R
 \name{Reference}
 \alias{Reference}
-\title{constructor of \code{\linkS4class{Reference}} object}
+\title{\code{\linkS4class{Reference}} object constructor}
 \usage{
 Reference(
   counts,
@@ -14,29 +14,31 @@ Reference(
 )
 }
 \arguments{
-\item{counts}{A matrix (or dgCmatrix) representing Digital Gene Expression (DGE). Rownames should be genes
-and colnames represent barcodes/cell names.}
+\item{counts}{matrix (or dgCMatrix) of gene expression counts from RNA-seq
+data, with genes as rows and cells as columns (named by cell barcode)}
 
-\item{cell_types}{A named (by cell barcode) factor of cell type for each cell. The 'levels' of the factor would be the possible
-cell type identities.}
+\item{cell_types}{factor vector containing cell type annotations for each
+cell in the reference (identified by barcode). The factor levels represent
+the possible cell types.}
 
-\item{nUMI}{Optional, a named (by cell barcode) list of total counts or UMI's appearing at each pixel. If not provided,
-nUMI will be assumed to be the total counts appearing on each pixel.}
+\item{nUMI}{optional, numeric vector of total UMI counts per cell (identified
+by barcode). If not provided, nUMI will be calculated as the column sums of
+the counts matrix.}
 
-\item{require_int}{logical, TRUE by default. If true, requires counts and nUMI to be integers.
+\item{require_int}{logical, TRUE by default. If true, requires counts and
+nUMI to be integers.}
 
-Counts should be untransformed count-level data}
+\item{n_max_cells}{numeric, maximum number of cells per cell type. Will
+downsample if this number is exceeded. (default: 10,000)}
 
-\item{n_max_cells}{(default 10,000) the maximum number of cells per cell type. Will downsample if this number is exceeded.}
-
-\item{min_UMI}{(default 100) minimum UMI count for cells to be included in the reference.}
+\item{min_UMI}{numeric, minimum UMI count for cells to be included in the
+reference (default: 100)}
 }
 \value{
-Returns a \code{\linkS4class{Reference}} object containing the counts matrix, cell type labels, and UMI vector
-from the input files
+\code{\linkS4class{Reference}} object
 }
 \description{
-constructor of \code{\linkS4class{Reference}} object
+\code{\linkS4class{Reference}} object constructor
 }
 \examples{
 data(rctd_simulation)

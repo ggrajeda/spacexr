@@ -6,27 +6,27 @@
 \usage{
 plot_all_weights(
   rctd_se,
-  weights_assay = "weights",
-  cell_type_colors = grDevices::rainbow(ncol(assay(rctd_se))),
+  use_full_weights = FALSE,
+  cell_type_colors = NA,
   r = 0.4,
   lwd = 1,
-  plot_title = NA
+  title = NA
 )
 }
 \arguments{
 \item{rctd_se}{SummarizedExperiment containing RCTD results}
 
-\item{weights_assay}{character(1) name of the weights assay (default:
-"weights")}
+\item{use_full_weights}{logical, whether to use the full weights (in the
+"weights_full" assay) instead of the default weights (default: FALSE)}
 
 \item{cell_type_colors}{vector of colors for the different cell types
 (default: rainbow)}
 
-\item{r}{numeric(1) radius of the pie charts (default: 0.4)}
+\item{r}{numeric, radius of the pie charts (default: 0.4)}
 
-\item{lwd}{numeric(1) line width of the pie chart borders (default: 1)}
+\item{lwd}{numeric, line width of the pie chart borders (default: 1)}
 
-\item{plot_title}{character(1) plot title. (default: NA)}
+\item{title}{character, plot title (default: NA)}
 }
 \value{
 ggplot object showing cell type proportions at each pixel using pie
@@ -34,5 +34,16 @@ ggplot object showing cell type proportions at each pixel using pie
 }
 \description{
 Generates a visualization where each pixel is represented by a pie chart
-showing the proportions of different cell types at that location.
+showing the proportions of different cell types at that location. Users
+should run this function on the result of \code{\link{run.RCTD}}.
+}
+\examples{
+data(rctd_simulation)
+
+# In practice, results_se should contain the results of an RCTD run.
+plot_all_weights(
+    rctd_simulation$proportions_se,
+    r = 0.05, lwd = 0.5, title = "Cell Type Proportions"
+)
+
 }

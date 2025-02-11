@@ -10,9 +10,11 @@ read.VisiumSpatialRNA(datadir)
 \item{datadir}{(string) full path to the 10x Genomics Visium `outs` directory}
 }
 \value{
-Returns a \code{\linkS4class{SpatialRNA}} object containing the coordinates and counts
-from the input files
+Returns a \code{\linkS4class{SpatialRNA}} object containing the
+  coordinates and counts from the input files
 }
 \description{
-Given a SpatialRNA directory 10x Genomics Visium `outs` directory and returns a SpatialRNA object.
+Given a SpatialRNA directory 10x Genomics Visium `outs` directory and returns
+a SpatialRNA object.
 }
+\keyword{internal}

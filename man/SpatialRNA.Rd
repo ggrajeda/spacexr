@@ -2,7 +2,7 @@
 % Please edit documentation in R/SpatialRNA.R
 \name{SpatialRNA}
 \alias{SpatialRNA}
-\title{constructor of SpatialRNA object}
+\title{\code{\linkS4class{SpatialRNA}} object constructor}
 \usage{
 SpatialRNA(
   coords,
@@ -13,28 +13,27 @@ SpatialRNA(
 )
 }
 \arguments{
-\item{coords}{A data.frame (or matrix) representing the spatial pixel locations. rownames are barcodes/pixel names,
-and there should be two columns for 'x' and for 'y'.}
+\item{coords}{data frame (or matrix) containing x and y coordinates for each
+pixel (identified by barcode)}
 
-\item{counts}{A matrix (or dgCmatrix) representing Digital Gene Expression (DGE). Rownames should be genes
-and colnames represent barcodes/pixel names.}
+\item{counts}{matrix (or dgCMatrix) of gene expression counts, with genes as
+rows and pixels as columns (named by pixel barcode)}
 
-\item{nUMI}{Optional, a named (by pixel barcode) list of total counts or UMI's appearing at each pixel. If not provided,
-nUMI will be assumed to be the total counts appearing on each pixel.}
+\item{nUMI}{optional, numeric vector of total UMI counts per pixel
+(identified by barcode). If not provided, nUMI will be calculated as the
+column sums of the counts matrix.}
 
-\item{use_fake_coords}{logical, FALSE by default. If true, the 'coords' parameter will be ignored, and replaced with a placeholder
-coords matrix.}
+\item{use_fake_coords}{logical, FALSE by default. If true, the 'coords'
+parameter will be ignored, and replaced with a placeholder coords matrix.}
 
-\item{require_int}{logical, TRUE by default. If true, requires counts and nUMI to be integers.
-
-Counts should be untransformed count-level data}
+\item{require_int}{logical, TRUE by default. If true, requires counts and
+nUMI to be integers.}
 }
 \value{
-Returns a \code{\linkS4class{SpatialRNA}} object containing the coordinates and counts
-from the input files
+\code{\linkS4class{SpatialRNA}} object
 }
 \description{
-constructor of SpatialRNA object
+\code{\linkS4class{SpatialRNA}} object constructor
 }
 \examples{
 data(rctd_simulation)

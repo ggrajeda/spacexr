@@ -2,7 +2,7 @@
 % Please edit documentation in R/spacexr.R
 \name{create.RCTD}
 \alias{create.RCTD}
-\title{Creates an \code{\linkS4class{RCTD}} object from a scRNA-seq reference \code{Reference} object and a \code{\linkS4class{SpatialRNA}} object}
+\title{\code{\linkS4class{RCTD}} object constructor}
 \usage{
 create.RCTD(
   spatialRNA,
@@ -28,66 +28,92 @@ create.RCTD(
 )
 }
 \arguments{
-\item{spatialRNA}{a \code{\linkS4class{SpatialRNA}} object to run RCTD on}
+\item{spatialRNA}{a \code{\linkS4class{SpatialRNA}} object containing spatial
+transcriptomics data}
 
-\item{reference}{a \code{\linkS4class{Reference}} object scRNA-seq reference used for RCTD}
+\item{reference}{a \code{\linkS4class{Reference}} object containing reference
+RNA-seq data}
 
-\item{max_cores}{for parallel processing, the number of cores used. If set to 1, parallel processing is not used. The system will additionally be checked for
-number of available cores.}
+\item{max_cores}{numeric, maximum number of cores to use for parallel
+processing (default: 4)}
 
-\item{test_mode}{(Default FALSE) if true, runs with a preset test configuration}
+\item{test_mode}{logical, whether to run in test mode with reduced
+computation (default: FALSE)}
 
-\item{gene_cutoff}{minimum normalized gene expression for genes to be included in the platform effect normalization step.}
+\item{gene_cutoff}{numeric, minimum normalized gene expression for genes to
+be included in the platform effect normalization step (default: 0.000125)}
 
-\item{fc_cutoff}{minimum log-fold-change (across cell types) for genes to be included in the platform effect normalization step.}
+\item{fc_cutoff}{numeric, minimum log-fold-change (across cell types) for
+genes to be included in the platform effect normalization step (default:
+0.5)}
 
-\item{gene_cutoff_reg}{minimum normalized gene expression for genes to be included in the RCTD step.}
+\item{gene_cutoff_reg}{numeric, minimum normalized gene expression for genes
+to be included in the RCTD step (default: 0.0002)}
 
-\item{fc_cutoff_reg}{minimum log-fold-change (across cell types) for genes to be included in the RCTD step.}
+\item{fc_cutoff_reg}{numeric, minimum log-fold-change (across cell types) for
+genes to be included in the RCTD step (default: 0.75)}
 
-\item{UMI_min}{minimum UMI per pixel included in the analysis}
+\item{UMI_min}{numeric, minimum UMI count per pixel (default: 100)}
 
-\item{UMI_max}{maximum UMI per pixel included in the analysis}
+\item{UMI_max}{numeric, maximum UMI count per pixel (default: 20000000)}
 
-\item{counts_MIN}{(default 10) minimum total counts per pixel of genes used in the analysis.}
+\item{counts_MIN}{numeric, minimum total counts per pixel of genes used in
+analysis (default: 10)}
 
-\item{UMI_min_sigma}{minimum UMI per pixel for the \link{choose_sigma_c} function}
+\item{UMI_min_sigma}{numeric, minimum UMI count for pixels used in platform
+effect normalization (default: 300)}
 
-\item{class_df}{(optional) if not NULL, then a dataframe mapping each cell type to a cell class, so that RCTD will report confidence on the class level.}
+\item{class_df}{data frame mapping cell types to classes, optional. If
+specified, RCTD will report confidence on the class level.}
 
-\item{CELL_MIN_INSTANCE}{minimum number of cells required per cell type. Default 25, can be lowered if desired.}
+\item{CELL_MIN_INSTANCE}{numeric, minimum number of cells required per cell
+type (default: 25)}
 
-\item{cell_type_names}{A list of cell types to be included from the reference. If NULL, uses all cell types}
+\item{cell_type_names}{character vector of cell type names to include,
+optional}
 
-\item{MAX_MULTI_TYPES}{(multi-mode only) Default 4, max number of cell types per pixel}
+\item{MAX_MULTI_TYPES}{numeric, maximum number of cell types per pixel in
+multi mode (default: 4)}
 
-\item{keep_reference}{(Default FALSE) if true, keeps the \code{reference} object stored within the \code{\linkS4class{RCTD}} object}
+\item{keep_reference}{logical, whether to retain the full reference data in
+the output object (default: FALSE)}
 
-\item{cell_type_profiles}{Default NULL, option to pass in cell type profiles in directly as a genes by cell type matrix, including gene names and cell type names.
-If this option is used, reference will be ignored.}
+\item{cell_type_profiles}{matrix of precomputed cell type expression profiles
+(genes by cell type), optional. If this option is used, gene names and cell
+type names must be present in the profiles, and the reference will be
+ignored.}
 
-\item{CONFIDENCE_THRESHOLD}{(Default 5) the minimum change in likelihood (compared to other cell types) necessary to determine a cell type identity with confidence}
+\item{CONFIDENCE_THRESHOLD}{numeric, minimum change in likelihood (compared
+to other cell types) necessary to determine a cell type identity with
+confidence (default: 5)}
 
-\item{DOUBLET_THRESHOLD}{(Default 20) the penalty weight of predicting a doublet instead of a singlet for a pixel}
+\item{DOUBLET_THRESHOLD}{numeric, penalty weight of predicting a doublet
+instead of a singlet for a pixel (default: 20)}
 }
 \value{
-an \code{\linkS4class{RCTD}} object, which is ready to run the \code{\link{run.RCTD}} function
+\code{\linkS4class{RCTD}} object
 }
 \description{
-Creates an \code{\linkS4class{RCTD}} object from a scRNA-seq reference \code{Reference} object and a \code{\linkS4class{SpatialRNA}} object
+Creates an RCTD configuration from a spatial transcriptomics dataset and a
+reference dataset. This function performs initial preprocessing steps,
+including identifying differentially expressed genes and normalizing for
+platform effects. Users should subsequently pass this object to
+\code{\link{run.RCTD}}.
 }
 \examples{
 data(rctd_simulation)
 
-reference <- Reference(
-    rctd_simulation$reference_counts,
-    rctd_simulation$reference_cell_types
-)
+# Create SpatialRNA and Reference objects
 spatial_rna <- SpatialRNA(
     rctd_simulation$spatial_rna_coords,
     rctd_simulation$spatial_rna_counts
 )
+reference <- Reference(
+    rctd_simulation$reference_counts,
+    rctd_simulation$reference_cell_types
+)
 
+# Create RCTD object
 rctd <- create.RCTD(spatial_rna, reference)
 
 }

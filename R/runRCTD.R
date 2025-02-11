@@ -87,9 +87,29 @@ process_beads_multi <- function(cell_type_info, gene_list, puck, class_df = NULL
 #'
 #' @param RCTD an \code{\linkS4class{RCTD}} object after running the \code{\link{choose_sigma_c}} function.
 #' @param doublet_mode \code{character string}, either "doublet", "multi", or "full" on which mode to run RCTD. Please see above description.
-#' @return an \code{\linkS4class{RCTD}} object containing the results of the RCTD algorithm.
+#' @return an SummarizedExperiment object containing the results of the RCTD algorithm.
 #' @export
 #' @keywords internal
+#' @examples
+#' data(rctd_simulation)
+#'
+#' # Create SpatialRNA and Reference objects
+#' spatial_rna <- SpatialRNA(
+#'     rctd_simulation$spatial_rna_coords,
+#'     rctd_simulation$spatial_rna_counts
+#' )
+#' reference <- Reference(
+#'     rctd_simulation$reference_counts,
+#'     rctd_simulation$reference_cell_types
+#' )
+#'
+#' # Create RCTD object
+#' rctd <- create.RCTD(spatial_rna, reference)
+#' 
+#' rctd <- fitBulk(rctd)
+#' rctd <- choose_sigma_c(rctd)
+#' results_se <- fitPixels(RCTD, doublet_mode = "doublet")
+#' 
 fitPixels <- function(RCTD, doublet_mode = "doublet") {
     RCTD@internal_vars$cell_types_assigned <- TRUE
     RCTD@config$RCTDmode <- doublet_mode
@@ -101,29 +121,22 @@ fitPixels <- function(RCTD, doublet_mode = "doublet") {
             constrain = FALSE, MAX_CORES = RCTD@config$max_cores, MIN.CHANGE = RCTD@config$MIN_CHANGE_REG,
             CONFIDENCE_THRESHOLD = RCTD@config$CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = RCTD@config$DOUBLET_THRESHOLD
         )
-        return(gather_results(RCTD, results))
+        return(create_se_doublet(RCTD, results))
     } else if (doublet_mode == "full") {
         beads <- t(as.matrix(RCTD@spatialRNA@counts[RCTD@internal_vars$gene_list_reg, ]))
         results <- decompose_batch(RCTD@spatialRNA@nUMI, cell_type_info[[1]], beads, RCTD@internal_vars$gene_list_reg,
             constrain = FALSE,
             max_cores = RCTD@config$max_cores, MIN.CHANGE = RCTD@config$MIN_CHANGE_REG
         )
-        weights <- Matrix(0, nrow = length(results), ncol = RCTD@cell_type_info$renorm[[3]])
-        rownames(weights) <- colnames(RCTD@spatialRNA@counts)
-        colnames(weights) <- RCTD@cell_type_info$renorm[[2]]
-        for (i in seq_len(dim(weights)[1])) {
-            weights[i, ] <- results[[i]]$weights
-        }
-        RCTD@results <- list(weights = weights)
-        return(RCTD)
+        return(create_se_full(RCTD, results))
     } else if (doublet_mode == "multi") {
-        RCTD@results <- process_beads_multi(cell_type_info, RCTD@internal_vars$gene_list_reg, RCTD@spatialRNA,
+        results <- process_beads_multi(cell_type_info, RCTD@internal_vars$gene_list_reg, RCTD@spatialRNA,
             class_df = RCTD@internal_vars$class_df,
             constrain = FALSE, MAX_CORES = RCTD@config$max_cores,
             MIN.CHANGE = RCTD@config$MIN_CHANGE_REG, MAX.TYPES = RCTD@config$MAX_MULTI_TYPES,
             CONFIDENCE_THRESHOLD = RCTD@config$CONFIDENCE_THRESHOLD, DOUBLET_THRESHOLD = RCTD@config$DOUBLET_THRESHOLD
         )
-        return(RCTD)
+        return(create_se_multi(RCTD, results))
     } else {
         stop("fitPixels: doublet_mode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full.")
     }

@@ -152,13 +152,17 @@ simulate_spatial_transcriptomics <- function(num_genes = 750,
     }))
     colnames(true_proportions) <- cell_type_name(seq_len(num_cell_types))
     rownames(true_proportions) <- rownames(spatial_rna@coords)
+    proportions_se = SummarizedExperiment(
+        assays = list(weights = true_proportions),
+        rowData = spatial_rna@coords,
+    )
 
     list(
         reference_counts = reference@counts,
         reference_cell_types = reference@cell_types,
         spatial_rna_coords = spatial_rna@coords,
         spatial_rna_counts = spatial_rna@counts,
-        true_proportions = true_proportions
+        proportions_se = proportions_se
     )
 }
 

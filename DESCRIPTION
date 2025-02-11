@@ -1,13 +1,18 @@
 Package: spacexr
 Type: Package
-Title: SpatialeXpressionR: Cell type identification and cell type-specific differential expression in spatial transcriptomics
+Title: SpatialeXpressionR: Cell Type Identification in Spatial Transcriptomics
 Version: 2.2.1
 Authors@R: c(
     person("Dylan", "Cable", email = "dmcable@umich.edu", role = "aut"),
     person("Gabriel", "Grajeda", email = "gabriel.grajeda@gmail.com", role = "cre", comment=c(ORCID="0009-0003-7242-7476")))
-Description: Implementation of two computational methods in spatial transcriptomics: 
-    1. Robust Cell Type Decomposition (RCTD). Decomposes cell type mixtures using cell type profiles, correcting for differences across sequencing technologies.
-    2. Cell Type-Specific Inference of Differential Expression (CSIDE). Identifies cell type-specific differential expression, accounting for localization of other cell types.
+Description: Robust Cell Type Decomposition (RCTD) is a computational method for
+    deconvolving cell type mixtures in spatial transcriptomics data. RCTD
+    leverages RNA sequencing (RNA-seq) references to identify cell types in
+    spatial transcriptomic pixels while accounting for platform-specific effects
+    that influence gene expression measurements. The package provides three
+    analysis modes: doublet detection (up to 2 cell types per pixel), multi mode
+    with greedy cell type assignment (up to a specified number of cell types per
+    pixel), and full decomposition without restrictions.
 URL: https://github.com/ggrajeda/spacexr
 BugReports: https://github.com/ggrajeda/spacexr/issues
 Depends: R (>= 4.4.0)

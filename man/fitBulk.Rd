@@ -16,4 +16,22 @@ Returns an \code{\linkS4class{RCTD}} object normalized for platform effects.
 Estimates bulk cell type composition and uses this
 to estimate platform effects and normalize cell type proportions
 }
+\examples{
+data(rctd_simulation)
+
+# Create SpatialRNA and Reference objects
+spatial_rna <- SpatialRNA(
+    rctd_simulation$spatial_rna_coords,
+    rctd_simulation$spatial_rna_counts
+)
+reference <- Reference(
+    rctd_simulation$reference_counts,
+    rctd_simulation$reference_cell_types
+)
+
+# Create RCTD object
+rctd <- create.RCTD(spatial_rna, reference)
+rctd <- fitBulk(rctd)
+
+}
 \keyword{internal}

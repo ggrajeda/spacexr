@@ -2,38 +2,82 @@
 % Please edit documentation in R/spacexr.R
 \name{run.RCTD}
 \alias{run.RCTD}
-\title{Runs the RCTD pipeline on a \code{\linkS4class{RCTD}} object}
+\title{Run RCTD algorithm to decompose cell type mixtures}
 \usage{
 run.RCTD(RCTD, doublet_mode = "doublet")
 }
 \arguments{
-\item{RCTD}{an \code{\linkS4class{RCTD}} object created using the \code{\link{create.RCTD}} function.}
+\item{RCTD}{\code{\linkS4class{RCTD}} object created using
+\code{\link{create.RCTD}}}
 
-\item{doublet_mode}{\code{character string}, either "doublet", "multi", or "full" on which mode to run RCTD. Please see above description.}
+\item{doublet_mode}{character string specifying the RCTD mode: "doublet",
+"multi", or "full" (default: "doublet")}
 }
 \value{
-an \code{\linkS4class{RCTD}} object containing the results of the RCTD algorithm. Please see \code{\linkS4class{RCTD}}
-documentation for more information on interpreting the content of the RCTD object.
+A SummarizedExperiment object containing the RCTD results with:
+  \itemize{
+    \item Two assays:
+      \itemize{
+        \item \code{weights}: Cell type proportions restricted according to
+        the specified mode
+        \item \code{weights_full}: Unrestricted cell type proportions (stored
+        redundantly in full mode)
+      }
+    \item rowData containing:
+      \itemize{
+        \item \code{x}, \code{y}: Spatial coordinates for each pixel
+        \item For doublet mode:
+          \itemize{
+            \item \code{spot_class}: Classification as "singlet",
+            "doublet_certain", "doublet_uncertain", or "reject"
+            \item \code{first_type}, \code{second_type}: Predicted cell types
+            \item \code{first_class}, \code{second_class}: Whether
+            predictions were made at the class level
+            \item Additional metrics like \code{min_score},
+            \code{singlet_score}
+          }
+        \item For multi mode:
+          \itemize{
+            \item \code{cell_type_list}: List of cell types per pixel
+            \item \code{conf_list}: List of confident cell type predictions
+            \item Additional metrics like \code{min_score}
+          }
+      }
+  }
 }
 \description{
-If in doublet mode, fits at most two cell types per pixel. It classifies each pixel as 'singlet' or 'doublet' and searches for the cell types
-on the pixel. If in full mode, can fit any number of cell types on each pixel. In multi mode, cell types are added using a greedy algorithm,
-up to a fixed number.
+Runs the RCTD algorithm to decompose cell type mixtures in spatial
+transcriptomics data. The algorithm has three modes:
+\itemize{
+  \item \code{doublet}: Fits at most two cell types per pixel and classifies
+  each pixel as a "singlet" or "doublet"
+  \item \code{multi}: Uses a greedy algorithm to fit cell types up to a fixed
+    maximum number
+  \item \code{full}: Can fit any number of cell types on each pixel
+}
 }
 \examples{
 data(rctd_simulation)
 
-reference <- Reference(
-    rctd_simulation$reference_counts,
-    rctd_simulation$reference_cell_types
-)
+# Create SpatialRNA and Reference objects
 spatial_rna <- SpatialRNA(
     rctd_simulation$spatial_rna_coords,
     rctd_simulation$spatial_rna_counts
 )
+reference <- Reference(
+    rctd_simulation$reference_counts,
+    rctd_simulation$reference_cell_types
+)
 
+# Create RCTD object
 rctd <- create.RCTD(spatial_rna, reference)
-rctd <- run.RCTD(rctd, doublet_mode = "doublet")
-head(results(rctd)$results_df)
+rctd_se <- run.RCTD(rctd, doublet_mode = "doublet")
+
+# Access the cell type proportions
+library(SummarizedExperiment)
+head(assay(rctd_se, "weights"))
+
+# Check spot classifications for doublet mode
+head(rowData(rctd_se)$spot_class)
 
 }

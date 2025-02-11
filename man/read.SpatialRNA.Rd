@@ -9,21 +9,25 @@ read.SpatialRNA(datadir, count_file = "counts.csv", coords_file = "coords.csv")
 \arguments{
 \item{datadir}{(character) full path to input directory}
 
-\item{count_file}{(character) file name of the counts csv file (genes by pixels matrix)}
+\item{count_file}{(character) file name of the counts csv file (genes by
+pixels matrix)}
 
-\item{coords_file}{(character) file name of the coords csv file (pixels by (barcodes, x, y) matrix)}
+\item{coords_file}{(character) file name of the coords csv file (pixels by
+(barcodes, x, y) matrix)}
 }
 \value{
-Returns a \code{\linkS4class{SpatialRNA}} object containing the coordinates and counts
-from the input files
+Returns a \code{\linkS4class{SpatialRNA}} object containing the
+  coordinates and counts from the input files
 }
 \description{
-Warning: this function is provided out of convenience for experienced users, but
-we can not provide direct support for debugging file input errors. If you are obtaining
-errors from this method, we recommend a less error-prone procedure of loading in your
-coords and counts matrices in first and then using the `SpatialRNA` constructor function,
-which will systematically check for errors in the inputs.
+Warning: this function is provided out of convenience for experienced users,
+but we can not provide direct support for debugging file input errors. If you
+are obtaining errors from this method, we recommend a less error-prone
+procedure of loading in your coords and counts matrices in first and then
+using the `SpatialRNA` constructor function, which will systematically check
+for errors in the inputs.
 }
 \details{
 The coords matrix needs to be formated as columns (barcodes, x, y)
 }
+\keyword{internal}

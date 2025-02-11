@@ -1,5 +1,14 @@
+print_results <- function(assays, row_data) {
+    print("=== Weights ===")
+    print(assays$weights)
+    print("\n=== Full Weights ===")
+    print(assays$weights_full)
+    print("\n=== Row Data ===")
+    print(as.data.frame(row_data))
+}
+
 test_that("Matches exactly on rctd_simulation", {
-    # Create RCTD objects from simulated data.
+    ## Create RCTD objects from simulated data.
     data(rctd_simulation)
     reference <- Reference(
         rctd_simulation$reference_counts,
@@ -12,23 +21,46 @@ test_that("Matches exactly on rctd_simulation", {
     rctd <- create.RCTD(spatial_rna, reference, max_cores = 1)
     parallel_rctd <- create.RCTD(spatial_rna, reference, max_cores = 2)
 
-    # Run RCTD sequentially.
-    doublet_results <- run.RCTD(rctd, doublet_mode = "doublet")
-    expect_snapshot(doublet_results@results)
+    ## Run RCTD sequentially.
 
-    multi_results <- run.RCTD(rctd, doublet_mode = "multi")
-    expect_snapshot(multi_results@results)
+    # Doublet mode
+    doublet_se <- run.RCTD(rctd, doublet_mode = "doublet")
+    doublet_assays <- assays(doublet_se)
+    doublet_row_data <- rowData(doublet_se)
+    expect_snapshot({
+        print_results(doublet_assays, doublet_row_data)
+    })
 
-    full_results <- run.RCTD(rctd, doublet_mode = "full")
-    expect_snapshot(full_results@results)
+    # Multi mode
+    multi_se <- run.RCTD(rctd, doublet_mode = "multi")
+    multi_assays <- assays(multi_se)
+    multi_row_data <- rowData(multi_se)
+    expect_snapshot({
+        print_results(multi_assays, multi_row_data)
+    })
 
-    # Run RCTD in parallel.
-    parallel_doublet_results <- run.RCTD(parallel_rctd, doublet_mode = "doublet")
-    expect_equal(doublet_results@results, parallel_doublet_results@results)
+    # Full mode
+    full_se <- run.RCTD(rctd, doublet_mode = "full")
+    full_assays <- assays(full_se)
+    full_row_data <- rowData(full_se)
+    expect_snapshot({
+        print_results(full_assays, full_row_data)
+    })
 
-    parallel_multi_results <- run.RCTD(parallel_rctd, doublet_mode = "multi")
-    expect_equal(multi_results@results, parallel_multi_results@results)
+    ## Run RCTD in parallel.
 
-    parallel_full_results <- run.RCTD(parallel_rctd, doublet_mode = "full")
-    expect_equal(full_results@results, parallel_full_results@results)
+    # Doublet mode
+    parallel_doublet_se <- run.RCTD(parallel_rctd, doublet_mode = "doublet")
+    expect_equal(assays(parallel_doublet_se), doublet_assays)
+    expect_equal(rowData(parallel_doublet_se), doublet_row_data)
+
+    # Multi mode
+    parallel_multi_se <- run.RCTD(parallel_rctd, doublet_mode = "multi")
+    expect_equal(assays(parallel_multi_se), multi_assays)
+    expect_equal(rowData(parallel_multi_se), multi_row_data)
+
+    # Full mode
+    parallel_full_se <- run.RCTD(parallel_rctd, doublet_mode = "full")
+    expect_equal(assays(parallel_full_se), full_assays)
+    expect_equal(rowData(parallel_full_se), full_row_data)
 })

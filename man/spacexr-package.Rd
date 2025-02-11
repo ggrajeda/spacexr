@@ -4,29 +4,21 @@
 \name{spacexr-package}
 \alias{spacexr-package}
 \alias{spacexr}
-\title{spacexr: an R package for assigning cell types and cell type specific differential expression to spatial transcriptomics data.}
+\title{spacexr: Cell Type Identification in Spatial Transcriptomics}
 \description{
-Implementation of two computational methods in spatial transcriptomics: 1. Robust Cell Type Decomposition (RCTD). Decomposes cell type mixtures using cell type profiles, correcting for differences across sequencing technologies. 2. Cell Type-Specific Inference of Differential Expression (CSIDE). Identifies cell type-specific differential expression, accounting for localization of other cell types.
+Robust Cell Type Decomposition (RCTD) is a computational method for deconvolving cell type mixtures in spatial transcriptomics data. RCTD leverages RNA sequencing (RNA-seq) references to identify cell types in spatial transcriptomic pixels while accounting for platform-specific effects that influence gene expression measurements. The package provides three analysis modes: doublet detection (up to 2 cell types per pixel), multi mode with greedy cell type assignment (up to a specified number of cell types per pixel), and full decomposition without restrictions.
 }
 \section{Running RCTD}{
 
 
-To get started, create a \code{\linkS4class{SpatialRNA}} object (called \code{puck} here) for the
-spatial transcriptomics data and a \code{\linkS4class{Reference}} object (called \code{reference} here) for the
-scRNA-seq data. Then simply run RCTD as:
+  To get started, create a \code{\linkS4class{SpatialRNA}} object (called
+  \code{puck} here) for the spatial transcriptomics data and a
+  \code{\linkS4class{Reference}} object (called \code{reference} here) for
+  the RNA-seq data. Then simply run RCTD as:
 
-\code{myRCTD <- create.RCTD(puck, reference)}
+  \code{rctd <- create.RCTD(puck, reference)}
 
-\code{myRCTD <- run.RCTD(myRCTD)}
-}
-
-\section{Running CSIDE}{
-
-
-After running RCTD, create an explanatory variable (`explanatory.variable`) representing a covariate hypothesized to explain gene expression.
-Then, to detect cell type-specific differential expression, simply run CSIDE as:
-
-\code{myRCTD <- run.CSIDE.single(puck, explanatory.variable)}
+  \code{rctd_se <- run.RCTD(rctd)}
 }
 
 \seealso{

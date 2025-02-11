@@ -9,13 +9,16 @@ restrict_puck(puck, barcodes)
 \arguments{
 \item{puck}{a \code{\linkS4class{SpatialRNA}} object}
 
-\item{barcodes}{a list of barcode names, a subset of \code{rownames(puck@coords)}}
+\item{barcodes}{a list of barcode names, a subset of
+\code{rownames(puck@coords)}}
 }
 \value{
-Returns a \code{\linkS4class{SpatialRNA}} object subsampled to the barcodes
+Returns a \code{\linkS4class{SpatialRNA}} object subsampled to the
+  barcodes
 }
 \description{
-Given a \code{\linkS4class{SpatialRNA}} object and a list of barcodes (pixels), will return a
-\code{\linkS4class{SpatialRNA}} object restricted to the barcodes.
+Given a \code{\linkS4class{SpatialRNA}} object and a list of barcodes
+(pixels), will return a \code{\linkS4class{SpatialRNA}} object restricted to
+the barcodes.
 }
 \keyword{internal}

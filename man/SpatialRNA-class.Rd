@@ -3,25 +3,38 @@
 \docType{class}
 \name{SpatialRNA-class}
 \alias{SpatialRNA-class}
-\title{An S4 class to represent Spatial Transcriptomic data}
+\title{Spatial transcriptomics data}
 \description{
-An S4 class to represent Spatial Transcriptomic data
+A class representing spatial transcriptomics data, where gene expression is
+measured at fixed locations called "pixels" (also known as "spots" or
+"beads"), which may contain mixtures of multiple cells. RCTD estimates the
+proportions of different cell types in each pixel.
 }
 \section{Slots}{
 
 \describe{
-\item{\code{coords}}{a dataframe with x and y coordinates of each pixel}
+\item{\code{coords}}{data frame (or matrix) containing x and y coordinates for each
+pixel (identified by barcode)}
 
-\item{\code{counts}}{a sparse matrix of raw counts for each gene (rowname)
-and each pixel (colnames or barcodes)}
+\item{\code{counts}}{sparse matrix of gene expression counts, with genes as rows and
+pixels as columns (named by pixel barcode)}
 
-\item{\code{n_cell_type}}{the number of cell types}
-
-\item{\code{cell_type_names}}{a list of cell type names}
-
-\item{\code{nUMI}}{a named list (by barcode) of total UMIs per pixel}
-
-\item{\code{cell_labels}}{a factor of cell type labels for each pixel}
+\item{\code{nUMI}}{numeric vector of total UMI counts per pixel (identified by
+barcode)}
 }}
 
-\keyword{internal}
+\examples{
+data(rctd_simulation)
+
+# Create SpatialRNA object
+spatial_rna <- SpatialRNA(
+    rctd_simulation$spatial_rna_coords,
+    rctd_simulation$spatial_rna_counts
+)
+
+# Access object slots using generics
+head(coords(spatial_rna))  # Get spatial coordinates
+dim(counts(spatial_rna))   # Get gene expression matrix dimensions
+head(nUMI(spatial_rna))    # Get total UMI counts per pixel
+
+}

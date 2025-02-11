@@ -1,40 +1,52 @@
-#' spacexr: an R package for assigning cell types and cell type specific differential expression to spatial transcriptomics data.
+#' spacexr: Cell Type Identification in Spatial Transcriptomics
 #'
 #' @section Running RCTD:
 #'
-#' To get started, create a \code{\linkS4class{SpatialRNA}} object (called \code{puck} here) for the
-#' spatial transcriptomics data and a \code{\linkS4class{Reference}} object (called \code{reference} here) for the
-#' scRNA-seq data. Then simply run RCTD as:
+#'   To get started, create a \code{\linkS4class{SpatialRNA}} object (called
+#'   \code{puck} here) for the spatial transcriptomics data and a
+#'   \code{\linkS4class{Reference}} object (called \code{reference} here) for
+#'   the RNA-seq data. Then simply run RCTD as:
 #'
-#' \code{myRCTD <- create.RCTD(puck, reference)}
+#'   \code{rctd <- create.RCTD(puck, reference)}
 #'
-#' \code{myRCTD <- run.RCTD(myRCTD)}
-#'
-#' @section Running CSIDE:
-#'
-#' After running RCTD, create an explanatory variable (`explanatory.variable`) representing a covariate hypothesized to explain gene expression.
-#' Then, to detect cell type-specific differential expression, simply run CSIDE as:
-#'
-#' \code{myRCTD <- run.CSIDE.single(puck, explanatory.variable)}
+#'   \code{rctd_se <- run.RCTD(rctd)}
 #'
 #' @docType package
 #' @name spacexr-package
 #' @aliases spacexr spacexr-package
 "_PACKAGE"
 
-#' An S4 class to represent Spatial Transcriptomic data
+#' Spatial transcriptomics data
 #'
-#' @slot coords a dataframe with x and y coordinates of each pixel
-#' @slot counts a sparse matrix of raw counts for each gene (rowname)
-#' and each pixel (colnames or barcodes)
-#' @slot n_cell_type the number of cell types
-#' @slot cell_type_names a list of cell type names
-#' @slot nUMI a named list (by barcode) of total UMIs per pixel
-#' @slot cell_labels a factor of cell type labels for each pixel
+#' A class representing spatial transcriptomics data, where gene expression is
+#' measured at fixed locations called "pixels" (also known as "spots" or
+#' "beads"), which may contain mixtures of multiple cells. RCTD estimates the
+#' proportions of different cell types in each pixel.
+#'
+#' @slot coords data frame (or matrix) containing x and y coordinates for each
+#'   pixel (identified by barcode)
+#' @slot counts sparse matrix of gene expression counts, with genes as rows and
+#'   pixels as columns (named by pixel barcode)
+#' @slot nUMI numeric vector of total UMI counts per pixel (identified by
+#'   barcode)
+#' 
 #' @export
 #' @import Matrix
 #' @importClassesFrom Matrix Matrix dgCMatrix
-#' @keywords internal
+#' @examples
+#' data(rctd_simulation)
+#'
+#' # Create SpatialRNA object
+#' spatial_rna <- SpatialRNA(
+#'     rctd_simulation$spatial_rna_coords,
+#'     rctd_simulation$spatial_rna_counts
+#' )
+#'
+#' # Access object slots using generics
+#' head(coords(spatial_rna))  # Get spatial coordinates
+#' dim(counts(spatial_rna))   # Get gene expression matrix dimensions
+#' head(nUMI(spatial_rna))    # Get total UMI counts per pixel
+#' 
 setClass("SpatialRNA",
     slots = c(
         coords = "data.frame",
@@ -48,27 +60,126 @@ setClass("SpatialRNA",
     )
 )
 
+#' Get spatial coordinates
+#'
+#' @param x A SpatialRNA object
+#' @return A data frame containing x and y coordinates for each pixel
+#' @examples
+#' data(rctd_simulation)
+#' 
+#' spatial_rna <- SpatialRNA(
+#'     rctd_simulation$spatial_rna_coords,
+#'     rctd_simulation$spatial_rna_counts
+#' )
+#' 
+#' # Get coordinates for all pixels
+#' pixel_coords <- coords(spatial_rna)
+#' head(pixel_coords)
+#' 
+#' x_coords <- pixel_coords$x
+#' y_coords <- pixel_coords$y
+#' 
 setGeneric("coords", function(x) standardGeneric("coords"))
 #' @export
 setMethod("coords", "SpatialRNA", function(x) x@coords)
 
+#' Get gene expression counts
+#'
+#' @param x A SpatialRNA or Reference object
+#' @return A sparse matrix of gene expression counts
+#' @examples
+#' data(rctd_simulation)
+#' 
+#' ## SpatialRNA Example
+#' spatial_rna <- SpatialRNA(
+#'     rctd_simulation$spatial_rna_coords,
+#'     rctd_simulation$spatial_rna_counts
+#' )
+#' 
+#' spatial_rna_counts <- counts(spatial_rna)
+#' dim(spatial_rna_counts)
+#' 
+#' # Basic operations with counts matrices
+#' total_genes <- nrow(spatial_rna_counts)
+#' total_pixels <- ncol(spatial_rna_counts)
+#' gene_names <- rownames(spatial_rna_counts)
+#' 
+#' ## Reference Example
+#' reference <- Reference(
+#'     rctd_simulation$reference_counts,
+#'     rctd_simulation$reference_cell_types
+#' )
+#' 
+#' reference_counts <- counts(reference)
+#' dim(reference_counts)
+#' 
 setGeneric("counts", function(x) standardGeneric("counts"))
 #' @export
 setMethod("counts", "SpatialRNA", function(x) x@counts)
 
+#' Get total UMI counts
+#'
+#' @param x A SpatialRNA or Reference object
+#' @return A numeric vector of total UMI counts per pixel/cell
+#' @examples
+#' data(rctd_simulation)
+#' 
+#' ## SpatialRNA Example
+#' spatial_rna <- SpatialRNA(
+#'     rctd_simulation$spatial_rna_coords,
+#'     rctd_simulation$spatial_rna_counts
+#' )
+#' 
+#' # Get UMI counts per pixel
+#' pixel_umis <- nUMI(spatial_rna)
+#' head(pixel_umis)
+#' summary(pixel_umis)  # Basic statistics
+#' 
+#' ## Reference Example
+#' reference <- Reference(
+#'     rctd_simulation$reference_counts,
+#'     rctd_simulation$reference_cell_types
+#' )
+#' 
+#' # Get UMI counts per cell in reference
+#' cell_umis <- nUMI(reference)
+#' head(cell_umis)
+#' summary(cell_umis)  # Basic statistics
+#' 
 setGeneric("nUMI", function(x) standardGeneric("nUMI"))
 #' @export
 setMethod("nUMI", "SpatialRNA", function(x) x@nUMI)
 
-#' An S4 class to represent Single-Cell RNA-seq reference
+#' RNA-seq reference data
 #'
-#' @slot cell_types a factor of cell type identities for each cell
-#' @slot counts a sparse matrix of raw counts for each gene (rowname)
-#' and each cell (colnames or barcodes)
-#' @slot nUMI an atomic vector of numeric UMI counts per cell
+#' A class representing annotated RNA sequencing data used as a reference to
+#' learn cell type profiles. The reference can come from single-nucleus RNA
+#' sequencing (snRNA-seq), single-cell RNA sequencing (scRNA-seq), or cell
+#' type-specific bulk RNA sequencing. RCTD uses these profiles to estimate cell
+#' type proportions in spatial transcriptomics data.
+#'
+#' @slot cell_types factor vector containing cell type annotations for each cell
+#'   in the reference (identified by barcode)
+#' @slot counts sparse matrix of gene expression counts from RNA-seq data, with
+#'   genes as rows and cells as columns (named by cell barcode)
+#' @slot nUMI numeric vector of total UMI counts per cell (identified by barcode)
+#' 
 #' @importClassesFrom Matrix Matrix dgCMatrix
 #' @export
-#' @keywords internal
+#' @examples
+#' data(rctd_simulation)
+#'
+#' # Create Reference object
+#' reference <- Reference(
+#'     rctd_simulation$reference_counts,
+#'     rctd_simulation$reference_cell_types
+#' )
+#'
+#' # Access object slots using generics
+#' table(cell_types(reference))  # Count occurrences of each cell type
+#' dim(counts(reference))        # Get gene expression matrix dimensions
+#' head(nUMI(reference))         # Get total UMI counts per cell
+#' 
 setClass("Reference",
     slots = c(
         cell_types = "factor",
@@ -82,48 +193,60 @@ setClass("Reference",
     )
 )
 
+#' Get cell type annotations
+#'
+#' @param x A Reference object
+#' @return A factor vector containing cell type annotations for each cell
+#' @examples
+#' data(rctd_simulation)
+#' 
+#' reference <- Reference(
+#'     rctd_simulation$reference_counts,
+#'     rctd_simulation$reference_cell_types
+#' )
+#' 
+#' # Get cell type annotations
+#' cell_types_vec <- cell_types(reference)
+#' 
+#' # Basic analysis of cell types
+#' head(cell_types_vec)
+#' levels(cell_types_vec)
+#' table(cell_types_vec)
+#' 
 setGeneric("cell_types", function(x) standardGeneric("cell_types"))
 #' @export
 setMethod("cell_types", "Reference", function(x) x@cell_types)
 
 #' @export
+#' @rdname counts
 setMethod("counts", "Reference", function(x) x@counts)
 
 #' @export
+#' @rdname nUMI
 setMethod("nUMI", "Reference", function(x) x@nUMI)
 
-#' An S4 class used to run the RCTD and CSIDE algorithms
+#' Input to the RCTD algorithm
 #'
-#' Created using the \code{\link{create.RCTD}} function, a user can run RCTD using the \code{\link{run.RCTD}} function.
+#' Created using the \code{\link{create.RCTD}} function, a user can run RCTD
+#' using the \code{\link{run.RCTD}} function.
 #'
-#' @slot spatialRNA a \code{\linkS4class{SpatialRNA}} object containing the Spatial RNA dataset to be used for RCTD
-#' @slot originalSpatialRNA a \code{\linkS4class{SpatialRNA}} object containing the Spatial RNA dataset with all genes
-#' @slot reference a \code{\linkS4class{Reference}} object containing the cell type-labeled single cell reference
-#' @slot config a list of configuration options, set using the \code{\link{create.RCTD}} function
-#' @slot cell_type_info a named list of cell type profiles (means), containing two elements: \code{info}, directly calculated from the scRNA-seq reference, and
-#' \code{renorm}, renormalized the match the SpatialRNA dataset.
-#' @slot internal_vars a list of internal variables used by RCTD's computation
-#' @slot results (created after running RCTD) a list of results_df (a dataframe of RCTD results in doublet mode),
-#' weights (a dataframe of RCTD predicted weights in full mode), and weights_doublet (a
-#' dataframe of predicted weights in doublet mode, with cell type information in results_df).
+#' @slot spatialRNA a \code{\linkS4class{SpatialRNA}} object containing the
+#'   processed spatial transcriptomics data for analysis
+#' @slot originalSpatialRNA a \code{\linkS4class{SpatialRNA}} object containing
+#'   the complete, unfiltered spatial dataset
+#' @slot reference a \code{\linkS4class{Reference}} object containing the
+#'   annotated reference data
+#' @slot config a list of configuration options for the RCTD algorithm, set via
+#'   \code{\link{create.RCTD}}
+#' @slot cell_type_info a named list containing cell type expression profiles
+#'   with two components: \code{info} (raw profiles from reference data) and
+#'   \code{renorm} (profiles normalized to match the spatial data)
+#' @slot internal_vars a list of internal variables used during the RCTD
+#'   analysis
 #'
-#' In doublet-mode, The results of 'doublet_mode' are stored in `@results$results_df` and `@results$weights_doublet`, the weights of each cell type.
-#' More specifically, the `results_df` object contains one column per pixel (barcodes as rownames). Important columns are:
-#' * `spot_class`, a factor variable representing RCTD's classification in doublet mode: "singlet" (1 cell type on pixel), "doublet_certain" (2 cell types on pixel), "doublet_uncertain" (2 cell types on pixel, but only confident of 1), "reject" (no prediction given for pixel).
-#' * Next, the `first_type` column gives the first cell type predicted on the bead (for all spot_class conditions except "reject").
-#' * The `second_type column` gives the second cell type predicted on the bead for doublet spot_class conditions (not a confident prediction for "doublet_uncertain").
-#'
-#' Note that in multi-mode, results consists of a list of results for each pixel, which contains all_weights (weights from full mode),
-#' cell_type_list (cell types on multi mode), conf_list (which cell types are confident on multi mode) and
-#' sub_weights (proportions of cell types on multi mode).
-#'
-#' @slot de_results results of the CSIDE algorithm. Contains `gene_fits`, which contains the results of fits on individual genes,
-#' whereas `res_gene_list` is a list, for each cell type, of significant genes detected by CSIDE.
-#' @slot internal_vars_de a list of variables that are used internally by CSIDE
 #' @export
 #' @import Matrix
 #' @importClassesFrom Matrix Matrix dgCMatrix
-#' @keywords internal
 setClass("RCTD",
     slots = c(
         spatialRNA = "SpatialRNA",
@@ -131,10 +254,7 @@ setClass("RCTD",
         reference = "Reference",
         config = "list",
         cell_type_info = "list",
-        internal_vars = "list",
-        results = "list",
-        de_results = "list",
-        internal_vars_de = "list"
+        internal_vars = "list"
     ),
     prototype = list(
         spatialRNA = NULL,
@@ -142,13 +262,6 @@ setClass("RCTD",
         reference = NULL,
         config = list(),
         cell_type_info = list(info = NULL, renorm = NULL),
-        internal_vars = list(),
-        results = list(),
-        de_results = list(),
-        internal_vars_de = list()
+        internal_vars = list()
     )
 )
-
-setGeneric("results", function(x) standardGeneric("results"))
-#' @export
-setMethod("results", "RCTD", function(x) x@results)

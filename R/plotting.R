@@ -9,7 +9,7 @@ custom_theme <- function() {
         axis.title.y = ggplot2::element_blank(),
         panel.background = ggplot2::element_blank(),
         plot.background = ggplot2::element_blank(),
-        plot.title = ggplot2::element_text(size = 32, hjust = 0.5),
+        plot.title = ggplot2::element_text(size = 18, hjust = 0.5),
         legend.text = ggplot2::element_text(size = 12, colour = "black"),
         legend.title = ggplot2::element_text(size = 12, colour = "black"),
     )
@@ -18,16 +18,17 @@ custom_theme <- function() {
 #' Plot pie charts of cell type proportions across pixels
 #'
 #' Generates a visualization where each pixel is represented by a pie chart
-#' showing the proportions of different cell types at that location.
+#' showing the proportions of different cell types at that location. Users
+#' should run this function on the result of \code{\link{run.RCTD}}.
 #'
 #' @param rctd_se SummarizedExperiment containing RCTD results
-#' @param weights_assay character(1) name of the weights assay (default:
-#'   "weights")
+#' @param use_full_weights logical, whether to use the full weights (in the
+#'   "weights_full" assay) instead of the default weights (default: FALSE)
 #' @param cell_type_colors vector of colors for the different cell types
 #'   (default: rainbow)
-#' @param r numeric(1) radius of the pie charts (default: 0.4)
-#' @param lwd numeric(1) line width of the pie chart borders (default: 1)
-#' @param plot_title character(1) plot title. (default: NA)
+#' @param r numeric, radius of the pie charts (default: 0.4)
+#' @param lwd numeric, line width of the pie chart borders (default: 1)
+#' @param title character, plot title (default: NA)
 #'
 #' @return ggplot object showing cell type proportions at each pixel using pie
 #'   charts
@@ -36,12 +37,22 @@ custom_theme <- function() {
 #' @import ggplot2
 #' @import scatterpie
 #' @export
+#' @examples
+#' data(rctd_simulation)
+#' 
+#' # In practice, results_se should contain the results of an RCTD run.
+#' plot_all_weights(
+#'     rctd_simulation$proportions_se,
+#'     r = 0.05, lwd = 0.5, title = "Cell Type Proportions"
+#' )
+#' 
 plot_all_weights <- function(
-    rctd_se, weights_assay = "weights",
-    cell_type_colors = grDevices::rainbow(ncol(assay(rctd_se))),
+    rctd_se, use_full_weights = FALSE,
+    cell_type_colors = NA,
     r = 0.4, lwd = 1,
-    plot_title = NA
+    title = NA
 ) {
+    weights_assay <- ifelse(use_full_weights, "weights_full", "weights")
     weights <- assay(rctd_se, weights_assay)
     rctd_df <- data.frame(as.matrix(weights))
     rctd_df$x_coords <- rowData(rctd_se)$x
@@ -55,8 +66,12 @@ plot_all_weights <- function(
         lwd = lwd,
         legend_name = "Cell_Types"
     )
-    if (!is.na(plot_title)) {
-        p <- p + ggplot2::ggtitle(plot_title)
+    if (is.na(cell_type_colors)) {
+        cell_type_colors <- grDevices::rainbow(ncol(weights))
+    }
+    p <- p + ggplot2::scale_fill_manual(values = as.vector(cell_type_colors))
+    if (!is.na(title)) {
+        p <- p + ggplot2::ggtitle(title)
     }
     return(p)
 }
@@ -64,20 +79,21 @@ plot_all_weights <- function(
 #' Plot pixel proportions for a specific cell type
 #'
 #' Creates a visualization showing how the proportion of a specific cell type
-#' varies across space, represented by point color intensity.
+#' varies across space, represented by point color intensity. Users should run
+#' this function on the result of \code{\link{run.RCTD}}.
 #'
 #' @param rctd_se SummarizedExperiment containing RCTD results
-#' @param cell_type character(1) name of cell type to plot
-#' @param weights_assay character(1) name of the weights assay (default:
-#'   "weights")
-#' @param size numeric(1) size of the points (default: 10)
-#' @param stroke numeric(1) border width of the points (default: 1)
-#' @param alpha numeric(1) point transparency between 0 and 1 (default: 1)
-#' @param low character(1) color for the low end of the proportion color scale
-#'   (default: "white")
-#' @param high character(1) color for the high end of the proportion color scale
-#'   (default: "red")
-#' @param plot_title character(1) plot title. (default: NA)
+#' @param cell_type character, name of cell type to plot
+#' @param use_full_weights logical, whether to use the full weights (in the
+#'   "weights_full" assay) instead of the default weights (default: FALSE)
+#' @param size numeric, size of the points (default: 10)
+#' @param stroke numeric, border width of the points (default: 1)
+#' @param alpha numeric, point transparency between 0 and 1 (default: 1)
+#' @param low color for the low end of the proportion color scale (default:
+#'   "white")
+#' @param high color for the high end of the proportion color scale (default:
+#'   "red")
+#' @param title character, plot title (default: NA)
 #'
 #' @return ggplot object showing the proportion of a specified cell type at each
 #'   pixel
@@ -85,12 +101,23 @@ plot_all_weights <- function(
 #' @importFrom SummarizedExperiment assay rowData
 #' @import ggplot2
 #' @export
+#' @examples
+#' data(rctd_simulation)
+#'
+#' # In practice, results_se should contain the results of an RCTD run.
+#' results_se <- rctd_simulation$proportions_se
+#' plot_cell_type_weights(
+#'     results_se, "ct1",
+#'     r = 0.05, lwd = 0.5, title = "Cell Type Density (ct1)"
+#' )
+#' 
 plot_cell_type_weight <- function(
-    rctd_se, cell_type, weights_assay = "weights",
+    rctd_se, cell_type, use_full_weights = FALSE,
     size = 10, stroke = 1, alpha = 1,
     low = "white", high = "red",
-    plot_title = NA
+    title = NA
 ) {
+    weights_assay <- ifelse(use_full_weights, "weights_full", "weights")
     weights <- assay(rctd_se, weights_assay)[, cell_type]
     rctd_df <- data.frame(as.matrix(weights))
     rctd_df$x_coords <- rowData(rctd_se)$x
@@ -108,7 +135,7 @@ plot_cell_type_weight <- function(
     p <- p + ggplot2::scale_fill_gradientn(
         limits = c(0, 1.0),
         breaks = c(0, 0.25, 0.5, 0.75, 1.0),
-        colors=(grDevices::colorRampPalette(c(low, high)))(n = 100)
+        colors = (grDevices::colorRampPalette(c(low, high)))(n = 100)
     )
     p <- p + ggplot2::guides(
         fill = ggplot2::guide_colorbar(
@@ -121,8 +148,8 @@ plot_cell_type_weight <- function(
             title.theme = ggplot2::element_text(angle = 90)
         )
     )
-    if (!is.na(plot_title)) {
-        p <- p + ggplot2::ggtitle(plot_title)
+    if (!is.na(title)) {
+        p <- p + ggplot2::ggtitle(title)
     }
     return(p)
 }

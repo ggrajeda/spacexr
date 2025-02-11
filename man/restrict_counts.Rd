@@ -2,7 +2,8 @@
 % Please edit documentation in R/SpatialRNA.R
 \name{restrict_counts}
 \alias{restrict_counts}
-\title{Restricts a SpatialRNA object to a subset of genes (and applies a UMI threshold)}
+\title{Restricts a SpatialRNA object to a subset of genes (and applies a UMI
+threshold)}
 \usage{
 restrict_counts(
   puck,
@@ -24,9 +25,11 @@ restrict_counts(
 \item{counts_thresh}{minimum counts per pixel (for genes in gene_list)}
 }
 \value{
-Returns a \code{\linkS4class{SpatialRNA}} with counts filtered based on UMI threshold and gene list
+Returns a \code{\linkS4class{SpatialRNA}} with counts filtered based
+  on UMI threshold and gene list
 }
 \description{
-Restricts a SpatialRNA object to a subset of genes (and applies a UMI threshold)
+Restricts a SpatialRNA object to a subset of genes (and applies a UMI
+threshold)
 }
 \keyword{internal}
