@@ -11,6 +11,9 @@ create_se_full(RCTD, results)
 
 \item{results}{\code{decompose_batch} results}
 }
+\value{
+SummarizedExperiment containing RCTD results
+}
 \description{
 Converts the results of \code{decompose_batch} to a SummarizedExperiment
 }

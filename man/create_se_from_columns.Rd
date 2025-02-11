@@ -2,7 +2,7 @@
 % Please edit documentation in R/postProcessing.R
 \name{create_se_from_columns}
 \alias{create_se_from_columns}
-\title{Converts a list of results to a SummarizedExperiment}
+\title{Converts a list of RCTD results to a SummarizedExperiment}
 \usage{
 create_se_from_columns(
   RCTD,
@@ -28,6 +28,9 @@ create_se_from_columns(
 \item{numeric_cols}{Names of list entries containing a numeric(1)}
 
 \item{list_cols}{Names of list entries containing a list}
+}
+\value{
+SummarizedExperiment containing RCTD results
 }
 \description{
 The SummarizedExperiment contains an assay with the cell type weights.

@@ -51,7 +51,6 @@ get_cell_type_info <- function(raw.data, cell_types, nUMI, cell_type_names = NUL
 #' @param cell_type_means a data_frame (genes by cell types) for mean normalized expression (see \code{\link{get_cell_type_info}})
 #' @return Returns \code{cell_type_means}, a data_frame (genes by cell types) for mean normalized cell type expression profiles in which
 #' platform effects have been removed to match the \linkS4class{SpatialRNA} data.
-#' @export
 #' @keywords internal
 get_norm_ref <- function(puck, cell_type_means, gene_list, proportions) {
     bulk_vec <- rowSums(puck@counts)

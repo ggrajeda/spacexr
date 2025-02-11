@@ -76,7 +76,7 @@ rctd_metadata <- function(RCTD) {
     return(metadata)
 }
 
-#' Converts a list of results to a SummarizedExperiment
+#' Converts a list of RCTD results to a SummarizedExperiment
 #' 
 #' The SummarizedExperiment contains an assay with the cell type weights.
 #' Additional information (e.g., x and y coords) are stored in the row data,
@@ -90,6 +90,8 @@ rctd_metadata <- function(RCTD) {
 #' @param logical_cols Names of list entries containing a logical(1)
 #' @param numeric_cols Names of list entries containing a numeric(1)
 #' @param list_cols Names of list entries containing a list
+#' 
+#' @return SummarizedExperiment containing RCTD results
 #'
 #' @importFrom SummarizedExperiment SummarizedExperiment
 #' @keywords internal
@@ -140,6 +142,8 @@ create_se_from_columns <- function(
 #' 
 #' @param RCTD RCTD object
 #' @param results \code{decompose_batch} results
+#' 
+#' @return SummarizedExperiment containing RCTD results
 #'
 #' @importFrom SummarizedExperiment assay assay<-
 #' @keywords internal
@@ -154,6 +158,8 @@ create_se_full <- function(RCTD, results) {
 #' 
 #' @param RCTD RCTD object
 #' @param results \code{process_beads_batch} results
+#' 
+#' @return SummarizedExperiment containing RCTD results
 #'
 #' @importFrom SummarizedExperiment assay assay<- rowData rowData<-
 #' @keywords internal
@@ -204,6 +210,8 @@ create_se_doublet <- function(RCTD, results) {
 #' 
 #' @param RCTD RCTD object
 #' @param results \code{process_beads_multi} results
+#' 
+#' @return SummarizedExperiment containing RCTD results
 #'
 #' @importFrom SummarizedExperiment assay assay<- rowData
 #' @keywords internal

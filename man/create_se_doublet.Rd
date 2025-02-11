@@ -11,6 +11,9 @@ create_se_doublet(RCTD, results)
 
 \item{results}{\code{process_beads_batch} results}
 }
+\value{
+SummarizedExperiment containing RCTD results
+}
 \description{
 Converts the results of \code{process_beads_batch} to a SummarizedExperiment
 }

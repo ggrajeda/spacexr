@@ -15,7 +15,6 @@
 #' @param fc_thresh minimum \code{log_e} fold change required for a gene.
 #' @param expr_thresh minimum expression threshold, as normalized expression (proportion out of 1, or counts per 1).
 #' @return a list of differntially expressed gene names
-#' @export
 #' @keywords internal
 get_de_genes <- function(cell_type_info, puck, fc_thresh = 1.25, expr_thresh = .00015, MIN_OBS = 3) {
     total_gene_list <- c()
