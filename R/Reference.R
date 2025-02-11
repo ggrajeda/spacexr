@@ -84,35 +84,6 @@ check_cell_types <- function(cell_types) {
     }
 }
 
-convert_old_reference <- function(old_reference, n_max_cells = 10000) {
-    cell_types <- old_reference@meta.data$liger_ident_coarse
-    nUMI <- old_reference@meta.data$nUMI
-    names(cell_types) <- rownames(old_reference@meta.data)
-    names(nUMI) <- rownames(old_reference@meta.data)
-    Reference(old_reference@assays$RNA@counts, cell_types, nUMI, n_max_cells = n_max_cells)
-}
-
-coerce_deglam_reference <- function(old_reference) {
-    return(Reference(old_reference@counts, old_reference@cell_types,
-        old_reference@nUMI,
-        n_max_cells = max(table(old_reference@cell_types)) + 1,
-        min_UMI = 1
-    ))
-}
-
-restrict_reference <- function(reference, barcodes) {
-    reference@counts <- reference@counts[, barcodes]
-    reference@nUMI <- reference@nUMI[barcodes]
-    reference@cell_types <- reference@cell_types[barcodes]
-    return(reference)
-}
-
-restrict_reference_cell_types <- function(reference, cell_type_list) {
-    new_ref <- (restrict_reference(reference, names(reference@cell_types)[reference@cell_types %in% cell_type_list]))
-    new_ref@cell_types <- droplevels(new_ref@cell_types)
-    return(new_ref)
-}
-
 create_downsampled_data <- function(reference, cell_types_keep = NULL, n_samples = 10000) {
     if (is.null(cell_types_keep)) {
         cell_types_keep <- levels(reference@cell_types)
@@ -133,11 +104,4 @@ create_downsampled_data <- function(reference, cell_types_keep = NULL, n_samples
     reference@cell_types <- droplevels(reference@cell_types)
     reference@nUMI <- reference@nUMI[index_keep]
     return(reference)
-}
-
-save.Reference <- function(reference, save.folder) {
-    dir.create(save.folder)
-    write.csv(reference@cell_types, file.path(save.folder, "cell_types.csv"))
-    write.csv(reference@nUMI, file.path(save.folder, "nUMI.csv"))
-    write.csv(as.matrix(reference@counts), file.path(save.folder, "counts.csv"))
 }

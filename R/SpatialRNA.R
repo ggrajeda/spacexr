@@ -62,13 +62,6 @@ read.SpatialRNA <- function(datadir, count_file = "counts.csv", coords_file = "c
     restrict_puck(puck, colnames(puck@counts))
 }
 
-save.SpatialRNA <- function(puck, save.folder) {
-    dir.create(save.folder)
-    write.csv(puck@coords, file.path(save.folder, "coords.csv"))
-    write.csv(puck@nUMI, file.path(save.folder, "nUMI.csv"))
-    write.csv(as.matrix(puck@counts), file.path(save.folder, "counts.csv"))
-}
-
 #' constructor of SpatialRNA object
 #' @param counts A matrix (or dgCmatrix) representing Digital Gene Expression (DGE). Rownames should be genes
 #' and colnames represent barcodes/pixel names.
@@ -272,10 +265,4 @@ restrict_puck <- function(puck, barcodes) {
     puck@nUMI <- puck@nUMI[barcodes]
     puck@coords <- puck@coords[barcodes, ]
     return(puck)
-}
-
-
-# coerces an old SpatialRNA object
-coerce_old <- function(puck) {
-    new("SpatialRNA", coords = puck@coords, counts = puck@counts, nUMI = puck@nUMI)
 }

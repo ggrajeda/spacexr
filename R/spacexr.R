@@ -153,25 +153,6 @@ run.RCTD <- function(RCTD, doublet_mode = "doublet") {
     RCTD <- fitPixels(RCTD, doublet_mode = doublet_mode)
 }
 
-# exports RCTD results as csv files
-export.RCTD <- function(RCTD, datadir) {
-    doublet_mode <- myRCTD@config$RCTDmode
-    if (is.null(doublet_mode)) {
-        stop("RCTD@config$RCTDmode is NULL. Please set to one of 'doublet', 'multi', 'full'.")
-    }
-    if (!(doublet_mode %in% c("doublet", "multi", "full"))) {
-        stop("export.RCTD: RCTD@config$RCTDmode=", doublet_mode, " is not a valid choice. Please set doublet_mode=doublet, multi, or full.")
-    }
-    if (doublet_mode == "multi") {
-        stop("export.RCTD not implemented for RCTD@config$RCTDmode = 'multi'. Please contact the developers for assistance.")
-    }
-    write.csv(RCTD@results$weights, file.path(datadir, "weights.csv"))
-    if (doublet_mode == "doublet") {
-        write.csv(RCTD@results$weights_doublet, file.path(datadir, "weights_doublet.csv"))
-        write.csv(RCTD@results$results_df, file.path(datadir, "results_df.csv"))
-    }
-}
-
 check_vector <- function(variable, var_name, f_name, require_int = FALSE) {
     if (!is.atomic(variable)) {
         stop(f_name, ": ", var_name, " is not an atomic vector. Please format ", var_name, " as an atomic vector.")
@@ -190,45 +171,4 @@ check_vector <- function(variable, var_name, f_name, require_int = FALSE) {
             stop(f_name, ": variable does not contain integers")
         }
     }
-}
-
-
-#' Updates an old \code{\linkS4class{RCTD}} object to be compatible with the current
-#' version of \code{spacexr}.
-#'
-#' @param myRCTD an \code{\linkS4class{RCTD}} object (potentially from an older version.
-#' @return an \code{\linkS4class{RCTD}} object updated to be compatible with the current version
-#' of \code{spacexr}.
-#' @export
-#' @keywords internal
-convert.old.RCTD <- function(myRCTD) {
-    if (is(myRCTD@reference, "Seurat")) {
-        ref <- convert_old_reference(myRCTD@reference)
-    } else {
-        ref <- myRCTD@reference
-    }
-
-    spatial_rna_package <- attr(class(myRCTD@spatialRNA), "package")
-    if (spatial_rna_package != "spacexr") {
-        myRCTD@spatialRNA <- coerce_old(myRCTD@spatialRNA)
-    }
-
-    if (is.null(attr(myRCTD, "originalSpatialRNA"))) {
-        myRCTD@originalSpatialRNA <- myRCTD@spatialRNA
-    }
-
-    orig_spatial_rna_package <- attr(class(myRCTD@originalSpatialRNA), "package")
-    if (orig_spatial_rna_package != "spacexr") {
-        myRCTD@originalSpatialRNA <- coerce_old(myRCTD@originalSpatialRNA)
-    }
-
-    ref_package <- attr(class(ref), "package")
-    if (ref_package != "spacexr") {
-        ref <- coerce_deglam_reference(ref)
-    }
-    new("RCTD",
-        spatialRNA = myRCTD@spatialRNA, originalSpatialRNA = myRCTD@spatialRNA, reference = ref,
-        config = myRCTD@config, cell_type_info = myRCTD@cell_type_info, internal_vars = myRCTD@internal_vars,
-        internal_vars_de = myRCTD@internal_vars_de, de_results = myRCTD@de_results, results = myRCTD@results
-    )
 }

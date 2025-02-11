@@ -21,32 +21,6 @@ fitBulk <- function(RCTD) {
     return(RCTD)
 }
 
-chooseSigma2 <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
-    X <- as.vector(prediction)
-    X <- pmax(X, 1e-4)
-    Y <- as.vector(counts)
-    num_sample <- min(500000, length(X)) # 300000
-    use_ind <- sample(seq_along(X), num_sample)
-    X <- X[use_ind]
-    Y <- Y[use_ind]
-    mult_fac_vec <- (7:12 + 0.5) / 10
-    sigma_ind <- c(10:70, (36:100) * 2)
-    score_vec <- numeric(length(sigma_ind))
-    for (i in seq_along(sigma_ind)) {
-        sigma <- sigma_ind[i]
-        set_likelihood_vars(Q_mat_all[[as.character(sigma)]], X_vals)
-        best_val <- calc_log_l_vec(X * mult_fac_vec[1], Y)
-        for (mult_fac in mult_fac_vec[2:length(mult_fac_vec)]) {
-            best_val <- min(best_val, calc_log_l_vec(X * mult_fac, Y))
-        }
-        score_vec[i] <- best_val
-    }
-    sigma <- sigma_ind[which.min(score_vec)]
-    message(min(score_vec))
-    return(sigma)
-}
-
-
 chooseSigma <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
     X <- as.vector(prediction)
     X <- pmax(X, 1e-4)

@@ -31,12 +31,6 @@ solve_sq <- function(Q_mat, X_vals) {
     SQ_mat <- cbind(0, SQ_mat, 0)
 }
 
-set_likelihood_vars_sigma <- function(sigma) {
-    Q_mat_all <- get_Q_all()
-    X_vals <- get_X_vals()
-    set_likelihood_vars(Q_mat_all[[sigma]], X_vals)
-}
-
 ht_pdf <- function(z, sigma) {
     x <- z / sigma
     p <- ht_pdf_norm(x)
@@ -149,30 +143,6 @@ calc_log_l_vec <- function(lambda, Y, return_vec = FALSE) {
     }
     return(sum(log_l_vec))
 }
-
-# linear interpolation
-calc_log_l_vec_fast <- function(lambda, Y) {
-    K_val <- get_K_val()
-    Y[Y > K_val] <- K_val
-    X_vals <- get_X_vals()
-    epsilon <- 1e-4
-    X_max <- max(X_vals)
-    delta <- 1e-6
-    lambda <- pmin(pmax(epsilon, lambda), X_max - epsilon)
-    l <- floor((lambda / delta)^(1 / 2))
-    m <- pmin(l - 9, 40) + pmax(ceiling(sqrt(pmax(l - 48.7499, 0) * 4)) - 2, 0)
-    Q0 <- cbind(Y + 1, m)
-    Q1 <- Q0
-    Q1[, 2] <- Q1[, 2] + 1
-    Q_mat <- get_Q_mat()
-    fti1 <- Q_mat[Q0]
-    fti <- Q_mat[Q1]
-    prop <- (X_vals[m + 1] - lambda) / (X_vals[m + 1] - X_vals[m])
-    r1 <- prop * fti1 + (1 - prop) * fti
-    return(-sum(r1))
-}
-
-
 
 get_d1_d2 <- function(Y, lambda) {
     d_all <- calc_Q_all(Y, lambda)

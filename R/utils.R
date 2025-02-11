@@ -1,11 +1,3 @@
-remap_celltypes <- function(cell_dict_file, cell_ident) {
-    cell_type_dict <- read.csv(file = cell_dict_file, header = TRUE, sep = ",")
-    cell_type_dict$Name <- factor(cell_type_dict$Name)
-    rownames(cell_type_dict) <- cell_type_dict[, "Cluster"]
-    true_type_names <- lapply(cell_ident, function(x) cell_type_dict[as.character(x), "Name"])
-    true_type_names <- unlist(true_type_names)
-}
-
 # finds DE genes
 # Genes must be observed a minimum of MIN_OBS times to mitigate sampling noise in the
 # Platform effect estimation
@@ -59,11 +51,6 @@ get_de_genes <- function(cell_type_info, puck, fc_thresh = 1.25, expr_thresh = .
     return(total_gene_list)
 }
 
-# min weight to be considered a singlet as a function of nUMI
-UMI_cutoff <- function(nUMI) {
-    return(pmax(0.25, 2 - log(nUMI, 2) / 5))
-}
-
 prepareBulkData <- function(cell_type_means, puck, gene_list, MIN_OBS = 10) {
     bulk_vec <- rowSums(puck@counts)
     gene_list <- intersect(names(which(bulk_vec >= MIN_OBS)), gene_list)
@@ -94,51 +81,4 @@ get_class_df <- function(cell_type_names, use_classes = FALSE) {
         class_df["Polydendrocytes", "class"] <- "Oligodendrocytes"
     }
     return(class_df)
-}
-
-
-#' Subset spatial object to selected barcodes
-#'
-#' Subsets an rctd object based on the input spatial barcode.
-#' The function subset_rctd subsets the @spatialRNA, @originalSpatialRNA, and @results$weights slots of an RCTD/spacexr object.
-#'
-#' @param rctd_obj An RCTD/spacexr object
-#' @param st_spot_id A vector of scalar character strings that are spatial barcode to keep after subsetting.
-#' These barcodes should match the spot names in the original spatial object slot of the RCTD/spacexr object used to generate the rctd_obj.
-#'
-#' @return An updated rctd object with rows corresponding only to the barcodes in st_spot_id
-#'
-#' @export
-subset_rctd <- function(rctd_obj, st_spot_id) {
-    # 1. Report current number of spots.
-    spot_ids_rctd <- rownames(rctd_obj@results$weights)
-    message("Current spatial spot count before subset: ", length(spot_ids_rctd))
-
-    # 2. Subset input st_spot_id to only those that are in rctd_obj
-    st_spot_id <- intersect(st_spot_id, spot_ids_rctd)
-
-    # Throw an error if the subset of spot ids is empty.
-    if (length(st_spot_id) == 0) {
-        stop("No spot to keep. Please check input st_spot_id. This should be same as the spot barcodes in spatial object used to generate the RCTD/spacexr object.")
-    }
-
-    # A. subset @spatialRNA slot
-    rctd_obj@spatialRNA@coords <- rctd_obj@spatialRNA@coords[st_spot_id, ]
-    rctd_obj@spatialRNA@counts <- rctd_obj@spatialRNA@counts[, st_spot_id]
-    rctd_obj@spatialRNA@nUMI <- rctd_obj@spatialRNA@nUMI[st_spot_id]
-
-    # B. subset @originalSpatial slot
-    rctd_obj@originalSpatialRNA@coords <- rctd_obj@originalSpatialRNA@coords[st_spot_id, ]
-    rctd_obj@originalSpatialRNA@counts <- rctd_obj@originalSpatialRNA@counts[, st_spot_id]
-    rctd_obj@originalSpatialRNA@nUMI <- rctd_obj@originalSpatialRNA@nUMI[st_spot_id]
-
-    # C. Subset @results$weights
-    rctd_obj@results$weights <- rctd_obj@results$weights[st_spot_id, ]
-
-    # 3. Report new number of spots after the subset has been done.
-    spot_ids_rctd_new <- rownames(rctd_obj@results$weights)
-    message("New spatial spot count size after subset: ", length(spot_ids_rctd_new))
-
-    # Return the resulting subset of the object.
-    return(rctd_obj)
 }
