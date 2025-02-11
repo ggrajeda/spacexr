@@ -41,6 +41,8 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #' @param DOUBLET_THRESHOLD (Default 20) the penalty weight of predicting a doublet instead of a singlet for a pixel
 #'
 #' @return an \code{\linkS4class{RCTD}} object, which is ready to run the \code{\link{run.RCTD}} function
+#' 
+#' @importFrom methods new
 #' @export
 #' @examples
 #' data(rctd_simulation)

@@ -13,6 +13,8 @@
 #'
 #' @return Returns a \code{\linkS4class{Reference}} object containing the counts matrix, cell type labels, and UMI vector
 #' from the input files
+#' 
+#' @importFrom methods new
 #' @export
 #' @examples
 #' data(rctd_simulation)

@@ -38,6 +38,7 @@ ht_pdf <- function(z, sigma) {
 }
 
 # assumes sigma = 1
+#' @importFrom stats pnorm
 ht_pdf_norm <- function(x) {
     a <- 4 / 9 * exp(-3^2 / 2) / sqrt(2 * pi)
     c <- 7 / 3

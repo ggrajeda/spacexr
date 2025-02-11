@@ -16,30 +16,23 @@ Encoding: UTF-8
 Imports: 
     readr,
     ggplot2,
-    pals,
     Matrix,
     parallel,
     quadprog,
     tibble,
-    dplyr,
-    reshape2,
-    knitr,
-    rmarkdown,
-    fields,
-    mgcv,
-    CompQuadForm,
-    Rfast,
-    locfdr,
-    metafor,
-    caret,
+    httr,
+    methods,
+    Seurat,
     data.table,
     memoise,
     BiocParallel,
-    stringr,
+    BiocFileCache,
     SummarizedExperiment
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 Suggests: 
-    testthat (>= 3.0.0)
+    knitr,
+    rmarkdown,
+    testthat
 Config/testthat/edition: 3
 biocViews: GeneExpression, DifferentialExpression, SingleCell, RNASeq, Software, Spatial, Transcriptomics

@@ -77,6 +77,8 @@ read.SpatialRNA <- function(datadir, count_file = "counts.csv", coords_file = "c
 #'
 #' @return Returns a \code{\linkS4class{SpatialRNA}} object containing the coordinates and counts
 #' from the input files
+#' 
+#' @importFrom methods new
 #' @export
 #' @examples
 #' data(rctd_simulation)
@@ -204,6 +206,7 @@ check_counts <- function(counts, f_name, require_2d = FALSE, require_int = TRUE)
     return(counts)
 }
 
+#' @importFrom methods as is
 check_coords <- function(coords) {
     if (!is(coords, "data.frame")) {
         tryCatch(
