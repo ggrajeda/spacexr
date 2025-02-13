@@ -30,7 +30,7 @@ reference <- Reference(
 )
 
 # Create RCTD object
-rctd <- create.RCTD(spatial_rna, reference)
+rctd <- create.RCTD(spatial_rna, reference, max_cores = 1)
 rctd <- fitBulk(rctd)
 
 }

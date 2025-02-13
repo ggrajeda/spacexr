@@ -3,7 +3,17 @@
 \docType{class}
 \name{SpatialRNA-class}
 \alias{SpatialRNA-class}
+\alias{coords}
+\alias{counts}
+\alias{nUMI}
 \title{Spatial transcriptomics data}
+\usage{
+coords(x)
+
+counts(x)
+
+nUMI(x)
+}
 \description{
 A class representing spatial transcriptomics data, where gene expression is
 measured at fixed locations called "pixels" (also known as "spots" or

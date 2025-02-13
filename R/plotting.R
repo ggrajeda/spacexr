@@ -106,9 +106,9 @@ plot_all_weights <- function(
 #'
 #' # In practice, results_se should contain the results of an RCTD run.
 #' results_se <- rctd_simulation$proportions_se
-#' plot_cell_type_weights(
+#' plot_cell_type_weight(
 #'     results_se, "ct1",
-#'     r = 0.05, lwd = 0.5, title = "Cell Type Density (ct1)"
+#'     size = 5, title = "Cell Type Density (ct1)"
 #' )
 #' 
 plot_cell_type_weight <- function(

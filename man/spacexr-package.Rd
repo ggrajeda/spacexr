@@ -6,7 +6,7 @@
 \alias{spacexr}
 \title{spacexr: Cell Type Identification in Spatial Transcriptomics}
 \description{
-Robust Cell Type Decomposition (RCTD) is a computational method for deconvolving cell type mixtures in spatial transcriptomics data. RCTD leverages RNA sequencing (RNA-seq) references to identify cell types in spatial transcriptomic pixels while accounting for platform-specific effects that influence gene expression measurements. The package provides three analysis modes: doublet detection (up to 2 cell types per pixel), multi mode with greedy cell type assignment (up to a specified number of cell types per pixel), and full decomposition without restrictions.
+Robust Cell Type Decomposition (RCTD) is a computational method for deconvolving cell type mixtures in spatial transcriptomics data. RCTD learns cell type profiles from annotated RNA sequencing (RNA-seq) reference data and uses these profiles to identify cell types in spatial transcriptomic pixels while accounting for platform-specific effects. The package provides three analysis modes: doublet detection (up to 2 cell types per pixel), multi mode with greedy cell type assignment (up to a specified number of cell types per pixel), and full decomposition without restrictions.
 }
 \section{Running RCTD}{
 

@@ -276,7 +276,7 @@ In particular, the data frame above provides us with the following information:
     * `doublet_certain` (2 cell types in pixel)
     * `doublet_uncertain` (2 cell types in pixel, but only confident of 1)
     * `reject` (no prediction given for pixel).
-  
+
     Typically, `reject` pixels should not be used, and `doublet_uncertain`
     pixels should only be used for applications that do not require knowledge of
     all cell types in a pixel.

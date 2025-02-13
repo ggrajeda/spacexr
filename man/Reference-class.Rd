@@ -3,7 +3,17 @@
 \docType{class}
 \name{Reference-class}
 \alias{Reference-class}
+\alias{cell_types}
+\alias{counts,Reference-method}
+\alias{nUMI,Reference-method}
 \title{RNA-seq reference data}
+\usage{
+cell_types(x)
+
+\S4method{counts}{Reference}(x)
+
+\S4method{nUMI}{Reference}(x)
+}
 \description{
 A class representing annotated RNA sequencing data used as a reference to
 learn cell type profiles. The reference can come from single-nucleus RNA

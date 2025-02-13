@@ -21,7 +21,7 @@
 #' )
 #'
 #' # Create RCTD object
-#' rctd <- create.RCTD(spatial_rna, reference)
+#' rctd <- create.RCTD(spatial_rna, reference, max_cores = 1)
 #' rctd <- fitBulk(rctd)
 #' 
 fitBulk <- function(RCTD) {
@@ -85,7 +85,7 @@ chooseSigma <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
 #' )
 #'
 #' # Create RCTD object
-#' rctd <- create.RCTD(spatial_rna, reference)
+#' rctd <- create.RCTD(spatial_rna, reference, max_cores = 1)
 #' 
 #' rctd <- fitBulk(rctd)
 #' rctd <- choose_sigma_c(rctd)

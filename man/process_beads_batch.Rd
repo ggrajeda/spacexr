@@ -24,8 +24,7 @@ reference (see \code{\link{get_cell_type_info}})}
 
 \item{puck}{an object of type \linkS4class{SpatialRNA}, the target dataset}
 
-\item{class_df}{A dataframe returned by \code{\link{get_class_df}} to map cell types to
-classes}
+\item{class_df}{A dataframe mapping cell types to classes}
 
 \item{constrain}{logical whether to constrain the weights to sum to one on each pixel}
 
@@ -39,7 +38,7 @@ classes}
 }
 \value{
 Returns \code{results}, a list of RCTD results for each pixel, which can be organized by
-feeding into \code{\link{gather_results}}
+feeding into \code{\link{create_se_doublet}}
 }
 \description{
 Then, computes cell type proportions for each pixel in \code{puck}.

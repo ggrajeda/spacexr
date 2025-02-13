@@ -33,11 +33,11 @@ reference <- Reference(
 )
 
 # Create RCTD object
-rctd <- create.RCTD(spatial_rna, reference)
+rctd <- create.RCTD(spatial_rna, reference, max_cores = 1)
 
 rctd <- fitBulk(rctd)
 rctd <- choose_sigma_c(rctd)
-results_se <- fitPixels(RCTD, doublet_mode = "doublet")
+results_se <- fitPixels(rctd, doublet_mode = "doublet")
 
 }
 \keyword{internal}

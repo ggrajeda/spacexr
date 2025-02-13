@@ -4,8 +4,7 @@
 #' Classifies each pixel as 'singlet' or 'doublet' and searches for the cell types
 #' on the pixel
 #'
-#' @param class_df A dataframe returned by \code{\link{get_class_df}} to map cell types to
-#' classes
+#' @param class_df A dataframe mapping cell types to classes
 #' @param gene_list a list of genes to be used for RCTD
 #' @param puck an object of type \linkS4class{SpatialRNA}, the target dataset
 #' @param cell_type_info cell type information and profiles of each cell, calculated from the scRNA-seq
@@ -16,7 +15,7 @@
 #' @param MIN.CHANGE (default 0.001) the minimum change in the norm of the WLS solution used to determine the cell type proportions
 #' @param DOUBLET_THRESHOLD (Default 25) the penalty weight of predicting a doublet instead of a singlet for a pixel
 #' @return Returns \code{results}, a list of RCTD results for each pixel, which can be organized by
-#' feeding into \code{\link{gather_results}}
+#' feeding into \code{\link{create_se_doublet}}
 #' @keywords internal
 process_beads_batch <- function(cell_type_info, gene_list, puck, class_df = NULL, constrain = TRUE,
                                 MAX_CORES = 8, MIN.CHANGE = 0.001, CONFIDENCE_THRESHOLD = 10, DOUBLET_THRESHOLD = 25) {
@@ -104,11 +103,11 @@ process_beads_multi <- function(cell_type_info, gene_list, puck, class_df = NULL
 #' )
 #'
 #' # Create RCTD object
-#' rctd <- create.RCTD(spatial_rna, reference)
+#' rctd <- create.RCTD(spatial_rna, reference, max_cores = 1)
 #' 
 #' rctd <- fitBulk(rctd)
 #' rctd <- choose_sigma_c(rctd)
-#' results_se <- fitPixels(RCTD, doublet_mode = "doublet")
+#' results_se <- fitPixels(rctd, doublet_mode = "doublet")
 #' 
 fitPixels <- function(RCTD, doublet_mode = "doublet") {
     RCTD@internal_vars$cell_types_assigned <- TRUE
