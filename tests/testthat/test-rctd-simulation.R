@@ -25,24 +25,24 @@ test_that("Matches exactly on rctd_simulation", {
 
     # Doublet mode
     doublet_se <- run.RCTD(rctd, doublet_mode = "doublet")
-    doublet_assays <- assays(doublet_se)
-    doublet_row_data <- rowData(doublet_se)
+    doublet_assays <- SummarizedExperiment::assays(doublet_se)
+    doublet_row_data <- SummarizedExperiment::rowData(doublet_se)
     expect_snapshot({
         print_results(doublet_assays, doublet_row_data)
     })
 
     # Multi mode
     multi_se <- run.RCTD(rctd, doublet_mode = "multi")
-    multi_assays <- assays(multi_se)
-    multi_row_data <- rowData(multi_se)
+    multi_assays <- SummarizedExperiment::assays(multi_se)
+    multi_row_data <- SummarizedExperiment::rowData(multi_se)
     expect_snapshot({
         print_results(multi_assays, multi_row_data)
     })
 
     # Full mode
     full_se <- run.RCTD(rctd, doublet_mode = "full")
-    full_assays <- assays(full_se)
-    full_row_data <- rowData(full_se)
+    full_assays <- SummarizedExperiment::assays(full_se)
+    full_row_data <- SummarizedExperiment::rowData(full_se)
     expect_snapshot({
         print_results(full_assays, full_row_data)
     })
@@ -51,16 +51,34 @@ test_that("Matches exactly on rctd_simulation", {
 
     # Doublet mode
     parallel_doublet_se <- run.RCTD(parallel_rctd, doublet_mode = "doublet")
-    expect_equal(assays(parallel_doublet_se), doublet_assays)
-    expect_equal(rowData(parallel_doublet_se), doublet_row_data)
+    expect_equal(
+        SummarizedExperiment::assays(parallel_doublet_se),
+        doublet_assays
+    )
+    expect_equal(
+        SummarizedExperiment::rowData(parallel_doublet_se),
+        doublet_row_data
+    )
 
     # Multi mode
     parallel_multi_se <- run.RCTD(parallel_rctd, doublet_mode = "multi")
-    expect_equal(assays(parallel_multi_se), multi_assays)
-    expect_equal(rowData(parallel_multi_se), multi_row_data)
+    expect_equal(
+        SummarizedExperiment::assays(parallel_multi_se),
+        multi_assays
+    )
+    expect_equal(
+        SummarizedExperiment::rowData(parallel_multi_se),
+        multi_row_data
+    )
 
     # Full mode
     parallel_full_se <- run.RCTD(parallel_rctd, doublet_mode = "full")
-    expect_equal(assays(parallel_full_se), full_assays)
-    expect_equal(rowData(parallel_full_se), full_row_data)
+    expect_equal(
+        SummarizedExperiment::assays(parallel_full_se),
+        full_assays
+    )
+    expect_equal(
+        SummarizedExperiment::rowData(parallel_full_se),
+        full_row_data
+    )
 })
