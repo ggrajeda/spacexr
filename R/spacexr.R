@@ -227,10 +227,13 @@ create.RCTD <- function(
 #' transcriptomics data. The algorithm has three modes:
 #' \itemize{
 #'   \item \code{doublet}: Fits at most two cell types per pixel and classifies
-#'   each pixel as a "singlet" or "doublet"
+#'     each pixel as a "singlet" or "doublet." Recommended for high spatial
+#'     resolution technologies such as Slide-seq or MERFISH.
 #'   \item \code{multi}: Uses a greedy algorithm to fit cell types up to a fixed
-#'     maximum number
-#'   \item \code{full}: Can fit any number of cell types on each pixel
+#'     maximum number.
+#'   \item \code{full}: Can fit any number of cell types on each pixel.
+#'     Recommended for low spatial resolution technologies such as 100-micron
+#'     resolution Visium.
 #' }
 #'
 #' @param RCTD \code{\linkS4class{RCTD}} object created using

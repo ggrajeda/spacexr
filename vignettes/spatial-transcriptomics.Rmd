@@ -4,6 +4,8 @@ author: "Dylan Cable and Gabriel Grajeda"
 date: "Feb 12th, 2025"
 output:  
   rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 3
 vignette: >
   %\VignetteIndexEntry{spatial-transcriptomics}
   %\VignetteEncoding{UTF-8}
@@ -16,6 +18,16 @@ knitr::opts_chunk$set(
     comment = "#>",
     out.width = "100%"
 )
+```
+
+## Installation
+
+You can install the latest version of spacexr from Bioconductor:
+
+```{r installation, eval=FALSE}
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("spacexr")
 ```
 
 ## Introduction
@@ -54,7 +66,7 @@ the following parameters:
 
 *Required parameters*:
 
-1. `counts`: A matrix (or dgCMatrix) of gene expression counts, with genes as
+1. `counts`: A matrix (or `dgCMatrix`) of gene expression counts, with genes as
 rows and cells as columns. Row names should be unique gene names, and column
 names should be unique cell barcodes. Counts should be untransformed integers.
 
@@ -113,14 +125,14 @@ The `SpatialRNA` constructor function takes the following parameters:
 pixel. Row names must be unique pixel barcodes, and there must be two columns
 named `"x"` and `"y"` containing numeric coordinates.
 
-2. `counts`: A matrix (or dgCMatrix) of gene expression counts, with genes as
+2. `counts`: A matrix (or `dgCMatrix`) of gene expression counts, with genes as
 rows and pixels as columns. Row names should be unique gene names, and column
 names should be unique pixel barcodes. Counts should be untransformed integers.
 
 *Optional parameters*:
 
 3. `nUMI`: A numeric vector of total UMI counts per pixel (identified by
-barcode). If not provided, nUMI will be calculated as the column sums of the
+barcode). If not provided, `nUMI` will be calculated as the column sums of the
 counts matrix.
 
 4. `use_fake_coords`: Logical, FALSE by default. If true, the `coords` parameter
@@ -161,7 +173,7 @@ We find that there are two distinct cell type mixtures in our dataset:
 
 We can visualize these mixtures with the `plot_all_weights` function, which
 plots each pixel as a pie chart of cell types. We will return to this function
-later, when it's time to visualize our RCTD results.
+later to visualize our RCTD results.
 
 ```{r trueProportionsPlot, fig.height = 5, fig.width = 7}
 plot_all_weights(
@@ -204,7 +216,7 @@ technologies like Slide-seq and MERFISH.
 - `"full"`: No restrictions on number of cell types. Best for lower-resolution
 technologies like 100-micron Visium.
 - `"multi"`: Like doublet mode but can assign more cell types (up to
-MAX_MULTI_TYPES).
+`MAX_MULTI_TYPES`).
 
 The `doublet_mode` argument is used to specify the RCTD mode. For this vignette,
 we'll decompose the data into doublets.
@@ -234,22 +246,44 @@ RCTD returns a `SummarizedExperiment` object containing:
         * `conf_list`: List of cell types with confident predictions
         * Additional metrics like `min_score` for advanced users
 
-We can view the doublet weights for our data:
+We can view the doublet weights (cell type proportions) for our data. Each row
+represents a pixel, and each column represents a cell type. The values indicate
+the estimated proportion (from 0 to 1) of each cell type in that pixel:
 
 ```{r doubletWeights}
 assay(results_se)
 ```
 
-And the classifications for our data:
+To see the unconstrained proportions, you can access the full weights using
+`assay(results_se, "weights_full")`.
+
+We can also view the classifications of our data:
 
 ```{r classification}
 classification_df <- data.frame(
+    pixel = rownames(assay(results_se)),
     spot_class = rowData(results_se)$spot_class,
     first_type = rowData(results_se)$first_type,
     second_type = rowData(results_se)$second_type
 )
 classification_df
 ```
+
+In particular, the data frame above provides us with the following information:
+
+- `spot_class`: A factor variable with the following levels of classification:
+    * `singlet` (1 cell type in pixel)
+    * `doublet_certain` (2 cell types in pixel)
+    * `doublet_uncertain` (2 cell types in pixel, but only confident of 1)
+    * `reject` (no prediction given for pixel).
+  
+    Typically, `reject` pixels should not be used, and `doublet_uncertain`
+    pixels should only be used for applications that do not require knowledge of
+    all cell types in a pixel.
+- `first_type`: the first cell type predicted on the bead (for all spot_class
+conditions except `reject`).
+- `second_type`: the second cell type predicted on the bead for doublet
+`spot_class` conditions (not a confident prediction for `doublet_uncertain`).
 
 We can see that RCTD generally succeeded in identifying the components of the
 cell mixtures, although pixels with 90% `ct1` and 10% `ct2` were classified
