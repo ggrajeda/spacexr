@@ -6,7 +6,7 @@
 \usage{
 plot_all_weights(
   rctd_se,
-  use_full_weights = FALSE,
+  assay_name = "weights",
   cell_type_colors = NA,
   r = 0.4,
   lwd = 1,
@@ -16,8 +16,7 @@ plot_all_weights(
 \arguments{
 \item{rctd_se}{SummarizedExperiment containing RCTD results}
 
-\item{use_full_weights}{logical, whether to use the full weights (in the
-"weights_full" assay) instead of the default weights (default: FALSE)}
+\item{assay_name}{character, name of the assay to plot (default: "weights")}
 
 \item{cell_type_colors}{vector of colors for the different cell types
 (default: rainbow)}

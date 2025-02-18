@@ -64,6 +64,7 @@ puck <- SpatialRNA(
 )
 
 # Access true cell type proportions
+library(SummarizedExperiment)
 true_proportions <- assay(rctd_simulation$proportions_se, "weights")
 
 }

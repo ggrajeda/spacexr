@@ -1,8 +1,10 @@
 print_results <- function(assays, row_data) {
     print("=== Weights ===")
-    print(assays$weights)
+    print(assays[["weights"]])
+    print("\n=== Unconfident Weights ===")
+    print(assays[["weights_unconfident"]])
     print("\n=== Full Weights ===")
-    print(assays$weights_full)
+    print(assays[["weights_full"]])
     print("\n=== Row Data ===")
     print(as.data.frame(row_data))
 }

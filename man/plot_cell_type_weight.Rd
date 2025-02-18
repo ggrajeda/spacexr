@@ -7,7 +7,7 @@
 plot_cell_type_weight(
   rctd_se,
   cell_type,
-  use_full_weights = FALSE,
+  assay_name = "weights",
   size = 10,
   stroke = 1,
   alpha = 1,
@@ -21,8 +21,7 @@ plot_cell_type_weight(
 
 \item{cell_type}{character, name of cell type to plot}
 
-\item{use_full_weights}{logical, whether to use the full weights (in the
-"weights_full" assay) instead of the default weights (default: FALSE)}
+\item{assay_name}{character, name of the assay to plot (default: "weights")}
 
 \item{size}{numeric, size of the points (default: 10)}
 

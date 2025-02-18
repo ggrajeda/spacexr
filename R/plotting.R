@@ -15,6 +15,18 @@ custom_theme <- function() {
     )
 }
 
+get_reject_mask <- function(rctd_se) {
+    if ("spot_class" %in% colnames(rowData(rctd_se))) {
+        # Doublet mode
+        return(rowData(rctd_se)$spot_class == "reject")
+    } else if ("conf_list" %in% colnames(rowData(rctd_se))) {
+        # Multi mode
+        conf_lists <- rowData(rctd_se)$conf_list
+        return(vapply(conf_lists, function(x) !any(x), logical(1)))
+    }
+    return(rep(FALSE, nrow(rctd_se)))
+}
+
 #' Plot pie charts of cell type proportions across pixels
 #'
 #' Generates a visualization where each pixel is represented by a pie chart
@@ -22,8 +34,7 @@ custom_theme <- function() {
 #' should run this function on the result of \code{\link{run.RCTD}}.
 #'
 #' @param rctd_se SummarizedExperiment containing RCTD results
-#' @param use_full_weights logical, whether to use the full weights (in the
-#'   "weights_full" assay) instead of the default weights (default: FALSE)
+#' @param assay_name character, name of the assay to plot (default: "weights")
 #' @param cell_type_colors vector of colors for the different cell types
 #'   (default: rainbow)
 #' @param r numeric, radius of the pie charts (default: 0.4)
@@ -47,14 +58,23 @@ custom_theme <- function() {
 #' )
 #' 
 plot_all_weights <- function(
-    rctd_se, use_full_weights = FALSE,
+    rctd_se, assay_name = "weights",
     cell_type_colors = NA,
     r = 0.4, lwd = 1,
     title = NA
 ) {
-    weights_assay <- ifelse(use_full_weights, "weights_full", "weights")
-    weights <- assay(rctd_se, weights_assay)
-    rctd_df <- data.frame(as.matrix(weights))
+    weights <- assay(rctd_se, assay_name)
+    weights_matrix <- as.matrix(weights)
+
+    # Trick to ensure that all cell types are included in the legend.
+    zero_cols <- colSums(weights_matrix) == 0
+    weights_matrix[1, zero_cols] <- 1e-10
+
+    reject_mask <- get_reject_mask(rctd_se)
+    weights_matrix[reject_mask, ] <- 0
+
+    rctd_df <- data.frame(weights_matrix)
+    rctd_df$reject <- as.integer(reject_mask)
     rctd_df$x_coords <- rowData(rctd_se)$x
     rctd_df$y_coords <- rowData(rctd_se)$y
 
@@ -62,14 +82,15 @@ plot_all_weights <- function(
     p <- p + scatterpie::geom_scatterpie(
         ggplot2::aes(x = x_coords, y = y_coords, r = r),
         data = rctd_df,
-        cols = colnames(weights),
+        cols = setdiff(colnames(rctd_df), c("x_coords", "y_coords")),
         lwd = lwd,
         legend_name = "Cell_Types"
     )
     if (is.na(cell_type_colors)) {
         cell_type_colors <- grDevices::rainbow(ncol(weights))
     }
-    p <- p + ggplot2::scale_fill_manual(values = as.vector(cell_type_colors))
+    cell_type_colors <- c(as.vector(cell_type_colors), "#808080")
+    p <- p + ggplot2::scale_fill_manual(values = cell_type_colors)
     if (!is.na(title)) {
         p <- p + ggplot2::ggtitle(title)
     }
@@ -84,8 +105,7 @@ plot_all_weights <- function(
 #'
 #' @param rctd_se SummarizedExperiment containing RCTD results
 #' @param cell_type character, name of cell type to plot
-#' @param use_full_weights logical, whether to use the full weights (in the
-#'   "weights_full" assay) instead of the default weights (default: FALSE)
+#' @param assay_name character, name of the assay to plot (default: "weights")
 #' @param size numeric, size of the points (default: 10)
 #' @param stroke numeric, border width of the points (default: 1)
 #' @param alpha numeric, point transparency between 0 and 1 (default: 1)
@@ -112,13 +132,12 @@ plot_all_weights <- function(
 #' )
 #' 
 plot_cell_type_weight <- function(
-    rctd_se, cell_type, use_full_weights = FALSE,
+    rctd_se, cell_type, assay_name = "weights",
     size = 10, stroke = 1, alpha = 1,
     low = "white", high = "red",
     title = NA
 ) {
-    weights_assay <- ifelse(use_full_weights, "weights_full", "weights")
-    weights <- assay(rctd_se, weights_assay)[, cell_type]
+    weights <- assay(rctd_se, assay_name)[, cell_type]
     rctd_df <- data.frame(as.matrix(weights))
     rctd_df$x_coords <- rowData(rctd_se)$x
     rctd_df$y_coords <- rowData(rctd_se)$y

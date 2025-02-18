@@ -65,7 +65,7 @@ create_se_from_columns <- function(
     metadata <- rctd_metadata(RCTD)
 
     se <- SummarizedExperiment(
-        assays = list(weights = weights),
+        assays = list(weights_full = weights),
         rowData = row_data,
         metadata = metadata
     )
@@ -82,10 +82,51 @@ create_se_from_columns <- function(
 #' @importFrom SummarizedExperiment assay assay<-
 #' @keywords internal
 create_se_full <- function(RCTD, results) {
-    se <- create_se_from_columns(RCTD, results, weights_col = "weights")
-    # Store weights redundantly for consistency with other modes.
-    assay(se, "weights_full") <- assay(se, "weights")
-    return(se)
+    create_se_from_columns(RCTD, results, weights_col = "weights")
+}
+
+# Generates doublet-mode weights from the full weights.
+get_doublet_weights <- function(weights, results_se, results_list) {
+    first_type <- rowData(results_se)$first_type
+    second_type <- rowData(results_se)$second_type
+
+    weights_doublet <- vapply(
+        seq_len(nrow(weights)),
+        function(pixel) {
+            weights_row <- numeric(ncol(weights))
+            names(weights_row) <- colnames(weights)
+
+            doublet_weights <- results_list[[pixel]]$doublet_weights
+            weights_row[first_type[pixel]] <- doublet_weights[1]
+            weights_row[second_type[pixel]] <- doublet_weights[2]
+            weights_row
+        },
+        numeric(ncol(weights))
+    )
+    Matrix(t(weights_doublet), sparse = TRUE)
+}
+
+# Restricts doublet-mode weights to confident predictions.
+get_confident_doublet_weights <- function(weights_doublet, results_se) {
+    spot_class <- rowData(results_se)$spot_class
+    first_type <- rowData(results_se)$first_type
+
+    weights_confident <- vapply(
+        seq_len(nrow(weights_doublet)),
+        function(pixel) {
+            weights_row <- numeric(ncol(weights_doublet))
+            names(weights_row) <- colnames(weights_doublet)
+
+            if (spot_class[pixel] %in% c("singlet", "doublet_uncertain")) {
+                weights_row[first_type[pixel]] <- 1
+            } else if (spot_class[pixel] == "doublet_certain") {
+                weights_row <- weights_doublet[pixel, ]
+            }
+            weights_row
+        },
+        numeric(ncol(weights_doublet))
+    )
+    Matrix(t(weights_confident), sparse = TRUE)
 }
 
 #' Converts the results of \code{process_beads_batch} to a SummarizedExperiment
@@ -116,28 +157,59 @@ create_se_doublet <- function(RCTD, results) {
         levels = spot_class_levels
     )
 
-    weights <- assay(se, "weights")
-    # Generate doublet-mode weights from doublet_weights entry.
-    weights_doublet <- vapply(
+    # Add unconfident doublet-mode weights.
+    weights <- assay(se)
+    weights_unconf <- get_doublet_weights(weights, se, results)
+    assay(se, "weights_unconfident", withDimnames = FALSE) <- weights_unconf
+    
+    # Add confident weights.
+    weights_conf <- get_confident_doublet_weights(weights_unconf, se)
+    assay(se, "weights", withDimnames = FALSE) <- weights_conf
+    
+    return(se)
+}
+
+# Generates doublet-mode weights from the full weights.
+get_multi_weights <- function(weights, results_se, results_list) {
+    cell_type_lists <- rowData(results_se)$cell_type_list
+
+    weights_multi <- vapply(
         seq_len(nrow(weights)),
         function(pixel) {
             weights_row <- numeric(ncol(weights))
             names(weights_row) <- colnames(weights)
 
-            row_data <- rowData(se)[pixel, ]
-            doublet_weights <- results[[pixel]]$doublet_weights
-            weights_row[row_data$first_type] <- doublet_weights[1]
-            weights_row[row_data$second_type] <- doublet_weights[2]
+            cell_types <- cell_type_lists[[pixel]]
+            sub_weights <- unlist(results_list[[pixel]]$sub_weights)
+            weights_row[cell_types] <- sub_weights
             weights_row
         },
         numeric(ncol(weights))
     )
-    weights_doublet <- Matrix(t(weights_doublet), sparse = TRUE)
+    Matrix(t(weights_multi), sparse = TRUE)
+}
 
-    # Move the full weights and store the doublet-mode weights
-    assay(se, "weights_full") <- weights
-    assay(se, "weights", withDimnames = FALSE) <- weights_doublet
-    return(se)
+# Restricts multi-mode weights to confident predictions.
+get_confident_multi_weights <- function(weights_multi, results_se) {
+    conf_lists <- rowData(results_se)$conf_list
+
+    weights_confident <- vapply(
+        seq_len(nrow(weights_multi)),
+        function(pixel) {
+            weights_row <- numeric(ncol(weights_multi))
+            names(weights_row) <- colnames(weights_multi)
+
+            conf_types <- names(which(conf_lists[[pixel]]))
+            if (length(conf_types) > 0) {
+                weights_row[conf_types] <- weights_multi[pixel, conf_types]
+                # Normalize weights to sum to 1.
+                weights_row <- weights_row / sum(weights_row)
+            }
+            weights_row
+        },
+        numeric(ncol(weights_multi))
+    )
+    Matrix(t(weights_confident), sparse = TRUE)
 }
 
 #' Converts the results of \code{process_beads_multi} to a SummarizedExperiment
@@ -158,25 +230,14 @@ create_se_multi <- function(RCTD, results) {
         list_cols = c("cell_type_list", "conf_list")
     )
 
-    weights <- assay(se, "weights")
-    # Generate multi-mode weights from sub_weights entry.
-    weights_multi <- vapply(
-        seq_len(nrow(weights)),
-        function(pixel) {
-            weights_row <- numeric(ncol(weights))
-            names(weights_row) <- colnames(weights)
-
-            cell_types <- rowData(se)$cell_type_list[pixel]
-            sub_weights <- unlist(results[[pixel]]$sub_weights)
-            weights_row[unlist(cell_types)] <- sub_weights
-            weights_row
-        },
-        numeric(ncol(weights))
-    )
-    weights_multi <- Matrix(t(weights_multi), sparse = TRUE)
-
-    # Move the full weights and store the multi-mode weights
-    assay(se, "weights_full") <- weights
-    assay(se, "weights", withDimnames = FALSE) <- weights_multi
+    # Add unconfident multi-mode weights.
+    weights <- assay(se)
+    weights_unconf <- get_multi_weights(weights, se, results)
+    assay(se, "weights_unconfident", withDimnames = FALSE) <- weights_unconf
+    
+    # Add confident weights.
+    weights_conf <- get_confident_multi_weights(weights_unconf, se)
+    assay(se, "weights", withDimnames = FALSE) <- weights_conf
+    
     return(se)
 }

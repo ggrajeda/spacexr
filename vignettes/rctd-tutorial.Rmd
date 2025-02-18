@@ -7,7 +7,7 @@ output:
     toc: true
     toc_depth: 3
 vignette: >
-  %\VignetteIndexEntry{spatial-transcriptomics}
+  %\VignetteIndexEntry{rctd-tutorial}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 ---
@@ -107,7 +107,7 @@ reference <- Reference(
 )
 
 # Examine reference. (optional)
-print(dim(counts(reference))) # Gene expression matrix dimensions
+print(dim(spacexr::counts(reference))) # Gene expression matrix dimensions
 table(cell_types(reference)) # Number of occurrences for each cell type
 ```
 In this vignette, we have a reference dataset of 750 genes for 75 cells. We
@@ -151,9 +151,9 @@ puck <- SpatialRNA(
 )
 
 # Examine puck. (optional)
-print(dim(counts(puck))) # Gene expression matrix dimensions
-ggplot(coords(puck), aes(x, y)) + geom_point(size = 3) + 
-    theme(axis.text = element_blank())
+print(dim(spacexr::counts(puck))) # Gene expression matrix dimensions
+ggplot(coords(puck), aes(x, y)) + geom_point(size = 5) + 
+    theme(axis.text = element_blank(), axis.ticks = element_blank())
 ```
 <br/>
 We find that we have a dataset of 750 genes for 12 pixels, plotted above.
@@ -178,7 +178,7 @@ later to visualize our RCTD results.
 ```{r trueProportionsPlot, fig.height = 5, fig.width = 7}
 plot_all_weights(
     rctd_simulation$proportions_se,
-    r = 0.05, lwd = 0.5, title = "Ground Truth"
+    r = 0.05, lwd = 0, title = "Ground Truth"
 )
 ```
 
@@ -229,9 +229,12 @@ results_se <- run.RCTD(rctd_config, doublet_mode = "doublet")
 
 RCTD returns a `SummarizedExperiment` object containing:
 
-- Two assays:
+- Three assays (one in full mode):
     1. `weights`: Cell type proportions restricted according to the specified
-    mode
+    mode (not available in full mode)
+    2. `weights_unconfident`: Cell type proportions restricted according to the
+    specified mode, including unconfident predictions (not available in full
+    mode)
     2. `weights_full`: Unrestricted cell type proportions
 
 - Additional rowData including:
@@ -240,24 +243,28 @@ RCTD returns a `SummarizedExperiment` object containing:
         * `spot_class`: Classification as `singlet`, `doublet_certain`,
         `doublet_uncertain`, or `reject`
         * `first_type`, `second_type`: Predicted cell types
-        * Additional metrics like `min_score`, `singlet_score` for advanced users
+        * Additional metrics like `min_score`, `singlet_score` for advanced
+        users
     * For multi mode:
         * `cell_type_list`: List of cell types per pixel
-        * `conf_list`: List of cell types with confident predictions
+        * `conf_list`: List of whether cell type predictions are confident
         * Additional metrics like `min_score` for advanced users
 
-We can view the doublet weights (cell type proportions) for our data. Each row
-represents a pixel, and each column represents a cell type. The values indicate
-the estimated proportion (from 0 to 1) of each cell type in that pixel:
+We can view the doublet weights for our data. Each row represents a pixel, and
+each column represents a cell type. The values indicate the estimated proportion
+(from 0 to 1) of each cell type in that pixel:
 
 ```{r doubletWeights}
-assay(results_se)
+assay(results_se, "weights")
 ```
 
-To see the unconstrained proportions, you can access the full weights using
-`assay(results_se, "weights_full")`.
+You can access the full, unrestricted weights using
+`assay(results_se, "weights_full")`. We will demonstrate this later. You may use
+`assay(results_se, "weights_unconfident")` to access the less confident
+predictions (e.g., the `second_type` weight for singlets and uncertain
+doublets).
 
-We can also view the classifications of our data:
+Below, we can view the results of RCTD deconvolution:
 
 ```{r classification}
 classification_df <- data.frame(
@@ -269,13 +276,13 @@ classification_df <- data.frame(
 classification_df
 ```
 
-In particular, the data frame above provides us with the following information:
+In particular, this data frame provides us with the following information:
 
 - `spot_class`: A factor variable with the following levels of classification:
-    * `singlet` (1 cell type in pixel)
-    * `doublet_certain` (2 cell types in pixel)
-    * `doublet_uncertain` (2 cell types in pixel, but only confident of 1)
-    * `reject` (no prediction given for pixel).
+    * `singlet` (1 cell type in the pixel)
+    * `doublet_certain` (2 cell types in the pixel)
+    * `doublet_uncertain` (2 cell types in the pixel, but only confident of 1)
+    * `reject` (no prediction given for pixel)
 
     Typically, `reject` pixels should not be used, and `doublet_uncertain`
     pixels should only be used for applications that do not require knowledge of
@@ -295,17 +302,19 @@ function. Simply pass in the RCTD results (and some aesthetic arguments), and
 the cell type proportions will be plotted as pie charts for each pixel.
 
 ```{r doubletVisualization, fig.height = 5, fig.width = 7}
-plot_all_weights(results_se, r = 0.05, lwd = 0.5, title = "Doublet Results")
+plot_all_weights(results_se, r = 0.05, lwd = 0, title = "Doublet Results")
 ```
 
-Note that the mixture of three cell types (on the right) has been restricted
-to `ct2` and `ct3`. We can visualize the unrestricted (non-doublet) proportions
-by setting `use_full_weights` to `TRUE`:
+Note that all mixtures with 90% `ct1` (on the left) were classified as singlets,
+so only `ct1` is plotted. And for the other mixtures (on the right), only cell
+types `ct2` and `ct3` are plotted (without any `ct1`) due to the restrictions of
+doublet mode. We can visualize the full, unrestricted proportions by passing in
+the name of the relevant assay (`"weights_full"`) to the `plot_all_weights`
+function:
 
 ```{r fullVisualization, fig.height = 5, fig.width = 7}
 plot_all_weights(
-    results_se, use_full_weights = TRUE,
-    r = 0.05, lwd = 0.5, title = "Full Results"
+    results_se, "weights_full", r = 0.05, lwd = 0, title = "Full Results"
 )
 ```
 
@@ -317,8 +326,8 @@ the dummy cell type `ct1`.
 
 ```{r densityVisualization, fig.height = 5, fig.width = 7}
 plot_cell_type_weight(
-    results_se, "ct1", use_full_weights = TRUE,
-    size = 5, title = "Density of ct1"
+    results_se, "ct1", "weights_full",
+    size = 5, stroke = 0.5, title = "Density of Cell Type 1\n"
 )
 ```
 

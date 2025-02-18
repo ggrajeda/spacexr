@@ -16,12 +16,14 @@ run.RCTD(RCTD, doublet_mode = "doublet")
 \value{
 A SummarizedExperiment object containing the RCTD results with:
   \itemize{
-    \item Two assays:
+    \item Three assays (one in full mode):
       \itemize{
         \item \code{weights}: Cell type proportions restricted according to
-        the specified mode
-        \item \code{weights_full}: Unrestricted cell type proportions (stored
-        redundantly in full mode)
+        the specified mode (not available in full mode)
+        \item \code{weights_unconfident}: Cell type proportions restricted
+        according to the specified mode, including unconfident predictions
+        (not available in full mode)
+        \item \code{weights_full}: Unrestricted cell type proportions
       }
     \item rowData containing:
       \itemize{
@@ -39,7 +41,8 @@ A SummarizedExperiment object containing the RCTD results with:
         \item For multi mode:
           \itemize{
             \item \code{cell_type_list}: List of cell types per pixel
-            \item \code{conf_list}: List of confident cell type predictions
+            \item \code{conf_list}: List of whether cell type predictions
+            are confident.
             \item Additional metrics like \code{min_score}
           }
       }
