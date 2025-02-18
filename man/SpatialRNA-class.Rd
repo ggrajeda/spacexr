@@ -6,13 +6,16 @@
 \alias{coords}
 \alias{counts}
 \alias{nUMI}
+\alias{show,SpatialRNA-method}
 \title{Spatial transcriptomics data}
 \usage{
-coords(x)
+coords(object)
 
-counts(x)
+counts(object)
 
-nUMI(x)
+nUMI(object)
+
+\S4method{show}{SpatialRNA}(object)
 }
 \description{
 A class representing spatial transcriptomics data, where gene expression is

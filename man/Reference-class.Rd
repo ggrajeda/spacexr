@@ -6,13 +6,16 @@
 \alias{cell_types}
 \alias{counts,Reference-method}
 \alias{nUMI,Reference-method}
+\alias{show,Reference-method}
 \title{RNA-seq reference data}
 \usage{
-cell_types(x)
+cell_types(object)
 
-\S4method{counts}{Reference}(x)
+\S4method{counts}{Reference}(object)
 
-\S4method{nUMI}{Reference}(x)
+\S4method{nUMI}{Reference}(object)
+
+\S4method{show}{Reference}(object)
 }
 \description{
 A class representing annotated RNA sequencing data used as a reference to

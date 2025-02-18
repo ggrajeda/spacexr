@@ -3,7 +3,11 @@
 \docType{class}
 \name{RCTD-class}
 \alias{RCTD-class}
+\alias{show,RCTD-method}
 \title{Input to the RCTD algorithm}
+\usage{
+\S4method{show}{RCTD}(object)
+}
 \description{
 Created using the \code{\link{create.RCTD}} function, a user can run RCTD
 using the \code{\link{run.RCTD}} function.

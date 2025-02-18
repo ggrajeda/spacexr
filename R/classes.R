@@ -62,21 +62,33 @@ setClass("SpatialRNA",
 
 #' @rdname SpatialRNA-class
 #' @export
-setGeneric("coords", function(x) standardGeneric("coords"))
+setGeneric("coords", function(object) standardGeneric("coords"))
 #' @export
-setMethod("coords", "SpatialRNA", function(x) x@coords)
+setMethod("coords", "SpatialRNA", function(object) object@coords)
 
 #' @rdname SpatialRNA-class
 #' @export
-setGeneric("counts", function(x) standardGeneric("counts"))
+setGeneric("counts", function(object) standardGeneric("counts"))
 #' @export
-setMethod("counts", "SpatialRNA", function(x) x@counts)
+setMethod("counts", "SpatialRNA", function(object) object@counts)
 
 #' @rdname SpatialRNA-class
 #' @export
-setGeneric("nUMI", function(x) standardGeneric("nUMI"))
+setGeneric("nUMI", function(object) standardGeneric("nUMI"))
 #' @export
-setMethod("nUMI", "SpatialRNA", function(x) x@nUMI)
+setMethod("nUMI", "SpatialRNA", function(object) object@nUMI)
+
+#' @rdname SpatialRNA-class
+#' @export
+setMethod("show", "SpatialRNA", function(object) {
+    cat("SpatialRNA object with:\n")
+    cat(sprintf("- %d pixels\n", ncol(object@counts)))
+    cat(sprintf("- %d genes\n", nrow(object@counts)))
+    cat(sprintf("- %.2f mean UMIs per pixel\n", mean(object@nUMI)))
+    cat(sprintf("- Spatial coordinates range: x[%.2f, %.2f], y[%.2f, %.2f]\n",
+        min(object@coords$x), max(object@coords$x),
+        min(object@coords$y), max(object@coords$y)))
+})
 
 #' RNA-seq reference data
 #'
@@ -123,17 +135,31 @@ setClass("Reference",
 
 #' @rdname Reference-class
 #' @export
-setGeneric("cell_types", function(x) standardGeneric("cell_types"))
+setGeneric("cell_types", function(object) standardGeneric("cell_types"))
 #' @export
-setMethod("cell_types", "Reference", function(x) x@cell_types)
+setMethod("cell_types", "Reference", function(object) object@cell_types)
 
 #' @rdname Reference-class
 #' @export
-setMethod("counts", "Reference", function(x) x@counts)
+setMethod("counts", "Reference", function(object) object@counts)
 
 #' @rdname Reference-class
 #' @export
-setMethod("nUMI", "Reference", function(x) x@nUMI)
+setMethod("nUMI", "Reference", function(object) object@nUMI)
+
+#' @rdname Reference-class
+#' @export
+setMethod("show", "Reference", function(object) {
+    cat("Reference object with:\n")
+    cat(sprintf("- %d cells\n", ncol(object@counts)))
+    cat(sprintf("- %d genes\n", nrow(object@counts)))
+    cat(sprintf("- %.2f mean UMIs per cell\n", mean(object@nUMI)))
+    cat("- Cell types:\n")
+    type_counts <- table(object@cell_types)
+    for (type in names(type_counts)) {
+        cat(sprintf("  %s: %d cells\n", type, type_counts[type]))
+    }
+})
 
 #' Input to the RCTD algorithm
 #'
@@ -175,3 +201,25 @@ setClass("RCTD",
         internal_vars = list()
     )
 )
+
+#' @rdname RCTD-class
+#' @export
+setMethod("show", "RCTD", function(object) {
+    cat("RCTD object with:\n")
+    cat("\nSpatial data (processed):\n")
+    cat(sprintf("- %d pixels\n", ncol(object@spatialRNA@counts)))
+    cat(sprintf("- %d genes\n", nrow(object@spatialRNA@counts)))
+    
+    cat("\nReference data:\n")
+    cat(sprintf("- %d cells\n", ncol(object@reference@counts)))
+    cat(sprintf("- %d cell types\n", length(levels(object@reference@cell_types))))
+    
+    cat("\nConfiguration:\n")
+    for (param in names(object@config)) {
+        cat(sprintf("- %s: %s\n", param, 
+            if(is.atomic(object@config[[param]])) 
+                paste(object@config[[param]], collapse=", ") 
+            else "..."
+        ))
+    }
+})
