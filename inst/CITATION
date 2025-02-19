@@ -1,0 +1,22 @@
+citEntry(
+    entry    = "Article",
+    title    = paste(
+        "Robust decomposition of cell type mixtures in spatial transcriptomics"
+    ),
+    author   = c(
+        "Dylan M. Cable", "Evan Murray", "Luli S. Zou", "Aleksandrina Goeva",
+        "Evan Z. Macosko", "Fei Chen", "Rafael A. Irizarry"
+    ),
+    journal  = "Nature Biotechnology",
+    year     = 2022,
+    volume   = 40,
+    number   = 4,
+    pages    = 517,
+    doi      = "https://doi.org/10.1038/s41587-021-00830-w",
+    textVersion = paste(
+        "Cable, Dylan M., et al.",
+        '"Robust decomposition of cell type mixtures in spatial ',
+        'transcriptomics."',
+        "Nature Biotechnology 40.4: 517-526 (2022)."
+    )
+)
