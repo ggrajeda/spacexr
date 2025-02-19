@@ -20,9 +20,6 @@
 process_beads_batch <- function(cell_type_info, gene_list, puck, class_df = NULL, constrain = TRUE,
                                 MAX_CORES = 8, MIN.CHANGE = 0.001, CONFIDENCE_THRESHOLD = 10, DOUBLET_THRESHOLD = 25) {
     beads <- t(as.matrix(puck@counts[gene_list, ]))
-    # out_file = "logs/process_beads_log.txt"
-    # if (file.exists(out_file))
-    #  file.remove(out_file)
     if (MAX_CORES > 1) {
         numCores <- parallel::detectCores()
         if (parallel::detectCores() > MAX_CORES) {
@@ -142,9 +139,6 @@ fitPixels <- function(RCTD, doublet_mode = "doublet") {
 }
 
 decompose_batch <- function(nUMI, cell_type_means, beads, gene_list, constrain = TRUE, OLS = FALSE, max_cores = 8, MIN.CHANGE = 0.001) {
-    # out_file = "logs/decompose_batch_log.txt"
-    # if (file.exists(out_file))
-    #  file.remove(out_file)
     if (max_cores > 1) {
         numCores <- parallel::detectCores()
         if (parallel::detectCores() > max_cores) {

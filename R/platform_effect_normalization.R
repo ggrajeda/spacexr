@@ -59,7 +59,6 @@ chooseSigma <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
             best_val <- min(best_val, calc_log_l_vec(X * mult_fac, Y))
         }
         score_vec[i] <- best_val
-        # score_vec[i] <- calc_log_l_vec(X, Y)
     }
     sigma <- sigma_ind[which.min(score_vec)]
     return(sigma)

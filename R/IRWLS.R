@@ -32,7 +32,6 @@ solveIRWLS.weights <- function(S, B, nUMI, OLS = FALSE, constrain = TRUE, verbos
         solution <- solveOLS(S, B, solution, constrain = constrain) # first solve OLS, use this solution to find a starting point for the weights
         return(list(weights = solution, converged = TRUE))
     }
-    # solution <- runif(length(solution))*2 / length(solution) # random initialization
     names(solution) <- colnames(S)
 
     S_mat <- matrix(0, nrow = dim(S)[1], ncol = dim(S)[2] * (dim(S)[2] + 1) / 2)
@@ -59,25 +58,6 @@ solveIRWLS.weights <- function(S, B, nUMI, OLS = FALSE, constrain = TRUE, verbos
     }
     return(list(weights = solution, converged = (change <= MIN_CHANGE)))
 }
-
-# solve WLS given a dampening constant
-# for ..., think of alpha, lambda, constrain = TRUE
-# either bead_mode is true and nUMI is scalar
-# or bead_mode is false and nUMI is vector
-
-# scratch
-# calc_log_l_vec(prediction, B)
-# d_all <- calc_Q_all(B, prediction)
-# eps <- 1e-12
-# calc_log_l_vec(abs(S%*%(solution)), B)
-# changer <- c(1,0,0,0,0,0,0,0,0,0,0,0,0,0)
-# changer <- c(0,1,0,0,0,0,0,0,0,0,0,0,0,0)
-# (calc_log_l_vec(abs(S%*%(c(solution + eps*changer))), B) - calc_log_l_vec(abs(S%*%(solution)), B) )/ eps
-
-# inv <- which.max(d_all$d2_vec)
-# prediction[inv]
-# B[inv]
-# plot(X_vals, Q_mat[2,])
 
 solveWLS <- function(S, S_mat, B, initialSol, nUMI, bulk_mode = FALSE, constrain = FALSE) {
     solution <- pmax(initialSol, 0)
@@ -106,4 +86,3 @@ solveWLS <- function(S, S_mat, B, initialSol, nUMI, bulk_mode = FALSE, constrain
     names(solution) <- colnames(S)
     return(solution)
 }
-# derivativeso <- get_der_fast(S, B, gene_list, prediction, bulk_mode = bulk_mode)

@@ -51,7 +51,6 @@ ht_pdf_norm <- function(x) {
 
 get_Q <- function(X_vals, k, sigma, big_params = TRUE) {
     if (big_params) {
-        # N_Y = 20000;  gamma = 1e-3
         N_Y <- 5000
         gamma <- 4e-3
     } else {
@@ -113,7 +112,6 @@ calc_Q_all <- function(Y, lambda) {
     ti1 <- X_vals[m]
     ti <- X_vals[m + 1]
     hi <- ti - ti1
-    # Q0 <- cbind(Y+1, m); Q1 <- cbind(Y+1, m+1)
     Q0 <- cbind(Y + 1, m)
     Q1 <- Q0
     Q1[, 2] <- Q1[, 2] + 1
@@ -152,8 +150,6 @@ get_d1_d2 <- function(Y, lambda) {
 
 get_der_fast <- function(S, S_mat, B, gene_list, prediction, bulk_mode = FALSE) {
     if (bulk_mode) {
-        # d1_vec <- -t(log(prediction) - log(B))
-        # d2_vec <- -t(1/prediction)
         d1_vec <- -2 * t((log(prediction) - log(B)) / prediction)
         d2_vec <- -2 * t((1 - log(prediction) + log(B)) / prediction^2)
     } else {
