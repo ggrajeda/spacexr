@@ -1,7 +1,7 @@
 Package: spacexr
 Type: Package
 Title: SpatialeXpressionR: Cell Type Identification in Spatial Transcriptomics
-Version: 2.2.1
+Version: 0.99.0
 Authors@R: c(
     person("Dylan", "Cable", email = "dmcable@umich.edu", role = "aut"),
     person(
@@ -16,7 +16,9 @@ Description: Robust Cell Type Decomposition (RCTD) is a computational method for
     package provides three analysis modes: doublet detection (up to 2 cell types
     per pixel), multi mode with greedy cell type assignment (up to a specified
     number of cell types per pixel), and full decomposition without
-    restrictions.
+    restrictions. This is the Bioconductor version of the original spacexr
+    package, which can be found here: https://github.com/dmcable/spacexr. Future
+    releases will include an implementation of CSIDE.
 URL: https://github.com/ggrajeda/spacexr
 BugReports: https://github.com/ggrajeda/spacexr/issues
 Depends: R (>= 4.4.0)
