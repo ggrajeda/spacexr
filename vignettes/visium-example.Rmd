@@ -1,0 +1,295 @@
+---
+title: "Visium Example"
+author: "Dylan Cable and Gabriel Grajeda"
+date: "Feb 12th, 2025"
+output:  
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 3
+vignette: >
+  %\VignetteIndexEntry{visium-example}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+    collapse = TRUE,
+    comment = "#>",
+    out.width = "100%"
+)
+```
+
+## Installation
+
+You can install the latest version of spacexr from Bioconductor:
+
+```{r installation, eval=FALSE}
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("spacexr")
+```
+
+## Introduction
+
+Robust Cell Type Decomposition (RCTD) is a statistical method for decomposing
+cell type mixtures in spatial transcriptomics data. In this vignette, we will
+use an example Visium dataset to demonstrate how you can run RCTD on spatial
+transcriptomics data and visualize your results.
+
+We will use the term *pixel*, synonymous with *spot* or *bead*, to refer to any
+observation that measures gene expression at a fixed location. We do not use
+the term *cell* because, in spatial transcriptomics data, single *pixels* may
+contain mixtures of multiple cells. The purpose of RCTD is to estimate the
+proportions of different cell types in each pixel of a dataset.
+
+## Setup
+
+```{r setup, message = FALSE}
+library(ggplot2)
+library(SummarizedExperiment)
+
+library(spacexr)
+```
+
+## Data Preprocessing
+
+Before running RCTD, we must first load in:
+
+- an annotated reference dataset, which is used to learn cell type profiles.
+- a spatial transcriptomics dataset, which contains pixels for deconvolution.
+
+### Reference
+
+The reference is created using the `Reference` constructor function, which takes
+the following parameters:
+
+*Required parameters*:
+
+1. `counts`: A matrix (or `dgCMatrix`) of gene expression counts, with genes as
+rows and cells as columns. Row names should be unique gene names, and column
+names should be unique cell barcodes. Counts should be untransformed integers.
+
+2. `cell_types`: A factor vector containing cell type annotations for each cell
+in the reference (identified by barcode). The factor levels should represent the
+possible cell types.
+
+*Optional parameters*:
+
+3. `nUMI`: A numeric vector of total UMI counts per cell (identified by
+barcode). If not provided, `nUMI` will be calculated as the column sums of the
+counts matrix.
+
+4. `min_UMI`: Minimum UMI count for cells to be included in the reference. Cells
+with fewer UMIs will be removed.
+
+5. `n_max_cells`: Maximum number of cells per cell type. If exceeded, cells will
+be randomly downsampled to this number.
+
+In practice, your reference could be an annotated dataset from:
+
+- Single-nucleus RNA sequencing (snRNA-seq)
+- Single-cell RNA sequencing (scRNA-seq)
+- Cell type-specific bulk RNA sequencing
+
+```{r reference}
+refdir <- system.file("extdata",'Reference/Visium_Ref',package = 'spacexr') # directory for the reference
+counts <- read.csv(file.path(refdir,"counts.csv")) # load in cell types
+rownames(counts) <- counts[,1]; counts[,1] <- NULL # Move first column to rownames
+cell_types <- read.csv(file.path(refdir,"cell_types.csv")) # load in cell types
+cell_types <- setNames(cell_types[[2]], cell_types[[1]])
+cell_types <- as.factor(cell_types) # convert to factor data type
+nUMI <- read.csv(file.path(refdir,"nUMI.csv")) # load in cell types
+nUMI <- setNames(nUMI[[2]], nUMI[[1]])
+reference <- Reference(counts, cell_types, nUMI)
+
+# Examine reference. (optional)
+print(dim(spacexr::counts(reference))) # Gene expression matrix dimensions
+table(cell_types(reference)) # Number of occurrences for each cell type
+```
+
+### Spatial Transcriptomics Data
+
+Next, we will load the spatial transcriptomics data into a `SpatialRNA` object.
+The `SpatialRNA` constructor function takes the following parameters:
+
+*Required parameters*:
+
+1. `coords`: A data frame (or matrix) containing x and y coordinates for each
+pixel. Row names must be unique pixel barcodes, and there must be two columns
+named `"x"` and `"y"` containing numeric coordinates.
+
+2. `counts`: A matrix (or `dgCMatrix`) of gene expression counts, with genes as
+rows and pixels as columns. Row names should be unique gene names, and column
+names should be unique pixel barcodes. Counts should be untransformed integers.
+
+*Optional parameters*:
+
+3. `nUMI`: A numeric vector of total UMI counts per pixel (identified by
+barcode). If not provided, `nUMI` will be calculated as the column sums of the
+counts matrix.
+
+4. `use_fake_coords`: Logical, FALSE by default. If true, the `coords` parameter
+will be ignored and replaced with a placeholder coords matrix (useful for
+testing).
+
+```{r spatial, fig.align='center', fig.width=5, fig.height=5, out.width='50%'}
+datadir <- system.file("extdata",'SpatialRNA/VisiumVignette',package = 'spacexr') # directory for sample Visium dataset
+
+counts <- as.data.frame(readr::read_csv(file.path(datadir,"counts.csv"))) # load in counts matrix
+coords <- read.csv(file.path(datadir,"coords.csv"))
+rownames(counts) <- counts[,1]; counts[,1] <- NULL # Move first column to rownames
+rownames(coords) <- coords[,1]; coords[,1] <- NULL # Move first column to rownames
+nUMI <- colSums(counts) # In this case, total counts per pixel is nUMI
+puck <- SpatialRNA(coords, counts, nUMI)
+
+# Examine puck. (optional)
+print(dim(spacexr::counts(puck))) # Gene expression matrix dimensions
+ggplot(coords(puck), aes(x, y)) + geom_point(size = 5) + 
+    theme(axis.text = element_blank(), axis.ticks = element_blank())
+```
+
+## Running RCTD
+
+### Creating RCTD Object
+
+The last step before running RCTD is to create an `RCTD` object from our
+`SpatialRNA` and `Reference` objects using the `create.RCTD` function. Some
+important configuration options include:
+
+- `max_cores`: Number of cores used for parallel processing. We recommend
+setting this to at least 4 to improve efficiency. If set to 1, parallel
+processing is not used.
+- `gene_cutoff`, `fc_cutoff`: Used for filtering genes in platform effect
+normalization. `gene_cutoff` filters for average expression and `fc_cutoff`
+filters for log-fold-change across cell types.
+- `gene_cutoff_reg`, `fc_cutoff_reg`: Similar to above, but for the RCTD step.
+- `UMI_min`, `UMI_max`: Minimum and maximum read depth for pixels in the
+`SpatialRNA` dataset.
+- `MAX_MULTI_TYPES`: Maximum number of cell types per pixel (multi mode only).
+
+```{r createRCTD, message = FALSE}
+rctd_config <- create.RCTD(puck, reference, max_cores = 4)
+```
+
+### Running RCTD
+
+We are now ready to run RCTD using the `run.RCTD` function. 
+
+RCTD has three modes, each suited for different spatial technologies:
+
+- `"doublet"`: Assigns 1-2 cell types per pixel. Best for high-resolution
+technologies like Slide-seq and MERFISH.
+- `"full"`: No restrictions on number of cell types. Best for lower-resolution
+technologies like 100-micron Visium.
+- `"multi"`: Like doublet mode but can assign more cell types (up to
+`MAX_MULTI_TYPES`).
+
+The `doublet_mode` argument is used to specify the RCTD mode. For this vignette,
+we'll decompose the data into doublets.
+
+```{r runRCTD, message = FALSE}
+results_se <- run.RCTD(rctd_config, doublet_mode = "doublet")
+```
+
+## RCTD Results
+
+RCTD returns a `SummarizedExperiment` object containing:
+
+- Three assays (one in full mode):
+    1. `weights`: Cell type proportions restricted according to the specified
+    mode (not available in full mode)
+    2. `weights_unconfident`: Cell type proportions restricted according to the
+    specified mode, including unconfident predictions (not available in full
+    mode)
+    2. `weights_full`: Unrestricted cell type proportions
+
+- Additional rowData including:
+    * `x`, `y`: Spatial coordinates for each pixel
+    * For doublet mode:
+        * `spot_class`: Classification as `singlet`, `doublet_certain`,
+        `doublet_uncertain`, or `reject`
+        * `first_type`, `second_type`: Predicted cell types
+        * Additional metrics like `min_score`, `singlet_score` for advanced
+        users
+    * For multi mode:
+        * `cell_type_list`: List of cell types per pixel
+        * `conf_list`: List of whether cell type predictions are confident
+        * Additional metrics like `min_score` for advanced users
+
+We can view the doublet weights for our data. Each row represents a pixel, and
+each column represents a cell type. The values indicate the estimated proportion
+(from 0 to 1) of each cell type in that pixel:
+
+```{r doubletWeights}
+head(assay(results_se, "weights"))
+```
+
+You can access the full, unrestricted weights using
+`assay(results_se, "weights_full")`. We will demonstrate this later. You may use
+`assay(results_se, "weights_unconfident")` to access the less confident
+predictions (e.g., the `second_type` weight for singlets and uncertain
+doublets).
+
+Below, we can view the results of RCTD deconvolution:
+
+```{r classification}
+classification_df <- data.frame(
+    pixel = rownames(assay(results_se)),
+    spot_class = rowData(results_se)$spot_class,
+    first_type = rowData(results_se)$first_type,
+    second_type = rowData(results_se)$second_type
+)
+head(classification_df)
+```
+
+In particular, this data frame provides us with the following information:
+
+- `spot_class`: A factor variable with the following levels of classification:
+    * `singlet` (1 cell type in the pixel)
+    * `doublet_certain` (2 cell types in the pixel)
+    * `doublet_uncertain` (2 cell types in the pixel, but only confident of 1)
+    * `reject` (no prediction given for pixel)
+
+    Typically, `reject` pixels should not be used, and `doublet_uncertain`
+    pixels should only be used for applications that do not require knowledge of
+    all cell types in a pixel.
+- `first_type`: the first cell type predicted on the bead (for all spot_class
+conditions except `reject`).
+- `second_type`: the second cell type predicted on the bead for doublet
+`spot_class` conditions (not a confident prediction for `doublet_uncertain`).
+
+We can visualize the results of our RCTD run with the `plot_all_weights`
+function. Simply pass in the RCTD results (and some aesthetic arguments), and
+the cell type proportions will be plotted as pie charts for each pixel.
+
+```{r doubletVisualization, fig.height = 5, fig.width = 7}
+plot_all_weights(results_se, r = 50, lwd = 0, title = "Doublet Results")
+```
+
+We can visualize the full, unrestricted proportions by passing in the name of
+the relevant assay (`"weights_full"`) to the `plot_all_weights` function:
+
+```{r fullVisualization, fig.height = 5, fig.width = 7}
+plot_all_weights(
+    results_se, "weights_full", r = 50, lwd = 0, title = "Full Results"
+)
+```
+
+Finally, we can visualize how the proportion of a specific cell type varies
+across space with the `plot_cell_type_weight` function. We show an example with
+denate.
+
+```{r densityVisualization, fig.height = 5, fig.width = 7}
+plot_cell_type_weight(
+    results_se, "Denate", "weights_full",
+    size = 5, stroke = 0.5, title = "Density of Denate"
+)
+```
+
+You are now ready to apply RCTD to your own spatial transcriptomics datasets!
+
+## Session Information
+```{r sessionInfo}
+sessionInfo()
+```
