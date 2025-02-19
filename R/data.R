@@ -2,8 +2,9 @@
 #'
 #' A simulated dataset containing both reference single-cell RNA-seq data and
 #' spatial transcriptomics data. The dataset includes 750 genes across 3 cell
-#' types, with 50% of genes being differentially expressed between cell types.
-#' The spatial data consists of two types of mixtures, documented below.
+#' types, with 50\% of genes being differentially expressed between cell types.
+#' The spatial data consists of two kinds of cell type mixtures, documented
+#' below.
 #'
 #' @format A list containing five components:
 #' \describe{
@@ -24,12 +25,12 @@
 #'
 #' @details The dataset was generated using the following parameters:
 #' \itemize{
-#'   \item 750 genes, with 50% probability of differential expression
+#'   \item 750 genes, with 50\% probability of differential expression
 #'   \item 3 cell types with 25 reference samples each
 #'   \item 12 spatial locations total:
 #'   \itemize{
-#'     \item 6 locations with mixture type 1 (90% ct1, 10% ct2)
-#'     \item 6 locations with mixture type 2 (20% ct1, 40% ct2, 40% ct3)
+#'     \item 6 locations with mixture type 1 (90\% ct1, 10\% ct2)
+#'     \item 6 locations with mixture type 2 (20\% ct1, 40\% ct2, 40\% ct3)
 #'   }
 #' }
 #'

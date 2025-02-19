@@ -25,8 +25,8 @@ the possible cell types.}
 by barcode). If not provided, nUMI will be calculated as the column sums of
 the counts matrix.}
 
-\item{require_int}{logical, TRUE by default. If true, requires counts and
-nUMI to be integers.}
+\item{require_int}{logical, whether counts and nUMI are required to be
+integers (default: TRUE)}
 
 \item{n_max_cells}{numeric, maximum number of cells per cell type. Will
 downsample if this number is exceeded. (default: 10,000)}

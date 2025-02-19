@@ -12,8 +12,8 @@
 #'   reference (default: 100)
 #' @param n_max_cells numeric, maximum number of cells per cell type. Will
 #'   downsample if this number is exceeded. (default: 10,000)
-#' @param require_int logical, TRUE by default. If true, requires counts and
-#'   nUMI to be integers.
+#' @param require_int logical, whether counts and nUMI are required to be
+#'   integers (default: TRUE)
 #'
 #' @return \code{\linkS4class{Reference}} object
 #'

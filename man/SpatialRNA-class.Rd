@@ -20,8 +20,8 @@ nUMI(object)
 \description{
 A class representing spatial transcriptomics data, where gene expression is
 measured at fixed locations called "pixels" (also known as "spots" or
-"beads"), which may contain mixtures of multiple cells. RCTD estimates the
-proportions of different cell types in each pixel.
+"beads"). RCTD estimates the proportions of different cell types on each
+pixel.
 }
 \section{Slots}{
 

@@ -20,8 +20,8 @@
 #'
 #' A class representing spatial transcriptomics data, where gene expression is
 #' measured at fixed locations called "pixels" (also known as "spots" or
-#' "beads"), which may contain mixtures of multiple cells. RCTD estimates the
-#' proportions of different cell types in each pixel.
+#' "beads"). RCTD estimates the proportions of different cell types on each
+#' pixel.
 #'
 #' @slot coords data frame (or matrix) containing x and y coordinates for each
 #'   pixel (identified by barcode)
@@ -163,8 +163,9 @@ setMethod("show", "Reference", function(object) {
 
 #' Input to the RCTD algorithm
 #'
-#' Created using the \code{\link{create.RCTD}} function, a user can run RCTD
-#' using the \code{\link{run.RCTD}} function.
+#' An RCTD configuration created using the \code{\link{create.RCTD}} function.
+#' Users can run RCTD by passing this object to the \code{\link{run.RCTD}}
+#' function.
 #'
 #' @slot spatialRNA a \code{\linkS4class{SpatialRNA}} object containing the
 #'   processed spatial transcriptomics data for analysis

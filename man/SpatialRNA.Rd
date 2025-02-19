@@ -23,11 +23,11 @@ rows and pixels as columns (named by pixel barcode)}
 (identified by barcode). If not provided, nUMI will be calculated as the
 column sums of the counts matrix.}
 
-\item{use_fake_coords}{logical, FALSE by default. If true, the 'coords'
-parameter will be ignored, and replaced with a placeholder coords matrix.}
+\item{use_fake_coords}{logical, whether the 'coords' parameter should be
+ignored and replaced with a placeholder coords matrix (default: FALSE)}
 
-\item{require_int}{logical, TRUE by default. If true, requires counts and
-nUMI to be integers.}
+\item{require_int}{logical, whether counts and nUMI are required to be
+integers (default: TRUE)}
 }
 \value{
 \code{\linkS4class{SpatialRNA}} object

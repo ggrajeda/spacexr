@@ -8,7 +8,6 @@ create.RCTD(
   spatialRNA,
   reference,
   max_cores = 4,
-  test_mode = FALSE,
   gene_cutoff = 0.000125,
   fc_cutoff = 0.5,
   gene_cutoff_reg = 2e-04,
@@ -24,7 +23,8 @@ create.RCTD(
   keep_reference = FALSE,
   cell_type_profiles = NULL,
   CONFIDENCE_THRESHOLD = 5,
-  DOUBLET_THRESHOLD = 20
+  DOUBLET_THRESHOLD = 20,
+  test_mode = FALSE
 )
 }
 \arguments{
@@ -36,9 +36,6 @@ RNA-seq data}
 
 \item{max_cores}{numeric, maximum number of cores to use for parallel
 processing (default: 4)}
-
-\item{test_mode}{logical, whether to run in test mode with reduced
-computation (default: FALSE)}
 
 \item{gene_cutoff}{numeric, minimum normalized gene expression for genes to
 be included in the platform effect normalization step (default: 0.000125)}
@@ -89,6 +86,9 @@ confidence (default: 5)}
 
 \item{DOUBLET_THRESHOLD}{numeric, penalty weight of predicting a doublet
 instead of a singlet for a pixel (default: 20)}
+
+\item{test_mode}{logical, whether to run in test mode with reduced
+computation (default: FALSE)}
 }
 \value{
 \code{\linkS4class{RCTD}} object

@@ -41,8 +41,6 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #'   RNA-seq data
 #' @param max_cores numeric, maximum number of cores to use for parallel
 #'   processing (default: 4)
-#' @param test_mode logical, whether to run in test mode with reduced
-#'   computation (default: FALSE)
 #' @param gene_cutoff numeric, minimum normalized gene expression for genes to
 #'   be included in the platform effect normalization step (default: 0.000125)
 #' @param fc_cutoff numeric, minimum log-fold-change (across cell types) for
@@ -77,6 +75,8 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #'   confidence (default: 5)
 #' @param DOUBLET_THRESHOLD numeric, penalty weight of predicting a doublet
 #'   instead of a singlet for a pixel (default: 20)
+#' @param test_mode logical, whether to run in test mode with reduced
+#'   computation (default: FALSE)
 #'
 #' @return \code{\linkS4class{RCTD}} object
 #'
@@ -99,12 +99,13 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #' rctd <- create.RCTD(spatial_rna, reference)
 #' 
 create.RCTD <- function(
-    spatialRNA, reference, max_cores = 4, test_mode = FALSE,
+    spatialRNA, reference, max_cores = 4,
     gene_cutoff = 0.000125, fc_cutoff = 0.5, gene_cutoff_reg = 0.0002,
     fc_cutoff_reg = 0.75, UMI_min = 100, UMI_max = 20000000, counts_MIN = 10,
     UMI_min_sigma = 300, class_df = NULL, CELL_MIN_INSTANCE = 25,
     cell_type_names = NULL, MAX_MULTI_TYPES = 4, keep_reference = FALSE,
-    cell_type_profiles = NULL, CONFIDENCE_THRESHOLD = 5, DOUBLET_THRESHOLD = 20
+    cell_type_profiles = NULL, CONFIDENCE_THRESHOLD = 5, DOUBLET_THRESHOLD = 20,
+    test_mode = FALSE
 ) {
     config <- list(
         gene_cutoff = gene_cutoff, fc_cutoff = fc_cutoff,

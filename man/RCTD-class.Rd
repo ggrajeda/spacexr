@@ -9,8 +9,9 @@
 \S4method{show}{RCTD}(object)
 }
 \description{
-Created using the \code{\link{create.RCTD}} function, a user can run RCTD
-using the \code{\link{run.RCTD}} function.
+An RCTD configuration created using the \code{\link{create.RCTD}} function.
+Users can run RCTD by passing this object to the \code{\link{run.RCTD}}
+function.
 }
 \section{Slots}{
 

@@ -75,10 +75,10 @@ read.SpatialRNA <- function(datadir, count_file = "counts.csv", coords_file = "c
 #' @param nUMI optional, numeric vector of total UMI counts per pixel
 #'   (identified by barcode). If not provided, nUMI will be calculated as the
 #'   column sums of the counts matrix.
-#' @param use_fake_coords logical, FALSE by default. If true, the 'coords'
-#'   parameter will be ignored, and replaced with a placeholder coords matrix.
-#' @param require_int logical, TRUE by default. If true, requires counts and
-#'   nUMI to be integers.
+#' @param use_fake_coords logical, whether the 'coords' parameter should be
+#'   ignored and replaced with a placeholder coords matrix (default: FALSE)
+#' @param require_int logical, whether counts and nUMI are required to be
+#'   integers (default: TRUE)
 #'
 #' @return \code{\linkS4class{SpatialRNA}} object
 #'
