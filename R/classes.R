@@ -2,14 +2,15 @@
 #'
 #' @section Running RCTD:
 #'
-#'   To get started, create a \code{\linkS4class{SpatialRNA}} object (called
-#'   \code{puck} here) for the spatial transcriptomics data and a
-#'   \code{\linkS4class{Reference}} object (called \code{reference} here) for
-#'   the RNA-seq data. Then simply run RCTD as:
+#'   To get started, create a \code{\link[SpatialExperiment]{SpatialExperiment}}
+#'   object (called \code{spatial} here) for the spatial transcriptomics data
+#'   and a \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
+#'   (called \code{reference} here) for the RNA-seq data. Then simply run RCTD
+#'   as:
 #'
-#'   \code{rctd <- create.RCTD(puck, reference)}
+#'   \code{rctd <- create.RCTD(spatial, reference)}
 #'
-#'   \code{rctd_se <- run.RCTD(rctd)}
+#'   \code{results_se <- run.RCTD(rctd)}
 #'
 #' @docType package
 #' @name spacexr-package
@@ -29,24 +30,19 @@
 #'   pixels as columns (named by pixel barcode)
 #' @slot nUMI numeric vector of total UMI counts per pixel (identified by
 #'   barcode)
-#' 
-#' @export
-#' @import Matrix
+#'
 #' @importClassesFrom Matrix Matrix dgCMatrix
+#' @export
+#' @keywords internal
 #' @examples
 #' data(rctd_simulation)
 #'
 #' # Create SpatialRNA object
 #' spatial_rna <- SpatialRNA(
-#'     rctd_simulation$spatial_rna_coords,
+#'     as.data.frame(rctd_simulation$spatial_rna_coords),
 #'     rctd_simulation$spatial_rna_counts
 #' )
 #'
-#' # Access object slots using generics
-#' head(coords(spatial_rna))  # Get spatial coordinates
-#' dim(counts(spatial_rna))   # Get gene expression matrix dimensions
-#' head(nUMI(spatial_rna))    # Get total UMI counts per pixel
-#' 
 setClass("SpatialRNA",
     slots = c(
         coords = "data.frame",
@@ -60,24 +56,7 @@ setClass("SpatialRNA",
     )
 )
 
-#' @rdname SpatialRNA-class
-#' @export
-setGeneric("coords", function(object) standardGeneric("coords"))
-#' @export
-setMethod("coords", "SpatialRNA", function(object) object@coords)
-
-#' @rdname SpatialRNA-class
-#' @export
-setGeneric("counts", function(object) standardGeneric("counts"))
-#' @export
-setMethod("counts", "SpatialRNA", function(object) object@counts)
-
-#' @rdname SpatialRNA-class
-#' @export
-setGeneric("nUMI", function(object) standardGeneric("nUMI"))
-#' @export
-setMethod("nUMI", "SpatialRNA", function(object) object@nUMI)
-
+#' @param object SpatialRNA object
 #' @rdname SpatialRNA-class
 #' @export
 setMethod("show", "SpatialRNA", function(object) {
@@ -102,24 +81,19 @@ setMethod("show", "SpatialRNA", function(object) {
 #'   in the reference (identified by barcode)
 #' @slot counts sparse matrix of gene expression counts from RNA-seq data, with
 #'   genes as rows and cells as columns (named by cell barcode)
-#' @slot nUMI numeric vector of total UMI counts per cell (identified by barcode)
-#' 
+#' @slot nUMI numeric vector of total UMI counts per cell (identified by
+#'   barcode)
+#'
 #' @importClassesFrom Matrix Matrix dgCMatrix
 #' @export
+#' @keywords internal
 #' @examples
 #' data(rctd_simulation)
 #'
-#' # Create Reference object
-#' reference <- Reference(
-#'     rctd_simulation$reference_counts,
-#'     rctd_simulation$reference_cell_types
-#' )
+#' cell_types <- rctd_simulation$reference_cell_types[["cell_type"]]
+#' names(cell_types) <- rownames(rctd_simulation$reference_cell_types)
+#' reference <- Reference(rctd_simulation$reference_counts, cell_types)
 #'
-#' # Access object slots using generics
-#' table(cell_types(reference))  # Count occurrences of each cell type
-#' dim(counts(reference))        # Get gene expression matrix dimensions
-#' head(nUMI(reference))         # Get total UMI counts per cell
-#' 
 setClass("Reference",
     slots = c(
         cell_types = "factor",
@@ -133,20 +107,7 @@ setClass("Reference",
     )
 )
 
-#' @rdname Reference-class
-#' @export
-setGeneric("cell_types", function(object) standardGeneric("cell_types"))
-#' @export
-setMethod("cell_types", "Reference", function(object) object@cell_types)
-
-#' @rdname Reference-class
-#' @export
-setMethod("counts", "Reference", function(object) object@counts)
-
-#' @rdname Reference-class
-#' @export
-setMethod("nUMI", "Reference", function(object) object@nUMI)
-
+#' @param object Reference object
 #' @rdname Reference-class
 #' @export
 setMethod("show", "Reference", function(object) {
@@ -161,9 +122,11 @@ setMethod("show", "Reference", function(object) {
     }
 })
 
-#' Input to the RCTD algorithm
+setClassUnion("ReferenceOrNull", c("Reference", "NULL"))
+
+#' RCTD algorithm configuration
 #'
-#' An RCTD configuration created using the \code{\link{create.RCTD}} function.
+#' An RCTD configuration created via the \code{\link{create.RCTD}} function.
 #' Users can run RCTD by passing this object to the \code{\link{run.RCTD}}
 #' function.
 #'
@@ -181,14 +144,14 @@ setMethod("show", "Reference", function(object) {
 #' @slot internal_vars a list of internal variables used during the RCTD
 #'   analysis
 #'
-#' @export
 #' @import Matrix
 #' @importClassesFrom Matrix Matrix dgCMatrix
+#' @export
 setClass("RCTD",
     slots = c(
         spatialRNA = "SpatialRNA",
         originalSpatialRNA = "SpatialRNA",
-        reference = "Reference",
+        reference = "ReferenceOrNull",
         config = "list",
         cell_type_info = "list",
         internal_vars = "list"
@@ -203,6 +166,7 @@ setClass("RCTD",
     )
 )
 
+#' @param object RCTD configuration object
 #' @rdname RCTD-class
 #' @export
 setMethod("show", "RCTD", function(object) {
@@ -210,16 +174,22 @@ setMethod("show", "RCTD", function(object) {
     cat("\nSpatial data (processed):\n")
     cat(sprintf("- %d pixels\n", ncol(object@spatialRNA@counts)))
     cat(sprintf("- %d genes\n", nrow(object@spatialRNA@counts)))
-    
+
     cat("\nReference data:\n")
-    cat(sprintf("- %d cells\n", ncol(object@reference@counts)))
-    cat(sprintf("- %d cell types\n", length(levels(object@reference@cell_types))))
-    
+    if (is.null(object@reference)) {
+        cat("NULL\n")
+    } else {
+        cat(sprintf("- %d cells\n", ncol(object@reference@counts)))
+        cat(sprintf(
+            "- %d cell types\n", length(levels(object@reference@cell_types))
+        ))
+    }
+
     cat("\nConfiguration:\n")
     for (param in names(object@config)) {
         cat(sprintf("- %s: %s\n", param, 
             if(is.atomic(object@config[[param]])) 
-                paste(object@config[[param]], collapse=", ") 
+                paste(object@config[[param]], collapse = ", ") 
             else "..."
         ))
     }

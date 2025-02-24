@@ -41,7 +41,8 @@ create_mixed_counts <- function(expression_profile, mixture) {
     } else if (length(prop) != ncol(expression_profile)) {
         stop(
             "Could not create mixture. Length of proportions (", length(prop),
-            ") does not match number of cell types (", ncol(expression_profile), ")."
+            ") does not match number of cell types (", ncol(expression_profile),
+            ")."
         )
     }
     num_genes <- nrow(expression_profile)
@@ -82,7 +83,7 @@ simulate_reference_object <- function(expression_profile, num_samples) {
     reference_cell_type <- colData(reference_data)$mixture_type
     names(reference_cell_type) <- colnames(reference_data)
 
-    Reference(
+    spacexr:::Reference(
         counts = assay(reference_data),
         cell_types = reference_cell_type,
         min_UMI = 0
@@ -101,7 +102,7 @@ simulate_spatial_rna_object <- function(expression_profile, test_mixtures) {
     )
     rownames(coords) <- colnames(test_data)
 
-    SpatialRNA(coords = coords, counts = assay(test_data))
+    spacexr:::SpatialRNA(coords = coords, counts = assay(test_data))
 }
 
 #' Generate Simulated Spatial Transcriptomics Data
@@ -131,21 +132,20 @@ simulate_spatial_rna_object <- function(expression_profile, test_mixtures) {
 #' @return A named list containing the data for a simulated Reference object,
 #'  a simulated SpatialRNA object, and the true labels for the SpatialRNA
 #'  samples.
-simulate_spatial_transcriptomics <- function(num_genes = 750,
-                                             num_cell_types = 3,
-                                             num_reference_samples = 25,
-                                             test_mixtures = pure_mixtures(
-                                                 num_cell_types,
-                                                 25
-                                             ),
-                                             prob_de = 0.5) {
+simulate_spatial_transcriptomics <- function(
+    num_genes = 750, num_cell_types = 3, num_reference_samples = 25,
+    test_mixtures = pure_mixtures(num_cell_types, 25), prob_de = 0.5
+) {
     expression_profile <- create_expression_profile(
         num_genes, num_cell_types, prob_de
     )
     reference <- simulate_reference_object(
         expression_profile, num_reference_samples
     )
-    spatial_rna <- simulate_spatial_rna_object(expression_profile, test_mixtures)
+    spatial_rna <- simulate_spatial_rna_object(
+        expression_profile,
+        test_mixtures
+    )
 
     true_proportions <- do.call(rbind, lapply(test_mixtures, function(m) {
         t(replicate(m$n, m$prop))
@@ -159,8 +159,8 @@ simulate_spatial_transcriptomics <- function(num_genes = 750,
 
     list(
         reference_counts = reference@counts,
-        reference_cell_types = reference@cell_types,
-        spatial_rna_coords = spatial_rna@coords,
+        reference_cell_types = data.frame(cell_type = reference@cell_types),
+        spatial_rna_coords = as.matrix(spatial_rna@coords),
         spatial_rna_counts = spatial_rna@counts,
         proportions_se = proportions_se
     )

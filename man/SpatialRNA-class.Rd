@@ -3,19 +3,13 @@
 \docType{class}
 \name{SpatialRNA-class}
 \alias{SpatialRNA-class}
-\alias{coords}
-\alias{counts}
-\alias{nUMI}
 \alias{show,SpatialRNA-method}
 \title{Spatial transcriptomics data}
 \usage{
-coords(object)
-
-counts(object)
-
-nUMI(object)
-
 \S4method{show}{SpatialRNA}(object)
+}
+\arguments{
+\item{object}{SpatialRNA object}
 }
 \description{
 A class representing spatial transcriptomics data, where gene expression is
@@ -41,13 +35,9 @@ data(rctd_simulation)
 
 # Create SpatialRNA object
 spatial_rna <- SpatialRNA(
-    rctd_simulation$spatial_rna_coords,
+    as.data.frame(rctd_simulation$spatial_rna_coords),
     rctd_simulation$spatial_rna_counts
 )
 
-# Access object slots using generics
-head(coords(spatial_rna))  # Get spatial coordinates
-dim(counts(spatial_rna))   # Get gene expression matrix dimensions
-head(nUMI(spatial_rna))    # Get total UMI counts per pixel
-
 }
+\keyword{internal}

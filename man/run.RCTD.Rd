@@ -42,7 +42,7 @@ A SummarizedExperiment object containing the RCTD results with:
           \itemize{
             \item \code{cell_type_list}: List of cell types per pixel
             \item \code{conf_list}: List of whether cell type predictions
-            are confident.
+            are confident
             \item Additional metrics like \code{min_score}
           }
       }
@@ -56,31 +56,33 @@ transcriptomics data. The algorithm has three modes:
     each pixel as a "singlet" or "doublet." Recommended for high spatial
     resolution technologies such as Slide-seq or MERFISH.
   \item \code{multi}: Uses a greedy algorithm to fit cell types up to a fixed
-    maximum number.
+    maximum number. Recommended for low spatial resolution technologies such
+    as 100-micron resolution Visium.
   \item \code{full}: Can fit any number of cell types on each pixel.
-    Recommended for low spatial resolution technologies such as 100-micron
-    resolution Visium.
 }
 }
 \examples{
 data(rctd_simulation)
 
-# Create SpatialRNA and Reference objects
-spatial_rna <- SpatialRNA(
-    rctd_simulation$spatial_rna_coords,
-    rctd_simulation$spatial_rna_counts
-)
-reference <- Reference(
-    rctd_simulation$reference_counts,
-    rctd_simulation$reference_cell_types
+# Spatial transcriptomics data
+library(SpatialExperiment)
+spatial_spe <- SpatialExperiment(
+    assay = rctd_simulation$spatial_rna_counts,
+    spatialCoords = rctd_simulation$spatial_rna_coords
 )
 
-# Create RCTD object
-rctd <- create.RCTD(spatial_rna, reference, max_cores = 1)
+# Reference data
+library(SummarizedExperiment)
+reference_se <- SummarizedExperiment(
+    assays = list(counts = rctd_simulation$reference_counts),
+    colData = rctd_simulation$reference_cell_types
+)
+
+# Create RCTD configuration
+rctd <- create.RCTD(spatial_spe, reference_se, max_cores = 1)
 rctd_se <- run.RCTD(rctd, doublet_mode = "doublet")
 
 # Access the cell type proportions
-library(SummarizedExperiment)
 head(assay(rctd_se, "weights"))
 
 # Check spot classifications for doublet mode

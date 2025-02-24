@@ -14,7 +14,8 @@ plot_all_weights(
 )
 }
 \arguments{
-\item{rctd_se}{SummarizedExperiment containing RCTD results}
+\item{rctd_se}{\code{\link[SummarizedExperiment]{SummarizedExperiment}}
+containing RCTD results}
 
 \item{assay_name}{character, name of the assay to plot (default: "weights")}
 
@@ -28,8 +29,8 @@ plot_all_weights(
 \item{title}{character, plot title (default: NA)}
 }
 \value{
-ggplot object showing cell type proportions at each pixel using pie
-  charts
+\code{ggplot} object showing cell type proportions at each pixel
+  using pie charts
 }
 \description{
 Generates a visualization where each pixel is represented by a pie chart
@@ -40,9 +41,9 @@ should run this function on the result of \code{\link{run.RCTD}}.
 data(rctd_simulation)
 
 # In practice, results_se should contain the results of an RCTD run.
+results_se <- rctd_simulation$proportions_se
 plot_all_weights(
-    rctd_simulation$proportions_se,
-    r = 0.05, lwd = 0.5, title = "Cell Type Proportions"
+    results_se, r = 0.05, lwd = 0.5, title = "Cell Type Proportions"
 )
 
 }

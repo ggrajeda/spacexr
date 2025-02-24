@@ -11,14 +11,15 @@ Robust Cell Type Decomposition (RCTD) is a computational method for deconvolving
 \section{Running RCTD}{
 
 
-  To get started, create a \code{\linkS4class{SpatialRNA}} object (called
-  \code{puck} here) for the spatial transcriptomics data and a
-  \code{\linkS4class{Reference}} object (called \code{reference} here) for
-  the RNA-seq data. Then simply run RCTD as:
+  To get started, create a \code{\link[SpatialExperiment]{SpatialExperiment}}
+  object (called \code{spatial} here) for the spatial transcriptomics data
+  and a \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
+  (called \code{reference} here) for the RNA-seq data. Then simply run RCTD
+  as:
 
-  \code{rctd <- create.RCTD(puck, reference)}
+  \code{rctd <- create.RCTD(spatial, reference)}
 
-  \code{rctd_se <- run.RCTD(rctd)}
+  \code{results_se <- run.RCTD(rctd)}
 }
 
 \seealso{

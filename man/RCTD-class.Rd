@@ -4,12 +4,15 @@
 \name{RCTD-class}
 \alias{RCTD-class}
 \alias{show,RCTD-method}
-\title{Input to the RCTD algorithm}
+\title{RCTD algorithm configuration}
 \usage{
 \S4method{show}{RCTD}(object)
 }
+\arguments{
+\item{object}{RCTD configuration object}
+}
 \description{
-An RCTD configuration created using the \code{\link{create.RCTD}} function.
+An RCTD configuration created via the \code{\link{create.RCTD}} function.
 Users can run RCTD by passing this object to the \code{\link{run.RCTD}}
 function.
 }

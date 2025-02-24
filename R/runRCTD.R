@@ -1,21 +1,28 @@
 #' Runs RCTD in doublet mode on \code{puck}
 #'
 #' Then, computes cell type proportions for each pixel in \code{puck}.
-#' Classifies each pixel as 'singlet' or 'doublet' and searches for the cell types
-#' on the pixel
+#' Classifies each pixel as 'singlet' or 'doublet' and searches for the cell
+#' types on the pixel
 #'
 #' @param class_df A dataframe mapping cell types to classes
 #' @param gene_list a list of genes to be used for RCTD
 #' @param puck an object of type \linkS4class{SpatialRNA}, the target dataset
-#' @param cell_type_info cell type information and profiles of each cell, calculated from the scRNA-seq
-#' reference (see \code{\link{get_cell_type_info}})
-#' @param constrain logical whether to constrain the weights to sum to one on each pixel
-#' @param MAX_CORES number of cores to use (will use parallel processing if more than one).
-#' @param CONFIDENCE_THRESHOLD (Default 10) the minimum change in likelihood (compared to other cell types) necessary to determine a cell type identity with confidence
-#' @param MIN.CHANGE (default 0.001) the minimum change in the norm of the WLS solution used to determine the cell type proportions
-#' @param DOUBLET_THRESHOLD (Default 25) the penalty weight of predicting a doublet instead of a singlet for a pixel
-#' @return Returns \code{results}, a list of RCTD results for each pixel, which can be organized by
-#' feeding into \code{\link{create_se_doublet}}
+#' @param cell_type_info cell type information and profiles of each cell,
+#'   calculated from the scRNA-seq reference (see
+#'   \code{\link{get_cell_type_info}})
+#' @param constrain logical whether to constrain the weights to sum to one on
+#'   each pixel
+#' @param MAX_CORES number of cores to use (will use parallel processing if more
+#'   than one).
+#' @param CONFIDENCE_THRESHOLD (Default 10) the minimum change in likelihood
+#'   (compared to other cell types) necessary to determine a cell type identity
+#'   with confidence
+#' @param MIN.CHANGE (default 0.001) the minimum change in the norm of the WLS
+#'   solution used to determine the cell type proportions
+#' @param DOUBLET_THRESHOLD (Default 25) the penalty weight of predicting a
+#'   doublet instead of a singlet for a pixel
+#' @return Returns \code{results}, a list of RCTD results for each pixel, which
+#'   can be organized by feeding into \code{\link{create_se_doublet}}
 #' @keywords internal
 process_beads_batch <- function(cell_type_info, gene_list, puck, class_df = NULL, constrain = TRUE,
                                 MAX_CORES = 8, MIN.CHANGE = 0.001, CONFIDENCE_THRESHOLD = 10, DOUBLET_THRESHOLD = 25) {
@@ -77,31 +84,39 @@ process_beads_multi <- function(cell_type_info, gene_list, puck, class_df = NULL
 
 #' Runs the RCTD algorithm
 #'
-#' If in doublet mode, fits at most two cell types per pixel. It classifies each pixel as 'singlet' or 'doublet' and searches for the cell types
-#' on the pixel. If in full mode, can fit any number of cell types on each pixel. In multi mode, cell types are added using a greedy algorithm,
-#' up to a fixed number.
+#' If in doublet mode, fits at most two cell types per pixel. It classifies each
+#' pixel as 'singlet' or 'doublet' and searches for the cell types on the pixel.
+#' If in full mode, can fit any number of cell types on each pixel. In multi
+#' mode, cell types are added using a greedy algorithm, up to a fixed number.
 #'
-#' @param RCTD an \code{\linkS4class{RCTD}} object after running the \code{\link{choose_sigma_c}} function.
-#' @param doublet_mode \code{character string}, either "doublet", "multi", or "full" on which mode to run RCTD. Please see above description.
-#' @return an SummarizedExperiment object containing the results of the RCTD algorithm.
+#' @param RCTD an \code{\linkS4class{RCTD}} object after running the
+#'   \code{\link{choose_sigma_c}} function.
+#' @param doublet_mode \code{character string}, either "doublet", "multi", or
+#'   "full" on which mode to run RCTD. Please see above description.
+#' @return an SummarizedExperiment object containing the results of the RCTD
+#'   algorithm.
 #' @export
 #' @keywords internal
 #' @examples
 #' data(rctd_simulation)
 #'
-#' # Create SpatialRNA and Reference objects
-#' spatial_rna <- SpatialRNA(
-#'     rctd_simulation$spatial_rna_coords,
-#'     rctd_simulation$spatial_rna_counts
-#' )
-#' reference <- Reference(
-#'     rctd_simulation$reference_counts,
-#'     rctd_simulation$reference_cell_types
+#' # Spatial transcriptomics data
+#' library(SpatialExperiment)
+#' spatial_spe <- SpatialExperiment(
+#'     assay = rctd_simulation$spatial_rna_counts,
+#'     spatialCoords = rctd_simulation$spatial_rna_coords
 #' )
 #'
-#' # Create RCTD object
-#' rctd <- create.RCTD(spatial_rna, reference, max_cores = 1)
-#' 
+#' # Reference data
+#' library(SummarizedExperiment)
+#' reference_se <- SummarizedExperiment(
+#'     assays = list(counts = rctd_simulation$reference_counts),
+#'     colData = rctd_simulation$reference_cell_types
+#' )
+#'
+#' # Create RCTD configuration
+#' rctd <- create.RCTD(spatial_spe, reference_se, max_cores = 1)
+#'
 #' rctd <- fitBulk(rctd)
 #' rctd <- choose_sigma_c(rctd)
 #' results_se <- fitPixels(rctd, doublet_mode = "doublet")

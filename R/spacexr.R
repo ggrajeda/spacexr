@@ -35,12 +35,25 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #' platform effects. Users should subsequently pass this object to
 #' \code{\link{run.RCTD}}.
 #'
-#' @param spatialRNA a \code{\linkS4class{SpatialRNA}} object containing spatial
-#'   transcriptomics data
-#' @param reference a \code{\linkS4class{Reference}} object containing reference
-#'   RNA-seq data
+#' @param spatial_experiment \code{\link[SpatialExperiment]{SpatialExperiment}}
+#'   object containing spatial transcriptomics data. Optionally, total UMI
+#'   counts for each pixel may be specified via a \code{colData} column named
+#'   \code{nUMI}. If not provided, \code{nUMI} will be calculated as the
+#'   column sums of the counts matrix. If \code{spatialCoords} are not provided,
+#'   dummy coordinates will be used.
+#' @param reference_experiment
+#'   \code{\link[SummarizedExperiment]{SummarizedExperiment}} object containing
+#'   annotated RNA-seq data. Cell type annotations must be provided in the
+#'   \code{colData}. Optionally, total UMI counts for each cell may be specified
+#'   via a \code{colData} column named \code{nUMI}. If not provided, \code{nUMI}
+#'   will be calculated as the column sums of the counts matrix.
+#' @param cell_type_col character, name of the entry in
+#'   \code{colData(reference_experiment)} containing cell type annotations
+#'   (default: "cell_type")
 #' @param max_cores numeric, maximum number of cores to use for parallel
 #'   processing (default: 4)
+#' @param require_int logical, whether counts and nUMI are required to be
+#'   integers (default: TRUE)
 #' @param gene_cutoff numeric, minimum normalized gene expression for genes to
 #'   be included in the platform effect normalization step (default: 0.000125)
 #' @param fc_cutoff numeric, minimum log-fold-change (across cell types) for
@@ -50,26 +63,30 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #'   to be included in the RCTD step (default: 0.0002)
 #' @param fc_cutoff_reg numeric, minimum log-fold-change (across cell types) for
 #'   genes to be included in the RCTD step (default: 0.75)
+#' @param counts_min numeric, minimum total counts per pixel of genes used in
+#'   analysis (default: 10)
 #' @param UMI_min numeric, minimum UMI count per pixel (default: 100)
 #' @param UMI_max numeric, maximum UMI count per pixel (default: 20000000)
-#' @param counts_MIN numeric, minimum total counts per pixel of genes used in
-#'   analysis (default: 10)
 #' @param UMI_min_sigma numeric, minimum UMI count for pixels used in platform
 #'   effect normalization (default: 300)
+#' @param ref_UMI_min numeric, minimum UMI count for cells to be included in the
+#'   reference (default: 100)
+#' @param ref_n_cells_min numeric, minimum number of cells per cell type in the
+#'   reference (default: 25)
+#' @param ref_n_cells_max numeric, maximum number of cells per cell type in the
+#'   reference. Will downsample if this number is exceeded. (default: 10,000)
+#' @param cell_type_profiles matrix of precomputed cell type expression profiles
+#'   (genes by cell type), optional. If this option is used, gene names and cell
+#'   type names must be present in the \code{dimnames}, and the reference will
+#'   be ignored.
+#' @param keep_reference logical, whether to retain the full reference data in
+#'   the output object (default: FALSE)
 #' @param class_df data frame mapping cell types to classes, optional. If
 #'   specified, RCTD will report confidence on the class level.
-#' @param CELL_MIN_INSTANCE numeric, minimum number of cells required per cell
-#'   type (default: 25)
 #' @param cell_type_names character vector of cell type names to include,
 #'   optional
 #' @param MAX_MULTI_TYPES numeric, maximum number of cell types per pixel in
 #'   multi mode (default: 4)
-#' @param keep_reference logical, whether to retain the full reference data in
-#'   the output object (default: FALSE)
-#' @param cell_type_profiles matrix of precomputed cell type expression profiles
-#'   (genes by cell type), optional. If this option is used, gene names and cell
-#'   type names must be present in the profiles, and the reference will be
-#'   ignored.
 #' @param CONFIDENCE_THRESHOLD numeric, minimum change in likelihood (compared
 #'   to other cell types) necessary to determine a cell type identity with
 #'   confidence (default: 5)
@@ -80,40 +97,87 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #'
 #' @return \code{\linkS4class{RCTD}} object
 #'
-#' @importFrom methods new
+#' @importFrom methods new as is
+#' @importFrom SpatialExperiment spatialCoords
+#' @importFrom SummarizedExperiment SummarizedExperiment assay colData
 #' @export
 #' @examples
 #' data(rctd_simulation)
 #'
-#' # Create SpatialRNA and Reference objects
-#' spatial_rna <- SpatialRNA(
-#'     rctd_simulation$spatial_rna_coords,
-#'     rctd_simulation$spatial_rna_counts
-#' )
-#' reference <- Reference(
-#'     rctd_simulation$reference_counts,
-#'     rctd_simulation$reference_cell_types
+#' # Spatial transcriptomics data
+#' library(SpatialExperiment)
+#' spatial_spe <- SpatialExperiment(
+#'     assay = rctd_simulation$spatial_rna_counts,
+#'     spatialCoords = rctd_simulation$spatial_rna_coords
 #' )
 #'
-#' # Create RCTD object
-#' rctd <- create.RCTD(spatial_rna, reference)
+#' # Reference data
+#' library(SummarizedExperiment)
+#' reference_se <- SummarizedExperiment(
+#'     assays = list(counts = rctd_simulation$reference_counts),
+#'     colData = rctd_simulation$reference_cell_types
+#' )
+#'
+#' # Create RCTD configuration
+#' rctd <- create.RCTD(spatial_spe, reference_se, max_cores = 1)
 #' 
 create.RCTD <- function(
-    spatialRNA, reference, max_cores = 4,
-    gene_cutoff = 0.000125, fc_cutoff = 0.5, gene_cutoff_reg = 0.0002,
-    fc_cutoff_reg = 0.75, UMI_min = 100, UMI_max = 20000000, counts_MIN = 10,
-    UMI_min_sigma = 300, class_df = NULL, CELL_MIN_INSTANCE = 25,
-    cell_type_names = NULL, MAX_MULTI_TYPES = 4, keep_reference = FALSE,
-    cell_type_profiles = NULL, CONFIDENCE_THRESHOLD = 5, DOUBLET_THRESHOLD = 20,
+    spatial_experiment, reference_experiment, cell_type_col = "cell_type",
+    max_cores = 4, require_int = TRUE, gene_cutoff = 0.000125, fc_cutoff = 0.5,
+    gene_cutoff_reg = 0.0002, fc_cutoff_reg = 0.75, counts_min = 10,
+    UMI_min = 100, UMI_max = 20000000, UMI_min_sigma = 300, ref_UMI_min = 100,
+    ref_n_cells_min = 25, ref_n_cells_max = 10000, cell_type_profiles = NULL,
+    keep_reference = FALSE, class_df = NULL, cell_type_names = NULL,
+    MAX_MULTI_TYPES = 4, CONFIDENCE_THRESHOLD = 5, DOUBLET_THRESHOLD = 20,
     test_mode = FALSE
 ) {
+    # Convert SpatialExperiment to SpatialRNA
+    coords <- NULL
+    use_fake_coords <- length(spatialCoords(spatial_experiment)) == 0
+    if (!use_fake_coords) {
+        coords <- as.data.frame(spatialCoords(spatial_experiment))
+        colnames(coords) <- c("x", "y")
+        rownames(coords) <- colnames(spatial_experiment)
+    }
+    counts <- assay(spatial_experiment)
+    nUMI <- colData(spatial_experiment)$nUMI
+    if (!is.null(nUMI)) {
+        names(nUMI) <- colnames(counts)
+    }
+    spatialRNA <- SpatialRNA(
+        coords, counts, nUMI = nUMI,
+        use_fake_coords = use_fake_coords, require_int = require_int
+    )
+
+    # Convert SummarizedExperiment to Reference
+    reference <- NULL
+    if (is.null(cell_type_profiles)) {
+        ref_counts <- assay(reference_experiment)
+        if (!cell_type_col %in% colnames(colData(reference_experiment))) {
+            stop(
+                "Cell type column '", cell_type_col,
+                "' not found in reference colData"
+            )
+        }
+        cell_types <- factor(colData(reference_experiment)[[cell_type_col]])
+        names(cell_types) <- colnames(ref_counts)
+        ref_nUMI <- colData(reference_experiment)$nUMI
+        if (!is.null(ref_nUMI)) {
+            names(ref_nUMI) <- colnames(ref_counts)
+        }
+        reference <- Reference(
+            ref_counts, cell_types, nUMI = ref_nUMI, require_int = require_int,
+            n_max_cells = ref_n_cells_max,  min_UMI = ref_UMI_min
+        )
+    }
+
     config <- list(
         gene_cutoff = gene_cutoff, fc_cutoff = fc_cutoff,
         gene_cutoff_reg = gene_cutoff_reg, fc_cutoff_reg = fc_cutoff_reg,
         UMI_min = UMI_min, UMI_min_sigma = UMI_min_sigma, max_cores = max_cores,
         N_epoch = 8, N_X = 50000, K_val = 100, N_fit = 1000, N_epoch_bulk = 30,
         MIN_CHANGE_BULK = 0.0001, MIN_CHANGE_REG = 0.001, UMI_max = UMI_max,
-        counts_MIN = counts_MIN, MIN_OBS = 3, MAX_MULTI_TYPES = MAX_MULTI_TYPES,
+        counts_min = counts_min, MIN_OBS = 3, MAX_MULTI_TYPES = MAX_MULTI_TYPES,
         CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD,
         DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
     )
@@ -123,7 +187,7 @@ create.RCTD <- function(
             fc_cutoff_reg = 0.75, UMI_min = 1000, N_epoch = 1, N_X = 50000,
             K_val = 100, N_fit = 50, N_epoch_bulk = 4, MIN_CHANGE_BULK = 1,
             MIN_CHANGE_REG = 0.001, UMI_max = 200000, MIN_OBS = 3,
-            max_cores = 1, counts_MIN = 5, UMI_min_sigma = 300,
+            max_cores = 1, counts_min = 5, UMI_min_sigma = 300,
             MAX_MULTI_TYPES = MAX_MULTI_TYPES,
             CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD,
             DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
@@ -137,7 +201,7 @@ create.RCTD <- function(
             info = process_cell_type_info(
                 reference,
                 cell_type_names = cell_type_names,
-                CELL_MIN = CELL_MIN_INSTANCE
+                CELL_MIN = ref_n_cells_min
             ),
             renorm = NULL
         )
@@ -152,12 +216,12 @@ create.RCTD <- function(
             renorm = NULL
         )
     }
-    if (!keep_reference) {
+    if (!keep_reference && is.null(cell_type_profiles)) {
         reference <- create_downsampled_data(reference, n_samples = 5)
     }
     puck.original <- restrict_counts(spatialRNA, rownames(spatialRNA@counts),
         UMI_thresh = config$UMI_min, UMI_max = config$UMI_max,
-        counts_thresh = config$counts_MIN
+        counts_thresh = config$counts_min
     )
     message("create.RCTD: getting regression differentially expressed genes: ")
     gene_list_reg <- get_de_genes(
@@ -194,7 +258,7 @@ create.RCTD <- function(
         gene_list_bulk,
         UMI_thresh = config$UMI_min,
         UMI_max = config$UMI_max,
-        counts_thresh = config$counts_MIN
+        counts_thresh = config$counts_min
     )
     puck <- restrict_puck(puck, colnames(puck@counts))
     if (is.null(class_df)) {
@@ -231,10 +295,9 @@ create.RCTD <- function(
 #'     each pixel as a "singlet" or "doublet." Recommended for high spatial
 #'     resolution technologies such as Slide-seq or MERFISH.
 #'   \item \code{multi}: Uses a greedy algorithm to fit cell types up to a fixed
-#'     maximum number.
+#'     maximum number. Recommended for low spatial resolution technologies such
+#'     as 100-micron resolution Visium.
 #'   \item \code{full}: Can fit any number of cell types on each pixel.
-#'     Recommended for low spatial resolution technologies such as 100-micron
-#'     resolution Visium.
 #' }
 #'
 #' @param RCTD \code{\linkS4class{RCTD}} object created using
@@ -270,7 +333,7 @@ create.RCTD <- function(
 #'           \itemize{
 #'             \item \code{cell_type_list}: List of cell types per pixel
 #'             \item \code{conf_list}: List of whether cell type predictions
-#'             are confident.
+#'             are confident
 #'             \item Additional metrics like \code{min_score}
 #'           }
 #'       }
@@ -279,27 +342,30 @@ create.RCTD <- function(
 #' @examples
 #' data(rctd_simulation)
 #'
-#' # Create SpatialRNA and Reference objects
-#' spatial_rna <- SpatialRNA(
-#'     rctd_simulation$spatial_rna_coords,
-#'     rctd_simulation$spatial_rna_counts
-#' )
-#' reference <- Reference(
-#'     rctd_simulation$reference_counts,
-#'     rctd_simulation$reference_cell_types
+#' # Spatial transcriptomics data
+#' library(SpatialExperiment)
+#' spatial_spe <- SpatialExperiment(
+#'     assay = rctd_simulation$spatial_rna_counts,
+#'     spatialCoords = rctd_simulation$spatial_rna_coords
 #' )
 #'
-#' # Create RCTD object
-#' rctd <- create.RCTD(spatial_rna, reference, max_cores = 1)
+#' # Reference data
+#' library(SummarizedExperiment)
+#' reference_se <- SummarizedExperiment(
+#'     assays = list(counts = rctd_simulation$reference_counts),
+#'     colData = rctd_simulation$reference_cell_types
+#' )
+#'
+#' # Create RCTD configuration
+#' rctd <- create.RCTD(spatial_spe, reference_se, max_cores = 1)
 #' rctd_se <- run.RCTD(rctd, doublet_mode = "doublet")
 #'
 #' # Access the cell type proportions
-#' library(SummarizedExperiment)
 #' head(assay(rctd_se, "weights"))
 #'
 #' # Check spot classifications for doublet mode
 #' head(rowData(rctd_se)$spot_class)
-#' 
+#'
 run.RCTD <- function(RCTD, doublet_mode = "doublet") {
     if (!(doublet_mode %in% c("doublet", "multi", "full"))) {
         stop(

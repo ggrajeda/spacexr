@@ -3,19 +3,13 @@
 \docType{class}
 \name{Reference-class}
 \alias{Reference-class}
-\alias{cell_types}
-\alias{counts,Reference-method}
-\alias{nUMI,Reference-method}
 \alias{show,Reference-method}
 \title{RNA-seq reference data}
 \usage{
-cell_types(object)
-
-\S4method{counts}{Reference}(object)
-
-\S4method{nUMI}{Reference}(object)
-
 \S4method{show}{Reference}(object)
+}
+\arguments{
+\item{object}{Reference object}
 }
 \description{
 A class representing annotated RNA sequencing data used as a reference to
@@ -33,21 +27,16 @@ in the reference (identified by barcode)}
 \item{\code{counts}}{sparse matrix of gene expression counts from RNA-seq data, with
 genes as rows and cells as columns (named by cell barcode)}
 
-\item{\code{nUMI}}{numeric vector of total UMI counts per cell (identified by barcode)}
+\item{\code{nUMI}}{numeric vector of total UMI counts per cell (identified by
+barcode)}
 }}
 
 \examples{
 data(rctd_simulation)
 
-# Create Reference object
-reference <- Reference(
-    rctd_simulation$reference_counts,
-    rctd_simulation$reference_cell_types
-)
-
-# Access object slots using generics
-table(cell_types(reference))  # Count occurrences of each cell type
-dim(counts(reference))        # Get gene expression matrix dimensions
-head(nUMI(reference))         # Get total UMI counts per cell
+cell_types <- rctd_simulation$reference_cell_types[["cell_type"]]
+names(cell_types) <- rownames(rctd_simulation$reference_cell_types)
+reference <- Reference(rctd_simulation$reference_counts, cell_types)
 
 }
+\keyword{internal}

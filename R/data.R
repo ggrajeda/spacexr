@@ -1,4 +1,4 @@
-#' Simulated Spatial Transcriptomics Dataset
+#' Simulated spatial transcriptomics dataset
 #'
 #' A simulated dataset containing both reference single-cell RNA-seq data and
 #' spatial transcriptomics data. The dataset includes 750 genes across 3 cell
@@ -11,9 +11,9 @@
 #'   \item{reference_counts}{A matrix of simulated reference counts with 750
 #'   rows (genes) and 75 columns (25 samples per cell type). Gene names are of
 #'   the form "g1", "g2", etc.}
-#'   \item{reference_cell_types}{A named factor specifying the cell type
+#'   \item{reference_cell_types}{A data frame specifying the cell type
 #'   ("ct1", "ct2", "ct3") for each reference sample.}
-#'   \item{spatial_rna_coords}{A data frame with columns 'x' and 'y' giving the
+#'   \item{spatial_rna_coords}{A matrix with columns 'x' and 'y' giving the
 #'   coordinates of each spatial transcriptomics pixel.}
 #'   \item{spatial_rna_counts}{A matrix of simulated spatial transcriptomics
 #'   counts with 750 rows (genes) and 12 columns (spatial locations).}
@@ -39,23 +39,26 @@
 #' up-regulated (2x) or down-regulated (0.5x) in specific cell types.
 #' Final counts were generated using a Poisson distribution.
 #'
+#' @usage data(rctd_simulation)
+#'
 #' @examples
 #' data(rctd_simulation)
 #'
-#' # Create Reference object from reference data
-#' ref <- Reference(
-#'   counts = rctd_simulation$reference_counts,
-#'   cell_types = rctd_simulation$reference_cell_types
+#' # Spatial transcriptomics data
+#' library(SpatialExperiment)
+#' spatial_spe <- SpatialExperiment(
+#'     assay = rctd_simulation$spatial_rna_counts,
+#'     spatialCoords = rctd_simulation$spatial_rna_coords
 #' )
 #'
-#' # Create SpatialRNA object from spatial data
-#' puck <- SpatialRNA(
-#'   coords = rctd_simulation$spatial_rna_coords,
-#'   counts = rctd_simulation$spatial_rna_counts
+#' # Reference data
+#' library(SummarizedExperiment)
+#' reference_se <- SummarizedExperiment(
+#'     assays = list(counts = rctd_simulation$reference_counts),
+#'     colData = rctd_simulation$reference_cell_types
 #' )
 #'
 #' # Access true cell type proportions
-#' library(SummarizedExperiment)
 #' true_proportions <- assay(rctd_simulation$proportions_se, "weights")
 #'
 "rctd_simulation"

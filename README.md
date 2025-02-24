@@ -19,22 +19,25 @@ BiocManager::install("spacexr")
 ## Getting Started
 
 ```r
+library(SpatialExperiment)
+library(SummarizedExperiment)
+
 library(spacexr)
 
-# Create Reference object from your single-cell data
-reference <- Reference(
-    counts = your_reference_counts,      # genes x cells matrix
-    cell_types = your_cell_annotations   # cell type annotations
+# Spatial transcriptomics data
+spatial_spe <- SpatialExperiment(
+    assay = your_spatial_counts,              # genes x pixels matrix
+    spatialCoords = your_spatial_coordinates  # x,y coordinates matrix
 )
 
-# Create SpatialRNA object from your spatial data
-puck <- SpatialRNA(
-    coords = your_spatial_coordinates,   # data frame with x,y columns
-    counts = your_spatial_counts         # genes x pixels matrix
+# Single-cell reference data
+reference_se <- SummarizedExperiment(
+    assays = list(counts = your_reference_counts),  # genes x cells matrix
+    colData = your_cell_annotations                 # cell type annotations df
 )
 
 # Configure and run RCTD
-rctd <- create.RCTD(puck, reference, max_cores = 4)
+rctd <- create.RCTD(spatial_spe, reference_se, max_cores = 4)
 results <- run.RCTD(rctd, doublet_mode = "doublet")
 
 # Visualize results

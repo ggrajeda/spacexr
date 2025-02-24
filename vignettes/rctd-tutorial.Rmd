@@ -47,6 +47,7 @@ proportions of different cell types in each pixel of a dataset.
 
 ```{r setup, message = FALSE}
 library(ggplot2)
+library(SpatialExperiment)
 library(SummarizedExperiment)
 
 library(spacexr)
@@ -61,30 +62,23 @@ Before running RCTD, we must first load in:
 
 ### Reference
 
-The reference is created using the `Reference` constructor function, which takes
-the following parameters:
+The reference data should be stored in a `SummarizedExperiment` object with:
 
-*Required parameters*:
+*Required components*:
 
-1. `counts`: A matrix (or `dgCMatrix`) of gene expression counts, with genes as
+1. `assay`: A matrix (or `dgCMatrix`) of gene expression counts, with genes as
 rows and cells as columns. Row names should be unique gene names, and column
 names should be unique cell barcodes. Counts should be untransformed integers.
 
-2. `cell_types`: A factor vector containing cell type annotations for each cell
-in the reference (identified by barcode). The factor levels should represent the
-possible cell types.
+2. `colData`: A factor column containing cell type annotations for each cell in
+the reference. The column name is assumed to be "cell_type", but another name
+may be specified using the `cell_type_col` parameter in `create.RCTD`.
 
-*Optional parameters*:
+*Optional components*:
 
-3. `nUMI`: A numeric vector of total UMI counts per cell (identified by
-barcode). If not provided, `nUMI` will be calculated as the column sums of the
+1. `colData`: A numeric column named `nUMI`, containing total UMI counts for
+each cell. If not provided, `nUMI` will be calculated as the column sums of the
 counts matrix.
-
-4. `min_UMI`: Minimum UMI count for cells to be included in the reference. Cells
-with fewer UMIs will be removed.
-
-5. `n_max_cells`: Maximum number of cells per cell type. If exceeded, cells will
-be randomly downsampled to this number.
 
 In practice, your reference could be an annotated dataset from:
 
@@ -100,62 +94,60 @@ distributed across several files or R objects.
 # Load simulated data.
 data("rctd_simulation")
 
-# Create Reference object.
-reference <- Reference(
-    rctd_simulation$reference_counts,
-    rctd_simulation$reference_cell_types
+# Create SummarizedExperiment.
+reference_se <- SummarizedExperiment(
+    assays = list(counts = rctd_simulation$reference_counts),
+    colData = rctd_simulation$reference_cell_types
 )
 
 # Examine reference. (optional)
-print(dim(spacexr::counts(reference))) # Gene expression matrix dimensions
-table(cell_types(reference)) # Number of occurrences for each cell type
+print(dim(assay(reference_se))) # Gene expression matrix dimensions
+table(colData(reference_se)$cell_type) # Number of occurrences of each cell type
 ```
+
 In this vignette, we have a reference dataset of 750 genes for 75 cells. We
 find that there are three cell types (`ct1`, `ct2`, and `ct3`), each appearing
 25 times in the reference.
 
 ### Spatial Transcriptomics Data
 
-Next, we will load the spatial transcriptomics data into a `SpatialRNA` object.
-The `SpatialRNA` constructor function takes the following parameters:
+Next, we will load the spatial transcriptomics data into a `SpatialExperiment`
+object with:
 
-*Required parameters*:
+*Required components*:
 
-1. `coords`: A data frame (or matrix) containing x and y coordinates for each
-pixel. Row names must be unique pixel barcodes, and there must be two columns
-named `"x"` and `"y"` containing numeric coordinates.
-
-2. `counts`: A matrix (or `dgCMatrix`) of gene expression counts, with genes as
+1. `assay`: A matrix (or `dgCMatrix`) of gene expression counts, with genes as
 rows and pixels as columns. Row names should be unique gene names, and column
 names should be unique pixel barcodes. Counts should be untransformed integers.
 
-*Optional parameters*:
+2. `spatialCoords`: A matrix containing x and y coordinates for each pixel.
 
-3. `nUMI`: A numeric vector of total UMI counts per pixel (identified by
-barcode). If not provided, `nUMI` will be calculated as the column sums of the
+*Optional components*:
+
+1. `colData`: A numeric column named `nUMI`, containing total UMI counts for
+each pixel. If not provided, `nUMI` will be calculated as the column sums of the
 counts matrix.
-
-4. `use_fake_coords`: Logical, FALSE by default. If true, the `coords` parameter
-will be ignored and replaced with a placeholder coords matrix (useful for
-testing).
 
 Here, we load coordinates and counts from the `rctd_simulation` object. Again,
 in practice, this step will depend on how you store your spatial transcriptomics
 data.
 
 ```{r spatial, fig.align='center', fig.width=5, fig.height=5, out.width='50%'}
-# Create SpatialRNA object.
-puck <- SpatialRNA(
-    rctd_simulation$spatial_rna_coords,
-    rctd_simulation$spatial_rna_counts
+# Create SpatialExperiment.
+spatial_spe <- SpatialExperiment(
+    assay = rctd_simulation$spatial_rna_counts,
+    spatialCoords = rctd_simulation$spatial_rna_coords
 )
 
-# Examine puck. (optional)
-print(dim(spacexr::counts(puck))) # Gene expression matrix dimensions
-ggplot(coords(puck), aes(x, y)) + geom_point(size = 5) + 
-    theme(axis.text = element_blank(), axis.ticks = element_blank())
+# Examine pixels. (optional)
+print(dim(assay(spatial_spe))) # Gene expression matrix dimensions
+ggplot(as.data.frame(spatialCoords(spatial_spe)), aes(x, y)) + 
+    geom_point(size = 5) + 
+    theme(axis.text = element_blank(), axis.ticks = element_blank()
+)
 ```
 <br/>
+
 We find that we have a dataset of 750 genes for 12 pixels, plotted above.
 
 The ground truth for our cell type mixtures is given by
@@ -175,20 +167,21 @@ We can visualize these mixtures with the `plot_all_weights` function, which
 plots each pixel as a pie chart of cell types. We will return to this function
 later to visualize our RCTD results.
 
-```{r trueProportionsPlot, fig.height = 5, fig.width = 7}
+```{r trueProportionsPlot, fig.height = 5, fig.width = 7, out.width='75%'}
 plot_all_weights(
     rctd_simulation$proportions_se,
     r = 0.05, lwd = 0, title = "Ground Truth"
 )
 ```
+<br/>
 
 ## Running RCTD
 
 ### Creating RCTD Object
 
 The last step before running RCTD is to create an `RCTD` object from our
-`SpatialRNA` and `Reference` objects using the `create.RCTD` function. Some
-important configuration options include:
+`SpatialExperiment` and `SummarizedExperiment` objects using the `create.RCTD`
+function. Some important configuration options include:
 
 - `max_cores`: Number of cores used for parallel processing. We recommend
 setting this to at least 4 to improve efficiency. If set to 1, parallel
@@ -198,11 +191,11 @@ normalization. `gene_cutoff` filters for average expression and `fc_cutoff`
 filters for log-fold-change across cell types.
 - `gene_cutoff_reg`, `fc_cutoff_reg`: Similar to above, but for the RCTD step.
 - `UMI_min`, `UMI_max`: Minimum and maximum read depth for pixels in the
-`SpatialRNA` dataset.
+`SpatialExperiment` dataset.
 - `MAX_MULTI_TYPES`: Maximum number of cell types per pixel (multi mode only).
 
 ```{r createRCTD, message = FALSE}
-rctd_config <- create.RCTD(puck, reference, max_cores = 1)
+rctd_config <- create.RCTD(spatial_spe, reference_se, max_cores = 1)
 ```
 
 ### Running RCTD
@@ -213,13 +206,13 @@ RCTD has three modes, each suited for different spatial technologies:
 
 - `"doublet"`: Assigns 1-2 cell types per pixel. Best for high-resolution
 technologies like Slide-seq and MERFISH.
-- `"full"`: No restrictions on number of cell types. Best for lower-resolution
-technologies like 100-micron Visium.
 - `"multi"`: Like doublet mode but can assign more cell types (up to
-`MAX_MULTI_TYPES`).
+`MAX_MULTI_TYPES`). Best for lower-resolution technologies like 100-micron
+Visium.
+- `"full"`: No restrictions on number of cell types.
 
-The `doublet_mode` argument is used to specify the RCTD mode. For this vignette,
-we'll decompose the data into doublets.
+The `doublet_mode` argument is used to specify the RCTD mode. For the purpose of
+demonstration, we'll decompose the data into doublets in this vignette.
 
 ```{r runRCTD, message = FALSE}
 results_se <- run.RCTD(rctd_config, doublet_mode = "doublet")
@@ -259,8 +252,8 @@ assay(results_se, "weights")
 ```
 
 You can access the full, unrestricted weights using
-`assay(results_se, "weights_full")`. We will demonstrate this later. You may use
-`assay(results_se, "weights_unconfident")` to access the less confident
+`assay(results_se, "weights_full")`. We will visualize these weights later. You
+may use `assay(results_se, "weights_unconfident")` to access the less confident
 predictions (e.g., the `second_type` weight for singlets and uncertain
 doublets).
 
@@ -301,9 +294,11 @@ We can visualize the results of our RCTD run with the `plot_all_weights`
 function. Simply pass in the RCTD results (and some aesthetic arguments), and
 the cell type proportions will be plotted as pie charts for each pixel.
 
-```{r doubletVisualization, fig.height = 5, fig.width = 7}
+```{r doubletVisualization, fig.height = 5, fig.width = 7, out.width='75%'}
 plot_all_weights(results_se, r = 0.05, lwd = 0, title = "Doublet Results")
 ```
+<br/>
+<br/>
 
 Note that all mixtures with 90% `ct1` (on the left) were classified as singlets,
 so only `ct1` is plotted. And for the other mixtures (on the right), only cell
@@ -312,11 +307,13 @@ doublet mode. We can visualize the full, unrestricted proportions by passing in
 the name of the relevant assay (`"weights_full"`) to the `plot_all_weights`
 function:
 
-```{r fullVisualization, fig.height = 5, fig.width = 7}
+```{r fullVisualization, fig.height = 5, fig.width = 7, out.width='75%'}
 plot_all_weights(
     results_se, "weights_full", r = 0.05, lwd = 0, title = "Full Results"
 )
 ```
+<br/>
+<br/>
 
 This is very close to the ground truth!
 
@@ -324,12 +321,14 @@ Finally, we can visualize how the proportion of a specific cell type varies
 across space with the `plot_cell_type_weight` function. We show an example with
 the dummy cell type `ct1`.
 
-```{r densityVisualization, fig.height = 5, fig.width = 7}
+```{r densityVisualization, fig.height = 5, fig.width = 7, out.width='75%'}
 plot_cell_type_weight(
     results_se, "ct1", "weights_full",
-    size = 5, stroke = 0.5, title = "Density of Cell Type 1\n"
+    size = 5, stroke = 0.5, title = "\nDensity of Cell Type 1\n"
 )
 ```
+<br/>
+<br/>
 
 You are now ready to apply RCTD to your own spatial transcriptomics datasets!
 

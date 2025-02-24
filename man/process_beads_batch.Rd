@@ -17,8 +17,9 @@ process_beads_batch(
 )
 }
 \arguments{
-\item{cell_type_info}{cell type information and profiles of each cell, calculated from the scRNA-seq
-reference (see \code{\link{get_cell_type_info}})}
+\item{cell_type_info}{cell type information and profiles of each cell,
+calculated from the scRNA-seq reference (see
+\code{\link{get_cell_type_info}})}
 
 \item{gene_list}{a list of genes to be used for RCTD}
 
@@ -26,23 +27,29 @@ reference (see \code{\link{get_cell_type_info}})}
 
 \item{class_df}{A dataframe mapping cell types to classes}
 
-\item{constrain}{logical whether to constrain the weights to sum to one on each pixel}
+\item{constrain}{logical whether to constrain the weights to sum to one on
+each pixel}
 
-\item{MAX_CORES}{number of cores to use (will use parallel processing if more than one).}
+\item{MAX_CORES}{number of cores to use (will use parallel processing if more
+than one).}
 
-\item{MIN.CHANGE}{(default 0.001) the minimum change in the norm of the WLS solution used to determine the cell type proportions}
+\item{MIN.CHANGE}{(default 0.001) the minimum change in the norm of the WLS
+solution used to determine the cell type proportions}
 
-\item{CONFIDENCE_THRESHOLD}{(Default 10) the minimum change in likelihood (compared to other cell types) necessary to determine a cell type identity with confidence}
+\item{CONFIDENCE_THRESHOLD}{(Default 10) the minimum change in likelihood
+(compared to other cell types) necessary to determine a cell type identity
+with confidence}
 
-\item{DOUBLET_THRESHOLD}{(Default 25) the penalty weight of predicting a doublet instead of a singlet for a pixel}
+\item{DOUBLET_THRESHOLD}{(Default 25) the penalty weight of predicting a
+doublet instead of a singlet for a pixel}
 }
 \value{
-Returns \code{results}, a list of RCTD results for each pixel, which can be organized by
-feeding into \code{\link{create_se_doublet}}
+Returns \code{results}, a list of RCTD results for each pixel, which
+  can be organized by feeding into \code{\link{create_se_doublet}}
 }
 \description{
 Then, computes cell type proportions for each pixel in \code{puck}.
-Classifies each pixel as 'singlet' or 'doublet' and searches for the cell types
-on the pixel
+Classifies each pixel as 'singlet' or 'doublet' and searches for the cell
+types on the pixel
 }
 \keyword{internal}

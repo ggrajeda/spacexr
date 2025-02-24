@@ -19,18 +19,22 @@ to estimate platform effects and normalize cell type proportions
 \examples{
 data(rctd_simulation)
 
-# Create SpatialRNA and Reference objects
-spatial_rna <- SpatialRNA(
-    rctd_simulation$spatial_rna_coords,
-    rctd_simulation$spatial_rna_counts
-)
-reference <- Reference(
-    rctd_simulation$reference_counts,
-    rctd_simulation$reference_cell_types
+# Spatial transcriptomics data
+library(SpatialExperiment)
+spatial_spe <- SpatialExperiment(
+    assay = rctd_simulation$spatial_rna_counts,
+    spatialCoords = rctd_simulation$spatial_rna_coords
 )
 
-# Create RCTD object
-rctd <- create.RCTD(spatial_rna, reference, max_cores = 1)
+# Reference data
+library(SummarizedExperiment)
+reference_se <- SummarizedExperiment(
+    assays = list(counts = rctd_simulation$reference_counts),
+    colData = rctd_simulation$reference_cell_types
+)
+
+# Create RCTD configuration
+rctd <- create.RCTD(spatial_spe, reference_se, max_cores = 1)
 rctd <- fitBulk(rctd)
 
 }

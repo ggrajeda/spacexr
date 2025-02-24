@@ -5,67 +5,6 @@ fake_coords <- function(counts) {
     return(coords)
 }
 
-
-#' Creates a SpatialRNA object from a 10x Genomics Visium `outs` directory
-#'
-#' Given a SpatialRNA directory 10x Genomics Visium `outs` directory and returns
-#' a SpatialRNA object.
-#'
-#' @param datadir (string) full path to the 10x Genomics Visium `outs` directory
-#' @return Returns a \code{\linkS4class{SpatialRNA}} object containing the
-#'   coordinates and counts from the input files
-#' @keywords internal
-read.VisiumSpatialRNA <- function(datadir) {
-    coords.path <- Sys.glob(paths = file.path(datadir, "spatial/tissue_positions*"))
-    coords <- readr::read_csv(
-        file = coords.path,
-        col_names = ifelse(
-            test = basename(coords.path) == "tissue_positions.csv",
-            yes = TRUE,
-            no = FALSE
-        )
-    )
-    colnames(coords) <- c("barcodes", "in_tissue", "x", "y", "pxl_col_in_fullres", "pxl_row_in_fullres")
-    coords <- tibble::column_to_rownames(coords, var = "barcodes")
-    counts <- Seurat::Read10X_h5(paste0(datadir, "/filtered_feature_bc_matrix.h5"))
-    puck <- SpatialRNA(coords[, c("x", "y")], counts)
-    restrict_puck(puck, colnames(puck@counts))
-}
-
-#' Creates a SpatialRNA object from a coords and counts file
-#'
-#' Warning: this function is provided out of convenience for experienced users,
-#' but we can not provide direct support for debugging file input errors. If you
-#' are obtaining errors from this method, we recommend a less error-prone
-#' procedure of loading in your coords and counts matrices in first and then
-#' using the `SpatialRNA` constructor function, which will systematically check
-#' for errors in the inputs.
-#'
-#' The coords matrix needs to be formated as columns (barcodes, x, y)
-#'
-#' @param datadir (character) full path to input directory
-#' @param count_file (character) file name of the counts csv file (genes by
-#'   pixels matrix)
-#' @param coords_file (character) file name of the coords csv file (pixels by
-#'   (barcodes, x, y) matrix)
-#' @return Returns a \code{\linkS4class{SpatialRNA}} object containing the
-#'   coordinates and counts from the input files
-#' @keywords internal
-read.SpatialRNA <- function(datadir, count_file = "counts.csv", coords_file = "coords.csv") {
-    coords <- readr::read_csv(file = paste(datadir, coords_file, sep = "/"))
-    counts <- data.table::fread(file = paste(datadir, count_file, sep = "/"), check.names = TRUE)
-    counts <- tibble::as_tibble(counts)
-    colnames(coords)[2] <- "x" # renaming xcoord -> x
-    colnames(coords)[3] <- "y" # renaming ycoord -> y
-    counts <- tibble::column_to_rownames(counts, var = colnames(counts)[1])
-    # rownames(counts) = counts[,1]
-    coords <- tibble::column_to_rownames(coords, var = "barcodes")
-    # rownames(coords) <- coords$barcodes
-    coords$barcodes <- NULL
-    puck <- SpatialRNA(coords, as(as(counts, "matrix"), "dgCMatrix"))
-    restrict_puck(puck, colnames(puck@counts))
-}
-
 #' \code{\linkS4class{SpatialRNA}} object constructor
 #'
 #' @param coords data frame (or matrix) containing x and y coordinates for each
@@ -84,14 +23,15 @@ read.SpatialRNA <- function(datadir, count_file = "counts.csv", coords_file = "c
 #'
 #' @importFrom methods new
 #' @export
+#' @keywords internal
 #' @examples
 #' data(rctd_simulation)
 #'
 #' spatial_rna <- SpatialRNA(
-#'     rctd_simulation$spatial_rna_coords,
+#'     as.data.frame(rctd_simulation$spatial_rna_coords),
 #'     rctd_simulation$spatial_rna_counts
 #' )
-#' 
+#'
 SpatialRNA <- function(
     coords, counts,
     nUMI = NULL, use_fake_coords = FALSE, require_int = TRUE

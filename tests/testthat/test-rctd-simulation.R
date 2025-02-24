@@ -10,18 +10,19 @@ print_results <- function(assays, row_data) {
 }
 
 test_that("Matches exactly on rctd_simulation", {
-    ## Create RCTD objects from simulated data.
+    ## Create RCTD configurations from simulated data.
     data(rctd_simulation)
-    reference <- Reference(
-        rctd_simulation$reference_counts,
-        rctd_simulation$reference_cell_types
+
+    spatial_spe <- SpatialExperiment::SpatialExperiment(
+        assay = rctd_simulation$spatial_rna_counts,
+        spatialCoords = rctd_simulation$spatial_rna_coords
     )
-    spatial_rna <- SpatialRNA(
-        rctd_simulation$spatial_rna_coords,
-        rctd_simulation$spatial_rna_counts
+    reference_se <- SummarizedExperiment::SummarizedExperiment(
+        assays = list(counts = rctd_simulation$reference_counts),
+        colData = rctd_simulation$reference_cell_types
     )
-    rctd <- create.RCTD(spatial_rna, reference, max_cores = 1)
-    parallel_rctd <- create.RCTD(spatial_rna, reference, max_cores = 2)
+    rctd <- create.RCTD(spatial_spe, reference_se, max_cores = 1)
+    parallel_rctd <- create.RCTD(spatial_spe, reference_se, max_cores = 2)
 
     ## Run RCTD sequentially.
 

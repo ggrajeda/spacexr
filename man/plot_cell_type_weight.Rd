@@ -17,7 +17,8 @@ plot_cell_type_weight(
 )
 }
 \arguments{
-\item{rctd_se}{SummarizedExperiment containing RCTD results}
+\item{rctd_se}{\code{\link[SummarizedExperiment]{SummarizedExperiment}}
+containing RCTD results}
 
 \item{cell_type}{character, name of cell type to plot}
 
@@ -38,8 +39,8 @@ plot_cell_type_weight(
 \item{title}{character, plot title (default: NA)}
 }
 \value{
-ggplot object showing the proportion of a specified cell type at each
-  pixel
+\code{ggplot} object showing the proportion of a specified cell type
+  at each pixel
 }
 \description{
 Creates a visualization showing how the proportion of a specific cell type
@@ -52,8 +53,7 @@ data(rctd_simulation)
 # In practice, results_se should contain the results of an RCTD run.
 results_se <- rctd_simulation$proportions_se
 plot_cell_type_weight(
-    results_se, "ct1",
-    size = 5, title = "Cell Type Density (ct1)"
+    results_se, "ct1", size = 5, title = "Cell Type Density (ct1)"
 )
 
 }

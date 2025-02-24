@@ -39,8 +39,9 @@ integers (default: TRUE)}
 data(rctd_simulation)
 
 spatial_rna <- SpatialRNA(
-    rctd_simulation$spatial_rna_coords,
+    as.data.frame(rctd_simulation$spatial_rna_coords),
     rctd_simulation$spatial_rna_counts
 )
 
 }
+\keyword{internal}
