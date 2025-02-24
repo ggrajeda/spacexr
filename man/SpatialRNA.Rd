@@ -24,10 +24,11 @@ rows and pixels as columns (named by pixel barcode)}
 column sums of the counts matrix.}
 
 \item{use_fake_coords}{logical, whether the 'coords' parameter should be
-ignored and replaced with a placeholder coords matrix (default: FALSE)}
+ignored and replaced with a placeholder coords matrix
+(default: \code{FALSE})}
 
 \item{require_int}{logical, whether counts and nUMI are required to be
-integers (default: TRUE)}
+integers (default: \code{TRUE})}
 }
 \value{
 \code{\linkS4class{SpatialRNA}} object
@@ -36,11 +37,11 @@ integers (default: TRUE)}
 \code{\linkS4class{SpatialRNA}} object constructor
 }
 \examples{
-data(rctd_simulation)
+data(simRctd)
 
 spatial_rna <- SpatialRNA(
-    as.data.frame(rctd_simulation$spatial_rna_coords),
-    rctd_simulation$spatial_rna_counts
+    as.data.frame(simRctd$spatial_rna_coords),
+    simRctd$spatial_rna_counts
 )
 
 }

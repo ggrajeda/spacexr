@@ -167,8 +167,8 @@ simulate_spatial_transcriptomics <- function(
 }
 
 set.seed(123456789)
-rctd_simulation <- simulate_spatial_transcriptomics(test_mixtures = list(
+simRctd <- simulate_spatial_transcriptomics(test_mixtures = list(
     mx1 = list(prop = c(0.9, 0.1, 0.0), n = 6),
     mx2 = list(prop = c(0.2, 0.4, 0.4), n = 6)
 ))
-usethis::use_data(rctd_simulation, overwrite = TRUE)
+usethis::use_data(simRctd, overwrite = TRUE)

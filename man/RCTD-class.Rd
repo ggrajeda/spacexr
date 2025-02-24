@@ -12,8 +12,8 @@
 \item{object}{RCTD configuration object}
 }
 \description{
-An RCTD configuration created via the \code{\link{create.RCTD}} function.
-Users can run RCTD by passing this object to the \code{\link{run.RCTD}}
+An RCTD configuration created via the \code{\link{createRctd}} function.
+Users can run RCTD by passing this object to the \code{\link{runRctd}}
 function.
 }
 \section{Slots}{
@@ -29,7 +29,7 @@ the complete, unfiltered spatial dataset}
 annotated reference data}
 
 \item{\code{config}}{a list of configuration options for the RCTD algorithm, set via
-\code{\link{create.RCTD}}}
+\code{\link{createRctd}}}
 
 \item{\code{cell_type_info}}{a named list containing cell type expression profiles
 with two components: \code{info} (raw profiles from reference data) and

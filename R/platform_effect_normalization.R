@@ -3,29 +3,29 @@
 #' Estimates bulk cell type composition and uses this
 #' to estimate platform effects and normalize cell type proportions
 #'
-#' @param RCTD an \code{\linkS4class{RCTD}} object after running the \code{\link{create.RCTD}} function.
+#' @param RCTD an \code{\linkS4class{RCTD}} object after running the \code{\link{createRctd}} function.
 #' @return Returns an \code{\linkS4class{RCTD}} object normalized for platform effects.
 #' @export
 #' @keywords internal
 #' @examples
-#' data(rctd_simulation)
+#' data(simRctd)
 #'
 #' # Spatial transcriptomics data
 #' library(SpatialExperiment)
 #' spatial_spe <- SpatialExperiment(
-#'     assay = rctd_simulation$spatial_rna_counts,
-#'     spatialCoords = rctd_simulation$spatial_rna_coords
+#'     assay = simRctd$spatial_rna_counts,
+#'     spatialCoords = simRctd$spatial_rna_coords
 #' )
 #'
 #' # Reference data
 #' library(SummarizedExperiment)
 #' reference_se <- SummarizedExperiment(
-#'     assays = list(counts = rctd_simulation$reference_counts),
-#'     colData = rctd_simulation$reference_cell_types
+#'     assays = list(counts = simRctd$reference_counts),
+#'     colData = simRctd$reference_cell_types
 #' )
 #'
 #' # Create RCTD configuration
-#' rctd <- create.RCTD(spatial_spe, reference_se, max_cores = 1)
+#' rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
 #' rctd <- fitBulk(rctd)
 #' 
 fitBulk <- function(RCTD) {
@@ -75,24 +75,24 @@ chooseSigma <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
 #' @export
 #' @keywords internal
 #' @examples
-#' data(rctd_simulation)
+#' data(simRctd)
 #'
 #' # Spatial transcriptomics data
 #' library(SpatialExperiment)
 #' spatial_spe <- SpatialExperiment(
-#'     assay = rctd_simulation$spatial_rna_counts,
-#'     spatialCoords = rctd_simulation$spatial_rna_coords
+#'     assay = simRctd$spatial_rna_counts,
+#'     spatialCoords = simRctd$spatial_rna_coords
 #' )
 #'
 #' # Reference data
 #' library(SummarizedExperiment)
 #' reference_se <- SummarizedExperiment(
-#'     assays = list(counts = rctd_simulation$reference_counts),
-#'     colData = rctd_simulation$reference_cell_types
+#'     assays = list(counts = simRctd$reference_counts),
+#'     colData = simRctd$reference_cell_types
 #' )
 #'
 #' # Create RCTD configuration
-#' rctd <- create.RCTD(spatial_spe, reference_se, max_cores = 1)
+#' rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
 #' 
 #' rctd <- fitBulk(rctd)
 #' rctd <- choose_sigma_c(rctd)

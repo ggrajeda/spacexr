@@ -33,7 +33,7 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #' reference dataset. This function performs initial preprocessing steps,
 #' including identifying differentially expressed genes and normalizing for
 #' platform effects. Users should subsequently pass this object to
-#' \code{\link{run.RCTD}}.
+#' \code{\link{runRctd}}.
 #'
 #' @param spatial_experiment \code{\link[SpatialExperiment]{SpatialExperiment}}
 #'   object containing spatial transcriptomics data. Optionally, total UMI
@@ -53,7 +53,7 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #' @param max_cores numeric, maximum number of cores to use for parallel
 #'   processing (default: 4)
 #' @param require_int logical, whether counts and nUMI are required to be
-#'   integers (default: TRUE)
+#'   integers (default: \code{TRUE})
 #' @param gene_cutoff numeric, minimum normalized gene expression for genes to
 #'   be included in the platform effect normalization step (default: 0.000125)
 #' @param fc_cutoff numeric, minimum log-fold-change (across cell types) for
@@ -66,7 +66,7 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #' @param counts_min numeric, minimum total counts per pixel of genes used in
 #'   analysis (default: 10)
 #' @param UMI_min numeric, minimum UMI count per pixel (default: 100)
-#' @param UMI_max numeric, maximum UMI count per pixel (default: 20000000)
+#' @param UMI_max numeric, maximum UMI count per pixel (default: 20,000,000)
 #' @param UMI_min_sigma numeric, minimum UMI count for pixels used in platform
 #'   effect normalization (default: 300)
 #' @param ref_UMI_min numeric, minimum UMI count for cells to be included in the
@@ -80,7 +80,7 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #'   type names must be present in the \code{dimnames}, and the reference will
 #'   be ignored.
 #' @param keep_reference logical, whether to retain the full reference data in
-#'   the output object (default: FALSE)
+#'   the output object (default: \code{FALSE})
 #' @param class_df data frame mapping cell types to classes, optional. If
 #'   specified, RCTD will report confidence on the class level.
 #' @param cell_type_names character vector of cell type names to include,
@@ -93,7 +93,7 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #' @param DOUBLET_THRESHOLD numeric, penalty weight of predicting a doublet
 #'   instead of a singlet for a pixel (default: 20)
 #' @param test_mode logical, whether to run in test mode with reduced
-#'   computation (default: FALSE)
+#'   computation (default: \code{FALSE})
 #'
 #' @return \code{\linkS4class{RCTD}} object
 #'
@@ -102,26 +102,26 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #' @importFrom SummarizedExperiment SummarizedExperiment assay colData
 #' @export
 #' @examples
-#' data(rctd_simulation)
+#' data(simRctd)
 #'
 #' # Spatial transcriptomics data
 #' library(SpatialExperiment)
 #' spatial_spe <- SpatialExperiment(
-#'     assay = rctd_simulation$spatial_rna_counts,
-#'     spatialCoords = rctd_simulation$spatial_rna_coords
+#'     assay = simRctd$spatial_rna_counts,
+#'     spatialCoords = simRctd$spatial_rna_coords
 #' )
 #'
 #' # Reference data
 #' library(SummarizedExperiment)
 #' reference_se <- SummarizedExperiment(
-#'     assays = list(counts = rctd_simulation$reference_counts),
-#'     colData = rctd_simulation$reference_cell_types
+#'     assays = list(counts = simRctd$reference_counts),
+#'     colData = simRctd$reference_cell_types
 #' )
 #'
 #' # Create RCTD configuration
-#' rctd <- create.RCTD(spatial_spe, reference_se, max_cores = 1)
+#' rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
 #' 
-create.RCTD <- function(
+createRctd <- function(
     spatial_experiment, reference_experiment, cell_type_col = "cell_type",
     max_cores = 4, require_int = TRUE, gene_cutoff = 0.000125, fc_cutoff = 0.5,
     gene_cutoff_reg = 0.0002, fc_cutoff_reg = 0.75, counts_min = 10,
@@ -223,7 +223,7 @@ create.RCTD <- function(
         UMI_thresh = config$UMI_min, UMI_max = config$UMI_max,
         counts_thresh = config$counts_min
     )
-    message("create.RCTD: getting regression differentially expressed genes: ")
+    message("createRctd: getting regression differentially expressed genes: ")
     gene_list_reg <- get_de_genes(
         cell_type_info$info, puck.original,
         fc_thresh = config$fc_cutoff_reg,
@@ -232,12 +232,12 @@ create.RCTD <- function(
     )
     if (length(gene_list_reg) < 10) {
         stop(
-            "create.RCTD: fewer than 10 regression differentially expressed ",
+            "createRctd: fewer than 10 regression differentially expressed ",
             "genes found"
         )
     }
     message(
-        "create.RCTD: getting platform effect normalization differentially ",
+        "createRctd: getting platform effect normalization differentially ",
         "expressed genes: "
     )
     gene_list_bulk <- get_de_genes(
@@ -249,7 +249,7 @@ create.RCTD <- function(
     )
     if (length(gene_list_bulk) < 10) {
         stop(
-            "create.RCTD: fewer than 10 bulk differentially expressed genes ",
+            "createRctd: fewer than 10 bulk differentially expressed genes ",
             "found"
         )
     }
@@ -301,9 +301,10 @@ create.RCTD <- function(
 #' }
 #'
 #' @param RCTD \code{\linkS4class{RCTD}} object created using
-#'   \code{\link{create.RCTD}}
-#' @param doublet_mode character string specifying the RCTD mode: "doublet",
-#'   "multi", or "full" (default: "doublet")
+#'   \code{\link{createRctd}}
+#' @param rctd_mode character string specifying the RCTD mode:
+#'   \code{"doublet"}, \code{"multi"}, or \code{"full"}
+#'   (default: \code{"doublet"})
 #'
 #' @return A SummarizedExperiment object containing the RCTD results with:
 #'   \itemize{
@@ -316,13 +317,14 @@ create.RCTD <- function(
 #'         (not available in full mode)
 #'         \item \code{weights_full}: Unrestricted cell type proportions
 #'       }
-#'     \item rowData containing:
+#'     \item \code{rowData} containing:
 #'       \itemize{
 #'         \item \code{x}, \code{y}: Spatial coordinates for each pixel
 #'         \item For doublet mode:
 #'           \itemize{
-#'             \item \code{spot_class}: Classification as "singlet",
-#'             "doublet_certain", "doublet_uncertain", or "reject"
+#'             \item \code{spot_class}: Classification as \code{"singlet"},
+#'             \code{"doublet_certain"}, \code{"doublet_uncertain"}, or
+#'             \code{"reject"}
 #'             \item \code{first_type}, \code{second_type}: Predicted cell types
 #'             \item \code{first_class}, \code{second_class}: Whether
 #'             predictions were made at the class level
@@ -340,25 +342,25 @@ create.RCTD <- function(
 #'   }
 #' @export
 #' @examples
-#' data(rctd_simulation)
+#' data(simRctd)
 #'
 #' # Spatial transcriptomics data
 #' library(SpatialExperiment)
 #' spatial_spe <- SpatialExperiment(
-#'     assay = rctd_simulation$spatial_rna_counts,
-#'     spatialCoords = rctd_simulation$spatial_rna_coords
+#'     assay = simRctd$spatial_rna_counts,
+#'     spatialCoords = simRctd$spatial_rna_coords
 #' )
 #'
 #' # Reference data
 #' library(SummarizedExperiment)
 #' reference_se <- SummarizedExperiment(
-#'     assays = list(counts = rctd_simulation$reference_counts),
-#'     colData = rctd_simulation$reference_cell_types
+#'     assays = list(counts = simRctd$reference_counts),
+#'     colData = simRctd$reference_cell_types
 #' )
 #'
 #' # Create RCTD configuration
-#' rctd <- create.RCTD(spatial_spe, reference_se, max_cores = 1)
-#' rctd_se <- run.RCTD(rctd, doublet_mode = "doublet")
+#' rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
+#' rctd_se <- runRctd(rctd, rctd_mode = "doublet")
 #'
 #' # Access the cell type proportions
 #' head(assay(rctd_se, "weights"))
@@ -366,17 +368,17 @@ create.RCTD <- function(
 #' # Check spot classifications for doublet mode
 #' head(rowData(rctd_se)$spot_class)
 #'
-run.RCTD <- function(RCTD, doublet_mode = "doublet") {
-    if (!(doublet_mode %in% c("doublet", "multi", "full"))) {
+runRctd <- function(RCTD, rctd_mode = "doublet") {
+    if (!(rctd_mode %in% c("doublet", "multi", "full"))) {
         stop(
-            "run.RCTD: doublet_mode=", doublet_mode," is not a valid choice. ",
-            "Please set doublet_mode=doublet, multi, or full."
+            "runRctd: rctd_mode=", rctd_mode," is not a valid choice. ",
+            "Please set rctd_mode=doublet, multi, or full."
         )
     }
-    RCTD@config$RCTDmode <- doublet_mode
+    RCTD@config$RCTDmode <- rctd_mode
     RCTD <- fitBulk(RCTD)
     RCTD <- choose_sigma_c(RCTD)
-    RCTD <- fitPixels(RCTD, doublet_mode = doublet_mode)
+    RCTD <- fitPixels(RCTD, rctd_mode = rctd_mode)
 }
 
 check_vector <- function(variable, var_name, f_name, require_int = FALSE) {

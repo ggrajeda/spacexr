@@ -31,7 +31,7 @@ get_reject_mask <- function(rctd_se) {
 #'
 #' Generates a visualization where each pixel is represented by a pie chart
 #' showing the proportions of different cell types at that location. Users
-#' should run this function on the result of \code{\link{run.RCTD}}.
+#' should run this function on the result of \code{\link{runRctd}}.
 #'
 #' @param rctd_se \code{\link[SummarizedExperiment]{SummarizedExperiment}}
 #'   containing RCTD results
@@ -50,15 +50,15 @@ get_reject_mask <- function(rctd_se) {
 #' @import scatterpie
 #' @export
 #' @examples
-#' data(rctd_simulation)
-#' 
+#' data(simRctd)
+#'
 #' # In practice, results_se should contain the results of an RCTD run.
-#' results_se <- rctd_simulation$proportions_se
-#' plot_all_weights(
+#' results_se <- simRctd$proportions_se
+#' plotAllWeights(
 #'     results_se, r = 0.05, lwd = 0.5, title = "Cell Type Proportions"
 #' )
-#' 
-plot_all_weights <- function(
+#'
+plotAllWeights <- function(
     rctd_se, assay_name = "weights",
     cell_type_colors = NA,
     r = 0.4, lwd = 1,
@@ -102,7 +102,7 @@ plot_all_weights <- function(
 #'
 #' Creates a visualization showing how the proportion of a specific cell type
 #' varies across space, represented by point color intensity. Users should run
-#' this function on the result of \code{\link{run.RCTD}}.
+#' this function on the result of \code{\link{runRctd}}.
 #'
 #' @param rctd_se \code{\link[SummarizedExperiment]{SummarizedExperiment}}
 #'   containing RCTD results
@@ -124,15 +124,15 @@ plot_all_weights <- function(
 #' @import ggplot2
 #' @export
 #' @examples
-#' data(rctd_simulation)
+#' data(simRctd)
 #'
 #' # In practice, results_se should contain the results of an RCTD run.
-#' results_se <- rctd_simulation$proportions_se
-#' plot_cell_type_weight(
+#' results_se <- simRctd$proportions_se
+#' plotCellTypeWeight(
 #'     results_se, "ct1", size = 5, title = "Cell Type Density (ct1)"
 #' )
-#' 
-plot_cell_type_weight <- function(
+#'
+plotCellTypeWeight <- function(
     rctd_se, cell_type, assay_name = "weights",
     size = 10, stroke = 1, alpha = 1,
     low = "white", high = "red",

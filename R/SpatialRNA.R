@@ -15,9 +15,10 @@ fake_coords <- function(counts) {
 #'   (identified by barcode). If not provided, nUMI will be calculated as the
 #'   column sums of the counts matrix.
 #' @param use_fake_coords logical, whether the 'coords' parameter should be
-#'   ignored and replaced with a placeholder coords matrix (default: FALSE)
+#'   ignored and replaced with a placeholder coords matrix
+#'   (default: \code{FALSE})
 #' @param require_int logical, whether counts and nUMI are required to be
-#'   integers (default: TRUE)
+#'   integers (default: \code{TRUE})
 #'
 #' @return \code{\linkS4class{SpatialRNA}} object
 #'
@@ -25,11 +26,11 @@ fake_coords <- function(counts) {
 #' @export
 #' @keywords internal
 #' @examples
-#' data(rctd_simulation)
+#' data(simRctd)
 #'
 #' spatial_rna <- SpatialRNA(
-#'     as.data.frame(rctd_simulation$spatial_rna_coords),
-#'     rctd_simulation$spatial_rna_counts
+#'     as.data.frame(simRctd$spatial_rna_coords),
+#'     simRctd$spatial_rna_counts
 #' )
 #'
 SpatialRNA <- function(

@@ -16,24 +16,24 @@ Returns an \code{\linkS4class{RCTD}} with the estimated \code{sigma_c}.
 Estimates sigma_c by maximum likelihood
 }
 \examples{
-data(rctd_simulation)
+data(simRctd)
 
 # Spatial transcriptomics data
 library(SpatialExperiment)
 spatial_spe <- SpatialExperiment(
-    assay = rctd_simulation$spatial_rna_counts,
-    spatialCoords = rctd_simulation$spatial_rna_coords
+    assay = simRctd$spatial_rna_counts,
+    spatialCoords = simRctd$spatial_rna_coords
 )
 
 # Reference data
 library(SummarizedExperiment)
 reference_se <- SummarizedExperiment(
-    assays = list(counts = rctd_simulation$reference_counts),
-    colData = rctd_simulation$reference_cell_types
+    assays = list(counts = simRctd$reference_counts),
+    colData = simRctd$reference_cell_types
 )
 
 # Create RCTD configuration
-rctd <- create.RCTD(spatial_spe, reference_se, max_cores = 1)
+rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
 
 rctd <- fitBulk(rctd)
 rctd <- choose_sigma_c(rctd)

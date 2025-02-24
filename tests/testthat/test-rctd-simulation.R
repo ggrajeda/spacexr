@@ -9,25 +9,25 @@ print_results <- function(assays, row_data) {
     print(as.data.frame(row_data))
 }
 
-test_that("Matches exactly on rctd_simulation", {
+test_that("Matches exactly on simRctd", {
     ## Create RCTD configurations from simulated data.
-    data(rctd_simulation)
+    data(simRctd)
 
     spatial_spe <- SpatialExperiment::SpatialExperiment(
-        assay = rctd_simulation$spatial_rna_counts,
-        spatialCoords = rctd_simulation$spatial_rna_coords
+        assay = simRctd$spatial_rna_counts,
+        spatialCoords = simRctd$spatial_rna_coords
     )
     reference_se <- SummarizedExperiment::SummarizedExperiment(
-        assays = list(counts = rctd_simulation$reference_counts),
-        colData = rctd_simulation$reference_cell_types
+        assays = list(counts = simRctd$reference_counts),
+        colData = simRctd$reference_cell_types
     )
-    rctd <- create.RCTD(spatial_spe, reference_se, max_cores = 1)
-    parallel_rctd <- create.RCTD(spatial_spe, reference_se, max_cores = 2)
+    rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
+    parallel_rctd <- createRctd(spatial_spe, reference_se, max_cores = 2)
 
     ## Run RCTD sequentially.
 
     # Doublet mode
-    doublet_se <- run.RCTD(rctd, doublet_mode = "doublet")
+    doublet_se <- runRctd(rctd, rctd_mode = "doublet")
     doublet_assays <- SummarizedExperiment::assays(doublet_se)
     doublet_row_data <- SummarizedExperiment::rowData(doublet_se)
     expect_snapshot({
@@ -35,7 +35,7 @@ test_that("Matches exactly on rctd_simulation", {
     })
 
     # Multi mode
-    multi_se <- run.RCTD(rctd, doublet_mode = "multi")
+    multi_se <- runRctd(rctd, rctd_mode = "multi")
     multi_assays <- SummarizedExperiment::assays(multi_se)
     multi_row_data <- SummarizedExperiment::rowData(multi_se)
     expect_snapshot({
@@ -43,7 +43,7 @@ test_that("Matches exactly on rctd_simulation", {
     })
 
     # Full mode
-    full_se <- run.RCTD(rctd, doublet_mode = "full")
+    full_se <- runRctd(rctd, rctd_mode = "full")
     full_assays <- SummarizedExperiment::assays(full_se)
     full_row_data <- SummarizedExperiment::rowData(full_se)
     expect_snapshot({
@@ -53,7 +53,7 @@ test_that("Matches exactly on rctd_simulation", {
     ## Run RCTD in parallel.
 
     # Doublet mode
-    parallel_doublet_se <- run.RCTD(parallel_rctd, doublet_mode = "doublet")
+    parallel_doublet_se <- runRctd(parallel_rctd, rctd_mode = "doublet")
     expect_equal(
         SummarizedExperiment::assays(parallel_doublet_se),
         doublet_assays
@@ -64,7 +64,7 @@ test_that("Matches exactly on rctd_simulation", {
     )
 
     # Multi mode
-    parallel_multi_se <- run.RCTD(parallel_rctd, doublet_mode = "multi")
+    parallel_multi_se <- runRctd(parallel_rctd, rctd_mode = "multi")
     expect_equal(
         SummarizedExperiment::assays(parallel_multi_se),
         multi_assays
@@ -75,7 +75,7 @@ test_that("Matches exactly on rctd_simulation", {
     )
 
     # Full mode
-    parallel_full_se <- run.RCTD(parallel_rctd, doublet_mode = "full")
+    parallel_full_se <- runRctd(parallel_rctd, rctd_mode = "full")
     expect_equal(
         SummarizedExperiment::assays(parallel_full_se),
         full_assays

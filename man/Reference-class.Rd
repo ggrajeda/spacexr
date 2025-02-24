@@ -32,11 +32,11 @@ barcode)}
 }}
 
 \examples{
-data(rctd_simulation)
+data(simRctd)
 
-cell_types <- rctd_simulation$reference_cell_types[["cell_type"]]
-names(cell_types) <- rownames(rctd_simulation$reference_cell_types)
-reference <- Reference(rctd_simulation$reference_counts, cell_types)
+cell_types <- simRctd$reference_cell_types[["cell_type"]]
+names(cell_types) <- rownames(simRctd$reference_cell_types)
+reference <- Reference(simRctd$reference_counts, cell_types)
 
 }
 \keyword{internal}

@@ -8,9 +8,9 @@
 #'   (called \code{reference} here) for the RNA-seq data. Then simply run RCTD
 #'   as:
 #'
-#'   \code{rctd <- create.RCTD(spatial, reference)}
+#'   \code{rctd <- createRctd(spatial, reference)}
 #'
-#'   \code{results_se <- run.RCTD(rctd)}
+#'   \code{results_se <- runRctd(rctd)}
 #'
 #' @docType package
 #' @name spacexr-package
@@ -35,12 +35,12 @@
 #' @export
 #' @keywords internal
 #' @examples
-#' data(rctd_simulation)
+#' data(simRctd)
 #'
 #' # Create SpatialRNA object
 #' spatial_rna <- SpatialRNA(
-#'     as.data.frame(rctd_simulation$spatial_rna_coords),
-#'     rctd_simulation$spatial_rna_counts
+#'     as.data.frame(simRctd$spatial_rna_coords),
+#'     simRctd$spatial_rna_counts
 #' )
 #'
 setClass("SpatialRNA",
@@ -88,11 +88,11 @@ setMethod("show", "SpatialRNA", function(object) {
 #' @export
 #' @keywords internal
 #' @examples
-#' data(rctd_simulation)
+#' data(simRctd)
 #'
-#' cell_types <- rctd_simulation$reference_cell_types[["cell_type"]]
-#' names(cell_types) <- rownames(rctd_simulation$reference_cell_types)
-#' reference <- Reference(rctd_simulation$reference_counts, cell_types)
+#' cell_types <- simRctd$reference_cell_types[["cell_type"]]
+#' names(cell_types) <- rownames(simRctd$reference_cell_types)
+#' reference <- Reference(simRctd$reference_counts, cell_types)
 #'
 setClass("Reference",
     slots = c(
@@ -126,8 +126,8 @@ setClassUnion("ReferenceOrNull", c("Reference", "NULL"))
 
 #' RCTD algorithm configuration
 #'
-#' An RCTD configuration created via the \code{\link{create.RCTD}} function.
-#' Users can run RCTD by passing this object to the \code{\link{run.RCTD}}
+#' An RCTD configuration created via the \code{\link{createRctd}} function.
+#' Users can run RCTD by passing this object to the \code{\link{runRctd}}
 #' function.
 #'
 #' @slot spatialRNA a \code{\linkS4class{SpatialRNA}} object containing the
@@ -137,7 +137,7 @@ setClassUnion("ReferenceOrNull", c("Reference", "NULL"))
 #' @slot reference a \code{\linkS4class{Reference}} object containing the
 #'   annotated reference data
 #' @slot config a list of configuration options for the RCTD algorithm, set via
-#'   \code{\link{create.RCTD}}
+#'   \code{\link{createRctd}}
 #' @slot cell_type_info a named list containing cell type expression profiles
 #'   with two components: \code{info} (raw profiles from reference data) and
 #'   \code{renorm} (profiles normalized to match the spatial data)
