@@ -13,20 +13,20 @@
 #' @param n_max_cells numeric, maximum number of cells per cell type. Will
 #'   downsample if this number is exceeded. (default: 10,000)
 #' @param require_int logical, whether counts and nUMI are required to be
-#'   integers (default: TRUE)
+#'   integers (default: \code{TRUE})
 #'
 #' @return \code{\linkS4class{Reference}} object
 #'
 #' @importFrom methods new
 #' @export
+#' @keywords internal
 #' @examples
-#' data(rctd_simulation)
+#' data(simRctd)
 #'
-#' reference <- Reference(
-#'     rctd_simulation$reference_counts,
-#'     rctd_simulation$reference_cell_types
-#' )
-#' 
+#' cell_types <- simRctd$reference_cell_types[["cell_type"]]
+#' names(cell_types) <- rownames(simRctd$reference_cell_types)
+#' reference <- Reference(simRctd$reference_counts, cell_types)
+#'
 Reference <- function(
     counts, cell_types,
     nUMI = NULL,

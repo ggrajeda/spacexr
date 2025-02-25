@@ -4,40 +4,48 @@
 \alias{fitPixels}
 \title{Runs the RCTD algorithm}
 \usage{
-fitPixels(RCTD, doublet_mode = "doublet")
+fitPixels(RCTD, rctd_mode = "doublet")
 }
 \arguments{
-\item{RCTD}{an \code{\linkS4class{RCTD}} object after running the \code{\link{choose_sigma_c}} function.}
+\item{RCTD}{an \code{\linkS4class{RCTD}} object after running the
+\code{\link{choose_sigma_c}} function.}
 
-\item{doublet_mode}{\code{character string}, either "doublet", "multi", or "full" on which mode to run RCTD. Please see above description.}
+\item{rctd_mode}{\code{character string}, either "doublet", "multi", or
+"full" on which mode to run RCTD. Please see above description.}
 }
 \value{
-an SummarizedExperiment object containing the results of the RCTD algorithm.
+an SummarizedExperiment object containing the results of the RCTD
+  algorithm.
 }
 \description{
-If in doublet mode, fits at most two cell types per pixel. It classifies each pixel as 'singlet' or 'doublet' and searches for the cell types
-on the pixel. If in full mode, can fit any number of cell types on each pixel. In multi mode, cell types are added using a greedy algorithm,
-up to a fixed number.
+If in doublet mode, fits at most two cell types per pixel. It classifies each
+pixel as 'singlet' or 'doublet' and searches for the cell types on the pixel.
+If in full mode, can fit any number of cell types on each pixel. In multi
+mode, cell types are added using a greedy algorithm, up to a fixed number.
 }
 \examples{
-data(rctd_simulation)
+data(simRctd)
 
-# Create SpatialRNA and Reference objects
-spatial_rna <- SpatialRNA(
-    rctd_simulation$spatial_rna_coords,
-    rctd_simulation$spatial_rna_counts
-)
-reference <- Reference(
-    rctd_simulation$reference_counts,
-    rctd_simulation$reference_cell_types
+# Spatial transcriptomics data
+library(SpatialExperiment)
+spatial_spe <- SpatialExperiment(
+    assay = simRctd$spatial_rna_counts,
+    spatialCoords = simRctd$spatial_rna_coords
 )
 
-# Create RCTD object
-rctd <- create.RCTD(spatial_rna, reference, max_cores = 1)
+# Reference data
+library(SummarizedExperiment)
+reference_se <- SummarizedExperiment(
+    assays = list(counts = simRctd$reference_counts),
+    colData = simRctd$reference_cell_types
+)
+
+# Create RCTD configuration
+rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
 
 rctd <- fitBulk(rctd)
 rctd <- choose_sigma_c(rctd)
-results_se <- fitPixels(rctd, doublet_mode = "doublet")
+results_se <- fitPixels(rctd, rctd_mode = "doublet")
 
 }
 \keyword{internal}

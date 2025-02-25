@@ -1,4 +1,4 @@
-# Matches exactly on rctd_simulation
+# Matches exactly on simRctd
 
     Code
       print_results(doublet_assays, doublet_row_data)

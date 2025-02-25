@@ -25,21 +25,18 @@ Depends: R (>= 4.4.0)
 License: GPL (>= 3)
 Encoding: UTF-8
 Imports: 
-    readr,
     ggplot2,
     Matrix,
     parallel,
     quadprog,
-    tibble,
     httr,
     methods,
-    Seurat,
-    data.table,
     memoise,
     BiocParallel,
     BiocFileCache,
     SummarizedExperiment,
-    scatterpie
+    scatterpie,
+    SpatialExperiment
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 Suggests: 

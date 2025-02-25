@@ -3,25 +3,29 @@
 #' Estimates bulk cell type composition and uses this
 #' to estimate platform effects and normalize cell type proportions
 #'
-#' @param RCTD an \code{\linkS4class{RCTD}} object after running the \code{\link{create.RCTD}} function.
+#' @param RCTD an \code{\linkS4class{RCTD}} object after running the \code{\link{createRctd}} function.
 #' @return Returns an \code{\linkS4class{RCTD}} object normalized for platform effects.
 #' @export
 #' @keywords internal
 #' @examples
-#' data(rctd_simulation)
+#' data(simRctd)
 #'
-#' # Create SpatialRNA and Reference objects
-#' spatial_rna <- SpatialRNA(
-#'     rctd_simulation$spatial_rna_coords,
-#'     rctd_simulation$spatial_rna_counts
-#' )
-#' reference <- Reference(
-#'     rctd_simulation$reference_counts,
-#'     rctd_simulation$reference_cell_types
+#' # Spatial transcriptomics data
+#' library(SpatialExperiment)
+#' spatial_spe <- SpatialExperiment(
+#'     assay = simRctd$spatial_rna_counts,
+#'     spatialCoords = simRctd$spatial_rna_coords
 #' )
 #'
-#' # Create RCTD object
-#' rctd <- create.RCTD(spatial_rna, reference, max_cores = 1)
+#' # Reference data
+#' library(SummarizedExperiment)
+#' reference_se <- SummarizedExperiment(
+#'     assays = list(counts = simRctd$reference_counts),
+#'     colData = simRctd$reference_cell_types
+#' )
+#'
+#' # Create RCTD configuration
+#' rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
 #' rctd <- fitBulk(rctd)
 #' 
 fitBulk <- function(RCTD) {
@@ -71,20 +75,24 @@ chooseSigma <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
 #' @export
 #' @keywords internal
 #' @examples
-#' data(rctd_simulation)
+#' data(simRctd)
 #'
-#' # Create SpatialRNA and Reference objects
-#' spatial_rna <- SpatialRNA(
-#'     rctd_simulation$spatial_rna_coords,
-#'     rctd_simulation$spatial_rna_counts
-#' )
-#' reference <- Reference(
-#'     rctd_simulation$reference_counts,
-#'     rctd_simulation$reference_cell_types
+#' # Spatial transcriptomics data
+#' library(SpatialExperiment)
+#' spatial_spe <- SpatialExperiment(
+#'     assay = simRctd$spatial_rna_counts,
+#'     spatialCoords = simRctd$spatial_rna_coords
 #' )
 #'
-#' # Create RCTD object
-#' rctd <- create.RCTD(spatial_rna, reference, max_cores = 1)
+#' # Reference data
+#' library(SummarizedExperiment)
+#' reference_se <- SummarizedExperiment(
+#'     assays = list(counts = simRctd$reference_counts),
+#'     colData = simRctd$reference_cell_types
+#' )
+#'
+#' # Create RCTD configuration
+#' rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
 #' 
 #' rctd <- fitBulk(rctd)
 #' rctd <- choose_sigma_c(rctd)

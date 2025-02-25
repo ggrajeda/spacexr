@@ -64,7 +64,7 @@ check_pairs_type <- function(cell_type_profiles, bead, UMI_tot, score_mat, min_s
         }
     }
     if (is.null(class_df)) {
-        all_pairs_class <- all_class
+        all_pairs_class <- TRUE
     }
     if (all_pairs_class && !all_pairs && length(other_class) > 1) {
         for (type in other_class[2:length(other_class)]) {

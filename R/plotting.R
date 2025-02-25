@@ -31,9 +31,10 @@ get_reject_mask <- function(rctd_se) {
 #'
 #' Generates a visualization where each pixel is represented by a pie chart
 #' showing the proportions of different cell types at that location. Users
-#' should run this function on the result of \code{\link{run.RCTD}}.
+#' should run this function on the result of \code{\link{runRctd}}.
 #'
-#' @param rctd_se SummarizedExperiment containing RCTD results
+#' @param rctd_se \code{\link[SummarizedExperiment]{SummarizedExperiment}}
+#'   containing RCTD results
 #' @param assay_name character, name of the assay to plot (default: "weights")
 #' @param cell_type_colors vector of colors for the different cell types
 #'   (default: rainbow)
@@ -41,23 +42,23 @@ get_reject_mask <- function(rctd_se) {
 #' @param lwd numeric, line width of the pie chart borders (default: 1)
 #' @param title character, plot title (default: NA)
 #'
-#' @return ggplot object showing cell type proportions at each pixel using pie
-#'   charts
+#' @return \code{ggplot} object showing cell type proportions at each pixel
+#'   using pie charts
 #'
 #' @importFrom SummarizedExperiment assay rowData
 #' @import ggplot2
 #' @import scatterpie
 #' @export
 #' @examples
-#' data(rctd_simulation)
-#' 
+#' data(simRctd)
+#'
 #' # In practice, results_se should contain the results of an RCTD run.
-#' plot_all_weights(
-#'     rctd_simulation$proportions_se,
-#'     r = 0.05, lwd = 0.5, title = "Cell Type Proportions"
+#' results_se <- simRctd$proportions_se
+#' plotAllWeights(
+#'     results_se, r = 0.05, lwd = 0.5, title = "Cell Type Proportions"
 #' )
-#' 
-plot_all_weights <- function(
+#'
+plotAllWeights <- function(
     rctd_se, assay_name = "weights",
     cell_type_colors = NA,
     r = 0.4, lwd = 1,
@@ -101,9 +102,10 @@ plot_all_weights <- function(
 #'
 #' Creates a visualization showing how the proportion of a specific cell type
 #' varies across space, represented by point color intensity. Users should run
-#' this function on the result of \code{\link{run.RCTD}}.
+#' this function on the result of \code{\link{runRctd}}.
 #'
-#' @param rctd_se SummarizedExperiment containing RCTD results
+#' @param rctd_se \code{\link[SummarizedExperiment]{SummarizedExperiment}}
+#'   containing RCTD results
 #' @param cell_type character, name of cell type to plot
 #' @param assay_name character, name of the assay to plot (default: "weights")
 #' @param size numeric, size of the points (default: 10)
@@ -115,23 +117,22 @@ plot_all_weights <- function(
 #'   "red")
 #' @param title character, plot title (default: NA)
 #'
-#' @return ggplot object showing the proportion of a specified cell type at each
-#'   pixel
+#' @return \code{ggplot} object showing the proportion of a specified cell type
+#'   at each pixel
 #'
 #' @importFrom SummarizedExperiment assay rowData
 #' @import ggplot2
 #' @export
 #' @examples
-#' data(rctd_simulation)
+#' data(simRctd)
 #'
 #' # In practice, results_se should contain the results of an RCTD run.
-#' results_se <- rctd_simulation$proportions_se
-#' plot_cell_type_weight(
-#'     results_se, "ct1",
-#'     size = 5, title = "Cell Type Density (ct1)"
+#' results_se <- simRctd$proportions_se
+#' plotCellTypeWeight(
+#'     results_se, "ct1", size = 5, title = "Cell Type Density (ct1)"
 #' )
-#' 
-plot_cell_type_weight <- function(
+#'
+plotCellTypeWeight <- function(
     rctd_se, cell_type, assay_name = "weights",
     size = 10, stroke = 1, alpha = 1,
     low = "white", high = "red",
