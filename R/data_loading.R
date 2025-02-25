@@ -62,7 +62,10 @@ url_ok <- function(url) {
 }
 
 remote_Q_mat_url <- function(n) {
-    sprintf("https://mghp.osn.xsede.org/bir190004-bucket01/BiocRCTD/Q_mat_%d.rds", n)
+    sprintf(
+        "https://mghp.osn.xsede.org/bir190004-bucket01/BiocRCTD/Q_mat_%d.rds",
+        n
+    )
 }
 
 cached_Q_mat_filepath <- function(n) {
@@ -80,13 +83,18 @@ verify_Q_cache <- function() {
     all(vapply(Q_files, file.exists, logical(1)))
 }
 
-#' Place Q matrices in cache after retrieving them from the Bioconductor Open Storage Network
+#' Caches Q matrices
+#'
+#' Stores Q matrices in cache after retrieving them from the Bioconductor Open
+#' Storage Network
+#'
 #' @return list of bfcadd results
 #' @keywords internal
 cache_Q_all <- function() {
     if (!url_ok(remote_Q_mat_url(1L))) {
         stop(
-            "Could not load cached Q matrix. Did not receive header status 200 for ",
+            "Could not load cached Q matrix. Did not receive header status ",
+            "200 for ",
             remote_Q_mat_url(1L)
         )
     }

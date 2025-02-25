@@ -21,7 +21,11 @@ solveOLS <- function(S, B, solution, constrain = TRUE) {
 
 # solve using WLS with weights dampened by a certain dampening constant
 # if constrain, constrain the weights to sum up to 1
-solveIRWLS.weights <- function(S, B, nUMI, OLS = FALSE, constrain = TRUE, verbose = FALSE, n.iter = 50, MIN_CHANGE = .001, bulk_mode = FALSE, solution = NULL) {
+solveIRWLS.weights <- function(
+    S, B, nUMI,
+    OLS = FALSE, constrain = TRUE, verbose = FALSE,
+    n.iter = 50, MIN_CHANGE = .001, bulk_mode = FALSE, solution = NULL
+) {
     if (!bulk_mode) {
         K_val <- get_K_val()
         B[B > K_val] <- K_val
@@ -29,7 +33,8 @@ solveIRWLS.weights <- function(S, B, nUMI, OLS = FALSE, constrain = TRUE, verbos
     solution <- numeric(dim(S)[2])
     solution[] <- 1 / length(solution)
     if (OLS) {
-        solution <- solveOLS(S, B, solution, constrain = constrain) # first solve OLS, use this solution to find a starting point for the weights
+        # First solve OLS. Use this solution to find starting point for weights.
+        solution <- solveOLS(S, B, solution, constrain = constrain)
         return(list(weights = solution, converged = TRUE))
     }
     names(solution) <- colnames(S)
@@ -47,7 +52,10 @@ solveIRWLS.weights <- function(S, B, nUMI, OLS = FALSE, constrain = TRUE, verbos
     changes <- c()
     change <- 1
     while (change > MIN_CHANGE && iterations < n.iter) {
-        new_solution <- solveWLS(S, S_mat, B, solution, nUMI, constrain = constrain, bulk_mode = bulk_mode)
+        new_solution <- solveWLS(
+            S, S_mat, B, solution, nUMI,
+            constrain = constrain, bulk_mode = bulk_mode
+        )
         change <- norm(as.matrix(new_solution - solution))
         if (verbose) {
             message("Change: ", change)
@@ -59,13 +67,18 @@ solveIRWLS.weights <- function(S, B, nUMI, OLS = FALSE, constrain = TRUE, verbos
     return(list(weights = solution, converged = (change <= MIN_CHANGE)))
 }
 
-solveWLS <- function(S, S_mat, B, initialSol, nUMI, bulk_mode = FALSE, constrain = FALSE) {
+solveWLS <- function(
+    S, S_mat, B, initialSol, nUMI,
+    bulk_mode = FALSE, constrain = FALSE
+) {
     solution <- pmax(initialSol, 0)
     prediction <- abs(S %*% solution)
     threshold <- max(1e-4, nUMI * 1e-7)
     prediction[prediction < threshold] <- threshold
     gene_list <- rownames(S)
-    derivatives <- get_der_fast(S, S_mat, B, gene_list, prediction, bulk_mode = bulk_mode)
+    derivatives <- get_der_fast(
+        S, S_mat, B, gene_list, prediction, bulk_mode = bulk_mode
+    )
     d_vec <- -derivatives$grad
     D_mat <- psd(derivatives$hess)
     norm_factor <- norm(D_mat, "2")
@@ -79,9 +92,11 @@ solveWLS <- function(S, S_mat, B, initialSol, nUMI, bulk_mode = FALSE, constrain
     if (constrain) {
         A_const <- t(rbind(1, A))
         b_const <- c(1 - sum(solution), bzero)
-        solution <- solution + alpha * quadprog::solve.QP(D_mat, d_vec, A_const, b_const, meq = 1)$solution
+        step <- quadprog::solve.QP(D_mat, d_vec, A_const, b_const, meq = 1)
+        solution <- solution + alpha * step$solution
     } else {
-        solution <- solution + alpha * quadprog::solve.QP(D_mat, d_vec, A, bzero, meq = 0)$solution
+        step <- quadprog::solve.QP(D_mat, d_vec, A, bzero, meq = 0)
+        solution <- solution + alpha * step$solution
     }
     names(solution) <- colnames(S)
     return(solution)

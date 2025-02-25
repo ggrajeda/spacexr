@@ -11,12 +11,12 @@ rctd_metadata <- function(RCTD) {
 }
 
 #' Converts a list of RCTD results to a SummarizedExperiment
-#' 
+#'
 #' The SummarizedExperiment contains an assay with the cell type weights.
 #' Additional information (e.g., x and y coords) are stored in the row data,
 #' which will contain the entries in the results list specified by the *_cols
 #' arguments.
-#' 
+#'
 #' @param RCTD  RCTD object
 #' @param results List of results (with named entries) for each pixel
 #' @param weights_col Name of list entry containing the cell type weights
@@ -24,7 +24,7 @@ rctd_metadata <- function(RCTD) {
 #' @param logical_cols Names of list entries containing a logical(1)
 #' @param numeric_cols Names of list entries containing a numeric(1)
 #' @param list_cols Names of list entries containing a list
-#' 
+#'
 #' @return SummarizedExperiment containing RCTD results
 #'
 #' @importFrom SummarizedExperiment SummarizedExperiment
@@ -73,10 +73,10 @@ create_se_from_columns <- function(
 }
 
 #' Converts the results of \code{decompose_batch} to a SummarizedExperiment
-#' 
+#'
 #' @param RCTD RCTD object
 #' @param results \code{decompose_batch} results
-#' 
+#'
 #' @return SummarizedExperiment containing RCTD results
 #'
 #' @importFrom SummarizedExperiment assay assay<-
@@ -130,10 +130,10 @@ get_confident_doublet_weights <- function(weights_doublet, results_se) {
 }
 
 #' Converts the results of \code{process_beads_batch} to a SummarizedExperiment
-#' 
+#'
 #' @param RCTD RCTD object
 #' @param results \code{process_beads_batch} results
-#' 
+#'
 #' @return SummarizedExperiment containing RCTD results
 #'
 #' @importFrom SummarizedExperiment assay assay<- rowData rowData<-
@@ -213,10 +213,10 @@ get_confident_multi_weights <- function(weights_multi, results_se) {
 }
 
 #' Converts the results of \code{process_beads_multi} to a SummarizedExperiment
-#' 
+#'
 #' @param RCTD RCTD object
 #' @param results \code{process_beads_multi} results
-#' 
+#'
 #' @return SummarizedExperiment containing RCTD results
 #'
 #' @importFrom SummarizedExperiment assay assay<- rowData

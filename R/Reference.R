@@ -56,7 +56,8 @@ Reference <- function(
             "colnames(counts) and names(nUMI)"
         )
     }
-    if (length(barcodes) < max(length(nUMI), length(cell_types), dim(counts)[2])) {
+    max_length <- max(length(nUMI), length(cell_types), dim(counts)[2])
+    if (length(barcodes) < max_length) {
         warning(
             "Reference: some barcodes in nUMI, cell_types, or counts were not ",
             "mutually shared. Such barcodes were removed."
