@@ -330,7 +330,8 @@ createRctd <- function(
 #'   \code{"doublet"}, \code{"multi"}, or \code{"full"}
 #'   (default: \code{"doublet"})
 #'
-#' @return A SummarizedExperiment object containing the RCTD results with:
+#' @return A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
+#'   containing the RCTD results with:
 #'   \itemize{
 #'     \item Three assays (one in full mode):
 #'       \itemize{

@@ -16,10 +16,11 @@ A list containing five components:
   giving the coordinates of each spatial transcriptomics pixel.}
   \item{spatial_rna_counts}{A matrix of simulated spatial transcriptomics
   counts with 750 rows (genes) and 12 columns (spatial locations).}
-  \item{proportions_se}{A SummarizedExperiment object containing the true
-  cell type proportions for each spatial location. The \code{weights} assay
-  contains a matrix with 12 rows (spatial locations) and 3 columns
-  (cell types).}
+  \item{proportions_se}{A
+  \code{\link[SummarizedExperiment]{SummarizedExperiment}} object containing
+  the true cell type proportions for each spatial location. The
+  \code{weights} assay contains a matrix with 12 rows (spatial locations)
+  and 3 columns (cell types).}
 }
 }
 \usage{

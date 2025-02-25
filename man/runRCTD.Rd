@@ -15,7 +15,8 @@ runRctd(RCTD, rctd_mode = "doublet")
 (default: \code{"doublet"})}
 }
 \value{
-A SummarizedExperiment object containing the RCTD results with:
+A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
+  containing the RCTD results with:
   \itemize{
     \item Three assays (one in full mode):
       \itemize{
