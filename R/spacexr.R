@@ -36,20 +36,36 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #' \code{\link{runRctd}}.
 #'
 #' @param spatial_experiment \code{\link[SpatialExperiment]{SpatialExperiment}}
-#'   object containing spatial transcriptomics data. Optionally, total UMI
-#'   counts for each pixel may be specified via a \code{colData} column named
-#'   \code{nUMI}. If not provided, \code{nUMI} will be calculated as the
-#'   column sums of the counts matrix. If \code{spatialCoords} are not provided,
-#'   dummy coordinates will be used.
+#'   object containing spatial transcriptomics data to be deconvolved. The
+#'   object must contain:
+#'   \itemize{
+#'     \item An \code{assay} matrix of gene expression counts (genes as rows,
+#'     pixels as columns) with unique gene names as row names and unique pixel
+#'     barcodes as column names.
+#'     \item A \code{spatialCoords} matrix containing x and y coordinates for
+#'     each pixel. If not provided, dummy coordinates will be used.
+#'     \item Optionally, a \code{colData} column named \code{nUMI} containing
+#'     total UMI counts for each pixel. If not provided, \code{nUMI} will be
+#'     calculated as the column sums of the counts matrix.
+#'   }
 #' @param reference_experiment
 #'   \code{\link[SummarizedExperiment]{SummarizedExperiment}} object containing
-#'   annotated RNA-seq data. Cell type annotations must be provided in the
-#'   \code{colData}. Optionally, total UMI counts for each cell may be specified
-#'   via a \code{colData} column named \code{nUMI}. If not provided, \code{nUMI}
-#'   will be calculated as the column sums of the counts matrix.
+#'   annotated RNA-seq data (e.g., from snRNA-seq, scRNA-seq, or cell
+#'   type-specific bulk RNA-seq), used to learn cell type profiles. The object
+#'   must contain:
+#'   \itemize{
+#'     \item An \code{assay} matrix of gene expression counts (genes as rows,
+#'     cells as columns) with unique gene names as row names and unique cell
+#'     barcodes as column names.
+#'     \item A \code{colData} column containing cell type annotations for each
+#'     cell (column name specified by \code{cell_type_col}).
+#'     \item Optionally, a \code{colData} column named \code{nUMI} containing
+#'     total UMI counts for each cell. If not provided, \code{nUMI} will be
+#'     calculated as the column sums of the counts matrix.
+#'   }
 #' @param cell_type_col character, name of the entry in
 #'   \code{colData(reference_experiment)} containing cell type annotations
-#'   (default: "cell_type")
+#'   (default: \code{"cell_type"})
 #' @param max_cores numeric, maximum number of cores to use for parallel
 #'   processing (default: 4)
 #' @param require_int logical, whether counts and nUMI are required to be
@@ -120,7 +136,7 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #'
 #' # Create RCTD configuration
 #' rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
-#' 
+#'
 createRctd <- function(
     spatial_experiment, reference_experiment, cell_type_col = "cell_type",
     max_cores = 4, require_int = TRUE, gene_cutoff = 0.000125, fc_cutoff = 0.5,
@@ -289,15 +305,23 @@ createRctd <- function(
 #' Run RCTD algorithm to decompose cell type mixtures
 #'
 #' Runs the RCTD algorithm to decompose cell type mixtures in spatial
-#' transcriptomics data. The algorithm has three modes:
+#' transcriptomics data. For each pixel in the spatial data, RCTD estimates the
+#' proportions of different cell types by comparing the gene expression at a
+#' pixel to the reference cell type profiles, while accounting for technical
+#' factors like platform effects and varying sequencing depth. The algorithm has
+#' three modes suited for different spatial technologies:
 #' \itemize{
 #'   \item \code{doublet}: Fits at most two cell types per pixel and classifies
-#'     each pixel as a "singlet" or "doublet." Recommended for high spatial
-#'     resolution technologies such as Slide-seq or MERFISH.
-#'   \item \code{multi}: Uses a greedy algorithm to fit cell types up to a fixed
-#'     maximum number. Recommended for low spatial resolution technologies such
-#'     as 100-micron resolution Visium.
-#'   \item \code{full}: Can fit any number of cell types on each pixel.
+#'     each pixel as a \code{"singlet"} (one cell type) or \code{"doublet"}
+#'     (two cell types). Best for high spatial resolution technologies like
+#'     Slide-seq or MERFISH, where pixels are more likely to contain only 1 or
+#'     2 cells.
+#'   \item \code{multi}: Uses a greedy algorithm to fit up to
+#'     \code{MAX_MULTI_TYPES} cell types per pixel (default: 4). Best for lower
+#'     resolution technologies like 100-micron Visium spots, which can contain
+#'     more cell types.
+#'   \item \code{full}: Fits any number of cell types per pixel without
+#'     restrictions.
 #' }
 #'
 #' @param RCTD \code{\linkS4class{RCTD}} object created using

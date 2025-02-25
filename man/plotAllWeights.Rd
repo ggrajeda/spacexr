@@ -17,7 +17,8 @@ plotAllWeights(
 \item{rctd_se}{\code{\link[SummarizedExperiment]{SummarizedExperiment}}
 containing RCTD results}
 
-\item{assay_name}{character, name of the assay to plot (default: "weights")}
+\item{assay_name}{character, name of the assay to plot
+(default: \code{"weights"})}
 
 \item{cell_type_colors}{vector of colors for the different cell types
 (default: rainbow)}

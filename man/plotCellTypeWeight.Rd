@@ -22,7 +22,8 @@ containing RCTD results}
 
 \item{cell_type}{character, name of cell type to plot}
 
-\item{assay_name}{character, name of the assay to plot (default: "weights")}
+\item{assay_name}{character, name of the assay to plot
+(default: \code{"weights"})}
 
 \item{size}{numeric, size of the points (default: 10)}
 
@@ -30,11 +31,11 @@ containing RCTD results}
 
 \item{alpha}{numeric, point transparency between 0 and 1 (default: 1)}
 
-\item{low}{color for the low end of the proportion color scale (default:
-"white")}
+\item{low}{color for the low end of the proportion color scale
+(default: \code{"white"})}
 
-\item{high}{color for the high end of the proportion color scale (default:
-"red")}
+\item{high}{color for the high end of the proportion color scale
+(default: \code{"red"})}
 
 \item{title}{character, plot title (default: NA)}
 }

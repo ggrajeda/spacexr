@@ -33,21 +33,37 @@ createRctd(
 }
 \arguments{
 \item{spatial_experiment}{\code{\link[SpatialExperiment]{SpatialExperiment}}
-object containing spatial transcriptomics data. Optionally, total UMI
-counts for each pixel may be specified via a \code{colData} column named
-\code{nUMI}. If not provided, \code{nUMI} will be calculated as the
-column sums of the counts matrix. If \code{spatialCoords} are not provided,
-dummy coordinates will be used.}
+object containing spatial transcriptomics data to be deconvolved. The
+object must contain:
+\itemize{
+  \item An \code{assay} matrix of gene expression counts (genes as rows,
+  pixels as columns) with unique gene names as row names and unique pixel
+  barcodes as column names.
+  \item A \code{spatialCoords} matrix containing x and y coordinates for
+  each pixel. If not provided, dummy coordinates will be used.
+  \item Optionally, a \code{colData} column named \code{nUMI} containing
+  total UMI counts for each pixel. If not provided, \code{nUMI} will be
+  calculated as the column sums of the counts matrix.
+}}
 
 \item{reference_experiment}{\code{\link[SummarizedExperiment]{SummarizedExperiment}} object containing
-annotated RNA-seq data. Cell type annotations must be provided in the
-\code{colData}. Optionally, total UMI counts for each cell may be specified
-via a \code{colData} column named \code{nUMI}. If not provided, \code{nUMI}
-will be calculated as the column sums of the counts matrix.}
+annotated RNA-seq data (e.g., from snRNA-seq, scRNA-seq, or cell
+type-specific bulk RNA-seq), used to learn cell type profiles. The object
+must contain:
+\itemize{
+  \item An \code{assay} matrix of gene expression counts (genes as rows,
+  cells as columns) with unique gene names as row names and unique cell
+  barcodes as column names.
+  \item A \code{colData} column containing cell type annotations for each
+  cell (column name specified by \code{cell_type_col}).
+  \item Optionally, a \code{colData} column named \code{nUMI} containing
+  total UMI counts for each cell. If not provided, \code{nUMI} will be
+  calculated as the column sums of the counts matrix.
+}}
 
 \item{cell_type_col}{character, name of the entry in
 \code{colData(reference_experiment)} containing cell type annotations
-(default: "cell_type")}
+(default: \code{"cell_type"})}
 
 \item{max_cores}{numeric, maximum number of cores to use for parallel
 processing (default: 4)}

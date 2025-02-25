@@ -52,15 +52,23 @@ A SummarizedExperiment object containing the RCTD results with:
 }
 \description{
 Runs the RCTD algorithm to decompose cell type mixtures in spatial
-transcriptomics data. The algorithm has three modes:
+transcriptomics data. For each pixel in the spatial data, RCTD estimates the
+proportions of different cell types by comparing the gene expression at a
+pixel to the reference cell type profiles, while accounting for technical
+factors like platform effects and varying sequencing depth. The algorithm has
+three modes suited for different spatial technologies:
 \itemize{
   \item \code{doublet}: Fits at most two cell types per pixel and classifies
-    each pixel as a "singlet" or "doublet." Recommended for high spatial
-    resolution technologies such as Slide-seq or MERFISH.
-  \item \code{multi}: Uses a greedy algorithm to fit cell types up to a fixed
-    maximum number. Recommended for low spatial resolution technologies such
-    as 100-micron resolution Visium.
-  \item \code{full}: Can fit any number of cell types on each pixel.
+    each pixel as a \code{"singlet"} (one cell type) or \code{"doublet"}
+    (two cell types). Best for high spatial resolution technologies like
+    Slide-seq or MERFISH, where pixels are more likely to contain only 1 or
+    2 cells.
+  \item \code{multi}: Uses a greedy algorithm to fit up to
+    \code{MAX_MULTI_TYPES} cell types per pixel (default: 4). Best for lower
+    resolution technologies like 100-micron Visium spots, which can contain
+    more cell types.
+  \item \code{full}: Fits any number of cell types per pixel without
+    restrictions.
 }
 }
 \examples{

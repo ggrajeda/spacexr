@@ -35,7 +35,8 @@ get_reject_mask <- function(rctd_se) {
 #'
 #' @param rctd_se \code{\link[SummarizedExperiment]{SummarizedExperiment}}
 #'   containing RCTD results
-#' @param assay_name character, name of the assay to plot (default: "weights")
+#' @param assay_name character, name of the assay to plot
+#'   (default: \code{"weights"})
 #' @param cell_type_colors vector of colors for the different cell types
 #'   (default: rainbow)
 #' @param r numeric, radius of the pie charts (default: 0.4)
@@ -107,14 +108,15 @@ plotAllWeights <- function(
 #' @param rctd_se \code{\link[SummarizedExperiment]{SummarizedExperiment}}
 #'   containing RCTD results
 #' @param cell_type character, name of cell type to plot
-#' @param assay_name character, name of the assay to plot (default: "weights")
+#' @param assay_name character, name of the assay to plot
+#'   (default: \code{"weights"})
 #' @param size numeric, size of the points (default: 10)
 #' @param stroke numeric, border width of the points (default: 1)
 #' @param alpha numeric, point transparency between 0 and 1 (default: 1)
-#' @param low color for the low end of the proportion color scale (default:
-#'   "white")
-#' @param high color for the high end of the proportion color scale (default:
-#'   "red")
+#' @param low color for the low end of the proportion color scale
+#'   (default: \code{"white"})
+#' @param high color for the high end of the proportion color scale
+#'   (default: \code{"red"})
 #' @param title character, plot title (default: NA)
 #'
 #' @return \code{ggplot} object showing the proportion of a specified cell type
