@@ -5,7 +5,7 @@
 \title{Plot pie charts of cell type proportions across pixels}
 \usage{
 plotAllWeights(
-  rctd_se,
+  rctd_spe,
   assay_name = "weights",
   cell_type_colors = NA,
   r = 0.4,
@@ -14,7 +14,7 @@ plotAllWeights(
 )
 }
 \arguments{
-\item{rctd_se}{\code{\link[SummarizedExperiment]{SummarizedExperiment}}
+\item{rctd_spe}{\code{\link[SpatialExperiment]{SpatialExperiment}}
 containing RCTD results}
 
 \item{assay_name}{character, name of the assay to plot
@@ -27,7 +27,7 @@ containing RCTD results}
 
 \item{lwd}{numeric, line width of the pie chart borders (default: 1)}
 
-\item{title}{character, plot title (default: NA)}
+\item{title}{character, plot title (default: \code{NA})}
 }
 \value{
 \code{ggplot} object showing cell type proportions at each pixel
@@ -39,12 +39,12 @@ showing the proportions of different cell types at that location. Users
 should run this function on the result of \code{\link{runRctd}}.
 }
 \examples{
-data(simRctd)
+data(rctdSim)
 
-# In practice, results_se should contain the results of an RCTD run.
-results_se <- simRctd$proportions_se
+# In practice, results_spe should contain the results of an RCTD run.
+results_spe <- rctdSim$proportions_spe
 plotAllWeights(
-    results_se, r = 0.05, lwd = 0.5, title = "Cell Type Proportions"
+    results_spe, r = 0.05, lwd = 0.5, title = "Cell Type Proportions"
 )
 
 }

@@ -10,26 +10,26 @@
 #' @export
 #' @keywords internal
 #' @examples
-#' data(simRctd)
+#' data(rctdSim)
 #'
 #' # Spatial transcriptomics data
 #' library(SpatialExperiment)
 #' spatial_spe <- SpatialExperiment(
-#'     assay = simRctd$spatial_rna_counts,
-#'     spatialCoords = simRctd$spatial_rna_coords
+#'     assay = rctdSim$spatial_rna_counts,
+#'     spatialCoords = rctdSim$spatial_rna_coords
 #' )
 #'
 #' # Reference data
 #' library(SummarizedExperiment)
 #' reference_se <- SummarizedExperiment(
-#'     assays = list(counts = simRctd$reference_counts),
-#'     colData = simRctd$reference_cell_types
+#'     assays = list(counts = rctdSim$reference_counts),
+#'     colData = rctdSim$reference_cell_types
 #' )
 #'
 #' # Create RCTD configuration
 #' rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
 #' rctd <- fitBulk(rctd)
-#' 
+#'
 fitBulk <- function(RCTD) {
     bulkData <- prepareBulkData(
         RCTD@cell_type_info$info[[1]],
@@ -85,20 +85,20 @@ chooseSigma <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
 #' @export
 #' @keywords internal
 #' @examples
-#' data(simRctd)
+#' data(rctdSim)
 #'
 #' # Spatial transcriptomics data
 #' library(SpatialExperiment)
 #' spatial_spe <- SpatialExperiment(
-#'     assay = simRctd$spatial_rna_counts,
-#'     spatialCoords = simRctd$spatial_rna_coords
+#'     assay = rctdSim$spatial_rna_counts,
+#'     spatialCoords = rctdSim$spatial_rna_coords
 #' )
 #'
 #' # Reference data
 #' library(SummarizedExperiment)
 #' reference_se <- SummarizedExperiment(
-#'     assays = list(counts = simRctd$reference_counts),
-#'     colData = simRctd$reference_cell_types
+#'     assays = list(counts = rctdSim$reference_counts),
+#'     colData = rctdSim$reference_cell_types
 #' )
 #'
 #' # Create RCTD configuration
@@ -106,7 +106,7 @@ chooseSigma <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
 #'
 #' rctd <- fitBulk(rctd)
 #' rctd <- choose_sigma_c(rctd)
-#' 
+#'
 choose_sigma_c <- function(RCTD) {
     puck <- RCTD@spatialRNA
     MIN_UMI <- RCTD@config$UMI_min_sigma

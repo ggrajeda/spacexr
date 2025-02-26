@@ -1,4 +1,4 @@
-library(SummarizedExperiment)
+library(SpatialExperiment)
 
 devtools::load_all()
 
@@ -146,29 +146,30 @@ simulate_spatial_transcriptomics <- function(
         expression_profile,
         test_mixtures
     )
+    coords <- as.matrix(spatial_rna@coords)
 
-    true_proportions <- do.call(rbind, lapply(test_mixtures, function(m) {
-        t(replicate(m$n, m$prop))
+    true_proportions <- do.call(cbind, lapply(test_mixtures, function(m) {
+        replicate(m$n, m$prop)
     }))
-    colnames(true_proportions) <- cell_type_name(seq_len(num_cell_types))
-    rownames(true_proportions) <- rownames(spatial_rna@coords)
-    proportions_se = SummarizedExperiment(
+    colnames(true_proportions) <- rownames(coords)
+    rownames(true_proportions) <- cell_type_name(seq_len(num_cell_types))
+    proportions_spe = SpatialExperiment(
         assays = list(weights = true_proportions),
-        rowData = spatial_rna@coords,
+        spatialCoords = coords
     )
 
     list(
         reference_counts = reference@counts,
         reference_cell_types = data.frame(cell_type = reference@cell_types),
-        spatial_rna_coords = as.matrix(spatial_rna@coords),
+        spatial_rna_coords = coords,
         spatial_rna_counts = spatial_rna@counts,
-        proportions_se = proportions_se
+        proportions_spe = proportions_spe
     )
 }
 
 set.seed(123456789)
-simRctd <- simulate_spatial_transcriptomics(test_mixtures = list(
+rctdSim <- simulate_spatial_transcriptomics(test_mixtures = list(
     mx1 = list(prop = c(0.9, 0.1, 0.0), n = 6),
     mx2 = list(prop = c(0.2, 0.4, 0.4), n = 6)
 ))
-usethis::use_data(simRctd, overwrite = TRUE)
+usethis::use_data(rctdSim, overwrite = TRUE)

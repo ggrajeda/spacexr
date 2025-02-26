@@ -17,11 +17,11 @@
 #'   giving the coordinates of each spatial transcriptomics pixel.}
 #'   \item{spatial_rna_counts}{A matrix of simulated spatial transcriptomics
 #'   counts with 750 rows (genes) and 12 columns (spatial locations).}
-#'   \item{proportions_se}{A
-#'   \code{\link[SummarizedExperiment]{SummarizedExperiment}} object containing
+#'   \item{proportions_spe}{A
+#'   \code{\link[SpatialExperiment]{SpatialExperiment}} object containing
 #'   the true cell type proportions for each spatial location. The
-#'   \code{weights} assay contains a matrix with 12 rows (spatial locations)
-#'   and 3 columns (cell types).}
+#'   \code{weights} assay contains a matrix with 3 rows (cell types) and 12
+#'   columns (spatial locations).}
 #' }
 #'
 #' @details The dataset was generated using the following parameters:
@@ -41,26 +41,26 @@
 #' up-regulated (2x) or down-regulated (0.5x) in specific cell types.
 #' Final counts were generated using a Poisson distribution.
 #'
-#' @usage data(simRctd)
+#' @usage data(rctdSim)
 #'
 #' @examples
-#' data(simRctd)
+#' data(rctdSim)
 #'
 #' # Spatial transcriptomics data
 #' library(SpatialExperiment)
 #' spatial_spe <- SpatialExperiment(
-#'     assay = simRctd$spatial_rna_counts,
-#'     spatialCoords = simRctd$spatial_rna_coords
+#'     assay = rctdSim$spatial_rna_counts,
+#'     spatialCoords = rctdSim$spatial_rna_coords
 #' )
 #'
 #' # Reference data
 #' library(SummarizedExperiment)
 #' reference_se <- SummarizedExperiment(
-#'     assays = list(counts = simRctd$reference_counts),
-#'     colData = simRctd$reference_cell_types
+#'     assays = list(counts = rctdSim$reference_counts),
+#'     colData = rctdSim$reference_cell_types
 #' )
 #'
 #' # Access true cell type proportions
-#' true_proportions <- assay(simRctd$proportions_se, "weights")
+#' true_proportions <- assay(rctdSim$proportions_spe, "weights")
 #'
-"simRctd"
+"rctdSim"

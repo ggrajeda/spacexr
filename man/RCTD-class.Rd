@@ -39,3 +39,4 @@ with two components: \code{info} (raw profiles from reference data) and
 analysis}
 }}
 
+\keyword{internal}

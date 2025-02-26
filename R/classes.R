@@ -8,9 +8,9 @@
 #'   (called \code{reference} here) for the RNA-seq data. Then simply run RCTD
 #'   as:
 #'
-#'   \code{rctd <- createRctd(spatial, reference)}
+#'   \code{rctd_config <- createRctd(spatial, reference)}
 #'
-#'   \code{results_se <- runRctd(rctd)}
+#'   \code{results <- runRctd(rctd_config)}
 #'
 #' @docType package
 #' @name spacexr-package
@@ -35,12 +35,12 @@
 #' @export
 #' @keywords internal
 #' @examples
-#' data(simRctd)
+#' data(rctdSim)
 #'
 #' # Create SpatialRNA object
 #' spatial_rna <- SpatialRNA(
-#'     as.data.frame(simRctd$spatial_rna_coords),
-#'     simRctd$spatial_rna_counts
+#'     as.data.frame(rctdSim$spatial_rna_coords),
+#'     rctdSim$spatial_rna_counts
 #' )
 #'
 setClass("SpatialRNA",
@@ -88,11 +88,11 @@ setMethod("show", "SpatialRNA", function(object) {
 #' @export
 #' @keywords internal
 #' @examples
-#' data(simRctd)
+#' data(rctdSim)
 #'
-#' cell_types <- simRctd$reference_cell_types[["cell_type"]]
-#' names(cell_types) <- rownames(simRctd$reference_cell_types)
-#' reference <- Reference(simRctd$reference_counts, cell_types)
+#' cell_types <- rctdSim$reference_cell_types[["cell_type"]]
+#' names(cell_types) <- rownames(rctdSim$reference_cell_types)
+#' reference <- Reference(rctdSim$reference_counts, cell_types)
 #'
 setClass("Reference",
     slots = c(
@@ -147,6 +147,7 @@ setClassUnion("ReferenceOrNull", c("Reference", "NULL"))
 #' @import Matrix
 #' @importClassesFrom Matrix Matrix dgCMatrix
 #' @export
+#' @keywords internal
 setClass("RCTD",
     slots = c(
         spatialRNA = "SpatialRNA",
@@ -169,6 +170,7 @@ setClass("RCTD",
 #' @param object RCTD configuration object
 #' @rdname RCTD-class
 #' @export
+#' @keywords internal
 setMethod("show", "RCTD", function(object) {
     cat("RCTD object with:\n")
     cat("\nSpatial data (processed):\n")

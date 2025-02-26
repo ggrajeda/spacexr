@@ -14,7 +14,7 @@ fitPixels(RCTD, rctd_mode = "doublet")
 "full" on which mode to run RCTD. Please see above description.}
 }
 \value{
-an SummarizedExperiment object containing the results of the RCTD
+a \code{SpatialExperiment} object containing the results of the RCTD
   algorithm.
 }
 \description{
@@ -24,20 +24,20 @@ If in full mode, can fit any number of cell types on each pixel. In multi
 mode, cell types are added using a greedy algorithm, up to a fixed number.
 }
 \examples{
-data(simRctd)
+data(rctdSim)
 
 # Spatial transcriptomics data
 library(SpatialExperiment)
 spatial_spe <- SpatialExperiment(
-    assay = simRctd$spatial_rna_counts,
-    spatialCoords = simRctd$spatial_rna_coords
+    assay = rctdSim$spatial_rna_counts,
+    spatialCoords = rctdSim$spatial_rna_coords
 )
 
 # Reference data
 library(SummarizedExperiment)
 reference_se <- SummarizedExperiment(
-    assays = list(counts = simRctd$reference_counts),
-    colData = simRctd$reference_cell_types
+    assays = list(counts = rctdSim$reference_counts),
+    colData = rctdSim$reference_cell_types
 )
 
 # Create RCTD configuration
@@ -45,7 +45,7 @@ rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
 
 rctd <- fitBulk(rctd)
 rctd <- choose_sigma_c(rctd)
-results_se <- fitPixels(rctd, rctd_mode = "doublet")
+results <- fitPixels(rctd, rctd_mode = "doublet")
 
 }
 \keyword{internal}

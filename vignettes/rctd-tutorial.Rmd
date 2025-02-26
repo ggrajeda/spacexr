@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Installation
+# Installation
 
 You can install the latest version of spacexr from Bioconductor:
 
@@ -30,7 +30,7 @@ if (!require("BiocManager", quietly = TRUE))
 BiocManager::install("spacexr")
 ```
 
-## Introduction
+# Introduction
 
 Robust Cell Type Decomposition (RCTD) is a statistical method for decomposing
 cell type mixtures in spatial transcriptomics data. In this vignette, we will
@@ -43,7 +43,7 @@ the term *cell* because, in spatial transcriptomics data, single *pixels* may
 contain mixtures of multiple cells. The purpose of RCTD is to estimate the
 proportions of different cell types in each pixel of a dataset.
 
-## Setup
+# Setup
 
 ```{r setup, message = FALSE}
 library(ggplot2)
@@ -53,14 +53,14 @@ library(SummarizedExperiment)
 library(spacexr)
 ```
 
-## Data Preprocessing
+# Data Preprocessing
 
 Before running RCTD, we must first load in:
 
 - an annotated reference dataset, which is used to learn cell type profiles.
 - a spatial transcriptomics dataset, which contains pixels for deconvolution.
 
-### Reference
+## Reference
 
 The reference data should be stored in a `SummarizedExperiment` object with:
 
@@ -86,18 +86,18 @@ In practice, your reference could be an annotated dataset from:
 - Single-cell RNA sequencing (scRNA-seq)
 - Cell type-specific bulk RNA sequencing
 
-Here, we load counts and cell type annotations from the `simRctd`
+Here, we load counts and cell type annotations from the `rctdSim`
 object, but in a real-world setting, the reference information may be
 distributed across several files or R objects.
 
 ```{r reference}
 # Load simulated data.
-data("simRctd")
+data("rctdSim")
 
 # Create SummarizedExperiment.
 reference_se <- SummarizedExperiment(
-    assays = list(counts = simRctd$reference_counts),
-    colData = simRctd$reference_cell_types
+    assays = list(counts = rctdSim$reference_counts),
+    colData = rctdSim$reference_cell_types
 )
 
 # Examine reference. (optional)
@@ -109,7 +109,7 @@ In this vignette, we have a reference dataset of 750 genes for 75 cells. We
 find that there are three cell types (`ct1`, `ct2`, and `ct3`), each appearing
 25 times in the reference.
 
-### Spatial Transcriptomics Data
+## Spatial Transcriptomics Data
 
 Next, we will load the spatial transcriptomics data into a `SpatialExperiment`
 object with:
@@ -128,15 +128,15 @@ names should be unique pixel barcodes. Counts should be untransformed integers.
 each pixel. If not provided, `nUMI` will be calculated as the column sums of the
 counts matrix.
 
-Here, we load coordinates and counts from the `simRctd` object. Again,
+Here, we load coordinates and counts from the `rctdSim` object. Again,
 in practice, this step will depend on how you store your spatial transcriptomics
 data.
 
 ```{r spatial, fig.align='center', fig.width=5, fig.height=5, out.width='50%'}
 # Create SpatialExperiment.
 spatial_spe <- SpatialExperiment(
-    assay = simRctd$spatial_rna_counts,
-    spatialCoords = simRctd$spatial_rna_coords
+    assay = rctdSim$spatial_rna_counts,
+    spatialCoords = rctdSim$spatial_rna_coords
 )
 
 # Examine pixels. (optional)
@@ -150,12 +150,16 @@ ggplot(as.data.frame(spatialCoords(spatial_spe)), aes(x, y)) +
 
 We find that we have a dataset of 750 genes for 12 pixels, plotted above.
 
-The ground truth for our cell type mixtures is given by
-`simRctd$proportions_se`. Note that this ground truth will not be known
-in practice---it is what we will need to estimate with RCTD.
+### Visualizing Ground Truth
+
+The ground truth for our cell type mixtures is given in the `SpatialExperiment`
+object `rctdSim$proportions_spe`. (The ground truth has been stored in the same
+format as the RCTD output, which will be discussed later.) Note that this ground
+truth will not be known in practice---it is what we will need to estimate with
+RCTD.
 
 ```{r trueProportions}
-unique(assay(simRctd$proportions_se))
+unique(t(assay(rctdSim$proportions_spe)))
 ```
 
 We find that there are two distinct cell type mixtures in our dataset:
@@ -169,15 +173,15 @@ later to visualize our RCTD results.
 
 ```{r trueProportionsPlot, fig.height = 5, fig.width = 7, out.width='75%'}
 plotAllWeights(
-    simRctd$proportions_se,
+    rctdSim$proportions_spe,
     r = 0.05, lwd = 0, title = "Ground Truth"
 )
 ```
 <br/>
 
-## Running RCTD
+# Running RCTD
 
-### Creating RCTD Object
+## Creating RCTD Object
 
 The last step before running RCTD is to create an `RCTD` object from our
 `SpatialExperiment` and `SummarizedExperiment` objects using the `createRctd`
@@ -198,7 +202,7 @@ filters for log-fold-change across cell types.
 rctd_config <- createRctd(spatial_spe, reference_se, max_cores = 1)
 ```
 
-### Running RCTD
+## Running RCTD
 
 We are now ready to run RCTD using the `runRctd` function. 
 
@@ -216,12 +220,12 @@ runs. For the purpose of demonstration, we'll decompose the data into doublets
 in this vignette.
 
 ```{r runRctd, message = FALSE}
-results_se <- runRctd(rctd_config, rctd_mode = "doublet")
+results_spe <- runRctd(rctd_config, rctd_mode = "doublet")
 ```
 
-## RCTD Results
+# RCTD Results
 
-RCTD returns a `SummarizedExperiment` object containing:
+RCTD returns a `SpatialExperiment` object containing:
 
 - Three assays (one in full mode):
     1. `weights`: Cell type proportions restricted according to the specified
@@ -230,9 +234,17 @@ RCTD returns a `SummarizedExperiment` object containing:
     specified mode, including unconfident predictions (not available in full
     mode)
     2. `weights_full`: Unrestricted cell type proportions
+    
+    Assays have cell types as rows and pixels as columns, with values
+    representing the proportion (0 to 1) of each cell type in each pixel. Assay
+    columns sum to 1 (except for rejected pixels, which sum to 0).
 
-- Additional rowData including:
-    * `x`, `y`: Spatial coordinates for each pixel
+    **NOTE**: Weights are transposed compared to the output of the original
+    `dmcable/spacexr` package on GitHub.
+
+- Spatial coordinates for each pixel stored in `spatialCoords`.
+
+- Additional `colData` including:
     * For doublet mode:
         * `spot_class`: Classification as `singlet`, `doublet_certain`,
         `doublet_uncertain`, or `reject`
@@ -244,28 +256,34 @@ RCTD returns a `SummarizedExperiment` object containing:
         * `conf_list`: List of whether cell type predictions are confident
         * Additional metrics like `min_score` for advanced users
 
-We can view the doublet weights for our data. Each row represents a pixel, and
-each column represents a cell type. The values indicate the estimated proportion
-(from 0 to 1) of each cell type in that pixel:
+## Cell Type Weights
+
+We can view the doublet weights for our data:
 
 ```{r doubletWeights}
-assay(results_se, "weights")
+# Cell type mixture 1
+assay(results_spe, "weights")[, 1:6]
+
+# Cell type mixture 2
+assay(results_spe, "weights")[, 7:12]
 ```
 
 You can access the full, unrestricted weights using
-`assay(results_se, "weights_full")`. We will visualize these weights later. You
-may use `assay(results_se, "weights_unconfident")` to access the less confident
+`assay(results_spe, "weights_full")`. We will visualize these weights later. You
+may use `assay(results_spe, "weights_unconfident")` to access the less confident
 predictions (e.g., the `second_type` weight for singlets and uncertain
 doublets).
+
+## Classifications
 
 Below, we can view the results of RCTD deconvolution:
 
 ```{r classification}
 classification_df <- data.frame(
-    pixel = rownames(assay(results_se)),
-    spot_class = rowData(results_se)$spot_class,
-    first_type = rowData(results_se)$first_type,
-    second_type = rowData(results_se)$second_type
+    pixel = colnames(assay(results_spe)),
+    spot_class = colData(results_spe)$spot_class,
+    first_type = colData(results_spe)$first_type,
+    second_type = colData(results_spe)$second_type
 )
 classification_df
 ```
@@ -291,12 +309,16 @@ cell mixtures, although pixels with 90% `ct1` and 10% `ct2` were classified
 as singlets. (As an exercise, try changing the `DOUBLET_THRESHOLD` parameter
 in `createRctd` so that these mixtures will be identified as doublets.)
 
+# Visualization
+
+## All Cell Types
+
 We can visualize the results of our RCTD run with the `plotAllWeights`
 function. Simply pass in the RCTD results (and some aesthetic arguments), and
 the cell type proportions will be plotted as pie charts for each pixel.
 
 ```{r doubletVisualization, fig.height = 5, fig.width = 7, out.width='75%'}
-plotAllWeights(results_se, r = 0.05, lwd = 0, title = "Doublet Results")
+plotAllWeights(results_spe, r = 0.05, lwd = 0, title = "Doublet Results")
 ```
 <br/>
 <br/>
@@ -310,7 +332,7 @@ function:
 
 ```{r fullVisualization, fig.height = 5, fig.width = 7, out.width='75%'}
 plotAllWeights(
-    results_se, "weights_full", r = 0.05, lwd = 0, title = "Full Results"
+    results_spe, "weights_full", r = 0.05, lwd = 0, title = "Full Results"
 )
 ```
 <br/>
@@ -318,13 +340,15 @@ plotAllWeights(
 
 This is very close to the ground truth!
 
+## Single Cell Type
+
 Finally, we can visualize how the proportion of a specific cell type varies
 across space with the `plotCellTypeWeight` function. We show an example with
 the dummy cell type `ct1`.
 
 ```{r densityVisualization, fig.height = 5, fig.width = 7, out.width='75%'}
 plotCellTypeWeight(
-    results_se, "ct1", "weights_full",
+    results_spe, "ct1", "weights_full",
     size = 5, stroke = 0.5, title = "\nDensity of Cell Type 1\n"
 )
 ```

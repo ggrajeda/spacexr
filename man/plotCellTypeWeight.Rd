@@ -5,7 +5,7 @@
 \title{Plot pixel proportions for a specific cell type}
 \usage{
 plotCellTypeWeight(
-  rctd_se,
+  rctd_spe,
   cell_type,
   assay_name = "weights",
   size = 10,
@@ -17,7 +17,7 @@ plotCellTypeWeight(
 )
 }
 \arguments{
-\item{rctd_se}{\code{\link[SummarizedExperiment]{SummarizedExperiment}}
+\item{rctd_spe}{\code{\link[SpatialExperiment]{SpatialExperiment}}
 containing RCTD results}
 
 \item{cell_type}{character, name of cell type to plot}
@@ -37,7 +37,7 @@ containing RCTD results}
 \item{high}{color for the high end of the proportion color scale
 (default: \code{"red"})}
 
-\item{title}{character, plot title (default: NA)}
+\item{title}{character, plot title (default: \code{NA})}
 }
 \value{
 \code{ggplot} object showing the proportion of a specified cell type
@@ -49,12 +49,12 @@ varies across space, represented by point color intensity. Users should run
 this function on the result of \code{\link{runRctd}}.
 }
 \examples{
-data(simRctd)
+data(rctdSim)
 
-# In practice, results_se should contain the results of an RCTD run.
-results_se <- simRctd$proportions_se
+# In practice, results_spe should contain the results of an RCTD run.
+results_spe <- rctdSim$proportions_spe
 plotCellTypeWeight(
-    results_se, "ct1", size = 5, title = "Cell Type Density (ct1)"
+    results_spe, "ct1", size = 5, title = "Cell Type Density (ct1)"
 )
 
 }

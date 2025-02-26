@@ -45,7 +45,7 @@ doublet instead of a singlet for a pixel}
 }
 \value{
 Returns \code{results}, a list of RCTD results for each pixel, which
-  can be organized by feeding into \code{\link{create_se_doublet}}
+  can be organized by feeding into \code{\link{create_spe_doublet}}
 }
 \description{
 Then, computes cell type proportions for each pixel in \code{puck}.

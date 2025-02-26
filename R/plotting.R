@@ -15,16 +15,16 @@ custom_theme <- function() {
     )
 }
 
-get_reject_mask <- function(rctd_se) {
-    if ("spot_class" %in% colnames(rowData(rctd_se))) {
+get_reject_mask <- function(rctd_spe) {
+    if ("spot_class" %in% colnames(colData(rctd_spe))) {
         # Doublet mode
-        return(rowData(rctd_se)$spot_class == "reject")
-    } else if ("conf_list" %in% colnames(rowData(rctd_se))) {
+        return(colData(rctd_spe)$spot_class == "reject")
+    } else if ("conf_list" %in% colnames(colData(rctd_spe))) {
         # Multi mode
-        conf_lists <- rowData(rctd_se)$conf_list
+        conf_lists <- colData(rctd_spe)$conf_list
         return(vapply(conf_lists, function(x) !any(x), logical(1)))
     }
-    return(rep(FALSE, nrow(rctd_se)))
+    rep(FALSE, ncol(rctd_spe))
 }
 
 #' Plot pie charts of cell type proportions across pixels
@@ -33,7 +33,7 @@ get_reject_mask <- function(rctd_se) {
 #' showing the proportions of different cell types at that location. Users
 #' should run this function on the result of \code{\link{runRctd}}.
 #'
-#' @param rctd_se \code{\link[SummarizedExperiment]{SummarizedExperiment}}
+#' @param rctd_spe \code{\link[SpatialExperiment]{SpatialExperiment}}
 #'   containing RCTD results
 #' @param assay_name character, name of the assay to plot
 #'   (default: \code{"weights"})
@@ -41,55 +41,62 @@ get_reject_mask <- function(rctd_se) {
 #'   (default: rainbow)
 #' @param r numeric, radius of the pie charts (default: 0.4)
 #' @param lwd numeric, line width of the pie chart borders (default: 1)
-#' @param title character, plot title (default: NA)
+#' @param title character, plot title (default: \code{NA})
 #'
 #' @return \code{ggplot} object showing cell type proportions at each pixel
 #'   using pie charts
 #'
-#' @importFrom SummarizedExperiment assay rowData
+#' @importFrom SummarizedExperiment assay
+#' @importFrom SpatialExperiment spatialCoords
 #' @import ggplot2
 #' @import scatterpie
 #' @export
 #' @examples
-#' data(simRctd)
+#' data(rctdSim)
 #'
-#' # In practice, results_se should contain the results of an RCTD run.
-#' results_se <- simRctd$proportions_se
+#' # In practice, results_spe should contain the results of an RCTD run.
+#' results_spe <- rctdSim$proportions_spe
 #' plotAllWeights(
-#'     results_se, r = 0.05, lwd = 0.5, title = "Cell Type Proportions"
+#'     results_spe, r = 0.05, lwd = 0.5, title = "Cell Type Proportions"
 #' )
 #'
 plotAllWeights <- function(
-    rctd_se, assay_name = "weights",
+    rctd_spe, assay_name = "weights",
     cell_type_colors = NA,
     r = 0.4, lwd = 1,
     title = NA
 ) {
-    weights <- assay(rctd_se, assay_name)
+    weights <- assay(rctd_spe, assay_name)
     weights_matrix <- as.matrix(weights)
 
     # Trick to ensure that all cell types are included in the legend.
-    zero_cols <- colSums(weights_matrix) == 0
-    weights_matrix[1, zero_cols] <- 1e-10
+    zero_rows <- rowSums(weights_matrix) == 0
+    weights_matrix[zero_rows, 1] <- 1e-10
 
-    reject_mask <- get_reject_mask(rctd_se)
-    weights_matrix[reject_mask, ] <- 0
+    reject_mask <- get_reject_mask(rctd_spe)
+    weights_matrix[, reject_mask] <- 0
+
+    # Transpose the matrix for plotting (cell types as columns for pie charts)
+    weights_matrix <- t(weights_matrix)
 
     rctd_df <- data.frame(weights_matrix)
     rctd_df$reject <- as.integer(reject_mask)
-    rctd_df$x_coords <- rowData(rctd_se)$x
-    rctd_df$y_coords <- rowData(rctd_se)$y
+
+    # Get spatial coordinates
+    coords <- spatialCoords(rctd_spe)
+    rctd_df$x_coords <- coords[, "x"]
+    rctd_df$y_coords <- coords[, "y"]
 
     p <- ggplot2::ggplot() + ggplot2::coord_equal() + custom_theme()
     p <- p + scatterpie::geom_scatterpie(
-        ggplot2::aes(x = x_coords, y = y_coords, r = r),
+        ggplot2::aes_string(x = "x_coords", y = "y_coords", r = "r"),
         data = rctd_df,
         cols = setdiff(colnames(rctd_df), c("x_coords", "y_coords")),
         lwd = lwd,
         legend_name = "Cell_Types"
     )
     if (is.na(cell_type_colors)) {
-        cell_type_colors <- grDevices::rainbow(ncol(weights))
+        cell_type_colors <- grDevices::rainbow(nrow(weights))
     }
     cell_type_colors <- c(as.vector(cell_type_colors), "#808080")
     p <- p + ggplot2::scale_fill_manual(values = cell_type_colors)
@@ -105,7 +112,7 @@ plotAllWeights <- function(
 #' varies across space, represented by point color intensity. Users should run
 #' this function on the result of \code{\link{runRctd}}.
 #'
-#' @param rctd_se \code{\link[SummarizedExperiment]{SummarizedExperiment}}
+#' @param rctd_spe \code{\link[SpatialExperiment]{SpatialExperiment}}
 #'   containing RCTD results
 #' @param cell_type character, name of cell type to plot
 #' @param assay_name character, name of the assay to plot
@@ -117,38 +124,41 @@ plotAllWeights <- function(
 #'   (default: \code{"white"})
 #' @param high color for the high end of the proportion color scale
 #'   (default: \code{"red"})
-#' @param title character, plot title (default: NA)
+#' @param title character, plot title (default: \code{NA})
 #'
 #' @return \code{ggplot} object showing the proportion of a specified cell type
 #'   at each pixel
 #'
-#' @importFrom SummarizedExperiment assay rowData
+#' @importFrom SummarizedExperiment assay
+#' @importFrom SpatialExperiment spatialCoords
 #' @import ggplot2
 #' @export
 #' @examples
-#' data(simRctd)
+#' data(rctdSim)
 #'
-#' # In practice, results_se should contain the results of an RCTD run.
-#' results_se <- simRctd$proportions_se
+#' # In practice, results_spe should contain the results of an RCTD run.
+#' results_spe <- rctdSim$proportions_spe
 #' plotCellTypeWeight(
-#'     results_se, "ct1", size = 5, title = "Cell Type Density (ct1)"
+#'     results_spe, "ct1", size = 5, title = "Cell Type Density (ct1)"
 #' )
 #'
 plotCellTypeWeight <- function(
-    rctd_se, cell_type, assay_name = "weights",
+    rctd_spe, cell_type, assay_name = "weights",
     size = 10, stroke = 1, alpha = 1,
     low = "white", high = "red",
     title = NA
 ) {
-    weights <- assay(rctd_se, assay_name)[, cell_type]
-    rctd_df <- data.frame(as.matrix(weights))
-    rctd_df$x_coords <- rowData(rctd_se)$x
-    rctd_df$y_coords <- rowData(rctd_se)$y
+    weights <- assay(rctd_spe, assay_name)[cell_type, ]
+    rctd_df <- data.frame(weights = as.numeric(weights))
+
+    coords <- spatialCoords(rctd_spe)
+    rctd_df$x_coords <- coords[, "x"]
+    rctd_df$y_coords <- coords[, "y"]
 
     p <- ggplot2::ggplot() + ggplot2::coord_equal() + custom_theme()
     p <- p + ggplot2::geom_point(
         data = rctd_df,
-        ggplot2::aes(x=x_coords, y=y_coords, fill=rctd_df[, 1]),
+        ggplot2::aes_string(x = "x_coords", y = "y_coords", fill = "weights"),
         shape = 21,
         size = size,
         stroke = stroke,

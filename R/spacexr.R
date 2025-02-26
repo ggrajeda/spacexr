@@ -118,24 +118,24 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #' @importFrom SummarizedExperiment SummarizedExperiment assay colData
 #' @export
 #' @examples
-#' data(simRctd)
+#' data(rctdSim)
 #'
 #' # Spatial transcriptomics data
 #' library(SpatialExperiment)
 #' spatial_spe <- SpatialExperiment(
-#'     assay = simRctd$spatial_rna_counts,
-#'     spatialCoords = simRctd$spatial_rna_coords
+#'     assay = rctdSim$spatial_rna_counts,
+#'     spatialCoords = rctdSim$spatial_rna_coords
 #' )
 #'
 #' # Reference data
 #' library(SummarizedExperiment)
 #' reference_se <- SummarizedExperiment(
-#'     assays = list(counts = simRctd$reference_counts),
-#'     colData = simRctd$reference_cell_types
+#'     assays = list(counts = rctdSim$reference_counts),
+#'     colData = rctdSim$reference_cell_types
 #' )
 #'
 #' # Create RCTD configuration
-#' rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
+#' rctd_config <- createRctd(spatial_spe, reference_se, max_cores = 1)
 #'
 createRctd <- function(
     spatial_experiment, reference_experiment, cell_type_col = "cell_type",
@@ -306,7 +306,7 @@ createRctd <- function(
 #'
 #' Runs the RCTD algorithm to decompose cell type mixtures in spatial
 #' transcriptomics data. For each pixel in the spatial data, RCTD estimates the
-#' proportions of different cell types by comparing the gene expression at a
+#' proportions of different cell types by comparing the gene expression at the
 #' pixel to the reference cell type profiles, while accounting for technical
 #' factors like platform effects and varying sequencing depth. The algorithm has
 #' three modes suited for different spatial technologies:
@@ -330,7 +330,7 @@ createRctd <- function(
 #'   \code{"doublet"}, \code{"multi"}, or \code{"full"}
 #'   (default: \code{"doublet"})
 #'
-#' @return A \code{\link[SummarizedExperiment]{SummarizedExperiment}} object
+#' @return A \code{\link[SpatialExperiment]{SpatialExperiment}} object
 #'   containing the RCTD results with:
 #'   \itemize{
 #'     \item Three assays (one in full mode):
@@ -342,9 +342,12 @@ createRctd <- function(
 #'         (not available in full mode)
 #'         \item \code{weights_full}: Unrestricted cell type proportions
 #'       }
-#'     \item \code{rowData} containing:
+#'     Assays have cell types as rows and pixels as columns, with values
+#'     representing the proportion (0 to 1) of each cell type in each pixel.
+#'     Assay columns sum to 1 (except for rejected pixels, which sum to 0).
+#'     \item \code{spatialCoords} containing spatial coordinates for each pixel
+#'     \item \code{colData} containing:
 #'       \itemize{
-#'         \item \code{x}, \code{y}: Spatial coordinates for each pixel
 #'         \item For doublet mode:
 #'           \itemize{
 #'             \item \code{spot_class}: Classification as \code{"singlet"},
@@ -367,31 +370,34 @@ createRctd <- function(
 #'   }
 #' @export
 #' @examples
-#' data(simRctd)
+#' data(rctdSim)
 #'
 #' # Spatial transcriptomics data
 #' library(SpatialExperiment)
 #' spatial_spe <- SpatialExperiment(
-#'     assay = simRctd$spatial_rna_counts,
-#'     spatialCoords = simRctd$spatial_rna_coords
+#'     assay = rctdSim$spatial_rna_counts,
+#'     spatialCoords = rctdSim$spatial_rna_coords
 #' )
 #'
 #' # Reference data
 #' library(SummarizedExperiment)
 #' reference_se <- SummarizedExperiment(
-#'     assays = list(counts = simRctd$reference_counts),
-#'     colData = simRctd$reference_cell_types
+#'     assays = list(counts = rctdSim$reference_counts),
+#'     colData = rctdSim$reference_cell_types
 #' )
 #'
 #' # Create RCTD configuration
-#' rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
-#' rctd_se <- runRctd(rctd, rctd_mode = "doublet")
+#' rctd_config <- createRctd(spatial_spe, reference_se, max_cores = 1)
+#' results <- runRctd(rctd_config, rctd_mode = "doublet")
 #'
-#' # Access the cell type proportions
-#' head(assay(rctd_se, "weights"))
+#' # Access the cell type proportions (cell types as rows, pixels as columns)
+#' assay(results, "weights")
 #'
 #' # Check spot classifications for doublet mode
-#' head(rowData(rctd_se)$spot_class)
+#' colData(results)$spot_class
+#'
+#' # Access spatial coordinates
+#' head(spatialCoords(results))
 #'
 runRctd <- function(RCTD, rctd_mode = "doublet") {
     if (!(rctd_mode %in% c("doublet", "multi", "full"))) {
