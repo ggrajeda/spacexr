@@ -2,7 +2,7 @@
 % Please edit documentation in R/spacexr.R
 \name{createRctd}
 \alias{createRctd}
-\title{\code{\linkS4class{RCTD}} object constructor}
+\title{\code{\linkS4class{RctdConfig}} object constructor}
 \usage{
 createRctd(
   spatial_experiment,
@@ -131,7 +131,7 @@ instead of a singlet for a pixel (default: 20)}
 computation (default: \code{FALSE})}
 }
 \value{
-\code{\linkS4class{RCTD}} object
+\code{\linkS4class{RctdConfig}} object
 }
 \description{
 Creates an RCTD configuration from a spatial transcriptomics dataset and a

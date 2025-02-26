@@ -181,9 +181,9 @@ plotAllWeights(
 
 # Running RCTD
 
-## Creating RCTD Object
+## Creating RctdConfig object
 
-The last step before running RCTD is to create an `RCTD` object from our
+The last step before running RCTD is to create an `RctdConfig` object from our
 `SpatialExperiment` and `SummarizedExperiment` objects using the `createRctd`
 function. Some important configuration options include:
 

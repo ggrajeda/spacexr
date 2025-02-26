@@ -148,7 +148,7 @@ setClassUnion("ReferenceOrNull", c("Reference", "NULL"))
 #' @importClassesFrom Matrix Matrix dgCMatrix
 #' @export
 #' @keywords internal
-setClass("RCTD",
+setClass("RctdConfig",
     slots = c(
         spatialRNA = "SpatialRNA",
         originalSpatialRNA = "SpatialRNA",
@@ -168,11 +168,11 @@ setClass("RCTD",
 )
 
 #' @param object RCTD configuration object
-#' @rdname RCTD-class
+#' @rdname RctdConfig-class
 #' @export
 #' @keywords internal
-setMethod("show", "RCTD", function(object) {
-    cat("RCTD object with:\n")
+setMethod("show", "RctdConfig", function(object) {
+    cat("RctdConfig object with:\n")
     cat("\nSpatial data (processed):\n")
     cat(sprintf("- %d pixels\n", ncol(object@spatialRNA@counts)))
     cat(sprintf("- %d genes\n", nrow(object@spatialRNA@counts)))

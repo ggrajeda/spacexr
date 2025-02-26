@@ -7,7 +7,7 @@
 create_spe_full(RCTD, results)
 }
 \arguments{
-\item{RCTD}{RCTD object}
+\item{RCTD}{RctdConfig object}
 
 \item{results}{\code{decompose_batch} results}
 }

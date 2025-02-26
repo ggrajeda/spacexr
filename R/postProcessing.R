@@ -18,7 +18,7 @@ rctd_metadata <- function(RCTD) {
 #' the *_cols arguments. Spatial coordinates are stored in the
 #' \code{spatialCoords}.
 #'
-#' @param RCTD  RCTD object
+#' @param RCTD  RctdConfig object
 #' @param results List of results (with named entries) for each pixel
 #' @param weights_col Name of list entry containing the cell type weights
 #' @param character_cols Names of list entries containing a character(1)
@@ -76,7 +76,7 @@ create_spe_from_columns <- function(
 
 #' Converts the results of \code{decompose_batch} to a \code{SpatialExperiment}
 #'
-#' @param RCTD RCTD object
+#' @param RCTD RctdConfig object
 #' @param results \code{decompose_batch} results
 #'
 #' @return \code{SpatialExperiment} containing RCTD results
@@ -134,7 +134,7 @@ get_confident_doublet_weights <- function(weights_doublet, results_spe) {
 #' Converts the results of \code{process_beads_batch} to a
 #' \code{SpatialExperiment}
 #'
-#' @param RCTD RCTD object
+#' @param RCTD RctdConfig object
 #' @param results \code{process_beads_batch} results
 #'
 #' @return \code{SpatialExperiment} containing RCTD results
@@ -218,7 +218,7 @@ get_confident_multi_weights <- function(weights_multi, results_spe) {
 #' Converts the results of \code{process_beads_multi} to a
 #' \code{SpatialExperiment}
 #'
-#' @param RCTD RCTD object
+#' @param RCTD RctdConfig object
 #' @param results \code{process_beads_multi} results
 #'
 #' @return \code{SpatialExperiment} containing RCTD results

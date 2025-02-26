@@ -105,7 +105,7 @@ process_beads_multi <- function(
 #' If in full mode, can fit any number of cell types on each pixel. In multi
 #' mode, cell types are added using a greedy algorithm, up to a fixed number.
 #'
-#' @param RCTD an \code{\linkS4class{RCTD}} object after running the
+#' @param RCTD an \code{\linkS4class{RctdConfig}} object after running the
 #'   \code{\link{choose_sigma_c}} function.
 #' @param rctd_mode \code{character string}, either "doublet", "multi", or
 #'   "full" on which mode to run RCTD. Please see above description.

@@ -3,10 +3,10 @@
 #' Estimates bulk cell type composition and uses this to estimate platform
 #' effects and normalize cell type proportions
 #'
-#' @param RCTD an \code{\linkS4class{RCTD}} object after running the
+#' @param RCTD an \code{\linkS4class{RctdConfig}} object after running the
 #'   \code{\link{createRctd}} function.
-#' @return Returns an \code{\linkS4class{RCTD}} object normalized for platform
-#'   effects.
+#' @return Returns an \code{\linkS4class{RctdConfig}} object normalized for
+#'   platform effects.
 #' @export
 #' @keywords internal
 #' @examples
@@ -78,9 +78,9 @@ chooseSigma <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
 
 #' Estimates sigma_c by maximum likelihood
 #'
-#' @param RCTD an \code{\linkS4class{RCTD}} object after running the
+#' @param RCTD an \code{\linkS4class{RctdConfig}} object after running the
 #'   \code{\link{fitBulk}} function.
-#' @return Returns an \code{\linkS4class{RCTD}} with the estimated
+#' @return Returns an \code{\linkS4class{RctdConfig}} with the estimated
 #'   \code{sigma_c}.
 #' @export
 #' @keywords internal

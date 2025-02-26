@@ -7,11 +7,11 @@
 choose_sigma_c(RCTD)
 }
 \arguments{
-\item{RCTD}{an \code{\linkS4class{RCTD}} object after running the
+\item{RCTD}{an \code{\linkS4class{RctdConfig}} object after running the
 \code{\link{fitBulk}} function.}
 }
 \value{
-Returns an \code{\linkS4class{RCTD}} with the estimated
+Returns an \code{\linkS4class{RctdConfig}} with the estimated
   \code{sigma_c}.
 }
 \description{

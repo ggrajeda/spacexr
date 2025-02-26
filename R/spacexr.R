@@ -27,7 +27,7 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
     return(cell_type_info)
 }
 
-#' \code{\linkS4class{RCTD}} object constructor
+#' \code{\linkS4class{RctdConfig}} object constructor
 #'
 #' Creates an RCTD configuration from a spatial transcriptomics dataset and a
 #' reference dataset. This function performs initial preprocessing steps,
@@ -111,7 +111,7 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #' @param test_mode logical, whether to run in test mode with reduced
 #'   computation (default: \code{FALSE})
 #'
-#' @return \code{\linkS4class{RCTD}} object
+#' @return \code{\linkS4class{RctdConfig}} object
 #'
 #' @importFrom methods new as is
 #' @importFrom SpatialExperiment spatialCoords
@@ -292,7 +292,7 @@ createRctd <- function(
         cell_types_assigned = FALSE
     )
     new(
-        "RCTD",
+        "RctdConfig",
         spatialRNA = puck,
         originalSpatialRNA = puck.original,
         reference = reference,
@@ -324,7 +324,7 @@ createRctd <- function(
 #'     restrictions.
 #' }
 #'
-#' @param RCTD \code{\linkS4class{RCTD}} object created using
+#' @param RCTD \code{\linkS4class{RctdConfig}} object created using
 #'   \code{\link{createRctd}}
 #' @param rctd_mode character string specifying the RCTD mode:
 #'   \code{"doublet"}, \code{"multi"}, or \code{"full"}

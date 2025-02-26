@@ -15,7 +15,7 @@ create_spe_from_columns(
 )
 }
 \arguments{
-\item{RCTD}{RCTD object}
+\item{RCTD}{RctdConfig object}
 
 \item{results}{List of results (with named entries) for each pixel}
 

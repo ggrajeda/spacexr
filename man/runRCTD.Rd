@@ -7,7 +7,7 @@
 runRctd(RCTD, rctd_mode = "doublet")
 }
 \arguments{
-\item{RCTD}{\code{\linkS4class{RCTD}} object created using
+\item{RCTD}{\code{\linkS4class{RctdConfig}} object created using
 \code{\link{createRctd}}}
 
 \item{rctd_mode}{character string specifying the RCTD mode:

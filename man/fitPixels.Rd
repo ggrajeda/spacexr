@@ -7,7 +7,7 @@
 fitPixels(RCTD, rctd_mode = "doublet")
 }
 \arguments{
-\item{RCTD}{an \code{\linkS4class{RCTD}} object after running the
+\item{RCTD}{an \code{\linkS4class{RctdConfig}} object after running the
 \code{\link{choose_sigma_c}} function.}
 
 \item{rctd_mode}{\code{character string}, either "doublet", "multi", or

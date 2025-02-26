@@ -8,7 +8,7 @@
 create_spe_doublet(RCTD, results)
 }
 \arguments{
-\item{RCTD}{RCTD object}
+\item{RCTD}{RctdConfig object}
 
 \item{results}{\code{process_beads_batch} results}
 }
