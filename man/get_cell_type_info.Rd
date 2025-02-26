@@ -7,22 +7,25 @@
 get_cell_type_info(raw.data, cell_types, nUMI, cell_type_names = NULL)
 }
 \arguments{
-\item{raw.data}{a Digital Gene Expression matrix, with gene names as rownames and
-single cells as columns (barcodes for colnames)}
+\item{raw.data}{a Digital Gene Expression matrix, with gene names as rownames
+and single cells as columns (barcodes for colnames)}
 
-\item{cell_types}{a named list of cell type assignment for each cell in \code{raw.data}}
+\item{cell_types}{a named list of cell type assignment for each cell in
+\code{raw.data}}
 
 \item{nUMI}{a named list of total UMI count for each cell in \code{raw.data}}
 
-\item{cell_type_names}{a list of cell type names to compute profiles for. If NULL, uses the levels of \code{cell_types}}
+\item{cell_type_names}{a list of cell type names to compute profiles for. If
+NULL, uses the levels of \code{cell_types}}
 }
 \value{
-Returns \code{cell_type_info}, a list of three elements: (1) \code{cell_type_means} (a
-data_frame (genes by cell types) for mean normalized expression) (2) \code{cell_type_names}
-(a list of cell type names) and (3) the number of cell types
+Returns \code{cell_type_info}, a list of three elements: (1)
+  \code{cell_type_means} (a data_frame (genes by cell types) for mean
+  normalized expression) (2) \code{cell_type_names} (a list of cell type
+  names) and (3) the number of cell types
 }
 \description{
-Computes averaged normalized expression (summing to 1) for
-all cells within a cell type
+Computes averaged normalized expression (summing to 1) for all cells within a
+cell type
 }
 \keyword{internal}

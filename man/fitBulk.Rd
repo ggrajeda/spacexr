@@ -7,14 +7,16 @@
 fitBulk(RCTD)
 }
 \arguments{
-\item{RCTD}{an \code{\linkS4class{RCTD}} object after running the \code{\link{createRctd}} function.}
+\item{RCTD}{an \code{\linkS4class{RCTD}} object after running the
+\code{\link{createRctd}} function.}
 }
 \value{
-Returns an \code{\linkS4class{RCTD}} object normalized for platform effects.
+Returns an \code{\linkS4class{RCTD}} object normalized for platform
+  effects.
 }
 \description{
-Estimates bulk cell type composition and uses this
-to estimate platform effects and normalize cell type proportions
+Estimates bulk cell type composition and uses this to estimate platform
+effects and normalize cell type proportions
 }
 \examples{
 data(simRctd)

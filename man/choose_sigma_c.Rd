@@ -7,10 +7,12 @@
 choose_sigma_c(RCTD)
 }
 \arguments{
-\item{RCTD}{an \code{\linkS4class{RCTD}} object after running the \code{\link{fitBulk}} function.}
+\item{RCTD}{an \code{\linkS4class{RCTD}} object after running the
+\code{\link{fitBulk}} function.}
 }
 \value{
-Returns an \code{\linkS4class{RCTD}} with the estimated \code{sigma_c}.
+Returns an \code{\linkS4class{RCTD}} with the estimated
+  \code{sigma_c}.
 }
 \description{
 Estimates sigma_c by maximum likelihood
