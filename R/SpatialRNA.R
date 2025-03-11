@@ -28,12 +28,12 @@ fake_coords <- function(counts) {
 #' @examples
 #' data(rctdSim)
 #'
-#' spatial_rna <- SpatialRNA(
+#' spatial_rna <- createSpatialRNA(
 #'     as.data.frame(rctdSim$spatial_rna_coords),
 #'     rctdSim$spatial_rna_counts
 #' )
 #'
-SpatialRNA <- function(
+createSpatialRNA <- function(
     coords, counts,
     nUMI = NULL, use_fake_coords = FALSE, require_int = TRUE
 ) {
@@ -289,14 +289,14 @@ restrict_counts <- function(
     puck, gene_list,
     UMI_thresh = 1, UMI_max = 20000, counts_thresh = 1
 ) {
-    counts_tot <- colSums(puck@counts[gene_list, ])
+    counts_tot <- colSums(counts(puck)[gene_list, ])
     keep_loc <- (
-        (puck@nUMI >= UMI_thresh) &
-        (puck@nUMI <= UMI_max) &
+        (nUMI(puck) >= UMI_thresh) &
+        (nUMI(puck) <= UMI_max) &
         (counts_tot >= counts_thresh)
     )
-    puck@counts <- puck@counts[gene_list, keep_loc]
-    puck@nUMI <- puck@nUMI[keep_loc]
+    counts(puck) <- counts(puck)[gene_list, keep_loc]
+    nUMI(puck) <- nUMI(puck)[keep_loc]
     return(puck)
 }
 
@@ -308,14 +308,14 @@ restrict_counts <- function(
 #'
 #' @param puck a \code{\linkS4class{SpatialRNA}} object
 #' @param barcodes a list of barcode names, a subset of
-#'   \code{rownames(puck@coords)}
+#'   \code{rownames(coords(puck))}
 #' @return Returns a \code{\linkS4class{SpatialRNA}} object subsampled to the
 #'   barcodes
 #' @keywords internal
 restrict_puck <- function(puck, barcodes) {
-    barcodes <- intersect(colnames(puck@counts), barcodes)
-    puck@counts <- puck@counts[, barcodes]
-    puck@nUMI <- puck@nUMI[barcodes]
-    puck@coords <- puck@coords[barcodes, ]
+    barcodes <- intersect(colnames(counts(puck)), barcodes)
+    counts(puck) <- counts(puck)[, barcodes]
+    nUMI(puck) <- nUMI(puck)[barcodes]
+    coords(puck) <- coords(puck)[barcodes, ]
     return(puck)
 }

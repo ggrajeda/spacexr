@@ -34,7 +34,7 @@ barcode)}
 data(rctdSim)
 
 # Create SpatialRNA object
-spatial_rna <- SpatialRNA(
+spatial_rna <- createSpatialRNA(
     as.data.frame(rctdSim$spatial_rna_coords),
     rctdSim$spatial_rna_counts
 )

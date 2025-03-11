@@ -29,7 +29,7 @@ process_beads_batch <- function(
     MAX_CORES = 8, MIN.CHANGE = 0.001, CONFIDENCE_THRESHOLD = 10,
     DOUBLET_THRESHOLD = 25
 ) {
-    beads <- t(as.matrix(puck@counts[gene_list, ]))
+    beads <- t(as.matrix(counts(puck)[gene_list, ]))
     if (MAX_CORES > 1) {
         numCores <- parallel::detectCores()
         if (parallel::detectCores() > MAX_CORES) {
@@ -38,7 +38,7 @@ process_beads_batch <- function(
         BiocParallel::register(BiocParallel::MulticoreParam(numCores))
         results <- BiocParallel::bplapply(seq_len(dim(beads)[1]), function(i) {
             process_bead_doublet(
-                cell_type_info, gene_list, puck@nUMI[i], beads[i, ],
+                cell_type_info, gene_list, nUMI(puck)[i], beads[i, ],
                 class_df = class_df, constrain = constrain,
                 MIN.CHANGE = MIN.CHANGE,
                 CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD,
@@ -50,7 +50,7 @@ process_beads_batch <- function(
         results <- list()
         for (i in seq_len(dim(beads)[1])) {
             results[[i]] <- process_bead_doublet(
-                cell_type_info, gene_list, puck@nUMI[i], beads[i, ],
+                cell_type_info, gene_list, nUMI(puck)[i], beads[i, ],
                 class_df = class_df, constrain = constrain,
                 MIN.CHANGE = MIN.CHANGE,
                 CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD,
@@ -66,7 +66,7 @@ process_beads_multi <- function(
     MAX_CORES = 8, MIN.CHANGE = 0.001, MAX.TYPES = 4, CONFIDENCE_THRESHOLD = 10,
     DOUBLET_THRESHOLD = 25
 ) {
-    beads <- t(as.matrix(puck@counts[gene_list, ]))
+    beads <- t(as.matrix(counts(puck)[gene_list, ]))
     if (MAX_CORES > 1) {
         numCores <- parallel::detectCores()
         if (parallel::detectCores() > MAX_CORES) {
@@ -75,7 +75,7 @@ process_beads_multi <- function(
         BiocParallel::register(BiocParallel::MulticoreParam(numCores))
         results <- BiocParallel::bplapply(seq_len(dim(beads)[1]), function(i) {
             process_bead_multi(
-                cell_type_info, gene_list, puck@nUMI[i], beads[i, ],
+                cell_type_info, gene_list, nUMI(puck)[i], beads[i, ],
                 class_df = class_df, constrain = constrain,
                 MIN.CHANGE = MIN.CHANGE, MAX.TYPES = MAX.TYPES,
                 CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD,
@@ -87,7 +87,7 @@ process_beads_multi <- function(
         results <- list()
         for (i in seq_len(dim(beads)[1])) {
             results[[i]] <- process_bead_multi(
-                cell_type_info, gene_list, puck@nUMI[i], beads[i, ],
+                cell_type_info, gene_list, nUMI(puck)[i], beads[i, ],
                 class_df = class_df, constrain = constrain,
                 MIN.CHANGE = MIN.CHANGE, MAX.TYPES = MAX.TYPES,
                 CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD,
@@ -138,40 +138,40 @@ process_beads_multi <- function(
 #' results <- fitPixels(rctd, rctd_mode = "doublet")
 #'
 fitPixels <- function(RCTD, rctd_mode = "doublet") {
-    RCTD@internal_vars$cell_types_assigned <- TRUE
-    RCTD@config$RCTDmode <- rctd_mode
-    set_likelihood_vars(RCTD@internal_vars$Q_mat, RCTD@internal_vars$X_vals)
-    cell_type_info <- RCTD@cell_type_info$renorm
+    internal_vars(RCTD)$cell_types_assigned <- TRUE
+    config(RCTD)$RCTDmode <- rctd_mode
+    set_likelihood_vars(internal_vars(RCTD)$Q_mat, internal_vars(RCTD)$X_vals)
+    cell_type_info <- cell_type_info(RCTD)$renorm
     if (rctd_mode == "doublet") {
         results <- process_beads_batch(
-            cell_type_info, RCTD@internal_vars$gene_list_reg, RCTD@spatialRNA,
-            class_df = RCTD@internal_vars$class_df,
-            constrain = FALSE, MAX_CORES = RCTD@config$max_cores,
-            MIN.CHANGE = RCTD@config$MIN_CHANGE_REG,
-            CONFIDENCE_THRESHOLD = RCTD@config$CONFIDENCE_THRESHOLD,
-            DOUBLET_THRESHOLD = RCTD@config$DOUBLET_THRESHOLD
+            cell_type_info, internal_vars(RCTD)$gene_list_reg, spatialRNA(RCTD),
+            class_df = internal_vars(RCTD)$class_df,
+            constrain = FALSE, MAX_CORES = config(RCTD)$max_cores,
+            MIN.CHANGE = config(RCTD)$MIN_CHANGE_REG,
+            CONFIDENCE_THRESHOLD = config(RCTD)$CONFIDENCE_THRESHOLD,
+            DOUBLET_THRESHOLD = config(RCTD)$DOUBLET_THRESHOLD
         )
         return(create_spe_doublet(RCTD, results))
     } else if (rctd_mode == "full") {
         beads <- t(as.matrix(
-            RCTD@spatialRNA@counts[RCTD@internal_vars$gene_list_reg, ]
+            counts(spatialRNA(RCTD))[internal_vars(RCTD)$gene_list_reg, ]
         ))
         results <- decompose_batch(
-            RCTD@spatialRNA@nUMI, cell_type_info[[1]], beads,
-            RCTD@internal_vars$gene_list_reg, constrain = FALSE,
-            max_cores = RCTD@config$max_cores,
-            MIN.CHANGE = RCTD@config$MIN_CHANGE_REG
+            nUMI(spatialRNA(RCTD)), cell_type_info[[1]], beads,
+            internal_vars(RCTD)$gene_list_reg, constrain = FALSE,
+            max_cores = config(RCTD)$max_cores,
+            MIN.CHANGE = config(RCTD)$MIN_CHANGE_REG
         )
         return(create_spe_full(RCTD, results))
     } else if (rctd_mode == "multi") {
         results <- process_beads_multi(
-            cell_type_info, RCTD@internal_vars$gene_list_reg, RCTD@spatialRNA,
-            class_df = RCTD@internal_vars$class_df, constrain = FALSE,
-            MAX_CORES = RCTD@config$max_cores,
-            MIN.CHANGE = RCTD@config$MIN_CHANGE_REG,
-            MAX.TYPES = RCTD@config$MAX_MULTI_TYPES,
-            CONFIDENCE_THRESHOLD = RCTD@config$CONFIDENCE_THRESHOLD,
-            DOUBLET_THRESHOLD = RCTD@config$DOUBLET_THRESHOLD
+            cell_type_info, internal_vars(RCTD)$gene_list_reg, spatialRNA(RCTD),
+            class_df = internal_vars(RCTD)$class_df, constrain = FALSE,
+            MAX_CORES = config(RCTD)$max_cores,
+            MIN.CHANGE = config(RCTD)$MIN_CHANGE_REG,
+            MAX.TYPES = config(RCTD)$MAX_MULTI_TYPES,
+            CONFIDENCE_THRESHOLD = config(RCTD)$CONFIDENCE_THRESHOLD,
+            DOUBLET_THRESHOLD = config(RCTD)$DOUBLET_THRESHOLD
         )
         return(create_spe_multi(RCTD, results))
     } else {

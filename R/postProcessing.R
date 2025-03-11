@@ -1,11 +1,11 @@
 rctd_metadata <- function(RCTD) {
     metadata <- list(
-        spatial_rna = RCTD@spatialRNA,
-        original_spatial_rna = RCTD@originalSpatialRNA,
-        reference = RCTD@reference,
-        config = RCTD@config,
-        cell_type_info = RCTD@cell_type_info,
-        internal_vars = RCTD@internal_vars
+        spatial_rna = spatialRNA(RCTD),
+        original_spatial_rna = originalSpatialRNA(RCTD),
+        reference = reference(RCTD),
+        config = config(RCTD),
+        cell_type_info = cell_type_info(RCTD),
+        internal_vars = internal_vars(RCTD)
     )
     return(metadata)
 }
@@ -39,7 +39,7 @@ create_spe_from_columns <- function(
     numeric_cols = c(), 
     list_cols = c()
 ) {
-    cell_type_names <- RCTD@cell_type_info$renorm[[2]]
+    cell_type_names <- cell_type_info(RCTD)$renorm[[2]]
     weights <- vapply(
         results,
         function(r) r[[weights_col]],
@@ -47,7 +47,7 @@ create_spe_from_columns <- function(
     )
     weights <- Matrix(weights)
 
-    col_data <- data.frame(row.names = rownames(RCTD@spatialRNA@coords))
+    col_data <- data.frame(row.names = rownames(coords(spatialRNA(RCTD))))
     for (cc in character_cols) {
         get_character <- function(r) as.character(r[[cc]])
         col_data[cc] <- vapply(results, get_character, character(1))
@@ -62,7 +62,7 @@ create_spe_from_columns <- function(
         col_data[nc] <- vapply(results, function(r) r[[nc]], numeric(1))
     }
 
-    spatial_coords <- as.matrix(RCTD@spatialRNA@coords[, c("x", "y")])
+    spatial_coords <- as.matrix(coords(spatialRNA(RCTD))[, c("x", "y")])
     metadata <- rctd_metadata(RCTD)
 
     spe <- SpatialExperiment(

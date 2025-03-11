@@ -32,20 +32,21 @@
 #'
 fitBulk <- function(RCTD) {
     bulkData <- prepareBulkData(
-        RCTD@cell_type_info$info[[1]],
-        RCTD@spatialRNA, RCTD@internal_vars$gene_list_bulk
+        cell_type_info(RCTD)$info[[1]],
+        spatialRNA(RCTD), internal_vars(RCTD)$gene_list_bulk
     )
     message("fitBulk: decomposing bulk")
-    decompose_results <- decompose_full(bulkData$X, sum(RCTD@spatialRNA@nUMI),
+    decompose_results <- decompose_full(bulkData$X, sum(nUMI(spatialRNA(RCTD))),
         bulkData$b,
         verbose = FALSE, constrain = FALSE,
-        MIN_CHANGE = RCTD@config$MIN_CHANGE_BULK, n.iter = 100, bulk_mode = TRUE
+        MIN_CHANGE = config(RCTD)$MIN_CHANGE_BULK, n.iter = 100,
+        bulk_mode = TRUE
     )
-    RCTD@internal_vars$proportions <- decompose_results$weights
-    RCTD@cell_type_info$renorm <- RCTD@cell_type_info$info
-    RCTD@cell_type_info$renorm[[1]] <- get_norm_ref(
-        RCTD@spatialRNA, RCTD@cell_type_info$info[[1]],
-        RCTD@internal_vars$gene_list_bulk, decompose_results$weights
+    internal_vars(RCTD)$proportions <- decompose_results$weights
+    cell_type_info(RCTD)$renorm <- cell_type_info(RCTD)$info
+    cell_type_info(RCTD)$renorm[[1]] <- get_norm_ref(
+        spatialRNA(RCTD), cell_type_info(RCTD)$info[[1]],
+        internal_vars(RCTD)$gene_list_bulk, decompose_results$weights
     )
     return(RCTD)
 }
@@ -108,14 +109,14 @@ chooseSigma <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
 #' rctd <- choose_sigma_c(rctd)
 #'
 choose_sigma_c <- function(RCTD) {
-    puck <- RCTD@spatialRNA
-    MIN_UMI <- RCTD@config$UMI_min_sigma
+    puck <- spatialRNA(RCTD)
+    MIN_UMI <- config(RCTD)$UMI_min_sigma
     sigma <- 100
     Q_mat_all <- get_Q_all()
     sigma_vals <- names(Q_mat_all)
     X_vals <- get_X_vals()
     # get initial classification
-    N_fit <- min(RCTD@config$N_fit, sum(puck@nUMI > MIN_UMI))
+    N_fit <- min(config(RCTD)$N_fit, sum(nUMI(puck) > MIN_UMI))
     if (N_fit == 0) {
         stop(
             "choose_sigma_c determined a N_fit of 0! This is probably due to ",
@@ -124,32 +125,32 @@ choose_sigma_c <- function(RCTD) {
             " but none of the beads had counts larger than that."
         )
     }
-    fit_ind <- sample(names(puck@nUMI[puck@nUMI > MIN_UMI]), N_fit)
+    fit_ind <- sample(names(nUMI(puck)[nUMI(puck) > MIN_UMI]), N_fit)
     beads <- t(as.matrix(
-        puck@counts[RCTD@internal_vars$gene_list_reg, fit_ind]
+        counts(puck)[internal_vars(RCTD)$gene_list_reg, fit_ind]
     ))
     message("chooseSigma: using initial Q_mat with sigma = ", sigma / 100)
-    for (iter in seq_len(RCTD@config$N_epoch)) {
+    for (iter in seq_len(config(RCTD)$N_epoch)) {
         set_likelihood_vars(Q_mat_all[[as.character(sigma)]], X_vals)
         results <- decompose_batch(
-            puck@nUMI[fit_ind], RCTD@cell_type_info$renorm[[1]], beads,
-            RCTD@internal_vars$gene_list_reg,
-            constrain = FALSE, max_cores = RCTD@config$max_cores
+            nUMI(puck)[fit_ind], cell_type_info(RCTD)$renorm[[1]], beads,
+            internal_vars(RCTD)$gene_list_reg,
+            constrain = FALSE, max_cores = config(RCTD)$max_cores
         )
         weights <- Matrix(
-            0, nrow = N_fit, ncol = RCTD@cell_type_info$renorm[[3]]
+            0, nrow = N_fit, ncol = cell_type_info(RCTD)$renorm[[3]]
         )
         rownames(weights) <- fit_ind
-        colnames(weights) <- RCTD@cell_type_info$renorm[[2]]
+        colnames(weights) <- cell_type_info(RCTD)$renorm[[2]]
         for (i in seq_len(N_fit)) {
             weights[i, ] <- results[[i]]$weights
         }
-        gene_list <- RCTD@internal_vars$gene_list_reg
-        profiles <- RCTD@cell_type_info$renorm[[1]][gene_list, ]
+        gene_list <- internal_vars(RCTD)$gene_list_reg
+        profiles <- cell_type_info(RCTD)$renorm[[1]][gene_list, ]
         prediction <- sweep(
             as.matrix(profiles) %*% t(as.matrix(weights)),
             2,
-            puck@nUMI[fit_ind],
+            nUMI(puck)[fit_ind],
             "*"
         )
         message(
@@ -164,8 +165,8 @@ choose_sigma_c <- function(RCTD) {
             break
         }
     }
-    RCTD@internal_vars$sigma <- sigma / 100
-    RCTD@internal_vars$Q_mat <- Q_mat_all[[as.character(sigma)]]
-    RCTD@internal_vars$X_vals <- X_vals
+    internal_vars(RCTD)$sigma <- sigma / 100
+    internal_vars(RCTD)$Q_mat <- Q_mat_all[[as.character(sigma)]]
+    internal_vars(RCTD)$X_vals <- X_vals
     return(RCTD)
 }

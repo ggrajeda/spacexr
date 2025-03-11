@@ -20,7 +20,7 @@ get_de_genes <- function(
 ) {
     total_gene_list <- c()
     epsilon <- 1e-9
-    bulk_vec <- rowSums(puck@counts)
+    bulk_vec <- rowSums(counts(puck))
     gene_list <- rownames(cell_type_info[[1]])
     prev_num_genes <- min(length(gene_list), length(names(bulk_vec)))
     if (length(grep("mt-", gene_list)) > 0) {
@@ -72,9 +72,9 @@ get_de_genes <- function(
 }
 
 prepareBulkData <- function(cell_type_means, puck, gene_list, MIN_OBS = 10) {
-    bulk_vec <- rowSums(puck@counts)
+    bulk_vec <- rowSums(counts(puck))
     gene_list <- intersect(names(which(bulk_vec >= MIN_OBS)), gene_list)
-    nUMI <- sum(puck@nUMI)
+    nUMI <- sum(nUMI(puck))
     X <- as.matrix(cell_type_means[gene_list, ] * nUMI)
     b <- bulk_vec[gene_list]
     return(list(X = X, b = b))

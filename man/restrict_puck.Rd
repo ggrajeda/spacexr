@@ -10,7 +10,7 @@ restrict_puck(puck, barcodes)
 \item{puck}{a \code{\linkS4class{SpatialRNA}} object}
 
 \item{barcodes}{a list of barcode names, a subset of
-\code{rownames(puck@coords)}}
+\code{rownames(coords(puck))}}
 }
 \value{
 Returns a \code{\linkS4class{SpatialRNA}} object subsampled to the

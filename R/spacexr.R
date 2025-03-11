@@ -2,13 +2,13 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
     message("Begin: process_cell_type_info")
     message(
         "process_cell_type_info: number of cells in reference: ",
-        dim(reference@counts)[2]
+        dim(counts(reference))[2]
     )
     message(
         "process_cell_type_info: number of genes in reference: ",
-        dim(reference@counts)[1]
+        dim(counts(reference))[1]
     )
-    cell_counts <- table(reference@cell_types)
+    cell_counts <- table(cell_types(reference))
     message(cell_counts)
 
     if (min(cell_counts) < CELL_MIN) {
@@ -18,9 +18,9 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
         )
     }
     cell_type_info <- get_cell_type_info(
-        reference@counts,
-        reference@cell_types,
-        reference@nUMI,
+        counts(reference),
+        cell_types(reference),
+        nUMI(reference),
         cell_type_names = cell_type_names
     )
     message("End: process_cell_type_info")
@@ -160,7 +160,7 @@ createRctd <- function(
     if (!is.null(nUMI)) {
         names(nUMI) <- colnames(counts)
     }
-    spatialRNA <- SpatialRNA(
+    spatialRNA <- createSpatialRNA(
         coords, counts, nUMI = nUMI,
         use_fake_coords = use_fake_coords, require_int = require_int
     )
@@ -181,7 +181,7 @@ createRctd <- function(
         if (!is.null(ref_nUMI)) {
             names(ref_nUMI) <- colnames(ref_counts)
         }
-        reference <- Reference(
+        reference <- createReference(
             ref_counts, cell_types, nUMI = ref_nUMI, require_int = require_int,
             n_max_cells = ref_n_cells_max,  min_UMI = ref_UMI_min
         )
@@ -211,7 +211,7 @@ createRctd <- function(
     }
     if (is.null(cell_type_profiles)) {
         if (is.null(cell_type_names)) {
-            cell_type_names <- levels(reference@cell_types)
+            cell_type_names <- levels(cell_types(reference))
         }
         cell_type_info <- list(
             info = process_cell_type_info(
@@ -235,7 +235,7 @@ createRctd <- function(
     if (!keep_reference && is.null(cell_type_profiles)) {
         reference <- create_downsampled_data(reference, n_samples = 5)
     }
-    puck.original <- restrict_counts(spatialRNA, rownames(spatialRNA@counts),
+    puck.original <- restrict_counts(spatialRNA, rownames(counts(spatialRNA)),
         UMI_thresh = config$UMI_min, UMI_max = config$UMI_max,
         counts_thresh = config$counts_min
     )
@@ -276,7 +276,7 @@ createRctd <- function(
         UMI_max = config$UMI_max,
         counts_thresh = config$counts_min
     )
-    puck <- restrict_puck(puck, colnames(puck@counts))
+    puck <- restrict_puck(puck, colnames(counts(puck)))
     if (is.null(class_df)) {
         class_df <- data.frame(
             cell_type_info$info[[2]],
@@ -406,7 +406,7 @@ runRctd <- function(RCTD, rctd_mode = "doublet") {
             "Please set rctd_mode=doublet, multi, or full."
         )
     }
-    RCTD@config$RCTDmode <- rctd_mode
+    config(RCTD)$RCTDmode <- rctd_mode
     RCTD <- fitBulk(RCTD)
     RCTD <- choose_sigma_c(RCTD)
     RCTD <- fitPixels(RCTD, rctd_mode = rctd_mode)

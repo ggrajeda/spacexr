@@ -83,7 +83,7 @@ simulate_reference_object <- function(expression_profile, num_samples) {
     reference_cell_type <- colData(reference_data)$mixture_type
     names(reference_cell_type) <- colnames(reference_data)
 
-    spacexr:::Reference(
+    spacexr:::createReference(
         counts = assay(reference_data),
         cell_types = reference_cell_type,
         min_UMI = 0
@@ -102,7 +102,7 @@ simulate_spatial_rna_object <- function(expression_profile, test_mixtures) {
     )
     rownames(coords) <- colnames(test_data)
 
-    spacexr:::SpatialRNA(coords = coords, counts = assay(test_data))
+    spacexr:::createSpatialRNA(coords = coords, counts = assay(test_data))
 }
 
 #' Generate Simulated Spatial Transcriptomics Data

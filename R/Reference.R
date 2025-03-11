@@ -25,9 +25,9 @@
 #'
 #' cell_types <- rctdSim$reference_cell_types[["cell_type"]]
 #' names(cell_types) <- rownames(rctdSim$reference_cell_types)
-#' reference <- Reference(rctdSim$reference_counts, cell_types)
+#' reference <- createReference(rctdSim$reference_counts, cell_types)
 #'
-Reference <- function(
+createReference <- function(
     counts, cell_types,
     nUMI = NULL,
     require_int = TRUE, n_max_cells = 10000, min_UMI = 100
@@ -91,7 +91,7 @@ Reference <- function(
         counts = counts[, barcodes],
         nUMI = nUMI[barcodes]
     )
-    cur_count <- max(table(reference@cell_types))
+    cur_count <- max(table(cell_types(reference)))
     if (cur_count > n_max_cells) {
         warning(
             "Reference: number of cells per cell type is ", cur_count,
@@ -151,7 +151,7 @@ create_downsampled_data <- function(
     cell_types_keep = NULL, n_samples = 10000
 ) {
     if (is.null(cell_types_keep)) {
-        cell_types_keep <- levels(reference@cell_types)
+        cell_types_keep <- levels(cell_types(reference))
     }
     cell_types_keep <- cell_types_keep[unlist(
         lapply(cell_types_keep, function(x) nchar(x) > 0)
@@ -159,7 +159,7 @@ create_downsampled_data <- function(
     index_keep <- c()
     i <- 1
     repeat{
-        new_index <- which(reference@cell_types == cell_types_keep[i])
+        new_index <- which(cell_types(reference) == cell_types_keep[i])
         new_samples <- min(n_samples, length(new_index))
         index_keep <- c(
             index_keep,
@@ -169,9 +169,9 @@ create_downsampled_data <- function(
             break
         }
     }
-    reference@counts <- reference@counts[, index_keep]
-    reference@cell_types <- reference@cell_types[index_keep]
-    reference@cell_types <- droplevels(reference@cell_types)
-    reference@nUMI <- reference@nUMI[index_keep]
+    counts(reference) <- counts(reference)[, index_keep]
+    cell_types(reference) <- cell_types(reference)[index_keep]
+    cell_types(reference) <- droplevels(cell_types(reference))
+    nUMI(reference) <- nUMI(reference)[index_keep]
     return(reference)
 }
