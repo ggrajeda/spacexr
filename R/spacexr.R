@@ -148,6 +148,86 @@ createRctd <- function(
     cell_type_names = NULL, MAX_MULTI_TYPES = 4, CONFIDENCE_THRESHOLD = 5,
     DOUBLET_THRESHOLD = 20, test_mode = FALSE
 ) {
+    # Type validity checks
+    if (!is(spatial_experiment, "SpatialExperiment")) {
+        stop(
+            "createRctd: spatial_experiment must be a SpatialExperiment object"
+        )
+    }
+
+    if (is.null(cell_type_profiles) &&
+        !is(reference_experiment, "SummarizedExperiment")) {
+        stop(
+            "createRctd: reference_experiment must be a SummarizedExperiment ",
+            "object"
+        )
+    }
+
+    if (!is.numeric(max_cores) ||
+        max_cores <= 0 ||
+        max_cores != as.integer(max_cores)) {
+        stop("createRctd: max_cores must be a positive integer")
+    }
+
+    if (!is.character(cell_type_col) || length(cell_type_col) != 1) {
+        stop("createRctd: cell_type_col must be a character string")
+    }
+
+    if (!is.logical(require_int) || length(require_int) != 1) {
+        stop("createRctd: require_int must be a logical value")
+    }
+
+    # Check numeric parameters
+    numeric_params <- list(
+        gene_cutoff = gene_cutoff, fc_cutoff = fc_cutoff,
+        gene_cutoff_reg = gene_cutoff_reg, fc_cutoff_reg = fc_cutoff_reg,
+        counts_min = counts_min, UMI_min = UMI_min, UMI_max = UMI_max,
+        UMI_min_sigma = UMI_min_sigma, ref_UMI_min = ref_UMI_min,
+        ref_n_cells_min = ref_n_cells_min, ref_n_cells_max = ref_n_cells_max,
+        MAX_MULTI_TYPES = MAX_MULTI_TYPES,
+        CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD,
+        DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
+    )
+
+    for (param_name in names(numeric_params)) {
+        param_value <- numeric_params[[param_name]]
+        if (!is.numeric(param_value) ||
+            length(param_value) != 1 ||
+            is.na(param_value)) {
+            stop("createRctd: ", param_name, " must be a numeric value")
+        }
+    }
+
+    if (!is.null(cell_type_profiles)) {
+        if (!is.matrix(cell_type_profiles)) {
+            stop("createRctd: cell_type_profiles must be a matrix")
+        }
+        if (is.null(rownames(cell_type_profiles)) ||
+            is.null(colnames(cell_type_profiles))) {
+            stop(
+                "createRctd: cell_type_profiles must have rownames (genes) ",
+                "and colnames (cell types)"
+            )
+        }
+    }
+
+    if (!is.logical(keep_reference) || length(keep_reference) != 1) {
+        stop("createRctd: keep_reference must be a logical value")
+    }
+
+    if (!is.null(class_df) && !is.data.frame(class_df)) {
+        stop("createRctd: class_df must be a data frame")
+    }
+
+    if (!is.null(cell_type_names) &&
+        (!is.character(cell_type_names) || length(cell_type_names) == 0)) {
+        stop("createRctd: cell_type_names must be a non-empty character vector")
+    }
+
+    if (!is.logical(test_mode) || length(test_mode) != 1) {
+        stop("createRctd: test_mode must be a logical value")
+    }
+
     # Convert SpatialExperiment to SpatialRNA
     coords <- NULL
     use_fake_coords <- length(spatialCoords(spatial_experiment)) == 0
@@ -306,11 +386,12 @@ createRctd <- function(
 #' Run RCTD algorithm to decompose cell type mixtures
 #'
 #' Runs the RCTD algorithm to decompose cell type mixtures in spatial
-#' transcriptomics data. For each pixel in the spatial data, RCTD estimates the
-#' proportions of different cell types by comparing the gene expression at the
-#' pixel to the reference cell type profiles, while accounting for technical
-#' factors like platform effects and varying sequencing depth. The algorithm has
-#' three modes suited for different spatial technologies:
+#' transcriptomics data using a reference dataset. First, the data is
+#' preprocessed to identify differentially expressed genes and normalize for
+#' platform effects. Then, for each pixel in the spatial data, RCTD estimates
+#' the proportions of different cell types by comparing gene expression at a
+#' pixel to the reference cell type profiles. The algorithm has three modes
+#' suited for different spatial technologies:
 #' \itemize{
 #'   \item \code{doublet}: Fits at most two cell types per pixel and classifies
 #'     each pixel as a \code{"singlet"} (one cell type) or \code{"doublet"}

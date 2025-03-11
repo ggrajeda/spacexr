@@ -177,11 +177,12 @@ A \code{\link[SpatialExperiment]{SpatialExperiment}} object
 }
 \description{
 Runs the RCTD algorithm to decompose cell type mixtures in spatial
-transcriptomics data. For each pixel in the spatial data, RCTD estimates the
-proportions of different cell types by comparing the gene expression at the
-pixel to the reference cell type profiles, while accounting for technical
-factors like platform effects and varying sequencing depth. The algorithm has
-three modes suited for different spatial technologies:
+transcriptomics data using a reference dataset. First, the data is
+preprocessed to identify differentially expressed genes and normalize for
+platform effects. Then, for each pixel in the spatial data, RCTD estimates
+the proportions of different cell types by comparing gene expression at a
+pixel to the reference cell type profiles. The algorithm has three modes
+suited for different spatial technologies:
 \itemize{
   \item \code{doublet}: Fits at most two cell types per pixel and classifies
     each pixel as a \code{"singlet"} (one cell type) or \code{"doublet"}
