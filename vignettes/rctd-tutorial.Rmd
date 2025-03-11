@@ -1,9 +1,9 @@
 ---
 title: "RCTD Tutorial"
 author: "Dylan Cable and Gabriel Grajeda"
-date: "Feb 12th, 2025"
-output:  
-  rmarkdown::html_vignette:
+date: "March 11th, 2025"
+output:
+  BiocStyle::html_document:
     toc: true
     toc_depth: 3
 vignette: >
@@ -62,7 +62,8 @@ Before running RCTD, we must first load in:
 
 ## Reference
 
-The reference data should be stored in a `SummarizedExperiment` object with:
+The reference data should be stored in a
+`r BiocStyle::Biocpkg("SummarizedExperiment")` object with:
 
 *Required components*:
 
@@ -111,8 +112,8 @@ find that there are three cell types (`ct1`, `ct2`, and `ct3`), each appearing
 
 ## Spatial Transcriptomics Data
 
-Next, we will load the spatial transcriptomics data into a `SpatialExperiment`
-object with:
+Next, we will load the spatial transcriptomics data into a
+`r BiocStyle::Biocpkg("SpatialExperiment")` object with:
 
 *Required components*:
 
@@ -152,11 +153,11 @@ We find that we have a dataset of 750 genes for 12 pixels, plotted above.
 
 ### Visualizing Ground Truth
 
-The ground truth for our cell type mixtures is given in the `SpatialExperiment`
-object `rctdSim$proportions_spe`. (The ground truth has been stored in the same
-format as the RCTD output, which will be discussed later.) Note that this ground
-truth will not be known in practice---it is what we will need to estimate with
-RCTD.
+The ground truth for our cell type mixtures is given in the
+`r BiocStyle::Biocpkg("SpatialExperiment")` object `rctdSim$proportions_spe`.
+(The ground truth has been stored in the same format as the RCTD output, which
+will be discussed later.) Note that this ground truth will not be known in
+practice---it is what we will need to estimate with RCTD.
 
 ```{r trueProportions}
 unique(t(assay(rctdSim$proportions_spe)))
@@ -184,7 +185,8 @@ plotAllWeights(
 ## Creating RctdConfig object
 
 The last step before running RCTD is to create an `RctdConfig` object from our
-`SpatialExperiment` and `SummarizedExperiment` objects using the `createRctd`
+`r BiocStyle::Biocpkg("SpatialExperiment")` and
+`r BiocStyle::Biocpkg("SummarizedExperiment")` objects using the `createRctd`
 function. Some important configuration options include:
 
 - `max_cores`: Number of cores used for parallel processing. We recommend
@@ -195,7 +197,7 @@ normalization. `gene_cutoff` filters for average expression and `fc_cutoff`
 filters for log-fold-change across cell types.
 - `gene_cutoff_reg`, `fc_cutoff_reg`: Similar to above, but for the RCTD step.
 - `UMI_min`, `UMI_max`: Minimum and maximum read depth for pixels in the
-`SpatialExperiment` dataset.
+`r BiocStyle::Biocpkg("SpatialExperiment")` dataset.
 - `MAX_MULTI_TYPES`: Maximum number of cell types per pixel (multi mode only).
 
 ```{r createRctd, message = FALSE}
@@ -225,7 +227,7 @@ results_spe <- runRctd(rctd_config, rctd_mode = "doublet")
 
 # RCTD Results
 
-RCTD returns a `SpatialExperiment` object containing:
+RCTD returns a `r BiocStyle::Biocpkg("SpatialExperiment")` object containing:
 
 - Three assays (one in full mode):
     1. `weights`: Cell type proportions restricted according to the specified
@@ -240,7 +242,8 @@ RCTD returns a `SpatialExperiment` object containing:
     columns sum to 1 (except for rejected pixels, which sum to 0).
 
     **NOTE**: Weights are transposed compared to the output of the original
-    `dmcable/spacexr` package on GitHub.
+    `r BiocStyle::Githubpkg("dmcable/spacexr", "dmcable/spacexr")` package on
+    GitHub.
 
 - Spatial coordinates for each pixel stored in `spatialCoords`.
 
