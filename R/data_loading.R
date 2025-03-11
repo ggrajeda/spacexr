@@ -117,6 +117,10 @@ load_Q_all <- function() {
 
 get_Q_all <- memoise::memoise(load_Q_all)
 
+#' Retrieves SQ matrices from cache, populating the cache if necessary.
+#' @return list of matrices
+#' @keywords internal
+#' @importFrom memoise memoise
 load_SQ_all <- function() {
     X_vals <- get_X_vals()
     Q_mat_all <- get_Q_all()
