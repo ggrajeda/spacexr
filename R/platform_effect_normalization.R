@@ -104,7 +104,6 @@ chooseSigma <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
 #'
 #' # Create RCTD configuration
 #' rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
-#'
 #' rctd <- fitBulk(rctd)
 #' rctd <- choose_sigma_c(rctd)
 #'

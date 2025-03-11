@@ -4,15 +4,136 @@
 \alias{runRctd}
 \title{Run RCTD algorithm to decompose cell type mixtures}
 \usage{
-runRctd(RCTD, rctd_mode = "doublet")
+runRctd(
+  spatial_experiment,
+  reference_experiment,
+  rctd_mode = c("doublet", "multi", "full"),
+  max_cores = 4,
+  cell_type_col = "cell_type",
+  require_int = TRUE,
+  gene_cutoff = 0.000125,
+  fc_cutoff = 0.5,
+  gene_cutoff_reg = 2e-04,
+  fc_cutoff_reg = 0.75,
+  counts_min = 10,
+  UMI_min = 100,
+  UMI_max = 2e+07,
+  UMI_min_sigma = 300,
+  ref_UMI_min = 100,
+  ref_n_cells_min = 25,
+  ref_n_cells_max = 10000,
+  cell_type_profiles = NULL,
+  keep_reference = FALSE,
+  class_df = NULL,
+  cell_type_names = NULL,
+  MAX_MULTI_TYPES = 4,
+  CONFIDENCE_THRESHOLD = 5,
+  DOUBLET_THRESHOLD = 20,
+  test_mode = FALSE
+)
 }
 \arguments{
-\item{RCTD}{\code{\linkS4class{RctdConfig}} object created using
-\code{\link{createRctd}}}
+\item{spatial_experiment}{\code{\link[SpatialExperiment]{SpatialExperiment}}
+object containing spatial transcriptomics data to be deconvolved. The
+object must contain:
+\itemize{
+  \item An \code{assay} matrix of gene expression counts (genes as rows,
+  pixels as columns) with unique gene names as row names and unique pixel
+  barcodes as column names.
+  \item A \code{spatialCoords} matrix containing x and y coordinates for
+  each pixel. If not provided, dummy coordinates will be used.
+  \item Optionally, a \code{colData} column named \code{nUMI} containing
+  total UMI counts for each pixel. If not provided, \code{nUMI} will be
+  calculated as the column sums of the counts matrix.
+}}
+
+\item{reference_experiment}{\code{\link[SummarizedExperiment]{SummarizedExperiment}} object containing
+annotated RNA-seq data (e.g., from snRNA-seq, scRNA-seq, or cell
+type-specific bulk RNA-seq), used to learn cell type profiles. The object
+must contain:
+\itemize{
+  \item An \code{assay} matrix of gene expression counts (genes as rows,
+  cells as columns) with unique gene names as row names and unique cell
+  barcodes as column names.
+  \item A \code{colData} column containing cell type annotations for each
+  cell (column name specified by \code{cell_type_col}).
+  \item Optionally, a \code{colData} column named \code{nUMI} containing
+  total UMI counts for each cell. If not provided, \code{nUMI} will be
+  calculated as the column sums of the counts matrix.
+}}
 
 \item{rctd_mode}{character string specifying the RCTD mode:
 \code{"doublet"}, \code{"multi"}, or \code{"full"}
 (default: \code{"doublet"})}
+
+\item{max_cores}{numeric, maximum number of cores to use for parallel
+processing (default: 4)}
+
+\item{cell_type_col}{character, name of the entry in
+\code{colData(reference_experiment)} containing cell type annotations
+(default: \code{"cell_type"})}
+
+\item{require_int}{logical, whether counts and nUMI are required to be
+integers (default: \code{TRUE})}
+
+\item{gene_cutoff}{numeric, minimum normalized gene expression for genes to
+be included in the platform effect normalization step (default: 0.000125)}
+
+\item{fc_cutoff}{numeric, minimum log-fold-change (across cell types) for
+genes to be included in the platform effect normalization step (default:
+0.5)}
+
+\item{gene_cutoff_reg}{numeric, minimum normalized gene expression for genes
+to be included in the RCTD step (default: 0.0002)}
+
+\item{fc_cutoff_reg}{numeric, minimum log-fold-change (across cell types) for
+genes to be included in the RCTD step (default: 0.75)}
+
+\item{counts_min}{numeric, minimum total counts per pixel of genes used in
+analysis (default: 10)}
+
+\item{UMI_min}{numeric, minimum UMI count per pixel (default: 100)}
+
+\item{UMI_max}{numeric, maximum UMI count per pixel (default: 20,000,000)}
+
+\item{UMI_min_sigma}{numeric, minimum UMI count for pixels used in platform
+effect normalization (default: 300)}
+
+\item{ref_UMI_min}{numeric, minimum UMI count for cells to be included in the
+reference (default: 100)}
+
+\item{ref_n_cells_min}{numeric, minimum number of cells per cell type in the
+reference (default: 25)}
+
+\item{ref_n_cells_max}{numeric, maximum number of cells per cell type in the
+reference. Will downsample if this number is exceeded. (default: 10,000)}
+
+\item{cell_type_profiles}{matrix of precomputed cell type expression profiles
+(genes by cell type), optional. If this option is used, gene names and cell
+type names must be present in the \code{dimnames}, and the reference will
+be ignored.}
+
+\item{keep_reference}{logical, whether to retain the full reference data in
+the output object (default: \code{FALSE})}
+
+\item{class_df}{data frame mapping cell types to classes, optional. If
+specified, RCTD will report confidence on the class level.}
+
+\item{cell_type_names}{character vector of cell type names to include,
+optional}
+
+\item{MAX_MULTI_TYPES}{numeric, maximum number of cell types per pixel in
+multi mode (default: 4)}
+
+\item{CONFIDENCE_THRESHOLD}{numeric, minimum change in likelihood (compared
+to other cell types) necessary to determine a cell type identity with
+confidence (default: 5)}
+
+\item{DOUBLET_THRESHOLD}{numeric, penalty weight of predicting a doublet
+instead of a singlet for a pixel (default: 20)}
+
+\item{test_mode}{logical, whether to run in test mode with reduced
+computation (default: \code{FALSE})}
 }
 \value{
 A \code{\link[SpatialExperiment]{SpatialExperiment}} object
@@ -92,9 +213,10 @@ reference_se <- SummarizedExperiment(
     colData = rctdSim$reference_cell_types
 )
 
-# Create RCTD configuration
-rctd_config <- createRctd(spatial_spe, reference_se, max_cores = 1)
-results <- runRctd(rctd_config, rctd_mode = "doublet")
+# Run RCTD
+results <- runRctd(
+    spatial_spe, reference_se, rctd_mode = "doublet", max_cores = 1
+)
 
 # Access the cell type proportions (cell types as rows, pixels as columns)
 assay(results, "weights")

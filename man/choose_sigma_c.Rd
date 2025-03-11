@@ -36,7 +36,6 @@ reference_se <- SummarizedExperiment(
 
 # Create RCTD configuration
 rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
-
 rctd <- fitBulk(rctd)
 rctd <- choose_sigma_c(rctd)
 

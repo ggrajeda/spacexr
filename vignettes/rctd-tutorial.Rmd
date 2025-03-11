@@ -73,7 +73,7 @@ names should be unique cell barcodes. Counts should be untransformed integers.
 
 2. `colData`: A factor column containing cell type annotations for each cell in
 the reference. The column name is assumed to be "cell_type", but another name
-may be specified using the `cell_type_col` parameter in `createRctd`.
+may be specified using the `cell_type_col` parameter in `runRctd`.
 
 *Optional components*:
 
@@ -142,7 +142,7 @@ spatial_spe <- SpatialExperiment(
 
 # Examine pixels. (optional)
 print(dim(assay(spatial_spe))) # Gene expression matrix dimensions
-ggplot(as.data.frame(spatialCoords(spatial_spe)), aes(x, y)) + 
+ggplot(spatialCoords(spatial_spe), aes(x, y)) + 
     geom_point(size = 5) + 
     theme(axis.text = element_blank(), axis.ticks = element_blank()
 )
@@ -182,12 +182,21 @@ plotAllWeights(
 
 # Running RCTD
 
-## Creating RctdConfig object
-
-The last step before running RCTD is to create an `RctdConfig` object from our
+We are now ready to run RCTD, using the `runRctd` function on our
 `r BiocStyle::Biocpkg("SpatialExperiment")` and
-`r BiocStyle::Biocpkg("SummarizedExperiment")` objects using the `createRctd`
-function. Some important configuration options include:
+`r BiocStyle::Biocpkg("SummarizedExperiment")` objects.
+
+RCTD has three modes, each suited for different spatial technologies:
+
+- `"doublet"`: Assigns 1-2 cell types per pixel. Best for high-resolution
+technologies like Slide-seq and MERFISH.
+- `"multi"`: Like doublet mode but can assign more cell types (up to
+`MAX_MULTI_TYPES`). Best for lower-resolution technologies like 100-micron
+Visium.
+- `"full"`: No restrictions on number of cell types.
+
+The `rctd_mode` argument is used to specify the mode in which the RCTD algorithm
+runs. Other important configuration options include:
 
 - `max_cores`: Number of cores used for parallel processing. We recommend
 setting this to at least 4 to improve efficiency. If set to 1, parallel
@@ -200,29 +209,13 @@ filters for log-fold-change across cell types.
 `r BiocStyle::Biocpkg("SpatialExperiment")` dataset.
 - `MAX_MULTI_TYPES`: Maximum number of cell types per pixel (multi mode only).
 
-```{r createRctd, message = FALSE}
-rctd_config <- createRctd(spatial_spe, reference_se, max_cores = 1)
-```
-
-## Running RCTD
-
-We are now ready to run RCTD using the `runRctd` function. 
-
-RCTD has three modes, each suited for different spatial technologies:
-
-- `"doublet"`: Assigns 1-2 cell types per pixel. Best for high-resolution
-technologies like Slide-seq and MERFISH.
-- `"multi"`: Like doublet mode but can assign more cell types (up to
-`MAX_MULTI_TYPES`). Best for lower-resolution technologies like 100-micron
-Visium.
-- `"full"`: No restrictions on number of cell types.
-
-The `rctd_mode` argument is used to specify the mode in which the RCTD algorithm
-runs. For the purpose of demonstration, we'll decompose the data into doublets
-in this vignette.
+For the purposes of demonstration, we'll decompose the data into doublets in
+this vignette.
 
 ```{r runRctd, message = FALSE}
-results_spe <- runRctd(rctd_config, rctd_mode = "doublet")
+results_spe <- runRctd(
+    spatial_spe, reference_se, rctd_mode = "doublet", max_cores = 1
+)
 ```
 
 # RCTD Results
@@ -310,7 +303,7 @@ conditions except `reject`).
 We can see that RCTD generally succeeded in identifying the components of the
 cell mixtures, although pixels with 90% `ct1` and 10% `ct2` were classified
 as singlets. (As an exercise, try changing the `DOUBLET_THRESHOLD` parameter
-in `createRctd` so that these mixtures will be identified as doublets.)
+in `runRctd` so that these mixtures will be identified as doublets.)
 
 # Visualization
 

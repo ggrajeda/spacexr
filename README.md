@@ -37,8 +37,9 @@ reference_se <- SummarizedExperiment(
 )
 
 # Configure and run RCTD
-rctd_config <- createRctd(spatial_spe, reference_se, max_cores = 4)
-results <- runRctd(rctd_config, rctd_mode = "doublet")
+results <- runRctd(
+    spatial_spe, reference_se, rctd_mode = "doublet", max_cores = 4
+)
 
 # Visualize results
 plotAllWeights(results, title = "Cell Type Proportions")

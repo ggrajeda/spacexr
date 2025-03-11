@@ -63,11 +63,11 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #'     total UMI counts for each cell. If not provided, \code{nUMI} will be
 #'     calculated as the column sums of the counts matrix.
 #'   }
+#' @param max_cores numeric, maximum number of cores to use for parallel
+#'   processing (default: 4)
 #' @param cell_type_col character, name of the entry in
 #'   \code{colData(reference_experiment)} containing cell type annotations
 #'   (default: \code{"cell_type"})
-#' @param max_cores numeric, maximum number of cores to use for parallel
-#'   processing (default: 4)
 #' @param require_int logical, whether counts and nUMI are required to be
 #'   integers (default: \code{TRUE})
 #' @param gene_cutoff numeric, minimum normalized gene expression for genes to
@@ -117,6 +117,7 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #' @importFrom SpatialExperiment spatialCoords
 #' @importFrom SummarizedExperiment SummarizedExperiment assay colData
 #' @export
+#' @keywords internal
 #' @examples
 #' data(rctdSim)
 #'
@@ -138,14 +139,14 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #' rctd_config <- createRctd(spatial_spe, reference_se, max_cores = 1)
 #'
 createRctd <- function(
-    spatial_experiment, reference_experiment, cell_type_col = "cell_type",
-    max_cores = 4, require_int = TRUE, gene_cutoff = 0.000125, fc_cutoff = 0.5,
-    gene_cutoff_reg = 0.0002, fc_cutoff_reg = 0.75, counts_min = 10,
-    UMI_min = 100, UMI_max = 20000000, UMI_min_sigma = 300, ref_UMI_min = 100,
-    ref_n_cells_min = 25, ref_n_cells_max = 10000, cell_type_profiles = NULL,
-    keep_reference = FALSE, class_df = NULL, cell_type_names = NULL,
-    MAX_MULTI_TYPES = 4, CONFIDENCE_THRESHOLD = 5, DOUBLET_THRESHOLD = 20,
-    test_mode = FALSE
+    spatial_experiment, reference_experiment, max_cores = 4,
+    cell_type_col = "cell_type", require_int = TRUE, gene_cutoff = 0.000125,
+    fc_cutoff = 0.5, gene_cutoff_reg = 0.0002, fc_cutoff_reg = 0.75,
+    counts_min = 10, UMI_min = 100, UMI_max = 20000000, UMI_min_sigma = 300,
+    ref_UMI_min = 100, ref_n_cells_min = 25, ref_n_cells_max = 10000,
+    cell_type_profiles = NULL, keep_reference = FALSE, class_df = NULL,
+    cell_type_names = NULL, MAX_MULTI_TYPES = 4, CONFIDENCE_THRESHOLD = 5,
+    DOUBLET_THRESHOLD = 20, test_mode = FALSE
 ) {
     # Convert SpatialExperiment to SpatialRNA
     coords <- NULL
@@ -324,8 +325,7 @@ createRctd <- function(
 #'     restrictions.
 #' }
 #'
-#' @param RCTD \code{\linkS4class{RctdConfig}} object created using
-#'   \code{\link{createRctd}}
+#' @inheritParams createRctd
 #' @param rctd_mode character string specifying the RCTD mode:
 #'   \code{"doublet"}, \code{"multi"}, or \code{"full"}
 #'   (default: \code{"doublet"})
@@ -386,9 +386,10 @@ createRctd <- function(
 #'     colData = rctdSim$reference_cell_types
 #' )
 #'
-#' # Create RCTD configuration
-#' rctd_config <- createRctd(spatial_spe, reference_se, max_cores = 1)
-#' results <- runRctd(rctd_config, rctd_mode = "doublet")
+#' # Run RCTD
+#' results <- runRctd(
+#'     spatial_spe, reference_se, rctd_mode = "doublet", max_cores = 1
+#' )
 #'
 #' # Access the cell type proportions (cell types as rows, pixels as columns)
 #' assay(results, "weights")
@@ -399,14 +400,35 @@ createRctd <- function(
 #' # Access spatial coordinates
 #' head(spatialCoords(results))
 #'
-runRctd <- function(RCTD, rctd_mode = "doublet") {
-    if (!(rctd_mode %in% c("doublet", "multi", "full"))) {
-        stop(
-            "runRctd: rctd_mode=", rctd_mode," is not a valid choice. ",
-            "Please set rctd_mode=doublet, multi, or full."
-        )
-    }
-    config(RCTD)$RCTDmode <- rctd_mode
+runRctd <- function(
+    spatial_experiment, reference_experiment,
+    rctd_mode = c("doublet", "multi", "full"), max_cores = 4,
+    cell_type_col = "cell_type", require_int = TRUE, gene_cutoff = 0.000125,
+    fc_cutoff = 0.5, gene_cutoff_reg = 0.0002, fc_cutoff_reg = 0.75,
+    counts_min = 10, UMI_min = 100, UMI_max = 20000000, UMI_min_sigma = 300,
+    ref_UMI_min = 100, ref_n_cells_min = 25, ref_n_cells_max = 10000,
+    cell_type_profiles = NULL, keep_reference = FALSE, class_df = NULL,
+    cell_type_names = NULL, MAX_MULTI_TYPES = 4, CONFIDENCE_THRESHOLD = 5,
+    DOUBLET_THRESHOLD = 20, test_mode = FALSE
+) {
+    rctd_mode <- match.arg(rctd_mode)
+    RCTD <- createRctd(
+        spatial_experiment = spatial_experiment,
+        reference_experiment = reference_experiment,
+        cell_type_col = cell_type_col, max_cores = max_cores,
+        require_int = require_int, gene_cutoff = gene_cutoff,
+        fc_cutoff = fc_cutoff, gene_cutoff_reg = gene_cutoff_reg,
+        fc_cutoff_reg = fc_cutoff_reg, counts_min = counts_min,
+        UMI_min = UMI_min, UMI_max = UMI_max, UMI_min_sigma = UMI_min_sigma,
+        ref_UMI_min = ref_UMI_min, ref_n_cells_min = ref_n_cells_min,
+        ref_n_cells_max = ref_n_cells_max,
+        cell_type_profiles = cell_type_profiles,
+        keep_reference = keep_reference,
+        class_df = class_df, cell_type_names = cell_type_names,
+        MAX_MULTI_TYPES = MAX_MULTI_TYPES,
+        CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD,
+        DOUBLET_THRESHOLD = DOUBLET_THRESHOLD, test_mode = test_mode
+    )
     RCTD <- fitBulk(RCTD)
     RCTD <- choose_sigma_c(RCTD)
     RCTD <- fitPixels(RCTD, rctd_mode = rctd_mode)

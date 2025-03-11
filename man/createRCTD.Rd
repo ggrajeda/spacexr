@@ -7,8 +7,8 @@
 createRctd(
   spatial_experiment,
   reference_experiment,
-  cell_type_col = "cell_type",
   max_cores = 4,
+  cell_type_col = "cell_type",
   require_int = TRUE,
   gene_cutoff = 0.000125,
   fc_cutoff = 0.5,
@@ -61,12 +61,12 @@ must contain:
   calculated as the column sums of the counts matrix.
 }}
 
+\item{max_cores}{numeric, maximum number of cores to use for parallel
+processing (default: 4)}
+
 \item{cell_type_col}{character, name of the entry in
 \code{colData(reference_experiment)} containing cell type annotations
 (default: \code{"cell_type"})}
-
-\item{max_cores}{numeric, maximum number of cores to use for parallel
-processing (default: 4)}
 
 \item{require_int}{logical, whether counts and nUMI are required to be
 integers (default: \code{TRUE})}
@@ -161,3 +161,4 @@ reference_se <- SummarizedExperiment(
 rctd_config <- createRctd(spatial_spe, reference_se, max_cores = 1)
 
 }
+\keyword{internal}

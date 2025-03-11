@@ -17,9 +17,7 @@ Robust Cell Type Decomposition (RCTD) is a computational method for deconvolving
   (called \code{reference} here) for the RNA-seq data. Then simply run RCTD
   as:
 
-  \code{rctd_config <- createRctd(spatial, reference)}
-
-  \code{results <- runRctd(rctd_config)}
+  \code{results <- runRctd(spatial, reference)}
 }
 
 \seealso{
