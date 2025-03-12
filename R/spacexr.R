@@ -35,15 +35,18 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #' platform effects. Users should subsequently pass this object to
 #' \code{\link{runRctd}}.
 #'
-#' @param spatial_experiment \code{\link[SpatialExperiment]{SpatialExperiment}}
-#'   object containing spatial transcriptomics data to be deconvolved. The
-#'   object must contain:
+#' @param spatial_experiment
+#'   \code{\link[SummarizedExperiment]{SummarizedExperiment}} object (or any
+#'   derivative object, including \link[SpatialExperiment]{SpatialExperiment})
+#'   containing spatial transcriptomics data to be deconvolved. The object must
+#'   contain:
 #'   \itemize{
 #'     \item An \code{assay} matrix of gene expression counts (genes as rows,
 #'     pixels as columns) with unique gene names as row names and unique pixel
 #'     barcodes as column names.
-#'     \item A \code{spatialCoords} matrix containing x and y coordinates for
-#'     each pixel. If not provided, dummy coordinates will be used.
+#'     \item Optionally, a \code{spatialCoords} matrix containing x and y
+#'     coordinates for each pixel. If \code{spatial_experiment} does not have
+#'     \code{spatialCoords}, dummy coordinates will be used.
 #'     \item Optionally, a \code{colData} column named \code{nUMI} containing
 #'     total UMI counts for each pixel. If not provided, \code{nUMI} will be
 #'     calculated as the column sums of the counts matrix.
@@ -113,9 +116,9 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
 #'
 #' @return \code{\linkS4class{RctdConfig}} object
 #'
-#' @importFrom methods new as is
+#' @importFrom methods new as is isGeneric existsMethod
 #' @importFrom SpatialExperiment spatialCoords
-#' @importFrom SummarizedExperiment SummarizedExperiment assay colData
+#' @importFrom SummarizedExperiment SummarizedExperiment assay assays colData
 #' @export
 #' @keywords internal
 #' @examples
@@ -149,9 +152,10 @@ createRctd <- function(
     DOUBLET_THRESHOLD = 20, test_mode = FALSE
 ) {
     # Type validity checks
-    if (!is(spatial_experiment, "SpatialExperiment")) {
+    if (!is(spatial_experiment, "SummarizedExperiment")) {
         stop(
-            "createRctd: spatial_experiment must be a SpatialExperiment object"
+            "createRctd: spatial_experiment must be a SummarizedExperiment ",
+            "object"
         )
     }
 
@@ -228,13 +232,25 @@ createRctd <- function(
         stop("createRctd: test_mode must be a logical value")
     }
 
-    # Convert SpatialExperiment to SpatialRNA
+    # Convert SummarizedExperiment to SpatialRNA
     coords <- NULL
-    use_fake_coords <- length(spatialCoords(spatial_experiment)) == 0
-    if (!use_fake_coords) {
-        coords <- as.data.frame(spatialCoords(spatial_experiment))
-        colnames(coords) <- c("x", "y")
-        rownames(coords) <- colnames(spatial_experiment)
+    use_fake_coords <- TRUE
+
+    # Check if spatialCoords is defined for spatial_experiment
+    if (isGeneric("spatialCoords") && 
+        existsMethod("spatialCoords", class(spatial_experiment))) {
+        spatial_coords <- spatialCoords(spatial_experiment)
+        use_fake_coords <- length(spatial_coords) == 0
+        if (!use_fake_coords) {
+            coords <- as.data.frame(spatial_coords)
+            colnames(coords) <- c("x", "y")
+            rownames(coords) <- colnames(spatial_experiment)
+        }
+    }
+    if (length(assays(spatial_experiment)) > 1) {
+        warning(
+            "Multiple assays in spatial_experiment. Choosing the first assay."
+        )
     }
     counts <- assay(spatial_experiment)
     nUMI <- colData(spatial_experiment)$nUMI
@@ -249,6 +265,12 @@ createRctd <- function(
     # Convert SummarizedExperiment to Reference
     reference <- NULL
     if (is.null(cell_type_profiles)) {
+        if (length(assays(reference_experiment)) > 1) {
+            warning(
+                "Multiple assays in reference_experiment. Choosing the first ",
+                "assay."
+            )
+        }
         ref_counts <- assay(reference_experiment)
         if (!cell_type_col %in% colnames(colData(reference_experiment))) {
             stop(
@@ -386,7 +408,7 @@ createRctd <- function(
 #' Run RCTD algorithm to decompose cell type mixtures
 #'
 #' Runs the RCTD algorithm to decompose cell type mixtures in spatial
-#' transcriptomics data using a reference dataset. First, the data is
+#' transcriptomics data using a reference dataset. The data is first
 #' preprocessed to identify differentially expressed genes and normalize for
 #' platform effects. Then, for each pixel in the spatial data, RCTD estimates
 #' the proportions of different cell types by comparing gene expression at a

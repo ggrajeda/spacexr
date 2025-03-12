@@ -113,7 +113,8 @@ find that there are three cell types (`ct1`, `ct2`, and `ct3`), each appearing
 ## Spatial Transcriptomics Data
 
 Next, we will load the spatial transcriptomics data into a
-`r BiocStyle::Biocpkg("SpatialExperiment")` object with:
+`r BiocStyle::Biocpkg("SpatialExperiment")` object, though we could use any
+`r BiocStyle::Biocpkg("SummarizedExperiment")` object with:
 
 *Required components*:
 
@@ -121,11 +122,11 @@ Next, we will load the spatial transcriptomics data into a
 rows and pixels as columns. Row names should be unique gene names, and column
 names should be unique pixel barcodes. Counts should be untransformed integers.
 
-2. `spatialCoords`: A matrix containing x and y coordinates for each pixel.
-
 *Optional components*:
 
-1. `colData`: A numeric column named `nUMI`, containing total UMI counts for
+1. `spatialCoords`: A matrix containing x and y coordinates for each pixel.
+
+2. `colData`: A numeric column named `nUMI`, containing total UMI counts for
 each pixel. If not provided, `nUMI` will be calculated as the column sums of the
 counts matrix.
 

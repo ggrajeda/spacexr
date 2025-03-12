@@ -33,15 +33,17 @@ runRctd(
 )
 }
 \arguments{
-\item{spatial_experiment}{\code{\link[SpatialExperiment]{SpatialExperiment}}
-object containing spatial transcriptomics data to be deconvolved. The
-object must contain:
+\item{spatial_experiment}{\code{\link[SummarizedExperiment]{SummarizedExperiment}} object (or any
+derivative object, including \link[SpatialExperiment]{SpatialExperiment})
+containing spatial transcriptomics data to be deconvolved. The object must
+contain:
 \itemize{
   \item An \code{assay} matrix of gene expression counts (genes as rows,
   pixels as columns) with unique gene names as row names and unique pixel
   barcodes as column names.
-  \item A \code{spatialCoords} matrix containing x and y coordinates for
-  each pixel. If not provided, dummy coordinates will be used.
+  \item Optionally, a \code{spatialCoords} matrix containing x and y
+  coordinates for each pixel. If \code{spatial_experiment} does not have
+  \code{spatialCoords}, dummy coordinates will be used.
   \item Optionally, a \code{colData} column named \code{nUMI} containing
   total UMI counts for each pixel. If not provided, \code{nUMI} will be
   calculated as the column sums of the counts matrix.
@@ -177,7 +179,7 @@ A \code{\link[SpatialExperiment]{SpatialExperiment}} object
 }
 \description{
 Runs the RCTD algorithm to decompose cell type mixtures in spatial
-transcriptomics data using a reference dataset. First, the data is
+transcriptomics data using a reference dataset. The data is first
 preprocessed to identify differentially expressed genes and normalize for
 platform effects. Then, for each pixel in the spatial data, RCTD estimates
 the proportions of different cell types by comparing gene expression at a
