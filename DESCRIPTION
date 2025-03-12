@@ -7,7 +7,9 @@ Authors@R: c(
     person(
         "Gabriel", "Grajeda", email = "gabriel.grajeda@gmail.com", role = "cre",
         comment=c(ORCID="0009-0003-7242-7476")
-    ))
+    ),
+    person("Fannie and John Hertz Foundation", role = "fnd")
+    )
 Description: Robust Cell Type Decomposition (RCTD) is a computational method for
     deconvolving cell type mixtures in spatial transcriptomics data. RCTD
     learns cell type profiles from annotated RNA sequencing (RNA-seq)

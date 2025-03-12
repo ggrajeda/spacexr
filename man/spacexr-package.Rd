@@ -36,4 +36,9 @@ Authors:
   \item Dylan Cable \email{dmcable@umich.edu}
 }
 
+Other contributors:
+\itemize{
+  \item Fannie and John Hertz Foundation [funder]
+}
+
 }
