@@ -66,7 +66,7 @@ createSpatialRNA <- function(
             "mutually shared. Such barcodes were removed."
         )
     }
-    if (sum(nUMI[barcodes] != colSums(counts[, barcodes])) > 0) {
+    if (sum(nUMI[barcodes] != colSums(counts[, barcodes, drop = FALSE])) > 0) {
         warning(
             "SpatialRNA: nUMI does not match colSums of counts. If this is ",
             "unintended, please correct this discrepancy. If this is ",
@@ -75,8 +75,8 @@ createSpatialRNA <- function(
     }
     spatial_rna <- new(
         "SpatialRNA",
-        coords = coords[barcodes, ],
-        counts = counts[, barcodes],
+        coords = coords[barcodes, , drop = FALSE],
+        counts = counts[, barcodes, drop = FALSE],
         nUMI = nUMI[barcodes]
     )
     return(spatial_rna)
@@ -289,13 +289,13 @@ restrict_counts <- function(
     puck, gene_list,
     UMI_thresh = 1, UMI_max = 20000, counts_thresh = 1
 ) {
-    counts_tot <- colSums(counts(puck)[gene_list, ])
+    counts_tot <- colSums(counts(puck)[gene_list, , drop = FALSE])
     keep_loc <- (
         (nUMI(puck) >= UMI_thresh) &
         (nUMI(puck) <= UMI_max) &
         (counts_tot >= counts_thresh)
     )
-    counts(puck) <- counts(puck)[gene_list, keep_loc]
+    counts(puck) <- counts(puck)[gene_list, keep_loc, drop = FALSE]
     nUMI(puck) <- nUMI(puck)[keep_loc]
     return(puck)
 }

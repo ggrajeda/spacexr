@@ -44,7 +44,7 @@ solveIRWLS.weights <- function(
         arr.ind = TRUE
     )
     index <- index[order(index[, 1], index[, 2]), , drop = FALSE]
-    S_mat <- S[, index[, 1]] * S[, index[, 2]]
+    S_mat <- S[, index[, 1], drop = FALSE] * S[, index[, 2], drop = FALSE]
 
     iterations <- 0 # now use dampened WLS, iterate weights until convergence
     changes <- c()

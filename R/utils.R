@@ -43,15 +43,11 @@ get_de_genes <- function(
         )
     }
     for (cell_type in cell_type_info[[2]]) {
-        if (cell_type_info[[3]] > 2) {
-            other_mean <- rowMeans(
-                cell_type_info[[1]][gene_list, cell_type_info[[2]] != cell_type]
-            )
-        } else {
-            other_cell_types <- cell_type_info[[2]] != cell_type
-            other_mean <- cell_type_info[[1]][gene_list, other_cell_types]
-            names(other_mean) <- gene_list
-        }
+        other_mean <- rowMeans(
+            cell_type_info[[1]][
+                gene_list, cell_type_info[[2]] != cell_type, drop = FALSE
+            ]
+        )
         logFC <- (
             log(cell_type_info[[1]][gene_list, cell_type] + epsilon) -
             log(other_mean + epsilon)
@@ -75,7 +71,7 @@ prepareBulkData <- function(cell_type_means, puck, gene_list, MIN_OBS = 10) {
     bulk_vec <- rowSums(counts(puck))
     gene_list <- intersect(names(which(bulk_vec >= MIN_OBS)), gene_list)
     nUMI <- sum(nUMI(puck))
-    X <- as.matrix(cell_type_means[gene_list, ] * nUMI)
+    X <- as.matrix(cell_type_means[gene_list, , drop = FALSE] * nUMI)
     b <- bulk_vec[gene_list]
     return(list(X = X, b = b))
 }

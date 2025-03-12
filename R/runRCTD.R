@@ -29,7 +29,7 @@ process_beads_batch <- function(
     MAX_CORES = 8, MIN.CHANGE = 0.001, CONFIDENCE_THRESHOLD = 10,
     DOUBLET_THRESHOLD = 25
 ) {
-    beads <- t(as.matrix(counts(puck)[gene_list, ]))
+    beads <- t(as.matrix(counts(puck)[gene_list, , drop = FALSE]))
     lapply_func <- lapply
     if (MAX_CORES > 1) {
         numCores <- parallel::detectCores()
@@ -56,7 +56,7 @@ process_beads_multi <- function(
     MAX_CORES = 8, MIN.CHANGE = 0.001, MAX.TYPES = 4, CONFIDENCE_THRESHOLD = 10,
     DOUBLET_THRESHOLD = 25
 ) {
-    beads <- t(as.matrix(counts(puck)[gene_list, ]))
+    beads <- t(as.matrix(counts(puck)[gene_list, , drop = FALSE]))
     lapply_func <- lapply
     if (MAX_CORES > 1) {
         numCores <- parallel::detectCores()
@@ -134,7 +134,9 @@ fitPixels <- function(RCTD, rctd_mode) {
     } else if (rctd_mode == "full") {
         # Full mode
         beads <- t(as.matrix(
-            counts(spatialRNA(RCTD))[internal_vars(RCTD)$gene_list_reg, ]
+            counts(spatialRNA(RCTD))[
+                internal_vars(RCTD)$gene_list_reg, , drop = FALSE
+            ]
         ))
         results <- decompose_batch(
             nUMI(spatialRNA(RCTD)), cell_type_info[[1]], beads,
@@ -174,8 +176,8 @@ decompose_batch <- function(
     }
     lapply_func(seq_len(nrow(beads)), function(i) {
         decompose_full(
-            data.matrix(cell_type_means[gene_list, ] * nUMI[i]), nUMI[i],
-            beads[i, ], constrain = constrain, OLS = OLS,
+            data.matrix(cell_type_means[gene_list, , drop = FALSE] * nUMI[i]),
+            nUMI[i], beads[i, ], constrain = constrain, OLS = OLS,
             MIN_CHANGE = MIN.CHANGE
         )
     })

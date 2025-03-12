@@ -26,7 +26,7 @@ get_cell_type_info <- function(
     n_cell_types <- length(cell_type_names)
 
     get_cell_mean <- function(cell_type) {
-        cell_type_data <- raw.data[, cell_types == cell_type]
+        cell_type_data <- raw.data[, cell_types == cell_type, drop = FALSE]
         cell_type_umi <- nUMI[cell_types == cell_type]
         normData <- sweep(cell_type_data, 2, cell_type_umi, `/`)
         rowSums(normData) / dim(normData)[2]
@@ -61,8 +61,16 @@ get_cell_type_info <- function(
 get_norm_ref <- function(puck, cell_type_means, gene_list, proportions) {
     bulk_vec <- rowSums(counts(puck))
     weight_avg <- rowSums(sweep(
-        cell_type_means[gene_list, ], 2, proportions / sum(proportions), "*"
+        cell_type_means[gene_list, , drop = FALSE],
+        2,
+        proportions / sum(proportions),
+        "*"
     ))
     target_means <- bulk_vec[gene_list] / sum(nUMI(puck))
-    sweep(cell_type_means[gene_list, ], 1, weight_avg / target_means, "/")
+    sweep(
+        cell_type_means[gene_list, , drop = FALSE],
+        1,
+        weight_avg / target_means,
+        "/"
+    )
 }

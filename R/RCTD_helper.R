@@ -11,7 +11,7 @@ decompose_sparse <- function(
     } else {
         cell_types <- custom_list
     }
-    reg_data <- data.matrix(cell_type_profiles[, cell_types])
+    reg_data <- data.matrix(cell_type_profiles[, cell_types, drop = FALSE])
     if (score_mode) {
         n.iter <- 25
     } else {
@@ -320,7 +320,7 @@ get_prediction_sparse <- function(
     cell_type_profiles, UMI_tot, p, type1, type2
 ) {
     cell_types <- c(type1, type2)
-    reg_data <- cell_type_profiles[, cell_types]
+    reg_data <- cell_type_profiles[, cell_types, drop = FALSE]
     reg_data %*% c(p, 1 - p)
 }
 

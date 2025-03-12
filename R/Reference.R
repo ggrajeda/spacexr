@@ -71,7 +71,7 @@ createReference <- function(
             "sufficient UMI counts."
         )
     }
-    if (sum(nUMI[barcodes] != colSums(counts[, barcodes])) > 0) {
+    if (sum(nUMI[barcodes] != colSums(counts[, barcodes, drop = FALSE])) > 0) {
         warning(
             "Reference: nUMI does not match colSums of counts. If this is ",
             "unintended, please correct this discrepancy. If this is ",
@@ -88,7 +88,7 @@ createReference <- function(
     reference <- new(
         "Reference",
         cell_types = cell_types[barcodes],
-        counts = counts[, barcodes],
+        counts = counts[, barcodes, drop = FALSE],
         nUMI = nUMI[barcodes]
     )
     cur_count <- max(table(cell_types(reference)))
