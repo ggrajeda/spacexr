@@ -88,9 +88,10 @@ check_pairs_type <- function(
         all_pairs_class <- TRUE
     }
     if (all_pairs_class && !all_pairs && length(other_class) > 1) {
-        for (type in other_class[2:length(other_class)]) {
-            singlet_score <- min(singlet_score, singlet_scores[type])
-        }
+        all_scores <- vapply(
+            other_class, function(type) singlet_scores[type], numeric(1)
+        )
+        singlet_score <- min(all_scores)
     }
     return(list(
         all_pairs = all_pairs,
@@ -132,14 +133,18 @@ process_bead_doublet <- function(
     score_mat <- Matrix(0, nrow = length(candidates), ncol = length(candidates))
     rownames(score_mat) <- candidates
     colnames(score_mat) <- candidates
-    singlet_scores <- numeric(length(candidates))
-    names(singlet_scores) <- candidates
-    for (type in candidates) {
-        singlet_scores[type] <- get_singlet_score(
-            cell_type_profiles, bead, UMI_tot, type,
-            constrain, MIN.CHANGE = MIN.CHANGE
-        )
-    }
+    singlet_scores <- vapply(
+        as.character(candidates),
+        function(type) {
+            get_singlet_score(
+                cell_type_profiles, bead, UMI_tot, type, constrain,
+                MIN.CHANGE = MIN.CHANGE
+            )
+        },
+        numeric(1),
+        USE.NAMES = TRUE
+    )
+
     min_score <- 0
     first_type <- NULL
     second_type <- NULL
@@ -164,6 +169,7 @@ process_bead_doublet <- function(
             }
         }
     }
+
     type1_pres <- check_pairs_type(
         cell_type_profiles, bead, UMI_tot, score_mat, min_score, first_type,
         class_df, QL_score_cutoff, constrain, singlet_scores,
@@ -201,6 +207,7 @@ process_bead_doublet <- function(
             second_class <- !type1_pres$all_pairs
         }
     }
+
     if (singlet_score - min_score < doublet_like_cutoff) {
         spot_class <- "singlet"
     }
@@ -214,6 +221,7 @@ process_bead_doublet <- function(
         spot_class,
         c("reject", "singlet", "doublet_certain", "doublet_uncertain")
     )
+
     return(list(
         all_weights = all_weights, spot_class = spot_class,
         first_type = first_type, second_type = second_type,
@@ -333,6 +341,5 @@ get_singlet_score <- function(
     prediction <- get_prediction_sparse(
         cell_type_profiles, UMI_tot, 1, type, dummy_type
     )
-    log_l <- calc_log_l_vec(prediction, bead, return_vec = return_vec)
-    return(log_l)
+    calc_log_l_vec(prediction, bead, return_vec = return_vec)
 }

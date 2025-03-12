@@ -29,15 +29,16 @@ get_cell_type_info <- function(
         cell_type_data <- raw.data[, cell_types == cell_type]
         cell_type_umi <- nUMI[cell_types == cell_type]
         normData <- sweep(cell_type_data, 2, cell_type_umi, `/`)
-        return(rowSums(normData) / dim(normData)[2])
+        rowSums(normData) / dim(normData)[2]
     }
 
-    cell_type <- cell_type_names[1]
-    cell_type_means <- data.frame(get_cell_mean(cell_type))
-    colnames(cell_type_means)[1] <- cell_type
-    for (cell_type in cell_type_names[2:length(cell_type_names)]) {
-        cell_type_means[cell_type] <- get_cell_mean(cell_type)
-    }
+    cell_means_vec <- vapply(
+        as.character(cell_type_names),
+        get_cell_mean,
+        numeric(nrow(raw.data)),
+        USE.NAMES = TRUE
+    )
+    cell_type_means <- as.data.frame(cell_means_vec)
     return(list(cell_type_means, cell_type_names, n_cell_types))
 }
 

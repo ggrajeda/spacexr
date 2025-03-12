@@ -16,7 +16,7 @@ solveOLS <- function(S, B, solution, constrain = TRUE) {
         solution <- quadprog::solve.QP(D, d, A, bzero, meq = 0)$solution
     }
     names(solution) <- colnames(S)
-    return(solution)
+    solution
 }
 
 # solve using WLS with weights dampened by a certain dampening constant
@@ -39,14 +39,12 @@ solveIRWLS.weights <- function(
     }
     names(solution) <- colnames(S)
 
-    S_mat <- matrix(0, nrow = dim(S)[1], ncol = dim(S)[2] * (dim(S)[2] + 1) / 2)
-    counter <- 1
-    for (i in seq_len(dim(S)[2])) {
-        for (j in i:dim(S)[2]) {
-            S_mat[, counter] <- S[, i] * S[, j] # depends on n^2
-            counter <- counter + 1
-        }
-    }
+    index <- which(
+        upper.tri(matrix(0, ncol = ncol(S), nrow = ncol(S)), diag = TRUE),
+        arr.ind = TRUE
+    )
+    index <- index[order(index[, 1], index[, 2]), , drop = FALSE]
+    S_mat <- S[, index[, 1]] * S[, index[, 2]]
 
     iterations <- 0 # now use dampened WLS, iterate weights until convergence
     changes <- c()
@@ -99,5 +97,5 @@ solveWLS <- function(
         solution <- solution + alpha * step$solution
     }
     names(solution) <- colnames(S)
-    return(solution)
+    solution
 }

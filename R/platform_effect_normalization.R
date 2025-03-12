@@ -48,7 +48,7 @@ fitBulk <- function(RCTD) {
         spatialRNA(RCTD), cell_type_info(RCTD)$info[[1]],
         internal_vars(RCTD)$gene_list_bulk, decompose_results$weights
     )
-    return(RCTD)
+    RCTD
 }
 
 chooseSigma <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
@@ -63,18 +63,20 @@ chooseSigma <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
     sigma_ind <- c(10:70, (36:100) * 2)
     si <- which(sigma_ind == round(sigma))
     sigma_ind <- sigma_ind[max(1, si - 8):min(si + 8, length(sigma_ind))]
-    score_vec <- numeric(length(sigma_ind))
-    for (i in seq_along(sigma_ind)) {
-        sigma <- sigma_ind[i]
-        set_likelihood_vars(Q_mat_all[[as.character(sigma)]], X_vals)
-        best_val <- calc_log_l_vec(X * mult_fac_vec[1], Y)
-        for (mult_fac in mult_fac_vec[2:length(mult_fac_vec)]) {
-            best_val <- min(best_val, calc_log_l_vec(X * mult_fac, Y))
-        }
-        score_vec[i] <- best_val
-    }
-    sigma <- sigma_ind[which.min(score_vec)]
-    return(sigma)
+    score_vec <- vapply(
+        sigma_ind,
+        function(sigma) {
+            set_likelihood_vars(Q_mat_all[[as.character(sigma)]], X_vals)
+            neg_log_likelihoods <- vapply(
+                mult_fac_vec,
+                function(mult_fac) calc_log_l_vec(X * mult_fac, Y),
+                numeric(1)
+            )
+            min(neg_log_likelihoods)
+        },
+        numeric(1)
+    )
+    sigma_ind[which.min(score_vec)]
 }
 
 #' Estimates sigma_c by maximum likelihood
@@ -112,8 +114,8 @@ choose_sigma_c <- function(RCTD) {
     MIN_UMI <- config(RCTD)$UMI_min_sigma
     sigma <- 100
     Q_mat_all <- get_Q_all()
-    sigma_vals <- names(Q_mat_all)
     X_vals <- get_X_vals()
+
     # get initial classification
     N_fit <- min(config(RCTD)$N_fit, sum(nUMI(puck) > MIN_UMI))
     if (N_fit == 0) {
@@ -124,11 +126,13 @@ choose_sigma_c <- function(RCTD) {
             " but none of the beads had counts larger than that."
         )
     }
+
     fit_ind <- sample(names(nUMI(puck)[nUMI(puck) > MIN_UMI]), N_fit)
     beads <- t(as.matrix(
         counts(puck)[internal_vars(RCTD)$gene_list_reg, fit_ind]
     ))
     message("chooseSigma: using initial Q_mat with sigma = ", sigma / 100)
+
     for (iter in seq_len(config(RCTD)$N_epoch)) {
         set_likelihood_vars(Q_mat_all[[as.character(sigma)]], X_vals)
         results <- decompose_batch(
@@ -136,18 +140,19 @@ choose_sigma_c <- function(RCTD) {
             internal_vars(RCTD)$gene_list_reg,
             constrain = FALSE, max_cores = config(RCTD)$max_cores
         )
-        weights <- Matrix(
-            0, nrow = N_fit, ncol = cell_type_info(RCTD)$renorm[[3]]
+        cell_types <- cell_type_info(RCTD)$renorm[[2]]
+        weights <- vapply(
+            results,
+            function(x) x$weights,
+            numeric(length(cell_types))
         )
-        rownames(weights) <- fit_ind
-        colnames(weights) <- cell_type_info(RCTD)$renorm[[2]]
-        for (i in seq_len(N_fit)) {
-            weights[i, ] <- results[[i]]$weights
-        }
+        colnames(weights) <- fit_ind
+        rownames(weights) <- cell_types
+
         gene_list <- internal_vars(RCTD)$gene_list_reg
         profiles <- cell_type_info(RCTD)$renorm[[1]][gene_list, ]
         prediction <- sweep(
-            as.matrix(profiles) %*% t(as.matrix(weights)),
+            as.matrix(profiles) %*% weights,
             2,
             nUMI(puck)[fit_ind],
             "*"
@@ -164,8 +169,9 @@ choose_sigma_c <- function(RCTD) {
             break
         }
     }
+
     internal_vars(RCTD)$sigma <- sigma / 100
     internal_vars(RCTD)$Q_mat <- Q_mat_all[[as.character(sigma)]]
     internal_vars(RCTD)$X_vals <- X_vals
-    return(RCTD)
+    RCTD
 }
