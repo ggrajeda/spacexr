@@ -1,3 +1,3 @@
-2# spacexr 2.2.1
+# spacexr 0.99.0
 
 * Initial Bioconductor submission.
