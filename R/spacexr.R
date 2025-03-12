@@ -407,13 +407,13 @@ createRctd <- function(
 
 #' Run RCTD algorithm to decompose cell type mixtures
 #'
-#' Runs the RCTD algorithm to decompose cell type mixtures in spatial
-#' transcriptomics data using a reference dataset. The data is first
-#' preprocessed to identify differentially expressed genes and normalize for
-#' platform effects. Then, for each pixel in the spatial data, RCTD estimates
-#' the proportions of different cell types by comparing gene expression at a
-#' pixel to the reference cell type profiles. The algorithm has three modes
-#' suited for different spatial technologies:
+#' Robust Cell Type Decomposition (RCTD) is a computational method for
+#' deconvolving cell type mixtures in spatial transcriptomics data. RCTD learns
+#' cell type profiles from annotated RNA sequencing (RNA-seq) reference data
+#' (\code{reference_experiment}) and uses these profiles to identify cell types
+#' in spatial transcriptomic pixels (\code{spatial_experiment}) while accounting
+#' for platform-specific effects. The RCTD algorithm has three modes suited for
+#' different spatial technologies:
 #' \itemize{
 #'   \item \code{doublet}: Fits at most two cell types per pixel and classifies
 #'     each pixel as a \code{"singlet"} (one cell type) or \code{"doublet"}

@@ -6,7 +6,7 @@
 \alias{spacexr}
 \title{spacexr: Cell Type Identification in Spatial Transcriptomics}
 \description{
-Robust Cell Type Decomposition (RCTD) is a computational method for deconvolving cell type mixtures in spatial transcriptomics data. RCTD learns cell type profiles from annotated RNA sequencing (RNA-seq) reference data and uses these profiles to identify cell types in spatial transcriptomic pixels while accounting for platform-specific effects. The package provides three analysis modes: doublet detection (up to 2 cell types per pixel), multi mode with greedy cell type assignment (up to a specified number of cell types per pixel), and full decomposition without restrictions. This is the Bioconductor version of the original spacexr package, which can be found here: https://github.com/dmcable/spacexr. Future releases will include an implementation of CSIDE.
+Spatial-eXpression-R (spacexr) is a package for analyzing cell types in spatial transcriptomics data. This implementation is a fork of the spacexr GitHub repo (https://github.com/dmcable/spacexr), adapted to work with Bioconductor objects. The original package implements two statistical methods: RCTD for learning cell types and CSIDE for inferring cell type-specific differential expression. Currently, this fork only implements RCTD, which learns cell type profiles from annotated RNA sequencing (RNA-seq) reference data and uses these profiles to identify cell types in spatial transcriptomic pixels while accounting for platform-specific effects. Future releases will include an implementation of CSIDE.
 }
 \section{Running RCTD}{
 
