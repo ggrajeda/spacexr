@@ -1,3 +1,3 @@
-# spacexr 0.99.0
+# spacexr 0.99.1
 
 * Initial Bioconductor submission.
