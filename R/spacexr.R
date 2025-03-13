@@ -1,15 +1,102 @@
+#' Convert a SummarizedExperiment to a SpatialRNA object
+#'
+#' @param inheritParams createRctd
+#'
+#' @return \code{\linkS4class{SpatialRNA}} object
+#'
+#' @keywords internal
+#'
+summarizedExperimentToSpatialRNA <- function(
+    spatial_experiment, require_int = TRUE
+) {
+    coords <- NULL
+    use_fake_coords <- TRUE
+
+    # Check if spatialCoords is defined for spatial_experiment
+    if (isGeneric("spatialCoords") && 
+        existsMethod("spatialCoords", class(spatial_experiment))) {
+        spatial_coords <- spatialCoords(spatial_experiment)
+        use_fake_coords <- length(spatial_coords) == 0
+        if (!use_fake_coords) {
+            coords <- as.data.frame(spatial_coords)
+            colnames(coords) <- c("x", "y")
+            rownames(coords) <- colnames(spatial_experiment)
+        }
+    }
+    if (length(assays(spatial_experiment)) > 1) {
+        warning(
+            "Multiple assays in spatial_experiment. Choosing the first assay."
+        )
+    }
+    counts <- assay(spatial_experiment)
+    nUMI <- colData(spatial_experiment)$nUMI
+    if (!is.null(nUMI)) {
+        names(nUMI) <- colnames(counts)
+    }
+    createSpatialRNA(
+        coords, counts, nUMI = nUMI,
+        use_fake_coords = use_fake_coords, require_int = require_int
+    )
+}
+
+#' Convert a SummarizedExperiment to a Reference object
+#'
+#' @inheritParams createRctd
+#'
+#' @return \code{\linkS4class{Reference}} object
+#'
+#' @keywords internal
+#'
+summarizedExperimentToReference <- function(
+    reference_experiment, cell_type_col = "cell_type", 
+    require_int = TRUE, ref_n_cells_max = 10000, ref_UMI_min = 100
+) {
+    if (length(assays(reference_experiment)) > 1) {
+        warning(
+            "Multiple assays in reference_experiment. Choosing the first ",
+            "assay."
+        )
+    }
+    ref_counts <- assay(reference_experiment)
+    if (!cell_type_col %in% colnames(colData(reference_experiment))) {
+        stop(
+            "Cell type column '", cell_type_col, "' not found in reference ",
+            "colData"
+        )
+    }
+    cell_types <- factor(colData(reference_experiment)[[cell_type_col]])
+    names(cell_types) <- colnames(ref_counts)
+    ref_nUMI <- colData(reference_experiment)$nUMI
+    if (!is.null(ref_nUMI)) {
+        names(ref_nUMI) <- colnames(ref_counts)
+    }
+    createReference(
+        ref_counts, cell_types, nUMI = ref_nUMI, require_int = require_int,
+        n_max_cells = ref_n_cells_max, min_UMI = ref_UMI_min
+    )
+}
+
+#' Process cell type information from a Reference object
+#'
+#' @param reference \code{\linkS4class{Reference}} object
+#' @param cell_type_names character vector of cell type names to include
+#' @param CELL_MIN numeric, minimum number of cells per cell type in the
+#'   reference (default: 25)
+#'
+#' @return List containing cell type information
+#' 
+#' @importFrom utils capture.output
+#' @keywords internal
+#'
 process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
-    message("Begin: process_cell_type_info")
     message(
-        "process_cell_type_info: number of cells in reference: ",
-        dim(counts(reference))[2]
+        "Number of cells in reference: ", dim(counts(reference))[2]
     )
     message(
-        "process_cell_type_info: number of genes in reference: ",
-        dim(counts(reference))[1]
+        "Number of genes in reference: ", dim(counts(reference))[1]
     )
     cell_counts <- table(cell_types(reference))
-    message(cell_counts)
+    message(paste0(capture.output(cell_counts), collapse = "\n"))
 
     if (min(cell_counts) < CELL_MIN) {
         stop(
@@ -23,8 +110,124 @@ process_cell_type_info <- function(reference, cell_type_names, CELL_MIN = 25) {
         nUMI(reference),
         cell_type_names = cell_type_names
     )
-    message("End: process_cell_type_info")
     return(cell_type_info)
+}
+
+#' Create cell type information
+#'
+#' @param reference \code{\linkS4class{Reference}} object or NULL if using
+#'   cell_type_profiles
+#' @param cell_type_names character vector of cell type names to include,
+#'   optional
+#' @param cell_type_profiles matrix of precomputed cell type expression profiles
+#'   (genes by cell type), optional
+#' @param ref_n_cells_min numeric, minimum number of cells per cell type in the
+#'   reference (default: 25)
+#'
+#' @return A list containing cell type information
+#'
+#' @keywords internal
+#'
+create_cell_type_info <- function(
+    reference = NULL, cell_type_names = NULL, 
+    cell_type_profiles = NULL, ref_n_cells_min = 25
+) {
+    if (is.null(cell_type_profiles)) {
+        if (is.null(cell_type_names)) {
+            cell_type_names <- levels(cell_types(reference))
+        }
+        cell_type_info <- list(
+            info = process_cell_type_info(
+                reference,
+                cell_type_names = cell_type_names,
+                CELL_MIN = ref_n_cells_min
+            ),
+            renorm = NULL
+        )
+    } else {
+        cell_type_names <- colnames(cell_type_profiles)
+        cell_type_info <- list(
+            info = list(
+                cell_type_profiles,
+                cell_type_names,
+                length(cell_type_names)
+            ),
+            renorm = NULL
+        )
+    }
+    cell_type_info
+}
+
+#' Create puck and internal variables
+#'
+#' @param spatialRNA \code{\linkS4class{SpatialRNA}} object
+#' @param cell_type_info list containing cell type information
+#' @param config list of configuration parameters
+#' @param class_df data frame mapping cell types to classes, optional
+#'
+#' @return List containing the puck and internal variables
+#'
+#' @keywords internal
+#'
+create_puck_and_internal_vars <- function(
+    spatialRNA, cell_type_info, config, class_df = NULL
+) {
+    puck.original <- restrict_counts(spatialRNA, rownames(counts(spatialRNA)),
+        UMI_thresh = config$UMI_min, UMI_max = config$UMI_max,
+        counts_thresh = config$counts_min
+    )
+    message("Getting regression differentially expressed genes: ")
+    gene_list_reg <- get_de_genes(
+        cell_type_info$info, puck.original,
+        fc_thresh = config$fc_cutoff_reg,
+        expr_thresh = config$gene_cutoff_reg,
+        MIN_OBS = config$MIN_OBS
+    )
+    if (length(gene_list_reg) < 10) {
+        stop(
+            "create_puck_and_internal_vars: fewer than 10 regression ",
+            "differentially expressed genes found"
+        )
+    }
+    message(
+        "Getting platform effect normalization differentially expressed genes: "
+    )
+    gene_list_bulk <- get_de_genes(
+        cell_type_info$info,
+        puck.original,
+        fc_thresh = config$fc_cutoff,
+        expr_thresh = config$gene_cutoff,
+        MIN_OBS = config$MIN_OBS
+    )
+    if (length(gene_list_bulk) < 10) {
+        stop(
+            "create_puck_and_internal_vars: fewer than 10 bulk differentially ",
+            "expressed genes found"
+        )
+    }
+    puck <- restrict_counts(
+        puck.original,
+        gene_list_bulk,
+        UMI_thresh = config$UMI_min,
+        UMI_max = config$UMI_max,
+        counts_thresh = config$counts_min
+    )
+    puck <- restrict_puck(puck, colnames(counts(puck)))
+    if (is.null(class_df)) {
+        class_df <- data.frame(
+            cell_type_info$info[[2]],
+            row.names = cell_type_info$info[[2]]
+        )
+    }
+    colnames(class_df)[1] <- "class"
+    internal_vars <- list(
+        gene_list_reg = gene_list_reg,
+        gene_list_bulk = gene_list_bulk,
+        proportions = NULL,
+        class_df = class_df,
+        cell_types_assigned = FALSE
+    )
+    return(list(puck = puck, internal_vars = internal_vars))
 }
 
 #' \code{\linkS4class{RctdConfig}} object constructor
@@ -233,63 +436,23 @@ createRctd <- function(
     }
 
     # Convert SummarizedExperiment to SpatialRNA
-    coords <- NULL
-    use_fake_coords <- TRUE
-
-    # Check if spatialCoords is defined for spatial_experiment
-    if (isGeneric("spatialCoords") && 
-        existsMethod("spatialCoords", class(spatial_experiment))) {
-        spatial_coords <- spatialCoords(spatial_experiment)
-        use_fake_coords <- length(spatial_coords) == 0
-        if (!use_fake_coords) {
-            coords <- as.data.frame(spatial_coords)
-            colnames(coords) <- c("x", "y")
-            rownames(coords) <- colnames(spatial_experiment)
-        }
-    }
-    if (length(assays(spatial_experiment)) > 1) {
-        warning(
-            "Multiple assays in spatial_experiment. Choosing the first assay."
-        )
-    }
-    counts <- assay(spatial_experiment)
-    nUMI <- colData(spatial_experiment)$nUMI
-    if (!is.null(nUMI)) {
-        names(nUMI) <- colnames(counts)
-    }
-    spatialRNA <- createSpatialRNA(
-        coords, counts, nUMI = nUMI,
-        use_fake_coords = use_fake_coords, require_int = require_int
+    spatialRNA <- summarizedExperimentToSpatialRNA(
+        spatial_experiment, require_int = require_int
     )
 
     # Convert SummarizedExperiment to Reference
     reference <- NULL
     if (is.null(cell_type_profiles)) {
-        if (length(assays(reference_experiment)) > 1) {
-            warning(
-                "Multiple assays in reference_experiment. Choosing the first ",
-                "assay."
-            )
-        }
-        ref_counts <- assay(reference_experiment)
-        if (!cell_type_col %in% colnames(colData(reference_experiment))) {
-            stop(
-                "Cell type column '", cell_type_col,
-                "' not found in reference colData"
-            )
-        }
-        cell_types <- factor(colData(reference_experiment)[[cell_type_col]])
-        names(cell_types) <- colnames(ref_counts)
-        ref_nUMI <- colData(reference_experiment)$nUMI
-        if (!is.null(ref_nUMI)) {
-            names(ref_nUMI) <- colnames(ref_counts)
-        }
-        reference <- createReference(
-            ref_counts, cell_types, nUMI = ref_nUMI, require_int = require_int,
-            n_max_cells = ref_n_cells_max,  min_UMI = ref_UMI_min
+        reference <- summarizedExperimentToReference(
+            reference_experiment, 
+            cell_type_col = cell_type_col,
+            require_int = require_int, 
+            ref_n_cells_max = ref_n_cells_max, 
+            ref_UMI_min = ref_UMI_min
         )
     }
 
+    # Create configuration
     config <- list(
         gene_cutoff = gene_cutoff, fc_cutoff = fc_cutoff,
         gene_cutoff_reg = gene_cutoff_reg, fc_cutoff_reg = fc_cutoff_reg,
@@ -300,6 +463,7 @@ createRctd <- function(
         CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD,
         DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
     )
+
     if (test_mode) {
         config <- list(
             gene_cutoff = .00125, fc_cutoff = 0.5, gene_cutoff_reg = 0.002,
@@ -312,95 +476,33 @@ createRctd <- function(
             DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
         )
     }
-    if (is.null(cell_type_profiles)) {
-        if (is.null(cell_type_names)) {
-            cell_type_names <- levels(cell_types(reference))
-        }
-        cell_type_info <- list(
-            info = process_cell_type_info(
-                reference,
-                cell_type_names = cell_type_names,
-                CELL_MIN = ref_n_cells_min
-            ),
-            renorm = NULL
-        )
-    } else {
-        cell_type_names <- colnames(cell_type_profiles)
-        cell_type_info <- list(
-            info = list(
-                cell_type_profiles,
-                cell_type_names,
-                length(cell_type_names)
-            ),
-            renorm = NULL
-        )
-    }
+
+    # Create cell type info
+    cell_type_info <- create_cell_type_info(
+        reference = reference,
+        cell_type_names = cell_type_names,
+        cell_type_profiles = cell_type_profiles,
+        ref_n_cells_min = ref_n_cells_min
+    )
+
+    # Downsample reference if needed
     if (!keep_reference && is.null(cell_type_profiles)) {
         reference <- create_downsampled_data(reference, n_samples = 5)
     }
-    puck.original <- restrict_counts(spatialRNA, rownames(counts(spatialRNA)),
-        UMI_thresh = config$UMI_min, UMI_max = config$UMI_max,
-        counts_thresh = config$counts_min
+
+    # Create puck and internal variables
+    puck_and_vars <- create_puck_and_internal_vars(
+        spatialRNA, cell_type_info, config, class_df
     )
-    message("createRctd: getting regression differentially expressed genes: ")
-    gene_list_reg <- get_de_genes(
-        cell_type_info$info, puck.original,
-        fc_thresh = config$fc_cutoff_reg,
-        expr_thresh = config$gene_cutoff_reg,
-        MIN_OBS = config$MIN_OBS
-    )
-    if (length(gene_list_reg) < 10) {
-        stop(
-            "createRctd: fewer than 10 regression differentially expressed ",
-            "genes found"
-        )
-    }
-    message(
-        "createRctd: getting platform effect normalization differentially ",
-        "expressed genes: "
-    )
-    gene_list_bulk <- get_de_genes(
-        cell_type_info$info,
-        puck.original,
-        fc_thresh = config$fc_cutoff,
-        expr_thresh = config$gene_cutoff,
-        MIN_OBS = config$MIN_OBS
-    )
-    if (length(gene_list_bulk) < 10) {
-        stop(
-            "createRctd: fewer than 10 bulk differentially expressed genes ",
-            "found"
-        )
-    }
-    puck <- restrict_counts(
-        puck.original,
-        gene_list_bulk,
-        UMI_thresh = config$UMI_min,
-        UMI_max = config$UMI_max,
-        counts_thresh = config$counts_min
-    )
-    puck <- restrict_puck(puck, colnames(counts(puck)))
-    if (is.null(class_df)) {
-        class_df <- data.frame(
-            cell_type_info$info[[2]],
-            row.names = cell_type_info$info[[2]]
-        )
-    }
-    colnames(class_df)[1] <- "class"
-    internal_vars <- list(
-        gene_list_reg = gene_list_reg,
-        gene_list_bulk = gene_list_bulk,
-        proportions = NULL,
-        class_df = class_df,
-        cell_types_assigned = FALSE
-    )
+
+    # Return RctdConfig object
     new(
         "RctdConfig",
-        spatialRNA = puck,
+        spatialRNA = puck_and_vars$puck,
         reference = reference,
         config = config,
         cell_type_info = cell_type_info,
-        internal_vars = internal_vars
+        internal_vars = puck_and_vars$internal_vars
     )
 }
 
@@ -534,31 +636,4 @@ runRctd <- function(
     RCTD <- fitBulk(RCTD)
     RCTD <- choose_sigma_c(RCTD)
     RCTD <- fitPixels(RCTD, rctd_mode = rctd_mode)
-}
-
-check_vector <- function(variable, var_name, f_name, require_int = FALSE) {
-    if (!is.atomic(variable)) {
-        stop(
-            f_name, ": ", var_name, " is not an atomic vector. Please format ",
-            var_name, " as an atomic vector."
-        )
-    }
-    if (!is.numeric(variable)) {
-        stop(f_name, ": ", var_name, " is not numeric")
-    }
-    if (is.null(names(variable))) {
-        stop(f_name, ": names(", var_name, ") is null. Please enter names")
-    }
-    if (length(variable) == 1) {
-        stop(
-            f_name, ": the length of ", var_name, " is 1, indicating only one ",
-            "element present. Please format ", var_name, " so that the length ",
-            "is greater than 1."
-        )
-    }
-    if (require_int) {
-        if (max(abs(variable %% 1)) > 1e-6) {
-            stop(f_name, ": variable does not contain integers")
-        }
-    }
 }

@@ -57,13 +57,12 @@ get_de_genes <- function(
             (cell_type_info[[1]][gene_list, cell_type] > expr_thresh)
         )
         message(
-            "get_de_genes: ", cell_type, " found DE genes: ",
-            length(type_gene_list)
+            cell_type, " found DE genes: ", length(type_gene_list)
         )
         total_gene_list <- union(total_gene_list, type_gene_list)
     }
     total_gene_list <- gene_list[total_gene_list]
-    message("get_de_genes: total DE genes: ", length(total_gene_list))
+    message("Total DE genes: ", length(total_gene_list))
     return(total_gene_list)
 }
 
