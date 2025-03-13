@@ -33,6 +33,9 @@ get_reject_mask <- function(rctd_spe) {
 #' showing the proportions of different cell types at that location. Users
 #' should run this function on the result of \code{\link{runRctd}}.
 #'
+#' This function is adapted from \code{\link[STdeconvolve]{vizAllTopics}} in the
+#' \code{STdeconvolve} package.
+#'
 #' @param rctd_spe \code{\link[SpatialExperiment]{SpatialExperiment}}
 #'   containing RCTD results
 #' @param assay_name character, name of the assay to plot
@@ -46,7 +49,7 @@ get_reject_mask <- function(rctd_spe) {
 #' @return \code{ggplot} object showing cell type proportions at each pixel
 #'   using pie charts
 #'
-#' @importFrom SummarizedExperiment assay
+#' @importFrom SummarizedExperiment assay assayNames
 #' @importFrom SpatialExperiment spatialCoords
 #' @import ggplot2
 #' @import scatterpie
@@ -66,6 +69,18 @@ plotAllWeights <- function(
     r = 0.4, lwd = 1,
     title = NA
 ) {
+    # Type validity checks
+    if (!inherits(rctd_spe, "SpatialExperiment")) {
+        stop("rctd_spe must be a SpatialExperiment object")
+    }
+
+    if (!is.character(assay_name) || length(assay_name) != 1) {
+        stop("assay_name must be a single character string")
+    }
+    if (!assay_name %in% assayNames(rctd_spe)) {
+        stop(sprintf("Assay '%s' not found in rctd_spe", assay_name))
+    }
+
     weights <- assay(rctd_spe, assay_name)
     weights_matrix <- as.matrix(weights)
 
@@ -112,6 +127,9 @@ plotAllWeights <- function(
 #' varies across space, represented by point color intensity. Users should run
 #' this function on the result of \code{\link{runRctd}}.
 #'
+#' This function is adapted from \code{\link[STdeconvolve]{vizTopic}} in the
+#' \code{STdeconvolve} package.
+#'
 #' @param rctd_spe \code{\link[SpatialExperiment]{SpatialExperiment}}
 #'   containing RCTD results
 #' @param cell_type character, name of cell type to plot
@@ -129,7 +147,7 @@ plotAllWeights <- function(
 #' @return \code{ggplot} object showing the proportion of a specified cell type
 #'   at each pixel
 #'
-#' @importFrom SummarizedExperiment assay
+#' @importFrom SummarizedExperiment assay assayNames
 #' @importFrom SpatialExperiment spatialCoords
 #' @import ggplot2
 #' @export
@@ -148,6 +166,28 @@ plotCellTypeWeight <- function(
     low = "white", high = "red",
     title = NA
 ) {
+    # Type validity checks
+    if (!inherits(rctd_spe, "SpatialExperiment")) {
+        stop("rctd_spe must be a SpatialExperiment object")
+    }
+
+    if (!is.character(cell_type) || length(cell_type) != 1) {
+        stop("cell_type must be a single character string")
+    }
+
+    if (!is.character(assay_name) || length(assay_name) != 1) {
+        stop("assay_name must be a single character string")
+    }
+    if (!assay_name %in% assayNames(rctd_spe)) {
+        stop(sprintf("Assay '%s' not found in rctd_spe", assay_name))
+    }
+
+    if (!cell_type %in% rownames(assay(rctd_spe, assay_name))) {
+        stop(sprintf(
+            "Cell type '%s' not found in assay '%s'", cell_type, assay_name
+        ))
+    }
+
     weights <- assay(rctd_spe, assay_name)[cell_type, ]
     rctd_df <- data.frame(weights = as.numeric(weights))
 

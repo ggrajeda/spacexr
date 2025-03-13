@@ -48,6 +48,10 @@ Creates a visualization showing how the proportion of a specific cell type
 varies across space, represented by point color intensity. Users should run
 this function on the result of \code{\link{runRctd}}.
 }
+\details{
+This function is adapted from \code{\link[STdeconvolve]{vizTopic}} in the
+\code{STdeconvolve} package.
+}
 \examples{
 data(rctdSim)
 
