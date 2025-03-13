@@ -540,11 +540,12 @@ createRctd <- function(
 #'     \item Three assays (one in full mode):
 #'       \itemize{
 #'         \item \code{weights}: Cell type proportions restricted according to
-#'         the specified mode (not available in full mode)
+#'         the specified mode
 #'         \item \code{weights_unconfident}: Cell type proportions restricted
 #'         according to the specified mode, including unconfident predictions
 #'         (not available in full mode)
-#'         \item \code{weights_full}: Unrestricted cell type proportions
+#'         \item \code{weights_full}: Unrestricted cell type proportions (not
+#'         available in full mode, use \code{weights} instead)
 #'       }
 #'     Assays have cell types as rows and pixels as columns, with values
 #'     representing the proportion (0 to 1) of each cell type in each pixel.

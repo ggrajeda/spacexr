@@ -225,11 +225,12 @@ RCTD returns a `r BiocStyle::Biocpkg("SpatialExperiment")` object containing:
 
 - Three assays (one in full mode):
     1. `weights`: Cell type proportions restricted according to the specified
-    mode (not available in full mode)
+    mode
     2. `weights_unconfident`: Cell type proportions restricted according to the
     specified mode, including unconfident predictions (not available in full
     mode)
-    2. `weights_full`: Unrestricted cell type proportions
+    2. `weights_full`: Unrestricted cell type proportions (not available in full
+    mode, use `weights` instead)
     
     Assays have cell types as rows and pixels as columns, with values
     representing the proportion (0 to 1) of each cell type in each pixel. Assay
@@ -296,7 +297,7 @@ In particular, this data frame provides us with the following information:
     Typically, `reject` pixels should not be used, and `doublet_uncertain`
     pixels should only be used for applications that do not require knowledge of
     all cell types in a pixel.
-- `first_type`: the first cell type predicted on the bead (for all spot_class
+- `first_type`: the first cell type predicted on the bead (for all `spot_class`
 conditions except `reject`).
 - `second_type`: the second cell type predicted on the bead for doublet
 `spot_class` conditions (not a confident prediction for `doublet_uncertain`).

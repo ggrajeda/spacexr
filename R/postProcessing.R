@@ -64,13 +64,14 @@ create_spe_from_columns <- function(
     spatial_coords <- as.matrix(coords(spatialRNA(RCTD))[, c("x", "y")])
     metadata <- rctd_metadata(RCTD)
 
+    # Create SpatialExperiment with a temporary assay name.
     spe <- SpatialExperiment(
-        assays = list(weights_full = weights),
+        assays = list(weights = weights),
         colData = col_data,
         spatialCoords = spatial_coords,
         metadata = metadata
     )
-    return(spe)
+    spe
 }
 
 #' Converts the results of \code{decompose_batch} to a \code{SpatialExperiment}
@@ -80,7 +81,7 @@ create_spe_from_columns <- function(
 #'
 #' @return \code{SpatialExperiment} containing RCTD results
 #'
-#' @importFrom SummarizedExperiment assay assay<-
+#' @importFrom SummarizedExperiment assay assays<-
 #' @keywords internal
 create_spe_full <- function(RCTD, results) {
     create_spe_from_columns(RCTD, results, weights_col = "weights")
@@ -138,7 +139,7 @@ get_confident_doublet_weights <- function(weights_doublet, results_spe) {
 #'
 #' @return \code{SpatialExperiment} containing RCTD results
 #'
-#' @importFrom SummarizedExperiment assay assay<- colData colData<-
+#' @importFrom SummarizedExperiment assay assays<- colData colData<-
 #' @keywords internal
 create_spe_doublet <- function(RCTD, results) {
     spe <- create_spe_from_columns(
@@ -159,16 +160,19 @@ create_spe_doublet <- function(RCTD, results) {
         levels = spot_class_levels
     )
 
-    # Add unconfident doublet-mode weights.
-    weights <- assay(spe)
-    weights_unconf <- get_doublet_weights(weights, spe, results)
-    assay(spe, "weights_unconfident", withDimnames = FALSE) <- weights_unconf
+    # Get the initial weights.
+    weights_full <- assay(spe)
 
-    # Add confident weights.
+    # Calculate the other weights.
+    weights_unconf <- get_doublet_weights(weights_full, spe, results)
     weights_conf <- get_confident_doublet_weights(weights_unconf, spe)
-    assay(spe, "weights", withDimnames = FALSE) <- weights_conf
 
-    return(spe)
+    assays(spe, withDimnames = FALSE) <- list(
+        weights = weights_conf,
+        weights_unconfident = weights_unconf,
+        weights_full = weights_full
+    )
+    spe
 }
 
 # Generates doublet-mode weights from the full weights.
@@ -222,7 +226,7 @@ get_confident_multi_weights <- function(weights_multi, results_spe) {
 #'
 #' @return \code{SpatialExperiment} containing RCTD results
 #'
-#' @importFrom SummarizedExperiment assay assay<- colData
+#' @importFrom SummarizedExperiment assay assays<- colData
 #' @keywords internal
 create_spe_multi <- function(RCTD, results) {
     spe <- create_spe_from_columns(
@@ -233,14 +237,17 @@ create_spe_multi <- function(RCTD, results) {
         list_cols = c("cell_type_list", "conf_list")
     )
 
-    # Add unconfident multi-mode weights.
-    weights <- assay(spe)
-    weights_unconf <- get_multi_weights(weights, spe, results)
-    assay(spe, "weights_unconfident", withDimnames = FALSE) <- weights_unconf
+    # Get the initial weights.
+    weights_full <- assay(spe)
 
-    # Add confident weights.
+    # Calculate the other weights.
+    weights_unconf <- get_multi_weights(weights_full, spe, results)
     weights_conf <- get_confident_multi_weights(weights_unconf, spe)
-    assay(spe, "weights", withDimnames = FALSE) <- weights_conf
 
-    return(spe)
+    assays(spe, withDimnames = FALSE) <- list(
+        weights = weights_conf,
+        weights_unconfident = weights_unconf,
+        weights_full = weights_full
+    )
+    spe
 }

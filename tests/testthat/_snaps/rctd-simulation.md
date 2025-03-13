@@ -175,10 +175,6 @@
       print_results(full_assays, full_col_data, full_coords)
     Output
       [1] "=== Weights ==="
-      NULL
-      [1] "\n=== Unconfident Weights ==="
-      NULL
-      [1] "\n=== Full Weights ==="
       12 x 3 Matrix of class "dgeMatrix"
                  ct1        ct2          ct3
       mx11 0.8740814 0.10963406 0.0003799632
@@ -193,6 +189,10 @@
       mx24 0.1564196 0.42107308 0.4685100649
       mx25 0.1386026 0.44737520 0.4012548637
       mx26 0.1668809 0.40764089 0.4124205117
+      [1] "\n=== Unconfident Weights ==="
+      NULL
+      [1] "\n=== Full Weights ==="
+      NULL
       [1] "\n=== Column Data ==="
            sample_id
       mx11  sample01
