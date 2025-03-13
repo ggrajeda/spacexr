@@ -94,26 +94,6 @@ setGeneric(
     "spatialRNA<-", function(object, value) standardGeneric("spatialRNA<-")
 )
 
-#' Generic accessor for originalSpatialRNA slot
-#'
-#' @param object An object with an originalSpatialRNA slot
-#' @return The originalSpatialRNA slot of the object
-#' @keywords internal
-setGeneric(
-    "originalSpatialRNA", function(object) standardGeneric("originalSpatialRNA")
-)
-
-#' Generic setter for originalSpatialRNA slot
-#'
-#' @param object An object with an originalSpatialRNA slot
-#' @param value The new value for the originalSpatialRNA slot
-#' @return The updated object
-#' @keywords internal
-setGeneric(
-    "originalSpatialRNA<-",
-    function(object, value) standardGeneric("originalSpatialRNA<-")
-)
-
 #' Generic accessor for reference slot
 #'
 #' @param object An object with a reference slot
@@ -382,8 +362,6 @@ setClassUnion("ReferenceOrNull", c("Reference", "NULL"))
 #'
 #' @slot spatialRNA a \code{\linkS4class{SpatialRNA}} object containing the
 #'   processed spatial transcriptomics data for analysis
-#' @slot originalSpatialRNA a \code{\linkS4class{SpatialRNA}} object containing
-#'   the complete, unfiltered spatial dataset
 #' @slot reference a \code{\linkS4class{Reference}} object containing the
 #'   annotated reference data
 #' @slot config a list of configuration options for the RCTD algorithm, set via
@@ -401,7 +379,6 @@ setClassUnion("ReferenceOrNull", c("Reference", "NULL"))
 setClass("RctdConfig",
     slots = c(
         spatialRNA = "SpatialRNA",
-        originalSpatialRNA = "SpatialRNA",
         reference = "ReferenceOrNull",
         config = "list",
         cell_type_info = "list",
@@ -409,7 +386,6 @@ setClass("RctdConfig",
     ),
     prototype = list(
         spatialRNA = NULL,
-        originalSpatialRNA = NULL,
         reference = NULL,
         config = list(),
         cell_type_info = list(info = NULL, renorm = NULL),
@@ -427,20 +403,6 @@ setMethod("spatialRNA", "RctdConfig", function(object) {
 #' @keywords internal
 setMethod("spatialRNA<-", "RctdConfig", function(object, value) {
     object@spatialRNA <- value
-    validObject(object)
-    object
-})
-
-#' @rdname originalSpatialRNA
-#' @keywords internal
-setMethod("originalSpatialRNA", "RctdConfig", function(object) {
-    object@originalSpatialRNA
-})
-
-#' @rdname originalSpatialRNA
-#' @keywords internal
-setMethod("originalSpatialRNA<-", "RctdConfig", function(object, value) {
-    object@originalSpatialRNA <- value
     validObject(object)
     object
 })

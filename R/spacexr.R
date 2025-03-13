@@ -397,7 +397,6 @@ createRctd <- function(
     new(
         "RctdConfig",
         spatialRNA = puck,
-        originalSpatialRNA = puck.original,
         reference = reference,
         config = config,
         cell_type_info = cell_type_info,

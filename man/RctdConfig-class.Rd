@@ -22,9 +22,6 @@ function.
 \item{\code{spatialRNA}}{a \code{\linkS4class{SpatialRNA}} object containing the
 processed spatial transcriptomics data for analysis}
 
-\item{\code{originalSpatialRNA}}{a \code{\linkS4class{SpatialRNA}} object containing
-the complete, unfiltered spatial dataset}
-
 \item{\code{reference}}{a \code{\linkS4class{Reference}} object containing the
 annotated reference data}
 

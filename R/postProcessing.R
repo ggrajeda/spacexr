@@ -1,7 +1,6 @@
 rctd_metadata <- function(RCTD) {
     metadata <- list(
         spatial_rna = spatialRNA(RCTD),
-        original_spatial_rna = originalSpatialRNA(RCTD),
         reference = reference(RCTD),
         config = config(RCTD),
         cell_type_info = cell_type_info(RCTD),
