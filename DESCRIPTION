@@ -22,7 +22,7 @@ Description: Spatial-eXpression-R (spacexr) is a package for analyzing cell
     effects. Future releases will include an implementation of CSIDE.
 URL: https://github.com/ggrajeda/spacexr
 BugReports: https://github.com/ggrajeda/spacexr/issues
-Depends: R (>= 4.4.0)
+Depends: R (>= 4.5.0)
 License: GPL (>= 3)
 Encoding: UTF-8
 Imports: 
