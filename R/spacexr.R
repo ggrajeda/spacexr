@@ -1,6 +1,6 @@
 #' Convert a SummarizedExperiment to a SpatialRNA object
 #'
-#' @param inheritParams createRctd
+#' @inheritParams createRctd
 #'
 #' @return \code{\linkS4class{SpatialRNA}} object
 #'

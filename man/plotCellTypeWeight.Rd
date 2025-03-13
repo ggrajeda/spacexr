@@ -49,8 +49,8 @@ varies across space, represented by point color intensity. Users should run
 this function on the result of \code{\link{runRctd}}.
 }
 \details{
-This function is adapted from \code{\link[STdeconvolve]{vizTopic}} in the
-\code{STdeconvolve} package.
+This function is adapted from \code{vizTopic} in the \code{STdeconvolve}
+package.
 }
 \examples{
 data(rctdSim)

@@ -39,8 +39,8 @@ showing the proportions of different cell types at that location. Users
 should run this function on the result of \code{\link{runRctd}}.
 }
 \details{
-This function is adapted from \code{\link[STdeconvolve]{vizAllTopics}} in the
-\code{STdeconvolve} package.
+This function is adapted from \code{vizAllTopics} in the \code{STdeconvolve}
+package.
 }
 \examples{
 data(rctdSim)

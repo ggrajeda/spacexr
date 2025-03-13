@@ -33,8 +33,8 @@ get_reject_mask <- function(rctd_spe) {
 #' showing the proportions of different cell types at that location. Users
 #' should run this function on the result of \code{\link{runRctd}}.
 #'
-#' This function is adapted from \code{\link[STdeconvolve]{vizAllTopics}} in the
-#' \code{STdeconvolve} package.
+#' This function is adapted from \code{vizAllTopics} in the \code{STdeconvolve}
+#' package.
 #'
 #' @param rctd_spe \code{\link[SpatialExperiment]{SpatialExperiment}}
 #'   containing RCTD results
@@ -127,8 +127,8 @@ plotAllWeights <- function(
 #' varies across space, represented by point color intensity. Users should run
 #' this function on the result of \code{\link{runRctd}}.
 #'
-#' This function is adapted from \code{\link[STdeconvolve]{vizTopic}} in the
-#' \code{STdeconvolve} package.
+#' This function is adapted from \code{vizTopic} in the \code{STdeconvolve}
+#' package.
 #'
 #' @param rctd_spe \code{\link[SpatialExperiment]{SpatialExperiment}}
 #'   containing RCTD results
