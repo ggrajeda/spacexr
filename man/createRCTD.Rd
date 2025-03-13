@@ -14,7 +14,8 @@ createRctd(
   fc_cutoff = 0.5,
   gene_cutoff_reg = 2e-04,
   fc_cutoff_reg = 0.75,
-  counts_min = 10,
+  gene_obs_min = 3,
+  pixel_count_min = 10,
   UMI_min = 100,
   UMI_max = 2e+07,
   UMI_min_sigma = 300,
@@ -86,8 +87,12 @@ to be included in the RCTD step (default: 0.0002)}
 \item{fc_cutoff_reg}{numeric, minimum log-fold-change (across cell types) for
 genes to be included in the RCTD step (default: 0.75)}
 
-\item{counts_min}{numeric, minimum total counts per pixel of genes used in
-analysis (default: 10)}
+\item{gene_obs_min}{numeric, minimum number of times a gene must appear in
+the spatial transcriptomics data to be included in the analysis
+(default: 3)}
+
+\item{pixel_count_min}{numeric, minimum total gene count for a pixel to be
+included in the analysis (default: 10)}
 
 \item{UMI_min}{numeric, minimum UMI count per pixel (default: 100)}
 

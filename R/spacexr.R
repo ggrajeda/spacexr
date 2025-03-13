@@ -174,7 +174,7 @@ create_puck_and_internal_vars <- function(
 ) {
     puck.original <- restrict_counts(spatialRNA, rownames(counts(spatialRNA)),
         UMI_thresh = config$UMI_min, UMI_max = config$UMI_max,
-        counts_thresh = config$counts_min
+        counts_thresh = config$pixel_count_min
     )
     message("Getting regression differentially expressed genes: ")
     gene_list_reg <- get_de_genes(
@@ -210,7 +210,7 @@ create_puck_and_internal_vars <- function(
         gene_list_bulk,
         UMI_thresh = config$UMI_min,
         UMI_max = config$UMI_max,
-        counts_thresh = config$counts_min
+        counts_thresh = config$pixel_count_min
     )
     puck <- restrict_puck(puck, colnames(counts(puck)))
     if (is.null(class_df)) {
@@ -285,8 +285,11 @@ create_puck_and_internal_vars <- function(
 #'   to be included in the RCTD step (default: 0.0002)
 #' @param fc_cutoff_reg numeric, minimum log-fold-change (across cell types) for
 #'   genes to be included in the RCTD step (default: 0.75)
-#' @param counts_min numeric, minimum total counts per pixel of genes used in
-#'   analysis (default: 10)
+#' @param gene_obs_min numeric, minimum number of times a gene must appear in
+#'   the spatial transcriptomics data to be included in the analysis
+#'   (default: 3)
+#' @param pixel_count_min numeric, minimum total gene count for a pixel to be
+#'   included in the analysis (default: 10)
 #' @param UMI_min numeric, minimum UMI count per pixel (default: 100)
 #' @param UMI_max numeric, maximum UMI count per pixel (default: 20,000,000)
 #' @param UMI_min_sigma numeric, minimum UMI count for pixels used in platform
@@ -348,11 +351,11 @@ createRctd <- function(
     spatial_experiment, reference_experiment, max_cores = 4,
     cell_type_col = "cell_type", require_int = TRUE, gene_cutoff = 0.000125,
     fc_cutoff = 0.5, gene_cutoff_reg = 0.0002, fc_cutoff_reg = 0.75,
-    counts_min = 10, UMI_min = 100, UMI_max = 20000000, UMI_min_sigma = 300,
-    ref_UMI_min = 100, ref_n_cells_min = 25, ref_n_cells_max = 10000,
-    cell_type_profiles = NULL, keep_reference = FALSE, class_df = NULL,
-    cell_type_names = NULL, MAX_MULTI_TYPES = 4, CONFIDENCE_THRESHOLD = 5,
-    DOUBLET_THRESHOLD = 20, test_mode = FALSE
+    gene_obs_min = 3, pixel_count_min = 10, UMI_min = 100, UMI_max = 20000000,
+    UMI_min_sigma = 300, ref_UMI_min = 100, ref_n_cells_min = 25,
+    ref_n_cells_max = 10000, cell_type_profiles = NULL, keep_reference = FALSE,
+    class_df = NULL, cell_type_names = NULL, MAX_MULTI_TYPES = 4,
+    CONFIDENCE_THRESHOLD = 5, DOUBLET_THRESHOLD = 20, test_mode = FALSE
 ) {
     # Type validity checks
     if (!is(spatial_experiment, "SummarizedExperiment")) {
@@ -388,10 +391,10 @@ createRctd <- function(
     numeric_params <- list(
         gene_cutoff = gene_cutoff, fc_cutoff = fc_cutoff,
         gene_cutoff_reg = gene_cutoff_reg, fc_cutoff_reg = fc_cutoff_reg,
-        counts_min = counts_min, UMI_min = UMI_min, UMI_max = UMI_max,
-        UMI_min_sigma = UMI_min_sigma, ref_UMI_min = ref_UMI_min,
-        ref_n_cells_min = ref_n_cells_min, ref_n_cells_max = ref_n_cells_max,
-        MAX_MULTI_TYPES = MAX_MULTI_TYPES,
+        pixel_count_min = pixel_count_min, UMI_min = UMI_min,
+        UMI_max = UMI_max, UMI_min_sigma = UMI_min_sigma,
+        ref_UMI_min = ref_UMI_min, ref_n_cells_min = ref_n_cells_min,
+        ref_n_cells_max = ref_n_cells_max, MAX_MULTI_TYPES = MAX_MULTI_TYPES,
         CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD,
         DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
     )
@@ -459,7 +462,8 @@ createRctd <- function(
         UMI_min = UMI_min, UMI_min_sigma = UMI_min_sigma, max_cores = max_cores,
         N_epoch = 8, N_X = 50000, K_val = 100, N_fit = 1000, N_epoch_bulk = 30,
         MIN_CHANGE_BULK = 0.0001, MIN_CHANGE_REG = 0.001, UMI_max = UMI_max,
-        counts_min = counts_min, MIN_OBS = 3, MAX_MULTI_TYPES = MAX_MULTI_TYPES,
+        pixel_count_min = pixel_count_min, MIN_OBS = gene_obs_min,
+        MAX_MULTI_TYPES = MAX_MULTI_TYPES,
         CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD,
         DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
     )
@@ -470,7 +474,7 @@ createRctd <- function(
             fc_cutoff_reg = 0.75, UMI_min = 1000, N_epoch = 1, N_X = 50000,
             K_val = 100, N_fit = 50, N_epoch_bulk = 4, MIN_CHANGE_BULK = 1,
             MIN_CHANGE_REG = 0.001, UMI_max = 200000, MIN_OBS = 3,
-            max_cores = 1, counts_min = 5, UMI_min_sigma = 300,
+            max_cores = 1, pixel_count_min = 5, UMI_min_sigma = 300,
             MAX_MULTI_TYPES = MAX_MULTI_TYPES,
             CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD,
             DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
@@ -610,11 +614,11 @@ runRctd <- function(
     rctd_mode = c("doublet", "multi", "full"), max_cores = 4,
     cell_type_col = "cell_type", require_int = TRUE, gene_cutoff = 0.000125,
     fc_cutoff = 0.5, gene_cutoff_reg = 0.0002, fc_cutoff_reg = 0.75,
-    counts_min = 10, UMI_min = 100, UMI_max = 20000000, UMI_min_sigma = 300,
-    ref_UMI_min = 100, ref_n_cells_min = 25, ref_n_cells_max = 10000,
-    cell_type_profiles = NULL, keep_reference = FALSE, class_df = NULL,
-    cell_type_names = NULL, MAX_MULTI_TYPES = 4, CONFIDENCE_THRESHOLD = 5,
-    DOUBLET_THRESHOLD = 20, test_mode = FALSE
+    gene_obs_min = 3, pixel_count_min = 10, UMI_min = 100, UMI_max = 20000000,
+    UMI_min_sigma = 300, ref_UMI_min = 100, ref_n_cells_min = 25,
+    ref_n_cells_max = 10000, cell_type_profiles = NULL, keep_reference = FALSE,
+    class_df = NULL, cell_type_names = NULL, MAX_MULTI_TYPES = 4,
+    CONFIDENCE_THRESHOLD = 5, DOUBLET_THRESHOLD = 20, test_mode = FALSE
 ) {
     rctd_mode <- match.arg(rctd_mode)
     RCTD <- createRctd(
@@ -623,8 +627,9 @@ runRctd <- function(
         cell_type_col = cell_type_col, max_cores = max_cores,
         require_int = require_int, gene_cutoff = gene_cutoff,
         fc_cutoff = fc_cutoff, gene_cutoff_reg = gene_cutoff_reg,
-        fc_cutoff_reg = fc_cutoff_reg, counts_min = counts_min,
-        UMI_min = UMI_min, UMI_max = UMI_max, UMI_min_sigma = UMI_min_sigma,
+        fc_cutoff_reg = fc_cutoff_reg, gene_obs_min = gene_obs_min,
+        pixel_count_min = pixel_count_min, UMI_min = UMI_min,
+        UMI_max = UMI_max, UMI_min_sigma = UMI_min_sigma,
         ref_UMI_min = ref_UMI_min, ref_n_cells_min = ref_n_cells_min,
         ref_n_cells_max = ref_n_cells_max,
         cell_type_profiles = cell_type_profiles,
