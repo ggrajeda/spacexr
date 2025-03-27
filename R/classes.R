@@ -8,7 +8,9 @@
 #'   (called \code{reference} here) for the RNA-seq data. Then simply run RCTD
 #'   as:
 #'
-#'   \code{results <- runRctd(spatial, reference)}
+#'   \code{rctd_data <- createRctd(spatial, reference)}
+#' 
+#'   \code{results <- runRctd(rctd_data)}
 #'
 #' @docType package
 #' @name spacexr-package
@@ -92,23 +94,6 @@ setGeneric("spatialRNA", function(object) standardGeneric("spatialRNA"))
 #' @keywords internal
 setGeneric(
     "spatialRNA<-", function(object, value) standardGeneric("spatialRNA<-")
-)
-
-#' Generic accessor for reference slot
-#'
-#' @param object An object with a reference slot
-#' @return The reference slot of the object
-#' @keywords internal
-setGeneric("reference", function(object) standardGeneric("reference"))
-
-#' Generic setter for reference slot
-#'
-#' @param object An object with a reference slot
-#' @param value The new value for the reference slot
-#' @return The updated object
-#' @keywords internal
-setGeneric(
-    "reference<-", function(object, value) standardGeneric("reference<-")
 )
 
 #' Generic accessor for config slot
@@ -356,14 +341,8 @@ setClassUnion("ReferenceOrNull", c("Reference", "NULL"))
 
 #' RCTD algorithm configuration
 #'
-#' An RCTD configuration created via the \code{\link{createRctd}} function.
-#' Users can run RCTD by passing this object to the \code{\link{runRctd}}
-#' function.
-#'
 #' @slot spatialRNA a \code{\linkS4class{SpatialRNA}} object containing the
 #'   processed spatial transcriptomics data for analysis
-#' @slot reference a \code{\linkS4class{Reference}} object containing the
-#'   annotated reference data
 #' @slot config a list of configuration options for the RCTD algorithm, set via
 #'   \code{\link{createRctd}}
 #' @slot cell_type_info a named list containing cell type expression profiles
@@ -379,14 +358,12 @@ setClassUnion("ReferenceOrNull", c("Reference", "NULL"))
 setClass("RctdConfig",
     slots = c(
         spatialRNA = "SpatialRNA",
-        reference = "ReferenceOrNull",
         config = "list",
         cell_type_info = "list",
         internal_vars = "list"
     ),
     prototype = list(
         spatialRNA = NULL,
-        reference = NULL,
         config = list(),
         cell_type_info = list(info = NULL, renorm = NULL),
         internal_vars = list()
@@ -403,20 +380,6 @@ setMethod("spatialRNA", "RctdConfig", function(object) {
 #' @keywords internal
 setMethod("spatialRNA<-", "RctdConfig", function(object, value) {
     object@spatialRNA <- value
-    validObject(object)
-    object
-})
-
-#' @rdname reference
-#' @keywords internal
-setMethod("reference", "RctdConfig", function(object) {
-    object@reference
-})
-
-#' @rdname reference
-#' @keywords internal
-setMethod("reference<-", "RctdConfig", function(object, value) {
-    object@reference <- value
     validObject(object)
     object
 })
@@ -472,16 +435,6 @@ setMethod("show", "RctdConfig", function(object) {
     cat("\nSpatial data (processed):\n")
     cat(sprintf("- %d pixels\n", ncol(counts(spatialRNA(object)))))
     cat(sprintf("- %d genes\n", nrow(counts(spatialRNA(object)))))
-
-    cat("\nReference data:\n")
-    if (is.null(reference(object))) {
-        cat("NULL\n")
-    } else {
-        cat(sprintf("- %d cells\n", ncol(counts(reference(object)))))
-        cat(sprintf(
-            "- %d cell types\n", length(levels(cell_types(reference(object))))
-        ))
-    }
 
     cat("\nConfiguration:\n")
     for (param in names(config(object))) {

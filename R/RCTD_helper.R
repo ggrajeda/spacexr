@@ -104,13 +104,13 @@ check_pairs_type <- function(
 process_bead_doublet <- function(
     cell_type_info, gene_list, UMI_tot, bead,
     class_df = NULL, constrain = TRUE, verbose = FALSE,
-    MIN.CHANGE = 0.001, CONFIDENCE_THRESHOLD = 10, DOUBLET_THRESHOLD = 25
+    MIN.CHANGE = 0.001, confidence_threshold = 10, doublet_threshold = 25
 ) {
     cell_type_profiles <- cell_type_info[[1]][gene_list, ]
     cell_type_profiles <- cell_type_profiles * UMI_tot
     cell_type_profiles <- data.matrix(cell_type_profiles)
-    QL_score_cutoff <- CONFIDENCE_THRESHOLD
-    doublet_like_cutoff <- DOUBLET_THRESHOLD
+    QL_score_cutoff <- confidence_threshold
+    doublet_like_cutoff <- doublet_threshold
     results_all <- decompose_full(
         cell_type_profiles, UMI_tot, bead,
         constrain = constrain, verbose = verbose, MIN_CHANGE = MIN.CHANGE
@@ -121,7 +121,8 @@ process_bead_doublet <- function(
     cell_type_names <- cell_type_info[[2]]
     candidates <- names(which(all_weights > initial_weight_thresh))
     if (length(candidates) == 0) {
-        candidates <- cell_type_info[[2]][seq_len(min(3, cell_type_info[[3]]))]
+        num_cell_types <- length(cell_type_info[[2]])
+        candidates <- cell_type_info[[2]][seq_len(min(3, num_cell_types))]
     }
     if (length(candidates) == 1) {
         if (candidates[1] == cell_type_info[[2]][1]) {
@@ -237,13 +238,13 @@ process_bead_doublet <- function(
 process_bead_multi <- function(
     cell_type_info, gene_list, UMI_tot, bead, class_df = NULL,
     constrain = TRUE, verbose = FALSE, MIN.CHANGE = 0.001,
-    MAX.TYPES = 4, CONFIDENCE_THRESHOLD = 10, DOUBLET_THRESHOLD = 25
+    MAX.TYPES = 4, confidence_threshold = 10, doublet_threshold = 25
 ) {
     cell_type_profiles <- cell_type_info[[1]][gene_list, ]
     cell_type_profiles <- cell_type_profiles * UMI_tot
     cell_type_profiles <- data.matrix(cell_type_profiles)
-    QL_score_cutoff <- CONFIDENCE_THRESHOLD
-    doublet_like_cutoff <- DOUBLET_THRESHOLD
+    QL_score_cutoff <- confidence_threshold
+    doublet_like_cutoff <- doublet_threshold
     results_all <- decompose_full(
         cell_type_profiles, UMI_tot, bead,
         constrain = constrain, verbose = verbose, MIN_CHANGE = MIN.CHANGE

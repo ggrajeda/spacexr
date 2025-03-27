@@ -44,26 +44,9 @@ createReference <- function(
             require_2d = TRUE, require_int = require_int, min_UMI = min_UMI
         )
     }
-    check_cell_types(cell_types)
-    barcodes <- intersect(
-        intersect(names(nUMI), names(cell_types)),
-        colnames(counts)
-    )
-    if (length(barcodes) == 0) {
-        stop(
-            "Reference: cell_types, counts, and nUMI do not share any barcode ",
-            "names. Please ensure that names(cell_types) matches ",
-            "colnames(counts) and names(nUMI)"
-        )
-    }
-    max_length <- max(length(nUMI), length(cell_types), dim(counts)[2])
-    if (length(barcodes) < max_length) {
-        warning(
-            "Reference: some barcodes in nUMI, cell_types, or counts were not ",
-            "mutually shared. Such barcodes were removed."
-        )
-    }
-    barcodes <- names(which(nUMI[barcodes] >= min_UMI))
+    checkCellTypes(cell_types)
+
+    barcodes <- names(which(nUMI >= min_UMI))
     if (length(barcodes) < 1) {
         stop(
             "Reference: no barcodes were included with nUMI at least min_UMI. ",
@@ -71,13 +54,7 @@ createReference <- function(
             "sufficient UMI counts."
         )
     }
-    if (sum(nUMI[barcodes] != colSums(counts[, barcodes, drop = FALSE])) > 0) {
-        warning(
-            "Reference: nUMI does not match colSums of counts. If this is ",
-            "unintended, please correct this discrepancy. If this is ",
-            "intended, there is no problem."
-        )
-    }
+
     missing_cell_types <- names(which(table(cell_types[barcodes]) == 0))
     if (length(missing_cell_types) > 0) {
         warning(
@@ -85,25 +62,17 @@ createReference <- function(
             paste(missing_cell_types, collapse = ", ")
         )
     }
+
     reference <- new(
         "Reference",
         cell_types = cell_types[barcodes],
         counts = counts[, barcodes, drop = FALSE],
         nUMI = nUMI[barcodes]
     )
-    cur_count <- max(table(cell_types(reference)))
-    if (cur_count > n_max_cells) {
-        warning(
-            "Reference: number of cells per cell type is ", cur_count,
-            ", larger than maximum allowable of ", n_max_cells,
-            ". Downsampling number of cells to: ", n_max_cells
-        )
-        reference <- create_downsampled_data(reference, n_samples = n_max_cells)
-    }
-    return(reference)
+    maybeDownsample(reference, n_max_cells)
 }
 
-check_cell_types <- function(cell_types) {
+checkCellTypes <- function(cell_types) {
     if (!is(cell_types, "factor")) {
         stop(
             "Reference: cell_types is not a factor. Please format cell_types ",
@@ -146,21 +115,22 @@ check_cell_types <- function(cell_types) {
     }
 }
 
-create_downsampled_data <- function(
-    reference,
-    cell_types_keep = NULL, n_samples = 10000
-) {
-    if (is.null(cell_types_keep)) {
-        cell_types_keep <- levels(cell_types(reference))
+maybeDownsample <- function(reference, n_max_cells = 10000) {
+    cur_count <- max(table(cell_types(reference)))
+    if (cur_count <= n_max_cells) {
+        return(reference)
     }
-    cell_types_keep <- cell_types_keep[unlist(
-        lapply(cell_types_keep, function(x) nchar(x) > 0)
-    )]
+    warning(
+        "Reference: number of cells per cell type is ", cur_count,
+        ", larger than maximum allowable of ", n_max_cells,
+        ". Downsampling number of cells to: ", n_max_cells
+    )
+    cell_types_keep <- levels(cell_types(reference))
     index_keep <- c()
     i <- 1
     repeat{
         new_index <- which(cell_types(reference) == cell_types_keep[i])
-        new_samples <- min(n_samples, length(new_index))
+        new_samples <- min(n_max_cells, length(new_index))
         index_keep <- c(
             index_keep,
             sample(new_index, new_samples, replace = FALSE)
@@ -173,5 +143,5 @@ create_downsampled_data <- function(
     cell_types(reference) <- cell_types(reference)[index_keep]
     cell_types(reference) <- droplevels(cell_types(reference))
     nUMI(reference) <- nUMI(reference)[index_keep]
-    return(reference)
+    reference
 }

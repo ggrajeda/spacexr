@@ -17,7 +17,7 @@ plotCellTypeWeight(
 )
 }
 \arguments{
-\item{rctd_spe}{\code{\link[SpatialExperiment]{SpatialExperiment}}
+\item{rctd_spe}{\code{\link[SpatialExperiment]{SpatialExperiment}} object
 containing RCTD results}
 
 \item{cell_type}{character, name of cell type to plot}

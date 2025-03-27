@@ -73,7 +73,7 @@ names should be unique cell barcodes. Counts should be untransformed integers.
 
 2. `colData`: A factor column containing cell type annotations for each cell in
 the reference. The column name is assumed to be "cell_type", but another name
-may be specified using the `cell_type_col` parameter in `runRctd`.
+may be specified using the `cell_type_col` parameter in `createRctd`.
 
 *Optional components*:
 
@@ -183,16 +183,41 @@ plotAllWeights(
 
 # Running RCTD
 
-We are now ready to run RCTD, using the `runRctd` function on our
-`r BiocStyle::Biocpkg("SpatialExperiment")` and
-`r BiocStyle::Biocpkg("SummarizedExperiment")` objects.
+Running RCTD is a two-step process:
+
+1. Preprocess the data using the `createRctd` function, which:
+    - Filters pixels and genes based on UMI counts and other thresholds.
+    - Identifies differentially expressed genes.
+    - Creates cell type profiles from the reference data.
+
+2. Run the deconvolution with `runRctd`.
+
+## Step 1: Preprocess Data
+
+Before running RCTD, we perform some preprocessing with `createRctd`. Some
+important configuration options include:
+
+- `gene_cutoff`, `fc_cutoff`: Used for filtering genes in platform effect
+normalization. `gene_cutoff` filters for average expression and `fc_cutoff`
+filters for log fold change across cell types.
+- `gene_cutoff_reg`, `fc_cutoff_reg`: Similar to above, but for the RCTD step.
+- `UMI_min`, `UMI_max`: Minimum and maximum UMI count per pixel.
+
+```{r createRctd, message = FALSE}
+# Preprocess data
+rctd_data <- createRctd(spatial_spe, reference_se)
+```
+
+## Step 2: Run RCTD
+
+Now we can run RCTD on the preprocessed data with the `runRctd` function.
 
 RCTD has three modes, each suited for different spatial technologies:
 
 - `"doublet"`: Assigns 1-2 cell types per pixel. Best for high-resolution
 technologies like Slide-seq and MERFISH.
 - `"multi"`: Like doublet mode but can assign more cell types (up to
-`MAX_MULTI_TYPES`). Best for lower-resolution technologies like 100-micron
+`max_multi_types`). Best for lower-resolution technologies like 100-micron
 Visium.
 - `"full"`: No restrictions on number of cell types.
 
@@ -202,21 +227,13 @@ runs. Other important configuration options include:
 - `max_cores`: Number of cores used for parallel processing. We recommend
 setting this to at least 4 to improve efficiency. If set to 1, parallel
 processing is not used.
-- `gene_cutoff`, `fc_cutoff`: Used for filtering genes in platform effect
-normalization. `gene_cutoff` filters for average expression and `fc_cutoff`
-filters for log-fold-change across cell types.
-- `gene_cutoff_reg`, `fc_cutoff_reg`: Similar to above, but for the RCTD step.
-- `UMI_min`, `UMI_max`: Minimum and maximum read depth for pixels in the
-`r BiocStyle::Biocpkg("SpatialExperiment")` dataset.
-- `MAX_MULTI_TYPES`: Maximum number of cell types per pixel (multi mode only).
+- `max_multi_types`: Maximum number of cell types per pixel (multi mode only).
 
 For the purposes of demonstration, we'll decompose the data into doublets in
 this vignette.
 
 ```{r runRctd, message = FALSE}
-results_spe <- runRctd(
-    spatial_spe, reference_se, rctd_mode = "doublet", max_cores = 1
-)
+results_spe <- runRctd(rctd_data, rctd_mode = "doublet", max_cores = 1)
 ```
 
 # RCTD Results
@@ -304,7 +321,7 @@ conditions except `reject`).
 
 We can see that RCTD generally succeeded in identifying the components of the
 cell mixtures, although pixels with 90% `ct1` and 10% `ct2` were classified
-as singlets. (As an exercise, try changing the `DOUBLET_THRESHOLD` parameter
+as singlets. (As an exercise, try changing the `doublet_threshold` parameter
 in `runRctd` so that these mixtures will be identified as doublets.)
 
 # Visualization

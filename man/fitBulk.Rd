@@ -36,8 +36,11 @@ reference_se <- SummarizedExperiment(
 )
 
 # Create RCTD configuration
-rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
+rctd_data <- createRctd(spatial_spe, reference_se)
+rctd <- createRctdConfig(rctd_data)
 rctd <- fitBulk(rctd)
+rctd <- chooseSigmaC(rctd)
+results <- fitPixels(rctd, rctd_mode = "doublet")
 
 }
 \keyword{internal}

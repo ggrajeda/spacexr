@@ -1,3 +1,45 @@
+prepareBulkData <- function(cell_type_means, puck, gene_list, MIN_OBS = 10) {
+    bulk_vec <- rowSums(counts(puck))
+    gene_list <- intersect(names(which(bulk_vec >= MIN_OBS)), gene_list)
+    nUMI <- sum(nUMI(puck))
+    X <- as.matrix(cell_type_means[gene_list, , drop = FALSE] * nUMI)
+    b <- bulk_vec[gene_list]
+    return(list(X = X, b = b))
+}
+
+#' Normalizes cell type profiles to a target dataset
+#'
+#' renormalizes \code{cell_type_means} to have average the same as the puck. The
+#' average for each gene is weighted by cell type proportions given by
+#' \code{proportions}.
+#'
+#' @param proportions a named list (for each cell type) of proportion of the
+#'   cell type on the bulk dataset (not constrained to sum to 1)
+#' @param gene_list a list of genes to be used for the normalization
+#' @param puck an object of type \linkS4class{SpatialRNA}, the target dataset
+#' @param cell_type_means a data_frame (genes by cell types) for mean normalized
+#'   expression (see \code{\link{computeCellTypeInfo}})
+#' @return Returns \code{cell_type_means}, a data_frame (genes by cell types)
+#'   for mean normalized cell type expression profiles in which platform effects
+#'   have been removed to match the \linkS4class{SpatialRNA} data.
+#' @keywords internal
+getNormRef <- function(puck, cell_type_means, gene_list, proportions) {
+    bulk_vec <- rowSums(counts(puck))
+    weight_avg <- rowSums(sweep(
+        cell_type_means[gene_list, , drop = FALSE],
+        2,
+        proportions / sum(proportions),
+        "*"
+    ))
+    target_means <- bulk_vec[gene_list] / sum(nUMI(puck))
+    sweep(
+        cell_type_means[gene_list, , drop = FALSE],
+        1,
+        weight_avg / target_means,
+        "/"
+    )
+}
+
 #' Performs Platform Effect Normalization:
 #'
 #' Estimates bulk cell type composition and uses this to estimate platform
@@ -9,27 +51,7 @@
 #'   platform effects.
 #' @export
 #' @keywords internal
-#' @examples
-#' data(rctdSim)
-#'
-#' # Spatial transcriptomics data
-#' library(SpatialExperiment)
-#' spatial_spe <- SpatialExperiment(
-#'     assay = rctdSim$spatial_rna_counts,
-#'     spatialCoords = rctdSim$spatial_rna_coords
-#' )
-#'
-#' # Reference data
-#' library(SummarizedExperiment)
-#' reference_se <- SummarizedExperiment(
-#'     assays = list(counts = rctdSim$reference_counts),
-#'     colData = rctdSim$reference_cell_types
-#' )
-#'
-#' # Create RCTD configuration
-#' rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
-#' rctd <- fitBulk(rctd)
-#'
+#' @inherit fitPixels examples
 fitBulk <- function(RCTD) {
     bulkData <- prepareBulkData(
         cell_type_info(RCTD)$info[[1]],
@@ -44,7 +66,7 @@ fitBulk <- function(RCTD) {
     )
     internal_vars(RCTD)$proportions <- decompose_results$weights
     cell_type_info(RCTD)$renorm <- cell_type_info(RCTD)$info
-    cell_type_info(RCTD)$renorm[[1]] <- get_norm_ref(
+    cell_type_info(RCTD)$renorm[[1]] <- getNormRef(
         spatialRNA(RCTD), cell_type_info(RCTD)$info[[1]],
         internal_vars(RCTD)$gene_list_bulk, decompose_results$weights
     )
@@ -87,29 +109,8 @@ chooseSigma <- function(prediction, counts, Q_mat_all, X_vals, sigma) {
 #'   \code{sigma_c}.
 #' @export
 #' @keywords internal
-#' @examples
-#' data(rctdSim)
-#'
-#' # Spatial transcriptomics data
-#' library(SpatialExperiment)
-#' spatial_spe <- SpatialExperiment(
-#'     assay = rctdSim$spatial_rna_counts,
-#'     spatialCoords = rctdSim$spatial_rna_coords
-#' )
-#'
-#' # Reference data
-#' library(SummarizedExperiment)
-#' reference_se <- SummarizedExperiment(
-#'     assays = list(counts = rctdSim$reference_counts),
-#'     colData = rctdSim$reference_cell_types
-#' )
-#'
-#' # Create RCTD configuration
-#' rctd <- createRctd(spatial_spe, reference_se, max_cores = 1)
-#' rctd <- fitBulk(rctd)
-#' rctd <- choose_sigma_c(rctd)
-#'
-choose_sigma_c <- function(RCTD) {
+#' @inherit fitPixels examples
+chooseSigmaC <- function(RCTD) {
     puck <- spatialRNA(RCTD)
     MIN_UMI <- config(RCTD)$UMI_min_sigma
     sigma <- 100
@@ -120,7 +121,7 @@ choose_sigma_c <- function(RCTD) {
     N_fit <- min(config(RCTD)$N_fit, sum(nUMI(puck) > MIN_UMI))
     if (N_fit == 0) {
         stop(
-            "choose_sigma_c determined a N_fit of 0! This is probably due to ",
+            "chooseSigmaC determined a N_fit of 0! This is probably due to ",
             "unusually low UMI counts per bead in your dataset. Try ",
             "decreasing the parameter UMI_min_sigma. It currently is ", MIN_UMI,
             " but none of the beads had counts larger than that."

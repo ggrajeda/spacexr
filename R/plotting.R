@@ -36,7 +36,7 @@ get_reject_mask <- function(rctd_spe) {
 #' This function is adapted from \code{vizAllTopics} in the \code{STdeconvolve}
 #' package.
 #'
-#' @param rctd_spe \code{\link[SpatialExperiment]{SpatialExperiment}}
+#' @param rctd_spe \code{\link[SpatialExperiment]{SpatialExperiment}} object
 #'   containing RCTD results
 #' @param assay_name character, name of the assay to plot
 #'   (default: \code{"weights"})
@@ -130,7 +130,7 @@ plotAllWeights <- function(
 #' This function is adapted from \code{vizTopic} in the \code{STdeconvolve}
 #' package.
 #'
-#' @param rctd_spe \code{\link[SpatialExperiment]{SpatialExperiment}}
+#' @param rctd_spe \code{\link[SpatialExperiment]{SpatialExperiment}} object
 #'   containing RCTD results
 #' @param cell_type character, name of cell type to plot
 #' @param assay_name character, name of the assay to plot

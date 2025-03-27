@@ -24,17 +24,16 @@ test_that("Matches exactly on rctdSim", {
         assay = rctdSim$spatial_rna_counts,
         spatialCoords = rctdSim$spatial_rna_coords
     )
-    reference_spe <- SummarizedExperiment::SummarizedExperiment(
+    reference_se <- SummarizedExperiment::SummarizedExperiment(
         assays = list(counts = rctdSim$reference_counts),
         colData = rctdSim$reference_cell_types
     )
+    rctd <- createRctd(spatial_spe, reference_se)
 
     ## Run RCTD sequentially.
 
     # Doublet mode
-    doublet_spe <- runRctd(
-        spatial_spe, reference_spe, rctd_mode = "doublet", max_cores = 1
-    )
+    doublet_spe <- runRctd(rctd, rctd_mode = "doublet", max_cores = 1)
     doublet_assays <- SummarizedExperiment::assays(doublet_spe)
     doublet_col_data <- SummarizedExperiment::colData(doublet_spe)
     doublet_coords <- SpatialExperiment::spatialCoords(doublet_spe)
@@ -43,9 +42,7 @@ test_that("Matches exactly on rctdSim", {
     })
 
     # Multi mode
-    multi_spe <- runRctd(
-        spatial_spe, reference_spe, rctd_mode = "multi", max_cores = 1
-    )
+    multi_spe <- runRctd(rctd, rctd_mode = "multi", max_cores = 1)
     multi_assays <- SummarizedExperiment::assays(multi_spe)
     multi_col_data <- SummarizedExperiment::colData(multi_spe)
     multi_coords <- SpatialExperiment::spatialCoords(multi_spe)
@@ -54,9 +51,7 @@ test_that("Matches exactly on rctdSim", {
     })
 
     # Full mode
-    full_spe <- runRctd(
-        spatial_spe, reference_spe, rctd_mode = "full", max_cores = 1
-    )
+    full_spe <- runRctd(rctd, rctd_mode = "full", max_cores = 1)
     full_assays <- SummarizedExperiment::assays(full_spe)
     full_col_data <- SummarizedExperiment::colData(full_spe)
     full_coords <- SpatialExperiment::spatialCoords(full_spe)
@@ -67,9 +62,7 @@ test_that("Matches exactly on rctdSim", {
     ## Run RCTD in parallel.
 
     # Doublet mode
-    parallel_doublet_spe <- runRctd(
-        spatial_spe, reference_spe, rctd_mode = "doublet", max_cores = 2
-    )
+    parallel_doublet_spe <- runRctd(rctd, rctd_mode = "doublet", max_cores = 2)
     expect_equal(
         SummarizedExperiment::assays(parallel_doublet_spe),
         doublet_assays
@@ -80,9 +73,7 @@ test_that("Matches exactly on rctdSim", {
     )
 
     # Multi mode
-    parallel_multi_spe <- runRctd(
-        spatial_spe, reference_spe, rctd_mode = "multi", max_cores = 2
-    )
+    parallel_multi_spe <- runRctd(rctd, rctd_mode = "multi", max_cores = 2)
     expect_equal(
         SummarizedExperiment::assays(parallel_multi_spe),
         multi_assays
@@ -93,9 +84,7 @@ test_that("Matches exactly on rctdSim", {
     )
 
     # Full mode
-    parallel_full_spe <- runRctd(
-        spatial_spe, reference_spe, rctd_mode = "full", max_cores = 2
-    )
+    parallel_full_spe <- runRctd(rctd, rctd_mode = "full", max_cores = 2)
     expect_equal(
         SummarizedExperiment::assays(parallel_full_spe),
         full_assays

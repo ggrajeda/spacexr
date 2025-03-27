@@ -6,6 +6,9 @@ profiles from annotated RNA sequencing (RNA-seq) reference data and uses these
 profiles to identify cell types in spatial transcriptomic pixels while
 accounting for platform-specific effects.
 
+This is a fork of https://github.com/dmcable/spacexr, adapted to work with
+Bioconductor objects.
+
 ## Installation
 
 You can install the latest version of spacexr from Bioconductor:
@@ -37,9 +40,8 @@ reference_se <- SummarizedExperiment(
 )
 
 # Configure and run RCTD
-results <- runRctd(
-    spatial_spe, reference_se, rctd_mode = "doublet", max_cores = 4
-)
+rctd_data <- createRctd(spatial_spe, reference_se)
+results <- runRctd(rctd_data, rctd_mode = "doublet", max_cores = 4)
 
 # Visualize results
 plotAllWeights(results, title = "Cell Type Proportions")

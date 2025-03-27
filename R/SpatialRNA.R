@@ -66,13 +66,6 @@ createSpatialRNA <- function(
             "mutually shared. Such barcodes were removed."
         )
     }
-    if (sum(nUMI[barcodes] != colSums(counts[, barcodes, drop = FALSE])) > 0) {
-        warning(
-            "SpatialRNA: nUMI does not match colSums of counts. If this is ",
-            "unintended, please correct this discrepancy. If this is ",
-            "intended, there is no problem."
-        )
-    }
     spatial_rna <- new(
         "SpatialRNA",
         coords = coords[barcodes, , drop = FALSE],
@@ -270,52 +263,4 @@ check_coords <- function(coords) {
         )
     }
     return(coords)
-}
-
-
-
-#' Restricts a SpatialRNA object to a subset of genes (and applies a UMI
-#' threshold)
-#'
-#' @param puck a \code{\linkS4class{SpatialRNA}} object
-#' @param gene_list a list of gene names
-#' @param UMI_thresh minimum UMI per pixel
-#' @param UMI_max maximum UMI per pixel
-#' @param counts_thresh minimum counts per pixel (for genes in gene_list)
-#' @return Returns a \code{\linkS4class{SpatialRNA}} with counts filtered based
-#'   on UMI threshold and gene list
-#' @keywords internal
-restrict_counts <- function(
-    puck, gene_list,
-    UMI_thresh = 1, UMI_max = 20000, counts_thresh = 1
-) {
-    counts_tot <- colSums(counts(puck)[gene_list, , drop = FALSE])
-    keep_loc <- (
-        (nUMI(puck) >= UMI_thresh) &
-        (nUMI(puck) <= UMI_max) &
-        (counts_tot >= counts_thresh)
-    )
-    counts(puck) <- counts(puck)[gene_list, keep_loc, drop = FALSE]
-    nUMI(puck) <- nUMI(puck)[keep_loc]
-    return(puck)
-}
-
-#' Restricts a SpatialRNA object to a subset of pixels
-#'
-#' Given a \code{\linkS4class{SpatialRNA}} object and a list of barcodes
-#' (pixels), will return a \code{\linkS4class{SpatialRNA}} object restricted to
-#' the barcodes.
-#'
-#' @param puck a \code{\linkS4class{SpatialRNA}} object
-#' @param barcodes a list of barcode names, a subset of
-#'   \code{rownames(coords(puck))}
-#' @return Returns a \code{\linkS4class{SpatialRNA}} object subsampled to the
-#'   barcodes
-#' @keywords internal
-restrict_puck <- function(puck, barcodes) {
-    barcodes <- intersect(colnames(counts(puck)), barcodes)
-    counts(puck) <- counts(puck)[, barcodes]
-    nUMI(puck) <- nUMI(puck)[barcodes]
-    coords(puck) <- coords(puck)[barcodes, ]
-    return(puck)
 }

@@ -12,18 +12,13 @@
 \item{object}{RCTD configuration object}
 }
 \description{
-An RCTD configuration created via the \code{\link{createRctd}} function.
-Users can run RCTD by passing this object to the \code{\link{runRctd}}
-function.
+RCTD algorithm configuration
 }
 \section{Slots}{
 
 \describe{
 \item{\code{spatialRNA}}{a \code{\linkS4class{SpatialRNA}} object containing the
 processed spatial transcriptomics data for analysis}
-
-\item{\code{reference}}{a \code{\linkS4class{Reference}} object containing the
-annotated reference data}
 
 \item{\code{config}}{a list of configuration options for the RCTD algorithm, set via
 \code{\link{createRctd}}}

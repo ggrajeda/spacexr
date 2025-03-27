@@ -14,7 +14,7 @@ plotAllWeights(
 )
 }
 \arguments{
-\item{rctd_spe}{\code{\link[SpatialExperiment]{SpatialExperiment}}
+\item{rctd_spe}{\code{\link[SpatialExperiment]{SpatialExperiment}} object
 containing RCTD results}
 
 \item{assay_name}{character, name of the assay to plot

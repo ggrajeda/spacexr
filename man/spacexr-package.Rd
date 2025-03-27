@@ -17,7 +17,9 @@ Spatial-eXpression-R (spacexr) is a package for analyzing cell types in spatial 
   (called \code{reference} here) for the RNA-seq data. Then simply run RCTD
   as:
 
-  \code{results <- runRctd(spatial, reference)}
+  \code{rctd_data <- createRctd(spatial, reference)}
+
+  \code{results <- runRctd(rctd_data)}
 }
 
 \seealso{
