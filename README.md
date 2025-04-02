@@ -6,7 +6,8 @@ profiles from annotated RNA sequencing (RNA-seq) reference data and uses these
 profiles to identify cell types in spatial transcriptomic pixels while
 accounting for platform-specific effects.
 
-This is a fork of https://github.com/dmcable/spacexr, adapted to work with
+This is a fork of Dylan Cable's
+[original package](https://github.com/dmcable/spacexr), adapted to work with
 Bioconductor objects.
 
 ## Installation
@@ -49,3 +50,9 @@ plotAllWeights(results, title = "Cell Type Proportions")
 
 For a detailed tutorial, please see the package vignette:
 `browseVignettes("spacexr")`.
+
+## Citation
+
+If you use this work for cell type estimation, please cite:
+
+Cable, Dylan M., et al. "Robust decomposition of cell type mixtures in spatial transcriptomics." *Nature Biotechnology* 40.4 (2022): 517-526.
