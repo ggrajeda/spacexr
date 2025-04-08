@@ -23,7 +23,8 @@ summarizedExperimentToSpatialRNA <- function(
             rownames(coords) <- colnames(spatial_experiment)
         }
     }
-    counts <- getCounts(spatial_experiment)
+    spatial_name <- "spatial_experiment"
+    counts <- getCounts(spatial_experiment, spatial_name)
     nUMI <- colData(spatial_experiment)$nUMI
     if (!is.null(nUMI)) {
         names(nUMI) <- colnames(counts)
