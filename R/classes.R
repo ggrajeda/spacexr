@@ -337,8 +337,6 @@ setMethod("show", "Reference", function(object) {
     }
 })
 
-setClassUnion("ReferenceOrNull", c("Reference", "NULL"))
-
 #' RCTD algorithm configuration
 #'
 #' @slot spatialRNA a \code{\linkS4class{SpatialRNA}} object containing the
@@ -445,3 +443,26 @@ setMethod("show", "RctdConfig", function(object) {
         ))
     }
 })
+
+setClass("CsideConfig",
+    slots = c(
+        spatialRNA = "SpatialRNA",
+        originalSpatialRNA = "SpatialRNA",
+        config = "list",
+        cell_type_info = "list",
+        internal_vars = "list",
+        results = "SummarizedExperiment",
+        de_results = "list",
+        internal_vars_de = "list"
+    ),
+    prototype = list(
+        spatialRNA = NULL,
+        originalSpatialRNA = NULL,
+        config = list(),
+        cell_type_info = list(info = NULL, renorm = NULL),
+        internal_vars = list(),
+        results = NULL,
+        de_results = list(),
+        internal_vars_de = list()
+    )
+)

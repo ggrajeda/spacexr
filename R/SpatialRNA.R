@@ -264,3 +264,11 @@ check_coords <- function(coords) {
     }
     return(coords)
 }
+
+restrict_puck <- function(puck, barcodes) {
+  barcodes = intersect(colnames(puck@counts), barcodes)
+  puck@counts = puck@counts[,barcodes]
+  puck@nUMI = puck@nUMI[barcodes]
+  puck@coords = puck@coords[barcodes,]
+  puck
+}

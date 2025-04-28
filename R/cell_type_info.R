@@ -117,3 +117,24 @@ createCellTypeInfo <- function(
     }
     cell_type_info
 }
+
+#' Normalizes cell type profiles to a target dataset
+#'
+#' renormalizes \code{cell_type_means} to have average the same as the puck.
+#' The average for each gene is weighted by cell type proportions given by
+#' \code{proportions}.
+#'
+#' @param proportions a named list (for each cell type) of proportion of the cell type on the bulk dataset
+#' (not constrained to sum to 1)
+#' @param gene_list a list of genes to be used for the normalization
+#' @param puck an object of type \linkS4class{SpatialRNA}, the target dataset
+#' @param cell_type_means a data_frame (genes by cell types) for mean normalized expression (see \code{\link{get_cell_type_info}})
+#' @return Returns \code{cell_type_means}, a data_frame (genes by cell types) for mean normalized cell type expression profiles in which
+#' platform effects have been removed to match the \linkS4class{SpatialRNA} data.
+#' @export
+get_norm_ref <- function(puck, cell_type_means, gene_list, proportions) {
+  bulk_vec = rowSums(puck@counts)
+  weight_avg = rowSums(sweep(cell_type_means[gene_list,],2,proportions / sum(proportions),'*'))
+  target_means = bulk_vec[gene_list]/sum(puck@nUMI)
+  cell_type_means_renorm = sweep(cell_type_means[gene_list,],1,weight_avg / target_means,'/')
+}

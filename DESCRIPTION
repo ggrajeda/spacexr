@@ -37,7 +37,13 @@ Imports:
     BiocFileCache,
     SummarizedExperiment,
     scatterpie,
-    SpatialExperiment
+    SpatialExperiment,
+    Rfast,
+    S4Vectors,
+    CompQuadForm,
+    dplyr,
+    fields,
+    mgcv
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 Suggests: 
