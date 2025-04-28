@@ -8,6 +8,8 @@ process_beads_batch(
   cell_type_info,
   gene_list,
   puck,
+  solution = NULL,
+  doublet_mat = NULL,
   class_df = NULL,
   constrain = TRUE,
   MAX_CORES = 8,
@@ -25,7 +27,11 @@ calculated from the scRNA-seq reference (see
 
 \item{puck}{an object of type \linkS4class{SpatialRNA}, the target dataset}
 
-\item{class_df}{A dataframe mapping cell types to classes}
+\item{solution}{initial solution matrix for WLS (full mode)}
+
+\item{doublet_mat}{initial sparse weights matrix (doublet mode)}
+
+\item{class_df}{a dataframe mapping cell types to classes}
 
 \item{constrain}{logical whether to constrain the weights to sum to one on
 each pixel}

@@ -4,9 +4,11 @@
 #' Classifies each pixel as 'singlet' or 'doublet' and searches for the cell
 #' types on the pixel
 #'
-#' @param class_df A dataframe mapping cell types to classes
+#' @param class_df a dataframe mapping cell types to classes
 #' @param gene_list a list of genes to be used for RCTD
 #' @param puck an object of type \linkS4class{SpatialRNA}, the target dataset
+#' @param solution initial solution matrix for WLS (full mode)
+#' @param doublet_mat initial sparse weights matrix (doublet mode)
 #' @param cell_type_info cell type information and profiles of each cell,
 #'   calculated from the scRNA-seq reference (see
 #'   \code{\link{computeCellTypeInfo}})
@@ -25,9 +27,9 @@
 #'   can be organized by feeding into \code{\link{create_spe_doublet}}
 #' @keywords internal
 process_beads_batch <- function(
-    cell_type_info, gene_list, puck, class_df = NULL, constrain = TRUE,
-    MAX_CORES = 8, MIN.CHANGE = 0.001, confidence_threshold = 10,
-    doublet_threshold = 25
+    cell_type_info, gene_list, puck, solution = NULL, doublet_mat = NULL,
+    class_df = NULL, constrain = TRUE, MAX_CORES = 8, MIN.CHANGE = 0.001,
+    confidence_threshold = 10, doublet_threshold = 25
 ) {
     beads <- t(as.matrix(counts(puck)[gene_list, , drop = FALSE]))
     lapply_func <- lapply
@@ -43,6 +45,7 @@ process_beads_batch <- function(
     lapply_func(seq_len(nrow(beads)), function(i) {
         process_bead_doublet(
             cell_type_info, gene_list, nUMI(puck)[i], beads[i, ],
+            solution = solution[i, ], doublet_mat = doublet_mat[[i]],
             class_df = class_df, constrain = constrain,
             MIN.CHANGE = MIN.CHANGE,
             confidence_threshold = confidence_threshold,
@@ -89,6 +92,8 @@ process_beads_multi <- function(
 #'   \code{\link{chooseSigmaC}} function.
 #' @param rctd_mode \code{character string}, either "doublet", "multi", or
 #'   "full" on which mode to run RCTD. Please see above description.
+#' @param initial_solution list containing initial solution for weighted least
+#'   squares (WLS).
 #' @return a \code{SpatialExperiment} object containing the results of the RCTD
 #'   algorithm.
 #' @export
@@ -117,7 +122,7 @@ process_beads_multi <- function(
 #' rctd <- chooseSigmaC(rctd)
 #' results <- fitPixels(rctd, rctd_mode = "doublet")
 #'
-fitPixels <- function(RCTD, rctd_mode) {
+fitPixels <- function(RCTD, rctd_mode, initial_solution = NULL) {
     internal_vars(RCTD)$cell_types_assigned <- TRUE
     set_likelihood_vars(internal_vars(RCTD)$Q_mat, internal_vars(RCTD)$X_vals)
     cell_type_info <- cell_type_info(RCTD)$renorm
@@ -125,6 +130,8 @@ fitPixels <- function(RCTD, rctd_mode) {
         # Doublet mode
         results <- process_beads_batch(
             cell_type_info, internal_vars(RCTD)$gene_list_reg, spatialRNA(RCTD),
+            solution = initial_solution$weights,
+            doublet_mat = initial_solution$doublet_mat,
             class_df = internal_vars(RCTD)$class_df,
             constrain = FALSE, MAX_CORES = config(RCTD)$max_cores,
             MIN.CHANGE = config(RCTD)$MIN_CHANGE_REG,
@@ -141,8 +148,9 @@ fitPixels <- function(RCTD, rctd_mode) {
         ))
         results <- decompose_batch(
             nUMI(spatialRNA(RCTD)), cell_type_info[[1]], beads,
-            internal_vars(RCTD)$gene_list_reg, constrain = FALSE,
-            max_cores = config(RCTD)$max_cores,
+            internal_vars(RCTD)$gene_list_reg,
+            solution = initial_solution$weights,
+            constrain = FALSE, max_cores = config(RCTD)$max_cores,
             MIN.CHANGE = config(RCTD)$MIN_CHANGE_REG
         )
         return(create_spe_full(RCTD, results))
@@ -162,8 +170,8 @@ fitPixels <- function(RCTD, rctd_mode) {
 }
 
 decompose_batch <- function(
-    nUMI, cell_type_means, beads, gene_list, constrain = TRUE, OLS = FALSE,
-    max_cores = 8, MIN.CHANGE = 0.001
+    nUMI, cell_type_means, beads, gene_list, OLS = FALSE, solution = NULL,
+    constrain = TRUE, max_cores = 8, MIN.CHANGE = 0.001
 ) {
     lapply_func <- lapply
     if (max_cores > 1) {
@@ -178,8 +186,8 @@ decompose_batch <- function(
     lapply_func(seq_len(nrow(beads)), function(i) {
         decompose_full(
             data.matrix(cell_type_means[gene_list, , drop = FALSE] * nUMI[i]),
-            nUMI[i], beads[i, ], constrain = constrain, OLS = OLS,
-            MIN_CHANGE = MIN.CHANGE
+            nUMI[i], beads[i, ], OLS = OLS, solution = solution[i, ],
+            constrain = constrain, MIN_CHANGE = MIN.CHANGE
         )
     })
 }

@@ -1,11 +1,10 @@
 rctd_metadata <- function(RCTD) {
-    metadata <- list(
+    list(
         spatial_rna = spatialRNA(RCTD),
         config = config(RCTD),
         cell_type_info = cell_type_info(RCTD),
         internal_vars = internal_vars(RCTD)
     )
-    return(metadata)
 }
 
 #' Converts a list of RCTD results to a \code{SpatialExperiment}
@@ -32,9 +31,9 @@ create_spe_from_columns <- function(
     RCTD,
     results,
     weights_col = "all_weights",
-    character_cols = c(), 
-    logical_cols = c(), 
-    numeric_cols = c(), 
+    character_cols = c(),
+    logical_cols = c(),
+    numeric_cols = c(),
     list_cols = c()
 ) {
     cell_type_names <- cell_type_info(RCTD)$renorm[[2]]
@@ -148,6 +147,7 @@ create_spe_doublet <- function(RCTD, results) {
         logical_cols = c(
             "first_class", "second_class", "conv_all", "conv_doublet"
         ),
+        # TODO: Return doublet_mat
         numeric_cols = c("min_score", "singlet_score")
     )
 

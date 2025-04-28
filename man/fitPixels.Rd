@@ -4,7 +4,7 @@
 \alias{fitPixels}
 \title{Runs the RCTD algorithm}
 \usage{
-fitPixels(RCTD, rctd_mode)
+fitPixels(RCTD, rctd_mode, initial_solution = NULL)
 }
 \arguments{
 \item{RCTD}{an \code{\linkS4class{RctdConfig}} object after running the
@@ -12,6 +12,9 @@ fitPixels(RCTD, rctd_mode)
 
 \item{rctd_mode}{\code{character string}, either "doublet", "multi", or
 "full" on which mode to run RCTD. Please see above description.}
+
+\item{initial_solution}{list containing initial solution for weighted least
+squares (WLS).}
 }
 \value{
 a \code{SpatialExperiment} object containing the results of the RCTD

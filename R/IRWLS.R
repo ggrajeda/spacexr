@@ -23,15 +23,17 @@ solveOLS <- function(S, B, solution, constrain = TRUE) {
 # if constrain, constrain the weights to sum up to 1
 solveIRWLS.weights <- function(
     S, B, nUMI,
-    OLS = FALSE, constrain = TRUE, verbose = FALSE,
-    n.iter = 50, MIN_CHANGE = .001, bulk_mode = FALSE, solution = NULL
+    OLS = FALSE, solution = NULL, constrain = TRUE, verbose = FALSE, fix = 0,
+    n.iter = 50, MIN_CHANGE = .001, bulk_mode = FALSE
 ) {
     if (!bulk_mode) {
         K_val <- get_K_val()
         B[B > K_val] <- K_val
     }
-    solution <- numeric(dim(S)[2])
-    solution[] <- 1 / length(solution)
+    if (is.null(solution)) {
+        solution <- numeric(dim(S)[2])
+        solution[] <- 1 / length(solution)
+    }
     if (OLS) {
         # First solve OLS. Use this solution to find starting point for weights.
         solution <- solveOLS(S, B, solution, constrain = constrain)
@@ -47,12 +49,11 @@ solveIRWLS.weights <- function(
     S_mat <- S[, index[, 1], drop = FALSE] * S[, index[, 2], drop = FALSE]
 
     iterations <- 0 # now use dampened WLS, iterate weights until convergence
-    changes <- c()
     change <- 1
     while (change > MIN_CHANGE && iterations < n.iter) {
         new_solution <- solveWLS(
-            S, S_mat, B, solution, nUMI,
-            constrain = constrain, bulk_mode = bulk_mode
+            S, S_mat, B, solution, nUMI, fix = fix,
+            bulk_mode = bulk_mode, constrain = constrain
         )
         change <- norm(as.matrix(new_solution - solution))
         if (verbose) {
@@ -67,7 +68,7 @@ solveIRWLS.weights <- function(
 
 solveWLS <- function(
     S, S_mat, B, initialSol, nUMI,
-    bulk_mode = FALSE, constrain = FALSE
+    fix = 0, bulk_mode = FALSE, constrain = FALSE
 ) {
     solution <- pmax(initialSol, 0)
     prediction <- abs(S %*% solution)
@@ -87,13 +88,18 @@ solveWLS <- function(
     A <- cbind(diag(dim(S)[2]))
     bzero <- (-solution)
     alpha <- 0.3
+    if (fix > 0) {
+        bzero[seq_len(fix)] <- 0
+    }
     if (constrain) {
         A_const <- t(rbind(1, A))
         b_const <- c(1 - sum(solution), bzero)
-        step <- quadprog::solve.QP(D_mat, d_vec, A_const, b_const, meq = 1)
+        step <- quadprog::solve.QP(
+            D_mat, d_vec, A_const, b_const, meq = 1 + fix
+        )
         solution <- solution + alpha * step$solution
     } else {
-        step <- quadprog::solve.QP(D_mat, d_vec, A, bzero, meq = 0)
+        step <- quadprog::solve.QP(D_mat, d_vec, t(A), bzero, meq = fix)
         solution <- solution + alpha * step$solution
     }
     names(solution) <- colnames(S)
