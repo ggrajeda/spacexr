@@ -19,10 +19,11 @@ filter_genes <- function(puck, threshold = 5e-5, batch_size = 1000) {
     return(gene_list_tot)
 }
 
-#' If cell types have been assigned to the RCTD object, running this function will
-#' toggle the cell_types_assigned variable, which enables CSIDE to be run.
+#' If cell types have been assigned to the RCTD object, running this function
+#' will toggle the cell_types_assigned variable, which enables CSIDE to be run.
 #'
-#' @param myRCTD an \code{\linkS4class{RCTD}} object with annotated cell types from the \code{\link{run.RCTD}} function.
+#' @param myRCTD an \code{\linkS4class{RCTD}} object with annotated cell types
+#'   from the \code{\link{run.RCTD}} function.
 #' @return the `myRCTD` object with cell_types_assigned set to TRUE
 #' @export
 set_cell_types_assigned <- function(myRCTD) {
@@ -74,14 +75,19 @@ get_con_regions <- function(gene_fits, gene, n_regions, cell_type_ind, n_cell_ty
     matrix(gene_fits$con_all[gene, ], nrow = n_regions, ncol = n_cell_types)[, cell_type_ind]
 }
 
-#' Aggregates the pixel occurrences for each cell type in the \code{\linkS4class{RCTD}} object
+#' Aggregates the pixel occurrences for each cell type in the
+#' \code{\linkS4class{RCTD}} object
 #'
-#' The difference with \code{\link{count_cell_types}} is that this function does not filter out pixels
-#' based on total cell type weight, as occurs in the CSIDE algorithm.
+#' The difference with \code{\link{count_cell_types}} is that this function does
+#' not filter out pixels based on total cell type weight, as occurs in the CSIDE
+#' algorithm.
 #'
-#' @param RCTD an \code{\linkS4class{RCTD}} object with annotated cell types e.g. from the \code{\link{run.RCTD}} function.
-#' @param barcodes the barcodes, or pixel names, of the \code{\linkS4class{SpatialRNA}} object to be used when counting cell types.
-#' @param doublet_mode (default TRUE) if TRUE, uses RCTD doublet mode weights. Otherwise, uses RCTD full mode weights
+#' @param RCTD an \code{\linkS4class{RCTD}} object with annotated cell types
+#'   e.g. from the \code{\link{run.RCTD}} function.
+#' @param barcodes the barcodes, or pixel names, of the
+#'   \code{\linkS4class{SpatialRNA}} object to be used when counting cell types.
+#' @param doublet_mode (default TRUE) if TRUE, uses RCTD doublet mode weights.
+#'   Otherwise, uses RCTD full mode weights
 #' @return a named vector of number of pixel occurrences for each cell type
 #' @export
 aggregate_cell_types <- function(myRCTD, barcodes, doublet_mode = T) {
@@ -187,16 +193,23 @@ check_converged_vec <- function(X1, X2, my_beta, itera, n.iter, error_vec, preci
 
 #' Constructs an explanatory variable representing density of a cell type
 #'
-#' This explanatory variable can be used with CSIDE to detect cell-to-cell interactions. Density
-#' is computing using an exponentially-decaying filter. Currently only works for doublet mode RCTD.
+#' This explanatory variable can be used with CSIDE to detect cell-to-cell
+#' interactions. Density is computing using an exponentially-decaying filter.
+#' Currently only works for doublet mode RCTD.
 #'
-#' @param myRCTD an \code{\linkS4class{RCTD}} object with annotated cell types e.g. from the \code{\link{run.RCTD}} function.
+#' @param myRCTD an \code{\linkS4class{RCTD}} object with annotated cell types
+#'   e.g. from the \code{\link{run.RCTD}} function.
 #' @param cell_type the cell type (character) for which to compute density.
-#' @param barcodes the barcodes, or pixel names, of the \code{\linkS4class{SpatialRNA}} for which to evaluate the explanatory variable. These would be the pixels used in the C-SIDE model.
-#' @param radius (default 50) the radius of the exponential filter. Approximately, the distance considered to be a
-#' relevant interaction.
-#' @return explanatory.variable a named numeric vector representing the explanatory variable used for explaining differential expression in CSIDE. Names of the variable
-#' are the \code{\linkS4class{SpatialRNA}} pixel names, and values  are standardized between 0 and 1. This variable represents density of the selected cell type.
+#' @param barcodes the barcodes, or pixel names, of the
+#'   \code{\linkS4class{SpatialRNA}} for which to evaluate the explanatory
+#'   variable. These would be the pixels used in the C-SIDE model.
+#' @param radius (default 50) the radius of the exponential filter.
+#'   Approximately, the distance considered to be a relevant interaction.
+#' @return explanatory.variable a named numeric vector representing the
+#'   explanatory variable used for explaining differential expression in CSIDE.
+#'   Names of the variable are the \code{\linkS4class{SpatialRNA}} pixel names,
+#'   and values  are standardized between 0 and 1. This variable represents
+#'   density of the selected cell type.
 #' @export
 exvar.celltocell.interactions <- function(myRCTD, barcodes, cell_type, radius = 50) {
     doublet_df <- myRCTD@results$results_df
@@ -263,17 +276,25 @@ exvar.celltocell.interactions <- function(myRCTD, barcodes, cell_type, radius = 
 
 #' Constructs an explanatory variable representing density of a set of points
 #'
-#' This explanatory variable can be used with CSIDE to detect DE in the proximity of these points. Density
-#' is computing using an exponentially-decaying filter.
+#' This explanatory variable can be used with CSIDE to detect DE in the
+#' proximity of these points. Density is computing using an
+#' exponentially-decaying filter.
 #'
-#' @param myRCTD an \code{\linkS4class{RCTD}} object with annotated cell types e.g. from the \code{\link{run.RCTD}} function.
-#' @param points a N by 2 matrix containing the locations of the points to be used for computing density. The first column should be the x
-#' coordinates while the second column should be the y coordinate.
-#' @param barcodes the barcodes, or pixel names, of the \code{\linkS4class{SpatialRNA}} for which to evaluate the explanatory variable. These would be the pixels used in the C-SIDE model.
-#' @param radius (default 50) the radius of the exponential filter. Approximately, the distance considered to be a
-#' relevant interaction.
-#' @return explanatory.variable a named numeric vector representing the explanatory variable used for explaining differential expression in CSIDE. Names of the variable
-#' are the \code{\linkS4class{SpatialRNA}} pixel names, and values  are standardized between 0 and 1. This variable represents density of the given point set.
+#' @param myRCTD an \code{\linkS4class{RCTD}} object with annotated cell types
+#'   e.g. from the \code{\link{run.RCTD}} function.
+#' @param points a N by 2 matrix containing the locations of the points to be
+#'   used for computing density. The first column should be the x coordinates
+#'   while the second column should be the y coordinate.
+#' @param barcodes the barcodes, or pixel names, of the
+#'   \code{\linkS4class{SpatialRNA}} for which to evaluate the explanatory
+#'   variable. These would be the pixels used in the C-SIDE model.
+#' @param radius (default 50) the radius of the exponential filter.
+#'   Approximately, the distance considered to be a relevant interaction.
+#' @return explanatory.variable a named numeric vector representing the
+#'   explanatory variable used for explaining differential expression in CSIDE.
+#'   Names of the variable are the \code{\linkS4class{SpatialRNA}} pixel names,
+#'   and values  are standardized between 0 and 1. This variable represents
+#'   density of the given point set.
 #' @export
 exvar.point.density <- function(myRCTD, barcodes, points, radius = 50) {
     puck <- myRCTD@spatialRNA
@@ -298,14 +319,17 @@ normalize_ev <- function(explanatory.variable) {
     return(explanatory.variable)
 }
 
-#' On an RCTD object after running CSIDE, returns an array of standard errors of CSIDE coefficients
+#' On an RCTD object after running CSIDE, returns an array of standard errors of
+#' CSIDE coefficients
 #'
-#' The dimensions of the standard error array is N_genes x N_coefficients x N_cell_types
-#' The N_coefficients are the number of explanatory variables in the CSIDE model
+#' The dimensions of the standard error array is N_genes x N_coefficients x
+#' N_cell_types The N_coefficients are the number of explanatory variables in
+#' the CSIDE model
 #'
-#' @param myRCTD an \code{\linkS4class{RCTD}} object with fitted CSIDE e.g. from the \code{\link{run.CSIDE}} function.
-#' @return a three-dimensional array representing CSIDE standard errors for each gene,
-#' each coefficient, and each cell type.
+#' @param myRCTD an \code{\linkS4class{RCTD}} object with fitted CSIDE e.g. from
+#'   the \code{\link{run.CSIDE}} function.
+#' @return a three-dimensional array representing CSIDE standard errors for each
+#'   gene, each coefficient, and each cell type.
 #' @export
 get_standard_errors <- function(myRCTD) {
     s_new <- myRCTD@de_results$gene_fits$s_mat

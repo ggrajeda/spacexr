@@ -2,18 +2,19 @@
 % Please edit documentation in R/CSIDE_utils.R
 \name{set_cell_types_assigned}
 \alias{set_cell_types_assigned}
-\title{If cell types have been assigned to the RCTD object, running this function will
-toggle the cell_types_assigned variable, which enables CSIDE to be run.}
+\title{If cell types have been assigned to the RCTD object, running this function
+will toggle the cell_types_assigned variable, which enables CSIDE to be run.}
 \usage{
 set_cell_types_assigned(myRCTD)
 }
 \arguments{
-\item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types from the \code{\link{run.RCTD}} function.}
+\item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types
+from the \code{\link{run.RCTD}} function.}
 }
 \value{
 the `myRCTD` object with cell_types_assigned set to TRUE
 }
 \description{
-If cell types have been assigned to the RCTD object, running this function will
-toggle the cell_types_assigned variable, which enables CSIDE to be run.
+If cell types have been assigned to the RCTD object, running this function
+will toggle the cell_types_assigned variable, which enables CSIDE to be run.
 }

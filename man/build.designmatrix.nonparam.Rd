@@ -7,17 +7,23 @@
 build.designmatrix.nonparam(myRCTD, barcodes = NULL, df = 15)
 }
 \arguments{
-\item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types e.g. from the \code{\link{run.RCTD}} function.}
+\item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types
+e.g. from the \code{\link{run.RCTD}} function.}
 
-\item{barcodes}{(default NULL) the barcodes, or pixel names, of the \code{\linkS4class{SpatialRNA}} object to be used when creating the design matrix.}
+\item{barcodes}{(default NULL) the barcodes, or pixel names, of the
+\code{\linkS4class{SpatialRNA}} object to be used when creating the design
+matrix.}
 
-\item{df}{(default 15) the degrees of freedom, or number of basis functions to be used in the design matrix}
+\item{df}{(default 15) the degrees of freedom, or number of basis functions
+to be used in the design matrix}
 }
 \value{
-A design matrix containing the covariates for running CSIDE. The rownames represent pixel names and
-are a subset of the pixels in the \code{\linkS4class{SpatialRNA}} object. The columns each represent a covariate for
-explaining differential expression.
+A design matrix containing the covariates for running CSIDE. The
+  rownames represent pixel names and are a subset of the pixels in the
+  \code{\linkS4class{SpatialRNA}} object. The columns each represent a
+  covariate for explaining differential expression.
 }
 \description{
-The design matrix contains thin plate spline basis functions spanning the space of smooth functions.
+The design matrix contains thin plate spline basis functions spanning the
+space of smooth functions.
 }

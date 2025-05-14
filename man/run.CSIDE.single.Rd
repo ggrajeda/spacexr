@@ -2,7 +2,8 @@
 % Please edit documentation in R/CSIDE.R
 \name{run.CSIDE.single}
 \alias{run.CSIDE.single}
-\title{Runs CSIDE on a \code{\linkS4class{RCTD}} object with a single explanatory variable}
+\title{Runs CSIDE on a \code{\linkS4class{RCTD}} object with a single explanatory
+variable}
 \usage{
 run.CSIDE.single(
   rctd_results,
@@ -24,52 +25,73 @@ run.CSIDE.single(
 )
 }
 \arguments{
-\item{explanatory.variable}{a named numeric vector representing the explanatory variable used for explaining differential expression in CSIDE. Names of the variable
-are the \code{\linkS4class{SpatialRNA}} pixel names, and values should be standardized between 0 and 1.}
+\item{explanatory.variable}{a named numeric vector representing the
+explanatory variable used for explaining differential expression in CSIDE.
+Names of the variable are the \code{\linkS4class{SpatialRNA}} pixel names,
+and values should be standardized between 0 and 1.}
 
-\item{cell_types}{the cell types used for CSIDE. If null, cell types will be chosen with aggregate occurrences of
-at least `cell_type_threshold`, as aggregated by \code{\link{aggregate_cell_types}}}
+\item{cell_types}{the cell types used for CSIDE. If null, cell types will be
+chosen with aggregate occurrences of at least `cell_type_threshold`, as
+aggregated by \code{\link{aggregate_cell_types}}}
 
-\item{cell_type_threshold}{(default 125) min occurrence of number of cells for each cell type to be used, as aggregated by \code{\link{aggregate_cell_types}}}
+\item{cell_type_threshold}{(default 125) min occurrence of number of cells
+for each cell type to be used, as aggregated by
+\code{\link{aggregate_cell_types}}}
 
-\item{gene_threshold}{(default 5e-5) minimum average normalized expression required for selecting genes}
+\item{gene_threshold}{(default 5e-5) minimum average normalized expression
+required for selecting genes}
 
-\item{doublet_mode}{(default TRUE) if TRUE, uses RCTD doublet mode weights. Otherwise, uses RCTD full mode weights}
+\item{doublet_mode}{(default TRUE) if TRUE, uses RCTD doublet mode weights.
+Otherwise, uses RCTD full mode weights}
 
-\item{weight_threshold}{(default NULL) the threshold of total normalized weights across all cell types
-in \code{cell_types} per pixel to be included in the model. Default 0.99 for doublet_mode or 0.8 for full_mode.}
+\item{weight_threshold}{(default NULL) the threshold of total normalized
+weights across all cell types in \code{cell_types} per pixel to be included
+in the model. Default 0.99 for doublet_mode or 0.8 for full_mode.}
 
-\item{sigma_gene}{(default TRUE) if TRUE, fits gene specific overdispersion parameter. If FALSE, overdispersion parameter is same across all genes.}
+\item{sigma_gene}{(default TRUE) if TRUE, fits gene specific overdispersion
+parameter. If FALSE, overdispersion parameter is same across all genes.}
 
-\item{PRECISION.THRESHOLD}{(default 0.05) for checking for convergence, the maximum parameter change per algorithm step}
+\item{PRECISION.THRESHOLD}{(default 0.05) for checking for convergence, the
+maximum parameter change per algorithm step}
 
-\item{cell_types_present}{cell types (a superset of `cell_types`) to be considered as occurring often enough
-to consider for gene expression contamination during the step filtering out marker genes of other cell types.}
+\item{cell_types_present}{cell types (a superset of `cell_types`) to be
+considered as occurring often enough to consider for gene expression
+contamination during the step filtering out marker genes of other cell
+types.}
 
 \item{fdr}{(default 0.01) false discovery rate for hypothesis testing}
 
-\item{test_genes_sig}{(default TRUE) logical controlling whether genes will be tested for significance}
+\item{test_genes_sig}{(default TRUE) logical controlling whether genes will
+be tested for significance}
 
-\item{normalize_expr}{(default FALSE) if TRUE, constrains total gene expression to sum to 1 in each condition.}
+\item{normalize_expr}{(default FALSE) if TRUE, constrains total gene
+expression to sum to 1 in each condition.}
 
 \item{logs}{(default FALSE) if TRUE, writes progress to logs/de_logs.txt}
 
-\item{log_fc_thresh}{(default 0.4) the natural log fold change cutoff for differential expression}
+\item{log_fc_thresh}{(default 0.4) the natural log fold change cutoff for
+differential expression}
 
-\item{test_error}{(default FALSE) if TRUE, exits after testing for error messages without running CSIDE.
-If set to TRUE, this can be used to quickly evaluate if CSIDE will run without error.}
+\item{test_error}{(default FALSE) if TRUE, exits after testing for error
+messages without running CSIDE. If set to TRUE, this can be used to quickly
+evaluate if CSIDE will run without error.}
 
-\item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types e.g. from the \code{\link{run.RCTD}} function.}
+\item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types
+e.g. from the \code{\link{run.RCTD}} function.}
 }
 \value{
-an \code{\linkS4class{RCTD}} object containing the results of the CSIDE algorithm. Contains objects \code{de_results},
-which contain the results of the CSIDE algorithm including `gene_fits`, which contains the results of fits on individual genes,
-in addition `sig_gene_list`, a list, for each cell type, of significant genes detected by CSIDE.
-Additionally, the object contains `internal_vars_de` a list of variables that are used internally by CSIDE
+an \code{\linkS4class{RCTD}} object containing the results of the
+  CSIDE algorithm. Contains objects \code{de_results}, which contain the
+  results of the CSIDE algorithm including `gene_fits`, which contains the
+  results of fits on individual genes, in addition `sig_gene_list`, a list,
+  for each cell type, of significant genes detected by CSIDE. Additionally,
+  the object contains `internal_vars_de` a list of variables that are used
+  internally by CSIDE
 }
 \description{
-Identifies cell type specific differential expression (DE) as a function of the explanatory variable.
-The design matrix contains an intercept column and a column of the explanatory variable. Uses maximum
-likelihood estimation to estimate DE and standard errors for each gene and each cell type. Selects
+Identifies cell type specific differential expression (DE) as a function of
+the explanatory variable. The design matrix contains an intercept column and
+a column of the explanatory variable. Uses maximum likelihood estimation to
+estimate DE and standard errors for each gene and each cell type. Selects
 genes with significant nonzero DE.
 }
