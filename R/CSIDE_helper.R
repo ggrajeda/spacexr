@@ -1,4 +1,7 @@
-choose_sigma_gene <- function(sigma_init, Y, X1, X2, my_beta, nUMI, test_mode, verbose = FALSE, n.iter = 100, MIN_CHANGE = 0.001, MAX_ITER_SIGMA = 10, PRECISION.THRESHOLD = .01) {
+choose_sigma_gene <- function(
+    sigma_init, Y, X1, X2, my_beta, nUMI, test_mode, verbose = FALSE,
+    n.iter = 100, MIN_CHANGE = 0.001, MAX_ITER_SIGMA = 10,
+    PRECISION.THRESHOLD = .01) {
     Q_mat_all <- get_Q_all()
     X_vals <- get_X_vals()
     sigma_s_best <- sigma_init
@@ -98,9 +101,10 @@ construct_hess_fast <- function(X1, X2, lambda, lambda_k, K, d1_d2) {
     return(list(H = H, grad_1 = grad_1, grad_2 = grad_2))
 }
 
-solveIRWLS.effects_trust <- function(Y, X1, X2, my_beta, test_mode, verbose = FALSE,
-                                     n.iter = 200, MIN_CHANGE = .01, PRECISION.THRESHOLD = .05,
-                                     alpha1_init = NULL, alpha2_init = NULL, MIN_ITERATIONS = 15) {
+solveIRWLS.effects_trust <- function(
+    Y, X1, X2, my_beta, test_mode, verbose = FALSE, n.iter = 200,
+    MIN_CHANGE = .01, PRECISION.THRESHOLD = .05, alpha1_init = NULL,
+    alpha2_init = NULL, MIN_ITERATIONS = 15) {
     lam_threshold <- 1e-8
     beta_succ <- 1.1
     beta_fail <- 0.5
@@ -209,7 +213,10 @@ solveIRWLS.effects_trust <- function(Y, X1, X2, my_beta, test_mode, verbose = FA
     ))
 }
 
-estimate_gene_wrapper <- function(Y, X1, X2, my_beta, nUMI, sigma_init, test_mode, verbose = FALSE, n.iter = 200, MIN_CHANGE = 1e-3, sigma_gene = TRUE, PRECISION.THRESHOLD = 0.05, alpha2_init = NULL) {
+estimate_gene_wrapper <- function(
+    Y, X1, X2, my_beta, nUMI, sigma_init, test_mode, verbose = FALSE,
+    n.iter = 200, MIN_CHANGE = 1e-3, sigma_gene = TRUE,
+    PRECISION.THRESHOLD = 0.05, alpha2_init = NULL) {
     if (sigma_gene) {
         return(choose_sigma_gene(sigma_init, Y, X1, X2, my_beta, nUMI, test_mode, verbose = verbose, n.iter = n.iter, MIN_CHANGE = MIN_CHANGE, PRECISION.THRESHOLD = PRECISION.THRESHOLD))
     } else {
@@ -218,9 +225,10 @@ estimate_gene_wrapper <- function(Y, X1, X2, my_beta, nUMI, sigma_init, test_mod
     }
 }
 
-estimate_effects_trust <- function(Y, X1, X2, my_beta, nUMI, test_mode, verbose = FALSE,
-                                   n.iter = 200, MIN_CHANGE = 1e-3, PRECISION.THRESHOLD = 0.05,
-                                   alpha1_init = NULL, alpha2_init = NULL, MIN_ITERATIONS = 15) {
+estimate_effects_trust <- function(
+    Y, X1, X2, my_beta, nUMI, test_mode, verbose = FALSE, n.iter = 200,
+    MIN_CHANGE = 1e-3, PRECISION.THRESHOLD = 0.05, alpha1_init = NULL,
+    alpha2_init = NULL, MIN_ITERATIONS = 15) {
     my_beta <- sweep(my_beta, 1, nUMI, "*")
     solveIRWLS.effects_trust(Y, X1, X2, my_beta, test_mode,
         verbose = verbose,

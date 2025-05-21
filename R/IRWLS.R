@@ -24,8 +24,7 @@ solveOLS <- function(S, B, solution, constrain = TRUE) {
 solveIRWLS.weights <- function(
     S, B, nUMI,
     OLS = FALSE, solution = NULL, constrain = TRUE, verbose = FALSE, fix = 0,
-    n.iter = 50, MIN_CHANGE = .001, bulk_mode = FALSE
-) {
+    n.iter = 50, MIN_CHANGE = .001, bulk_mode = FALSE) {
     if (!bulk_mode) {
         K_val <- get_K_val()
         B[B > K_val] <- K_val
@@ -52,7 +51,8 @@ solveIRWLS.weights <- function(
     change <- 1
     while (change > MIN_CHANGE && iterations < n.iter) {
         new_solution <- solveWLS(
-            S, S_mat, B, solution, nUMI, fix = fix,
+            S, S_mat, B, solution, nUMI,
+            fix = fix,
             bulk_mode = bulk_mode, constrain = constrain
         )
         change <- norm(as.matrix(new_solution - solution))
@@ -68,15 +68,15 @@ solveIRWLS.weights <- function(
 
 solveWLS <- function(
     S, S_mat, B, initialSol, nUMI,
-    fix = 0, bulk_mode = FALSE, constrain = FALSE
-) {
+    fix = 0, bulk_mode = FALSE, constrain = FALSE) {
     solution <- pmax(initialSol, 0)
     prediction <- abs(S %*% solution)
     threshold <- max(1e-4, nUMI * 1e-7)
     prediction[prediction < threshold] <- threshold
     gene_list <- rownames(S)
     derivatives <- get_der_fast(
-        S, S_mat, B, gene_list, prediction, bulk_mode = bulk_mode
+        S, S_mat, B, gene_list, prediction,
+        bulk_mode = bulk_mode
     )
     d_vec <- -derivatives$grad
     D_mat <- psd(derivatives$hess)
@@ -95,7 +95,8 @@ solveWLS <- function(
         A_const <- t(rbind(1, A))
         b_const <- c(1 - sum(solution), bzero)
         step <- quadprog::solve.QP(
-            D_mat, d_vec, A_const, b_const, meq = 1 + fix
+            D_mat, d_vec, A_const, b_const,
+            meq = 1 + fix
         )
         solution <- solution + alpha * step$solution
     } else {

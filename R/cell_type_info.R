@@ -17,8 +17,7 @@
 #'   names) and (3) the number of cell types
 #' @keywords internal
 computeCellTypeInfo <- function(
-    raw.data, cell_types, nUMI, cell_type_names = NULL
-) {
+    raw.data, cell_types, nUMI, cell_type_names = NULL) {
     if (is.null(cell_type_names)) {
         cell_type_names <- levels(cell_types)
     }
@@ -50,7 +49,7 @@ computeCellTypeInfo <- function(
 #'   reference (default: 25)
 #'
 #' @return List containing cell type information
-#' 
+#'
 #' @importFrom utils capture.output
 #' @keywords internal
 referenceToCellTypeInfo <- function(reference, cell_type_names, CELL_MIN = 25) {
@@ -93,9 +92,8 @@ referenceToCellTypeInfo <- function(reference, cell_type_names, CELL_MIN = 25) {
 #'
 #' @keywords internal
 createCellTypeInfo <- function(
-    reference = NULL, cell_type_names = NULL, 
-    cell_type_profiles = NULL, ref_n_cells_min = 25
-) {
+    reference = NULL, cell_type_names = NULL,
+    cell_type_profiles = NULL, ref_n_cells_min = 25) {
     if (is.null(cell_type_profiles)) {
         if (is.null(cell_type_names)) {
             cell_type_names <- levels(cell_types(reference))
@@ -135,8 +133,8 @@ createCellTypeInfo <- function(
 #'   have been removed to match the \linkS4class{SpatialRNA} data.
 #' @export
 get_norm_ref <- function(puck, cell_type_means, gene_list, proportions) {
-  bulk_vec <- rowSums(puck@counts)
-  weight_avg <- rowSums(sweep(cell_type_means[gene_list,],2,proportions / sum(proportions),'*'))
-  target_means <- bulk_vec[gene_list]/sum(puck@nUMI)
-  cell_type_means_renorm <- sweep(cell_type_means[gene_list,],1,weight_avg / target_means,'/')
+    bulk_vec <- rowSums(puck@counts)
+    weight_avg <- rowSums(sweep(cell_type_means[gene_list, ], 2, proportions / sum(proportions), "*"))
+    target_means <- bulk_vec[gene_list] / sum(puck@nUMI)
+    cell_type_means_renorm <- sweep(cell_type_means[gene_list, ], 1, weight_avg / target_means, "/")
 }

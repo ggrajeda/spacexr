@@ -29,8 +29,7 @@
 process_beads_batch <- function(
     cell_type_info, gene_list, puck, solution = NULL, doublet_mat = NULL,
     class_df = NULL, constrain = TRUE, MAX_CORES = 8, MIN.CHANGE = 0.001,
-    confidence_threshold = 10, doublet_threshold = 25
-) {
+    confidence_threshold = 10, doublet_threshold = 25) {
     beads <- t(as.matrix(counts(puck)[gene_list, , drop = FALSE]))
     lapply_func <- lapply
     if (MAX_CORES > 1) {
@@ -57,8 +56,7 @@ process_beads_batch <- function(
 process_beads_multi <- function(
     cell_type_info, gene_list, puck, class_df = NULL, constrain = TRUE,
     MAX_CORES = 8, MIN.CHANGE = 0.001, MAX.TYPES = 4, confidence_threshold = 10,
-    doublet_threshold = 25
-) {
+    doublet_threshold = 25) {
     beads <- t(as.matrix(counts(puck)[gene_list, , drop = FALSE]))
     lapply_func <- lapply
     if (MAX_CORES > 1) {
@@ -143,7 +141,8 @@ fitPixels <- function(RCTD, rctd_mode, initial_solution = NULL) {
         # Full mode
         beads <- t(as.matrix(
             counts(spatialRNA(RCTD))[
-                internal_vars(RCTD)$gene_list_reg, , drop = FALSE
+                internal_vars(RCTD)$gene_list_reg, ,
+                drop = FALSE
             ]
         ))
         results <- decompose_batch(
@@ -171,8 +170,7 @@ fitPixels <- function(RCTD, rctd_mode, initial_solution = NULL) {
 
 decompose_batch <- function(
     nUMI, cell_type_means, beads, gene_list, OLS = FALSE, solution = NULL,
-    constrain = TRUE, max_cores = 8, MIN.CHANGE = 0.001
-) {
+    constrain = TRUE, max_cores = 8, MIN.CHANGE = 0.001) {
     lapply_func <- lapply
     if (max_cores > 1) {
         numCores <- parallel::detectCores()
@@ -186,7 +184,8 @@ decompose_batch <- function(
     lapply_func(seq_len(nrow(beads)), function(i) {
         decompose_full(
             data.matrix(cell_type_means[gene_list, , drop = FALSE] * nUMI[i]),
-            nUMI[i], beads[i, ], OLS = OLS, solution = solution[i, ],
+            nUMI[i], beads[i, ],
+            OLS = OLS, solution = solution[i, ],
             constrain = constrain, MIN_CHANGE = MIN.CHANGE
         )
     })

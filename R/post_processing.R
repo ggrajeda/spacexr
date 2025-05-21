@@ -34,8 +34,7 @@ create_spe_from_columns <- function(
     character_cols = c(),
     logical_cols = c(),
     numeric_cols = c(),
-    list_cols = c()
-) {
+    list_cols = c()) {
     cell_type_names <- cell_type_info(RCTD)$renorm[[2]]
     weights <- vapply(
         results,

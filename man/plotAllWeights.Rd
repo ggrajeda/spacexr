@@ -48,7 +48,8 @@ data(rctdSim)
 # In practice, results_spe should contain the results of an RCTD run.
 results_spe <- rctdSim$proportions_spe
 plotAllWeights(
-    results_spe, r = 0.05, lwd = 0.5, title = "Cell Type Proportions"
+    results_spe,
+    r = 0.05, lwd = 0.5, title = "Cell Type Proportions"
 )
 
 }

@@ -95,7 +95,8 @@ calc_Q_par <- function(K, X_vals, sigma, big_params = TRUE) {
         write(paste0("calc_Q: Finished i: ", i), file = out_file, append = TRUE)
         k <- i - 1
         calc_Q_mat_one(
-            sigma, X_vals, k, batch = 100, big_params = big_params
+            sigma, X_vals, k,
+            batch = 100, big_params = big_params
         )
     })
     return(results)
@@ -134,7 +135,7 @@ calc_Q_all <- function(Y, lambda) {
     # cubic spline interpolation
     d0_vec <- (
         zdi * (diff1)^3 / 6 + zdi1 * (diff2)^3 / 6 +
-        diff3 * diff1 + diff4 * diff2
+            diff3 * diff1 + diff4 * diff2
     )
     d1_vec <- zdi * (diff1)^2 / 2 - zdi1 * (diff2)^2 / 2 + diff3 - diff4
     d2_vec <- zdi * (diff1) + zdi1 * (diff2)
@@ -152,19 +153,24 @@ calc_log_l_vec <- function(lambda, Y, return_vec = FALSE) {
 
 # linear interpolation
 calc_log_l_vec_fast <- function(lambda, Y) {
-  K_val <- get_K_val()
-  X_vals <- get_X_vals()
-  Q_mat <- get_Q_mat()
-  Y[Y > K_val] <- K_val
-  epsilon <- 1e-4; X_max <- max(X_vals); delta <- 1e-6
-  lambda <- pmin(pmax(epsilon, lambda),X_max - epsilon)
-  l <- floor((lambda/delta)^(1/2))
-  m <- pmin(l - 9,40) + pmax(ceiling(sqrt(pmax(l-48.7499,0)*4))-2,0)
-  Q0 <- cbind(Y+1, m); Q1 <- Q0; Q1[,2] <- Q1[,2] + 1
-  fti1 <- Q_mat[Q0]; fti <- Q_mat[Q1]
-  prop <- (X_vals[m+1] - lambda)/(X_vals[m+1] - X_vals[m])
-  r1 <- prop * fti1 + (1 - prop) * fti
-  return(-sum(r1))
+    K_val <- get_K_val()
+    X_vals <- get_X_vals()
+    Q_mat <- get_Q_mat()
+    Y[Y > K_val] <- K_val
+    epsilon <- 1e-4
+    X_max <- max(X_vals)
+    delta <- 1e-6
+    lambda <- pmin(pmax(epsilon, lambda), X_max - epsilon)
+    l <- floor((lambda / delta)^(1 / 2))
+    m <- pmin(l - 9, 40) + pmax(ceiling(sqrt(pmax(l - 48.7499, 0) * 4)) - 2, 0)
+    Q0 <- cbind(Y + 1, m)
+    Q1 <- Q0
+    Q1[, 2] <- Q1[, 2] + 1
+    fti1 <- Q_mat[Q0]
+    fti <- Q_mat[Q1]
+    prop <- (X_vals[m + 1] - lambda) / (X_vals[m + 1] - X_vals[m])
+    r1 <- prop * fti1 + (1 - prop) * fti
+    return(-sum(r1))
 }
 
 get_d1_d2 <- function(Y, lambda) {
@@ -173,8 +179,7 @@ get_d1_d2 <- function(Y, lambda) {
 }
 
 get_der_fast <- function(
-    S, S_mat, B, gene_list, prediction, bulk_mode = FALSE
-) {
+    S, S_mat, B, gene_list, prediction, bulk_mode = FALSE) {
     if (bulk_mode) {
         d1_vec <- -2 * t((log(prediction) - log(B)) / prediction)
         d2_vec <- -2 * t((1 - log(prediction) + log(B)) / prediction^2)

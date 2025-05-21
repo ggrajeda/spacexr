@@ -1,7 +1,6 @@
 summarizedExperimentToReference <- function(
-    reference_experiment, cell_type_col = "cell_type", 
-    require_int = TRUE, ref_n_cells_max = 10000, ref_UMI_min = 100
-) {
+    reference_experiment, cell_type_col = "cell_type",
+    require_int = TRUE, ref_n_cells_max = 10000, ref_UMI_min = 100) {
     ref_name <- "reference_experiment"
     ref_counts <- getCounts(reference_experiment, ref_name)
     ref_counts <- check_counts(ref_counts, ref_name, require_int = FALSE)
@@ -18,20 +17,20 @@ summarizedExperimentToReference <- function(
         names(ref_nUMI) <- colnames(ref_counts)
     }
     createReference(
-        ref_counts, cell_types, nUMI = ref_nUMI, require_int = require_int,
+        ref_counts, cell_types,
+        nUMI = ref_nUMI, require_int = require_int,
         n_max_cells = ref_n_cells_max, min_UMI = ref_UMI_min
     )
 }
 
 restrictCounts <- function(
     spatial_experiment, counts, gene_list,
-    UMI_thresh = 1, UMI_max = 20000, counts_thresh = 1
-) {
+    UMI_thresh = 1, UMI_max = 20000, counts_thresh = 1) {
     total_gene_counts <- colSums(counts[gene_list, , drop = FALSE])
     keep_loc <- (
         (colData(spatial_experiment)$nUMI >= UMI_thresh) &
-        (colData(spatial_experiment)$nUMI <= UMI_max) &
-        (total_gene_counts >= counts_thresh)
+            (colData(spatial_experiment)$nUMI <= UMI_max) &
+            (total_gene_counts >= counts_thresh)
     )
     list(
         restricted_se = spatial_experiment[gene_list, keep_loc, drop = FALSE],
@@ -55,8 +54,7 @@ filterPixelsAndGetVars <- function(
     spatial_experiment, spatial_counts, cell_type_info, gene_cutoff = 0.000125,
     fc_cutoff = 0.5, gene_cutoff_reg = 0.0002, fc_cutoff_reg = 0.75,
     gene_obs_min = 3, pixel_count_min = 10, UMI_min = 100, UMI_max = 20000000,
-    UMI_min_sigma = 300, class_df = NULL
-) {
+    UMI_min_sigma = 300, class_df = NULL) {
     restricted_data <- restrictCounts(
         spatial_experiment, spatial_counts, rownames(spatial_experiment),
         UMI_thresh = UMI_min, UMI_max = UMI_max, counts_thresh = pixel_count_min
@@ -74,7 +72,8 @@ filterPixelsAndGetVars <- function(
 
     spatial_experiment <- restrictCounts(
         restricted_data$restricted_se, restricted_data$restricted_counts,
-        gene_list_bulk, UMI_thresh = UMI_min, UMI_max = UMI_max,
+        gene_list_bulk,
+        UMI_thresh = UMI_min, UMI_max = UMI_max,
         counts_thresh = pixel_count_min
     )$restricted_se
     if (is.null(class_df)) {
@@ -112,8 +111,7 @@ checkSummarizedExperiment <- function(se, se_name) {
 }
 
 validateCellTypeInformation <- function(
-    cell_type_profiles, class_df, cell_type_names
-) {
+    cell_type_profiles, class_df, cell_type_names) {
     if (!is.null(cell_type_profiles)) {
         if (!is.matrix(cell_type_profiles)) {
             stop("'cell_type_profiles' must be a matrix")
@@ -233,14 +231,13 @@ validateCellTypeInformation <- function(
 #' @export
 #' @inherit runRctd examples
 createRctd <- function(
-    spatial_experiment, reference_experiment, 
+    spatial_experiment, reference_experiment,
     cell_type_col = "cell_type", require_int = TRUE, gene_cutoff = 0.000125,
     fc_cutoff = 0.5, gene_cutoff_reg = 0.0002, fc_cutoff_reg = 0.75,
     gene_obs_min = 3, pixel_count_min = 10, UMI_min = 100, UMI_max = 20000000,
     UMI_min_sigma = 300, ref_UMI_min = 100, ref_n_cells_min = 25,
     ref_n_cells_max = 10000, cell_type_profiles = NULL,
-    class_df = NULL, cell_type_names = NULL
-) {
+    class_df = NULL, cell_type_names = NULL) {
     # Type validity checks
     checkSummarizedExperiment(spatial_experiment, "spatial_experiment")
     if (is.null(cell_type_profiles)) {
@@ -262,7 +259,7 @@ createRctd <- function(
     )
 
     for (param_name in names(numeric_params)) {
-        checkNumeric(numeric_params[[param_name]], param_name)      
+        checkNumeric(numeric_params[[param_name]], param_name)
     }
 
     validateCellTypeInformation(cell_type_profiles, class_df, cell_type_names)
@@ -270,7 +267,8 @@ createRctd <- function(
     spatial_name <- "spatial_experiment"
     spatial_counts <- getCounts(spatial_experiment, spatial_name)
     spatial_counts <- check_counts(
-        spatial_counts, spatial_name, require_int = require_int
+        spatial_counts, spatial_name,
+        require_int = require_int
     )
     nUMI <- colData(spatial_experiment)$nUMI
     if (is.null(nUMI)) {
@@ -281,8 +279,9 @@ createRctd <- function(
     reference <- NULL
     if (is.null(cell_type_profiles)) {
         reference <- summarizedExperimentToReference(
-            reference_experiment, cell_type_col = cell_type_col,
-            require_int = require_int, ref_n_cells_max = ref_n_cells_max, 
+            reference_experiment,
+            cell_type_col = cell_type_col,
+            require_int = require_int, ref_n_cells_max = ref_n_cells_max,
             ref_UMI_min = ref_UMI_min
         )
     }

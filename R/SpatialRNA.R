@@ -35,8 +35,7 @@ fake_coords <- function(counts) {
 #'
 createSpatialRNA <- function(
     coords, counts,
-    nUMI = NULL, use_fake_coords = FALSE, require_int = TRUE
-) {
+    nUMI = NULL, use_fake_coords = FALSE, require_int = TRUE) {
     counts <- check_counts(counts, "SpatialRNA", require_int = require_int)
     if (use_fake_coords) {
         coords <- fake_coords(counts)
@@ -77,8 +76,7 @@ createSpatialRNA <- function(
 
 check_UMI <- function(
     nUMI, f_name,
-    require_2d = FALSE, require_int = TRUE, min_UMI = 0
-) {
+    require_2d = FALSE, require_int = TRUE, min_UMI = 0) {
     if (!is.atomic(nUMI)) {
         stop(
             f_name, ": nUMI is not an atomic vector. Please format nUMI as an ",
@@ -135,8 +133,7 @@ check_UMI <- function(
 
 check_counts <- function(
     counts, f_name,
-    require_2d = FALSE, require_int = TRUE
-) {
+    require_2d = FALSE, require_int = TRUE) {
     if (!is(counts, "dgCMatrix")) {
         if (!is(counts, "matrix")) {
             tryCatch(
@@ -266,9 +263,9 @@ check_coords <- function(coords) {
 }
 
 restrict_puck <- function(puck, barcodes) {
-  barcodes <- intersect(colnames(puck@counts), barcodes)
-  puck@counts <- puck@counts[,barcodes]
-  puck@nUMI <- puck@nUMI[barcodes]
-  puck@coords <- puck@coords[barcodes,]
-  puck
+    barcodes <- intersect(colnames(puck@counts), barcodes)
+    puck@counts <- puck@counts[, barcodes]
+    puck@nUMI <- puck@nUMI[barcodes]
+    puck@coords <- puck@coords[barcodes, ]
+    puck
 }

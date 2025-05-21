@@ -58,7 +58,8 @@ data(rctdSim)
 # In practice, results_spe should contain the results of an RCTD run.
 results_spe <- rctdSim$proportions_spe
 plotCellTypeWeight(
-    results_spe, "ct1", size = 5, title = "Cell Type Density (ct1)"
+    results_spe, "ct1",
+    size = 5, title = "Cell Type Density (ct1)"
 )
 
 }

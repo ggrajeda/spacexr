@@ -37,8 +37,9 @@ filter_barcodes_cell_types <- function(barcodes, cell_types, my_beta, thresh = 0
     return(list(barcodes = barcodes, my_beta = my_beta))
 }
 
-get_gene_list_type <- function(my_beta, barcodes, cell_type, nUMI, gene_list_type, cti_renorm,
-                               cell_types_present, gene_fits, test_mode = "individual") {
+get_gene_list_type <- function(
+    my_beta, barcodes, cell_type, nUMI, gene_list_type, cti_renorm,
+    cell_types_present, gene_fits, test_mode = "individual") {
     C <- 15
     N_cells <- colSums(my_beta[barcodes, ])[cell_type]
     UMI_list <- nUMI[names(which(my_beta[barcodes, cell_type] >= .99))]

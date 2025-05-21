@@ -9,7 +9,7 @@
 #'   as:
 #'
 #'   \code{rctd_data <- createRctd(spatial, reference)}
-#' 
+#'
 #'   \code{results <- runRctd(rctd_data)}
 #'
 #' @docType package
@@ -237,9 +237,11 @@ setMethod("show", "SpatialRNA", function(object) {
     cat(sprintf("- %d pixels\n", ncol(counts(object))))
     cat(sprintf("- %d genes\n", nrow(counts(object))))
     cat(sprintf("- %.2f mean UMIs per pixel\n", mean(nUMI(object))))
-    cat(sprintf("- Spatial coordinates range: x[%.2f, %.2f], y[%.2f, %.2f]\n",
+    cat(sprintf(
+        "- Spatial coordinates range: x[%.2f, %.2f], y[%.2f, %.2f]\n",
         min(coords(object)$x), max(coords(object)$x),
-        min(coords(object)$y), max(coords(object)$y)))
+        min(coords(object)$y), max(coords(object)$y)
+    ))
 })
 
 #' RNA-seq reference data
@@ -436,10 +438,13 @@ setMethod("show", "RctdConfig", function(object) {
 
     cat("\nConfiguration:\n")
     for (param in names(config(object))) {
-        cat(sprintf("- %s: %s\n", param, 
-            if(is.atomic(config(object)[[param]])) 
-                paste(config(object)[[param]], collapse = ", ") 
-            else "..."
+        cat(sprintf(
+            "- %s: %s\n", param,
+            if (is.atomic(config(object)[[param]])) {
+                paste(config(object)[[param]], collapse = ", ")
+            } else {
+                "..."
+            }
         ))
     }
 })
