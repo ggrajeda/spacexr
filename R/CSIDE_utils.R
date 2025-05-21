@@ -122,19 +122,19 @@ choose_cell_types <- function(myRCTD, barcodes, doublet_mode, cell_type_threshol
     if (passed_cell_types) {
         diff_types <- setdiff(cell_types, cell_types_default)
         if (length(diff_types) > 0) {
-            stop(paste0(
+            stop(
                 "choose_cell_types: cell types: ", paste(diff_types, collapse = ", "),
                 " detected using aggregate_cell_types to have less than the minimum cell_type_threshold of ",
                 cell_type_threshold,
                 ". To fix this issue, please remove these cell types or reduce the cell_type_threshold"
-            ))
+            )
         }
         diff_types <- setdiff(cell_types, myRCTD@cell_type_info$info[[2]])
         if (length(diff_types) > 0) {
-            stop(paste0(
+            stop(
                 "choose_cell_types: cell types: ", paste(diff_types, collapse = ", "),
                 " are not valid cell types in this RCTD object (myRCTD@cell_type_info$info[[2]]). Please check that cell_types only has valid cell types."
-            ))
+            )
         }
     } else {
         cell_types <- cell_types_default
@@ -143,10 +143,10 @@ choose_cell_types <- function(myRCTD, barcodes, doublet_mode, cell_type_threshol
         if (passed_cell_types) {
             stop("choose_cell_types: length(cell_types) is 0. Please pass in at least one cell type in the list cell_types")
         } else {
-            stop(paste0(
+            stop(
                 "choose_cell_types: length(cell_types) is 0. According to the aggregate_cell_types fn, no cell types occured greater than cell_type_threshold of ",
                 cell_type_threshold, ". Please check that all data is present and consider reducing cell_type_threshold."
-            ))
+            )
         }
     }
     if (length(cell_types) == 1) {

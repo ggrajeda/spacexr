@@ -46,7 +46,7 @@ get_de_pop <- function(
     for (gene in gene_list) {
         ii <- ii + 1
         if (ii %% 1000 == 0) {
-            message(paste("get_de_pop: testing gene,", gene, ", of index:", ii))
+            message("get_de_pop: testing gene, ", gene, ", of index: ", ii)
         }
         # con <- unlist(lapply(de_results_list, function(x) gene %in%
         #         names(which(x$gene_fits$con_mat[,cell_type]))))
@@ -116,7 +116,7 @@ one_ct_genes <- function(
     order_gene = FALSE, plot_results = TRUE, use.groups = FALSE,
     group_ids = NULL, MIN.CONV.REPLICATES = 2, MIN.CONV.GROUPS = 2,
     CT.PROP = 0.5, log_fc_thresh = 0.4, normalize_expr = FALSE) {
-    print(paste0("one_ct_genes: population inference on cell type, ", cell_type))
+    message("one_ct_genes: population inference on cell type, ", cell_type)
     myRCTD <- myRCTD_list[[1]]
     cell_type_means <- myRCTD@cell_type_info$info[[1]][, cell_types_present]
     cell_prop <- sweep(cell_type_means, 1, apply(cell_type_means, 1, max), "/")
@@ -161,10 +161,8 @@ one_ct_genes <- function(
     }
     # plot(log(final_df$expr,10), log(final_df$p,10))
     if (plot_results) {
-        print("writing")
         write.csv(final_df, file.path(resultsdir, paste0(cell_type, "_cell_type_genes.csv")))
     }
-    print("done")
     return(list(de_pop = gene_df, gene_final = gene_final, final_df = final_df))
 }
 

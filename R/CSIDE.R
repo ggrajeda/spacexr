@@ -452,14 +452,14 @@ run.CSIDE.general <- function(
     if (!is.null(cell_type_filter)) {
         ct_remove <- setdiff(cell_types, names(which(cell_type_filter)))
         if (length(ct_remove) > 0) {
-            message(paste0(
-                "Warning: run.CSIDE.general: removing the following cell types due to insufficient counts per region. Consider lowering cell_type_threshold or proceeding with removed cell types. Cell types: ",
+            warning(
+                "run.CSIDE.general: removing the following cell types due to insufficient counts per region. Consider lowering cell_type_threshold or proceeding with removed cell types. Cell types: ",
                 paste(paste0(ct_remove, ", ", collapse = ""))
-            ))
+            )
         }
         cell_types <- intersect(cell_types, names(which(cell_type_filter)))
     }
-    message(paste0("run.CSIDE.general: running CSIDE with cell types ", paste(cell_types, collapse = ", ")))
+    message("run.CSIDE.general: running CSIDE with cell types ", paste(cell_types, collapse = ", "))
     if (length(cell_types) < 2) {
         stop("run.CSIDE.general: cannot run CSIDE with less than two cell types.")
     }
@@ -478,10 +478,10 @@ run.CSIDE.general <- function(
     if (normalize_expr && (test_mode != "individual" || length(params_to_test) > 1)) {
         stop("run.CSIDE.general: Setting normalize_expr = TRUE is only valid for testing single parameters with test_mode = individual")
     }
-    message(paste0(
+    message(
         "run.CSIDE.general: configure params_to_test = ",
         paste(paste0(params_to_test, ", ", collapse = ""))
-    ))
+    )
     if (any(!(params_to_test %in% seq_len(dim(X2)[2])))) {
         stop(c(
             "run.CSIDE.general: params_to_test must be a vector of integers from 1 to dim(X2)[2] = ", dim(X2)[2],
@@ -628,10 +628,10 @@ find_sig_genes_categorical <- function(
     cell_type, cell_types, gene_fits, gene_list_type, X2, fdr = 0.01,
     p_thresh = 1, log_fc_thresh = 0.4, params_to_test = NULL) {
     if (length(gene_list_type) == 0) {
-        stop(paste0(
+        stop(
             "find_sig_genes_categorical: cell type ", cell_type,
             " has not converged on any genes. Consider removing this cell type from the model using the cell_types option."
-        ))
+        )
     }
     if (is.null(params_to_test)) {
         params_to_test <- seq_len(dim(X2)[2])
@@ -728,10 +728,10 @@ find_sig_genes_individual <- function(
     cell_type, cell_types, gene_fits, gene_list_type, X2, params_to_test = 2,
     fdr = 0.01, p_thresh = 1, log_fc_thresh = 0.4, normalize_expr = FALSE) {
     if (length(gene_list_type) == 0) {
-        stop(paste0(
+        stop(
             "find_sig_genes_individual: cell type ", cell_type,
             " has not converged on any genes. Consider removing this cell type from the model using the cell_types option."
-        ))
+        )
     }
     ct_ind <- which(cell_types == cell_type)
     I_ind <- dim(X2)[2] * (ct_ind - 1) + params_to_test
@@ -895,7 +895,7 @@ fit_de_genes <- function(
         for (i in seq_along(gene_list)) {
             message(i)
             gene <- gene_list[i]
-            print(gene)
+            message(gene)
             Y <- counts(puck)[gene, barcodes]
             alpha2_init <- NULL
             if (!is.null(initialSol)) {
@@ -917,7 +917,7 @@ fit_de_genes <- function(
         BiocParallel::bplapply(seq_along(gene_list), function(i) {
             if (logs) {
                 if (i %% 1 == 0) { ## 10
-                    cat(paste0("Testing sample: ", i, " gene ", gene_list[i], "\n"), file = out_file, append = TRUE)
+                    write(paste0("Testing sample: ", i, " gene ", gene_list[i], "\n"), file = out_file, append = TRUE)
                 }
             }
             gene <- gene_list[i]
