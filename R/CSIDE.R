@@ -236,7 +236,7 @@ run.CSIDE.regions <- function(rctd_results, region_list, cell_types = NULL,
   barcodes <- rownames(X2)
   return(run.CSIDE(rctd_results, X2, barcodes, cell_types, cell_type_threshold = cell_type_threshold, gene_threshold = gene_threshold,
                        doublet_mode = doublet_mode, test_mode = 'categorical',
-                       weight_threshold = weight_threshold, sigma_gene = sigma_gene, params_to_test = 1:dim(X2)[2],
+                       weight_threshold = weight_threshold, sigma_gene = sigma_gene, params_to_test = seq_len(dim(X2)[2]),
                        PRECISION.THRESHOLD = PRECISION.THRESHOLD,test_genes_sig = test_genes_sig,
                        cell_types_present = cell_types_present, fdr = fdr, normalize_expr = FALSE,
                    logs=logs, log_fc_thresh = log_fc_thresh, test_error = test_error))
@@ -443,12 +443,12 @@ run.CSIDE.general <- function(rctd_results, X1, X2, barcodes, cell_types = NULL,
     if(test_mode == 'individual')
       params_to_test <- min(2, dim(X2)[2])
     else
-      params_to_test <- 1:dim(X2)[2]
+      params_to_test <- seq_len(dim(X2)[2])
   if(normalize_expr && (test_mode != 'individual' || length(params_to_test) > 1))
     stop('run.CSIDE.general: Setting normalize_expr = TRUE is only valid for testing single parameters with test_mode = individual')
   message(paste0("run.CSIDE.general: configure params_to_test = ",
                  paste(paste0(params_to_test, ', ', collapse = ""))))
-  if(any(!(params_to_test %in% 1:dim(X2)[2])))
+  if(any(!(params_to_test %in% seq_len(dim(X2)[2]))))
     stop(c('run.CSIDE.general: params_to_test must be a vector of integers from 1 to dim(X2)[2] = ', dim(X2)[2],
            'please make sure that tested parameters are in the required range.'))
   if(test_mode == 'categorical' && any(!(X2[,params_to_test] %in% c(0,1))))
@@ -565,10 +565,10 @@ find_sig_genes_categorical <- function(cell_type, cell_types, gene_fits, gene_li
     stop(paste0('find_sig_genes_categorical: cell type ', cell_type,
                 ' has not converged on any genes. Consider removing this cell type from the model using the cell_types option.'))
   if(is.null(params_to_test))
-    params_to_test <- 1:dim(X2)[2]
+    params_to_test <- seq_len(dim(X2)[2])
   n_regions <- length(params_to_test); n_cell_types <- length(cell_types)
   cell_ind = (which(cell_types == cell_type))
-  s_mat_ind <- (1:dim(X2)[2]) + (n_regions*(cell_ind - 1))
+  s_mat_ind <- (seq_len(dim(X2)[2])) + (n_regions*(cell_ind - 1))
   p_val_sig_pair <- numeric(length(gene_list_type)); names(p_val_sig_pair) <- gene_list_type
   log_fc_best_pair <- numeric(length(gene_list_type)); names(log_fc_best_pair) <- gene_list_type
   sd_vec <- numeric(length(gene_list_type)); names(sd_vec) <- gene_list_type
@@ -577,7 +577,7 @@ find_sig_genes_categorical <- function(cell_type, cell_types, gene_fits, gene_li
   i2_vec <- numeric(length(gene_list_type)); names(i2_vec) <- gene_list_type
   for(gene in gene_list_type) {
     con_regions <- get_con_regions(gene_fits, gene, dim(X2)[2], cell_ind, n_cell_types) &
-      (params_to_test %in% 1:dim(X2)[2])
+      (params_to_test %in% seq_len(dim(X2)[2]))
     n_regions_con <- sum(con_regions)
     x <- gene_fits$all_vals[gene, con_regions,cell_ind]
     s_mat_ind_cur <- s_mat_ind[con_regions]
@@ -585,7 +585,7 @@ find_sig_genes_categorical <- function(cell_type, cell_types, gene_fits, gene_li
     ovr_best_p_val <- 1
     best_log_fc <- 0; best_sd <- 0
     best_i1 <- 0; best_i2 <- 0
-    for(i1 in 1:(n_regions_con-1))
+    for(i1 in seq_len(n_regions_con-1))
       for(i2 in (i1+1):n_regions_con) {
         log_fc <- abs(x[i1] - x[i2])
         sd_cur <- sqrt(var_vals[i1] + var_vals[i2])
@@ -757,7 +757,7 @@ get_de_gene_fits <- function(X1,X2,my_beta, nUMI, gene_list, cell_types, puck, b
   colnames(con_mat) <- cell_types
   colnames(error_mat) <- cell_types
   rownames(d_vals) <- gene_list
-  for(i in 1:N_genes) {
+  for(i in seq_len(N_genes)) {
     sigma_g[i] <- results_list[[i]]$sigma_s_best
     res <- results_list[[i]]$res
     d_vals[i,] <- res$d
@@ -783,7 +783,7 @@ fit_de_genes <- function(X1,X2,my_beta, nUMI, gene_list, puck, barcodes, sigma_i
                          logs=FALSE) {
   results_list <- list()
   if(numCores == 1) {
-    for(i in 1:length(gene_list)) {
+    for(i in seq_along(gene_list)) {
       message(i)
       gene <- gene_list[i]
       print(gene)
@@ -802,7 +802,7 @@ fit_de_genes <- function(X1,X2,my_beta, nUMI, gene_list, puck, barcodes, sigma_i
       if(file.exists(out_file))
         file.remove(out_file)
     }
-    BiocParallel::bplapply(1:length(gene_list), function (i) {
+    BiocParallel::bplapply(seq_along(gene_list), function (i) {
       if (logs) {
         if(i %% 1 == 0) { ##10
           cat(paste0("Testing sample: ",i," gene ", gene_list[i],"\n"), file=out_file, append=TRUE)

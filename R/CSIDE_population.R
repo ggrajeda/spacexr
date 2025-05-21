@@ -142,7 +142,7 @@ one_ct_genes <- function(cell_type, myRCTD_list, de_results_list, resultsdir, ce
     L <- length(myRCTD_list)
     mean_sd_df <- matrix(0, nrow = length(gene_final), ncol = L * 2)
     rownames(mean_sd_df) <- gene_final
-    colnames(mean_sd_df) <- c(unlist(lapply(1:L, function(x) paste("mean", x))), unlist(lapply(1:L, function(x) paste("sd", x))))
+    colnames(mean_sd_df) <- c(unlist(lapply(seq_len(L), function(x) paste("mean", x))), unlist(lapply(seq_len(L), function(x) paste("sd", x))))
     for (gene in gene_final) {
         m_sd <- get_means_sds(cell_type, gene, de_results_list, params_to_test)
         mean_sd_df[gene, ] <- c(m_sd$means, m_sd$sds)
@@ -188,7 +188,7 @@ estimate_tau_group <- function(x, s, n.iter = 20, epsilon = .001, group_ids = NU
 estimate_tau <- function(x, s, n.iter = 100, epsilon = .001) {
     k <- length(x)
     tau <- 0
-    for (i in 1:n.iter) {
+    for (i in seq_len(n.iter)) {
         w <- 1 / (s^2 + tau^2)
         u <- sum(x * w) / sum(w)
         Q <- sum((x - u)^2 * w)

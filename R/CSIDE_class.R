@@ -154,7 +154,7 @@ build.designmatrix.regions <- function(myRCTD, region_list) {
     if (n_regions < 3) {
         stop("run.de.regions: length(region_list) <= 2. Must be at least 3 to continue.")
     }
-    for (i in 1:n_regions) {
+    for (i in seq_len(n_regions)) {
         barcodes <- region_list[[i]]
         if (!is.character(barcodes) || !is.atomic(barcodes)) {
             stop("run.de.regions: error, region_list must be a list of atomic character vectors")
@@ -171,7 +171,7 @@ build.designmatrix.regions <- function(myRCTD, region_list) {
     barcodes <- Reduce(union, region_list)
     X2 <- matrix(0, nrow = length(barcodes), ncol = n_regions)
     rownames(X2) <- barcodes
-    for (i in 1:n_regions) {
+    for (i in seq_len(n_regions)) {
         X2[region_list[[i]], i] <- 1
     }
     return(X2)

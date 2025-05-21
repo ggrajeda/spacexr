@@ -3,9 +3,9 @@ filter_genes <- function(puck, threshold = 5e-5, batch_size = 1000) {
     gene_means <- numeric(length(rownames(counts(puck))))
     names(gene_means) <- rownames(counts(puck))
     n_batches <- ceiling(length(gene_means) / batch_size)
-    for (j in 1:n_batches) {
+    for (j in seq_len(n_batches)) {
         if (j < n_batches) {
-            index_range <- (1:batch_size) + (j - 1) * batch_size
+            index_range <- (seq_len(batch_size)) + (j - 1) * batch_size
         } else {
             index_range <- (1 + (n_batches - 1) * batch_size):length(gene_means)
         }
@@ -97,10 +97,10 @@ aggregate_cell_types <- function(myRCTD, barcodes, doublet_mode = TRUE) {
 get_param_names <- function(X1, X2, cell_types) {
     cnames <- c()
     if (dim(X1)[2] > 0) {
-        cnames <- unlist(lapply(1:dim(X1)[2], function(x) paste0("1_", x)))
+        cnames <- unlist(lapply(seq_len(dim(X1)[2]), function(x) paste0("1_", x)))
     }
-    for (k in 1:length(cell_types)) {
-        cnames <- c(cnames, unlist(lapply(1:dim(X2)[2], function(x) paste0("2_", x, "_", cell_types[k]))))
+    for (k in seq_along(cell_types)) {
+        cnames <- c(cnames, unlist(lapply(seq_len(dim(X2)[2]), function(x) paste0("2_", x, "_", cell_types[k]))))
     }
     return(cnames)
 }
@@ -110,7 +110,7 @@ get_cell_type_ind <- function(X1, X2, n_cell_types) {
     if (dim(X1)[2] > 0) {
         cnames <- rep(0, dim(X1)[2])
     }
-    cnames <- c(cnames, unlist(lapply(1:n_cell_types, function(x) rep(x, dim(X2)[2]))))
+    cnames <- c(cnames, unlist(lapply(seq_len(n_cell_types), function(x) rep(x, dim(X2)[2]))))
     return(cnames)
 }
 
@@ -156,10 +156,10 @@ choose_cell_types <- function(myRCTD, barcodes, doublet_mode, cell_type_threshol
 
 fdr_sig_genes <- function(gene_list_type, p_val, fdr) {
     N_genes_type <- length(gene_list_type)
-    thresh <- (1:N_genes_type) / N_genes_type * fdr
+    thresh <- (seq_len(N_genes_type)) / N_genes_type * fdr
     if (any(p_val[order(p_val)] < thresh)) {
         N_sig <- max(which(p_val[order(p_val)] < thresh))
-        gene_list_sig <- gene_list_type[order(p_val)[1:N_sig]]
+        gene_list_sig <- gene_list_type[order(p_val)[seq_len(N_sig)]]
     } else {
         gene_list_sig <- c()
     }
@@ -172,7 +172,7 @@ get_spline_matrix <- function(puck, df = 15) {
     center_coords <- center_coords / sd(as.matrix(center_coords))
     sm <- mgcv::smoothCon(mgcv::s(x, y, k = df, fx = TRUE, bs = "tp"), data = center_coords)[[1]]
     mm <- as.matrix(data.frame(sm$X))
-    X2 <- cbind(mm[, (df - 2):df], mm[, 1:(df - 3)]) # swap intercept, x, and y
+    X2 <- cbind(mm[, (df - 2):df], mm[, seq_len(df - 3)]) # swap intercept, x, and y
     X2[, 2:df] <- sweep(X2[, 2:df], 2, apply(X2[, 2:df], 2, mean), "-")
     X2[, 2:df] <- sweep(X2[, 2:df], 2, apply(X2[, 2:df], 2, sd), "/") # standardize
     rownames(X2) <- names(nUMI(puck))
@@ -181,7 +181,7 @@ get_spline_matrix <- function(puck, df = 15) {
 
 check_converged_vec <- function(X1, X2, my_beta, itera, n.iter, error_vec, precision, PRECISION.THRESHOLD) {
     cell_type_ind <- get_cell_type_ind(X1, X2, dim(my_beta)[2])
-    converged_vec <- (1:dim(my_beta)[2]) == 0
+    converged_vec <- (seq_len(dim(my_beta)[2])) == 0
     # if(itera < n.iter) {
     converged_vec <- !converged_vec
     converged_vec[unique(cell_type_ind[precision > PRECISION.THRESHOLD])] <- FALSE
@@ -244,7 +244,7 @@ exvar.celltocell.interactions <- function(myRCTD, barcodes, cell_type, radius = 
     # Precompute the weighted nUMI values for all target cells
     weighted_nUMIs <- c(rep(0, length(target_barcodes)))
     names(weighted_nUMIs) <- target_barcodes
-    for (i in 1:length(weighted_nUMIs)) {
+    for (i in seq_along(weighted_nUMIs)) {
         barcode <- target_barcodes[i]
         nUMI <- nUMI(puck)[barcode]
 
@@ -263,7 +263,7 @@ exvar.celltocell.interactions <- function(myRCTD, barcodes, cell_type, radius = 
     }
 
     # Use the precomputed components above to compute explanatory.variable
-    for (i in 1:length(all_barcodes)) {
+    for (i in seq_along(all_barcodes)) {
         barcode <- all_barcodes[i]
 
         exp_dists <- exponent_mat[barcode, target_barcodes]

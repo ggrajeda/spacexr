@@ -7,7 +7,7 @@ choose_sigma_gene <- function(sigma_init, Y, X1, X2, my_beta, nUMI, test_mode, v
     alpha2 <- NULL
     MIN_ITERATIONS <- 15
     n.iter.tot <- 0
-    for (iter in 1:MAX_ITER_SIGMA) {
+    for (iter in seq_len(MAX_ITER_SIGMA)) {
         last_sigma <- sigma_s_best
         sigma_curr <- as.character(sigma_s_best)
         set_likelihood_vars(Q_mat_all[[sigma_curr]], X_vals, sigma = sigma_curr)
@@ -38,7 +38,7 @@ choose_sigma_gene <- function(sigma_init, Y, X1, X2, my_beta, nUMI, test_mode, v
 }
 
 mysweept <- function(tX2, tlk, K) {
-    g_2 <- tX2[rep(1:dim(tX2)[1], K), ] * tlk[rep(1:K, each = dim(tX2)[1]), ]
+    g_2 <- tX2[rep(seq_len(dim(tX2)[1]), K), ] * tlk[rep(seq_len(K), each = dim(tX2)[1]), ]
     return(g_2)
 }
 
@@ -57,7 +57,7 @@ sweep2t <- function(tX1, tdl, k) {
 }
 
 sweep3t_all <- function(tX2, tdl, K) {
-    X2_Q <- tX2[rep(1:dim(tX2)[1], K), ] * tdl[rep(1:K, each = dim(tX2)[1]), ]
+    X2_Q <- tX2[rep(seq_len(dim(tX2)[1]), K), ] * tdl[rep(seq_len(K), each = dim(tX2)[1]), ]
     return(X2_Q)
 }
 
@@ -77,20 +77,20 @@ construct_hess_fast <- function(X1, X2, lambda, lambda_k, K, d1_d2) {
     L1 <- dim(X1)[2]
     L2 <- dim(X2)[2]
     H2_12 <- matrix(0, nrow = L1, ncol = L2 * K)
-    for (k in 1:K) {
+    for (k in seq_len(K)) {
         X1_Q <- sweep2t(tX1, tdl, k)
         H2_12[, (1 + L2 * (k - 1)):(L2 * k)] <- X1_Q %*% X2
     }
     H2 <- matrix(0, nrow = L1 + L2 * K, ncol = L1 + L2 * K)
     if (L1 > 0) {
-        H2[(1:L1), 1:L1] <- H2_11
-        H2[1:L1, (L1 + 1):(L1 + L2 * K)] <- H2_12
-        H2[(L1 + 1):(L1 + L2 * K), 1:L1] <- t(H2_12)
+        H2[(seq_len(L1)), seq_len(L1)] <- H2_11
+        H2[seq_len(L1), (L1 + 1):(L1 + L2 * K)] <- H2_12
+        H2[(L1 + 1):(L1 + L2 * K), seq_len(L1)] <- t(H2_12)
     }
     X2_Q <- sweep3t_all(tX2, tdl, K)
     grad_2 <- matrix(rowSums(X2_Q), dim(X2)[2], K)
     H2m <- X2_Q %*% X2
-    for (k in 1:K) {
+    for (k in seq_len(K)) {
         H2[(L1 + 1 + (k - 1) * L2):(L1 + k * L2), (L1 + 1 + (k - 1) * L2):(L1 + k * L2)] <-
             H2m[(1 + (k - 1) * L2):(k * L2), ] # X2_Q %*% X2
     }
@@ -135,8 +135,8 @@ solveIRWLS.effects_trust <- function(Y, X1, X2, my_beta, test_mode, verbose = FA
     d1_d2 <- calc_Q_all(Y, lambda)
     prev_ll <- -sum(d1_d2$d0_vec)
     # prev_ll <- calc_log_l_vec(lambda,Y)
-    error_vec <- (1:dim(my_beta)[2]) == 0
-    for (itera in 1:n.iter) {
+    error_vec <- (seq_len(dim(my_beta)[2])) == 0
+    for (itera in seq_len(n.iter)) {
         H_list <- construct_hess_fast(X1, X2, lambda, lambda_k, K, d1_d2)
         H <- H_list$H
         grad_1 <- H_list$grad_1
@@ -155,7 +155,7 @@ solveIRWLS.effects_trust <- function(Y, X1, X2, my_beta, test_mode, verbose = FA
 
         predicted_decrease <- -(0.5 * t(solution) %*% D_mat_o %*% solution - sum(d_vec_o * solution))
 
-        alpha1_new <- alpha1 + solution[1:L1]
+        alpha1_new <- alpha1 + solution[seq_len(L1)]
         alpha2_new <- alpha2 + matrix(solution[(L1 + 1):length(solution)], nrow = L2, ncol = K)
         lambda_k_new <- exp(sweep(X2 %*% (alpha2_new), 1, X1 %*% (alpha1_new), "+")) * my_beta # J by K
         error_vec <- is.na(colMeans(lambda_k_new)) | error_vec
