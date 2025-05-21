@@ -90,7 +90,7 @@ get_con_regions <- function(gene_fits, gene, n_regions, cell_type_ind, n_cell_ty
 #'   Otherwise, uses RCTD full mode weights
 #' @return a named vector of number of pixel occurrences for each cell type
 #' @export
-aggregate_cell_types <- function(myRCTD, barcodes, doublet_mode = T) {
+aggregate_cell_types <- function(myRCTD, barcodes, doublet_mode = TRUE) {
     rowSums(assay(myRCTD@results[, barcodes], "weights"))
 }
 
@@ -170,7 +170,7 @@ get_spline_matrix <- function(puck, df = 15) {
     center_coords <- coords(puck)
     center_coords <- sweep(center_coords, 2, apply(center_coords, 2, mean), "-")
     center_coords <- center_coords / sd(as.matrix(center_coords))
-    sm <- mgcv::smoothCon(mgcv::s(x, y, k = df, fx = T, bs = "tp"), data = center_coords)[[1]]
+    sm <- mgcv::smoothCon(mgcv::s(x, y, k = df, fx = TRUE, bs = "tp"), data = center_coords)[[1]]
     mm <- as.matrix(data.frame(sm$X))
     X2 <- cbind(mm[, (df - 2):df], mm[, 1:(df - 3)]) # swap intercept, x, and y
     X2[, 2:df] <- sweep(X2[, 2:df], 2, apply(X2[, 2:df], 2, mean), "-")
