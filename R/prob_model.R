@@ -162,7 +162,7 @@ calc_log_l_vec_fast <- function(lambda, Y) {
   m <- pmin(l - 9,40) + pmax(ceiling(sqrt(pmax(l-48.7499,0)*4))-2,0)
   Q0 <- cbind(Y+1, m); Q1 <- Q0; Q1[,2] <- Q1[,2] + 1
   fti1 <- Q_mat[Q0]; fti <- Q_mat[Q1]
-  prop = (X_vals[m+1] - lambda)/(X_vals[m+1] - X_vals[m])
+  prop <- (X_vals[m+1] - lambda)/(X_vals[m+1] - X_vals[m])
   r1 <- prop * fti1 + (1 - prop) * fti
   return(-sum(r1))
 }

@@ -457,7 +457,7 @@ run.CSIDE.general <- function(rctd_results, X1, X2, barcodes, cell_types = NULL,
     cell_types_present <- cell_types
   if(any(!(barcodes %in% rownames(X1))) || any(!(barcodes %in% rownames(X2))))
     stop('run.CSIDE.general: some barcodes do not appear in the rownames of X1 or X2.')
-  puck = myRCTD@originalSpatialRNA
+  puck <- myRCTD@originalSpatialRNA
   gene_list_tot <- filter_genes(puck, threshold = gene_threshold)
   if(length(gene_list_tot) == 0)
     stop('run.CSIDE.general: no genes past threshold. Please consider lowering gene_threshold.')
@@ -473,7 +473,7 @@ run.CSIDE.general <- function(rctd_results, X1, X2, barcodes, cell_types = NULL,
     thresh <- 0.999
   }
   if(!is.null(weight_threshold))
-    thresh = weight_threshold
+    thresh <- weight_threshold
   res <- filter_barcodes_cell_types(barcodes, cell_types, my_beta, thresh = thresh)
   if(test_error)
     return(myRCTD)
@@ -567,7 +567,7 @@ find_sig_genes_categorical <- function(cell_type, cell_types, gene_fits, gene_li
   if(is.null(params_to_test))
     params_to_test <- seq_len(dim(X2)[2])
   n_regions <- length(params_to_test); n_cell_types <- length(cell_types)
-  cell_ind = (which(cell_types == cell_type))
+  cell_ind <- (which(cell_types == cell_type))
   s_mat_ind <- (seq_len(dim(X2)[2])) + (n_regions*(cell_ind - 1))
   p_val_sig_pair <- numeric(length(gene_list_type)); names(p_val_sig_pair) <- gene_list_type
   log_fc_best_pair <- numeric(length(gene_list_type)); names(log_fc_best_pair) <- gene_list_type
@@ -643,8 +643,8 @@ find_sig_genes_individual <- function(cell_type, cell_types, gene_fits, gene_lis
     stop(paste0('find_sig_genes_individual: cell type ', cell_type,
                 ' has not converged on any genes. Consider removing this cell type from the model using the cell_types option.'))
   ct_ind <- which(cell_types == cell_type)
-  I_ind = dim(X2)[2]*(ct_ind - 1) + params_to_test
-  I_ind_intercept = dim(X2)[2]*(ct_ind - 1) + 1
+  I_ind <- dim(X2)[2]*(ct_ind - 1) + params_to_test
+  I_ind_intercept <- dim(X2)[2]*(ct_ind - 1) + 1
   if(normalize_expr) {
     log_fc <- gene_fits$mean_val_cor[[cell_type]][gene_list_type]
   } else {
@@ -796,7 +796,7 @@ fit_de_genes <- function(X1,X2,my_beta, nUMI, gene_list, puck, barcodes, sigma_i
   } else {
     BiocParallel::register(BiocParallel::MulticoreParam(numCores))
     if (logs) {
-      out_file = "logs/de_log.txt"
+      out_file <- "logs/de_log.txt"
       if(!dir.exists('logs'))
         dir.create('logs')
       if(file.exists(out_file))
