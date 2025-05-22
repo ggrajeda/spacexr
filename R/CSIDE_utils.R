@@ -9,7 +9,12 @@ filter_genes <- function(puck, threshold = 5e-5, batch_size = 1000) {
         } else {
             index_range <- (1 + (n_batches - 1) * batch_size):length(gene_means)
         }
-        norm_counts <- sweep(as.matrix(counts(puck)[index_range, ]), 2, nUMI(puck), "/")
+        norm_counts <- sweep(
+            as.matrix(counts(puck)[index_range, ]),
+            2,
+            nUMI(puck),
+            "/"
+        )
         gene_means[index_range] <- rowMeans(norm_counts)
     }
     gene_list_tot <- names(which(gene_means > threshold))
@@ -31,7 +36,8 @@ set_cell_types_assigned <- function(myRCTD) {
     return(myRCTD)
 }
 
-filter_barcodes_cell_types <- function(barcodes, cell_types, my_beta, thresh = 0.9999) {
+filter_barcodes_cell_types <- function(
+    barcodes, cell_types, my_beta, thresh = 0.9999) {
     barcodes <- barcodes[(rowSums(my_beta[barcodes, cell_types]) >= thresh)]
     my_beta <- my_beta[barcodes, cell_types]
     return(list(barcodes = barcodes, my_beta = my_beta))
@@ -54,26 +60,43 @@ get_gene_list_type <- function(
     }
     UMI_m <- median(UMI_list)
     expr_thresh <- C / (N_cells * UMI_m)
-    gene_list_type <- setdiff(gene_list_type, gene_list_type[which(cti_renorm[gene_list_type, cell_type] < expr_thresh)])
+    gene_list_type <- setdiff(
+        gene_list_type,
+        gene_list_type[
+            which(cti_renorm[gene_list_type, cell_type] < expr_thresh)
+        ]
+    )
     cell_type_means <- cti_renorm[gene_list_type, cell_types_present]
     cell_prop <- sweep(cell_type_means, 1, apply(cell_type_means, 1, max), "/")
-    gene_list_type <- gene_list_type[which(cell_prop[gene_list_type, cell_type] > 0.5)]
+    gene_list_type <- gene_list_type[
+        which(cell_prop[gene_list_type, cell_type] > 0.5)
+    ]
     if (test_mode == "categorical") {
         n_cell_types <- dim(my_beta)[2]
         n_regions <- dim(gene_fits$con_all)[2] / n_cell_types
         cell_type_ind <- which(colnames(my_beta) == cell_type)
         my_filter <- unlist(lapply(gene_list_type, function(gene) {
-            (sum(get_con_regions(gene_fits, gene, n_regions, cell_type_ind, n_cell_types)) >= 2)
+            (sum(get_con_regions(
+                gene_fits, gene, n_regions, cell_type_ind, n_cell_types
+            )) >= 2)
         }))
         gene_list_type <- gene_list_type[my_filter]
     } else {
-        gene_list_type <- intersect(gene_list_type, names(which(gene_fits$con_mat[, cell_type])))
+        gene_list_type <- intersect(
+            gene_list_type,
+            names(which(gene_fits$con_mat[, cell_type]))
+        )
     } # only take converged genes
     return(gene_list_type)
 }
 
-get_con_regions <- function(gene_fits, gene, n_regions, cell_type_ind, n_cell_types) {
-    matrix(gene_fits$con_all[gene, ], nrow = n_regions, ncol = n_cell_types)[, cell_type_ind]
+get_con_regions <- function(
+    gene_fits, gene, n_regions, cell_type_ind, n_cell_types) {
+    matrix(
+        gene_fits$con_all[gene, ],
+        nrow = n_regions,
+        ncol = n_cell_types
+    )[, cell_type_ind]
 }
 
 #' Aggregates the pixel occurrences for each cell type in the
@@ -98,10 +121,17 @@ aggregate_cell_types <- function(myRCTD, barcodes, doublet_mode = TRUE) {
 get_param_names <- function(X1, X2, cell_types) {
     cnames <- c()
     if (dim(X1)[2] > 0) {
-        cnames <- unlist(lapply(seq_len(dim(X1)[2]), function(x) paste0("1_", x)))
+        cnames <- unlist(
+            lapply(seq_len(dim(X1)[2]), function(x) paste0("1_", x))
+        )
     }
     for (k in seq_along(cell_types)) {
-        cnames <- c(cnames, unlist(lapply(seq_len(dim(X2)[2]), function(x) paste0("2_", x, "_", cell_types[k]))))
+        cnames <- c(cnames, unlist(
+            lapply(
+                seq_len(dim(X2)[2]),
+                function(x) paste0("2_", x, "_", cell_types[k])
+            )
+        ))
     }
     return(cnames)
 }
@@ -111,29 +141,39 @@ get_cell_type_ind <- function(X1, X2, n_cell_types) {
     if (dim(X1)[2] > 0) {
         cnames <- rep(0, dim(X1)[2])
     }
-    cnames <- c(cnames, unlist(lapply(seq_len(n_cell_types), function(x) rep(x, dim(X2)[2]))))
+    cnames <- c(cnames, unlist(
+        lapply(seq_len(n_cell_types), function(x) rep(x, dim(X2)[2]))
+    ))
     return(cnames)
 }
 
-choose_cell_types <- function(myRCTD, barcodes, doublet_mode, cell_type_threshold, cell_types) {
-    cell_type_count <- aggregate_cell_types(myRCTD, barcodes, doublet_mode = doublet_mode)
+choose_cell_types <- function(
+    myRCTD, barcodes, doublet_mode, cell_type_threshold, cell_types) {
+    cell_type_count <- aggregate_cell_types(
+        myRCTD, barcodes, doublet_mode = doublet_mode
+    )
     cell_types_default <- names(which(cell_type_count >= cell_type_threshold))
     passed_cell_types <- !is.null(cell_types)
     if (passed_cell_types) {
         diff_types <- setdiff(cell_types, cell_types_default)
         if (length(diff_types) > 0) {
             stop(
-                "choose_cell_types: cell types: ", paste(diff_types, collapse = ", "),
-                " detected using aggregate_cell_types to have less than the minimum cell_type_threshold of ",
-                cell_type_threshold,
-                ". To fix this issue, please remove these cell types or reduce the cell_type_threshold"
+                "choose_cell_types: cell types: ",
+                paste(diff_types, collapse = ", "),
+                " detected using aggregate_cell_types to have less than the ",
+                "minimum cell_type_threshold of ", cell_type_threshold,
+                ". To fix this issue, please remove these cell types or ",
+                "reduce the cell_type_threshold"
             )
         }
         diff_types <- setdiff(cell_types, myRCTD@cell_type_info$info[[2]])
         if (length(diff_types) > 0) {
             stop(
-                "choose_cell_types: cell types: ", paste(diff_types, collapse = ", "),
-                " are not valid cell types in this RCTD object (myRCTD@cell_type_info$info[[2]]). Please check that cell_types only has valid cell types."
+                "choose_cell_types: cell types: ",
+                paste(diff_types, collapse = ", "),
+                " are not valid cell types in this RCTD object ",
+                "(myRCTD@cell_type_info$info[[2]]). Please check that ",
+                "cell_types only has valid cell types."
             )
         }
     } else {
@@ -141,18 +181,28 @@ choose_cell_types <- function(myRCTD, barcodes, doublet_mode, cell_type_threshol
     }
     if (length(cell_types) == 0) {
         if (passed_cell_types) {
-            stop("choose_cell_types: length(cell_types) is 0. Please pass in at least one cell type in the list cell_types")
+            stop(
+                "choose_cell_types: length(cell_types) is 0. Please pass in ",
+                "at least one cell type in the list cell_types"
+            )
         } else {
             stop(
-                "choose_cell_types: length(cell_types) is 0. According to the aggregate_cell_types fn, no cell types occured greater than cell_type_threshold of ",
-                cell_type_threshold, ". Please check that all data is present and consider reducing cell_type_threshold."
+                "choose_cell_types: length(cell_types) is 0. According to the ",
+                "aggregate_cell_types fn, no cell types occured greater than ",
+                "cell_type_threshold of ", cell_type_threshold, ". Please ",
+                "check that all data is present and consider reducing ",
+                "cell_type_threshold."
             )
         }
     }
     if (length(cell_types) == 1) {
-        stop("choose_cell_types: length(cell_types) is 1. This is currently not supported. Please consider adding another cell type or contact the developers to have us add in this capability.")
+        stop(
+            "choose_cell_types: length(cell_types) is 1. This is currently ",
+            "not supported. Please consider adding another cell type or ",
+            "contact the developers to have us add in this capability."
+        )
     }
-    return(cell_types)
+    cell_types
 }
 
 fdr_sig_genes <- function(gene_list_type, p_val, fdr) {
@@ -171,21 +221,29 @@ get_spline_matrix <- function(puck, df = 15) {
     center_coords <- coords(puck)
     center_coords <- sweep(center_coords, 2, apply(center_coords, 2, mean), "-")
     center_coords <- center_coords / sd(as.matrix(center_coords))
-    sm <- mgcv::smoothCon(mgcv::s(x, y, k = df, fx = TRUE, bs = "tp"), data = center_coords)[[1]]
+    sm <- mgcv::smoothCon(
+        mgcv::s(x, y, k = df, fx = TRUE, bs = "tp"),
+        data = center_coords
+    )[[1]]
     mm <- as.matrix(data.frame(sm$X))
-    X2 <- cbind(mm[, (df - 2):df], mm[, seq_len(df - 3)]) # swap intercept, x, and y
+    # Swap intercept, x, and y
+    X2 <- cbind(mm[, (df - 2):df], mm[, seq_len(df - 3)])
     X2[, 2:df] <- sweep(X2[, 2:df], 2, apply(X2[, 2:df], 2, mean), "-")
-    X2[, 2:df] <- sweep(X2[, 2:df], 2, apply(X2[, 2:df], 2, sd), "/") # standardize
+    # Standardize
+    X2[, 2:df] <- sweep(X2[, 2:df], 2, apply(X2[, 2:df], 2, sd), "/")
     rownames(X2) <- names(nUMI(puck))
     return(X2)
 }
 
-check_converged_vec <- function(X1, X2, my_beta, itera, n.iter, error_vec, precision, PRECISION.THRESHOLD) {
+check_converged_vec <- function(
+    X1, X2, my_beta, itera, n.iter, error_vec, precision, PRECISION.THRESHOLD) {
     cell_type_ind <- get_cell_type_ind(X1, X2, dim(my_beta)[2])
     converged_vec <- (seq_len(dim(my_beta)[2])) == 0
     # if(itera < n.iter) {
     converged_vec <- !converged_vec
-    converged_vec[unique(cell_type_ind[precision > PRECISION.THRESHOLD])] <- FALSE
+    converged_vec[
+        unique(cell_type_ind[precision > PRECISION.THRESHOLD])
+    ] <- FALSE
     # }
     converged_vec <- converged_vec & (!error_vec)
     names(converged_vec) <- colnames(my_beta)
@@ -212,34 +270,45 @@ check_converged_vec <- function(X1, X2, my_beta, itera, n.iter, error_vec, preci
 #'   and values  are standardized between 0 and 1. This variable represents
 #'   density of the selected cell type.
 #' @export
-exvar.celltocell.interactions <- function(myRCTD, barcodes, cell_type, radius = 50) {
+exvar.celltocell.interactions <- function(
+    myRCTD, barcodes, cell_type, radius = 50) {
     doublet_df <- myRCTD@results$results_df
     weights_doublet <- myRCTD@results$weights_doublet
     puck <- myRCTD@spatialRNA
     # Get a list of barcodes for cells of cell_type
-    # Filter so we have cells in the cropped puck, that are "singlets" or "certain doublets" with first or second type being the target type
-    target_df <- dplyr::filter(doublet_df, (rownames(doublet_df) %in% barcodes) &
+    # Filter so we have cells in the cropped puck, that are "singlets" or
+    # "certain doublets" with first or second type being the target type
+    target_df <- dplyr::filter(
+        doublet_df, (rownames(doublet_df) %in% barcodes) &
         ((first_type == cell_type & (spot_class != "reject")) |
             ((second_type == cell_type) & (spot_class == "doublet_certain"))
         ))
     target_barcodes <- rownames(target_df)
 
-    # Names are the barcodes, value is a score computed using euclidean distance from the cells of cell_type
-    all_barcodes <- barcodes # The cropped puck subset, use rownames(doublet_df) for all barcodes
+    # Names are the barcodes, value is a score computed using euclidean distance
+    # from the cells of cell_type
+    # The cropped puck subset, use rownames(doublet_df) for all barcodes
+    all_barcodes <- barcodes
     explanatory.variable <- c(rep(0, length(all_barcodes)))
     names(explanatory.variable) <- all_barcodes
 
-    # Calculate proximity score by summing the scores across all cells of target type for each cell in puck
-    # Individual scores between a cell and any target cell is calculated as n_i*exp(-d_i/c)
-    # n_i is the weighted nUMI of the target cell; weighted by the proportion that the pixel is the target cell type. singlets are weighted as 1.0
+    # Calculate proximity score by summing the scores across all cells of target
+    # type for each cell in puck
+    # Individual scores between a cell and any target cell is calculated as
+    # n_i*exp(-d_i/c)
+    # n_i is the weighted nUMI of the target cell; weighted by the proportion
+    # that the pixel is the target cell type. singlets are weighted as 1.0
     # d_i is the distance between the current cell and target cell
 
-    # Create a distance table between all pairs of cells. rdist is so fast there's no need to save this.
-    # fields::rdist treats rows as coordinates and computes all distances between placing them in a distance matrix.
+    # Create a distance table between all pairs of cells. rdist is so fast
+    # there's no need to save this.
+    # fields::rdist treats rows as coordinates and computes all distances
+    # between placing them in a distance matrix.
     dist_matrix <- fields::rdist(as.matrix(coords(puck)))
     rownames(dist_matrix) <- rownames(coords(puck))
     colnames(dist_matrix) <- rownames(coords(puck))
-    # Precompute the exponent component of the proximity score for all pairs of cells
+    # Precompute the exponent component of the proximity score for all pairs of
+    # cells
     exponent_mat <- exp(-dist_matrix / radius)
 
     # Precompute the weighted nUMI values for all target cells
@@ -256,8 +325,10 @@ exvar.celltocell.interactions <- function(myRCTD, barcodes, cell_type, radius = 
         weight <- 0.0
         if (spot_class == "singlet") {
             weight <- if (first_type == cell_type) 1.0 else 0.0
+        } else if (first_type == cell_type) {
+            weight <- weights_doublet[barcode, 1]
         } else {
-            weight <- if (first_type == cell_type) weights_doublet[barcode, 1] else weights_doublet[barcode, 2]
+            weight <- weights_doublet[barcode, 2]
         }
         weighted_nUMI <- nUMI * weight
         weighted_nUMIs[i] <- weighted_nUMI
@@ -301,10 +372,12 @@ exvar.point.density <- function(myRCTD, barcodes, points, radius = 50) {
     puck <- myRCTD@spatialRNA
     explanatory.variable <- c(rep(0, length(barcodes)))
     names(explanatory.variable) <- barcodes
-    # fields::rdist treats rows as coordinates and computes all distances between placing them in a distance matrix.
+    # fields::rdist treats rows as coordinates and computes all distances
+    # between placing them in a distance matrix.
     dist_matrix <- fields::rdist(as.matrix(coords(puck)), as.matrix(points))
     rownames(dist_matrix) <- rownames(coords(puck))
-    # Precompute the exponent component of the proximity score for all pairs of cells
+    # Precompute the exponent component of the proximity score for all pairs of
+    # cells
     exponent_mat <- exp(-dist_matrix / radius)
     explanatory.variable <- rowSums(exponent_mat)
     explanatory.variable <- normalize_ev(explanatory.variable)

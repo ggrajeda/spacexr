@@ -17,7 +17,8 @@ choose_sigma_gene <- function(
         res <- estimate_effects_trust(Y, X1, X2, my_beta, nUMI, test_mode,
             verbose = verbose, n.iter = n.iter,
             MIN_CHANGE = MIN_CHANGE, PRECISION.THRESHOLD = PRECISION.THRESHOLD,
-            alpha1_init = alpha1, alpha2_init = alpha2, MIN_ITERATIONS = MIN_ITERATIONS
+            alpha1_init = alpha1, alpha2_init = alpha2,
+            MIN_ITERATIONS = MIN_ITERATIONS
         )
         n.iter.tot <- n.iter.tot + res$n.iter
         alpha1 <- res$alpha1
@@ -28,8 +29,12 @@ choose_sigma_gene <- function(
         res_val <- numeric(length(sigma_vals))
         names(res_val) <- sigma_vals
         for (sigma_s in sigma_vals) {
-            set_likelihood_vars(Q_mat_all[[as.character(sigma_s)]], X_vals, sigma = sigma_s)
-            res_val[as.character(sigma_s)] <- (calc_log_l_vec_fast(pred_c, as.vector(t(Y))))
+            set_likelihood_vars(
+                Q_mat_all[[as.character(sigma_s)]], X_vals, sigma = sigma_s
+            )
+            res_val[as.character(sigma_s)] <- calc_log_l_vec_fast(
+                pred_c, as.vector(t(Y))
+            )
         }
         sigma_s_best <- names(which.min(res_val))
         if (sigma_s_best == last_sigma) {
@@ -41,13 +46,15 @@ choose_sigma_gene <- function(
 }
 
 mysweept <- function(tX2, tlk, K) {
-    g_2 <- tX2[rep(seq_len(dim(tX2)[1]), K), ] * tlk[rep(seq_len(K), each = dim(tX2)[1]), ]
-    return(g_2)
+    g_2 <- (
+        tX2[rep(seq_len(dim(tX2)[1]), K), ] *
+        tlk[rep(seq_len(K), each = dim(tX2)[1]), ]
+    )
+    g_2
 }
 
 sweep1t <- function(tX1, lambda) {
-    g_1 <- Rfast::eachrow(tX1, lambda, oper = "*")
-    return(g_1)
+    Rfast::eachrow(tX1, lambda, oper = "*")
 }
 
 sweep2t <- function(tX1, tdl, k) {
@@ -56,12 +63,14 @@ sweep2t <- function(tX1, tdl, k) {
     } else {
         X1_Q <- tX1
     }
-    return(X1_Q)
+    X1_Q
 }
 
 sweep3t_all <- function(tX2, tdl, K) {
-    X2_Q <- tX2[rep(seq_len(dim(tX2)[1]), K), ] * tdl[rep(seq_len(K), each = dim(tX2)[1]), ]
-    return(X2_Q)
+    return(
+        tX2[rep(seq_len(dim(tX2)[1]), K), ] *
+        tdl[rep(seq_len(K), each = dim(tX2)[1]), ]
+    )
 }
 
 construct_hess_fast <- function(X1, X2, lambda, lambda_k, K, d1_d2) {
@@ -94,8 +103,9 @@ construct_hess_fast <- function(X1, X2, lambda, lambda_k, K, d1_d2) {
     grad_2 <- matrix(rowSums(X2_Q), dim(X2)[2], K)
     H2m <- X2_Q %*% X2
     for (k in seq_len(K)) {
-        H2[(L1 + 1 + (k - 1) * L2):(L1 + k * L2), (L1 + 1 + (k - 1) * L2):(L1 + k * L2)] <-
-            H2m[(1 + (k - 1) * L2):(k * L2), ] # X2_Q %*% X2
+        start <- 1 + (k - 1) * L2
+        end <- k * L2
+        H2[(L1 + start):(L1 + end), (L1 + start):(L1 + end)] <- H2m[start:end, ]
     }
     H <- (H1 - H2)
     return(list(H = H, grad_1 = grad_1, grad_2 = grad_2))
@@ -121,7 +131,8 @@ solveIRWLS.effects_trust <- function(
         alpha1 <- alpha1_init
     }
     if (is.null(alpha2_init)) {
-        alpha2 <- matrix(0, nrow = dim(X2)[2], ncol = n_cell_types) # initialize it to be the previous cell type means
+        # Initialize to the previous cell type means
+        alpha2 <- matrix(0, nrow = dim(X2)[2], ncol = n_cell_types)
         alpha2[1, ] <- init_val
         if (test_mode == "categorical") {
             alpha2[, ] <- init_val # multi mode
@@ -133,7 +144,8 @@ solveIRWLS.effects_trust <- function(
     K_val <- get_K_val()
     Y[Y > K_val] <- K_val
     K <- dim(my_beta)[2]
-    lambda_k <- exp(sweep(X2 %*% (alpha2), 1, X1 %*% (alpha1), "+")) * my_beta # J by K
+    # J by K
+    lambda_k <- exp(sweep(X2 %*% (alpha2), 1, X1 %*% (alpha1), "+")) * my_beta
     lambda <- rowSums(lambda_k)
     lambda[lambda < lam_threshold] <- lam_threshold
     d1_d2 <- calc_Q_all(Y, lambda)
@@ -154,14 +166,22 @@ solveIRWLS.effects_trust <- function(
         A <- cbind(diag(dim(D_mat)[2]), -diag(dim(D_mat)[2]))
         bzero <- rep(-delta, 2 * dim(D_mat)[2])
         lambda_reg <- 1e-7
-        D_mat <- D_mat + diag(dim(D_mat)[1]) * lambda_reg # avoid numerical errors
-        solution <- quadprog::solve.QP(D_mat, d_vec, A, bzero, meq = 0)$solution #* 0.01 # CHANGE THIS
+        # Avoid numerical errors
+        D_mat <- D_mat + diag(dim(D_mat)[1]) * lambda_reg
+        solution <- quadprog::solve.QP(D_mat, d_vec, A, bzero, meq = 0)$solution
 
-        predicted_decrease <- -(0.5 * t(solution) %*% D_mat_o %*% solution - sum(d_vec_o * solution))
+        predicted_decrease <- -(
+            0.5 * t(solution) %*% D_mat_o %*% solution - sum(d_vec_o * solution)
+        )
 
         alpha1_new <- alpha1 + solution[seq_len(L1)]
-        alpha2_new <- alpha2 + matrix(solution[(L1 + 1):length(solution)], nrow = L2, ncol = K)
-        lambda_k_new <- exp(sweep(X2 %*% (alpha2_new), 1, X1 %*% (alpha1_new), "+")) * my_beta # J by K
+        alpha2_new <- alpha2 + matrix(
+            solution[(L1 + 1):length(solution)], nrow = L2, ncol = K
+        )
+        # J by K
+        lambda_k_new <- exp(
+            sweep(X2 %*% (alpha2_new), 1, X1 %*% (alpha1_new), "+")
+        ) * my_beta
         error_vec <- is.na(colMeans(lambda_k_new)) | error_vec
         lambda_k_new[is.na(lambda_k_new)] <- 1
         lambda_new <- rowSums(lambda_k_new)
@@ -184,8 +204,12 @@ solveIRWLS.effects_trust <- function(
         } else {
             delta <- min(1, beta_fail * delta)
         }
-        if (delta < MIN_CHANGE || (itera >= MIN_ITERATIONS &&
-            max(pred_decrease_vals[(itera - MIN_ITERATIONS + 1):itera]) < min(epsilon_2))) {
+        max_pred_decrease <- max(
+            pred_decrease_vals[(itera - MIN_ITERATIONS + 1):itera]
+        )
+        if (
+            delta < MIN_CHANGE || (itera >= MIN_ITERATIONS &&
+            max_pred_decrease < min(epsilon_2))) {
             break
         }
     }
@@ -207,9 +231,10 @@ solveIRWLS.effects_trust <- function(
     )
     names(error_vec) <- colnames(my_beta)
     return(list(
-        alpha1 = alpha1, alpha2 = alpha2, converged = any(converged_vec), I = I, d = d_vec_o,
-        n.iter = itera, log_l = prev_ll, precision = precision, prediction = lambda,
-        converged_vec = converged_vec, error_vec = error_vec
+        alpha1 = alpha1, alpha2 = alpha2, converged = any(converged_vec), I = I,
+        d = d_vec_o, n.iter = itera, log_l = prev_ll, precision = precision,
+        prediction = lambda, converged_vec = converged_vec,
+        error_vec = error_vec
     ))
 }
 
@@ -218,9 +243,17 @@ estimate_gene_wrapper <- function(
     n.iter = 200, MIN_CHANGE = 1e-3, sigma_gene = TRUE,
     PRECISION.THRESHOLD = 0.05, alpha2_init = NULL) {
     if (sigma_gene) {
-        return(choose_sigma_gene(sigma_init, Y, X1, X2, my_beta, nUMI, test_mode, verbose = verbose, n.iter = n.iter, MIN_CHANGE = MIN_CHANGE, PRECISION.THRESHOLD = PRECISION.THRESHOLD))
+        return(choose_sigma_gene(
+            sigma_init, Y, X1, X2, my_beta, nUMI, test_mode, verbose = verbose,
+            n.iter = n.iter, MIN_CHANGE = MIN_CHANGE,
+            PRECISION.THRESHOLD = PRECISION.THRESHOLD
+        ))
     } else {
-        res <- estimate_effects_trust(Y, X1, X2, my_beta, nUMI, test_mode, verbose = verbose, n.iter = n.iter, MIN_CHANGE = MIN_CHANGE, PRECISION.THRESHOLD = PRECISION.THRESHOLD, alpha2_init = alpha2_init)
+        res <- estimate_effects_trust(
+            Y, X1, X2, my_beta, nUMI, test_mode, verbose = verbose,
+            n.iter = n.iter, MIN_CHANGE = MIN_CHANGE,
+            PRECISION.THRESHOLD = PRECISION.THRESHOLD, alpha2_init = alpha2_init
+        )
         return(list(sigma_s_best = -1, res = res))
     }
 }
