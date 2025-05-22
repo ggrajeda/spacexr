@@ -53,4 +53,4 @@ Suggests:
     testthat
 Config/testthat/edition: 3
 biocViews: GeneExpression, DifferentialExpression, SingleCell, RNASeq, Software,
-    Spatial, Transcriptomics
+    Spatial, Transcriptomics, Sequencing
