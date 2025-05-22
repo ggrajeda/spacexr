@@ -853,7 +853,7 @@ find_sig_genes_categorical <- function(
     if (length(gene_list_sig) > 0) {
         sig_genes <- all_genes[gene_list_sig, ]
         sig_genes <- sig_genes[
-            abs(sig_genes$p_val < p_thresh) &
+            abs(sig_genes$p_val) < p_thresh &
             abs(sig_genes$log_fc) >= log_fc_thresh,
         ]
     } else {
