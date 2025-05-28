@@ -149,6 +149,7 @@ get_de_pop <- function(
     return(de_pop)
 }
 
+#' @importFrom utils write.csv
 one_ct_genes <- function(
     cell_type, myRCTD_list, de_results_list, resultsdir, cell_types_present,
     params_to_test, q_thresh = .01, p_thresh = 1, filter = TRUE,

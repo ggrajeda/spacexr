@@ -60,8 +60,8 @@ types.}
 
 \item{fdr}{(default 0.01) false discovery rate for hypothesis testing}
 
-\item{test_genes_sig}{(default TRUE) logical controlling whether genes will be
-tested for significance}
+\item{test_genes_sig}{(default TRUE) logical controlling whether genes will
+be tested for significance}
 
 \item{logs}{(default FALSE) if TRUE, writes progress to logs/de_logs.txt}
 
@@ -86,9 +86,9 @@ an \code{\linkS4class{RCTD}} object containing the results of the
 }
 \description{
 Identifies cell type specific differential expression (DE) across multiple
-discrete regions The design matrix contains for each region a column of 0s and
-1s representing membership in that region. Uses maximum likelihood estimation
-to estimate DE and standard errors for each gene and each cell type. Selects
-genes with significant nonzero DE. Tests for differences in gene expression
-across regions.
+discrete regions The design matrix contains for each region a column of 0s
+and 1s representing membership in that region. Uses maximum likelihood
+estimation to estimate DE and standard errors for each gene and each cell
+type. Selects genes with significant nonzero DE. Tests for differences in
+gene expression across regions.
 }

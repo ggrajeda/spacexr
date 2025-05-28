@@ -17,6 +17,12 @@ set_likelihood_vars <- function(Q_mat_loc, X_vals, sigma = NULL) {
     set_SQ_mat(SQ_mat)
 }
 
+set_likelihood_vars_sigma <- function(sigma) {
+    Q_mat_all <- get_Q_all()
+    X_vals <- get_X_vals()
+    set_likelihood_vars(Q_mat_all[[sigma]], X_vals)
+}
+
 solve_sq <- function(Q_mat, X_vals) {
     # solve for the s coefficients
     n <- dim(Q_mat)[2] - 1

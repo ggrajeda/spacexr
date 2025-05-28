@@ -454,6 +454,7 @@ run.CSIDE <- function(
 #' @param test_error (default FALSE) if TRUE, exits after testing for error
 #'   messages without running CSIDE. If set to TRUE, this can be used to quickly
 #'   evaluate if CSIDE will run without error.
+#'
 #' @return an \code{\linkS4class{RCTD}} object containing the results of the
 #'   CSIDE algorithm. Contains objects \code{de_results}, which contain the
 #'   results of the CSIDE algorithm including `gene_fits`, which contains the
@@ -462,6 +463,8 @@ run.CSIDE <- function(
 #'   `all_gene_list` is the analogous list for all genes (including
 #'   nonsignificant). Additionally, the object contains `internal_vars_de` a
 #'   list of variables that are used internally by CSIDE
+#'
+#' @importFrom stats aggregate median p.adjust quantile sd var
 #' @export
 run.CSIDE.general <- function(
     rctd_results, X1, X2, barcodes, cell_types = NULL, gene_threshold = 5e-5,
