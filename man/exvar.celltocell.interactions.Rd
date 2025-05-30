@@ -7,8 +7,8 @@
 exvar.celltocell.interactions(myRCTD, barcodes, cell_type, radius = 50)
 }
 \arguments{
-\item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types
-e.g. from the \code{\link{run.RCTD}} function.}
+\item{myRCTD}{a \code{\linkS4class{CsideConfig}} object adapted from the
+output of the \code{\link{runRctd}} function.}
 
 \item{barcodes}{the barcodes, or pixel names, of the
 \code{\linkS4class{SpatialRNA}} for which to evaluate the explanatory

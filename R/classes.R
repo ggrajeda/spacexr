@@ -449,6 +449,7 @@ setMethod("show", "RctdConfig", function(object) {
     }
 })
 
+#' @export
 setClass("CsideConfig",
     slots = c(
         spatialRNA = "SpatialRNA",

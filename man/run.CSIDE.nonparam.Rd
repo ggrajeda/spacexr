@@ -2,8 +2,7 @@
 % Please edit documentation in R/CSIDE.R
 \name{run.CSIDE.nonparam}
 \alias{run.CSIDE.nonparam}
-\title{Runs CSIDE on a \code{\linkS4class{RCTD}} object to detect nonparametric
-smooth gene expression patterns}
+\title{Runs CSIDE to detect nonparametric smooth gene expression patterns}
 \usage{
 run.CSIDE.nonparam(
   rctd_results,
@@ -24,6 +23,9 @@ run.CSIDE.nonparam(
 )
 }
 \arguments{
+\item{rctd_results}{a \code{\link[SpatialExperiment]{SpatialExperiment}}
+object output by the \code{\link{runRctd}} function.}
+
 \item{df}{(default 15) the degrees of freedom, or number of basis functions
 to be used in the model.}
 
@@ -69,18 +71,16 @@ be tested for significance}
 \item{test_error}{(default FALSE) if TRUE, exits after testing for error
 messages without running CSIDE. If set to TRUE, this can be used to quickly
 evaluate if CSIDE will run without error.}
-
-\item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types
-e.g. from the \code{\link{run.RCTD}} function.}
 }
 \value{
-an \code{\linkS4class{RCTD}} object containing the results of the
-  CSIDE algorithm. Contains objects \code{de_results}, which contain the
+a \code{\linkS4class{CsideConfig}} object containing the results of
+  the CSIDE algorithm. Contains objects \code{de_results}, which contain the
   results of the CSIDE algorithm including `gene_fits`, which contains the
   results of fits on individual genes, in addition `sig_gene_list`, a list,
-  for each cell type, of significant genes detected by CSIDE. Additionally,
-  the object contains `internal_vars_de` a list of variables that are used
-  internally by CSIDE
+  for each cell type, of significant genes detected by CSIDE, whereas
+  `all_gene_list` is the analogous list for all genes (including
+  nonsignificant). Additionally, the object contains `internal_vars_de` a
+  list of variables that are used internally by CSIDE
 }
 \description{
 Identifies cell type specific smooth gene expression patterns. The design

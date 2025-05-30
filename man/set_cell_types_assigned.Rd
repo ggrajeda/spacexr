@@ -8,8 +8,8 @@ will toggle the cell_types_assigned variable, which enables CSIDE to be run.}
 set_cell_types_assigned(myRCTD)
 }
 \arguments{
-\item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types
-from the \code{\link{run.RCTD}} function.}
+\item{myRCTD}{a \code{\linkS4class{CsideConfig}} object adapted from the
+output of the \code{\link{runRctd}} function.}
 }
 \value{
 the `myRCTD` object with cell_types_assigned set to TRUE

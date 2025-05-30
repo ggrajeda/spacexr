@@ -8,8 +8,8 @@ variable}
 build.designmatrix.single(myRCTD, explanatory.variable)
 }
 \arguments{
-\item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types
-e.g. from the \code{\link{run.RCTD}} function.}
+\item{myRCTD}{a \code{\linkS4class{CsideConfig}} object adapted from the
+output of the \code{\link{runRctd}} function.}
 
 \item{explanatory.variable}{a named numeric vector representing the
 explanatory variable used for explaining differential expression in CSIDE.

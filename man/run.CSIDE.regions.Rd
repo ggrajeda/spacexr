@@ -2,8 +2,7 @@
 % Please edit documentation in R/CSIDE.R
 \name{run.CSIDE.regions}
 \alias{run.CSIDE.regions}
-\title{Runs CSIDE on a \code{\linkS4class{RCTD}} object for DE across multiple
-discrete regions}
+\title{Runs CSIDE for DE across multiple discrete regions}
 \usage{
 run.CSIDE.regions(
   rctd_results,
@@ -24,6 +23,9 @@ run.CSIDE.regions(
 )
 }
 \arguments{
+\item{rctd_results}{a \code{\link[SpatialExperiment]{SpatialExperiment}}
+object output by the \code{\link{runRctd}} function.}
+
 \item{region_list}{a list of \code{character} vectors, where each vector
 contains pixel names, or barcodes, for a single region. These pixel names
 should be a subset of the pixels in the \code{\linkS4class{SpatialRNA}}
@@ -71,18 +73,16 @@ differential expression}
 \item{test_error}{(default FALSE) if TRUE, exits after testing for error
 messages without running CSIDE. If set to TRUE, this can be used to quickly
 evaluate if CSIDE will run without error.}
-
-\item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types
-e.g. from the \code{\link{run.RCTD}} function.}
 }
 \value{
-an \code{\linkS4class{RCTD}} object containing the results of the
- CSIDE algorithm. Contains objects \code{de_results}, which contain the
- results of the CSIDE algorithm including `gene_fits`, which contains the
- results of fits on individual genes, in addition `sig_gene_list`, a list,
- for each cell type, of significant genes detected by CSIDE. Additionally,
- the object contains `internal_vars_de` a list of variables that are used
- internally by CSIDE
+a \code{\linkS4class{CsideConfig}} object containing the results of
+  the CSIDE algorithm. Contains objects \code{de_results}, which contain the
+  results of the CSIDE algorithm including `gene_fits`, which contains the
+  results of fits on individual genes, in addition `sig_gene_list`, a list,
+  for each cell type, of significant genes detected by CSIDE, whereas
+  `all_gene_list` is the analogous list for all genes (including
+  nonsignificant). Additionally, the object contains `internal_vars_de` a
+  list of variables that are used internally by CSIDE
 }
 \description{
 Identifies cell type specific differential expression (DE) across multiple

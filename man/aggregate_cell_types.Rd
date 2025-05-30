@@ -3,19 +3,19 @@
 \name{aggregate_cell_types}
 \alias{aggregate_cell_types}
 \title{Aggregates the pixel occurrences for each cell type in the
-\code{\linkS4class{RCTD}} object}
+\code{\linkS4class{CsideConfig}} object}
 \usage{
 aggregate_cell_types(myRCTD, barcodes, doublet_mode = TRUE)
 }
 \arguments{
+\item{myRCTD}{a \code{\linkS4class{CsideConfig}} object adapted from the
+output of the \code{\link{runRctd}} function.}
+
 \item{barcodes}{the barcodes, or pixel names, of the
 \code{\linkS4class{SpatialRNA}} object to be used when counting cell types.}
 
 \item{doublet_mode}{(default TRUE) if TRUE, uses RCTD doublet mode weights.
 Otherwise, uses RCTD full mode weights}
-
-\item{RCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types
-e.g. from the \code{\link{run.RCTD}} function.}
 }
 \value{
 a named vector of number of pixel occurrences for each cell type

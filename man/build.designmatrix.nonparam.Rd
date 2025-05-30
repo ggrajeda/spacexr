@@ -7,8 +7,8 @@
 build.designmatrix.nonparam(myRCTD, barcodes = NULL, df = 15)
 }
 \arguments{
-\item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types
-e.g. from the \code{\link{run.RCTD}} function.}
+\item{myRCTD}{a \code{\linkS4class{CsideConfig}} object adapted from the
+output of the \code{\link{runRctd}} function.}
 
 \item{barcodes}{(default NULL) the barcodes, or pixel names, of the
 \code{\linkS4class{SpatialRNA}} object to be used when creating the design

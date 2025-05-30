@@ -2,7 +2,7 @@
 % Please edit documentation in R/CSIDE.R
 \name{run.CSIDE.general}
 \alias{run.CSIDE.general}
-\title{Runs CSIDE on a \code{\linkS4class{RCTD}} object with a general design matrix}
+\title{Runs CSIDE for a general design matrix}
 \usage{
 run.CSIDE.general(
   rctd_results,
@@ -30,6 +30,9 @@ run.CSIDE.general(
 )
 }
 \arguments{
+\item{rctd_results}{a \code{\link[SpatialExperiment]{SpatialExperiment}}
+object output by the \code{\link{runRctd}} function.}
+
 \item{X1}{a matrix containing the covariates shared across all cell types.
 The rownames represent pixel names and should be a subset of the pixels in
 the \code{\linkS4class{SpatialRNA}} object. The columns each represent a
@@ -83,6 +86,11 @@ be tested for significance}
 
 \item{fdr}{(default 0.01) false discovery rate for hypothesis testing}
 
+\item{params_to_test}{(default 2 for test_mode = 'individual', all
+parameters for test_mode = 'categorical'). An integer vector of parameter
+indices to test. For example c(1,4,5) would test only parameters
+corresponding to columns 1, 4, and 5 of the design matrix X2.}
+
 \item{normalize_expr}{(default FALSE) if TRUE, constrains total gene
 expression to sum to 1 in each condition. Setting normalize_expr = TRUE is
 only valid for testing single parameters with test_mode = 'individual'.}
@@ -95,18 +103,10 @@ differential expression}
 \item{test_error}{(default FALSE) if TRUE, exits after testing for error
 messages without running CSIDE. If set to TRUE, this can be used to quickly
 evaluate if CSIDE will run without error.}
-
-\item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types
-e.g. from the \code{\link{run.RCTD}} function.}
-
-\item{params_to_test:}{(default 2 for test_mode = 'individual', all
-parameters for test_mode = 'categorical'). An integer vector of parameter
-indices to test. For example c(1,4,5) would test only parameters
-corresponding to columns 1, 4, and 5 of the design matrix X2.}
 }
 \value{
-an \code{\linkS4class{RCTD}} object containing the results of the
-  CSIDE algorithm. Contains objects \code{de_results}, which contain the
+a \code{\linkS4class{CsideConfig}} object containing the results of
+  the CSIDE algorithm. Contains objects \code{de_results}, which contain the
   results of the CSIDE algorithm including `gene_fits`, which contains the
   results of fits on individual genes, in addition `sig_gene_list`, a list,
   for each cell type, of significant genes detected by CSIDE, whereas

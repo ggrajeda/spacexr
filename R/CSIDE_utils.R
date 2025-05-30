@@ -27,8 +27,8 @@ filter_genes <- function(puck, threshold = 5e-5, batch_size = 1000) {
 #' If cell types have been assigned to the RCTD object, running this function
 #' will toggle the cell_types_assigned variable, which enables CSIDE to be run.
 #'
-#' @param myRCTD an \code{\linkS4class{RCTD}} object with annotated cell types
-#'   from the \code{\link{run.RCTD}} function.
+#' @param myRCTD a \code{\linkS4class{CsideConfig}} object adapted from the
+#'   output of the \code{\link{runRctd}} function.
 #' @return the `myRCTD` object with cell_types_assigned set to TRUE
 #' @export
 set_cell_types_assigned <- function(myRCTD) {
@@ -100,14 +100,14 @@ get_con_regions <- function(
 }
 
 #' Aggregates the pixel occurrences for each cell type in the
-#' \code{\linkS4class{RCTD}} object
+#' \code{\linkS4class{CsideConfig}} object
 #'
 #' The difference with \code{\link{count_cell_types}} is that this function does
 #' not filter out pixels based on total cell type weight, as occurs in the CSIDE
 #' algorithm.
 #'
-#' @param RCTD an \code{\linkS4class{RCTD}} object with annotated cell types
-#'   e.g. from the \code{\link{run.RCTD}} function.
+#' @param myRCTD a \code{\linkS4class{CsideConfig}} object adapted from the
+#'   output of the \code{\link{runRctd}} function.
 #' @param barcodes the barcodes, or pixel names, of the
 #'   \code{\linkS4class{SpatialRNA}} object to be used when counting cell types.
 #' @param doublet_mode (default TRUE) if TRUE, uses RCTD doublet mode weights.
@@ -256,8 +256,8 @@ check_converged_vec <- function(
 #' interactions. Density is computing using an exponentially-decaying filter.
 #' Currently only works for doublet mode RCTD.
 #'
-#' @param myRCTD an \code{\linkS4class{RCTD}} object with annotated cell types
-#'   e.g. from the \code{\link{run.RCTD}} function.
+#' @param myRCTD a \code{\linkS4class{CsideConfig}} object adapted from the
+#'   output of the \code{\link{runRctd}} function.
 #' @param cell_type the cell type (character) for which to compute density.
 #' @param barcodes the barcodes, or pixel names, of the
 #'   \code{\linkS4class{SpatialRNA}} for which to evaluate the explanatory
@@ -352,8 +352,8 @@ exvar.celltocell.interactions <- function(
 #' proximity of these points. Density is computing using an
 #' exponentially-decaying filter.
 #'
-#' @param myRCTD an \code{\linkS4class{RCTD}} object with annotated cell types
-#'   e.g. from the \code{\link{run.RCTD}} function.
+#' @param myRCTD a \code{\linkS4class{CsideConfig}} object adapted from the
+#'   output of the \code{\link{runRctd}} function.
 #' @param points a N by 2 matrix containing the locations of the points to be
 #'   used for computing density. The first column should be the x coordinates
 #'   while the second column should be the y coordinate.
@@ -400,8 +400,8 @@ normalize_ev <- function(explanatory.variable) {
 #' N_cell_types The N_coefficients are the number of explanatory variables in
 #' the CSIDE model
 #'
-#' @param myRCTD an \code{\linkS4class{RCTD}} object with fitted CSIDE e.g. from
-#'   the \code{\link{run.CSIDE}} function.
+#' @param myRCTD a \code{\linkS4class{CsideConfig}} object adapted from the
+#'   output of the \code{\link{runRctd}} function.
 #' @return a three-dimensional array representing CSIDE standard errors for each
 #'   gene, each coefficient, and each cell type.
 #' @export

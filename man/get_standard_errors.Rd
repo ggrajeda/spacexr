@@ -8,8 +8,8 @@ CSIDE coefficients}
 get_standard_errors(myRCTD)
 }
 \arguments{
-\item{myRCTD}{an \code{\linkS4class{RCTD}} object with fitted CSIDE e.g. from
-the \code{\link{run.CSIDE}} function.}
+\item{myRCTD}{a \code{\linkS4class{CsideConfig}} object adapted from the
+output of the \code{\link{runRctd}} function.}
 }
 \value{
 a three-dimensional array representing CSIDE standard errors for each

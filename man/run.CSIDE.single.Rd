@@ -2,8 +2,7 @@
 % Please edit documentation in R/CSIDE.R
 \name{run.CSIDE.single}
 \alias{run.CSIDE.single}
-\title{Runs CSIDE on a \code{\linkS4class{RCTD}} object with a single explanatory
-variable}
+\title{Runs CSIDE for a single explanatory variable}
 \usage{
 run.CSIDE.single(
   rctd_results,
@@ -25,17 +24,20 @@ run.CSIDE.single(
 )
 }
 \arguments{
+\item{rctd_results}{a \code{\link[SpatialExperiment]{SpatialExperiment}}
+object output by the \code{\link{runRctd}} function.}
+
 \item{explanatory.variable}{a named numeric vector representing the
 explanatory variable used for explaining differential expression in CSIDE.
 Names of the variable are the \code{\linkS4class{SpatialRNA}} pixel names,
 and values should be standardized between 0 and 1.}
 
 \item{cell_types}{the cell types used for CSIDE. If null, cell types will be
-chosen with aggregate occurrences of at least `cell_type_threshold`, as
+chosen with aggregate occurences of at least `cell_type_threshold`, as
 aggregated by \code{\link{aggregate_cell_types}}}
 
-\item{cell_type_threshold}{(default 125) min occurrence of number of cells
-for each cell type to be used, as aggregated by
+\item{cell_type_threshold}{(default 125) min occurence of number of cells for
+each cell type to be used, as aggregated by
 \code{\link{aggregate_cell_types}}}
 
 \item{gene_threshold}{(default 5e-5) minimum average normalized expression
@@ -55,7 +57,7 @@ parameter. If FALSE, overdispersion parameter is same across all genes.}
 maximum parameter change per algorithm step}
 
 \item{cell_types_present}{cell types (a superset of `cell_types`) to be
-considered as occurring often enough to consider for gene expression
+considered as occuring often enough to consider for gene expression
 contamination during the step filtering out marker genes of other cell
 types.}
 
@@ -65,7 +67,8 @@ types.}
 be tested for significance}
 
 \item{normalize_expr}{(default FALSE) if TRUE, constrains total gene
-expression to sum to 1 in each condition.}
+expression to sum to 1 in each condition. Setting normalize_expr = TRUE is
+only valid for testing single parameters with test_mode = 'individual'.}
 
 \item{logs}{(default FALSE) if TRUE, writes progress to logs/de_logs.txt}
 
@@ -75,18 +78,16 @@ differential expression}
 \item{test_error}{(default FALSE) if TRUE, exits after testing for error
 messages without running CSIDE. If set to TRUE, this can be used to quickly
 evaluate if CSIDE will run without error.}
-
-\item{myRCTD}{an \code{\linkS4class{RCTD}} object with annotated cell types
-e.g. from the \code{\link{run.RCTD}} function.}
 }
 \value{
-an \code{\linkS4class{RCTD}} object containing the results of the
-  CSIDE algorithm. Contains objects \code{de_results}, which contain the
+a \code{\linkS4class{CsideConfig}} object containing the results of
+  the CSIDE algorithm. Contains objects \code{de_results}, which contain the
   results of the CSIDE algorithm including `gene_fits`, which contains the
   results of fits on individual genes, in addition `sig_gene_list`, a list,
-  for each cell type, of significant genes detected by CSIDE. Additionally,
-  the object contains `internal_vars_de` a list of variables that are used
-  internally by CSIDE
+  for each cell type, of significant genes detected by CSIDE, whereas
+  `all_gene_list` is the analogous list for all genes (including
+  nonsignificant). Additionally, the object contains `internal_vars_de` a
+  list of variables that are used internally by CSIDE
 }
 \description{
 Identifies cell type specific differential expression (DE) as a function of
