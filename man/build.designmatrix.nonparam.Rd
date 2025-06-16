@@ -7,7 +7,7 @@
 build.designmatrix.nonparam(myRCTD, barcodes = NULL, df = 15)
 }
 \arguments{
-\item{myRCTD}{a \code{\linkS4class{CsideConfig}} object adapted from the
+\item{myRCTD}{an \code{\linkS4class{RctdConfig}} object adapted from the
 output of the \code{\link{runRctd}} function.}
 
 \item{barcodes}{(default NULL) the barcodes, or pixel names, of the

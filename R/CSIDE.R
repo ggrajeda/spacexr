@@ -2,13 +2,9 @@
 createCside <- function(rctd_results) {
     config <- metadata(rctd_results)$config
     config$MIN_CHANGE_DE <- 0.001
-    # TODO: Populate config with doublet mode in RCTD
-    config$doublet_mode <- "doublet"
     new(
-        "CsideConfig",
+        "RctdConfig",
         spatialRNA = metadata(rctd_results)$spatial_rna,
-        # TODO: Verify that this we don't need to store original SpatialRNA
-        originalSpatialRNA = metadata(rctd_results)$spatial_rna,
         config = config,
         cell_type_info = metadata(rctd_results)$cell_type_info,
         internal_vars = metadata(rctd_results)$internal_vars,
@@ -289,7 +285,7 @@ run.CSIDE <- function(
 #'   messages without running CSIDE. If set to TRUE, this can be used to quickly
 #'   evaluate if CSIDE will run without error.
 #'
-#' @return a \code{\linkS4class{CsideConfig}} object containing the results of
+#' @return an \code{\linkS4class{RctdConfig}} object containing the results of
 #'   the CSIDE algorithm. Contains objects \code{de_results}, which contain the
 #'   results of the CSIDE algorithm including `gene_fits`, which contains the
 #'   results of fits on individual genes, in addition `sig_gene_list`, a list,
@@ -415,7 +411,7 @@ run.CSIDE.general <- function(
             "of X1 or X2."
         )
     }
-    puck <- myRCTD@originalSpatialRNA
+    puck <- myRCTD@spatialRNA
     gene_list_tot <- filter_genes(puck, threshold = gene_threshold)
     if (length(gene_list_tot) == 0) {
         stop(
@@ -548,7 +544,7 @@ get_sig_genes <- function(
 test_genes_sig_post <- function(
     myRCTD, params_to_test = NULL, fdr = .01, p_thresh = 1,
     log_fc_thresh = 0.4, normalize_expr = FALSE) {
-    puck <- myRCTD@originalSpatialRNA
+    puck <- myRCTD@spatialRNA
     gene_list_tot <- rownames(myRCTD@de_results$gene_fits$s_mat)
     cell_types <- myRCTD@internal_vars_de$cell_types
     my_beta <- myRCTD@internal_vars_de$my_beta

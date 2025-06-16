@@ -50,14 +50,15 @@ summarizedExperimentToSpatialRNA <- function(
 #' @keywords internal
 #' @inherit fitPixels examples
 createRctdConfig <- function(
-    rctd_data, max_cores = 1, max_multi_types = 4, confidence_threshold = 5,
-    doublet_threshold = 20) {
+    rctd_data, rctd_mode, max_cores = 1, max_multi_types = 4,
+    confidence_threshold = 5, doublet_threshold = 20) {
     spatial_rna <- summarizedExperimentToSpatialRNA(
         rctd_data$spatial_experiment,
         require_int = FALSE
     )
 
     config <- rctd_data$config
+    config$doublet_mode <- rctd_mode
     config$max_cores <- max_cores
     config$max_multi_types <- max_multi_types
     config$confidence_threshold <- confidence_threshold
@@ -196,7 +197,7 @@ runRctd <- function(
     checkNumeric(doublet_threshold, "doublet_threshold")
 
     RCTD <- createRctdConfig(
-        rctd_data,
+        rctd_data, rctd_mode = rctd_mode,
         max_cores = max_cores, max_multi_types = max_multi_types,
         confidence_threshold = confidence_threshold,
         doublet_threshold = doublet_threshold

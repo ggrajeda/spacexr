@@ -147,6 +147,27 @@ setGeneric(
     function(object, value) standardGeneric("internal_vars<-")
 )
 
+#' Generic accessor for internal_vars_de slot
+#'
+#' @param object An object with an internal_vars_de slot
+#' @return The internal_vars_de slot of the object
+#' @keywords internal
+setGeneric(
+    "internal_vars_de",
+    function(object) standardGeneric("internal_vars_de")
+)
+
+#' Generic setter for internal_vars_de slot
+#'
+#' @param object An object with an internal_vars_de slot
+#' @param value The new value for the internal_vars_de slot
+#' @return The updated object
+#' @keywords internal
+setGeneric(
+    "internal_vars_de<-",
+    function(object, value) standardGeneric("internal_vars_de<-")
+)
+
 #' Spatial transcriptomics data
 #'
 #' A class representing spatial transcriptomics data, where gene expression is
@@ -339,6 +360,8 @@ setMethod("show", "Reference", function(object) {
     }
 })
 
+setClassUnion("SummarizedExperimentOrNull", c("SummarizedExperiment", "NULL"))
+
 #' RCTD algorithm configuration
 #'
 #' @slot spatialRNA a \code{\linkS4class{SpatialRNA}} object containing the
@@ -350,6 +373,12 @@ setMethod("show", "Reference", function(object) {
 #'   \code{renorm} (profiles normalized to match the spatial data)
 #' @slot internal_vars a list of internal variables used during the RCTD
 #'   analysis
+#' @slot results a \code{\link[SpatialExperiment]{SpatialExperiment}} object
+#'   containing the results of RCTD (optional, used by CSIDE)
+#' @slot internal_vars_de a list of internal variables used during the CSIDE
+#'   analysis (optional, used by CSIDE)
+#' @slot de_results a list containing the results of CSIDE (optional, used by
+#'   CSIDE)
 #'
 #' @import Matrix
 #' @importClassesFrom Matrix Matrix dgCMatrix
@@ -357,16 +386,23 @@ setMethod("show", "Reference", function(object) {
 #' @keywords internal
 setClass("RctdConfig",
     slots = c(
+        # TODO: Verify that we don't need to store original SpatialRNA
         spatialRNA = "SpatialRNA",
         config = "list",
         cell_type_info = "list",
-        internal_vars = "list"
+        internal_vars = "list",
+        results = "SummarizedExperimentOrNull",
+        internal_vars_de = "list",
+        de_results = "list"
     ),
     prototype = list(
         spatialRNA = NULL,
         config = list(),
         cell_type_info = list(info = NULL, renorm = NULL),
-        internal_vars = list()
+        internal_vars = list(),
+        results = NULL,
+        internal_vars_de = list(),
+        de_results = list()
     )
 )
 
@@ -426,6 +462,20 @@ setMethod("internal_vars<-", "RctdConfig", function(object, value) {
     object
 })
 
+#' @rdname internal_vars_de
+#' @keywords internal
+setMethod("internal_vars_de", "RctdConfig", function(object) {
+    object@internal_vars_de
+})
+
+#' @rdname internal_vars_de
+#' @keywords internal
+setMethod("internal_vars_de<-", "RctdConfig", function(object, value) {
+    object@internal_vars_de <- value
+    validObject(object)
+    object
+})
+
 #' @param object RCTD configuration object
 #' @rdname RctdConfig-class
 #' @export
@@ -448,27 +498,3 @@ setMethod("show", "RctdConfig", function(object) {
         ))
     }
 })
-
-#' @export
-setClass("CsideConfig",
-    slots = c(
-        spatialRNA = "SpatialRNA",
-        originalSpatialRNA = "SpatialRNA",
-        config = "list",
-        cell_type_info = "list",
-        internal_vars = "list",
-        results = "SummarizedExperiment",
-        de_results = "list",
-        internal_vars_de = "list"
-    ),
-    prototype = list(
-        spatialRNA = NULL,
-        originalSpatialRNA = NULL,
-        config = list(),
-        cell_type_info = list(info = NULL, renorm = NULL),
-        internal_vars = list(),
-        results = NULL,
-        de_results = list(),
-        internal_vars_de = list()
-    )
-)

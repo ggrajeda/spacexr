@@ -204,12 +204,11 @@ solveIRWLS.effects_trust <- function(
         } else {
             delta <- min(1, beta_fail * delta)
         }
-        max_pred_decrease <- max(
-            pred_decrease_vals[(itera - MIN_ITERATIONS + 1):itera]
-        )
         if (
             delta < MIN_CHANGE || (itera >= MIN_ITERATIONS &&
-            max_pred_decrease < min(epsilon_2))) {
+            max(
+                pred_decrease_vals[(itera - MIN_ITERATIONS + 1):itera]
+            ) < min(epsilon_2))) {
             break
         }
     }

@@ -3,12 +3,12 @@
 \name{aggregate_cell_types}
 \alias{aggregate_cell_types}
 \title{Aggregates the pixel occurrences for each cell type in the
-\code{\linkS4class{CsideConfig}} object}
+\code{\linkS4class{RctdConfig}} object}
 \usage{
 aggregate_cell_types(myRCTD, barcodes, doublet_mode = TRUE)
 }
 \arguments{
-\item{myRCTD}{a \code{\linkS4class{CsideConfig}} object adapted from the
+\item{myRCTD}{an \code{\linkS4class{RctdConfig}} object adapted from the
 output of the \code{\link{runRctd}} function.}
 
 \item{barcodes}{the barcodes, or pixel names, of the

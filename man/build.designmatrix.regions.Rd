@@ -7,7 +7,7 @@
 build.designmatrix.regions(myRCTD, region_list)
 }
 \arguments{
-\item{myRCTD}{a \code{\linkS4class{CsideConfig}} object adapted from the
+\item{myRCTD}{an \code{\linkS4class{RctdConfig}} object adapted from the
 output of the \code{\link{runRctd}} function.}
 
 \item{region_list}{a list of \code{character} vectors, where each vector

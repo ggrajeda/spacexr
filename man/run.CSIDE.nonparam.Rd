@@ -73,7 +73,7 @@ messages without running CSIDE. If set to TRUE, this can be used to quickly
 evaluate if CSIDE will run without error.}
 }
 \value{
-a \code{\linkS4class{CsideConfig}} object containing the results of
+an \code{\linkS4class{RctdConfig}} object containing the results of
   the CSIDE algorithm. Contains objects \code{de_results}, which contain the
   results of the CSIDE algorithm including `gene_fits`, which contains the
   results of fits on individual genes, in addition `sig_gene_list`, a list,

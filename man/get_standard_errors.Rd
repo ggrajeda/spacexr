@@ -8,7 +8,7 @@ CSIDE coefficients}
 get_standard_errors(myRCTD)
 }
 \arguments{
-\item{myRCTD}{a \code{\linkS4class{CsideConfig}} object adapted from the
+\item{myRCTD}{an \code{\linkS4class{RctdConfig}} object adapted from the
 output of the \code{\link{runRctd}} function.}
 }
 \value{

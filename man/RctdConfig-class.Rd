@@ -29,6 +29,15 @@ with two components: \code{info} (raw profiles from reference data) and
 
 \item{\code{internal_vars}}{a list of internal variables used during the RCTD
 analysis}
+
+\item{\code{results}}{a \code{\link[SpatialExperiment]{SpatialExperiment}} object
+containing the results of RCTD (optional, used by CSIDE)}
+
+\item{\code{internal_vars_de}}{a list of internal variables used during the CSIDE
+analysis (optional, used by CSIDE)}
+
+\item{\code{de_results}}{a list containing the results of CSIDE (optional, used by
+CSIDE)}
 }}
 
 \keyword{internal}

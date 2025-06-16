@@ -94,7 +94,7 @@ check_cell_type_specific <- function(cell_type_specific, D, f_name) {
 #' The design matrix contains an intercept column and a column of the
 #' explanatory variable.
 #'
-#' @param myRCTD a \code{\linkS4class{CsideConfig}} object adapted from the
+#' @param myRCTD an \code{\linkS4class{RctdConfig}} object adapted from the
 #'   output of the \code{\link{runRctd}} function.
 #' @param explanatory.variable a named numeric vector representing the
 #'   explanatory variable used for explaining differential expression in CSIDE.
@@ -141,7 +141,7 @@ build.designmatrix.single <- function(myRCTD, explanatory.variable) {
 #' The design matrix contains thin plate spline basis functions spanning the
 #' space of smooth functions.
 #'
-#' @param myRCTD a \code{\linkS4class{CsideConfig}} object adapted from the
+#' @param myRCTD an \code{\linkS4class{RctdConfig}} object adapted from the
 #'   output of the \code{\link{runRctd}} function.
 #' @param df (default 15) the degrees of freedom, or number of basis functions
 #'   to be used in the design matrix
@@ -176,7 +176,7 @@ build.designmatrix.nonparam <- function(myRCTD, barcodes = NULL, df = 15) {
 #' The design matrix contains for each region a column of 0s and 1s representing
 #' membership in that region.
 #'
-#' @param myRCTD a \code{\linkS4class{CsideConfig}} object adapted from the
+#' @param myRCTD an \code{\linkS4class{RctdConfig}} object adapted from the
 #'   output of the \code{\link{runRctd}} function.
 #' @param region_list a list of \code{character} vectors, where each vector
 #'   contains pixel names, or barcodes, for a single region. These pixel names
