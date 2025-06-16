@@ -150,7 +150,8 @@ get_cell_type_ind <- function(X1, X2, n_cell_types) {
 choose_cell_types <- function(
     myRCTD, barcodes, doublet_mode, cell_type_threshold, cell_types) {
     cell_type_count <- aggregate_cell_types(
-        myRCTD, barcodes, doublet_mode = doublet_mode
+        myRCTD, barcodes,
+        doublet_mode = doublet_mode
     )
     cell_types_default <- names(which(cell_type_count >= cell_type_threshold))
     passed_cell_types <- !is.null(cell_types)
@@ -280,9 +281,10 @@ exvar.celltocell.interactions <- function(
     # "certain doublets" with first or second type being the target type
     target_df <- dplyr::filter(
         doublet_df, (rownames(doublet_df) %in% barcodes) &
-        ((first_type == cell_type & (spot_class != "reject")) |
-            ((second_type == cell_type) & (spot_class == "doublet_certain"))
-        ))
+            (((first_type == cell_type) & (spot_class != "reject")) |
+                ((second_type == cell_type) & (spot_class == "doublet_certain"))
+            )
+    )
     target_barcodes <- rownames(target_df)
 
     # Names are the barcodes, value is a score computed using euclidean distance

@@ -41,16 +41,19 @@ run.CSIDE.single <- function(
     region_thresh <- cell_type_threshold / 2
     r1 <- barcodes[explanatory.variable < medv]
     cell_type_filter <- aggregate_cell_types(
-        myRCTD, r1, doublet_mode = doublet_mode
+        myRCTD, r1,
+        doublet_mode = doublet_mode
     ) >= region_thresh
     r2 <- barcodes[explanatory.variable > medv]
     cell_type_filter <- cell_type_filter & (
         aggregate_cell_types(
-            myRCTD, r2, doublet_mode = doublet_mode
+            myRCTD, r2,
+            doublet_mode = doublet_mode
         ) >= region_thresh
     )
     run.CSIDE(
-        rctd_results, X2, barcodes, cell_types, gene_threshold = gene_threshold,
+        rctd_results, X2, barcodes, cell_types,
+        gene_threshold = gene_threshold,
         cell_type_threshold = cell_type_threshold, doublet_mode = doublet_mode,
         test_mode = "individual", params_to_test = 2,
         weight_threshold = weight_threshold, sigma_gene = sigma_gene,
@@ -90,31 +93,37 @@ run.CSIDE.nonparam <- function(
     medy <- median(coords$y)
     r1 <- barcodes[coords$x < medx & coords$y < medy]
     cell_type_filter <- aggregate_cell_types(
-        myRCTD, r1, doublet_mode = doublet_mode
+        myRCTD, r1,
+        doublet_mode = doublet_mode
     ) >= region_thresh
     r2 <- barcodes[coords$x < medx & coords$y > medy]
     cell_type_filter <- cell_type_filter & (
         aggregate_cell_types(
-            myRCTD, r2, doublet_mode = doublet_mode
+            myRCTD, r2,
+            doublet_mode = doublet_mode
         ) >= region_thresh
     )
     r3 <- barcodes[coords$x > medx & coords$y > medy]
     cell_type_filter <- cell_type_filter & (
         aggregate_cell_types(
-            myRCTD, r3, doublet_mode = doublet_mode
+            myRCTD, r3,
+            doublet_mode = doublet_mode
         ) >= region_thresh
     )
     r4 <- barcodes[coords$x > medx & coords$y > medy]
     cell_type_filter <- cell_type_filter & (
         aggregate_cell_types(
-            myRCTD, r4, doublet_mode = doublet_mode
+            myRCTD, r4,
+            doublet_mode = doublet_mode
         ) >= region_thresh
     )
     cell_type_count <- aggregate_cell_types(
-        myRCTD, barcodes, doublet_mode = doublet_mode
+        myRCTD, barcodes,
+        doublet_mode = doublet_mode
     )
     run.CSIDE(
-        rctd_results, X2, barcodes, cell_types, gene_threshold = gene_threshold,
+        rctd_results, X2, barcodes, cell_types,
+        gene_threshold = gene_threshold,
         doublet_mode = doublet_mode, test_mode = "individual",
         cell_type_threshold = cell_type_threshold,
         weight_threshold = weight_threshold, sigma_gene = sigma_gene,
@@ -311,7 +320,8 @@ run.CSIDE.general <- function(
             "run.CSIDE.general: some parameters are set to the CSIDE ",
             "vignette values, which are intended for testing but not proper ",
             "execution. For more accurate results, consider using the default ",
-            "parameters to this function.")
+            "parameters to this function."
+        )
     }
     if (doublet_mode && myRCTD@config$RCTDmode != "doublet") {
         stop(
@@ -367,7 +377,8 @@ run.CSIDE.general <- function(
     if (!(test_mode %in% c("individual", "categorical"))) {
         stop(
             "run.CSIDE.general: not valid test_mode = ", test_mode,
-            '. Please set test_mode = "categorical" or "individual".')
+            '. Please set test_mode = "categorical" or "individual".'
+        )
     }
     if (is.null(params_to_test)) {
         if (test_mode == "individual") {
@@ -420,8 +431,8 @@ run.CSIDE.general <- function(
         )
     }
     if (length(intersect(
-            gene_list_tot, rownames(myRCTD@cell_type_info$info[[1]])
-        )) == 0) {
+        gene_list_tot, rownames(myRCTD@cell_type_info$info[[1]])
+    )) == 0) {
         stop(
             "run.CSIDE.general: no genes that past threshold were contained ",
             "in the single cell reference. Please lower gene threshold or ",
@@ -442,7 +453,8 @@ run.CSIDE.general <- function(
         thresh <- weight_threshold
     }
     res <- filter_barcodes_cell_types(
-        barcodes, cell_types, my_beta, thresh = thresh
+        barcodes, cell_types, my_beta,
+        thresh = thresh
     )
     if (test_error) {
         return(myRCTD)
@@ -477,7 +489,8 @@ run.CSIDE.general <- function(
     if (test_genes_sig) {
         both_gene_list <- get_sig_genes(
             puck, myRCTD, gene_list_tot, cell_types, my_beta, barcodes, nUMI,
-            gene_fits, cell_types_present, X2, test_mode, fdr = fdr,
+            gene_fits, cell_types_present, X2, test_mode,
+            fdr = fdr,
             params_to_test = params_to_test, normalize_expr = normalize_expr,
             log_fc_thresh = log_fc_thresh
         )
@@ -518,7 +531,8 @@ get_sig_genes <- function(
     for (cell_type in cell_types) {
         gene_list_type <- get_gene_list_type(
             my_beta, barcodes, cell_type, nUMI, gene_list_tot, cti_renorm,
-            cell_types_present, gene_fits, test_mode = test_mode
+            cell_types_present, gene_fits,
+            test_mode = test_mode
         )
         if (test_mode == "individual") {
             both_genes <- find_sig_genes_individual(
@@ -687,7 +701,7 @@ find_sig_genes_categorical <- function(
         sig_genes <- all_genes[gene_list_sig, ]
         sig_genes <- sig_genes[
             abs(sig_genes$p_val) < p_thresh &
-            abs(sig_genes$log_fc) >= log_fc_thresh,
+                abs(sig_genes$log_fc) >= log_fc_thresh,
         ]
     } else {
         sig_genes <- list()

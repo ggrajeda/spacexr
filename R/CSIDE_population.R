@@ -3,7 +3,7 @@ get_means_sds <- function(cell_type, gene, de_results_list, params_to_test) {
     ct_ind <- which(colnames(de_results$gene_fits$mean_val) == cell_type)
     L <- (
         dim(de_results$gene_fits$s_mat)[2] /
-        dim(de_results$gene_fits$mean_val)[2]
+            dim(de_results$gene_fits$mean_val)[2]
     )
     ct_ind <- L * (ct_ind - 1) + params_to_test
     means <- rep(0, length(de_results_list))
@@ -14,12 +14,16 @@ get_means_sds <- function(cell_type, gene, de_results_list, params_to_test) {
         )
     }))
     means[con] <- unlist(
-        lapply(de_results_list[con],
-        function(x) x$gene_fits$mean_val_cor[[cell_type]][gene])
+        lapply(
+            de_results_list[con],
+            function(x) x$gene_fits$mean_val_cor[[cell_type]][gene]
+        )
     )
     sds[con] <- unlist(
-        lapply(de_results_list[con],
-        function(x) x$gene_fits$s_mat[gene, ct_ind])
+        lapply(
+            de_results_list[con],
+            function(x) x$gene_fits$s_mat[gene, ct_ind]
+        )
     )
     list(means = means, sds = sds)
 }
@@ -35,7 +39,7 @@ get_de_pop <- function(
     ct_ind <- which(colnames(de_results$gene_fits$mean_val) == cell_type)
     L <- (
         dim(de_results$gene_fits$s_mat)[2] /
-        dim(de_results$gene_fits$mean_val)[2]
+            dim(de_results$gene_fits$mean_val)[2]
     )
     ct_ind <- L * (ct_ind - 1) + params_to_test
     gene_list <- Reduce(
@@ -74,8 +78,8 @@ get_de_pop <- function(
         check_con <- function(x) {
             ifelse(gene %in% rownames(x$gene_fits$con_mat),
                 (x$gene_fits$con_mat[gene, cell_type] &&
-                !is.na(x$gene_fits$s_mat[gene, ct_ind]) &&
-                (x$gene_fits$s_mat[gene, ct_ind] < S.MAX)), FALSE
+                    !is.na(x$gene_fits$s_mat[gene, ct_ind]) &&
+                    (x$gene_fits$s_mat[gene, ct_ind] < S.MAX)), FALSE
             )
         }
         con <- unlist(lapply(de_results_list, check_con))
@@ -87,7 +91,7 @@ get_de_pop <- function(
         used_groups <- names(table(group_ids[con]))
         if (
             sum(con) < MIN.CONV.REPLICATES ||
-            (use.groups && length(used_groups) < MIN.CONV.GROUPS)
+                (use.groups && length(used_groups) < MIN.CONV.GROUPS)
         ) {
             if (use.groups) {
                 de_pop[gene, ] <- c(
@@ -98,12 +102,16 @@ get_de_pop <- function(
             }
         } else {
             means <- unlist(
-                lapply(de_results_list[con],
-                function(x) x$gene_fits$mean_val_cor[[cell_type]][gene])
+                lapply(
+                    de_results_list[con],
+                    function(x) x$gene_fits$mean_val_cor[[cell_type]][gene]
+                )
             )
             sds <- unlist(
-                lapply(de_results_list[con],
-                function(x) x$gene_fits$s_mat[gene, ct_ind])
+                lapply(
+                    de_results_list[con],
+                    function(x) x$gene_fits$s_mat[gene, ct_ind]
+                )
             )
             sds[is.na(sds)] <- 1000
             if (is.null(group_ids)) {
@@ -222,7 +230,8 @@ get_p_qf <- function(x, se, delta = 0) {
     AS <- A %*% S
     lambda <- eigen(AS)$values
     max(CompQuadForm::imhof(
-        var(x), pmax(lambda, 10^(-8)), epsabs = 10^(-8), epsrel = 10^(-8)
+        var(x), pmax(lambda, 10^(-8)),
+        epsabs = 10^(-8), epsrel = 10^(-8)
     )$Qq, 0)
 }
 

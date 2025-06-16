@@ -30,7 +30,8 @@ choose_sigma_gene <- function(
         names(res_val) <- sigma_vals
         for (sigma_s in sigma_vals) {
             set_likelihood_vars(
-                Q_mat_all[[as.character(sigma_s)]], X_vals, sigma = sigma_s
+                Q_mat_all[[as.character(sigma_s)]], X_vals,
+                sigma = sigma_s
             )
             res_val[as.character(sigma_s)] <- calc_log_l_vec_fast(
                 pred_c, as.vector(t(Y))
@@ -48,7 +49,7 @@ choose_sigma_gene <- function(
 mysweept <- function(tX2, tlk, K) {
     g_2 <- (
         tX2[rep(seq_len(dim(tX2)[1]), K), ] *
-        tlk[rep(seq_len(K), each = dim(tX2)[1]), ]
+            tlk[rep(seq_len(K), each = dim(tX2)[1]), ]
     )
     g_2
 }
@@ -69,7 +70,7 @@ sweep2t <- function(tX1, tdl, k) {
 sweep3t_all <- function(tX2, tdl, K) {
     return(
         tX2[rep(seq_len(dim(tX2)[1]), K), ] *
-        tdl[rep(seq_len(K), each = dim(tX2)[1]), ]
+            tdl[rep(seq_len(K), each = dim(tX2)[1]), ]
     )
 }
 
@@ -176,7 +177,8 @@ solveIRWLS.effects_trust <- function(
 
         alpha1_new <- alpha1 + solution[seq_len(L1)]
         alpha2_new <- alpha2 + matrix(
-            solution[(L1 + 1):length(solution)], nrow = L2, ncol = K
+            solution[(L1 + 1):length(solution)],
+            nrow = L2, ncol = K
         )
         # J by K
         lambda_k_new <- exp(
@@ -206,9 +208,9 @@ solveIRWLS.effects_trust <- function(
         }
         if (
             delta < MIN_CHANGE || (itera >= MIN_ITERATIONS &&
-            max(
-                pred_decrease_vals[(itera - MIN_ITERATIONS + 1):itera]
-            ) < min(epsilon_2))) {
+                max(
+                    pred_decrease_vals[(itera - MIN_ITERATIONS + 1):itera]
+                ) < min(epsilon_2))) {
             break
         }
     }
@@ -243,13 +245,15 @@ estimate_gene_wrapper <- function(
     PRECISION.THRESHOLD = 0.05, alpha2_init = NULL) {
     if (sigma_gene) {
         return(choose_sigma_gene(
-            sigma_init, Y, X1, X2, my_beta, nUMI, test_mode, verbose = verbose,
+            sigma_init, Y, X1, X2, my_beta, nUMI, test_mode,
+            verbose = verbose,
             n.iter = n.iter, MIN_CHANGE = MIN_CHANGE,
             PRECISION.THRESHOLD = PRECISION.THRESHOLD
         ))
     } else {
         res <- estimate_effects_trust(
-            Y, X1, X2, my_beta, nUMI, test_mode, verbose = verbose,
+            Y, X1, X2, my_beta, nUMI, test_mode,
+            verbose = verbose,
             n.iter = n.iter, MIN_CHANGE = MIN_CHANGE,
             PRECISION.THRESHOLD = PRECISION.THRESHOLD, alpha2_init = alpha2_init
         )

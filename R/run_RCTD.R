@@ -197,7 +197,8 @@ runRctd <- function(
     checkNumeric(doublet_threshold, "doublet_threshold")
 
     RCTD <- createRctdConfig(
-        rctd_data, rctd_mode = rctd_mode,
+        rctd_data,
+        rctd_mode = rctd_mode,
         max_cores = max_cores, max_multi_types = max_multi_types,
         confidence_threshold = confidence_threshold,
         doublet_threshold = doublet_threshold

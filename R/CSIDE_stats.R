@@ -26,9 +26,9 @@ normalize_de_estimates <- function(
             ]
             reg_2 <- (
                 reg_1 +
-                myRCTD@de_results$gene_fits$all_vals[
-                    con_genes_all, param_position, cell_type
-                ]
+                    myRCTD@de_results$gene_fits$all_vals[
+                        con_genes_all, param_position, cell_type
+                    ]
             )
             reg_1_cor <- reg_1 - log(sum(exp(reg_1)[con_genes]))
             reg_2_cor <- reg_2 - log(sum(exp(reg_2)[con_genes]))
