@@ -3,7 +3,7 @@
 \name{get_marker_genes}
 \alias{get_marker_genes}
 \title{Generates marker genes from C-SIDE means on a fitted
-\code{\linkS4class{RCTD}} object}
+\code{\linkS4class{RctdConfig}} object}
 \usage{
 get_marker_genes(
   RCTD,
@@ -15,7 +15,7 @@ get_marker_genes(
 )
 }
 \arguments{
-\item{RCTD}{a \code{\linkS4class{RCTD}} object}
+\item{RCTD}{a \code{\linkS4class{RctdConfig}} object}
 
 \item{cell_types}{the cell types used to find marker genes. If null, all cell
 types in \code{RCTD@internal_vars_de$cell_types} will be chosen.}
@@ -36,5 +36,5 @@ a dataframe of marker gene names, expressions, and p-values for each
 }
 \description{
 Generates marker genes from C-SIDE means on a fitted
-\code{\linkS4class{RCTD}} object
+\code{\linkS4class{RctdConfig}} object
 }

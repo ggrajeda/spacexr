@@ -7,7 +7,7 @@
 weights_from_results(RCTD)
 }
 \arguments{
-\item{RCTD}{a \code{\linkS4class{RCTD}} object}
+\item{RCTD}{a \code{\linkS4class{RctdConfig}} object}
 }
 \value{
 a matrix of doublet mode weights

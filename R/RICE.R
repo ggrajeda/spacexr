@@ -1,4 +1,4 @@
-#' Creates an \code{\linkS4class{RCTD}} object from a
+#' Creates an \code{\linkS4class{RctdConfig}} object from a
 #' \code{\linkS4class{SpatialRNA}} object
 #'
 #' @param spatialRNA a \code{\linkS4class{SpatialRNA}} object to run RCTD on
@@ -10,7 +10,7 @@
 #'   be included.
 #' @param UMI_min minimum UMI per pixel included in the analysis
 #' @param UMI_max maximum UMI per pixel included in the analysis
-#' @param UMI_min_sigma minimum UMI per pixel for the \link{choose_sigma_c}
+#' @param UMI_min_sigma minimum UMI per pixel for the \link{chooseSigmaC}
 #'   function
 #' @param max_cores for parallel processing, the number of cores used. If set to
 #'   1, parallel processing is not used. The system will additionally be checked
@@ -23,11 +23,11 @@
 #'   with confidence
 #' @param DOUBLET_THRESHOLD (Default 25) the penalty weight of predicting a
 #'   doublet instead of a singlet for a pixel
-#' @return an \code{\linkS4class{RCTD}} object, which is ready to run the
+#' @return an \code{\linkS4class{RctdConfig}} object, which is ready to run the
 #'   \code{\link{run.RCTD}} function
 #' @export
-create.RCTD.noref <- function(
-    spatialRNA, cell_type_info, max_cores = 4, gene_list = NULL,
+createRctdNoRef <- function(
+    spatial_experiment, cell_type_info, max_cores = 4, gene_list = NULL,
     gene_cutoff_reg = 0.0002, fc_cutoff_reg = 0.75, UMI_min = 100,
     UMI_max = 20000000, UMI_min_sigma = 300, class_df = NULL,
     CONFIDENCE_THRESHOLD = 10, DOUBLET_THRESHOLD = 25) {
@@ -40,24 +40,23 @@ create.RCTD.noref <- function(
         CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD,
         DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
     )
-    reference <- new(
-        "Reference",
-        cell_types = factor(), counts = as(matrix(), "dgCMatrix")
+
+    spatial_name <- "spatial_experiment"
+    spatial_counts <- getCounts(spatial_experiment, spatial_name)
+    spatial_counts <- check_counts(spatial_counts, spatial_name)
+    restricted_data <- restrictCounts(
+        spatial_experiment, spatial_counts, rownames(spatial_experiment),
+        UMI_thresh = UMI_min, UMI_max = UMI_max
     )
-    puck.original <- restrict_counts(
-        spatialRNA, rownames(spatialRNA@counts),
-        UMI_thresh = config$UMI_min,
-        UMI_max = config$UMI_max
-    )
+
     if (is.null(gene_list)) {
         message(
             "create.RCTD.unsupervised: getting regression differentially ",
             "expressed genes: "
         )
-        gene_list <- get_de_genes(
-            cell_type_info$info, puck.original,
-            fc_thresh = config$fc_cutoff_reg,
-            expr_thresh = config$gene_cutoff_reg,
+        gene_list <- getDeGenes(
+            restricted_data$restricted_counts, cell_type_info$info,
+            fc_thresh = fc_cutoff_reg, expr_thresh = gene_cutoff_reg,
             MIN_OBS = config$MIN_OBS
         )
     }
@@ -67,12 +66,11 @@ create.RCTD.noref <- function(
             "genes found"
         )
     }
-    puck <- restrict_counts(
-        puck.original, gene_list,
-        UMI_thresh = config$UMI_min,
-        UMI_max = config$UMI_max
-    )
-    puck <- restrict_puck(puck, colnames(puck@counts))
+
+    spatial_experiment <- restrictCounts(
+        restricted_data$restricted_se, restricted_data$restricted_counts,
+        gene_list, UMI_thresh = UMI_min, UMI_max = UMI_max
+    )$restricted_se
     if (is.null(class_df)) {
         class_df <- data.frame(
             cell_type_info$info[[2]],
@@ -85,35 +83,36 @@ create.RCTD.noref <- function(
         gene_list_reg = gene_list, proportions = NULL, class_df = class_df,
         cell_types_assigned = FALSE
     )
-    new(
-        "RCTD",
-        spatialRNA = puck, originalSpatialRNA = puck.original,
-        reference = reference, config = config, cell_type_info = cell_type_info,
-        internal_vars = internal_vars
+    list(
+        spatial_experiment = spatial_experiment,
+        internal_vars = internal_vars,
+        config = config,
+        cell_type_info = cell_type_info
     )
 }
 
 
-#' Runs the unsupervised pipeline on a \code{\linkS4class{RCTD}} object
+#' Runs the unsupervised pipeline on a \code{\linkS4class{RctdConfig}} object
 #'
-#' Equivalent to sequentially running the functions \code{\link{choose_sigma_c}}
+#' Equivalent to sequentially running the functions \code{\link{chooseSigmaC}}
 #' and \code{\link{iterOptim}}
 #'
 #' If in doublet mode, fits at most two cell types per pixel. It classifies each
 #' pixel as 'singlet' or 'doublet' and searches for the cell types on the pixel.
 #' If in full mode, can fit any number of cell types on each pixel.
 #'
-#' @param RCTD an \code{\linkS4class{RCTD}} object created using the
+#' @param RCTD an \code{\linkS4class{RctdConfig}} object created using the
 #'   \code{\link{create.RCTD}} function.
 #' @param doublet_mode \code{character string}, either "doublet", "subtype", or
 #'   "full" on which mode to run iterOptim. Please see above description.
 #' @param n_iter maximum number of optimization iterations
 #' @param MIN_CHANGE minimum change required to terminate optimization
-#' @return an \code{\linkS4class{RCTD}} object containing the results of the
-#'   unsupervised algorithm. Please see \code{\linkS4class{RCTD}} documentation
-#'   for more information on interpreting the content of the RCTD object.
+#' @return an \code{\linkS4class{RctdConfig}} object containing the results of
+#'   the unsupervised algorithm. Please see \code{\linkS4class{RctdConfig}}
+#'   documentation for more information on interpreting the content of the RCTD
+#'   object.
 #' @export
-run.RICE <- function(
+runRice <- function(
     RCTD, doublet_mode = "doublet", cell_types = NULL, n_iter = 50,
     MIN_CHANGE = 0.001, return_list = FALSE) {
     if (!(doublet_mode %in% c("doublet", "full"))) {
@@ -136,7 +135,7 @@ run.RICE <- function(
         cell_types,
         length(cell_types)
     )
-    RCTD <- choose_sigma_c(RCTD)
+    RCTD <- chooseSigmaC(RCTD)
     RCTD <- iterOptim(
         RCTD, cell_types,
         doublet_mode = doublet_mode, n_iter = n_iter,
@@ -144,27 +143,28 @@ run.RICE <- function(
     )
 }
 
-#' Runs the subtype pipeline on a \code{\linkS4class{RCTD}} object
+#' Runs the subtype pipeline on a \code{\linkS4class{RctdConfig}} object
 #'
-#' Equivalent to sequentially running the functions \code{\link{choose_sigma_c}}
+#' Equivalent to sequentially running the functions \code{\link{chooseSigmaC}}
 #' and \code{\link{iterOptim}} with subtype mode
 #'
 #' Fits only pixels belonging to given cell type(s).
 #'
-#' @param RCTD an \code{\linkS4class{RCTD}} object created using the
+#' @param RCTD an \code{\linkS4class{RctdConfig}} object created using the
 #'   \code{\link{create.RCTD}} function.
 #' @param n_iter maximum number of optimization iterations
 #' @param MIN_CHANGE minimum change required to terminate optimization
-#' @return an \code{\linkS4class{RCTD}} object containing the results of the
-#'   unsupervised algorithm. Please see \code{\linkS4class{RCTD}} documentation
-#'   for more information on interpreting the content of the RCTD object.
+#' @return an \code{\linkS4class{RctdConfig}} object containing the results of
+#'   the unsupervised algorithm. Please see \code{\linkS4class{RctdConfig}}
+#'   documentation for more information on interpreting the content of the RCTD
+#'   object.
 #' @export
-run.RICE.subtypes <- function(
+runRiceSubtypes <- function(
     RCTD, n_iter = 50, MIN_CHANGE = 0.001, return_list = TRUE) {
     cell_types <- RCTD@internal_vars$subtypes
     initialSol <- list(weights = RCTD@results$weights)
     RCTD@config$RCTDmode <- "subtype"
-    RCTD <- choose_sigma_c(RCTD)
+    RCTD <- chooseSigmaC(RCTD)
     RCTD <- iterOptim(
         RCTD, cell_types,
         doublet_mode = "subtype", n_iter = n_iter,
@@ -181,15 +181,15 @@ run.RICE.subtypes <- function(
 #' If in full mode, can fit any number of cell types on each pixel. If in
 #' subtype mode, fits only pixels belonging to given cell type(s).
 #'
-#' @param RCTD an \code{\linkS4class{RCTD}} object after running the
-#'   \code{\link{choose_sigma_c}} function.
+#' @param RCTD an \code{\linkS4class{RctdConfig}} object after running the
+#'   \code{\link{chooseSigmaC}} function.
 #' @param cell_types the cell types used for CSIDE.
 #' @param doublet_mode \code{character string}, either "doublet", "subtype", or
 #'   "full" on which mode to run iterOptim. Please see above description.
 #' @param n_iter maximum number of optimization iterations
 #' @param MIN_CHANGE minimum change required to terminate optimization
-#' @return an \code{\linkS4class{RCTD}} object containing the results of the
-#'   unsupervised algorithm.
+#' @return an \code{\linkS4class{RctdConfig}} object containing the results of
+#'   the unsupervised algorithm.
 #' @export
 iterOptim <- function(
     RCTD, cell_types, doublet_mode = "doublet", n_iter = 50, MIN_CHANGE = 0.001,
@@ -223,7 +223,7 @@ iterOptim <- function(
         message("iterOptim: running iteration ", i)
         message("fitting gene profiles")
         initialSol <- RCTD@de_results$gene_fits$mean_val
-        RCTD <- run.CSIDE(
+        RCTD <- runCside(
             RCTD, X, barcodes, cell_types,
             doublet_mode = (doublet_mode == "doublet"), cell_type_threshold = 0,
             gene_threshold = -1, sigma_gene = FALSE, test_genes_sig = FALSE,

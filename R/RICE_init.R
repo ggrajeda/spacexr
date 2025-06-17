@@ -8,9 +8,12 @@
 #' @return \code{cell_type_info}, which is ready to run the
 #'   \code{\link{create.RCTD.unsupervised}} function
 #' @export
-initialize.clusters <- function(puck, resolution = 0.7, SCT = TRUE) {
+initialize.clusters <- function(
+    spatial_experiment, resolution = 0.7, SCT = TRUE) {
     message("Begin: initialize.clusters")
-    data <- Seurat::CreateSeuratObject(counts = puck@counts, assay = "Spatial")
+    counts <- getCounts(spatial_experiment, "spatial_experiment")
+    data <- Seurat::CreateSeuratObject(counts = counts, assay = "Spatial")
+
     if (SCT) {
         data <- Seurat::SCTransform(data, assay = "Spatial", verbose = FALSE)
         data <- Seurat::RunPCA(data, assay = "SCT", verbose = FALSE)
@@ -28,19 +31,19 @@ initialize.clusters <- function(puck, resolution = 0.7, SCT = TRUE) {
         "End: initialize.clusters, ", length(levels(clusters$cell_types)),
         " clusters generated"
     )
-    cell_type_info_from_clusters(puck, clusters)
+    cell_type_info_from_clusters(spatial_experiment, clusters)
 }
 
-#' Creates an \code{\linkS4class{RCTD}} object ready to be run on subtype mode
-#' from a fitted \code{\linkS4class{RCTD}} object
+#' Creates an \code{\linkS4class{RctdConfig}} object ready to be run on subtype
+#' mode from a fitted \code{\linkS4class{RctdConfig}} object
 #'
-#' @param RCTD a \code{\linkS4class{RCTD}} object with cell types fitted
+#' @param RCTD a \code{\linkS4class{RctdConfig}} object with cell types fitted
 #' @param cell_types cell supertypes to find subtypes for
 #' @param resolution (Default 0.7) the resolution to be used during Seurat
 #'   clustering for subtype initialization
 #' @param gene_list gene list to be used for subtype mode. If null, uses highly
 #'   expressed supertype genes
-#' @return an \code{\linkS4class{RCTD}} object, which is ready to run the
+#' @return an \code{\linkS4class{RctdConfig}} object, which is ready to run the
 #'   \code{\link{run.unsupervised}} function on subtype mode
 #' @export
 initialize.subtypes <- function(
@@ -86,7 +89,7 @@ initialize.subtypes <- function(
     )
     info <- info[, setdiff(colnames(info), cell_types)]
     cell_type_info <- list(info, colnames(info), length(colnames(info)))
-    RCTD <- create.RCTD.noref(
+    RCTD <- createRctdNoRef(
         restrict_puck(RCTD@originalSpatialRNA, barcodes),
         list(info = cell_type_info, renorm = cell_type_info),
         gene_list = gene_list
@@ -97,6 +100,7 @@ initialize.subtypes <- function(
 
     barcodes <- colnames(RCTD@spatialRNA@counts)
     weights <- weights[, setdiff(colnames(weights), cell_types)]
+    # TODO: Might need to fix this!
     subtype_weights <- replicate(
         subtype_info$info[[3]],
         (1 - rowSums(weights)) / subtype_info$info[[3]]

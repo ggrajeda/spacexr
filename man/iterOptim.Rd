@@ -15,8 +15,8 @@ iterOptim(
 )
 }
 \arguments{
-\item{RCTD}{an \code{\linkS4class{RCTD}} object after running the
-\code{\link{choose_sigma_c}} function.}
+\item{RCTD}{an \code{\linkS4class{RctdConfig}} object after running the
+\code{\link{chooseSigmaC}} function.}
 
 \item{cell_types}{the cell types used for CSIDE.}
 
@@ -28,8 +28,8 @@ iterOptim(
 \item{MIN_CHANGE}{minimum change required to terminate optimization}
 }
 \value{
-an \code{\linkS4class{RCTD}} object containing the results of the
-  unsupervised algorithm.
+an \code{\linkS4class{RctdConfig}} object containing the results of
+  the unsupervised algorithm.
 }
 \description{
 If in doublet mode, fits at most two cell types per pixel. It classifies each

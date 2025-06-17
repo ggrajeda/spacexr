@@ -43,7 +43,8 @@ Imports:
     CompQuadForm,
     dplyr,
     fields,
-    mgcv
+    mgcv,
+    Seurat
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 Suggests: 

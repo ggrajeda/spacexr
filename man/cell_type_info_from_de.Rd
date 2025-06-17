@@ -3,7 +3,7 @@
 \name{cell_type_info_from_de}
 \alias{cell_type_info_from_de}
 \title{Generates \code{cell_type_info} from CSIDE on a fitted
-\code{\linkS4class{RCTD}} object}
+\code{\linkS4class{RctdConfig}} object}
 \usage{
 cell_type_info_from_de(
   RCTD,
@@ -13,7 +13,7 @@ cell_type_info_from_de(
 )
 }
 \arguments{
-\item{RCTD}{a \code{\linkS4class{RCTD}} object to run CSIDE}
+\item{RCTD}{a \code{\linkS4class{RctdConfig}} object to run CSIDE}
 
 \item{cell_types}{the cell types used for CSIDE. If null, all cell types in
 \code{cell_type_info} will be chosen.}
@@ -30,5 +30,5 @@ per cell type.}
 }
 \description{
 Generates \code{cell_type_info} from CSIDE on a fitted
-\code{\linkS4class{RCTD}} object
+\code{\linkS4class{RctdConfig}} object
 }

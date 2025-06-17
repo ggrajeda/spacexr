@@ -97,11 +97,11 @@ filterPixelsAndGetVars <- function(
         pixel_count_min = pixel_count_min, MIN_OBS = gene_obs_min
     )
 
-    return(list(
+    list(
         spatial_experiment = spatial_experiment,
         internal_vars = internal_vars,
         config = config
-    ))
+    )
 }
 
 checkSummarizedExperiment <- function(se, se_name) {

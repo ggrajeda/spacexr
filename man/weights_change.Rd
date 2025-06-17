@@ -2,14 +2,15 @@
 % Please edit documentation in R/RICE_utils.R
 \name{weights_change}
 \alias{weights_change}
-\title{Calculates the weight change between two \code{\linkS4class{RCTD}} objects}
+\title{Calculates the weight change between two \code{\linkS4class{RctdConfig}}
+objects}
 \usage{
 weights_change(RCTD1, RCTD2)
 }
 \arguments{
-\item{RCTD1}{a \code{\linkS4class{RCTD}} object}
+\item{RCTD1}{a \code{\linkS4class{RctdConfig}} object}
 
-\item{RCTD2}{a \code{\linkS4class{RCTD}} object}
+\item{RCTD2}{a \code{\linkS4class{RctdConfig}} object}
 }
 \value{
 \code{cell_type_info}, which is ready to run the

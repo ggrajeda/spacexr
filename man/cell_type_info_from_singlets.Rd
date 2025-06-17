@@ -3,7 +3,7 @@
 \name{cell_type_info_from_singlets}
 \alias{cell_type_info_from_singlets}
 \title{Generates \code{cell_type_info} from singlet means on a fitted
-\code{\linkS4class{RCTD}} object from the original
+\code{\linkS4class{RctdConfig}} object from the original
 \code{\linkS4class{SpatialRNA}} object}
 \usage{
 cell_type_info_from_singlets(
@@ -14,7 +14,7 @@ cell_type_info_from_singlets(
 )
 }
 \arguments{
-\item{RCTD}{a \code{\linkS4class{RCTD}} object}
+\item{RCTD}{a \code{\linkS4class{RctdConfig}} object}
 
 \item{cell_types}{the cell types used for CSIDE. If null, all cell types in
 \code{cell_type_info} will be chosen.}
@@ -31,6 +31,6 @@ per cell type.}
 }
 \description{
 Generates \code{cell_type_info} from singlet means on a fitted
-\code{\linkS4class{RCTD}} object from the original
+\code{\linkS4class{RctdConfig}} object from the original
 \code{\linkS4class{SpatialRNA}} object
 }

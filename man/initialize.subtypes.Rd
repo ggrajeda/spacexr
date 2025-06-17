@@ -2,13 +2,13 @@
 % Please edit documentation in R/RICE_init.R
 \name{initialize.subtypes}
 \alias{initialize.subtypes}
-\title{Creates an \code{\linkS4class{RCTD}} object ready to be run on subtype mode
-from a fitted \code{\linkS4class{RCTD}} object}
+\title{Creates an \code{\linkS4class{RctdConfig}} object ready to be run on subtype
+mode from a fitted \code{\linkS4class{RctdConfig}} object}
 \usage{
 initialize.subtypes(RCTD, cell_types, resolution = 0.7, gene_list = NULL)
 }
 \arguments{
-\item{RCTD}{a \code{\linkS4class{RCTD}} object with cell types fitted}
+\item{RCTD}{a \code{\linkS4class{RctdConfig}} object with cell types fitted}
 
 \item{cell_types}{cell supertypes to find subtypes for}
 
@@ -19,10 +19,10 @@ clustering for subtype initialization}
 expressed supertype genes}
 }
 \value{
-an \code{\linkS4class{RCTD}} object, which is ready to run the
+an \code{\linkS4class{RctdConfig}} object, which is ready to run the
   \code{\link{run.unsupervised}} function on subtype mode
 }
 \description{
-Creates an \code{\linkS4class{RCTD}} object ready to be run on subtype mode
-from a fitted \code{\linkS4class{RCTD}} object
+Creates an \code{\linkS4class{RctdConfig}} object ready to be run on subtype
+mode from a fitted \code{\linkS4class{RctdConfig}} object
 }

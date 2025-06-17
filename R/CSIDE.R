@@ -20,13 +20,13 @@ createCside <- function(rctd_results) {
 #' estimate DE and standard errors for each gene and each cell type. Selects
 #' genes with significant nonzero DE.
 #'
-#' @inherit run.CSIDE.general params return
+#' @inherit runCsideGeneral params return
 #' @param explanatory.variable a named numeric vector representing the
 #'   explanatory variable used for explaining differential expression in CSIDE.
 #'   Names of the variable are the \code{\linkS4class{SpatialRNA}} pixel names,
 #'   and values should be standardized between 0 and 1.
 #' @export
-run.CSIDE.single <- function(
+runCsideSingle <- function(
     rctd_results, explanatory.variable, cell_types = NULL,
     cell_type_threshold = 125, gene_threshold = 5e-5, doublet_mode = TRUE,
     weight_threshold = NULL, sigma_gene = TRUE, PRECISION.THRESHOLD = 0.05,
@@ -51,7 +51,7 @@ run.CSIDE.single <- function(
             doublet_mode = doublet_mode
         ) >= region_thresh
     )
-    run.CSIDE(
+    runCside(
         rctd_results, X2, barcodes, cell_types,
         gene_threshold = gene_threshold,
         cell_type_threshold = cell_type_threshold, doublet_mode = doublet_mode,
@@ -74,11 +74,11 @@ run.CSIDE.single <- function(
 #' standard errors for each gene and each cell type. Selects genes with
 #' significant nonzero DE.
 #'
-#' @inherit run.CSIDE.general params return
+#' @inherit runCsideGeneral params return
 #' @param df (default 15) the degrees of freedom, or number of basis functions
 #'   to be used in the model.
 #' @export
-run.CSIDE.nonparam <- function(
+runCsideNonparam <- function(
     rctd_results, df = 15, barcodes = NULL, cell_types = NULL,
     cell_type_threshold = 125, gene_threshold = 5e-5, doublet_mode = TRUE,
     weight_threshold = NULL, sigma_gene = TRUE, PRECISION.THRESHOLD = 0.05,
@@ -121,7 +121,7 @@ run.CSIDE.nonparam <- function(
         myRCTD, barcodes,
         doublet_mode = doublet_mode
     )
-    run.CSIDE(
+    runCside(
         rctd_results, X2, barcodes, cell_types,
         gene_threshold = gene_threshold,
         doublet_mode = doublet_mode, test_mode = "individual",
@@ -144,13 +144,13 @@ run.CSIDE.nonparam <- function(
 #' type. Selects genes with significant nonzero DE. Tests for differences in
 #' gene expression across regions.
 #'
-#' @inherit run.CSIDE.general params return
+#' @inherit runCsideGeneral params return
 #' @param region_list a list of \code{character} vectors, where each vector
 #'  contains pixel names, or barcodes, for a single region. These pixel names
 #'  should be a subset of the pixels in the \code{\linkS4class{SpatialRNA}}
 #'  object
 #' @export
-run.CSIDE.regions <- function(
+runCsideRegions <- function(
     rctd_results, region_list, cell_types = NULL, cell_type_threshold = 125,
     gene_threshold = 5e-5, doublet_mode = TRUE, weight_threshold = NULL,
     sigma_gene = TRUE, PRECISION.THRESHOLD = 0.05, cell_types_present = NULL,
@@ -159,7 +159,7 @@ run.CSIDE.regions <- function(
     myRCTD <- createCside(rctd_results)
     X2 <- build.designmatrix.regions(myRCTD, region_list)
     barcodes <- rownames(X2)
-    run.CSIDE(
+    runCside(
         rctd_results, X2, barcodes, cell_types,
         cell_type_threshold = cell_type_threshold,
         gene_threshold = gene_threshold, doublet_mode = doublet_mode,
@@ -181,7 +181,7 @@ run.CSIDE.regions <- function(
 #' significant nonzero DE. The type of test is determined by \code{test_mode},
 #' and the parameters tested is determined by \code{params_to_test}.
 #'
-#' @inherit run.CSIDE.general params return
+#' @inherit runCsideGeneral params return
 #' @param X a matrix containing the covariates for running CSIDE. The rownames
 #'   represent pixel names and should be a subset of the pixels in the
 #'   \code{\linkS4class{SpatialRNA}} object. The columns each represent a
@@ -196,7 +196,7 @@ run.CSIDE.regions <- function(
 #'   indices to test. For example c(1,4,5) would test only parameters
 #'   corresponding to columns 1, 4, and 5 of the design matrix.
 #' @export
-run.CSIDE <- function(
+runCside <- function(
     rctd_results, X, barcodes, cell_types = NULL, gene_threshold = 5e-5,
     cell_type_threshold = 125, doublet_mode = TRUE, test_mode = "individual",
     weight_threshold = NULL, sigma_gene = TRUE, PRECISION.THRESHOLD = 0.05,
@@ -204,7 +204,7 @@ run.CSIDE <- function(
     cell_type_specific = NULL, params_to_test = NULL, normalize_expr = FALSE,
     logs = FALSE, log_fc_thresh = 0.4, cell_type_filter = NULL,
     test_error = FALSE, initialSol = NULL) {
-    X <- check_designmatrix(X, "run.CSIDE", require_2d = TRUE)
+    X <- check_designmatrix(X, "runCside", require_2d = TRUE)
     if (is.null(cell_type_specific)) {
         cell_type_specific <- !logical(dim(X)[2])
     }
@@ -215,7 +215,7 @@ run.CSIDE <- function(
     } else {
         X2 <- X
     }
-    run.CSIDE.general(
+    runCsideGeneral(
         rctd_results, X1, X2, barcodes, cell_types,
         cell_type_threshold = cell_type_threshold,
         gene_threshold = gene_threshold, doublet_mode = doublet_mode,
@@ -305,7 +305,7 @@ run.CSIDE <- function(
 #'
 #' @importFrom stats aggregate median p.adjust quantile sd var
 #' @export
-run.CSIDE.general <- function(
+runCsideGeneral <- function(
     rctd_results, X1, X2, barcodes, cell_types = NULL, gene_threshold = 5e-5,
     cell_type_threshold = 125, doublet_mode = TRUE, test_mode = "individual",
     weight_threshold = NULL, sigma_gene = TRUE, PRECISION.THRESHOLD = 0.05,
@@ -317,7 +317,7 @@ run.CSIDE.general <- function(
     if (gene_threshold == .01 || fdr == 0.25 || cell_type_threshold == 10 ||
         (!is.null(weight_threshold) && weight_threshold == 0.1)) {
         warning(
-            "run.CSIDE.general: some parameters are set to the CSIDE ",
+            "runCsideGeneral: some parameters are set to the CSIDE ",
             "vignette values, which are intended for testing but not proper ",
             "execution. For more accurate results, consider using the default ",
             "parameters to this function."
@@ -325,7 +325,7 @@ run.CSIDE.general <- function(
     }
     if (doublet_mode && myRCTD@config$RCTDmode != "doublet") {
         stop(
-            "run.CSIDE.general: attempted to run CSIDE in doublet mode, but ",
+            "runCsideGeneral: attempted to run CSIDE in doublet mode, but ",
             "RCTD was not run in doublet mode. Please run CSIDE in full mode ",
             "(doublet_mode = FALSE) or run RCTD in doublet mode."
         )
@@ -333,7 +333,7 @@ run.CSIDE.general <- function(
     if (!any("cell_types_assigned" %in% names(myRCTD@internal_vars)) ||
         !myRCTD@internal_vars$cell_types_assigned) {
         stop(
-            "run.CSIDE.general: cannot run CSIDE unless cell types have been ",
+            "runCsideGeneral: cannot run CSIDE unless cell types have been ",
             "assigned. If cell types have been assigned, you may run: ",
             "myRCTD <- set_cell_types_assigned(myRCTD)."
         )
@@ -341,7 +341,7 @@ run.CSIDE.general <- function(
     if ((myRCTD@config$doublet_mode != "multi") &&
         (length(setdiff(barcodes, colnames(myRCTD@results))) > 0)) {
         warning(
-            "run.CSIDE.general: some elements of barcodes do not appear in ",
+            "runCsideGeneral: some elements of barcodes do not appear in ",
             "myRCTD object (myRCTD@results), but they are required to be a ",
             "subset. Downsampling barcodes to the intersection of the two sets."
         )
@@ -354,7 +354,7 @@ run.CSIDE.general <- function(
         ct_remove <- setdiff(cell_types, names(which(cell_type_filter)))
         if (length(ct_remove) > 0) {
             warning(
-                "run.CSIDE.general: removing the following cell types due to ",
+                "runCsideGeneral: removing the following cell types due to ",
                 "insufficient counts per region. Consider lowering ",
                 "cell_type_threshold or proceeding with removed cell types. ",
                 "Cell types: ",
@@ -364,19 +364,19 @@ run.CSIDE.general <- function(
         cell_types <- intersect(cell_types, names(which(cell_type_filter)))
     }
     message(
-        "run.CSIDE.general: running CSIDE with cell types ",
+        "runCsideGeneral: running CSIDE with cell types ",
         paste(cell_types, collapse = ", ")
     )
     if (length(cell_types) < 2) {
         stop(
-            "run.CSIDE.general: cannot run CSIDE with less than two cell types."
+            "runCsideGeneral: cannot run CSIDE with less than two cell types."
         )
     }
-    X1 <- check_designmatrix(X1, "run.CSIDE.general")
-    X2 <- check_designmatrix(X2, "run.CSIDE.general", require_2d = TRUE)
+    X1 <- check_designmatrix(X1, "runCsideGeneral")
+    X2 <- check_designmatrix(X2, "runCsideGeneral", require_2d = TRUE)
     if (!(test_mode %in% c("individual", "categorical"))) {
         stop(
-            "run.CSIDE.general: not valid test_mode = ", test_mode,
+            "runCsideGeneral: not valid test_mode = ", test_mode,
             '. Please set test_mode = "categorical" or "individual".'
         )
     }
@@ -390,17 +390,17 @@ run.CSIDE.general <- function(
     if (normalize_expr &&
         (test_mode != "individual" || length(params_to_test) > 1)) {
         stop(
-            "run.CSIDE.general: Setting normalize_expr = TRUE is only valid ",
+            "runCsideGeneral: Setting normalize_expr = TRUE is only valid ",
             "for testing single parameters with test_mode = individual"
         )
     }
     message(
-        "run.CSIDE.general: configure params_to_test = ",
+        "runCsideGeneral: configure params_to_test = ",
         paste(paste0(params_to_test, ", ", collapse = ""))
     )
     if (any(!(params_to_test %in% seq_len(dim(X2)[2])))) {
         stop(c(
-            "run.CSIDE.general: params_to_test must be a vector of integers ",
+            "runCsideGeneral: params_to_test must be a vector of integers ",
             "from 1 to dim(X2)[2] = ", dim(X2)[2], "please make sure that ",
             "tested parameters are in the required range."
         ))
@@ -408,7 +408,7 @@ run.CSIDE.general <- function(
     if (test_mode == "categorical" &&
         any(!(X2[, params_to_test] %in% c(0, 1)))) {
         stop(
-            "run.CSIDE.general: for test_mode = categorical, columns ",
+            "runCsideGeneral: for test_mode = categorical, columns ",
             "params_to_test, ", params_to_test, ", must have values 0 or 1."
         )
     }
@@ -418,7 +418,7 @@ run.CSIDE.general <- function(
     if (any(!(barcodes %in% rownames(X1))) ||
         any(!(barcodes %in% rownames(X2)))) {
         stop(
-            "run.CSIDE.general: some barcodes do not appear in the rownames ",
+            "runCsideGeneral: some barcodes do not appear in the rownames ",
             "of X1 or X2."
         )
     }
@@ -426,7 +426,7 @@ run.CSIDE.general <- function(
     gene_list_tot <- filter_genes(puck, threshold = gene_threshold)
     if (length(gene_list_tot) == 0) {
         stop(
-            "run.CSIDE.general: no genes past threshold. Please consider ",
+            "runCsideGeneral: no genes past threshold. Please consider ",
             "lowering gene_threshold."
         )
     }
@@ -434,7 +434,7 @@ run.CSIDE.general <- function(
         gene_list_tot, rownames(myRCTD@cell_type_info$info[[1]])
     )) == 0) {
         stop(
-            "run.CSIDE.general: no genes that past threshold were contained ",
+            "runCsideGeneral: no genes that past threshold were contained ",
             "in the single cell reference. Please lower gene threshold or ",
             "ensure that there is agreement between the single cell reference ",
             "genes and the SpatialRNA genes."

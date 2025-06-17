@@ -5,13 +5,13 @@
 \title{Generates \code{cell_type_info} from cluster assignments on a
 \code{\linkS4class{SpatialRNA}} object}
 \usage{
-cell_type_info_from_clusters(puck, clusters)
+cell_type_info_from_clusters(spatial_experiment, clusters)
 }
 \arguments{
-\item{puck}{a \code{\linkS4class{SpatialRNA}} object}
-
 \item{clusters}{a \code{data.frame} with barcodes as rownames and cluster
 assignments under a \code{cell_types} column}
+
+\item{puck}{a \code{\linkS4class{SpatialRNA}} object}
 }
 \value{
 \code{cell_type_info}, which is ready to run the

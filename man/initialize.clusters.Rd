@@ -5,15 +5,15 @@
 \title{Generates \code{cell_type_info} from Seurat clustering on a
 \code{\linkS4class{SpatialRNA}} object}
 \usage{
-initialize.clusters(puck, resolution = 0.7, SCT = TRUE)
+initialize.clusters(spatial_experiment, resolution = 0.7, SCT = TRUE)
 }
 \arguments{
-\item{puck}{a \code{\linkS4class{SpatialRNA}} object to run clustering on}
-
 \item{resolution}{(Default 0.7) the resolution to be used during Seurat
 clustering}
 
 \item{SCT}{whether or not to use \code{SCTransform} for count normalization}
+
+\item{puck}{a \code{\linkS4class{SpatialRNA}} object to run clustering on}
 }
 \value{
 \code{cell_type_info}, which is ready to run the
