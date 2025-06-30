@@ -49,9 +49,9 @@ initialize.clusters <- function(
 initialize.subtypes <- function(
     RCTD, cell_types, resolution = 0.7, gene_list = NULL) {
     message("initialize.subtypes: gathering results")
-    if (RCTD@config$RCTDmode == "doublet") {
+    if (RCTD@config$doublet_mode == "doublet") {
         weights <- weights_from_results(RCTD)
-    } else if (RCTD@config$RCTDmode == "full") {
+    } else if (RCTD@config$doublet_mode == "full") {
         weights <- as.matrix(RCTD@results$weights)
     }
     weights <- weights[rowSums(as.matrix(weights[, cell_types])) > 0, ]

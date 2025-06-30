@@ -121,7 +121,7 @@ runRice <- function(
             " is not a valid choice. Please set doublet_mode=doublet or full."
         )
     }
-    RCTD@config$RCTDmode <- doublet_mode
+    RCTD@config$doublet_mode <- doublet_mode
     RCTD@spatialRNA <- restrict_counts(
         RCTD@spatialRNA, RCTD@internal_vars$gene_list_reg
     )
@@ -163,7 +163,7 @@ runRiceSubtypes <- function(
     RCTD, n_iter = 50, MIN_CHANGE = 0.001, return_list = TRUE) {
     cell_types <- RCTD@internal_vars$subtypes
     initialSol <- list(weights = RCTD@results$weights)
-    RCTD@config$RCTDmode <- "subtype"
+    RCTD@config$doublet_mode <- "subtype"
     RCTD <- chooseSigmaC(RCTD)
     RCTD <- iterOptim(
         RCTD, cell_types,

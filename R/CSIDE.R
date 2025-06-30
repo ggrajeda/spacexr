@@ -323,7 +323,7 @@ runCsideGeneral <- function(
             "parameters to this function."
         )
     }
-    if (doublet_mode && myRCTD@config$RCTDmode != "doublet") {
+    if (doublet_mode && myRCTD@config$doublet_mode != "doublet") {
         stop(
             "runCsideGeneral: attempted to run CSIDE in doublet mode, but ",
             "RCTD was not run in doublet mode. Please run CSIDE in full mode ",
@@ -442,13 +442,15 @@ runCsideGeneral <- function(
     }
     nUMI <- nUMI(puck)[barcodes]
     cell_type_info <- myRCTD@cell_type_info$info
-    my_beta <- as.matrix(t(assay(myRCTD@results, "weights")))
     thresh <- 0.8 # threshold for full mode
-    if (doublet_mode) {
-        thresh <- 0.999
-    } else if (myRCTD@config$doublet_mode == "multi") {
+    my_beta <- as.matrix(t(assay(myRCTD@results, "weights")))
+    if (doublet_mode || myRCTD@config$doublet_mode == "multi") {
         thresh <- 0.999
     }
+    if (!doublet_mode && myRCTD@config$doublet_mode == "doublet") {
+        my_beta <- as.matrix(t(assay(myRCTD@results, "weights_full")))
+    }
+
     if (!is.null(weight_threshold)) {
         thresh <- weight_threshold
     }

@@ -99,13 +99,13 @@ cell_type_info_from_de <- function(
     if (is.null(cell_types)) {
         cell_type_count <- aggregate_cell_types(
             RCTD, barcodes,
-            doublet_mode = (RCTD@config$RCTDmode == "doublet")
+            doublet_mode = (RCTD@config$doublet_mode == "doublet")
         )
         cell_types <- names(which(cell_type_count >= cell_type_threshold))
     }
     RCTD <- runCside(
         RCTD, X, barcodes, cell_types,
-        doublet_mode = (RCTD@config$RCTDmode == "doublet"), logs = TRUE,
+        doublet_mode = (RCTD@config$doublet_mode == "doublet"), logs = TRUE,
         cell_type_threshold = cell_type_threshold, gene_threshold = -1,
         sigma_gene = FALSE, test_genes_sig = FALSE, params_to_test = 1
     )
