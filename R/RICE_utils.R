@@ -37,12 +37,8 @@ weights_from_results <- function(RCTD) {
 #'   \code{\link{create.RCTD.unsupervised}} function
 #' @export
 weights_change <- function(RCTD1, RCTD2) {
-    weights1 <- as.matrix(
-        RCTD1@results$weights / rowSums(RCTD1@results$weights)
-    )
-    weights2 <- as.matrix(
-        RCTD2@results$weights / rowSums(RCTD2@results$weights)
-    )
+    weights1 <- as.matrix(t(assay(RCTD1, "weights")))
+    weights2 <- as.matrix(t(assay(RCTD2, "weights")))
     norm(weights1 - weights2) / dim(weights1)[1]
 }
 

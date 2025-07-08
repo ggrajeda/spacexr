@@ -29,16 +29,13 @@
 createRctdNoRef <- function(
     spatial_experiment, cell_type_info, max_cores = 4, gene_list = NULL,
     gene_cutoff_reg = 0.0002, fc_cutoff_reg = 0.75, UMI_min = 100,
-    UMI_max = 20000000, UMI_min_sigma = 300, class_df = NULL,
-    CONFIDENCE_THRESHOLD = 10, DOUBLET_THRESHOLD = 25) {
+    UMI_max = 20000000, UMI_min_sigma = 300, class_df = NULL) {
     config <- list(
         gene_cutoff_reg = gene_cutoff_reg, fc_cutoff_reg = fc_cutoff_reg,
         UMI_min = UMI_min, UMI_min_sigma = UMI_min_sigma, max_cores = max_cores,
         N_epoch = 8, N_X = 50000, K_val = 100, N_fit = 1000, N_epoch_bulk = 30,
         MIN_CHANGE_BULK = 0.0001, MIN_CHANGE_REG = 0.001, MIN_CHANGE_DE = 0.001,
-        UMI_max = UMI_max, MIN_OBS = 3,
-        CONFIDENCE_THRESHOLD = CONFIDENCE_THRESHOLD,
-        DOUBLET_THRESHOLD = DOUBLET_THRESHOLD
+        UMI_max = UMI_max, MIN_OBS = 3
     )
 
     spatial_name <- "spatial_experiment"
@@ -113,18 +110,18 @@ createRctdNoRef <- function(
 #'   object.
 #' @export
 runRice <- function(
-    RCTD, doublet_mode = "doublet", cell_types = NULL, n_iter = 50,
-    MIN_CHANGE = 0.001, return_list = FALSE) {
-    if (!(doublet_mode %in% c("doublet", "full"))) {
-        stop(
-            "run.unsupervised: doublet_mode=", doublet_mode,
-            " is not a valid choice. Please set doublet_mode=doublet or full."
-        )
-    }
-    RCTD@config$doublet_mode <- doublet_mode
-    RCTD@spatialRNA <- restrict_counts(
-        RCTD@spatialRNA, RCTD@internal_vars$gene_list_reg
+    rctd_data, rctd_mode = c("doublet", "full"), confidence_threshold = 10,
+    doublet_threshold = 25, cell_types = NULL, n_iter = 50, MIN_CHANGE = 0.001,
+    return_list = FALSE) {
+    rctd_mode <- match.arg(rctd_mode)
+
+    RCTD <- createRctdConfig(
+        rctd_data,
+        rctd_mode = rctd_mode,
+        confidence_threshold = confidence_threshold,
+        doublet_threshold = doublet_threshold
     )
+
     if (is.null(cell_types)) {
         cell_types <- RCTD@cell_type_info$info[[2]]
     }
@@ -138,7 +135,7 @@ runRice <- function(
     RCTD <- chooseSigmaC(RCTD)
     RCTD <- iterOptim(
         RCTD, cell_types,
-        doublet_mode = doublet_mode, n_iter = n_iter,
+        doublet_mode = rctd_mode, n_iter = n_iter,
         MIN_CHANGE = MIN_CHANGE, return_list = return_list
     )
 }
@@ -168,7 +165,7 @@ runRiceSubtypes <- function(
     RCTD <- iterOptim(
         RCTD, cell_types,
         doublet_mode = "subtype", n_iter = n_iter,
-        MIN_CHANGE = MIN_CHANGE, initialSol = initialSol,
+        MIN_CHANGE = MIN_CHANGE, initial_solution = initialSol,
         return_list = return_list
     )
 }
@@ -193,93 +190,96 @@ runRiceSubtypes <- function(
 #' @export
 iterOptim <- function(
     RCTD, cell_types, doublet_mode = "doublet", n_iter = 50, MIN_CHANGE = 0.001,
-    initialSol = NULL, return_list = FALSE) {
+    initial_solution = NULL, return_list = FALSE) {
     barcodes <- intersect(
         names(RCTD@spatialRNA@nUMI), colnames(RCTD@spatialRNA@counts)
     )
     X <- as.matrix(rep(1, length(barcodes)))
     rownames(X) <- barcodes
-    RCTD@de_results$gene_fits$mean_val <- as.matrix(
-        log(RCTD@cell_type_info$renorm[[1]])
-    )
-    originalSpatialRNA <- RCTD@originalSpatialRNA
-    DOUBLET_THRESHOLD <- RCTD@config$DOUBLET_THRESHOLD
-    RCTD@originalSpatialRNA <- RCTD@spatialRNA
-    RCTD@config$DOUBLET_THRESHOLD <- 10
+    # RCTD@de_results$gene_fits$mean_val <- as.matrix(
+    #     log(RCTD@cell_type_info$renorm[[1]])
+    # )
+    cell_type_info <- RCTD@cell_type_info
+    # originalSpatialRNA <- RCTD@originalSpatialRNA
+    DOUBLET_THRESHOLD <- RCTD@config$doublet_threshold
+    # RCTD@originalSpatialRNA <- RCTD@spatialRNA
+    RCTD@config$doublet_threshold <- 10
     RCTD@config$MIN_CHANGE_REG <- 1e-2
     RCTD@config$MIN_CHANGE_DE <- 1e-2
 
     message("iterOptim: assigning initial cell types")
-    RCTD <- fitPixels(
+    rctd_results <- fitPixels(
         RCTD,
-        doublet_mode = doublet_mode, initialSol = initialSol
+        rctd_mode = doublet_mode, initial_solution = initial_solution
     )
+
     if (return_list) {
-        RCTD_list <- list(RCTD)
+        rctd_list <- list(rctd_results)
     }
-    RCTD_prev <- RCTD
+    rctd_prev <- rctd_results
+    cside_initial_solution <- as.matrix(log(cell_type_info$renorm[[1]]))
 
     for (i in seq_len(n_iter)) {
         message("iterOptim: running iteration ", i)
         message("fitting gene profiles")
-        initialSol <- RCTD@de_results$gene_fits$mean_val
-        RCTD <- runCside(
-            RCTD, X, barcodes, cell_types,
+        cside_results <- runCside(
+            rctd_results, X, barcodes, cell_types,
             doublet_mode = (doublet_mode == "doublet"), cell_type_threshold = 0,
             gene_threshold = -1, sigma_gene = FALSE, test_genes_sig = FALSE,
-            params_to_test = 1, initialSol = initialSol[, cell_types]
+            params_to_test = 1,
+            initialSol = cside_initial_solution[, cell_types]
         )
-        info <- as.data.frame(exp(RCTD@de_results$gene_fits$mean_val))
-        RCTD@cell_type_info$renorm[[1]][, cell_types] <- info
+        info <- as.data.frame(exp(cside_results@de_results$gene_fits$mean_val))
+        cside_results@cell_type_info$renorm[[1]][, cell_types] <- info
+        cside_initial_solution <- cside_results@de_results$gene_fits$mean_val
 
         message("fitting cell types")
-        initialSol <- list(
-            weights = RCTD@results$weights,
-            doublet_mat = RCTD@results$doublet_weights
+        rctd_initial_solution <- list(
+            weights = as.matrix(t(assay(rctd_results, "weights_full"))),
+            doublet_mat = colData(rctd_results)$doublet_mat
         )
-        RCTD <- fitPixels(
-            RCTD,
-            doublet_mode = doublet_mode, initialSol = initialSol
+        rctd_results <- fitPixels(
+            cside_results,
+            rctd_mode = doublet_mode, initial_solution = rctd_initial_solution
         )
 
-        change <- weights_change(RCTD_prev, RCTD)
+        change <- weights_change(rctd_prev, rctd_results)
         message("change: ", change)
         if (change < MIN_CHANGE) break
 
-        RCTD@config$MIN_CHANGE_REG <- max(min(1e-2, change**2), 1e-3)
-        RCTD@config$MIN_CHANGE_DE <- max(min(1e-2, change**2), 1e-3)
+        # RCTD@config$MIN_CHANGE_REG <- max(min(1e-2, change**2), 1e-3)
+        # RCTD@config$MIN_CHANGE_DE <- max(min(1e-2, change**2), 1e-3)
         if (return_list) {
-            RCTD_list[[i + 1]] <- RCTD
+            rctd_list[[i + 1]] <- rctd_results
         }
-        RCTD_prev <- RCTD
-        # saveRDS(RCTD_prev, "../tmp.rds")
+        rctd_prev <- rctd_results
     }
 
-    if (doublet_mode == "doublet") {
-        results <- RCTD@results$results_df
-        reassign <- rownames(
-            results[
-                results$spot_class == "doublet_certain" &
-                    (results$singlet_score - results$min_score <
-                        DOUBLET_THRESHOLD),
-            ]
-        )
-        if (length(reassign) > 0) {
-            RCTD@results$results_df[reassign, ]$spot_class <- "singlet"
-        }
-    } else {
-        RCTD@results$weights <- (
-            RCTD@results$weights / rowSums(RCTD@results$weights)
-        )
-    }
+    # if (doublet_mode == "doublet") {
+    #     results <- RCTD@results$results_df
+    #     reassign <- rownames(
+    #         results[
+    #             results$spot_class == "doublet_certain" &
+    #                 (results$singlet_score - results$min_score <
+    #                     DOUBLET_THRESHOLD),
+    #         ]
+    #     )
+    #     if (length(reassign) > 0) {
+    #         RCTD@results$results_df[reassign, ]$spot_class <- "singlet"
+    #     }
+    # } else {
+    #     RCTD@results$weights <- (
+    #         RCTD@results$weights / rowSums(RCTD@results$weights)
+    #     )
+    # }
     if (return_list) {
-        RCTD_list[[i + 1]] <- RCTD
-        for (i in seq_along(RCTD_list)) {
-            RCTD_list[[i]]@originalSpatialRNA <- originalSpatialRNA
-        }
-        return(RCTD_list)
+        rctd_list[[i + 1]] <- rctd_results
+        # for (i in seq_along(RCTD_list)) {
+        #     RCTD_list[[i]]@originalSpatialRNA <- originalSpatialRNA
+        # }
+        return(rctd_list)
     } else {
-        RCTD@originalSpatialRNA <- originalSpatialRNA
-        return(RCTD)
+        # RCTD@originalSpatialRNA <- originalSpatialRNA
+        return(rctd_results)
     }
 }
