@@ -147,7 +147,8 @@ create_spe_doublet <- function(RCTD, results) {
             "first_class", "second_class", "conv_all", "conv_doublet"
         ),
         # TODO: Return doublet_mat
-        numeric_cols = c("min_score", "singlet_score")
+        numeric_cols = c("min_score", "singlet_score"),
+        list_cols = c("doublet_mat")
     )
 
     spot_class_levels <- c(
