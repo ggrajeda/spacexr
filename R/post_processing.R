@@ -38,7 +38,7 @@ create_spe_from_columns <- function(
     cell_type_names <- cell_type_info(RCTD)$renorm[[2]]
     weights <- vapply(
         results,
-        function(r) r[[weights_col]],
+        function(r) r[[weights_col]] / sum(r[[weights_col]]),
         numeric(length(cell_type_names))
     )
     weights <- Matrix(weights)
