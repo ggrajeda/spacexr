@@ -1,9 +1,13 @@
 Package: spacexr
 Type: Package
 Title: SpatialeXpressionR: Cell Type Identification in Spatial Transcriptomics
-Version: 1.1.0
+Version: 1.1.1
 Authors@R: c(
     person("Dylan", "Cable", email = "dmcable@umich.edu", role = "aut"),
+    person(
+        "Rafael", "Irizarry", email="rafael_irizarry@dfci.harvard.edu",
+        role="aut", comment=c(ORCID="0000-0002-3944-4309")
+    ),
     person(
         "Gabriel", "Grajeda", email = "gabriel.grajeda@gmail.com", role = "cre",
         comment=c(ORCID="0009-0003-7242-7476")
