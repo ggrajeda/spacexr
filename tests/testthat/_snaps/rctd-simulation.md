@@ -49,32 +49,32 @@
       mx25 0.1386026 0.44737520 0.4012548637
       mx26 0.1668809 0.40764089 0.4124205117
       [1] "\n=== Column Data ==="
-                spot_class first_type second_type  doublet_mat first_class
-      mx11         singlet        ct1         ct2 0.5, 0.1....       FALSE
-      mx12         singlet        ct1         ct2 0.5, 0.1....       FALSE
-      mx13         singlet        ct1         ct2 0.5, 0.0....       FALSE
-      mx14         singlet        ct1         ct2 0.5, 0.0....       FALSE
-      mx15         singlet        ct1         ct2 0.5, 0.0....       FALSE
-      mx16         singlet        ct1         ct2 0.5, 0.1....       FALSE
-      mx21 doublet_certain        ct2         ct3 0.5, 0.6....       FALSE
-      mx22 doublet_certain        ct3         ct2 0.5, 0.6....       FALSE
-      mx23 doublet_certain        ct3         ct2 0.5, 0.5....       FALSE
-      mx24 doublet_certain        ct3         ct2 0.5, 0.6....       FALSE
-      mx25 doublet_certain        ct2         ct3 0.5, 0.6....       FALSE
-      mx26 doublet_certain        ct3         ct2 0.5, 0.5....       FALSE
-           second_class conv_all conv_doublet min_score singlet_score sample_id
-      mx11        FALSE     TRUE         TRUE  257.0344      263.6799  sample01
-      mx12        FALSE     TRUE         TRUE  259.0635      269.5176  sample01
-      mx13        FALSE     TRUE         TRUE  252.0572      254.3107  sample01
-      mx14        FALSE     TRUE         TRUE  257.8155      262.2919  sample01
-      mx15        FALSE     TRUE         TRUE  258.3342      261.9744  sample01
-      mx16        FALSE     TRUE         TRUE  254.4810      263.2945  sample01
-      mx21        FALSE     TRUE         TRUE  262.4786      354.7120  sample01
-      mx22        FALSE     TRUE         TRUE  271.3191      363.4435  sample01
-      mx23        FALSE     TRUE         TRUE  266.7165      354.5939  sample01
-      mx24        FALSE     TRUE         TRUE  284.6159      374.9403  sample01
-      mx25        FALSE     TRUE         TRUE  269.0820      359.4514  sample01
-      mx26        FALSE     TRUE         TRUE  275.1382      367.6603  sample01
+                spot_class first_type second_type first_class second_class conv_all
+      mx11         singlet        ct1         ct2       FALSE        FALSE     TRUE
+      mx12         singlet        ct1         ct2       FALSE        FALSE     TRUE
+      mx13         singlet        ct1         ct2       FALSE        FALSE     TRUE
+      mx14         singlet        ct1         ct2       FALSE        FALSE     TRUE
+      mx15         singlet        ct1         ct2       FALSE        FALSE     TRUE
+      mx16         singlet        ct1         ct2       FALSE        FALSE     TRUE
+      mx21 doublet_certain        ct2         ct3       FALSE        FALSE     TRUE
+      mx22 doublet_certain        ct3         ct2       FALSE        FALSE     TRUE
+      mx23 doublet_certain        ct3         ct2       FALSE        FALSE     TRUE
+      mx24 doublet_certain        ct3         ct2       FALSE        FALSE     TRUE
+      mx25 doublet_certain        ct2         ct3       FALSE        FALSE     TRUE
+      mx26 doublet_certain        ct3         ct2       FALSE        FALSE     TRUE
+           conv_doublet min_score singlet_score sample_id
+      mx11         TRUE  257.0344      263.6799  sample01
+      mx12         TRUE  259.0635      269.5176  sample01
+      mx13         TRUE  252.0572      254.3107  sample01
+      mx14         TRUE  257.8155      262.2919  sample01
+      mx15         TRUE  258.3342      261.9744  sample01
+      mx16         TRUE  254.4810      263.2945  sample01
+      mx21         TRUE  262.4786      354.7120  sample01
+      mx22         TRUE  271.3191      363.4435  sample01
+      mx23         TRUE  266.7165      354.5939  sample01
+      mx24         TRUE  284.6159      374.9403  sample01
+      mx25         TRUE  269.0820      359.4514  sample01
+      mx26         TRUE  275.1382      367.6603  sample01
       [1] "\n=== Coordinates ==="
                   x   y
       mx11 1.000000 0.0

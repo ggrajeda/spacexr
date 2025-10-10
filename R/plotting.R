@@ -60,15 +60,15 @@ get_reject_mask <- function(rctd_spe) {
 #' # In practice, results_spe should contain the results of an RCTD run.
 #' results_spe <- rctdSim$proportions_spe
 #' plotAllWeights(
-#'     results_spe,
-#'     r = 0.05, lwd = 0.5, title = "Cell Type Proportions"
+#'     results_spe, r = 0.05, lwd = 0.5, title = "Cell Type Proportions"
 #' )
 #'
 plotAllWeights <- function(
     rctd_spe, assay_name = "weights",
     cell_type_colors = NA,
     r = 0.4, lwd = 1,
-    title = NA) {
+    title = NA
+) {
     # Type validity checks
     if (!inherits(rctd_spe, "SpatialExperiment")) {
         stop("rctd_spe must be a SpatialExperiment object")
@@ -102,9 +102,7 @@ plotAllWeights <- function(
     rctd_df$x_coords <- coords[, "x"]
     rctd_df$y_coords <- coords[, "y"]
 
-    p <- ggplot2::ggplot() +
-        ggplot2::coord_equal() +
-        custom_theme()
+    p <- ggplot2::ggplot() + ggplot2::coord_equal() + custom_theme()
     p <- p + scatterpie::geom_scatterpie(
         ggplot2::aes_string(x = "x_coords", y = "y_coords", r = "r"),
         data = rctd_df,
@@ -159,15 +157,15 @@ plotAllWeights <- function(
 #' # In practice, results_spe should contain the results of an RCTD run.
 #' results_spe <- rctdSim$proportions_spe
 #' plotCellTypeWeight(
-#'     results_spe, "ct1",
-#'     size = 5, title = "Cell Type Density (ct1)"
+#'     results_spe, "ct1", size = 5, title = "Cell Type Density (ct1)"
 #' )
 #'
 plotCellTypeWeight <- function(
     rctd_spe, cell_type, assay_name = "weights",
     size = 10, stroke = 1, alpha = 1,
     low = "white", high = "red",
-    title = NA) {
+    title = NA
+) {
     # Type validity checks
     if (!inherits(rctd_spe, "SpatialExperiment")) {
         stop("rctd_spe must be a SpatialExperiment object")
@@ -197,9 +195,7 @@ plotCellTypeWeight <- function(
     rctd_df$x_coords <- coords[, "x"]
     rctd_df$y_coords <- coords[, "y"]
 
-    p <- ggplot2::ggplot() +
-        ggplot2::coord_equal() +
-        custom_theme()
+    p <- ggplot2::ggplot() + ggplot2::coord_equal() + custom_theme()
     p <- p + ggplot2::geom_point(
         data = rctd_df,
         ggplot2::aes_string(x = "x_coords", y = "y_coords", fill = "weights"),
@@ -219,7 +215,7 @@ plotCellTypeWeight <- function(
             title.position = "left",
             title.hjust = 0.5,
             ticks.colour = "black",
-            frame.colour = "black",
+            frame.colour= "black",
             label.hjust = 0,
             title.theme = ggplot2::element_text(angle = 90)
         )

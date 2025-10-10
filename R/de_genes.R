@@ -27,9 +27,7 @@ getInitialGeneList <- function(spatial_counts, cell_type_info, MIN_OBS) {
 }
 
 # Log plus epsilon
-logep <- function(x) {
-    log(x + 1e-9)
-}
+logep <- function(x) { log(x + 1e-9 ) }
 
 #' Returns a list of differentially expressed genes
 #'
@@ -51,7 +49,8 @@ logep <- function(x) {
 #' @keywords internal
 getDeGenes <- function(
     spatial_counts, cell_type_info, fc_thresh = 1.25,
-    expr_thresh = .00015, MIN_OBS = 3, de_type = "regression") {
+    expr_thresh = .00015, MIN_OBS = 3, de_type = "regression"
+) {
     message("Getting ", de_type, " differentially expressed genes: ")
     total_gene_list <- c()
     gene_list <- getInitialGeneList(spatial_counts, cell_type_info, MIN_OBS)
@@ -60,8 +59,7 @@ getDeGenes <- function(
         cell_type_expression <- cell_type_info[[1]][gene_list, cell_type]
         other_types_expression <- rowMeans(
             cell_type_info[[1]][
-                gene_list, cell_type_info[[2]] != cell_type,
-                drop = FALSE
+                gene_list, cell_type_info[[2]] != cell_type, drop = FALSE
             ]
         )
         log_fc <- logep(cell_type_expression) - logep(other_types_expression)

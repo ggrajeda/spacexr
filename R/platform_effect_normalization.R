@@ -160,10 +160,8 @@ chooseSigmaC <- function(RCTD) {
         )
         message(
             "Likelihood value: ",
-            calc_log_l_vec(
-                as.vector(prediction),
-                as.vector(t(beads))
-            )
+            calc_log_l_vec(as.vector(prediction),
+            as.vector(t(beads)))
         )
         sigma_prev <- sigma
         sigma <- chooseSigma(prediction, t(beads), Q_mat_all, X_vals, sigma)

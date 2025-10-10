@@ -6,7 +6,6 @@
 \usage{
 createRctdConfig(
   rctd_data,
-  rctd_mode,
   max_cores = 1,
   max_multi_types = 4,
   confidence_threshold = 5,
@@ -15,10 +14,6 @@ createRctdConfig(
 }
 \arguments{
 \item{rctd_data}{list containing \code{\link{createRctd}} output}
-
-\item{rctd_mode}{character string specifying the RCTD mode:
-\code{"doublet"}, \code{"multi"}, or \code{"full"}
-(default: \code{"doublet"})}
 
 \item{max_cores}{numeric, maximum number of cores to use for parallel
 processing (default: 4)}

@@ -7,12 +7,13 @@
 #' @keywords internal
 #'
 summarizedExperimentToSpatialRNA <- function(
-    spatial_experiment, require_int = TRUE) {
+    spatial_experiment, require_int = TRUE
+) {
     coords <- NULL
     use_fake_coords <- TRUE
 
     # Check if spatialCoords is defined for spatial_experiment
-    if (isGeneric("spatialCoords") &&
+    if (isGeneric("spatialCoords") && 
         existsMethod("spatialCoords", class(spatial_experiment))) {
         spatial_coords <- spatialCoords(spatial_experiment)
         use_fake_coords <- length(spatial_coords) == 0
@@ -29,36 +30,34 @@ summarizedExperimentToSpatialRNA <- function(
         names(nUMI) <- colnames(counts)
     }
     createSpatialRNA(
-        coords, counts,
-        nUMI = nUMI,
+        coords, counts, nUMI = nUMI,
         use_fake_coords = use_fake_coords, require_int = require_int
     )
 }
 
 #' Create RCTD configuration object
-#'
+#' 
 #' Used internally by \code{\link{runRctd}}.
-#'
+#' 
 #' Default value of max_cores is set to 1 so that devtools::check() does not
 #' complain about parallelism in examples.
-#'
+#' 
 #' @inheritParams runRctd
-#'
+#' 
 #' @return RCTD configuration
-#'
+#' 
 #' @export
 #' @keywords internal
 #' @inherit fitPixels examples
 createRctdConfig <- function(
-    rctd_data, rctd_mode, max_cores = 1, max_multi_types = 4,
-    confidence_threshold = 5, doublet_threshold = 20) {
+    rctd_data, max_cores = 1, max_multi_types = 4, confidence_threshold = 5,
+    doublet_threshold = 20
+) {
     spatial_rna <- summarizedExperimentToSpatialRNA(
-        rctd_data$spatial_experiment,
-        require_int = FALSE
+        rctd_data$spatial_experiment, require_int = FALSE
     )
 
     config <- rctd_data$config
-    config$doublet_mode <- rctd_mode
     config$max_cores <- max_cores
     config$max_multi_types <- max_multi_types
     config$confidence_threshold <- confidence_threshold
@@ -183,7 +182,8 @@ createRctdConfig <- function(
 #'
 runRctd <- function(
     rctd_data, rctd_mode = c("doublet", "multi", "full"), max_cores = 4,
-    max_multi_types = 4, confidence_threshold = 5, doublet_threshold = 20) {
+    max_multi_types = 4, confidence_threshold = 5, doublet_threshold = 20
+) {
     rctd_mode <- match.arg(rctd_mode)
 
     # Type validation
@@ -197,9 +197,7 @@ runRctd <- function(
     checkNumeric(doublet_threshold, "doublet_threshold")
 
     RCTD <- createRctdConfig(
-        rctd_data,
-        rctd_mode = rctd_mode,
-        max_cores = max_cores, max_multi_types = max_multi_types,
+        rctd_data, max_cores = max_cores, max_multi_types = max_multi_types,
         confidence_threshold = confidence_threshold,
         doublet_threshold = doublet_threshold
     )

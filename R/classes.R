@@ -9,7 +9,7 @@
 #'   as:
 #'
 #'   \code{rctd_data <- createRctd(spatial, reference)}
-#'
+#' 
 #'   \code{results <- runRctd(rctd_data)}
 #'
 #' @docType package
@@ -147,27 +147,6 @@ setGeneric(
     function(object, value) standardGeneric("internal_vars<-")
 )
 
-#' Generic accessor for internal_vars_de slot
-#'
-#' @param object An object with an internal_vars_de slot
-#' @return The internal_vars_de slot of the object
-#' @keywords internal
-setGeneric(
-    "internal_vars_de",
-    function(object) standardGeneric("internal_vars_de")
-)
-
-#' Generic setter for internal_vars_de slot
-#'
-#' @param object An object with an internal_vars_de slot
-#' @param value The new value for the internal_vars_de slot
-#' @return The updated object
-#' @keywords internal
-setGeneric(
-    "internal_vars_de<-",
-    function(object, value) standardGeneric("internal_vars_de<-")
-)
-
 #' Spatial transcriptomics data
 #'
 #' A class representing spatial transcriptomics data, where gene expression is
@@ -258,11 +237,9 @@ setMethod("show", "SpatialRNA", function(object) {
     cat(sprintf("- %d pixels\n", ncol(counts(object))))
     cat(sprintf("- %d genes\n", nrow(counts(object))))
     cat(sprintf("- %.2f mean UMIs per pixel\n", mean(nUMI(object))))
-    cat(sprintf(
-        "- Spatial coordinates range: x[%.2f, %.2f], y[%.2f, %.2f]\n",
+    cat(sprintf("- Spatial coordinates range: x[%.2f, %.2f], y[%.2f, %.2f]\n",
         min(coords(object)$x), max(coords(object)$x),
-        min(coords(object)$y), max(coords(object)$y)
-    ))
+        min(coords(object)$y), max(coords(object)$y)))
 })
 
 #' RNA-seq reference data
@@ -360,7 +337,7 @@ setMethod("show", "Reference", function(object) {
     }
 })
 
-setClassUnion("SummarizedExperimentOrNull", c("SummarizedExperiment", "NULL"))
+setClassUnion("ReferenceOrNull", c("Reference", "NULL"))
 
 #' RCTD algorithm configuration
 #'
@@ -373,12 +350,6 @@ setClassUnion("SummarizedExperimentOrNull", c("SummarizedExperiment", "NULL"))
 #'   \code{renorm} (profiles normalized to match the spatial data)
 #' @slot internal_vars a list of internal variables used during the RCTD
 #'   analysis
-#' @slot results a \code{\link[SpatialExperiment]{SpatialExperiment}} object
-#'   containing the results of RCTD (optional, used by CSIDE)
-#' @slot internal_vars_de a list of internal variables used during the CSIDE
-#'   analysis (optional, used by CSIDE)
-#' @slot de_results a list containing the results of CSIDE (optional, used by
-#'   CSIDE)
 #'
 #' @import Matrix
 #' @importClassesFrom Matrix Matrix dgCMatrix
@@ -386,23 +357,16 @@ setClassUnion("SummarizedExperimentOrNull", c("SummarizedExperiment", "NULL"))
 #' @keywords internal
 setClass("RctdConfig",
     slots = c(
-        # TODO: Verify that we don't need to store original SpatialRNA
         spatialRNA = "SpatialRNA",
         config = "list",
         cell_type_info = "list",
-        internal_vars = "list",
-        results = "SummarizedExperimentOrNull",
-        internal_vars_de = "list",
-        de_results = "list"
+        internal_vars = "list"
     ),
     prototype = list(
         spatialRNA = NULL,
         config = list(),
         cell_type_info = list(info = NULL, renorm = NULL),
-        internal_vars = list(),
-        results = NULL,
-        internal_vars_de = list(),
-        de_results = list()
+        internal_vars = list()
     )
 )
 
@@ -462,20 +426,6 @@ setMethod("internal_vars<-", "RctdConfig", function(object, value) {
     object
 })
 
-#' @rdname internal_vars_de
-#' @keywords internal
-setMethod("internal_vars_de", "RctdConfig", function(object) {
-    object@internal_vars_de
-})
-
-#' @rdname internal_vars_de
-#' @keywords internal
-setMethod("internal_vars_de<-", "RctdConfig", function(object, value) {
-    object@internal_vars_de <- value
-    validObject(object)
-    object
-})
-
 #' @param object RCTD configuration object
 #' @rdname RctdConfig-class
 #' @export
@@ -488,13 +438,10 @@ setMethod("show", "RctdConfig", function(object) {
 
     cat("\nConfiguration:\n")
     for (param in names(config(object))) {
-        cat(sprintf(
-            "- %s: %s\n", param,
-            if (is.atomic(config(object)[[param]])) {
-                paste(config(object)[[param]], collapse = ", ")
-            } else {
-                "..."
-            }
+        cat(sprintf("- %s: %s\n", param, 
+            if(is.atomic(config(object)[[param]])) 
+                paste(config(object)[[param]], collapse = ", ") 
+            else "..."
         ))
     }
 })

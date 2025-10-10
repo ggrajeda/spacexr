@@ -37,14 +37,7 @@ Imports:
     BiocFileCache,
     SummarizedExperiment,
     scatterpie,
-    SpatialExperiment,
-    Rfast,
-    S4Vectors,
-    CompQuadForm,
-    dplyr,
-    fields,
-    mgcv,
-    Seurat
+    SpatialExperiment
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 Suggests: 
@@ -54,4 +47,4 @@ Suggests:
     testthat
 Config/testthat/edition: 3
 biocViews: GeneExpression, DifferentialExpression, SingleCell, RNASeq, Software,
-    Spatial, Transcriptomics, Sequencing
+    Spatial, Transcriptomics
